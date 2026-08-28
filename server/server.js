@@ -717,10 +717,8 @@ try {
 }
 
 /* ---------- Start Server ---------- */
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);
+});
 
 module.exports = app;

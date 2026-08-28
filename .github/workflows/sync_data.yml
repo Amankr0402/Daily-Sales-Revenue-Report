@@ -1,4 +1,4 @@
-name: Automated Sales Data Sync & Vercel Update
+name: Automated Sales Data Sync
 
 on:
   # Run automatically every 15 minutes
@@ -37,7 +37,7 @@ jobs:
       - name: Fetch and Sync Latest Google Sheets Data
         run: node scripts/sync_sheets.js
 
-      - name: Commit, Push and Trigger Vercel Deployment
+      - name: Commit and Push Updated Data
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -48,10 +48,3 @@ jobs:
             git commit -m "chore(data): auto-sync latest sales records from Google Sheets"
             git push
           fi
-
-      - name: Trigger Vercel Deploy Hook (Optional)
-        if: env.VERCEL_DEPLOY_HOOK != ''
-        env:
-          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
-        run: |
-          curl -X POST "$VERCEL_DEPLOY_HOOK"
