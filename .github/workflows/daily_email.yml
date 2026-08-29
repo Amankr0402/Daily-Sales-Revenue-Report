@@ -2,10 +2,6 @@ name: Automated Daily Sales Report Email
 
 on:
   schedule:
-    # 10:00 AM IST = 04:30 AM UTC
-    - cron: '30 4 * * *'
-    # 1:30 PM IST = 08:00 AM UTC
-    - cron: '0 8 * * *'
     # 3:00 PM IST = 09:30 AM UTC
     - cron: '30 9 * * *'
   workflow_dispatch:
@@ -26,11 +22,14 @@ jobs:
         run: npm ci
 
       - name: Send Daily Sales Report Email
-        # send_report_now.js already syncs data internally before sending
+        # send_report_now.js syncs data from Google Sheets & Metabase then sends the email
         env:
           SMTP_HOST: smtp.gmail.com
           SMTP_PORT: 587
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          METABASE_CSV_URL: ${{ secrets.METABASE_CSV_URL }}
+          GOOGLE_SPREADSHEET_ID: ${{ secrets.GOOGLE_SPREADSHEET_ID }}
+          GOOGLE_SHEET_NAME: ${{ secrets.GOOGLE_SHEET_NAME }}
         run: node scripts/send_report_now.js
