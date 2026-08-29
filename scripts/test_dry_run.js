@@ -14,17 +14,17 @@
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-const path       = require('path');
+const path = require('path');
 const { syncSalesData } = require('./sync_sheets');
 
-const SMTP_USER = process.env.SMTP_USER || 'aman.soni@theelefant.ai';
-const SMTP_PASS = process.env.SMTP_PASS || 'hlbncuynxydsehha';
-const SMTP_FROM = process.env.SMTP_FROM || '"Aman Soni" <aman.soni@theelefant.ai>';
+const SMTP_USER = process.env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS;
+const SMTP_FROM = process.env.SMTP_FROM || `"Aman Soni" <${SMTP_USER}>`;
 
 let passed = 0;
 let failed = 0;
 
-function ok(msg)   { console.log(`  ✅  ${msg}`); passed++; }
+function ok(msg) { console.log(`  ✅  ${msg}`); passed++; }
 function fail(msg) { console.error(`  ❌  ${msg}`); failed++; }
 function info(msg) { console.log(`  ℹ️   ${msg}`); }
 
