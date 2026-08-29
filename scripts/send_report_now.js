@@ -7,9 +7,14 @@ const fs = require('fs');
 const path = require('path');
 
 const { syncSalesData } = require('./sync_sheets');
-const SMTP_USER = process.env.SMTP_USER || 'aman.soni@theelefant.ai';
-const SMTP_PASS = process.env.SMTP_PASS || 'hlbncuynxydsehha';
-const SMTP_FROM = process.env.SMTP_FROM || '"Aman Soni" <aman.soni@theelefant.ai>';
+const SMTP_USER = process.env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS;
+const SMTP_FROM = process.env.SMTP_FROM || `"Aman Soni" <${SMTP_USER}>`;
+
+if (!SMTP_USER || !SMTP_PASS) {
+  console.error('❌ Missing SMTP credentials! Set SMTP_USER and SMTP_PASS environment variables (or GitHub Secrets).');
+  process.exit(1);
+}
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
