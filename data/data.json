@@ -2668,12 +2668,12 @@
     },
     "userBreakdown": {
       "signups": 1912,
-      "serviceable": 1010,
-      "serviceableWithPct": "1,010 (52.8%)",
-      "serviceablePct": "52.8%",
-      "toyViewed": "571 (56.53%)",
-      "planPage": "411 (40.69%)",
-      "checkoutDrop": "201 (19.90%)",
+      "serviceable": 1011,
+      "serviceableWithPct": "1,011 (52.9%)",
+      "serviceablePct": "52.9%",
+      "toyViewed": "572 (56.58%)",
+      "planPage": "411 (40.65%)",
+      "checkoutDrop": "201 (19.88%)",
       "paymentDropout": "6 (0.59%)",
       "won": "6 (0.59%)"
     }
