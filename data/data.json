@@ -26226,8 +26226,8 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 423,
-      "Interested": 247,
+      "Connected": 422,
+      "Interested": 248,
       "Paise Dega": 69
     },
     "refundsLast7Days": {
@@ -26242,9 +26242,9 @@
   },
   {
     "date": "2026-09-03",
-    "totalRevenue": 174879,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 210379,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 17073,
       "agent": "Kanchan Agrawal"
@@ -26271,8 +26271,8 @@
         "count": 1
       },
       "Kush Shah": {
-        "revenue": 18000,
-        "count": 2
+        "revenue": 22500,
+        "count": 3
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 11000,
@@ -26287,14 +26287,22 @@
         "count": 1
       },
       "Shubham Rai": {
-        "revenue": 10000,
+        "revenue": 21000,
+        "count": 2
+      },
+      "Neeru Yadav": {
+        "revenue": 9000,
+        "count": 2
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 111376,
-        "count": 10
+        "revenue": 133376,
+        "count": 12
       },
       "Annual Mini": {
         "revenue": 5000,
@@ -26303,12 +26311,16 @@
       "6 months Max": {
         "revenue": 7000,
         "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 13500,
+        "count": 3
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 108000,
-        "count": 10
+        "revenue": 143500,
+        "count": 15
       },
       "Renewals": {
         "revenue": 15376,
@@ -26320,8 +26332,8 @@
       }
     },
     "userBreakdown": {
-      "signups": 1570,
-      "otpVerified": 1548,
+      "signups": 1569,
+      "otpVerified": 1547,
       "serviceable": 954,
       "serviceableWithPct": "954 (60.8%)",
       "serviceablePct": "60.8%"
@@ -26345,11 +26357,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 6,
-      "otpVerified": 6,
-      "serviceable": 4,
-      "serviceableWithPct": "4 (66.7%)",
-      "serviceablePct": "66.7%"
+      "signups": 79,
+      "otpVerified": 76,
+      "serviceable": 52,
+      "serviceableWithPct": "52 (65.8%)",
+      "serviceablePct": "65.8%"
     },
     "refundsLast7Days": {
       "total": 0,
