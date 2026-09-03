@@ -441,16 +441,16 @@ async function init() {
     document.getElementById('total-rev').textContent = fmt(grandTotal);
     document.getElementById('total-rev-sub').textContent = (yd.salesCount||0) + ' deals across all channels';
     const sg = document.getElementById('src-grid');
-    sg.innerHTML = '';
+    let sgHtml = '';
     Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
       const c = SRC_C[src]||'#8896b3'; const l = SRC_L[src]||src;
-      sg.innerHTML += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      sgHtml += '<div class="src-pill" style="display:inline-block; width:48%; vertical-align:top; margin-bottom:10px; box-sizing:border-box; margin-right:1%;"><div style="display:inline-block;vertical-align:middle;width:8px;height:8px;border-radius:50%;background:'+c+';margin-right:8px"></div><div style="display:inline-block;vertical-align:middle"><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deals</div></div></div>';
     });
-    // Add Delivery Fee as a pill
     if (yd.deliveryFee && yd.deliveryFee.total > 0) {
       const df = yd.deliveryFee;
-      sg.innerHTML += '<div class="src-pill"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee</div><div class="src-val">'+fmt(df.total)+'</div><div class="src-cnt">'+df.transactions+' deliver'+(df.transactions!==1?'ies':'y')+'</div></div></div>';
+      sgHtml += '<div class="src-pill" style="display:inline-block; width:48%; vertical-align:top; margin-bottom:10px; box-sizing:border-box;"><div style="display:inline-block;vertical-align:middle;width:8px;height:8px;border-radius:50%;background:#f59e0b;margin-right:8px"></div><div style="display:inline-block;vertical-align:middle"><div class="src-name">🚚 Delivery Fee</div><div class="src-val">'+fmt(df.total)+'</div><div class="src-cnt">'+df.transactions+' deliveries</div></div></div>';
     }
+    sg.innerHTML = sgHtml;
 
     // Deals + AOV
     const rev = yd.totalRevenue||0; const cnt = yd.salesCount||0;
@@ -473,10 +473,11 @@ async function init() {
       const order = top3.length>=3?[top3[1],top3[0],top3[2]]:top3.length===2?[top3[1],top3[0]]:[top3[0]];
       const pcs = top3.length>=3?['p2','p1','p3']:top3.length===2?['p2','p1']:['p1'];
       const medals = {p1:'🥇',p2:'🥈',p3:'🥉'};
-      pw.innerHTML = order.map(([n,d],i)=>{
+      const tds = order.map(([n,d],i)=>{
         const pc=pcs[i]; const rank=pc==='p1'?1:pc==='p2'?2:3;
-        return '<div class="pod-item"><div class="pod-avatar '+pc+'">'+(rank===1?'<div class="pod-crown">👑</div>':'')+ini(n)+'</div><div class="pod-name">'+n.split(' ')[0]+'<br><span style="font-size:10px;color:var(--muted)">'+n.split(' ').slice(1).join(' ')+'</span></div><div class="pod-rev '+pc+'">'+fmt(d.revenue)+'</div><div class="pod-deals">'+d.count+' deal'+(d.count!==1?'s':'')+'</div><div class="pod-block '+pc+'">'+medals[pc]+'</div></div>';
+        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar '+pc+'" style="margin:0 auto 10px">'+(rank===1?'<div class="pod-crown">👑</div>':'')+ini(n)+'</div><div class="pod-name" style="margin:0 auto">'+n.split(' ')[0]+'<br><span style="font-size:10px;color:var(--muted)">'+n.split(' ').slice(1).join(' ')+'</span></div><div class="pod-rev '+pc+'">'+fmt(d.revenue)+'</div><div class="pod-deals">'+d.count+' deal'+(d.count!==1?'s':'')+'</div><div class="pod-block '+pc+'" style="margin:10px auto 0">'+medals[pc]+'</div></div></td>';
       }).join('');
+      pw.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tds + '</tr></table>';
     }
 
     // Period
@@ -617,12 +618,12 @@ async function init() {
     const ml = yd.missedLeads;
     if (ml) {
       const mlTotal = (ml['Connected'] || 0) + (ml['Interested'] || 0) + (ml['Paise Dega'] || 0);
-      document.getElementById('missed-leads-tag').outerHTML = '<div style="display:flex; gap:16px; margin-top:12px; align-items:flex-end; padding-top:10px; border-top:1px solid var(--border)">' +
-        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Connected</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Connected']||0).toLocaleString('en-IN') + '</div></div>' +
-        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Interested</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Interested']||0).toLocaleString('en-IN') + '</div></div>' +
-        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Paise Dega</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Paise Dega']||0).toLocaleString('en-IN') + '</div></div>' +
-        '<div style="margin-left:auto;text-align:right"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Total</div><div style="font-size:18px;font-weight:900;color:#f43f5e">' + mlTotal.toLocaleString('en-IN') + '</div></div>' +
-        '</div>';
+      document.getElementById('missed-leads-tag').outerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:12px; padding-top:10px; border-top:1px solid var(--border)"><tr>' +
+        '<td valign="bottom" align="left" style="padding-right:8px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Connected</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Connected']||0).toLocaleString('en-IN') + '</div></td>' +
+        '<td valign="bottom" align="left" style="padding-right:8px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Interested</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Interested']||0).toLocaleString('en-IN') + '</div></td>' +
+        '<td valign="bottom" align="left" style="padding-right:8px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Paise Dega</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Paise Dega']||0).toLocaleString('en-IN') + '</div></td>' +
+        '<td valign="bottom" align="right"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Total</div><div style="font-size:18px;font-weight:900;color:#f43f5e">' + mlTotal.toLocaleString('en-IN') + '</div></td>' +
+        '</tr></table>';
     }
 
     // Refunds
