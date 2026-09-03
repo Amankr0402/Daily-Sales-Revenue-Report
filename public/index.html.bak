@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Sales & Revenue Report Dashboard — track daily sales, agent performance, revenue, and plan metrics in real-time." />
+  <title>Daily Sales & Revenue Report Dashboard</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="dashboard-header">
+      <div class="header__brand">
+        <div class="header__logo">📈</div>
+        <div>
+          <h1 class="header__title">Daily Sales &amp; Revenue Report</h1>
+          <p class="header__date" id="header-date">Loading…</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <div class="date-selector-wrapper" id="date-selector-wrapper">
+          <label for="date-select" class="date-selector-label">📅 Date:</label>
+          <select id="date-select" class="date-select" title="Select report date">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+        <button class="btn btn--outline" id="btn-refresh" title="Refresh data">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" /></svg>
+          Refresh
+        </button>
+        <button class="btn btn--primary" id="btn-send-report" title="Send daily report email">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+          Send Report to Employees
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= KPI CARDS ================= -->
+    <section class="kpi-grid" id="kpi-grid" aria-label="Key Performance Indicators">
+      <!-- Populated dynamically by script.js -->
+    </section>
+
+    <!-- ================= D-o-D USER BREAKDOWN ================= -->
+    <section class="user-breakdown-card fade-in" id="user-breakdown-section" aria-label="D-o-D User Breakdown">
+      <div class="chart-card__header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.3rem;">👥</span>
+          <h2 class="chart-card__title">D-o-D User Breakdown</h2>
+        </div>
+        <span class="chart-card__badge">Conversion Funnel</span>
+      </div>
+      <div class="user-breakdown-grid" id="user-breakdown-grid">
+        <!-- Populated dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- ================= CHARTS ================= -->
+    <section class="charts-grid" id="charts-grid" aria-label="Visualizations">
+
+      <!-- Line Chart: Daily Revenue Trend -->
+      <div class="chart-card chart-card--full fade-in" id="chart-revenue-card">
+        <div class="chart-card__header">
+          <h2 class="chart-card__title">Daily Revenue Trend (August 2026)</h2>
+          <span class="chart-card__badge">Month to Date</span>
+        </div>
+        <div class="chart-wrapper chart-wrapper--line">
+          <canvas id="chart-revenue"></canvas>
+        </div>
+      </div>
+
+      <!-- Donut Chart: Plan Breakdown -->
+      <div class="chart-card fade-in" id="chart-plan-card">
+        <div class="chart-card__header">
+          <h2 class="chart-card__title">Plan Mix (By Sales Volume)</h2>
+          <span class="chart-card__badge" id="plan-badge">Today</span>
+        </div>
+        <div class="chart-wrapper chart-wrapper--donut">
+          <canvas id="chart-plan"></canvas>
+        </div>
+      </div>
+
+      <!-- Bar Chart: Channel Breakdown -->
+      <div class="chart-card fade-in" id="chart-channel-card">
+        <div class="chart-card__header">
+          <h2 class="chart-card__title">Sales by Acquisition Channel</h2>
+          <span class="chart-card__badge">Organic vs Events vs Renewals</span>
+        </div>
+        <div class="chart-wrapper chart-wrapper--bar">
+          <canvas id="chart-channel"></canvas>
+        </div>
+      </div>
+
+      <!-- Agent Leaderboard Table & Chart -->
+      <div class="chart-card chart-card--full fade-in" id="agent-leaderboard-card">
+        <div class="chart-card__header">
+          <h2 class="chart-card__title">🏆 Top Performing Sales Agents Today</h2>
+          <span class="chart-card__badge">Revenue Leaderboard</span>
+        </div>
+        <div class="agent-leaderboard-container" id="agent-leaderboard">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ================= EMAIL PREVIEW MODAL ================= -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" role="dialog" aria-labelledby="modal-title">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Daily Sales Report Email Preview</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal__preview" id="modal-preview">
+        <!-- Email HTML will be injected here -->
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--outline" id="modal-cancel">Cancel</button>
+        <button class="btn btn--primary" id="modal-confirm">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+          Confirm &amp; Send
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST CONTAINER ================= -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>

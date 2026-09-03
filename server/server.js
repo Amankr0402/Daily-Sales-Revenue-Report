@@ -716,6 +716,26 @@ try {
   console.error('⚠️ Could not schedule cron job:', cronErr.message);
 }
 
+/* ---------- Auto-Sync Cron: Refresh data every 30 minutes ---------- */
+try {
+  cron.schedule('*/30 * * * *', async () => {
+    const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+    console.log(`🔄 [${ts} IST] Auto-sync triggered — refreshing data.json...`);
+    try {
+      const { syncSalesData } = require('../scripts/sync_sheets');
+      const result = await syncSalesData();
+      const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+      console.log(`✅ [${ts2} IST] Auto-sync complete — ${result.length} days updated.`);
+    } catch (syncErr) {
+      console.warn('⚠️ Auto-sync failed:', syncErr.message);
+    }
+  }, { timezone: 'Asia/Kolkata' });
+
+  console.log('🔄 Auto-sync scheduled: every 30 minutes (data.json will stay fresh)');
+} catch (autoSyncErr) {
+  console.error('⚠️ Could not schedule auto-sync:', autoSyncErr.message);
+}
+
 /* ---------- Start Server ---------- */
 app.listen(PORT, () => {
   console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);

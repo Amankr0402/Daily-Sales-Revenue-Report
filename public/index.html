@@ -3,139 +3,649 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Daily Sales & Revenue Report Dashboard — track daily sales, agent performance, revenue, and plan metrics in real-time." />
-  <title>Daily Sales & Revenue Report Dashboard</title>
+  <title>Daily Sales Report — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f0ebff;--surface:#ffffff;--surface2:#ede8fb;
+      --border:rgba(109,40,217,0.12);--text:#1e1333;--muted:#6b7280;
+      --green:#059669;--blue:#7c3aed;--cyan:#0891b2;
+      --gold:#d97706;--red:#e11d48;--purple:#9333ea;--orange:#ea580c;
+      --radius:14px;
+    }
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      background-color:#ede8fb;
+      background-image:url("bg-toys.svg");
+      background-size: 300px;
+      color:var(--text);min-height:100vh;padding:0 0 60px
+    }
+    /* HEADER */
+    .rpt-header{background:#ffffff;padding:18px 40px;border-bottom:1px solid rgba(109,40,217,0.12);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:0 2px 12px rgba(109,40,217,0.07)}
+    .rpt-header h1{font-size:28px;font-weight:900;letter-spacing:-0.03em}
+    .rpt-header h1 span{color:#a5b4fc}
+    .header-meta{font-size:14px;color:#6b7280;margin-top:4px;font-weight:600}
+    .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+    .date-badge{background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.2);color:#6d28d9;border-radius:20px;padding:6px 16px;font-size:13px;font-weight:700}
+    .print-btn{background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;border:none;border-radius:10px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(109,40,217,0.3);transition:transform .15s}
+    .print-btn:hover{transform:translateY(-1px)}
+    /* LAYOUT */
+    .wrap{max-width:1200px;margin:0 auto;padding:32px 32px 0}
+    .sec-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .sec-gap{margin-bottom:36px}
+    .grid{display:grid;gap:14px}
+    .g2{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    /* KPI CARDS */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 12px rgba(109,40,217,0.08)}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(109,40,217,0.15)}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0}
+    .card.green::before{background:var(--green)}.card.blue::before{background:var(--blue)}
+    .card.cyan::before{background:var(--cyan)}.card.gold::before{background:var(--gold)}
+    .card.purple::before{background:var(--purple)}.card.orange::before{background:var(--orange)}
+    .kpi-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:10px}
+    .kpi-val{font-size:26px;font-weight:900;line-height:1.1;letter-spacing:-0.02em}
+    .kpi-val.green{color:var(--green)}.kpi-val.blue{color:var(--blue)}.kpi-val.cyan{color:var(--cyan)}.kpi-val.gold{color:var(--gold)}
+    .kpi-sub{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500}
+    /* SOURCE PILLS */
+    .src-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    .src-pill{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;min-width:0}
+    .src-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .src-name{font-size:12px;color:var(--muted);font-weight:600}
+    .src-val{font-size:14px;font-weight:800;color:var(--text);margin-top:2px}
+    .src-cnt{font-size:11px;color:var(--muted)}
+    /* MISSING */
+    .miss{background:var(--surface);border:1px dashed rgba(255,255,255,0.12);border-radius:var(--radius);padding:28px;text-align:center}
+    .miss-ico{font-size:32px;margin-bottom:10px;opacity:0.4}
+    .miss-lbl{font-size:14px;font-weight:700;color:var(--muted)}
+    .miss-sub{font-size:12px;color:rgba(139,148,163,0.6);margin-top:5px}
+    .miss-tag{display:inline-block;background:rgba(244,63,94,0.08);border:1px solid rgba(244,63,94,0.2);color:#f87171;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;padding:3px 10px;border-radius:20px;margin-top:10px}
+    /* PODIUM */
+    .podium-wrap{display:flex;align-items:flex-end;justify-content:center;gap:16px;padding:20px 0 0}
+    .pod-item{display:flex;flex-direction:column;align-items:center}
+    .pod-avatar{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:10px;border:3px solid transparent;position:relative}
+    .pod-avatar.p1{background:linear-gradient(135deg,#f59e0b,#d97706);border-color:#fbbf24;width:68px;height:68px;font-size:22px;box-shadow:0 0 24px rgba(245,158,11,0.5)}
+    .pod-avatar.p2{background:linear-gradient(135deg,#94a3b8,#64748b);border-color:#94a3b8;width:56px;height:56px;font-size:18px;box-shadow:0 0 16px rgba(148,163,184,0.3)}
+    .pod-avatar.p3{background:linear-gradient(135deg,#fb923c,#ea580c);border-color:#fb923c;width:56px;height:56px;font-size:18px;box-shadow:0 0 16px rgba(251,146,60,0.3)}
+    .pod-crown{position:absolute;top:-14px;font-size:18px}
+    .pod-name{font-size:12px;font-weight:700;color:var(--text);text-align:center;max-width:90px}
+    .pod-rev{font-size:13px;font-weight:800;margin-top:3px}
+    .pod-rev.p1{color:var(--gold)}.pod-rev.p2{color:#94a3b8}.pod-rev.p3{color:var(--orange)}
+    .pod-deals{font-size:11px;color:var(--muted);margin-top:2px}
+    .pod-block{border-radius:10px 10px 0 0;width:100%;display:flex;align-items:center;justify-content:center;margin-top:10px;font-size:22px;min-width:100px}
+    .pod-block.p1{background:linear-gradient(180deg,rgba(245,158,11,0.3),rgba(245,158,11,0.1));height:80px}
+    .pod-block.p2{background:linear-gradient(180deg,rgba(148,163,184,0.25),rgba(148,163,184,0.08));height:56px;min-width:90px}
+    .pod-block.p3{background:linear-gradient(180deg,rgba(251,146,60,0.25),rgba(251,146,60,0.08));height:40px;min-width:90px}
+    /* CHART CARD */
+    .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+    .chart-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
+    .cbadge{font-size:11px;font-weight:700;background:rgba(99,102,241,0.12);color:var(--blue);padding:3px 10px;border-radius:20px}
+    .cbadge.green{background:rgba(16,185,129,0.12);color:var(--green)}
+    .cbadge.gold{background:rgba(245,158,11,0.12);color:var(--gold)}
+    canvas{max-height:220px}
+    /* PERIOD */
+    .period-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:center;gap:16px}
+    .period-ico{font-size:32px}
+    .period-lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted)}
+    .period-val{font-size:24px;font-weight:900;margin-top:4px;letter-spacing:-0.02em}
+    .period-val.green{color:var(--green)}.period-val.blue{color:var(--blue)}
+    .period-sub{font-size:12px;color:var(--muted);margin-top:3px}
+    /* FUNNEL TABLE */
+    .ftbl{width:100%;border-collapse:collapse;font-size:13px}
+    .ftbl th{text-align:left;padding:10px 14px;background:var(--surface2);color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+    .ftbl td{padding:10px 14px;border-bottom:1px solid var(--border)}
+    .ftbl tr:last-child td{border-bottom:none}
+    .fbar-wrap{display:flex;align-items:center;gap:10px}
+    .fbar-bg{flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+    .fbar-fill{height:100%;border-radius:3px}
+    .fpct{font-size:12px;font-weight:700;color:var(--cyan);width:44px;text-align:right}
+    /* NET */
+    .net-row{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border)}
+    .net-row:last-child{border-bottom:none}
+    /* LOADING */
+    #loading{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:16px}
+    .loader{width:40px;height:40px;border:3px solid rgba(99,102,241,0.2);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      @page { size: A4 portrait; margin: 8mm 10mm; }
+      body {
+        background-color: #ede8fb !important;
+        background-image: url("bg-toys.svg") !important;
+        background-size: 240px !important;
+        color: #1e1333 !important;
+        padding-bottom: 0 !important;
+      }
+      .print-btn { display: none !important; }
+      #loading { display: none !important; }
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+      .wrap { padding: 14px 16px 0 !important; max-width: 100% !important; }
 
-  <!-- Chart.js via CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+      /* Section spacing */
+      .sec-gap {
+        margin-bottom: 16px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .sec-title {
+        font-size: 11.5px !important;
+        margin-bottom: 8px !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .rpt-header {
+        background: #ffffff !important;
+        border-bottom: 1px solid rgba(109,40,217,0.15) !important;
+        box-shadow: 0 2px 8px rgba(109,40,217,0.05) !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        padding: 14px 24px !important;
+      }
+
+      /* Clean page break for Page 2 */
+      .page-break-print {
+        break-before: page !important;
+        page-break-before: always !important;
+        padding-top: 8px !important;
+      }
+
+      .card, .chart-card, .period-card, .miss {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(109,40,217,0.06) !important;
+        padding: 14px 18px !important;
+        border-radius: 12px !important;
+      }
+
+      /* KPI Values */
+      .kpi-val { font-size: 22px !important; }
+      .kpi-lbl { font-size: 10.5px !important; margin-bottom: 5px !important; }
+      .kpi-sub { font-size: 11px !important; margin-top: 4px !important; }
+
+      /* Revenue Source Pills - Strict 1 line */
+      .src-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 10px !important;
+      }
+      .src-pill {
+        padding: 8px 10px !important;
+        gap: 6px !important;
+        border-radius: 8px !important;
+        min-width: 0 !important;
+      }
+      .src-val { font-size: 12.5px !important; }
+      .src-name { font-size: 10.5px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .src-cnt { font-size: 10px !important; }
+
+      /* Grids */
+      .g3 { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+      .g2 { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+      /* Charts */
+      .chart-title { font-size: 13px !important; margin-bottom: 10px !important; }
+      canvas { max-height: 155px !important; }
+
+      /* Plan Distribution Chart in Print */
+      .plan-grid { grid-template-columns: 35% 65% !important; gap: 20px !important; padding-left: 0 !important; }
+      #plan-tbl { padding-right: 0 !important; }
+      #planChart { max-width: 145px !important; max-height: 145px !important; }
+
+      /* Podium */
+      .podium-wrap { padding: 6px 0 0 !important; gap: 16px !important; }
+      .pod-avatar.p1 { width: 50px !important; height: 50px !important; font-size: 16px !important; }
+      .pod-avatar.p2, .pod-avatar.p3 { width: 42px !important; height: 42px !important; font-size: 13px !important; }
+      .pod-block.p1 { height: 50px !important; min-width: 75px !important; }
+      .pod-block.p2 { height: 38px !important; min-width: 68px !important; }
+      .pod-block.p3 { height: 26px !important; min-width: 68px !important; }
+      .pod-name { font-size: 11px !important; }
+      .pod-rev { font-size: 12px !important; }
+      .pod-deals { font-size: 10px !important; }
+
+      /* Period Card */
+      .period-card { padding: 14px 18px !important; gap: 14px !important; }
+      .period-ico { font-size: 26px !important; }
+      .period-lbl { font-size: 10.5px !important; }
+      .period-val { font-size: 20px !important; }
+      .period-sub { font-size: 10.5px !important; }
+
+      /* Missing Lead Cards */
+      .miss { padding: 16px !important; }
+      .miss-ico { font-size: 24px !important; margin-bottom: 6px !important; }
+      .miss-lbl { font-size: 12px !important; }
+      .miss-sub { font-size: 10.5px !important; }
+
+      /* Tables */
+      .ftbl th, .ftbl td { padding: 6px 10px !important; font-size: 11px !important; }
+    }
+    @media(max-width:768px){.g4,.g3,.g2{grid-template-columns:1fr !important}.src-grid{grid-template-columns:repeat(2,1fr) !important}.wrap{padding:20px 16px 0}.rpt-header{padding:24px 20px; flex-direction:column; text-align:center}.plan-grid{grid-template-columns:1fr !important; padding-left:0 !important; gap:20px !important}#planChart{margin:0 auto; max-width:200px}}
+  </style>
 </head>
 <body>
+<div id="loading">
+  <div class="loader"></div>
+  <div style="font-size:14px;color:#8896b3;font-weight:600;">Loading report data…</div>
+</div>
 
-  <div class="dashboard">
+<div class="rpt-header">
+  <div style="display:flex;align-items:center;gap:20px">
+    <img src="elefant-logo.png" alt="The Elefant" style="height:36px;object-fit:contain" />
+    <div style="width:1px;height:36px;background:rgba(109,40,217,0.2)"></div>
+    <div>
+      <div class="header-meta" id="hdr-sub">Daily Sales &amp; Revenue Report</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="date-badge" id="hdr-date">📅 —</div>
+    <button class="print-btn" onclick="window.print()">🖨️ Export as PDF</button>
+  </div>
+</div>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header" id="dashboard-header">
-      <div class="header__brand">
-        <div class="header__logo">📈</div>
-        <div>
-          <h1 class="header__title">Daily Sales &amp; Revenue Report</h1>
-          <p class="header__date" id="header-date">Loading…</p>
-        </div>
-      </div>
-      <div class="header__actions">
-        <div class="date-selector-wrapper" id="date-selector-wrapper">
-          <label for="date-select" class="date-selector-label">📅 Date:</label>
-          <select id="date-select" class="date-select" title="Select report date">
-            <!-- Populated dynamically -->
-          </select>
-        </div>
-        <button class="btn btn--outline" id="btn-refresh" title="Refresh data">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" /></svg>
-          Refresh
-        </button>
-        <button class="btn btn--primary" id="btn-send-report" title="Send daily report email">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
-          Send Report to Employees
-        </button>
-      </div>
-    </header>
+<div class="wrap">
 
-    <!-- ================= KPI CARDS ================= -->
-    <section class="kpi-grid" id="kpi-grid" aria-label="Key Performance Indicators">
-      <!-- Populated dynamically by script.js -->
-    </section>
-
-    <!-- ================= D-o-D USER BREAKDOWN ================= -->
-    <section class="user-breakdown-card fade-in" id="user-breakdown-section" aria-label="D-o-D User Breakdown">
-      <div class="chart-card__header">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="font-size: 1.3rem;">👥</span>
-          <h2 class="chart-card__title">D-o-D User Breakdown</h2>
-        </div>
-        <span class="chart-card__badge">Conversion Funnel</span>
-      </div>
-      <div class="user-breakdown-grid" id="user-breakdown-grid">
-        <!-- Populated dynamically by script.js -->
-      </div>
-    </section>
-
-    <!-- ================= CHARTS ================= -->
-    <section class="charts-grid" id="charts-grid" aria-label="Visualizations">
-
-      <!-- Line Chart: Daily Revenue Trend -->
-      <div class="chart-card chart-card--full fade-in" id="chart-revenue-card">
-        <div class="chart-card__header">
-          <h2 class="chart-card__title">Daily Revenue Trend (August 2026)</h2>
-          <span class="chart-card__badge">Month to Date</span>
-        </div>
-        <div class="chart-wrapper chart-wrapper--line">
-          <canvas id="chart-revenue"></canvas>
-        </div>
-      </div>
-
-      <!-- Donut Chart: Plan Breakdown -->
-      <div class="chart-card fade-in" id="chart-plan-card">
-        <div class="chart-card__header">
-          <h2 class="chart-card__title">Plan Mix (By Sales Volume)</h2>
-          <span class="chart-card__badge" id="plan-badge">Today</span>
-        </div>
-        <div class="chart-wrapper chart-wrapper--donut">
-          <canvas id="chart-plan"></canvas>
-        </div>
-      </div>
-
-      <!-- Bar Chart: Channel Breakdown -->
-      <div class="chart-card fade-in" id="chart-channel-card">
-        <div class="chart-card__header">
-          <h2 class="chart-card__title">Sales by Acquisition Channel</h2>
-          <span class="chart-card__badge">Organic vs Events vs Renewals</span>
-        </div>
-        <div class="chart-wrapper chart-wrapper--bar">
-          <canvas id="chart-channel"></canvas>
-        </div>
-      </div>
-
-      <!-- Agent Leaderboard Table & Chart -->
-      <div class="chart-card chart-card--full fade-in" id="agent-leaderboard-card">
-        <div class="chart-card__header">
-          <h2 class="chart-card__title">🏆 Top Performing Sales Agents Today</h2>
-          <span class="chart-card__badge">Revenue Leaderboard</span>
-        </div>
-        <div class="agent-leaderboard-container" id="agent-leaderboard">
-          <!-- Populated dynamically -->
-        </div>
-      </div>
-
-    </section>
+  <!-- 1. REVENUE -->
+  <div class="sec-gap" style="margin-top:32px">
+    <div class="sec-title">💰 Revenue — Till 11:59 PM Yesterday</div>
+    <div class="card green">
+      <div class="kpi-lbl">Total Revenue Generated</div>
+      <div class="kpi-val green" id="total-rev">—</div>
+      <div class="kpi-sub" id="total-rev-sub">—</div>
+      <div class="src-grid" id="src-grid"></div>
+    </div>
   </div>
 
-  <!-- ================= EMAIL PREVIEW MODAL ================= -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal" role="dialog" aria-labelledby="modal-title">
-      <div class="modal__header">
-        <h2 class="modal__title" id="modal-title">Daily Sales Report Email Preview</h2>
-        <button class="modal__close" id="modal-close" aria-label="Close modal">✕</button>
+  <!-- 2. DEALS + AOV + HIGHEST SALE -->
+  <div class="sec-gap">
+    <div class="sec-title">🤝 Deals &amp; Averages</div>
+    <div class="grid g3">
+      <div class="card blue">
+        <div class="kpi-lbl">Self Subscriptions</div>
+        <div class="kpi-val blue" id="self-subs">—</div>
+        <div class="kpi-sub">Total Direct Subscriptions</div>
       </div>
-      <div class="modal__preview" id="modal-preview">
-        <!-- Email HTML will be injected here -->
+      <div class="card cyan">
+        <div class="kpi-lbl">Blended AOV</div>
+        <div class="kpi-val cyan" id="blended-aov">—</div>
+        <div class="kpi-sub">Total Revenue ÷ Total Deals</div>
       </div>
-      <div class="modal__footer">
-        <button class="btn btn--outline" id="modal-cancel">Cancel</button>
-        <button class="btn btn--primary" id="modal-confirm">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
-          Confirm &amp; Send
-        </button>
+      <div class="card gold">
+        <div class="kpi-lbl">🏆 Highest Sale</div>
+        <div class="kpi-val gold" id="highest-sale">—</div>
+        <div class="kpi-sub" id="highest-sale-sub">—</div>
       </div>
     </div>
   </div>
 
-  <!-- ================= TOAST CONTAINER ================= -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- 3. INSIGHTS -->
+  <div class="sec-gap">
+    <div class="sec-title">🎯 Key Insights</div>
+    <div class="grid g2">
+      <!-- Left: Top Agents -->
+      <div class="chart-card" style="padding: 18px 16px;">
+        <div style="font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">🏆 Top 3 Agents</div>
+        <div class="podium-wrap" id="podium" style="padding-top: 12px;"></div>
+      </div>
+      <!-- Right: Missed Leads -->
+      <div class="miss" style="display: flex; flex-direction: column; justify-content: center;">
+        <div class="miss-ico">⏰</div>
+        <div class="miss-lbl">Leads Missed (&gt;8 hrs, no activity)</div>
+        <div class="miss-tag" id="missed-leads-tag">⚠ Data Needed</div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Main Script -->
-  <script src="script.js"></script>
+  <!-- 5. PERIOD REVENUE -->
+  <div class="sec-gap">
+    <div class="sec-title">📆 Period Revenue</div>
+    <div class="grid g2">
+      <div class="period-card">
+        <div class="period-ico">📅</div>
+        <div>
+          <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+          <div class="period-val green" id="rev-week">—</div>
+          <div class="period-sub" id="rev-week-sub">—</div>
+        </div>
+      </div>
+      <div class="period-card">
+        <div class="period-ico">🗓️</div>
+        <div>
+          <div class="period-lbl">Revenue This Month (1st–Today)</div>
+          <div class="period-val blue" id="rev-month">—</div>
+          <div class="period-sub" id="rev-month-sub">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. SERVICEABILITY (MOVED TO PAGE 1 TO FILL SPACE) -->
+  <div class="sec-gap">
+    <div class="sec-title">📍 Serviceability — Last 7 Days</div>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:14px">
+      <div class="chart-card">
+        <div class="chart-title">Serviceability % Trend <span class="cbadge green">7-Day</span></div>
+        <canvas id="svcChart"></canvas>
+      </div>
+      <div class="chart-card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 20px 0;font-size:15px;font-weight:800">Daily Funnel Snapshot</div>
+        <table class="ftbl" style="margin-top:12px">
+          <thead><tr><th>Date</th><th>Signups</th><th>OTP Verified</th><th>Serviceable</th><th>Rate</th></tr></thead>
+          <tbody id="ftbl-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. PLAN DISTRIBUTION -->
+  <div class="sec-gap">
+    <div class="sec-title">🥧 Plan Distribution — Yesterday</div>
+    <div class="chart-card">
+      <div class="chart-title">Plan Mix by Deals</div>
+      <div class="plan-grid" style="display:grid;grid-template-columns: 35% 65%; gap:40px; align-items:center; padding-left: 30px;">
+        <div style="position: relative; width: 100%; max-width: 240px; margin: 0 auto;">
+          <canvas id="planChart"></canvas>
+        </div>
+        <div id="plan-tbl" style="padding-right: 20px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. SALES TREND -->
+  <div class="sec-gap">
+    <div class="sec-title">📈 Sales Trend — Last 7 Days</div>
+    <div class="chart-card">
+      <div class="chart-title">Daily Revenue (Last 7 Days)</div>
+      <canvas id="trendChart" style="max-height:240px"></canvas>
+    </div>
+  </div>
+
+  <!-- 9. REFUNDS -->
+  <div class="sec-gap">
+    <div class="sec-title">💸 Refunds</div>
+    <div class="grid g2">
+      <div class="card red">
+        <div class="kpi-lbl">Refund Processed (Yesterday)</div>
+        <div class="kpi-val red" id="refund-yesterday">—</div>
+        <div class="kpi-sub" id="refund-yesterday-sub">Loading…</div>
+      </div>
+      <div class="card purple">
+        <div class="kpi-lbl">Refund Processed (Last 7 Days)</div>
+        <div class="kpi-val purple" id="refund-7days">—</div>
+        <div class="kpi-sub" id="refund-7days-sub">Loading…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. DELIVERY + NET REVENUE -->
+  <div class="sec-gap">
+    <div class="sec-title">💼 Financials</div>
+    <div class="grid g2">
+
+      <div class="chart-card" style="padding:0;overflow:hidden">
+        <div style="padding:16px 20px 10px;font-size:15px;font-weight:800">🧲 Net Revenue</div>
+        <div class="net-row">
+          <span style="font-size:14px;font-weight:600;color:var(--muted)">Total Sales Revenue</span>
+          <span style="font-size:16px;font-weight:800;color:var(--green)" id="net-sales">—</span>
+        </div>
+        <div class="net-row">
+          <span style="font-size:14px;font-weight:600;color:var(--muted)">− Refunds Processed</span>
+          <span style="font-size:15px;font-weight:700;color:var(--red)" id="net-refunds">₹0</span>
+        </div>
+        <div class="net-row" style="background:rgba(16,185,129,0.06)">
+          <span style="font-size:14px;font-weight:700;color:var(--text)">= Net Revenue</span>
+          <span style="font-size:16px;font-weight:900;color:var(--green)" id="net-total">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:20px 0 0;font-size:12px;color:rgba(136,150,179,0.5);border-top:1px solid var(--border);margin-top:8px">
+    🐘 The Elefant — Automated Daily Sales Intelligence Report &nbsp;|&nbsp; Generated daily at 10:00 AM IST
+  </div>
+</div>
+
+<script>
+const fmt = n => '₹' + Math.round(n||0).toLocaleString('en-IN');
+const fmtK = n => { n=Math.round(n||0); if(n>=100000) return '₹'+(n/100000).toFixed(1)+'L'; if(n>=1000) return '₹'+(n/1000).toFixed(1)+'K'; return '₹'+n.toLocaleString('en-IN'); };
+const sd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{month:'short',day:'numeric'});
+const fd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+const ini = n => n.split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
+const SRC_C = {Events:'#6366f1',Organic:'#10b981',Renewals:'#f59e0b',Upgrade:'#06b6d4','Self Subscription':'#8b5cf6','Direct Sale':'#ec4899'};
+const SRC_L = {Organic:'🤝 Inside Sales',Events:'🎤 Events',Renewals:'🔄 Renewals',Upgrade:'⬆️ Upgrades','Self Subscription':'📱 Self Sub','Direct Sale':'🛍️ Direct Sale'};
+const PC = ['#6366f1','#10b981','#06b6d4','#f59e0b','#f43f5e','#8b5cf6','#fb923c'];
+
+async function init() {
+  try {
+    const data = await fetch('/data/data.json?v=' + Date.now()).then(r=>r.json());
+    data.sort((a,b)=>a.date.localeCompare(b.date));
+    // Always show YESTERDAY's data (report is for the previous day)
+    const yesterdayISO = (function() {
+      var d = new Date(); d.setDate(d.getDate() - 1);
+      return d.toISOString().split('T')[0];
+    })();
+    const yd = data.find(function(d) { return d.date === yesterdayISO; })
+             || data[data.length - 1];
+
+    document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date+'T00:00:00').getFullYear();
+    document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
+
+    // Revenue (includes delivery fee)
+    const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
+    const grandTotal = (yd.totalRevenue||0) + deliveryTotal;
+    document.getElementById('total-rev').textContent = fmt(grandTotal);
+    document.getElementById('total-rev-sub').textContent = (yd.salesCount||0) + ' deals across all channels';
+    const sg = document.getElementById('src-grid');
+    sg.innerHTML = '';
+    Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
+      const c = SRC_C[src]||'#8896b3'; const l = SRC_L[src]||src;
+      sg.innerHTML += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+    });
+    // Add Delivery Fee as a pill
+    if (yd.deliveryFee && yd.deliveryFee.total > 0) {
+      const df = yd.deliveryFee;
+      sg.innerHTML += '<div class="src-pill"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee</div><div class="src-val">'+fmt(df.total)+'</div><div class="src-cnt">'+df.transactions+' deliver'+(df.transactions!==1?'ies':'y')+'</div></div></div>';
+    }
+
+    // Deals + AOV
+    const rev = yd.totalRevenue||0; const cnt = yd.salesCount||0;
+    document.getElementById('self-subs').textContent = cnt + ' deals';
+    document.getElementById('blended-aov').textContent = fmt(cnt>0?Math.round(rev/cnt):0);
+    const ag = Object.entries(yd.agents||{}).sort((a,b)=>b[1].revenue-a[1].revenue);
+    if(yd.highestSale && yd.highestSale.amount > 0){
+      document.getElementById('highest-sale').textContent = fmt(yd.highestSale.amount);
+      document.getElementById('highest-sale-sub').textContent = yd.highestSale.agent + ' · single deal';
+    } else if(ag.length){
+      document.getElementById('highest-sale').textContent = fmt(ag[0][1].revenue);
+      document.getElementById('highest-sale-sub').textContent = ag[0][0] + ' · total revenue';
+    }
+
+    // Podium
+    const top3 = ag.slice(0,3);
+    const pw = document.getElementById('podium');
+    if(!top3.length){ pw.innerHTML='<div style="color:#8896b3">No agent data.</div>'; }
+    else {
+      const order = top3.length>=3?[top3[1],top3[0],top3[2]]:top3.length===2?[top3[1],top3[0]]:[top3[0]];
+      const pcs = top3.length>=3?['p2','p1','p3']:top3.length===2?['p2','p1']:['p1'];
+      const medals = {p1:'🥇',p2:'🥈',p3:'🥉'};
+      pw.innerHTML = order.map(([n,d],i)=>{
+        const pc=pcs[i]; const rank=pc==='p1'?1:pc==='p2'?2:3;
+        return '<div class="pod-item"><div class="pod-avatar '+pc+'">'+(rank===1?'<div class="pod-crown">👑</div>':'')+ini(n)+'</div><div class="pod-name">'+n.split(' ')[0]+'<br><span style="font-size:10px;color:var(--muted)">'+n.split(' ').slice(1).join(' ')+'</span></div><div class="pod-rev '+pc+'">'+fmt(d.revenue)+'</div><div class="pod-deals">'+d.count+' deal'+(d.count!==1?'s':'')+'</div><div class="pod-block '+pc+'">'+medals[pc]+'</div></div>';
+      }).join('');
+    }
+
+    // Period
+    const yDate = new Date(yd.date+'T00:00:00');
+    const dow = yDate.getDay();
+    const sun = new Date(yDate); sun.setDate(yDate.getDate()-dow);
+    const sunStr = sun.toISOString().slice(0,10);
+    const wData = data.filter(d=>d.date>=sunStr&&d.date<=yd.date);
+    const wRev = wData.reduce((s,d)=>s+(d.totalRevenue||0)+((d.deliveryFee&&d.deliveryFee.total)||0),0);
+    document.getElementById('rev-week').textContent = fmt(wRev);
+    document.getElementById('rev-week-sub').textContent = sd(sunStr)+' → '+sd(yd.date)+' · '+wData.length+' days · '+wData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
+    const mStr = yd.date.slice(0,7)+'-01';
+    const mData = data.filter(d=>d.date>=mStr&&d.date<=yd.date);
+    const mRev = mData.reduce((s,d)=>s+(d.totalRevenue||0)+((d.deliveryFee&&d.deliveryFee.total)||0),0);
+    document.getElementById('rev-month').textContent = fmt(mRev);
+    document.getElementById('rev-month-sub').textContent = sd(mStr)+' → '+sd(yd.date)+' · '+mData.length+' days · '+mData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
+
+    // Plan pie
+    const plans = yd.plans||{};
+    const pLabels = Object.keys(plans);
+    const pCounts = pLabels.map(p=>plans[p].count);
+    const pRevs = pLabels.map(p=>plans[p].revenue);
+    const pTotal = pCounts.reduce((a,b)=>a+b,0);
+    const pTotalR = pRevs.reduce((a,b)=>a+b,0);
+    const centerTextPlugin = {
+      id: 'centerText',
+      beforeDraw: function(chart) {
+        if (chart.config.type !== 'doughnut') return;
+        var width = chart.width, height = chart.height, ctx = chart.ctx;
+        ctx.restore();
+        var fontSize = (height / 114).toFixed(2);
+        ctx.font = '800 ' + fontSize + 'em Inter';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#f1f5f9';
+        var text = pTotal + ' Deals',
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 - 8;
+        ctx.fillText(text, textX, textY);
+        
+        ctx.font = '600 ' + (fontSize * 0.45).toFixed(2) + 'em Inter';
+        ctx.fillStyle = '#8896b3';
+        var text2 = fmt(pTotalR),
+            text2X = Math.round((width - ctx.measureText(text2).width) / 2),
+            text2Y = height / 2 + 12;
+        ctx.fillText(text2, text2X, text2Y);
+        ctx.save();
+      }
+    };
+
+    new Chart(document.getElementById('planChart'), {
+      type: 'doughnut',
+      data: { labels: pLabels, datasets: [{ data: pCounts, backgroundColor: PC.slice(0, pLabels.length), borderWidth: 2, borderColor: '#0f1630', hoverOffset: 6 }] },
+      options: {
+        responsive: true, cutout: '65%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed + ' (' + (pTotal > 0 ? ((ctx.parsed / pTotal) * 100).toFixed(1) : 0) + '%)'; } } }
+        }
+      },
+      plugins: [centerTextPlugin]
+    });
+    document.getElementById('plan-tbl').innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px">Plan Breakdown</div>'+pLabels.map((p,i)=>'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:10px;height:10px;border-radius:2px;background:'+PC[i]+';flex-shrink:0"></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--text)">'+p+'</div><div style="font-size:11px;color:var(--muted)">'+plans[p].count+' deals · '+fmt(plans[p].revenue)+'</div></div><div style="font-size:13px;font-weight:800;color:'+PC[i]+'">'+( pTotal>0?((plans[p].count/pTotal)*100).toFixed(1):0 )+'%</div></div>').join('')+'<div style="border-top:1px solid var(--border);padding-top:8px;display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span style="color:var(--muted)">Total</span><span style="color:var(--text)">'+pTotal+' deals · '+fmt(pTotalR)+'</span></div>';
+
+    // Serviceability — only use COMPLETED days (exclude today's partial data)
+    const todayISO = new Date().toISOString().split('T')[0];
+    const completedData = data.filter(function(d){ return d.date < todayISO; });
+    const l7 = completedData.slice(-7);
+    const sLabels = l7.map(d=>sd(d.date));
+    const sPcts = l7.map(d=>parseFloat(d.userBreakdown?.serviceablePct)||0);
+    new Chart(document.getElementById('svcChart'), {
+      type: 'line',
+      data: { labels: sLabels, datasets: [{ label: 'Serviceability %', data: sPcts, borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#06b6d4', pointBorderColor: '#0f1630', pointBorderWidth: 2 }] },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#8896b3', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+          y: { ticks: { color: '#8896b3', font: { size: 11 }, callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(255,255,255,0.04)' }, min: 0, max: 100 }
+        }
+      }
+    });
+    document.getElementById('ftbl-body').innerHTML = l7.slice().reverse().map(d=>{const ub=d.userBreakdown;const pct=ub?parseFloat(ub.serviceablePct)||0:0;const col=pct>=60?'#10b981':pct>=40?'#f59e0b':'#f43f5e';return '<tr><td style="font-weight:600;color:var(--text)">'+sd(d.date)+'</td><td style="color:var(--muted)">'+(ub?.signups||0).toLocaleString('en-IN')+'</td><td style="color:var(--muted)">'+(ub?.otpVerified||0).toLocaleString('en-IN')+'</td><td style="color:#06b6d4">'+(ub?.serviceable||0).toLocaleString('en-IN')+'</td><td><div class="fbar-wrap"><div class="fbar-bg"><div class="fbar-fill" style="width:'+pct+'%;background:'+col+'"></div></div><div class="fpct" style="color:'+col+'">'+pct+'%</div></div></td></tr>';}).join('');
+
+    // Trend - stacked with Delivery Fee
+    const tRevs = l7.map(d=>d.totalRevenue||0);
+    const tDeliv = l7.map(d=>(d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0);
+    const tCombined = tRevs.map(function(r,i){ return r + tDeliv[i]; });
+    const maxR = Math.max(...tCombined);
+    new Chart(document.getElementById('trendChart'), {
+      type: 'bar',
+      data: {
+        labels: sLabels,
+        datasets: [
+          {
+            label: 'Revenue',
+            data: tRevs,
+            backgroundColor: tCombined.map(function(t){ return t === maxR ? 'rgba(245,158,11,0.85)' : 'rgba(99,102,241,0.7)'; }),
+            borderRadius: 0,
+            borderSkipped: false,
+            stack: 'rev'
+          },
+          {
+            label: '🚚 Delivery Fee',
+            data: tDeliv,
+            backgroundColor: 'rgba(16,185,129,0.75)',
+            borderRadius: 8,
+            borderSkipped: false,
+            stack: 'rev'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + fmt(ctx.parsed.y); },
+              footer: function(items) {
+                const total = items.reduce(function(s,i){ return s + i.parsed.y; }, 0);
+                return 'Total: ' + fmt(total);
+              }
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#8896b3', font: { size: 11 } }, grid: { display: false }, stacked: true },
+          y: { ticks: { color: '#8896b3', font: { size: 11 }, callback: function(v) { return fmtK(v); } }, grid: { color: 'rgba(255,255,255,0.04)' }, stacked: true }
+        }
+      }
+    });
+
+
+
+
+    // Missed Leads
+    const ml = yd.missedLeads;
+    if (ml) {
+      const mlTotal = (ml['Connected'] || 0) + (ml['Interested'] || 0) + (ml['Paise Dega'] || 0);
+      document.getElementById('missed-leads-tag').outerHTML = '<div style="display:flex; gap:16px; margin-top:12px; align-items:flex-end; padding-top:10px; border-top:1px solid var(--border)">' +
+        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Connected</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Connected']||0).toLocaleString('en-IN') + '</div></div>' +
+        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Interested</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Interested']||0).toLocaleString('en-IN') + '</div></div>' +
+        '<div><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Paise Dega</div><div style="font-size:16px;font-weight:900;color:var(--text)">' + (ml['Paise Dega']||0).toLocaleString('en-IN') + '</div></div>' +
+        '<div style="margin-left:auto;text-align:right"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700">Total</div><div style="font-size:18px;font-weight:900;color:#f43f5e">' + mlTotal.toLocaleString('en-IN') + '</div></div>' +
+        '</div>';
+    }
+
+    // Refunds
+    const refYd = yd.refunds || { count: 0, total: 0 };
+    const ref7d = yd.refundsLast7Days || { count: 0, total: 0 };
+
+    document.getElementById('refund-yesterday').textContent = fmt(refYd.total);
+    document.getElementById('refund-yesterday-sub').textContent = refYd.count + ' refund' + (refYd.count !== 1 ? 's' : '') + ' processed yesterday';
+
+    document.getElementById('refund-7days').textContent = fmt(ref7d.total);
+    document.getElementById('refund-7days-sub').textContent = ref7d.count + ' refund' + (ref7d.count !== 1 ? 's' : '') + ' across rolling 7 days';
+
+    // Net
+    const refAmt = refYd.total || 0;
+    document.getElementById('net-sales').textContent = fmt(grandTotal);
+    document.getElementById('net-refunds').textContent = (refAmt > 0 ? '− ' : '') + fmt(refAmt);
+    document.getElementById('net-total').textContent = fmt(grandTotal - refAmt);
+    document.getElementById('loading').style.display = 'none';
+  } catch(err) {
+    document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">⚠ Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';
+  }
+}
+init();
+</script>
 </body>
 </html>

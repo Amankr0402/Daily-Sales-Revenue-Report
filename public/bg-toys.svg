@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <g fill="none" stroke="#8b5cf6" stroke-width="1.8" opacity="0.18" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Duck (top-left) -->
+    <path d="M22,52 C22,38 32,30 42,34 C46,27 55,28 55,36 C64,36 67,45 61,51 Q60,70 42,70 Q22,70 22,52Z"/>
+    <circle cx="48" cy="32" r="3" fill="#8b5cf6" stroke="none"/>
+    <path d="M55,36 L62,33"/>
+
+    <!-- Toy car (top-right) -->
+    <rect x="130" y="38" width="80" height="28" rx="8"/>
+    <rect x="138" y="24" width="46" height="20" rx="6"/>
+    <circle cx="148" cy="70" r="10"/>
+    <circle cx="196" cy="70" r="10"/>
+    <line x1="158" y1="52" x2="184" y2="52"/>
+
+    <!-- Star (center) -->
+    <path d="M120,100 L125,115 L141,115 L128,124 L133,139 L120,130 L107,139 L112,124 L99,115 L115,115Z"/>
+
+    <!-- Building block with A (bottom-left) -->
+    <rect x="16" y="158" width="52" height="52" rx="6"/>
+    <line x1="16" y1="184" x2="68" y2="184"/>
+    <line x1="42" y1="158" x2="42" y2="210"/>
+    <path d="M28,202 L42,168 L56,202"/>
+    <line x1="34" y1="188" x2="50" y2="188"/>
+
+    <!-- Ball (bottom-right) -->
+    <circle cx="190" cy="188" r="34"/>
+    <path d="M156,188 Q190,168 224,188"/>
+    <path d="M156,188 Q190,208 224,188"/>
+    <path d="M190,154 Q210,188 190,222"/>
+
+    <!-- Puzzle piece (mid-right) -->
+    <path d="M195,95 L215,95 L215,105 Q220,105 220,112 Q220,118 215,118 L215,130 L195,130 L195,120 Q190,120 190,113 Q190,106 195,106Z"/>
+
+  </g>
+</svg>
