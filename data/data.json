@@ -25755,10 +25755,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1833,
-      "otpVerified": 1594,
-      "serviceable": 966,
-      "serviceableWithPct": "966 (52.7%)",
+      "signups": 1832,
+      "otpVerified": 1593,
+      "serviceable": 965,
+      "serviceableWithPct": "965 (52.7%)",
       "serviceablePct": "52.7%"
     },
     "refundsLast7Days": {
@@ -26215,9 +26215,9 @@
     "userBreakdown": {
       "signups": 1647,
       "otpVerified": 1617,
-      "serviceable": 1027,
-      "serviceableWithPct": "1,027 (62.4%)",
-      "serviceablePct": "62.4%"
+      "serviceable": 1030,
+      "serviceableWithPct": "1,030 (62.5%)",
+      "serviceablePct": "62.5%"
     },
     "deliveryFee": {
       "transactions": 4,
@@ -26226,9 +26226,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 397,
-      "Interested": 226,
-      "Paise Dega": 57
+      "Connected": 423,
+      "Interested": 247,
+      "Paise Dega": 69
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26242,9 +26242,9 @@
   },
   {
     "date": "2026-09-03",
-    "totalRevenue": 162663,
-    "salesCount": 17,
-    "transactions": 17,
+    "totalRevenue": 174879,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 17073,
       "agent": "Kanchan Agrawal"
@@ -26315,16 +26315,41 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 39287,
-        "count": 5
+        "revenue": 51503,
+        "count": 6
       }
     },
     "userBreakdown": {
-      "signups": 1368,
-      "otpVerified": 1352,
-      "serviceable": 833,
-      "serviceableWithPct": "833 (60.9%)",
-      "serviceablePct": "60.9%"
+      "signups": 1570,
+      "otpVerified": 1548,
+      "serviceable": 954,
+      "serviceableWithPct": "954 (60.8%)",
+      "serviceablePct": "60.8%"
+    },
+    "refundsLast7Days": {
+      "total": 0,
+      "count": 0
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    }
+  },
+  {
+    "date": "2026-09-04",
+    "totalRevenue": 0,
+    "salesCount": 0,
+    "transactions": 0,
+    "agents": {},
+    "plans": {},
+    "sources": {},
+    "userBreakdown": {
+      "signups": 6,
+      "otpVerified": 6,
+      "serviceable": 4,
+      "serviceableWithPct": "4 (66.7%)",
+      "serviceablePct": "66.7%"
     },
     "refundsLast7Days": {
       "total": 0,
