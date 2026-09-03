@@ -26357,11 +26357,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 79,
-      "otpVerified": 76,
-      "serviceable": 52,
-      "serviceableWithPct": "52 (65.8%)",
-      "serviceablePct": "65.8%"
+      "signups": 108,
+      "otpVerified": 104,
+      "serviceable": 73,
+      "serviceableWithPct": "73 (67.6%)",
+      "serviceablePct": "67.6%"
     },
     "refundsLast7Days": {
       "total": 0,
