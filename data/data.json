@@ -25897,12 +25897,6 @@
       "serviceableWithPct": "1,263 (54.7%)",
       "serviceablePct": "54.7%"
     },
-    "deliveryFee": {
-      "transactions": 1,
-      "charge": 100,
-      "tax": 18,
-      "total": 118
-    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26010,12 +26004,6 @@
       "serviceable": 1023,
       "serviceableWithPct": "1,023 (54.8%)",
       "serviceablePct": "54.8%"
-    },
-    "deliveryFee": {
-      "transactions": 3,
-      "charge": 300,
-      "tax": 54,
-      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26132,12 +26120,6 @@
       "serviceable": 1140,
       "serviceableWithPct": "1,140 (60.4%)",
       "serviceablePct": "60.4%"
-    },
-    "deliveryFee": {
-      "transactions": 4,
-      "charge": 400,
-      "tax": 72,
-      "total": 472
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26320,11 +26302,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1151,
-      "otpVerified": 1138,
-      "serviceable": 692,
-      "serviceableWithPct": "692 (60.1%)",
-      "serviceablePct": "60.1%"
+      "signups": 1174,
+      "otpVerified": 1161,
+      "serviceable": 711,
+      "serviceableWithPct": "711 (60.6%)",
+      "serviceablePct": "60.6%"
     },
     "refundsLast7Days": {
       "total": 0,
