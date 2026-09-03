@@ -26213,11 +26213,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1648,
-      "otpVerified": 1618,
-      "serviceable": 1026,
-      "serviceableWithPct": "1,026 (62.3%)",
-      "serviceablePct": "62.3%"
+      "signups": 1647,
+      "otpVerified": 1617,
+      "serviceable": 1027,
+      "serviceableWithPct": "1,027 (62.4%)",
+      "serviceablePct": "62.4%"
     },
     "deliveryFee": {
       "transactions": 4,
@@ -26226,9 +26226,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 357,
-      "Interested": 200,
-      "Paise Dega": 64
+      "Connected": 397,
+      "Interested": 226,
+      "Paise Dega": 57
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26320,11 +26320,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1241,
-      "otpVerified": 1226,
-      "serviceable": 757,
-      "serviceableWithPct": "757 (61.0%)",
-      "serviceablePct": "61.0%"
+      "signups": 1368,
+      "otpVerified": 1352,
+      "serviceable": 833,
+      "serviceableWithPct": "833 (60.9%)",
+      "serviceablePct": "60.9%"
     },
     "refundsLast7Days": {
       "total": 0,
