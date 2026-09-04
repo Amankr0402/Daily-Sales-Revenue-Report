@@ -25885,11 +25885,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 2309,
-      "otpVerified": 2022,
-      "serviceable": 1263,
-      "serviceableWithPct": "1,263 (54.7%)",
-      "serviceablePct": "54.7%"
+      "signups": 2308,
+      "otpVerified": 2021,
+      "serviceable": 1264,
+      "serviceableWithPct": "1,264 (54.8%)",
+      "serviceablePct": "54.8%"
     },
     "deliveryFee": {
       "transactions": 1,
@@ -26328,9 +26328,9 @@
       "serviceablePct": "60.9%"
     },
     "missedLeads": {
-      "Connected": 368,
-      "Interested": 222,
-      "Paise Dega": 60
+      "Connected": 369,
+      "Interested": 228,
+      "Paise Dega": 52
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26344,18 +26344,73 @@
   },
   {
     "date": "2026-09-04",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
+    "totalRevenue": 111443,
+    "salesCount": 12,
+    "transactions": 12,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "ABHISHEK SHRIVAS"
+    },
+    "agents": {
+      "Shubham Rai": {
+        "revenue": 15500,
+        "count": 2
+      },
+      "Sneha Anand": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12215,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 15500,
+        "count": 2
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 8636,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 10000,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 74851,
+        "count": 7
+      },
+      "Quarterly Max": {
+        "revenue": 9000,
+        "count": 2
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 75215,
+        "count": 8
+      },
+      "Upgrade": {
+        "revenue": 8636,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 27592,
+        "count": 3
+      }
+    },
     "userBreakdown": {
-      "signups": 539,
-      "otpVerified": 532,
-      "serviceable": 340,
-      "serviceableWithPct": "340 (63.1%)",
-      "serviceablePct": "63.1%"
+      "signups": 1223,
+      "otpVerified": 1207,
+      "serviceable": 766,
+      "serviceableWithPct": "766 (62.6%)",
+      "serviceablePct": "62.6%"
     },
     "refundsLast7Days": {
       "total": 0,
