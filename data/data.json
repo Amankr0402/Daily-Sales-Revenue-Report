@@ -26323,14 +26323,14 @@
     "userBreakdown": {
       "signups": 1569,
       "otpVerified": 1548,
-      "serviceable": 956,
-      "serviceableWithPct": "956 (60.9%)",
-      "serviceablePct": "60.9%"
+      "serviceable": 957,
+      "serviceableWithPct": "957 (61.0%)",
+      "serviceablePct": "61.0%"
     },
     "missedLeads": {
-      "Connected": 369,
-      "Interested": 228,
-      "Paise Dega": 52
+      "Connected": 423,
+      "Interested": 251,
+      "Paise Dega": 62
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26344,12 +26344,12 @@
   },
   {
     "date": "2026-09-04",
-    "totalRevenue": 111443,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 149448,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
-      "amount": 12216,
-      "agent": "ABHISHEK SHRIVAS"
+      "amount": 13573,
+      "agent": "Neeraj Ramnani"
     },
     "agents": {
       "Shubham Rai": {
@@ -26379,12 +26379,16 @@
       "Honey Talreja": {
         "revenue": 11000,
         "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 12216,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 74851,
-        "count": 7
+        "revenue": 87067,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 9000,
@@ -26393,24 +26397,24 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 75215,
-        "count": 8
+        "revenue": 87431,
+        "count": 9
       },
       "Upgrade": {
         "revenue": 8636,
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 27592,
-        "count": 3
+        "revenue": 53381,
+        "count": 5
       }
     },
     "userBreakdown": {
-      "signups": 1223,
-      "otpVerified": 1207,
-      "serviceable": 766,
-      "serviceableWithPct": "766 (62.6%)",
-      "serviceablePct": "62.6%"
+      "signups": 1455,
+      "otpVerified": 1433,
+      "serviceable": 923,
+      "serviceableWithPct": "923 (63.4%)",
+      "serviceablePct": "63.4%"
     },
     "refundsLast7Days": {
       "total": 0,
