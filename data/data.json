@@ -25654,7 +25654,7 @@
     },
     "userBreakdown": {
       "signups": 1562,
-      "otpVerified": 1350,
+      "otpVerified": 1351,
       "serviceable": 820,
       "serviceableWithPct": "820 (52.5%)",
       "serviceablePct": "52.5%"
@@ -26328,9 +26328,9 @@
       "serviceablePct": "61.0%"
     },
     "missedLeads": {
-      "Connected": 423,
-      "Interested": 251,
-      "Paise Dega": 62
+      "Connected": 433,
+      "Interested": 264,
+      "Paise Dega": 69
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26344,9 +26344,9 @@
   },
   {
     "date": "2026-09-04",
-    "totalRevenue": 149448,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 188864.71,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 13573,
       "agent": "Neeraj Ramnani"
@@ -26383,47 +26383,79 @@
       "Shivani Gupta": {
         "revenue": 12216,
         "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 23216,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 12000,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 3160,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 87067,
-        "count": 8
+        "revenue": 118283,
+        "count": 11
       },
       "Quarterly Max": {
-        "revenue": 9000,
-        "count": 2
+        "revenue": 17500,
+        "count": 4
+      },
+      "Quarterly Plus": {
+        "revenue": 3160,
+        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 87431,
-        "count": 9
+        "revenue": 115147,
+        "count": 12
       },
       "Upgrade": {
         "revenue": 8636,
         "count": 1
       },
+      "Renewals": {
+        "revenue": 15160,
+        "count": 3
+      },
       "Direct Sale": {
-        "revenue": 53381,
-        "count": 5
+        "revenue": 49921.71,
+        "count": 4
       }
     },
     "userBreakdown": {
-      "signups": 1455,
-      "otpVerified": 1433,
-      "serviceable": 923,
-      "serviceableWithPct": "923 (63.4%)",
-      "serviceablePct": "63.4%"
-    },
-    "refundsLast7Days": {
-      "total": 0,
-      "count": 0
+      "signups": 1614,
+      "otpVerified": 1591,
+      "serviceable": 1012,
+      "serviceableWithPct": "1,012 (62.7%)",
+      "serviceablePct": "62.7%"
     },
     "refunds": {
-      "count": 0,
-      "total": 0,
-      "items": []
+      "count": 1,
+      "total": 3394,
+      "items": [
+        {
+          "refundId": "rfnd_TY03ooCph3ZP2t",
+          "paymentId": "pay_TQJIUdAJS5LoDa",
+          "amount": 3394,
+          "status": "processed",
+          "date": "04/09/2026 20:24:50"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 3394,
+      "count": 1
     }
   }
 ]
