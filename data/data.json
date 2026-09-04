@@ -26322,10 +26322,10 @@
     },
     "userBreakdown": {
       "signups": 1569,
-      "otpVerified": 1547,
-      "serviceable": 954,
-      "serviceableWithPct": "954 (60.8%)",
-      "serviceablePct": "60.8%"
+      "otpVerified": 1548,
+      "serviceable": 956,
+      "serviceableWithPct": "956 (60.9%)",
+      "serviceablePct": "60.9%"
     },
     "missedLeads": {
       "Connected": 368,
@@ -26351,11 +26351,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 138,
-      "otpVerified": 134,
-      "serviceable": 95,
-      "serviceableWithPct": "95 (68.8%)",
-      "serviceablePct": "68.8%"
+      "signups": 539,
+      "otpVerified": 532,
+      "serviceable": 340,
+      "serviceableWithPct": "340 (63.1%)",
+      "serviceablePct": "63.1%"
     },
     "refundsLast7Days": {
       "total": 0,
