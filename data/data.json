@@ -26467,11 +26467,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 70,
-      "otpVerified": 70,
-      "serviceable": 52,
-      "serviceableWithPct": "52 (74.3%)",
-      "serviceablePct": "74.3%"
+      "signups": 97,
+      "otpVerified": 97,
+      "serviceable": 74,
+      "serviceableWithPct": "74 (76.3%)",
+      "serviceablePct": "76.3%"
     },
     "refundsLast7Days": {
       "total": 3394,
