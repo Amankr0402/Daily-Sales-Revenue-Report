@@ -26607,11 +26607,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 54,
-      "otpVerified": 54,
-      "serviceable": 38,
-      "serviceableWithPct": "38 (70.4%)",
-      "serviceablePct": "70.4%"
+      "signups": 88,
+      "otpVerified": 87,
+      "serviceable": 62,
+      "serviceableWithPct": "62 (70.5%)",
+      "serviceablePct": "70.5%"
     },
     "refundsLast7Days": {
       "total": 7058,
