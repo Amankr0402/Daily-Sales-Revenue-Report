@@ -25880,10 +25880,10 @@
     },
     "userBreakdown": {
       "signups": 2308,
-      "otpVerified": 2021,
-      "serviceable": 1265,
-      "serviceableWithPct": "1,265 (54.8%)",
-      "serviceablePct": "54.8%"
+      "otpVerified": 2022,
+      "serviceable": 1266,
+      "serviceableWithPct": "1,266 (54.9%)",
+      "serviceablePct": "54.9%"
     },
     "deliveryFee": {
       "transactions": 1,
@@ -26317,8 +26317,8 @@
     "userBreakdown": {
       "signups": 1569,
       "otpVerified": 1548,
-      "serviceable": 958,
-      "serviceableWithPct": "958 (61.1%)",
+      "serviceable": 959,
+      "serviceableWithPct": "959 (61.1%)",
       "serviceablePct": "61.1%"
     },
     "refundsLast7Days": {
@@ -26429,9 +26429,9 @@
     "userBreakdown": {
       "signups": 1641,
       "otpVerified": 1617,
-      "serviceable": 1026,
-      "serviceableWithPct": "1,026 (62.5%)",
-      "serviceablePct": "62.5%"
+      "serviceable": 1028,
+      "serviceableWithPct": "1,028 (62.6%)",
+      "serviceablePct": "62.6%"
     },
     "deliveryFee": {
       "transactions": 1,
@@ -26440,9 +26440,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 381,
-      "Interested": 212,
-      "Paise Dega": 56
+      "Connected": 426,
+      "Interested": 262,
+      "Paise Dega": 65
     },
     "refunds": {
       "count": 1,
@@ -26464,33 +26464,33 @@
   },
   {
     "date": "2026-09-05",
-    "totalRevenue": 159580,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 268171,
+    "salesCount": 28,
+    "transactions": 28,
     "highestSale": {
       "amount": 12216,
-      "agent": "Balaji gonuguntla"
+      "agent": "Riya Pandya"
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 24752,
+        "count": 3
       },
       "Vikas Poonia": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 21376,
+        "count": 2
       },
       "Shikha Singh": {
         "revenue": 11000,
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 44715,
-        "count": 4
+        "revenue": 61430,
+        "count": 6
       },
       "Tashrifa Ruhani Saikia": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Kush Shah": {
         "revenue": 15500,
@@ -26503,38 +26503,62 @@
       "Tanveer Ahmed": {
         "revenue": 10000,
         "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 5756,
+        "count": 1
+      },
+      "Sneha Anand": {
+        "revenue": 17500,
+        "count": 2
+      },
+      "Jivesh Harde": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 16000,
+        "count": 2
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 119467,
-        "count": 11
+        "revenue": 212058,
+        "count": 20
       },
       "Quarterly Max": {
-        "revenue": 4500,
+        "revenue": 19756,
+        "count": 4
+      },
+      "6 months Max": {
+        "revenue": 6500,
         "count": 1
       }
     },
     "sources": {
       "Renewals": {
-        "revenue": 41252,
-        "count": 4
+        "revenue": 55628,
+        "count": 6
       },
       "Organic": {
-        "revenue": 82715,
-        "count": 8
+        "revenue": 182686,
+        "count": 19
       },
       "Direct Sale": {
-        "revenue": 35613,
-        "count": 4
+        "revenue": 29857,
+        "count": 3
       }
     },
     "userBreakdown": {
-      "signups": 794,
-      "otpVerified": 782,
-      "serviceable": 519,
-      "serviceableWithPct": "519 (65.4%)",
-      "serviceablePct": "65.4%"
+      "signups": 1102,
+      "otpVerified": 1090,
+      "serviceable": 713,
+      "serviceableWithPct": "713 (64.7%)",
+      "serviceablePct": "64.7%"
     },
     "refunds": {
       "count": 1,
