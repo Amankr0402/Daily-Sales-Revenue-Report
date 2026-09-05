@@ -26115,10 +26115,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1887,
-      "otpVerified": 1844,
-      "serviceable": 1140,
-      "serviceableWithPct": "1,140 (60.4%)",
+      "signups": 1886,
+      "otpVerified": 1843,
+      "serviceable": 1139,
+      "serviceableWithPct": "1,139 (60.4%)",
       "serviceablePct": "60.4%"
     },
     "deliveryFee": {
@@ -26437,8 +26437,8 @@
     },
     "missedLeads": {
       "Connected": 395,
-      "Interested": 236,
-      "Paise Dega": 61
+      "Interested": 235,
+      "Paise Dega": 60
     },
     "refunds": {
       "count": 1,
@@ -26460,18 +26460,27 @@
   },
   {
     "date": "2026-09-05",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
+    "totalRevenue": 17641,
+    "salesCount": 2,
+    "transactions": 2,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Kumar Sanjay"
+    },
     "agents": {},
     "plans": {},
-    "sources": {},
+    "sources": {
+      "Direct Sale": {
+        "revenue": 17641,
+        "count": 2
+      }
+    },
     "userBreakdown": {
-      "signups": 112,
-      "otpVerified": 112,
-      "serviceable": 85,
-      "serviceableWithPct": "85 (75.9%)",
-      "serviceablePct": "75.9%"
+      "signups": 396,
+      "otpVerified": 393,
+      "serviceable": 269,
+      "serviceableWithPct": "269 (67.9%)",
+      "serviceablePct": "67.9%"
     },
     "refundsLast7Days": {
       "total": 3394,
