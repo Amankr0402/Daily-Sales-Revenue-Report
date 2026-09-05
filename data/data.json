@@ -26201,8 +26201,8 @@
       }
     },
     "userBreakdown": {
-      "signups": 1647,
-      "otpVerified": 1617,
+      "signups": 1646,
+      "otpVerified": 1616,
       "serviceable": 1031,
       "serviceableWithPct": "1,031 (62.6%)",
       "serviceablePct": "62.6%"
@@ -26440,9 +26440,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 426,
-      "Interested": 262,
-      "Paise Dega": 65
+      "Connected": 449,
+      "Interested": 244,
+      "Paise Dega": 58
     },
     "refunds": {
       "count": 1,
@@ -26464,29 +26464,29 @@
   },
   {
     "date": "2026-09-05",
-    "totalRevenue": 268171,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 370400,
+    "salesCount": 37,
+    "transactions": 37,
     "highestSale": {
-      "amount": 12216,
-      "agent": "Riya Pandya"
+      "amount": 18000,
+      "agent": "Honey Talreja"
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 24752,
-        "count": 3
+        "revenue": 36752,
+        "count": 4
       },
       "Vikas Poonia": {
-        "revenue": 21376,
-        "count": 2
+        "revenue": 31752,
+        "count": 3
       },
       "Shikha Singh": {
         "revenue": 11000,
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 61430,
-        "count": 6
+        "revenue": 79430,
+        "count": 7
       },
       "Tashrifa Ruhani Saikia": {
         "revenue": 22000,
@@ -26523,12 +26523,28 @@
       "Yuvraj Singh Dodiya": {
         "revenue": 16000,
         "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 15588,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 11500,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 212058,
-        "count": 20
+        "revenue": 285954,
+        "count": 26
       },
       "Quarterly Max": {
         "revenue": 19756,
@@ -26537,28 +26553,32 @@
       "6 months Max": {
         "revenue": 6500,
         "count": 1
+      },
+      "Ultra Annually": {
+        "revenue": 18000,
+        "count": 1
       }
     },
     "sources": {
       "Renewals": {
-        "revenue": 55628,
-        "count": 6
+        "revenue": 66004,
+        "count": 7
       },
       "Organic": {
-        "revenue": 182686,
-        "count": 19
+        "revenue": 264206,
+        "count": 25
       },
       "Direct Sale": {
-        "revenue": 29857,
-        "count": 3
+        "revenue": 40190,
+        "count": 5
       }
     },
     "userBreakdown": {
-      "signups": 1102,
-      "otpVerified": 1090,
-      "serviceable": 713,
-      "serviceableWithPct": "713 (64.7%)",
-      "serviceablePct": "64.7%"
+      "signups": 1297,
+      "otpVerified": 1278,
+      "serviceable": 834,
+      "serviceableWithPct": "834 (64.3%)",
+      "serviceablePct": "64.3%"
     },
     "refunds": {
       "count": 1,
