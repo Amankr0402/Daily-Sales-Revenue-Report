@@ -26203,9 +26203,9 @@
     "userBreakdown": {
       "signups": 1646,
       "otpVerified": 1616,
-      "serviceable": 1031,
-      "serviceableWithPct": "1,031 (62.6%)",
-      "serviceablePct": "62.6%"
+      "serviceable": 1032,
+      "serviceableWithPct": "1,032 (62.7%)",
+      "serviceablePct": "62.7%"
     },
     "deliveryFee": {
       "transactions": 4,
@@ -26440,9 +26440,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 449,
-      "Interested": 244,
-      "Paise Dega": 58
+      "Connected": 473,
+      "Interested": 265,
+      "Paise Dega": 68
     },
     "refunds": {
       "count": 1,
@@ -26464,9 +26464,9 @@
   },
   {
     "date": "2026-09-05",
-    "totalRevenue": 370400,
-    "salesCount": 37,
-    "transactions": 37,
+    "totalRevenue": 385900,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 18000,
       "agent": "Honey Talreja"
@@ -26525,8 +26525,8 @@
         "count": 2
       },
       "Shubham Rai": {
-        "revenue": 12216,
-        "count": 1
+        "revenue": 23216,
+        "count": 2
       },
       "Rani Singh": {
         "revenue": 15588,
@@ -26537,18 +26537,18 @@
         "count": 1
       },
       "Prerak Bhavsar": {
-        "revenue": 11500,
-        "count": 1
+        "revenue": 16000,
+        "count": 2
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 285954,
-        "count": 26
+        "revenue": 296954,
+        "count": 27
       },
       "Quarterly Max": {
-        "revenue": 19756,
-        "count": 4
+        "revenue": 24256,
+        "count": 5
       },
       "6 months Max": {
         "revenue": 6500,
@@ -26565,8 +26565,8 @@
         "count": 7
       },
       "Organic": {
-        "revenue": 264206,
-        "count": 25
+        "revenue": 279706,
+        "count": 27
       },
       "Direct Sale": {
         "revenue": 40190,
@@ -26574,11 +26574,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1297,
-      "otpVerified": 1278,
-      "serviceable": 834,
-      "serviceableWithPct": "834 (64.3%)",
-      "serviceablePct": "64.3%"
+      "signups": 1431,
+      "otpVerified": 1411,
+      "serviceable": 917,
+      "serviceableWithPct": "917 (64.1%)",
+      "serviceablePct": "64.1%"
     },
     "refunds": {
       "count": 1,
