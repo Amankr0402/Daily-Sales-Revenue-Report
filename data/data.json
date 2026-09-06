@@ -26576,9 +26576,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 498,
-      "Interested": 251,
-      "Paise Dega": 53
+      "Connected": 535,
+      "Interested": 301,
+      "Paise Dega": 58
     },
     "refunds": {
       "count": 1,
@@ -26600,9 +26600,9 @@
   },
   {
     "date": "2026-09-06",
-    "totalRevenue": 231977.07,
-    "salesCount": 29,
-    "transactions": 29,
+    "totalRevenue": 261243.35,
+    "salesCount": 32,
+    "transactions": 32,
     "highestSale": {
       "amount": 12216,
       "agent": "Vikas Poonia"
@@ -26637,8 +26637,8 @@
         "count": 1
       },
       "Tanveer Ahmed": {
-        "revenue": 15500,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Sneha Anand": {
         "revenue": 16756,
@@ -26657,60 +26657,64 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 15500,
+        "count": 2
       },
       "Shivani Gupta": {
-        "revenue": 2900,
+        "revenue": 5000,
         "count": 1
       },
       "Chhaya Patel": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Ishika Gorle": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Neeru Yadav": {
         "revenue": 11000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 168216,
-        "count": 15
+        "revenue": 179216,
+        "count": 16
       },
       "Quarterly Max": {
-        "revenue": 32756,
-        "count": 7
+        "revenue": 42256,
+        "count": 9
       },
       "Annual Mini": {
         "revenue": 5000,
-        "count": 1
-      },
-      "Quarterly Plus": {
-        "revenue": 2900,
         "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 159872,
-        "count": 19
+        "revenue": 172972,
+        "count": 20
       },
       "Renewals": {
         "revenue": 5000,
         "count": 1
       },
       "Events": {
-        "revenue": 44000,
-        "count": 4
+        "revenue": 48500,
+        "count": 5
       },
       "Direct Sale": {
-        "revenue": 23105.07,
-        "count": 5
+        "revenue": 34771.35,
+        "count": 6
       }
     },
     "userBreakdown": {
-      "signups": 1380,
-      "otpVerified": 1362,
-      "serviceable": 858,
-      "serviceableWithPct": "858 (62.2%)",
-      "serviceablePct": "62.2%"
+      "signups": 1584,
+      "otpVerified": 1567,
+      "serviceable": 982,
+      "serviceableWithPct": "982 (62.0%)",
+      "serviceablePct": "62.0%"
     },
     "refunds": {
       "count": 1,
@@ -26720,7 +26724,7 @@
           "refundId": "rfnd_TYgECpRqE0r50a",
           "paymentId": "pay_TTCCNlX8LoYn6g",
           "amount": 11000,
-          "status": "pending",
+          "status": "processed",
           "date": "06/09/2026 13:39:48"
         }
       ]
