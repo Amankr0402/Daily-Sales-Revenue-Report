@@ -26743,11 +26743,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 65,
-      "otpVerified": 64,
-      "serviceable": 43,
-      "serviceableWithPct": "43 (66.2%)",
-      "serviceablePct": "66.2%"
+      "signups": 75,
+      "otpVerified": 74,
+      "serviceable": 50,
+      "serviceableWithPct": "50 (66.7%)",
+      "serviceablePct": "66.7%"
     },
     "refundsLast7Days": {
       "total": 18058,
