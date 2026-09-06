@@ -25987,11 +25987,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1868,
-      "otpVerified": 1651,
-      "serviceable": 1023,
-      "serviceableWithPct": "1,023 (54.8%)",
-      "serviceablePct": "54.8%"
+      "signups": 1867,
+      "otpVerified": 1650,
+      "serviceable": 1022,
+      "serviceableWithPct": "1,022 (54.7%)",
+      "serviceablePct": "54.7%"
     },
     "deliveryFee": {
       "transactions": 3,
@@ -26197,9 +26197,9 @@
     "userBreakdown": {
       "signups": 1646,
       "otpVerified": 1616,
-      "serviceable": 1032,
-      "serviceableWithPct": "1,032 (62.7%)",
-      "serviceablePct": "62.7%"
+      "serviceable": 1033,
+      "serviceableWithPct": "1,033 (62.8%)",
+      "serviceablePct": "62.8%"
     },
     "deliveryFee": {
       "transactions": 4,
@@ -26563,10 +26563,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1523,
+      "signups": 1522,
       "otpVerified": 1502,
-      "serviceable": 976,
-      "serviceableWithPct": "976 (64.1%)",
+      "serviceable": 975,
+      "serviceableWithPct": "975 (64.1%)",
       "serviceablePct": "64.1%"
     },
     "deliveryFee": {
@@ -26576,8 +26576,8 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 422,
-      "Interested": 250,
+      "Connected": 423,
+      "Interested": 248,
       "Paise Dega": 52
     },
     "refunds": {
@@ -26600,18 +26600,69 @@
   },
   {
     "date": "2026-09-06",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
+    "totalRevenue": 49728,
+    "salesCount": 7,
+    "transactions": 7,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Vikas Poonia"
+    },
+    "agents": {
+      "Rani Singh": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Abhijeet Mathur": {
+        "revenue": 4500,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 24216,
+        "count": 2
+      },
+      "Quarterly Max": {
+        "revenue": 9000,
+        "count": 2
+      },
+      "Annual Mini": {
+        "revenue": 5000,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 33216,
+        "count": 4
+      },
+      "Renewals": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 11512,
+        "count": 2
+      }
+    },
     "userBreakdown": {
-      "signups": 114,
-      "otpVerified": 113,
-      "serviceable": 80,
-      "serviceableWithPct": "80 (70.2%)",
-      "serviceablePct": "70.2%"
+      "signups": 591,
+      "otpVerified": 588,
+      "serviceable": 376,
+      "serviceableWithPct": "376 (63.6%)",
+      "serviceablePct": "63.6%"
     },
     "refundsLast7Days": {
       "total": 7058,
