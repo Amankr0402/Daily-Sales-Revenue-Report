@@ -26565,8 +26565,8 @@
     "userBreakdown": {
       "signups": 1520,
       "otpVerified": 1500,
-      "serviceable": 974,
-      "serviceableWithPct": "974 (64.1%)",
+      "serviceable": 975,
+      "serviceableWithPct": "975 (64.1%)",
       "serviceablePct": "64.1%"
     },
     "deliveryFee": {
@@ -26576,9 +26576,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 535,
-      "Interested": 301,
-      "Paise Dega": 58
+      "Connected": 540,
+      "Interested": 311,
+      "Paise Dega": 60
     },
     "refunds": {
       "count": 1,
@@ -26600,9 +26600,9 @@
   },
   {
     "date": "2026-09-06",
-    "totalRevenue": 261243.35,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 272243.35,
+    "salesCount": 33,
+    "transactions": 33,
     "highestSale": {
       "amount": 12216,
       "agent": "Vikas Poonia"
@@ -26665,8 +26665,8 @@
         "count": 1
       },
       "Chhaya Patel": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Ishika Gorle": {
         "revenue": 4500,
@@ -26679,8 +26679,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 179216,
-        "count": 16
+        "revenue": 190216,
+        "count": 17
       },
       "Quarterly Max": {
         "revenue": 42256,
@@ -26693,8 +26693,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 172972,
-        "count": 20
+        "revenue": 183972,
+        "count": 21
       },
       "Renewals": {
         "revenue": 5000,
@@ -26710,11 +26710,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1584,
-      "otpVerified": 1567,
-      "serviceable": 982,
-      "serviceableWithPct": "982 (62.0%)",
-      "serviceablePct": "62.0%"
+      "signups": 1692,
+      "otpVerified": 1675,
+      "serviceable": 1060,
+      "serviceableWithPct": "1,060 (62.6%)",
+      "serviceablePct": "62.6%"
     },
     "refunds": {
       "count": 1,
@@ -26732,6 +26732,31 @@
     "refundsLast7Days": {
       "total": 18058,
       "count": 3
+    }
+  },
+  {
+    "date": "2026-09-07",
+    "totalRevenue": 0,
+    "salesCount": 0,
+    "transactions": 0,
+    "agents": {},
+    "plans": {},
+    "sources": {},
+    "userBreakdown": {
+      "signups": 22,
+      "otpVerified": 22,
+      "serviceable": 15,
+      "serviceableWithPct": "15 (68.2%)",
+      "serviceablePct": "68.2%"
+    },
+    "refundsLast7Days": {
+      "total": 18058,
+      "count": 3
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
     }
   }
 ]
