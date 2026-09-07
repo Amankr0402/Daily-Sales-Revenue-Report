@@ -26706,9 +26706,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 494,
-      "Interested": 264,
-      "Paise Dega": 39
+      "Connected": 539,
+      "Interested": 289,
+      "Paise Dega": 41
     },
     "refunds": {
       "count": 1,
@@ -26730,17 +26730,17 @@
   },
   {
     "date": "2026-09-07",
-    "totalRevenue": 65288,
-    "salesCount": 8,
-    "transactions": 8,
+    "totalRevenue": 119889,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
-      "amount": 12216,
-      "agent": "Vivek Shah"
+      "amount": 13073,
+      "agent": "Aparnna"
     },
     "agents": {
       "Vikas Poonia": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 13244,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 11000,
@@ -26761,38 +26761,66 @@
       "Sneha Anand": {
         "revenue": 4000,
         "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 3160,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 4500,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 54968,
-        "count": 5
+        "revenue": 76968,
+        "count": 7
       },
       "Quarterly Max": {
-        "revenue": 4000,
-        "count": 1
+        "revenue": 17500,
+        "count": 4
+      },
+      "Quarterly Plus": {
+        "revenue": 6028,
+        "count": 2
       }
     },
     "sources": {
       "Renewals": {
-        "revenue": 24752,
-        "count": 3
+        "revenue": 27620,
+        "count": 4
       },
       "Organic": {
-        "revenue": 34216,
-        "count": 3
+        "revenue": 72876,
+        "count": 9
       },
       "Direct Sale": {
-        "revenue": 6320,
-        "count": 2
+        "revenue": 19393,
+        "count": 3
       }
     },
     "userBreakdown": {
-      "signups": 879,
-      "otpVerified": 870,
-      "serviceable": 557,
-      "serviceableWithPct": "557 (63.4%)",
-      "serviceablePct": "63.4%"
+      "signups": 1142,
+      "otpVerified": 1129,
+      "serviceable": 722,
+      "serviceableWithPct": "722 (63.2%)",
+      "serviceablePct": "63.2%"
     },
     "refunds": {
       "count": 4,
