@@ -26730,18 +26730,37 @@
   },
   {
     "date": "2026-09-07",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
+    "totalRevenue": 10376,
+    "salesCount": 1,
+    "transactions": 1,
+    "highestSale": {
+      "amount": 10376,
+      "agent": "Vikas Poonia"
+    },
+    "agents": {
+      "Vikas Poonia": {
+        "revenue": 10376,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 10376,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Renewals": {
+        "revenue": 10376,
+        "count": 1
+      }
+    },
     "userBreakdown": {
-      "signups": 83,
-      "otpVerified": 82,
-      "serviceable": 53,
-      "serviceableWithPct": "53 (63.9%)",
-      "serviceablePct": "63.9%"
+      "signups": 402,
+      "otpVerified": 396,
+      "serviceable": 253,
+      "serviceableWithPct": "253 (62.9%)",
+      "serviceablePct": "62.9%"
     },
     "refundsLast7Days": {
       "total": 18058,
