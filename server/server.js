@@ -12,14 +12,16 @@
 require('dotenv').config();
 const express    = require('express');
 const path       = require('path');
-const fs         = require('fs');
-const nodemailer = require('nodemailer');
-const cron       = require('node-cron');
+const fs          = require('fs');
+const nodemailer  = require('nodemailer');
+const cron        = require('node-cron');
+const compression = require('compression');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
 /* ---------- Middleware ---------- */
+app.use(compression());
 app.use(express.json({ limit: '2mb' }));
 
 app.use((req, res, next) => {
@@ -39,7 +41,12 @@ const SMTP_USER = process.env.SMTP_USER || 'aman.soni@theelefant.ai';
 const SMTP_PASS = process.env.SMTP_PASS || '';
 const SMTP_FROM = process.env.SMTP_FROM || '"Aman Soni" <aman.soni@theelefant.ai>';
 
-const transporter = nodemailer.createTransport({
+const transporter = process.env.DISABLE_EMAIL === 'true' ? {
+  sendMail: async (options) => {
+    console.log('[DRY RUN] Would have sent email to:', options.to);
+    return { messageId: 'dry-run-id' };
+  }
+} : nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: SMTP_USER,
@@ -118,11 +125,22 @@ function buildEmailHTMLServer(allData) {
   const renewalCount = (today.sources?.Renewals?.count || 0) + (today.sources?.Upgrade?.count || 0);
   const renewalRev   = (today.sources?.Renewals?.revenue || 0) + (today.sources?.Upgrade?.revenue || 0);
 
-  // Sorted Agents
-  const sortedAgents = Object.entries(today.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
+  // Monthly Sorted Agents (MTD)
+  const mStr = today.date.slice(0, 7) + '-01';
+  const mData = allData.filter(d => d.date >= mStr && d.date <= today.date);
+  const monthAgentsMap = {};
+  mData.forEach(d => {
+    Object.entries(d.agents || {}).forEach(([name, info]) => {
+      if (!monthAgentsMap[name]) monthAgentsMap[name] = { revenue: 0, count: 0 };
+      monthAgentsMap[name].revenue += (info.revenue || 0);
+      monthAgentsMap[name].count += (info.count || 0);
+    });
+  });
+  const sortedAgents = Object.entries(monthAgentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
+  const monthRev = mData.reduce((s, d) => s + (d.totalRevenue || 0), 0);
   const topAgent = sortedAgents.length > 0 ? sortedAgents[0] : ['—', { revenue: 0, count: 0 }];
   const topAgentInitials = topAgent[0].split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-  const topAgentPct = todayRev > 0 ? ((topAgent[1].revenue / todayRev) * 100).toFixed(1) : 0;
+  const topAgentPct = monthRev > 0 ? ((topAgent[1].revenue / monthRev) * 100).toFixed(1) : 0;
 
   // Chart 1: Revenue Trend Line Chart
   const trendChartImg = quickChartURL({
@@ -428,9 +446,9 @@ function buildEmailHTMLServer(allData) {
       </table>
     </div>
 
-    <!-- ================= 5. TOP PERFORMING SALES AGENTS TODAY ================= -->
+    <!-- ================= 5. TOP PERFORMING SALES AGENTS THIS MONTH ================= -->
     <div style="padding:0 32px 28px;">
-      <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents Today</h2>
+      <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents (This Month)</h2>
       
       ${sortedAgents.length > 0 ? `
       <!-- Top Performer Spotlight Card -->
@@ -439,7 +457,7 @@ function buildEmailHTMLServer(allData) {
           <tr>
             <td style="vertical-align:middle;">
               <div style="display:inline-block;background:#b45309;color:#ffffff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">
-                👑 TOP PERFORMER OF THE DAY
+                👑 TOP PERFORMER OF THE MONTH
               </div>
               <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
                 <div style="width:44px;height:44px;background:#d97706;border-radius:50%;color:#ffffff;font-weight:800;font-size:16px;text-align:center;line-height:44px;border:2px solid #ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.15);position:relative;">
@@ -449,7 +467,7 @@ function buildEmailHTMLServer(allData) {
                 <div>
                   <h3 style="margin:0;font-size:19px;font-weight:900;color:#78350f;letter-spacing:-0.01em;">${topAgent[0]}</h3>
                   <div style="font-size:12px;color:#92400e;font-weight:600;margin-top:2px;">
-                    🎯 ${topAgent[1].count} deal${topAgent[1].count > 1 ? 's' : ''} closed • 📈 ${topAgentPct}% of today's revenue
+                    🎯 ${topAgent[1].count} deal${topAgent[1].count > 1 ? 's' : ''} closed • 📈 ${topAgentPct}% of this month's revenue
                   </div>
                 </div>
               </div>
@@ -716,29 +734,42 @@ try {
   console.error('⚠️ Could not schedule cron job:', cronErr.message);
 }
 
-/* ---------- Auto-Sync Cron: Refresh data every 30 minutes ---------- */
+/* ---------- Auto-Sync Cron: Refresh data every 30 minutes in background process ---------- */
 try {
-  cron.schedule('*/30 * * * *', async () => {
+  cron.schedule('*/30 * * * *', () => {
     const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-    console.log(`🔄 [${ts} IST] Auto-sync triggered — refreshing data.json...`);
-    try {
-      const { syncSalesData } = require('../scripts/sync_sheets');
-      const result = await syncSalesData();
+    console.log(`🔄 [${ts} IST] Auto-sync triggered in background process...`);
+    const { fork } = require('child_process');
+    const child = fork(path.join(__dirname, '..', 'scripts', 'sync_sheets.js'));
+    child.on('exit', (code) => {
       const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-      console.log(`✅ [${ts2} IST] Auto-sync complete — ${result.length} days updated.`);
-    } catch (syncErr) {
-      console.warn('⚠️ Auto-sync failed:', syncErr.message);
-    }
+      if (code === 0) {
+        console.log(`✅ [${ts2} IST] Auto-sync complete — data.json refreshed.`);
+      } else {
+        console.warn(`⚠️ [${ts2} IST] Auto-sync background process exited with code ${code}`);
+      }
+    });
   }, { timezone: 'Asia/Kolkata' });
 
-  console.log('🔄 Auto-sync scheduled: every 30 minutes (data.json will stay fresh)');
+  console.log('🔄 Auto-sync scheduled: every 30 minutes (non-blocking background process)');
 } catch (autoSyncErr) {
   console.error('⚠️ Could not schedule auto-sync:', autoSyncErr.message);
 }
 
 /* ---------- Start Server ---------- */
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`\n⚠️ Port ${PORT} is already in use by another running process.`);
+    console.error(`To free port ${PORT} on Windows, run in PowerShell:`);
+    console.error(`  Stop-Process -Id (Get-NetTCPConnection -LocalPort ${PORT}).OwningProcess -Force\n`);
+  } else {
+    console.error('Server error:', err);
+  }
+  process.exit(1);
 });
 
 module.exports = app;

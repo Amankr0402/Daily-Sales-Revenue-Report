@@ -87,10 +87,22 @@ async function sendDailyReport() {
   const renewalCount = (today.sources?.Renewals?.count || 0) + (today.sources?.Upgrade?.count || 0);
   const renewalRev   = (today.sources?.Renewals?.revenue || 0) + (today.sources?.Upgrade?.revenue || 0);
 
-  const sortedAgents = Object.entries(today.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
+  // Monthly Sorted Agents (MTD)
+  const mStr = today.date.slice(0, 7) + '-01';
+  const mData = allData.filter(d => d.date >= mStr && d.date <= today.date);
+  const monthAgentsMap = {};
+  mData.forEach(d => {
+    Object.entries(d.agents || {}).forEach(([name, info]) => {
+      if (!monthAgentsMap[name]) monthAgentsMap[name] = { revenue: 0, count: 0 };
+      monthAgentsMap[name].revenue += (info.revenue || 0);
+      monthAgentsMap[name].count += (info.count || 0);
+    });
+  });
+  const sortedAgents = Object.entries(monthAgentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
+  const monthRev = mData.reduce((s, d) => s + (d.totalRevenue || 0), 0);
   const topAgent = sortedAgents.length > 0 ? sortedAgents[0] : ['—', { revenue: 0, count: 0 }];
   const topAgentInitials = topAgent[0].split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-  const topAgentPct = todayRev > 0 ? ((topAgent[1].revenue / todayRev) * 100).toFixed(1) : 0;
+  const topAgentPct = monthRev > 0 ? ((topAgent[1].revenue / monthRev) * 100).toFixed(1) : 0;
 
   const trendChartImg = quickChartURL({
     type: 'line',
@@ -380,17 +392,18 @@ async function sendDailyReport() {
       </table>
     </div>
 
-    <!-- 5. TOP PERFORMERS -->
+    <!-- ================= 5. TOP PERFORMING SALES AGENTS THIS MONTH ================= -->
     <div style="padding:0 32px 28px;">
-      <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents Today</h2>
+      <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents (This Month)</h2>
       
       ${sortedAgents.length > 0 ? `
+      <!-- Top Performer Spotlight Card -->
       <div style="background:linear-gradient(135deg,#fef9c3 0%,#fef08a 50%,#fde047 100%);border:2px solid #f59e0b;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 4px 14px rgba(245,158,11,0.18);">
         <table style="width:100%;border-collapse:collapse;">
           <tr>
             <td style="vertical-align:middle;">
               <div style="display:inline-block;background:#b45309;color:#ffffff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">
-                👑 TOP PERFORMER OF THE DAY
+                👑 TOP PERFORMER OF THE MONTH
               </div>
               <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
                 <div style="width:44px;height:44px;background:#d97706;border-radius:50%;color:#ffffff;font-weight:800;font-size:16px;text-align:center;line-height:44px;border:2px solid #ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.15);position:relative;">
@@ -400,7 +413,7 @@ async function sendDailyReport() {
                 <div>
                   <h3 style="margin:0;font-size:19px;font-weight:900;color:#78350f;letter-spacing:-0.01em;">${topAgent[0]}</h3>
                   <div style="font-size:12px;color:#92400e;font-weight:600;margin-top:2px;">
-                    🎯 ${topAgent[1].count} deal${topAgent[1].count > 1 ? 's' : ''} closed • 📈 ${topAgentPct}% of today's revenue
+                    🎯 ${topAgent[1].count} deal${topAgent[1].count > 1 ? 's' : ''} closed • 📈 ${topAgentPct}% of this month's revenue
                   </div>
                 </div>
               </div>

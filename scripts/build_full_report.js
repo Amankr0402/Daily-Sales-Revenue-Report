@@ -95,6 +95,7 @@ async function runPipeline() {
     });
 
     console.log('📄 5. Generating PDF...');
+    await page.emulateMediaType('screen');
     const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true,

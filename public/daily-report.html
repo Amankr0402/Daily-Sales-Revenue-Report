@@ -1,23 +1,14 @@
-/**
- * Build script — generates public/daily-report.html
- * Run: node scripts/build_report.js
- */
-const fs = require('fs');
-const path = require('path');
-
-const OUT = path.join(__dirname, '..', 'public', 'daily-report.html');
-
-const html = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Sales Report \u2014 The Elefant</title>
+  <title>Daily Sales Report — The Elefant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="/vendor/chart.umd.min.js"><\/script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"><\/script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\/script>
+  <script src="/vendor/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -131,17 +122,17 @@ const html = `<!DOCTYPE html>
 <body>
 <div id="loading">
   <div class="loader"></div>
-  <div style="font-size:14px;color:#8896b3;font-weight:600;">Loading report data\u2026</div>
+  <div style="font-size:14px;color:#8896b3;font-weight:600;">Loading report data…</div>
 </div>
 
 <div class="rpt-header">
   <div>
-    <h1>\ud83d\udc4b Hi <span>Aman</span></h1>
+    <h1>👋 Hi <span>Aman</span></h1>
     <div class="header-meta" id="hdr-sub">Daily Sales &amp; Revenue Report</div>
   </div>
   <div class="header-right">
-    <div class="date-badge" id="hdr-date">\ud83d\udcc5 \u2014</div>
-    <button class="print-btn" onclick="window.print()">\ud83d\udda8\ufe0f Export as PDF</button>
+    <div class="date-badge" id="hdr-date">📅 —</div>
+    <button class="print-btn" onclick="window.print()">🖨️ Export as PDF</button>
   </div>
 </div>
 
@@ -149,33 +140,33 @@ const html = `<!DOCTYPE html>
 
   <!-- 1. REVENUE -->
   <div class="sec-gap" style="margin-top:32px">
-    <div class="sec-title">\ud83d\udcb0 Revenue \u2014 Till 11:59 PM Yesterday</div>
+    <div class="sec-title">💰 Revenue — Till 11:59 PM Yesterday</div>
     <div class="card green">
       <div class="kpi-lbl">Total Revenue Generated</div>
-      <div class="kpi-val green" id="total-rev">\u2014</div>
-      <div class="kpi-sub" id="total-rev-sub">\u2014</div>
+      <div class="kpi-val green" id="total-rev">—</div>
+      <div class="kpi-sub" id="total-rev-sub">—</div>
       <div class="src-grid" id="src-grid"></div>
     </div>
   </div>
 
   <!-- 2. DEALS + AOV + HIGHEST SALE -->
   <div class="sec-gap">
-    <div class="sec-title">\ud83e\udd1d Deals &amp; Averages</div>
+    <div class="sec-title">🤝 Deals &amp; Averages</div>
     <div class="grid g3">
       <div class="card blue">
         <div class="kpi-lbl">Deals Closed</div>
-        <div class="kpi-val blue" id="deals-closed">\u2014</div>
+        <div class="kpi-val blue" id="deals-closed">—</div>
         <div class="kpi-sub">Sales + Self-Subscription</div>
       </div>
       <div class="card cyan">
         <div class="kpi-lbl">Blended AOV</div>
-        <div class="kpi-val cyan" id="blended-aov">\u2014</div>
-        <div class="kpi-sub">Total Revenue \u00f7 Total Deals</div>
+        <div class="kpi-val cyan" id="blended-aov">—</div>
+        <div class="kpi-sub">Total Revenue ÷ Total Deals</div>
       </div>
       <div class="card gold">
-        <div class="kpi-lbl">\ud83c\udfc6 Highest Sale (Avg/Deal)</div>
-        <div class="kpi-val gold" id="highest-sale">\u2014</div>
-        <div class="kpi-sub" id="highest-sale-sub">\u2014</div>
+        <div class="kpi-lbl">🏆 Highest Sale (Avg/Deal)</div>
+        <div class="kpi-val gold" id="highest-sale">—</div>
+        <div class="kpi-sub" id="highest-sale-sub">—</div>
       </div>
     </div>
   </div>
@@ -203,22 +194,22 @@ const html = `<!DOCTYPE html>
 
   <!-- 5. PERIOD REVENUE -->
   <div class="sec-gap">
-    <div class="sec-title">\ud83d\udcc6 Period Revenue</div>
+    <div class="sec-title">📆 Period Revenue</div>
     <div class="grid g2">
       <div class="period-card">
-        <div class="period-ico">\ud83d\udcc5</div>
+        <div class="period-ico">📅</div>
         <div>
-          <div class="period-lbl">Revenue This Week (Sun\u2013Today)</div>
-          <div class="period-val green" id="rev-week">\u2014</div>
-          <div class="period-sub" id="rev-week-sub">\u2014</div>
+          <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+          <div class="period-val green" id="rev-week">—</div>
+          <div class="period-sub" id="rev-week-sub">—</div>
         </div>
       </div>
       <div class="period-card">
-        <div class="period-ico">\ud83d\uddd3\ufe0f</div>
+        <div class="period-ico">🗓️</div>
         <div>
-          <div class="period-lbl">Revenue This Month (1st\u2013Today)</div>
-          <div class="period-val blue" id="rev-month">\u2014</div>
-          <div class="period-sub" id="rev-month-sub">\u2014</div>
+          <div class="period-lbl">Revenue This Month (1st–Today)</div>
+          <div class="period-val blue" id="rev-month">—</div>
+          <div class="period-sub" id="rev-month-sub">—</div>
         </div>
       </div>
     </div>
@@ -226,7 +217,7 @@ const html = `<!DOCTYPE html>
 
   <!-- 6. PLAN DISTRIBUTION -->
   <div class="sec-gap">
-    <div class="sec-title">\ud83e\udd67 Plan Distribution \u2014 Yesterday</div>
+    <div class="sec-title">🥧 Plan Distribution — Yesterday</div>
     <div class="chart-card">
       <div class="chart-title">Plan Mix by Deals <span class="cbadge gold">By Volume</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center">
@@ -238,7 +229,7 @@ const html = `<!DOCTYPE html>
 
   <!-- 8. SERVICEABILITY -->
   <div class="sec-gap">
-    <div class="sec-title">\ud83d\udccd Serviceability \u2014 Last 7 Days</div>
+    <div class="sec-title">📍 Serviceability — Last 7 Days</div>
     <div class="grid" style="grid-template-columns:1fr 1fr;gap:14px">
       <div class="chart-card">
         <div class="chart-title">Serviceability % Trend <span class="cbadge green">7-Day</span></div>
@@ -324,7 +315,7 @@ const html = `<!DOCTYPE html>
 
   <!-- 8. SALES TREND -->
   <div class="sec-gap">
-    <div class="sec-title">\ud83d\udcc8 Sales Trend \u2014 Last 7 Days</div>
+    <div class="sec-title">📈 Sales Trend — Last 7 Days</div>
     <div class="chart-card">
       <div class="chart-title">Daily Revenue (Last 7 Days) <span class="cbadge">Bar Chart</span></div>
       <div style="position: relative; height: 320px; width: 100%;">
@@ -336,18 +327,18 @@ const html = `<!DOCTYPE html>
 
 
   <div style="text-align:center;padding:20px 0 0;font-size:12px;color:rgba(136,150,179,0.5);border-top:1px solid var(--border);margin-top:8px">
-    \ud83d\udc18 The Elefant \u2014 Automated Daily Sales Intelligence Report &nbsp;|&nbsp; Generated daily at 10:00 AM IST
+    🐘 The Elefant — Automated Daily Sales Intelligence Report &nbsp;|&nbsp; Generated daily at 10:00 AM IST
   </div>
 </div>
 
 <script>
-const fmt = n => '\u20b9' + Math.round(n||0).toLocaleString('en-IN');
-const fmtK = n => { n=Math.round(n||0); if(n>=100000) return '\u20b9'+(n/100000).toFixed(1)+'L'; if(n>=1000) return '\u20b9'+(n/1000).toFixed(1)+'K'; return '\u20b9'+n.toLocaleString('en-IN'); };
+const fmt = n => '₹' + Math.round(n||0).toLocaleString('en-IN');
+const fmtK = n => { n=Math.round(n||0); if(n>=100000) return '₹'+(n/100000).toFixed(1)+'L'; if(n>=1000) return '₹'+(n/1000).toFixed(1)+'K'; return '₹'+n.toLocaleString('en-IN'); };
 const sd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{month:'short',day:'numeric'});
 const fd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 const ini = n => n.split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
 const SRC_C = {Events:'#6366f1',Organic:'#10b981',Renewals:'#f59e0b',Upgrade:'#06b6d4','Self Subscription':'#8b5cf6'};
-const SRC_L = {Organic:'\ud83e\udd1d Inside Sales',Events:'\ud83c\udfa4 Events',Renewals:'\ud83d\udd04 Renewals',Upgrade:'\u2b06\ufe0f Upgrades','Self Subscription':'\ud83d\udcf1 Self Sub'};
+const SRC_L = {Organic:'🤝 Inside Sales',Events:'🎤 Events',Renewals:'🔄 Renewals',Upgrade:'⬆️ Upgrades','Self Subscription':'📱 Self Sub'};
 const PC = ['#6366f1','#10b981','#06b6d4','#f59e0b','#f43f5e','#8b5cf6','#fb923c'];
 
 async function init() {
@@ -356,7 +347,7 @@ async function init() {
     data.sort((a,b)=>a.date.localeCompare(b.date));
     const yd = data[data.length-1];
 
-    document.getElementById('hdr-date').textContent = '\ud83d\udcc5 ' + sd(yd.date) + ', ' + new Date(yd.date+'T00:00:00').getFullYear();
+    document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date+'T00:00:00').getFullYear();
     document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
 
     // Revenue
@@ -392,7 +383,7 @@ async function init() {
     const ags = dailyAg.map(([n,d])=>({n,d,avg:d.count>0?d.revenue/d.count:0})).sort((a,b)=>b.avg-a.avg);
     if(ags.length){
       document.getElementById('highest-sale').textContent = fmt(ags[0].avg);
-      document.getElementById('highest-sale-sub').textContent = ags[0].n + ' \u00b7 avg per deal';
+      document.getElementById('highest-sale-sub').textContent = ags[0].n + ' · avg per deal';
     }
 
     // Podium (Top 3 Agents of This Month)
@@ -440,10 +431,10 @@ async function init() {
     const wData = data.filter(d=>d.date>=sunStr&&d.date<=yd.date);
     const wRev = wData.reduce((s,d)=>s+(d.totalRevenue||0),0);
     document.getElementById('rev-week').textContent = fmt(wRev);
-    document.getElementById('rev-week-sub').textContent = sd(sunStr)+' \u2192 '+sd(yd.date)+' \u00b7 '+wData.length+' days \u00b7 '+wData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
+    document.getElementById('rev-week-sub').textContent = sd(sunStr)+' → '+sd(yd.date)+' · '+wData.length+' days · '+wData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
     const mRev = mData.reduce((s,d)=>s+(d.totalRevenue||0),0);
     document.getElementById('rev-month').textContent = fmt(mRev);
-    document.getElementById('rev-month-sub').textContent = sd(mStr)+' \u2192 '+sd(yd.date)+' \u00b7 '+mData.length+' days \u00b7 '+mData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
+    document.getElementById('rev-month-sub').textContent = sd(mStr)+' → '+sd(yd.date)+' · '+mData.length+' days · '+mData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
 
     // Plan pie
     const plans = yd.plans||{};
@@ -453,7 +444,7 @@ async function init() {
     const pTotal = pCounts.reduce((a,b)=>a+b,0);
     const pTotalR = pRevs.reduce((a,b)=>a+b,0);
     new Chart(document.getElementById('planChart'),{type:'doughnut',data:{labels:pLabels,datasets:[{data:pCounts,backgroundColor:PC.slice(0,pLabels.length),borderWidth:2,borderColor:'#0f1630',hoverOffset:6}]},options:{responsive:true,cutout:'62%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.label+': '+ctx.parsed+' ('+(pTotal>0?((ctx.parsed/pTotal)*100).toFixed(1):0)+'%)'}}}}});
-    document.getElementById('plan-tbl').innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px">Plan Breakdown</div>'+pLabels.map((p,i)=>'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:10px;height:10px;border-radius:2px;background:'+PC[i]+';flex-shrink:0"></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--text)">'+p+'</div><div style="font-size:11px;color:var(--muted)">'+plans[p].count+' deals \u00b7 '+fmt(plans[p].revenue)+'</div></div><div style="font-size:13px;font-weight:800;color:'+PC[i]+'">'+( pTotal>0?((plans[p].count/pTotal)*100).toFixed(1):0 )+'%</div></div>').join('')+'<div style="border-top:1px solid var(--border);padding-top:8px;display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span style="color:var(--muted)">Total</span><span style="color:var(--text)">'+pTotal+' deals \u00b7 '+fmt(pTotalR)+'</span></div>';
+    document.getElementById('plan-tbl').innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px">Plan Breakdown</div>'+pLabels.map((p,i)=>'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:10px;height:10px;border-radius:2px;background:'+PC[i]+';flex-shrink:0"></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--text)">'+p+'</div><div style="font-size:11px;color:var(--muted)">'+plans[p].count+' deals · '+fmt(plans[p].revenue)+'</div></div><div style="font-size:13px;font-weight:800;color:'+PC[i]+'">'+( pTotal>0?((plans[p].count/pTotal)*100).toFixed(1):0 )+'%</div></div>').join('')+'<div style="border-top:1px solid var(--border);padding-top:8px;display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span style="color:var(--muted)">Total</span><span style="color:var(--text)">'+pTotal+' deals · '+fmt(pTotalR)+'</span></div>';
 
     // Serviceability
     const todayISO = new Date().toISOString().split('T')[0];
@@ -528,7 +519,7 @@ async function init() {
           const k = Object.keys(ds).find(k => /confirmed/i.test(k));
           if (k && ds[k] !== undefined) return ds[k];
         }
-        if (/ready\s*to\s*ship/i.test(row)) {
+        if (/readys*tos*ship/i.test(row)) {
           const k = Object.keys(ds).find(k => /ready_to_ship|ready to ship/i.test(k));
           if (k && ds[k] !== undefined) return ds[k];
         }
@@ -577,13 +568,10 @@ async function init() {
       }).join('');
     }
   } catch(err) {
-    document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">\u26a0 Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';
+    document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">⚠ Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';
   }
 }
 init();
-<\/script>
+</script>
 </body>
-</html>`;
-
-fs.writeFileSync(OUT, html, 'utf8');
-console.log('SUCCESS: daily-report.html written to', OUT);
+</html>

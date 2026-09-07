@@ -20,6 +20,20 @@ const DELIVERY_FEE_CSV = path.join(__dirname, '..', 'data', 'delivery_fees.csv')
 const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv';
 const DIRECT_SALE_URL = 'https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv';
 const MISSED_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv';
+const APP_DOWNLOADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/739c97ae-ef79-4088-ac33-67c4b37ba6fd.csv';
+const TOTAL_ACTIVE_SUBS_URL = 'https://metabase-bkp.theelefant.ai/public/question/ef5cfe31-4213-43e8-8c8d-cbd876733e57.csv';
+const NEW_SUBS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/a0d790ad-d435-4424-b18d-603881c72f26.csv';
+const NEW_USERS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/40be1f89-570d-42b8-ab51-243e57425142.csv';
+const NEW_USERS_YESTERDAY_URL = 'https://metabase-bkp.theelefant.ai/public/question/2a2bb684-0dd7-4b90-91d1-9e3de228e1b4.csv';
+const TELECRM_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/30989a6b-c8d3-4e44-abc8-a03dbda8f55b.csv';
+const SUBS_ENDING_5D_URL = 'https://metabase-bkp.theelefant.ai/public/question/51b44f84-76a4-4940-b075-f8362e426e01.csv';
+const SUBS_EXPIRED_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/09dc0478-de41-4af1-982a-cfbb3a5c9cde.csv';
+const SUBS_EXPIRING_TODAY_URL = 'https://metabase-bkp.theelefant.ai/public/question/2597639d-fdb9-41b4-a6c4-d3e458f92e2b.csv';
+const PLAN_EXPIRING_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/question/03c0f1ba-e346-4d1d-aaf8-02efdf36d12c.csv';
+const PLAN_EXP_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/question/3a786b1a-8b6e-4856-9f18-60949bc19d58.csv';
+const ACTIVE_SUB_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/question/fb796af2-6ed7-4c79-b39f-94f48aca3966.csv';
+const NEW_USERS_DELIVERY_STATUS_URL = 'https://metabase-bkp.theelefant.ai/public/question/0b3450ef-d477-4a21-9038-73776a3904f4.csv';
+const ALL_NEW_USERS_ORDER_STATUS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d88a76c5-bbde-4300-9421-8d86f9180a0d.csv';
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -346,22 +360,22 @@ async function syncSalesData() {
     const deliveryCSV = await fetchURLWithRedirect(DELIVERY_FEE_METABASE_URL);
     const dLines = deliveryCSV.split('\n').map(l => l.trim()).filter(Boolean);
     let attachedCount = 0;
-    
+
     // Skip header row, parse each data row
     for (let i = 1; i < dLines.length; i++) {
       const dCols = parseCSVLine(dLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       if (dCols.length < 5) continue;
-      
+
       const dateKey = parseDate(dCols[0]);  // parse transaction_date
       if (!dateKey || dateKey.length !== 10) continue;
-      
+
       const deliveryFee = {
         transactions: parseInt(dCols[1], 10) || 0,
-        charge:       parseFloat(dCols[2]) || 0,
-        tax:          parseFloat(dCols[3]) || 0,
-        total:        parseFloat(dCols[4]) || 0
+        charge: parseFloat(dCols[2]) || 0,
+        tax: parseFloat(dCols[3]) || 0,
+        total: parseFloat(dCols[4]) || 0
       };
-      
+
       if (deliveryFee.total > 0 && recordsByDate[dateKey]) {
         recordsByDate[dateKey].deliveryFee = deliveryFee;
         console.log(`✅ Delivery fee attached to ${dateKey}: ₹${deliveryFee.total} (${deliveryFee.transactions} txns)`);
@@ -385,7 +399,7 @@ async function syncSalesData() {
         missedLeads[mCols[0]] = parseInt(mCols[1], 10) || 0;
       }
     }
-    
+
     // Attach to yesterday
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -486,6 +500,322 @@ async function syncSalesData() {
     if (!sortedDays[i].refunds) {
       sortedDays[i].refunds = { count: 0, total: 0, items: [] };
     }
+  }
+
+  function getTargetDays(days) {
+    const dates = new Set();
+    const d1 = new Date();
+    d1.setDate(d1.getDate() - 1);
+    dates.add(d1.toISOString().split('T')[0]);
+
+    const now = Date.now();
+    const ist = new Date(now + (5.5 * 60 * 60 * 1000));
+    ist.setDate(ist.getDate() - 1);
+    const y = ist.getUTCFullYear();
+    const m = String(ist.getUTCMonth() + 1).padStart(2, '0');
+    const d = String(ist.getUTCDate()).padStart(2, '0');
+    dates.add(`${y}-${m}-${d}`);
+
+    const withSales = days.filter(x => (x.salesCount || 0) > 0 || (x.totalRevenue || 0) > 0);
+    if (withSales.length > 0) {
+      dates.add(withSales[withSales.length - 1].date);
+    }
+
+    const targets = [];
+    for (const dt of dates) {
+      const found = days.find(x => x.date === dt);
+      if (found && !targets.includes(found)) targets.push(found);
+    }
+    if (targets.length === 0 && days.length > 0) {
+      targets.push(days[days.length - 1]);
+    }
+    return targets;
+  }
+
+  // Fetch New user in last 7 days (app downloads) — direct count from Metabase (40be1f89)
+  try {
+    console.log(`📱 Fetching New Users (7d, app downloads) from Metabase...`);
+    const nu7dCSV = await fetchURLWithRedirect(NEW_USERS_7D_URL);
+    const nu7dLines = nu7dCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (nu7dLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(nu7dLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const newUsers7d = parseInt(cols[0], 10);
+      if (!isNaN(newUsers7d)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.newUsers7d = newUsers7d;
+          console.log(`✅ New Users (7d, app downloads): ${newUsers7d} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (appErr) {
+    console.warn('⚠️ Warning: Could not process New Users (7d) from Metabase:', appErr.message);
+  }
+
+  // Fetch New user yesterday (app downloads) — direct count from Metabase (2a2bb684)
+  try {
+    console.log(`📱 Fetching New Users (yesterday, app downloads) from Metabase...`);
+    const nuYestCSV = await fetchURLWithRedirect(NEW_USERS_YESTERDAY_URL);
+    const nuYestLines = nuYestCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (nuYestLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(nuYestLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const newUsersYesterday = parseInt(cols[0], 10);
+      if (!isNaN(newUsersYesterday)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.newUsersYesterday = newUsersYesterday;
+          console.log(`✅ New Users (yesterday, app downloads): ${newUsersYesterday} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (appErr) {
+    console.warn('⚠️ Warning: Could not process New Users (yesterday) from Metabase:', appErr.message);
+  }
+
+  // Fetch Total Active Subscriptions from Metabase (ef5cfe31)
+  try {
+    console.log(`📡 Fetching Total Active Subscriptions from Metabase...`);
+    const activeSubsCSV = await fetchURLWithRedirect(TOTAL_ACTIVE_SUBS_URL);
+    const activeSubsLines = activeSubsCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (activeSubsLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(activeSubsLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const totalActiveSubs = parseInt(cols[0], 10);
+      if (!isNaN(totalActiveSubs)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.activeSubs = totalActiveSubs;
+          console.log(`✅ Total Active Subs: ${totalActiveSubs} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Total Active Subscriptions:', err.message);
+  }
+
+  // Fetch New Subscribers in last 7 days from Metabase (a0d790ad)
+  try {
+    console.log(`📡 Fetching New Subscribers (7d) from Metabase...`);
+    const newSubsCSV = await fetchURLWithRedirect(NEW_SUBS_7D_URL);
+    const newSubsLines = newSubsCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (newSubsLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(newSubsLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const newSubs7d = parseInt(cols[1], 10);
+      if (!isNaN(newSubs7d)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.newSubs7d = newSubs7d;
+          console.log(`✅ New Subs (7d): ${newSubs7d} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process New Subscribers (7d) from Metabase:', err.message);
+  }
+
+  // Fallback: calculate New Subscribers in last 7 days from verified sales data if not populated by Metabase
+  getTargetDays(sortedDays).forEach(targetDay => {
+    if (targetDay.newSubs7d === undefined) {
+      const l7 = sortedDays.filter(d => d.date <= targetDay.date).slice(-7);
+      const sum = l7.reduce((acc, d) => {
+        const sources = d.sources || {};
+        const newFromSources = Object.entries(sources).reduce((s, [src, val]) => {
+          if (!/renewal|upgrade/i.test(src)) return s + (val.count || 0);
+          return s;
+        }, 0);
+        return acc + newFromSources;
+      }, 0);
+      targetDay.newSubs7d = sum;
+      console.log(`ℹ️ New Subs (7d) calculated from sales data: ${sum} attached to ${targetDay.date}`);
+    }
+  });
+
+  // Fetch Total TeleCRM Leads Generated yesterday (30989a6b)
+  try {
+    console.log(`📞 Fetching TeleCRM Leads (yesterday) from Metabase...`);
+    const teleCrmCSV = await fetchURLWithRedirect(TELECRM_LEADS_URL);
+    const teleCrmLines = teleCrmCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (teleCrmLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(teleCrmLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const teleCrmLeads = parseInt(cols[0], 10);
+      if (!isNaN(teleCrmLeads)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.teleCrmLeads = teleCrmLeads;
+          console.log(`✅ TeleCRM Leads (yesterday): ${teleCrmLeads} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process TeleCRM Leads from Metabase:', err.message);
+  }
+
+  // Fetch Subscription ending in next 5 days (51b44f84)
+  try {
+    console.log(`📅 Fetching Subscriptions Ending (next 5d) from Metabase...`);
+    const subs5dCSV = await fetchURLWithRedirect(SUBS_ENDING_5D_URL);
+    const subs5dLines = subs5dCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (subs5dLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(subs5dLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const subsEnding5d = parseInt(cols[0], 10);
+      if (!isNaN(subsEnding5d)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.subsEnding5d = subsEnding5d;
+          console.log(`✅ Subs Ending (next 5d): ${subsEnding5d} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Subs Ending 5d from Metabase:', err.message);
+  }
+
+  // Fetch Subscription expired / cancelled in last 7 days (09dc0478)
+  try {
+    console.log(`📅 Fetching Subscriptions Expired/Cancelled (last 7d) from Metabase...`);
+    const subsExp7dCSV = await fetchURLWithRedirect(SUBS_EXPIRED_7D_URL);
+    const subsExp7dLines = subsExp7dCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (subsExp7dLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(subsExp7dLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const subsExpired7d = parseInt(cols[0], 10);
+      if (!isNaN(subsExpired7d)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.subsExpired7d = subsExpired7d;
+          console.log(`✅ Subs Expired/Cancelled (last 7d): ${subsExpired7d} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Subs Expired/Cancelled 7d from Metabase:', err.message);
+  }
+
+  // Fetch Subscription expiring today (2597639d)
+  try {
+    console.log(`📅 Fetching Subscriptions Expiring Today from Metabase...`);
+    const subsExpTodayCSV = await fetchURLWithRedirect(SUBS_EXPIRING_TODAY_URL);
+    const subsExpTodayLines = subsExpTodayCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (subsExpTodayLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(subsExpTodayLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const subsExpiringToday = parseInt(cols[0], 10);
+      if (!isNaN(subsExpiringToday)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.subsExpiringToday = subsExpiringToday;
+          console.log(`✅ Subs Expiring Today: ${subsExpiringToday} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Subs Expiring Today from Metabase:', err.message);
+  }
+
+  // Fetch Plan expiring and not placed a single order (03c0f1ba)
+  try {
+    console.log(`📦 Fetching Plan Expiring No Order from Metabase...`);
+    const planExpCSV = await fetchURLWithRedirect(PLAN_EXPIRING_NO_ORDER_URL);
+    const planExpLines = planExpCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (planExpLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(planExpLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const planExpiringNoOrder = parseInt(cols[0], 10);
+      if (!isNaN(planExpiringNoOrder)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.planExpiringNoOrder = planExpiringNoOrder;
+          console.log(`✅ Plan Expiring No Order: ${planExpiringNoOrder} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Plan Expiring No Order from Metabase:', err.message);
+  }
+
+  // Fetch Plan expired and not a single order placed (3a786b1a)
+  try {
+    console.log(`📦 Fetching Plan Expired No Order from Metabase...`);
+    const planExpNoOrdCSV = await fetchURLWithRedirect(PLAN_EXP_NO_ORDER_URL);
+    const planExpNoOrdLines = planExpNoOrdCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (planExpNoOrdLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(planExpNoOrdLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const planExpNoOrder = parseInt(cols[0], 10);
+      if (!isNaN(planExpNoOrder)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.planExpNoOrder = planExpNoOrder;
+          console.log(`✅ Plan Expired No Order: ${planExpNoOrder} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Plan Expired No Order from Metabase:', err.message);
+  }
+
+  // Fetch Active subscriber & no orders placed yet (fb796af2)
+  try {
+    console.log(`📦 Fetching Active Sub No Order from Metabase...`);
+    const actSubNoOrdCSV = await fetchURLWithRedirect(ACTIVE_SUB_NO_ORDER_URL);
+    const actSubNoOrdLines = actSubNoOrdCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (actSubNoOrdLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(actSubNoOrdLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const activeSubNoOrder = parseInt(cols[0], 10);
+      if (!isNaN(activeSubNoOrder)) {
+        getTargetDays(sortedDays).forEach(targetDay => {
+          targetDay.activeSubNoOrder = activeSubNoOrder;
+          console.log(`✅ Active Sub No Order: ${activeSubNoOrder} attached to ${targetDay.date}`);
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process Active Sub No Order from Metabase:', err.message);
+  }
+
+  // Fetch New Users Delivery Status (0b3450ef)
+  try {
+    console.log(`🚚 Fetching New Users Delivery Status from Metabase...`);
+    const delivCSV = await fetchURLWithRedirect(NEW_USERS_DELIVERY_STATUS_URL);
+    const delivLines = delivCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (delivLines.length > 1 && sortedDays.length > 0) {
+      const deliveryStatus = {};
+      for (let i = 1; i < delivLines.length; i++) {
+        const parts = parseCSVLine(delivLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
+        if (parts.length >= 2) {
+          const rowName = parts[0];
+          const count = parseInt(parts[1], 10);
+          const val = isNaN(count) ? 0 : count;
+          deliveryStatus[rowName] = val;
+
+          if (/placed/i.test(rowName)) deliveryStatus['Orders Placed'] = val;
+          if (/confirmed/i.test(rowName)) deliveryStatus['Orders Confirmed'] = val;
+          if (/ready_to_ship|ready to ship/i.test(rowName)) deliveryStatus['Orders Ready to Ship'] = val;
+          if (/shipped/i.test(rowName) && !/ready/i.test(rowName)) deliveryStatus['Orders Shipped'] = val;
+        }
+      }
+      if (deliveryStatus['Orders Not Delivered'] === undefined) {
+        deliveryStatus['Orders Not Delivered'] = (deliveryStatus['Orders Placed'] || 0) +
+          (deliveryStatus['Orders Confirmed'] || 0) +
+          (deliveryStatus['Orders Ready to Ship'] || 0) +
+          (deliveryStatus['Orders Shipped'] || 0);
+      }
+      getTargetDays(sortedDays).forEach(targetDay => {
+        targetDay.newUsersDeliveryStatus = deliveryStatus;
+        console.log(`✅ New Users Delivery Status attached to ${targetDay.date}:`, JSON.stringify(deliveryStatus));
+      });
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process New Users Delivery Status from Metabase:', err.message);
+  }
+
+  // Fetch User Order and Delivery Status of all New Users (d88a76c5)
+  try {
+    console.log(`📦 Fetching User Order and Delivery Status of all New Users from Metabase...`);
+    const allNuCSV = await fetchURLWithRedirect(ALL_NEW_USERS_ORDER_STATUS_URL);
+    const allNuLines = allNuCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (allNuLines.length > 1 && sortedDays.length > 0) {
+      const orderStatus = {};
+      for (let i = 1; i < allNuLines.length; i++) {
+        const parts = parseCSVLine(allNuLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
+        if (parts.length >= 2) {
+          const rowName = parts[0];
+          const count = parseInt(parts[1], 10);
+          orderStatus[rowName] = isNaN(count) ? 0 : count;
+        }
+      }
+      getTargetDays(sortedDays).forEach(targetDay => {
+        targetDay.allNewUsersOrderStatus = orderStatus;
+        console.log(`✅ All New Users Order Status attached to ${targetDay.date}:`, JSON.stringify(orderStatus));
+      });
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not process All New Users Order Status from Metabase:', err.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

@@ -26411,8 +26411,8 @@
     "userBreakdown": {
       "signups": 1640,
       "otpVerified": 1616,
-      "serviceable": 1028,
-      "serviceableWithPct": "1,028 (62.7%)",
+      "serviceable": 1029,
+      "serviceableWithPct": "1,029 (62.7%)",
       "serviceablePct": "62.7%"
     },
     "deliveryFee": {
@@ -26552,10 +26552,10 @@
     },
     "userBreakdown": {
       "signups": 1520,
-      "otpVerified": 1500,
-      "serviceable": 975,
-      "serviceableWithPct": "975 (64.1%)",
-      "serviceablePct": "64.1%"
+      "otpVerified": 1501,
+      "serviceable": 976,
+      "serviceableWithPct": "976 (64.2%)",
+      "serviceablePct": "64.2%"
     },
     "deliveryFee": {
       "transactions": 4,
@@ -26706,9 +26706,9 @@
       "total": 472
     },
     "missedLeads": {
-      "Connected": 468,
-      "Interested": 266,
-      "Paise Dega": 49
+      "Connected": 462,
+      "Interested": 257,
+      "Paise Dega": 41
     },
     "refunds": {
       "count": 1,
@@ -26726,31 +26726,169 @@
     "refundsLast7Days": {
       "total": 18058,
       "count": 3
+    },
+    "newUsers7d": 11930,
+    "newUsersYesterday": 1706,
+    "activeSubs": 4673,
+    "newSubs7d": 156,
+    "teleCrmLeads": 2076,
+    "subsEnding5d": 79,
+    "subsExpired7d": 99,
+    "subsExpiringToday": 16,
+    "planExpiringNoOrder": 0,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 116,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 28,
+      "Orders Placed": 28,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
+      "Orders - READY_TO_SHIP": 4,
+      "Orders Ready to Ship": 4,
+      "Orders - SHIPPED": 18,
+      "Orders Shipped": 18,
+      "Orders - Not Delivered": 77,
+      "Orders Not Delivered": 77
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 136,
+      "New Subscribers Orders that have been Delivered": 59,
+      "New Subscribers Orders yet to be Delivered": 77,
+      "New Subscribers Orders yet to be Delivered & Delayed": 21
     }
   },
   {
     "date": "2026-09-07",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
-    "userBreakdown": {
-      "signups": 83,
-      "otpVerified": 82,
-      "serviceable": 53,
-      "serviceableWithPct": "53 (63.9%)",
-      "serviceablePct": "63.9%"
+    "totalRevenue": 62128,
+    "salesCount": 7,
+    "transactions": 7,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Vivek Shah"
     },
-    "refundsLast7Days": {
-      "total": 18058,
-      "count": 3
+    "agents": {
+      "Vikas Poonia": {
+        "revenue": 10376,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 10376,
+        "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Sneha Anand": {
+        "revenue": 4000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 54968,
+        "count": 5
+      },
+      "Quarterly Max": {
+        "revenue": 4000,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Renewals": {
+        "revenue": 24752,
+        "count": 3
+      },
+      "Organic": {
+        "revenue": 34216,
+        "count": 3
+      },
+      "Direct Sale": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 585,
+      "otpVerified": 578,
+      "serviceable": 372,
+      "serviceableWithPct": "372 (63.6%)",
+      "serviceablePct": "63.6%"
     },
     "refunds": {
-      "count": 0,
-      "total": 0,
-      "items": []
+      "count": 4,
+      "total": 41267,
+      "items": [
+        {
+          "refundId": "rfnd_TZ2mJ0r9n5R5bI",
+          "paymentId": "pay_T6eMUK0FxI8jiX",
+          "amount": 11000,
+          "status": "processed",
+          "date": "07/09/2026 11:43:20"
+        },
+        {
+          "refundId": "rfnd_TZ2uyI0QPK5eHI",
+          "paymentId": "pay_SyQfz5Wb0rIDCg",
+          "amount": 8245,
+          "status": "processed",
+          "date": "07/09/2026 11:51:32"
+        },
+        {
+          "refundId": "rfnd_TZ2yDbnv47WEgh",
+          "paymentId": "pay_T33zmmKN5zITae",
+          "amount": 11000,
+          "status": "processed",
+          "date": "07/09/2026 11:54:37"
+        },
+        {
+          "refundId": "rfnd_TZ32xgc8WleAcU",
+          "paymentId": "pay_Sso3RRaGwh0v8y",
+          "amount": 11022,
+          "status": "processed",
+          "date": "07/09/2026 11:59:06"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 59325,
+      "count": 7
+    },
+    "newUsers7d": 11930,
+    "newUsersYesterday": 1706,
+    "activeSubs": 4673,
+    "newSubs7d": 141,
+    "teleCrmLeads": 2076,
+    "subsEnding5d": 79,
+    "subsExpired7d": 99,
+    "subsExpiringToday": 16,
+    "planExpiringNoOrder": 0,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 116,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 28,
+      "Orders Placed": 28,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
+      "Orders - READY_TO_SHIP": 4,
+      "Orders Ready to Ship": 4,
+      "Orders - SHIPPED": 18,
+      "Orders Shipped": 18,
+      "Orders - Not Delivered": 77,
+      "Orders Not Delivered": 77
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 136,
+      "New Subscribers Orders that have been Delivered": 59,
+      "New Subscribers Orders yet to be Delivered": 77,
+      "New Subscribers Orders yet to be Delivered & Delayed": 21
     }
   }
 ]
