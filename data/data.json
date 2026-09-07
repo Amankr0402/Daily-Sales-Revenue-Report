@@ -26881,11 +26881,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 27,
-      "otpVerified": 27,
-      "serviceable": 15,
-      "serviceableWithPct": "15 (55.6%)",
-      "serviceablePct": "55.6%"
+      "signups": 52,
+      "otpVerified": 51,
+      "serviceable": 34,
+      "serviceableWithPct": "34 (65.4%)",
+      "serviceablePct": "65.4%"
     },
     "refundsLast7Days": {
       "total": 59443,
