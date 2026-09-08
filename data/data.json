@@ -23677,9 +23677,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 314073,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 336073,
+    "salesCount": 35,
+    "transactions": 35,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta"
@@ -23690,8 +23690,8 @@
         "count": 4
       },
       "Honey Talreja": {
-        "revenue": 35200,
-        "count": 4
+        "revenue": 46200,
+        "count": 5
       },
       "Vikas Poonia": {
         "revenue": 47376,
@@ -23740,12 +23740,16 @@
       "Prerak Bhavsar": {
         "revenue": 11000,
         "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 241135,
-        "count": 22
+        "revenue": 263135,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 18500,
@@ -23758,8 +23762,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180467,
-        "count": 19
+        "revenue": 202467,
+        "count": 21
       },
       "Events": {
         "revenue": 47376,
@@ -26397,10 +26401,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1640,
-      "otpVerified": 1616,
-      "serviceable": 1029,
-      "serviceableWithPct": "1,029 (62.7%)",
+      "signups": 1639,
+      "otpVerified": 1615,
+      "serviceable": 1028,
+      "serviceableWithPct": "1,028 (62.7%)",
       "serviceablePct": "62.7%"
     },
     "deliveryFee": {
@@ -26718,7 +26722,7 @@
     "transactions": 18,
     "highestSale": {
       "amount": 13073,
-      "agent": "Aparnna"
+      "agent": "Aparnna Mohanarengan"
     },
     "agents": {
       "Vikas Poonia": {
@@ -26805,9 +26809,9 @@
     "userBreakdown": {
       "signups": 1257,
       "otpVerified": 1242,
-      "serviceable": 800,
-      "serviceableWithPct": "800 (63.6%)",
-      "serviceablePct": "63.6%"
+      "serviceable": 801,
+      "serviceableWithPct": "801 (63.7%)",
+      "serviceablePct": "63.7%"
     },
     "deliveryFee": {
       "transactions": 6,
@@ -26816,9 +26820,9 @@
       "total": 708
     },
     "missedLeads": {
-      "Connected": 472,
+      "Connected": 475,
       "Interested": 287,
-      "Paise Dega": 43
+      "Paise Dega": 42
     },
     "refunds": {
       "count": 5,
@@ -26875,11 +26879,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 66,
-      "otpVerified": 65,
-      "serviceable": 45,
-      "serviceableWithPct": "45 (68.2%)",
-      "serviceablePct": "68.2%"
+      "signups": 335,
+      "otpVerified": 330,
+      "serviceable": 226,
+      "serviceableWithPct": "226 (67.5%)",
+      "serviceablePct": "67.5%"
     },
     "refundsLast7Days": {
       "total": 59443,
