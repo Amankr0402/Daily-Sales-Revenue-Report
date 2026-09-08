@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total Active Subscriptions — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1280px) {
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .kpi-card.interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
+    }
+
+    .time-pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .time-pill {
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .time-pill:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .time-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25);
+    }
+
+    .time-pill .pill-badge {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .time-pill.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .filter-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .clear-filter-btn {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .clear-filter-btn:hover {
+      background: #dbeafe;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(91, 62, 155, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .select-input {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Table Container */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    thead th {
+      background: #5b3e9b;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 14px 16px;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-active {
+      background: var(--green-light);
+      color: #059669;
+    }
+
+    .badge-method {
+      background: rgba(91, 62, 155, 0.1);
+      color: var(--primary);
+    }
+
+    .badge-type {
+      background: rgba(59, 130, 246, 0.1);
+      color: #2563eb;
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Loading Overlay */
+    .loading-container {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 14px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .json-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>📦 Total Active Subscriptions as on date</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid">
+      <div class="kpi-card interactive" id="card-all" onclick="setTimeframe('all')" style="cursor:pointer;" title="Click to view all active subscriptions">
+        <div class="kpi-label">Total Active Subscriptions</div>
+        <div class="kpi-value" id="stat-total">—</div>
+        <div class="kpi-sub">Total active customer records</div>
+      </div>
+      <div class="kpi-card interactive" id="card-new-7d" onclick="setTimeframe('last7days')" style="cursor:pointer; border-left: 4px solid #10b981;" title="Click to view subscribers joined in the last 7 days">
+        <div class="kpi-label" style="display:flex;align-items:center;justify-content:space-between;">
+          <span>New in Last 7 Days</span>
+          <span style="font-size:9.5px;background:#ecfdf5;color:#059669;padding:2px 6px;border-radius:6px;font-weight:800;">⚡ CLICK TO FILTER</span>
+        </div>
+        <div class="kpi-value" id="stat-new-7d" style="color:#059669;">—</div>
+        <div class="kpi-sub" id="stat-new-7d-sub">Joined in the last 7 days</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Subscription Value</div>
+        <div class="kpi-value" id="stat-rev">—</div>
+        <div class="kpi-sub">Sum of all active plan prices</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Top Payment Method</div>
+        <div class="kpi-value" id="stat-method" style="font-size: 20px; color:#0f172a;">—</div>
+        <div class="kpi-sub" id="stat-method-sub">—</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Average Active Plan Price</div>
+        <div class="kpi-value" id="stat-avg">—</div>
+        <div class="kpi-sub">Blended average price per active plan</div>
+      </div>
+    </section>
+
+    <!-- Quick Timeframe Filter Pills -->
+    <div class="time-pills-bar">
+      <span style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:6px;">Filter By:</span>
+      <button class="time-pill active" id="pill-all" onclick="setTimeframe('all')">
+        All Active <span class="pill-badge" id="badge-count-all">0</span>
+      </button>
+      <button class="time-pill" id="pill-last7days" onclick="setTimeframe('last7days')">
+        ⚡ Joined in Last 7 Days <span class="pill-badge" id="badge-count-7d">0</span>
+      </button>
+      <button class="time-pill" id="pill-created7days" onclick="setTimeframe('created7days')">
+        🗓️ Created in Last 7 Days <span class="pill-badge" id="badge-count-created-7d">0</span>
+      </button>
+      <button class="time-pill" id="pill-last30days" onclick="setTimeframe('last30days')">
+        📅 Last 30 Days <span class="pill-badge" id="badge-count-30d">0</span>
+      </button>
+    </div>
+
+    <!-- Active Filter Notice Banner (Shown when a timeframe filter is applied) -->
+    <div id="active-filter-banner" class="filter-banner" style="display:none;">
+      <div id="active-filter-text">Showing subscribers joined in the last 7 days</div>
+      <button class="clear-filter-btn" onclick="setTimeframe('all')">✕ Reset Filter</button>
+    </div>
+
+    <!-- Controls Row -->
+    <section class="controls-card">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by User ID, Phone/Txn ID, Plan, Method, or Notes..." />
+      </div>
+      <div class="filter-group">
+        <select id="filter-method" class="select-input">
+          <option value="">All Payment Methods</option>
+        </select>
+        <select id="filter-type" class="select-input">
+          <option value="">All Types</option>
+        </select>
+        <select id="page-size" class="select-input">
+          <option value="25">25 per page</option>
+          <option value="50" selected>50 per page</option>
+          <option value="100">100 per page</option>
+          <option value="250">250 per page</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Table Card -->
+    <section class="table-card">
+      <div id="loading-state" class="loading-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Active Subscriptions Data...</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Fetching live Metabase query records</div>
+      </div>
+
+      <div class="table-responsive" id="table-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">#</th>
+              <th>User ID / Phone</th>
+              <th>Price</th>
+              <th>Started At</th>
+              <th>Expires At</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th>Type</th>
+              <th>Notes / Feature Info</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="subs-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-bar" id="pagination-container" style="display: none;">
+        <div id="pagination-info">Showing 0 to 0 of 0 entries</div>
+        <div class="page-nav" id="pagination-buttons">
+          <!-- Page buttons -->
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Subscription Details</div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    const CSV_URL = '/api/active-subscriptions-csv';
+    const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv';
+
+    let allRows = [];
+    let filteredRows = [];
+    let currentPage = 1;
+    let pageSize = 50;
+
+    // RFC-compliant CSV line parser handling embedded quotes, commas, and multiline JSON
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            field += '"';
+            i++; // skip escaped quote
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push(field.trim());
+          field = '';
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          row.push(field.trim());
+          if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+            rows.push(row);
+          }
+          row = [];
+          field = '';
+        } else {
+          field += c;
+        }
+      }
+      if (field.length > 0 || row.length > 0) {
+        row.push(field.trim());
+        if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+          rows.push(row);
+        }
+      }
+      return rows;
+    }
+
+    const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
+    const formatDate = str => {
+      if (!str) return '-';
+      try {
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return str;
+        return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+      } catch (e) {
+        return str;
+      }
+    };
+
+    async function loadData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('table-container').style.display = 'none';
+      document.getElementById('pagination-container').style.display = 'none';
+
+      try {
+        let csvText = '';
+        const url = forceRefresh ? `${CSV_URL}?refresh=true` : CSV_URL;
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            csvText = await res.text();
+          }
+        } catch (err) {
+          console.warn('API endpoint fetch failed, falling back to direct URL:', err);
+        }
+
+        if (!csvText || csvText.length < 50) {
+          const fallbackRes = await fetch(FALLBACK_DIRECT_URL);
+          csvText = await fallbackRes.text();
+        }
+
+        const rawRows = parseCSV(csvText);
+        if (!rawRows || rawRows.length < 2) {
+          throw new Error('No subscription records found in CSV file.');
+        }
+
+        const headers = rawRows[0].map(h => h.toLowerCase().trim());
+        const idIdx = headers.indexOf('id');
+        const userIdx = headers.indexOf('user_id');
+        const txnIdx = headers.indexOf('transaction_id');
+        const priceIdx = headers.indexOf('price');
+        const startIdx = headers.indexOf('started_at');
+        const createdIdx = headers.indexOf('created_at');
+        const expireIdx = headers.indexOf('expire_at');
+        const statusIdx = headers.indexOf('status');
+        const methodIdx = headers.indexOf('method');
+        const typeIdx = headers.indexOf('type');
+        const metaIdx = headers.indexOf('meta_data');
+        const featuresIdx = headers.indexOf('subscription_features');
+
+        allRows = [];
+        for (let i = 1; i < rawRows.length; i++) {
+          const r = rawRows[i];
+          if (!r || r.length < 3) continue;
+
+          let metaObj = {};
+          try {
+            if (metaIdx !== -1 && r[metaIdx]) {
+              metaObj = JSON.parse(r[metaIdx]);
+            }
+          } catch (e) {}
+
+          allRows.push({
+            id: r[idIdx] || '',
+            userId: r[userIdx] || '',
+            transactionId: r[txnIdx] || '',
+            price: parseFloat(r[priceIdx]) || 0,
+            startedAt: r[startIdx] || '',
+            createdAt: createdIdx !== -1 ? (r[createdIdx] || '') : '',
+            expireAt: r[expireIdx] || '',
+            status: r[statusIdx] || 'ACTIVE',
+            method: r[methodIdx] || 'unspecified',
+            type: r[typeIdx] || 'ASSIGNED',
+            note: metaObj.note || '',
+            meta: metaObj,
+            features: r[featuresIdx] || '',
+            raw: r
+          });
+        }
+
+        // Calculate reference date for Last 7 Days & Last 30 Days
+        let maxStartedTime = 0;
+        allRows.forEach(r => {
+          if (r.startedAt) {
+            const t = new Date(r.startedAt).getTime();
+            if (!isNaN(t) && t > maxStartedTime) maxStartedTime = t;
+          }
+        });
+        if (maxStartedTime === 0) maxStartedTime = Date.now();
+        const maxStartedDate = new Date(maxStartedTime);
+        const sevenDaysAgo = new Date(maxStartedTime - 6 * 24 * 60 * 60 * 1000);
+        const thirtyDaysAgo = new Date(maxStartedTime - 29 * 24 * 60 * 60 * 1000);
+
+        const sevenDaysAgoStr = sevenDaysAgo.toISOString().substring(0, 10);
+        const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().substring(0, 10);
+        const maxStartedStr = maxStartedDate.toISOString().substring(0, 10);
+
+        window.timeframeRanges = {
+          sevenDaysAgoStr,
+          thirtyDaysAgoStr,
+          maxStartedStr
+        };
+
+        // Tag each row for fast filtering
+        allRows.forEach(r => {
+          const sDate = (r.startedAt || '').substring(0, 10);
+          const cDate = (r.createdAt || '').substring(0, 10);
+          r.isLast7DaysStarted = (sDate >= sevenDaysAgoStr && sDate <= maxStartedStr);
+          r.isLast7DaysCreated = (cDate >= sevenDaysAgoStr && cDate <= maxStartedStr);
+          r.isLast30Days = (sDate >= thirtyDaysAgoStr && sDate <= maxStartedStr);
+        });
+
+        populateFilterDropdowns();
+        renderSummaryKPIs();
+        checkUrlParams();
+        applyFilters();
+
+        document.getElementById('loading-state').style.display = 'none';
+        document.getElementById('table-container').style.display = 'block';
+        document.getElementById('pagination-container').style.display = 'flex';
+      } catch (err) {
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color:#f43f5e;font-size:16px;font-weight:800;margin-bottom:8px">⚠️ Could not load Active Subscriptions</div>
+          <div style="color:var(--muted);font-size:13px">${err.message}</div>
+          <button class="btn btn-primary" style="margin-top:16px" onclick="loadData(true)">Retry</button>
+        `;
+      }
+    }
+
+    let currentTimeframe = 'all';
+
+    function setTimeframe(tf) {
+      currentTimeframe = tf;
+      document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`pill-${tf}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const banner = document.getElementById('active-filter-banner');
+      const bannerText = document.getElementById('active-filter-text');
+      const ranges = window.timeframeRanges || {};
+
+      if (tf === 'all') {
+        banner.style.display = 'none';
+      } else if (tf === 'last7days') {
+        banner.style.display = 'flex';
+        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-7d').textContent}</strong> subscribers who joined in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+      } else if (tf === 'created7days') {
+        banner.style.display = 'flex';
+        bannerText.innerHTML = `🗓️ <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-created-7d').textContent}</strong> subscriptions created in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+      } else if (tf === 'last30days') {
+        banner.style.display = 'flex';
+        bannerText.innerHTML = `📅 <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-30d').textContent}</strong> subscriptions from the last 30 days`;
+      }
+
+      applyFilters();
+    }
+
+    function checkUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const f = (params.get('filter') || params.get('timeframe') || '').toLowerCase();
+      if (f === 'last7days' || f === 'new7d' || f === '7d' || f === 'new') {
+        currentTimeframe = 'last7days';
+        document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById('pill-last7days');
+        if (activeBtn) activeBtn.classList.add('active');
+        const banner = document.getElementById('active-filter-banner');
+        const bannerText = document.getElementById('active-filter-text');
+        const ranges = window.timeframeRanges || {};
+        banner.style.display = 'flex';
+        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing subscribers joined in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+      } else if (f === 'created7days') {
+        currentTimeframe = 'created7days';
+        document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById('pill-created7days');
+        if (activeBtn) activeBtn.classList.add('active');
+        const banner = document.getElementById('active-filter-banner');
+        const bannerText = document.getElementById('active-filter-text');
+        const ranges = window.timeframeRanges || {};
+        banner.style.display = 'flex';
+        bannerText.innerHTML = `🗓️ <strong>Filtered:</strong> Showing subscriptions created in the last 7 days`;
+      }
+    }
+
+    function renderSummaryKPIs() {
+      const totalCount = allRows.length;
+      const totalRev = allRows.reduce((s, r) => s + r.price, 0);
+      const avgPrice = totalCount > 0 ? totalRev / totalCount : 0;
+
+      const count7d = allRows.filter(r => r.isLast7DaysStarted).length;
+      const countCreated7d = allRows.filter(r => r.isLast7DaysCreated).length;
+      const count30d = allRows.filter(r => r.isLast30Days).length;
+
+      // Top payment method
+      const methodCounts = {};
+      allRows.forEach(r => {
+        const m = r.method || 'other';
+        methodCounts[m] = (methodCounts[m] || 0) + 1;
+      });
+      const sortedMethods = Object.entries(methodCounts).sort((a, b) => b[1] - a[1]);
+      const topMethod = sortedMethods.length > 0 ? sortedMethods[0] : ['-', 0];
+
+      document.getElementById('stat-total').textContent = totalCount.toLocaleString('en-IN');
+      document.getElementById('stat-new-7d').textContent = count7d.toLocaleString('en-IN');
+      document.getElementById('stat-rev').textContent = fmt(totalRev);
+      document.getElementById('stat-avg').textContent = fmt(avgPrice);
+      document.getElementById('stat-method').textContent = (topMethod[0].toUpperCase()) + ` (${topMethod[1]})`;
+      document.getElementById('stat-method-sub').textContent = `${((topMethod[1] / totalCount) * 100).toFixed(1)}% of all transactions`;
+
+      // Update badge counts on pill buttons
+      document.getElementById('badge-count-all').textContent = totalCount.toLocaleString('en-IN');
+      document.getElementById('badge-count-7d').textContent = count7d.toLocaleString('en-IN');
+      document.getElementById('badge-count-created-7d').textContent = countCreated7d.toLocaleString('en-IN');
+      document.getElementById('badge-count-30d').textContent = count30d.toLocaleString('en-IN');
+    }
+
+    function populateFilterDropdowns() {
+      const methods = new Set();
+      const types = new Set();
+
+      allRows.forEach(r => {
+        if (r.method) methods.add(r.method);
+        if (r.type) types.add(r.type);
+      });
+
+      const methodSelect = document.getElementById('filter-method');
+      methodSelect.innerHTML = '<option value="">All Payment Methods</option>';
+      Array.from(methods).sort().forEach(m => {
+        methodSelect.innerHTML += `<option value="${m}">${m.toUpperCase()}</option>`;
+      });
+
+      const typeSelect = document.getElementById('filter-type');
+      typeSelect.innerHTML = '<option value="">All Types</option>';
+      Array.from(types).sort().forEach(t => {
+        typeSelect.innerHTML += `<option value="${t}">${t.toUpperCase()}</option>`;
+      });
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      const selectedMethod = document.getElementById('filter-method').value.toLowerCase();
+      const selectedType = document.getElementById('filter-type').value.toLowerCase();
+
+      filteredRows = allRows.filter(r => {
+        if (currentTimeframe === 'last7days' && !r.isLast7DaysStarted) return false;
+        if (currentTimeframe === 'created7days' && !r.isLast7DaysCreated) return false;
+        if (currentTimeframe === 'last30days' && !r.isLast30Days) return false;
+
+        if (selectedMethod && (r.method || '').toLowerCase() !== selectedMethod) return false;
+        if (selectedType && (r.type || '').toLowerCase() !== selectedType) return false;
+
+        if (q) {
+          const matchSearch = (
+            (r.userId && r.userId.toLowerCase().includes(q)) ||
+            (r.transactionId && r.transactionId.toLowerCase().includes(q)) ||
+            (r.method && r.method.toLowerCase().includes(q)) ||
+            (r.type && r.type.toLowerCase().includes(q)) ||
+            (r.note && r.note.toLowerCase().includes(q)) ||
+            (r.status && r.status.toLowerCase().includes(q))
+          );
+          if (!matchSearch) return false;
+        }
+
+        return true;
+      });
+
+      currentPage = 1;
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('subs-table-body');
+      const startIdx = (currentPage - 1) * pageSize;
+      const endIdx = Math.min(startIdx + pageSize, filteredRows.length);
+      const pageRows = filteredRows.slice(startIdx, endIdx);
+
+      if (pageRows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--muted);font-weight:600">No active subscription records match the selected filters.</td></tr>`;
+      } else {
+        tbody.innerHTML = pageRows.map((r, i) => {
+          const rowNum = startIdx + i + 1;
+          const displayIdentifier = r.transactionId && r.transactionId !== 'NA' ? r.transactionId : (r.userId.slice(0, 14) + '...');
+          const noteText = r.note ? `<div style="font-size:11px;color:#475569;margin-top:2px;">📝 ${r.note}</div>` : '';
+          const new7dBadge = r.isLast7DaysStarted
+            ? `<div style="margin-top:3px;"><span class="badge" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;font-size:9.5px;font-weight:800;padding:2px 6px;">⚡ NEW (7D)</span></div>`
+            : '';
+
+          return `
+            <tr>
+              <td style="color:var(--muted);font-weight:600;">${rowNum}</td>
+              <td>
+                <div style="font-weight:700;color:var(--text);">${displayIdentifier}</div>
+                <div style="font-size:11px;color:var(--muted);">${r.userId}</div>
+              </td>
+              <td style="font-weight:800;color:var(--text);">${fmt(r.price)}</td>
+              <td>
+                <div style="color:var(--text);font-weight:600;">${formatDate(r.startedAt)}</div>
+                ${new7dBadge}
+              </td>
+              <td style="color:var(--muted);">${formatDate(r.expireAt)}</td>
+              <td><span class="badge badge-active">ACTIVE</span></td>
+              <td><span class="badge badge-method">${(r.method || 'N/A').toUpperCase()}</span></td>
+              <td><span class="badge badge-type">${(r.type || 'N/A').toUpperCase()}</span></td>
+              <td style="max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${r.note || '<span style="color:#cbd5e1">—</span>'}
+                ${noteText}
+              </td>
+              <td style="text-align:right;">
+                <button class="btn btn-secondary" style="padding:4px 10px;font-size:11.5px;" onclick="viewDetails(${rowNum - 1})">Details</button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // Pagination info
+      const totalEntries = filteredRows.length;
+      const paginationInfo = document.getElementById('pagination-info');
+      paginationInfo.textContent = totalEntries > 0
+        ? `Showing ${startIdx + 1} to ${endIdx} of ${totalEntries.toLocaleString('en-IN')} entries`
+        : `Showing 0 entries`;
+
+      renderPaginationButtons(totalEntries);
+    }
+
+    function renderPaginationButtons(totalEntries) {
+      const container = document.getElementById('pagination-buttons');
+      const totalPages = Math.ceil(totalEntries / pageSize) || 1;
+      container.innerHTML = '';
+
+      const createBtn = (text, page, disabled = false, active = false) => {
+        const btn = document.createElement('button');
+        btn.className = `page-btn ${active ? 'active' : ''}`;
+        btn.textContent = text;
+        btn.disabled = disabled;
+        btn.onclick = () => {
+          if (!disabled && page !== currentPage) {
+            currentPage = page;
+            renderTable();
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+          }
+        };
+        return btn;
+      };
+
+      container.appendChild(createBtn('«', 1, currentPage === 1));
+      container.appendChild(createBtn('‹', currentPage - 1, currentPage === 1));
+
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, currentPage + 2);
+
+      if (startPage > 1) {
+        container.appendChild(createBtn('1', 1, false, currentPage === 1));
+        if (startPage > 2) {
+          const dots = document.createElement('span');
+          dots.textContent = '...';
+          dots.style.padding = '0 4px';
+          container.appendChild(dots);
+        }
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        container.appendChild(createBtn(p.toString(), p, false, p === currentPage));
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const dots = document.createElement('span');
+          dots.textContent = '...';
+          dots.style.padding = '0 4px';
+          container.appendChild(dots);
+        }
+        container.appendChild(createBtn(totalPages.toString(), totalPages, false, currentPage === totalPages));
+      }
+
+      container.appendChild(createBtn('›', currentPage + 1, currentPage === totalPages));
+      container.appendChild(createBtn('»', totalPages, currentPage === totalPages));
+    }
+
+    function viewDetails(index) {
+      const r = filteredRows[index];
+      if (!r) return;
+
+      const modalBody = document.getElementById('modal-body');
+      modalBody.innerHTML = `
+        <div style="margin-bottom:14px;">
+          <div style="font-size:12px;color:var(--muted);font-weight:700;">USER ID</div>
+          <div style="font-size:14px;font-weight:800;color:var(--text);margin-top:2px;">${r.userId}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">PHONE / TRANSACTION ID</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);">${r.transactionId || '-'}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">PRICE PAID</div>
+            <div style="font-size:14px;font-weight:900;color:var(--primary);">${fmt(r.price)}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">STARTED DATE</div>
+            <div style="font-size:13px;font-weight:600;color:var(--text);">${formatDate(r.startedAt)}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">EXPIRY DATE</div>
+            <div style="font-size:13px;font-weight:600;color:var(--text);">${formatDate(r.expireAt)}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">PAYMENT METHOD</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);">${(r.method || '-').toUpperCase()}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">SUBSCRIPTION TYPE</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);">${(r.type || '-').toUpperCase()}</div>
+          </div>
+        </div>
+        ${r.note ? `<div style="background:#f1f5f9;padding:10px 14px;border-radius:8px;margin-bottom:14px;font-size:13px;font-weight:600;color:#334155;">📝 <strong>Admin Note:</strong> ${r.note}</div>` : ''}
+        <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px;">METADATA / FEATURE DETAILS</div>
+        <div class="json-box">${JSON.stringify(r.meta, null, 2)}</div>
+      `;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    // Event listeners
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+    document.getElementById('filter-method').addEventListener('change', applyFilters);
+    document.getElementById('filter-type').addEventListener('change', applyFilters);
+    document.getElementById('page-size').addEventListener('change', (e) => {
+      pageSize = parseInt(e.target.value, 10);
+      currentPage = 1;
+      renderTable();
+    });
+
+    document.getElementById('btn-refresh').addEventListener('click', () => loadData(true));
+    document.getElementById('btn-download-csv').addEventListener('click', () => {
+      window.location.href = CSV_URL;
+    });
+
+    document.getElementById('modal-close').addEventListener('click', () => {
+      document.getElementById('detail-modal').style.display = 'none';
+    });
+    document.getElementById('detail-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'detail-modal') {
+        document.getElementById('detail-modal').style.display = 'none';
+      }
+    });
+
+    // Initialize
+    loadData();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeleCRM Leads Generated Yesterday — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
+    }
+
+    .kpi-card.active-card {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Filter Pills Bar */
+    .time-pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .time-pill {
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .time-pill:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .time-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25);
+    }
+
+    .time-pill .pill-badge {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .time-pill.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .filter-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .clear-filter-btn {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .clear-filter-btn:hover {
+      background: #dbeafe;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(91, 62, 155, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .select-input {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Table Container */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    thead th {
+      background: #5b3e9b;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 14px 16px;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-serviceable {
+      background: var(--green-light);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-nonserviceable {
+      background: var(--rose-light);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .badge-meta {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .badge-organic {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    .badge-assignee {
+      background: #f5f3ff;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+      font-weight: 600;
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .id-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .copy-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    /* Loading Spinner */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: var(--text);
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-field {
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-field-full {
+      grid-column: 1 / -1;
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .modal-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      z-index: 200;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>📞 Total TeleCRM Leads Generated Yesterday</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid">
+      <div class="kpi-card" id="card-all" onclick="setFilter('all')" title="Click to view all TeleCRM leads">
+        <div class="kpi-label">
+          <span>Total Leads Generated</span>
+          <span style="font-size:9.5px;background:var(--primary-light);color:var(--primary);padding:1px 6px;border-radius:4px;font-weight:800;">TOTAL</span>
+        </div>
+        <div class="kpi-value" id="stat-total">—</div>
+        <div class="kpi-sub">Total TeleCRM records yesterday</div>
+      </div>
+      <div class="kpi-card" id="card-serviceable" onclick="setFilter('serviceable')" style="border-left: 4px solid #10b981;" title="Click to view Serviceable leads">
+        <div class="kpi-label">
+          <span>Serviceable Leads</span>
+          <span style="font-size:9.5px;background:var(--green-light);color:#047857;padding:1px 6px;border-radius:4px;font-weight:800;">SERVICEABLE</span>
+        </div>
+        <div class="kpi-value" id="stat-serviceable" style="color: #047857;">—</div>
+        <div class="kpi-sub" id="stat-serviceable-sub">In serviceable delivery zones</div>
+      </div>
+      <div class="kpi-card" id="card-non_serviceable" onclick="setFilter('non_serviceable')" style="border-left: 4px solid #ef4444;" title="Click to view Non-Serviceable leads">
+        <div class="kpi-label">
+          <span>Non-Serviceable Leads</span>
+          <span style="font-size:9.5px;background:var(--rose-light);color:#b91c1c;padding:1px 6px;border-radius:4px;font-weight:800;">OUT OF ZONE</span>
+        </div>
+        <div class="kpi-value" id="stat-nonserviceable" style="color: #b91c1c;">—</div>
+        <div class="kpi-sub" id="stat-nonserviceable-sub">Pincode currently unserviceable</div>
+      </div>
+      <div class="kpi-card" id="card-meta" onclick="setFilter('meta')" style="border-left: 4px solid #3b82f6;" title="Click to view Meta Ads leads">
+        <div class="kpi-label">
+          <span>Top Channel: Meta Ads</span>
+          <span style="font-size:9.5px;background:var(--blue-light);color:#1d4ed8;padding:1px 6px;border-radius:4px;font-weight:800;">PAID ADS</span>
+        </div>
+        <div class="kpi-value" id="stat-meta" style="color: #1d4ed8;">—</div>
+        <div class="kpi-sub" id="stat-meta-sub">Leads generated via Meta</div>
+      </div>
+    </section>
+
+    <!-- Quick Status Filter Pills -->
+    <div class="time-pills-bar">
+      <span style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:6px;">Filter By:</span>
+      <button class="time-pill active" id="pill-all" onclick="setFilter('all')">
+        All Leads <span class="pill-badge" id="badge-count-all">0</span>
+      </button>
+      <button class="time-pill" id="pill-serviceable" onclick="setFilter('serviceable')">
+        ✅ Serviceable <span class="pill-badge" id="badge-count-serviceable">0</span>
+      </button>
+      <button class="time-pill" id="pill-non_serviceable" onclick="setFilter('non_serviceable')">
+        ❌ Non-Serviceable <span class="pill-badge" id="badge-count-nonserviceable">0</span>
+      </button>
+      <button class="time-pill" id="pill-meta" onclick="setFilter('meta')">
+        📱 Meta Ads <span class="pill-badge" id="badge-count-meta">0</span>
+      </button>
+      <button class="time-pill" id="pill-organic" onclick="setFilter('organic')">
+        🌱 Organic <span class="pill-badge" id="badge-count-organic">0</span>
+      </button>
+    </div>
+
+    <!-- Active Filter Notice Banner -->
+    <div id="active-filter-banner" class="filter-banner" style="display:none;">
+      <div id="active-filter-text">Showing Leads</div>
+      <button class="clear-filter-btn" onclick="setFilter('all')">✕ Reset Filter</button>
+    </div>
+
+    <!-- Controls Row -->
+    <section class="controls-card">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by Lead ID, Assignee, City, Child Name, Campaign, or Hub..." />
+      </div>
+      <div class="filter-group">
+        <select id="filter-assignee" class="select-input" onchange="applyFilters()">
+          <option value="">All Assignees</option>
+        </select>
+        <select id="filter-source" class="select-input" onchange="applyFilters()">
+          <option value="">All Sources</option>
+          <option value="META">Meta</option>
+          <option value="ORGANIC">Organic</option>
+          <option value="GOOGLE">Google</option>
+          <option value="mobile_app">Mobile App</option>
+        </select>
+        <select id="filter-serviceable" class="select-input" onchange="applyFilters()">
+          <option value="">All Serviceability</option>
+          <option value="Yes">Serviceable (Yes)</option>
+          <option value="No">Non-Serviceable (No)</option>
+        </select>
+        <select id="page-size" class="select-input" onchange="changePageSize(this.value)">
+          <option value="25">25 per page</option>
+          <option value="50" selected>50 per page</option>
+          <option value="100">100 per page</option>
+          <option value="250">250 per page</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Table Card -->
+    <section class="table-card">
+      <div id="loading-state" class="loading-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading TeleCRM Leads Data...</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Fetching live Metabase query records</div>
+      </div>
+
+      <div class="table-responsive" id="table-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">#</th>
+              <th>Lead ID</th>
+              <th>Assignee</th>
+              <th>Location</th>
+              <th>Child Name &amp; Age</th>
+              <th>Serviceable</th>
+              <th>Source</th>
+              <th>Created Time</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-bar" id="pagination-container" style="display: none;">
+        <div id="pagination-info">Showing 0 to 0 of 0 entries</div>
+        <div class="page-nav" id="pagination-buttons">
+          <!-- Page buttons -->
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📞 TeleCRM Lead Profile Details</span>
+        </div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    const API_URL = '/api/telecrm-leads-details-csv';
+    const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/b3f36132-e371-4fa0-a186-1302ceaa8a80.csv';
+
+    let allLeads = [];
+    let filteredLeads = [];
+    let currentFilter = 'all';
+    let currentPage = 1;
+    let pageSize = 50;
+
+    // RFC-compliant CSV parser
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push(field.trim());
+          field = '';
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          row.push(field.trim());
+          if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+            rows.push(row);
+          }
+          row = [];
+          field = '';
+        } else {
+          field += c;
+        }
+      }
+      if (field.length > 0 || row.length > 0) {
+        row.push(field.trim());
+        if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+          rows.push(row);
+        }
+      }
+      return rows;
+    }
+
+    function formatTime(str) {
+      if (!str) return '-';
+      try {
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return str;
+        return d.toLocaleTimeString('en-IN', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (e) {
+        return str;
+      }
+    }
+
+    function formatDate(str) {
+      if (!str) return '-';
+      try {
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return str;
+        return d.toLocaleDateString('en-IN', {
+          day: '2-digit',
+          month: 'short',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (e) {
+        return str;
+      }
+    }
+
+    async function loadData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('table-container').style.display = 'none';
+      document.getElementById('pagination-container').style.display = 'none';
+
+      let csvText = '';
+      try {
+        const url = forceRefresh ? `${API_URL}?refresh=true&t=${Date.now()}` : API_URL;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        csvText = await resp.text();
+        if (csvText.includes('HTTP ERROR 500')) throw new Error('Metabase query timeout');
+      } catch (err) {
+        console.warn('Backend proxy fetch failed, falling back to direct Metabase URL:', err);
+        try {
+          const resp = await fetch(FALLBACK_DIRECT_URL);
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          csvText = await resp.text();
+          if (csvText.includes('HTTP ERROR 500')) throw new Error('Metabase query timeout');
+        } catch (fbErr) {
+          console.error('All fetch attempts failed:', fbErr);
+          document.getElementById('loading-state').innerHTML = `
+            <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch TeleCRM leads</div>
+            <div style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">${fbErr.message}</div>
+            <button class="btn btn-primary" onclick="loadData(true)">🔄 Try Again</button>
+          `;
+          return;
+        }
+      }
+
+      const rows = parseCSV(csvText);
+      if (rows.length < 2) {
+        document.getElementById('loading-state').innerHTML = `
+          <div style="font-size: 15px; font-weight: 700; color: var(--text);">No records found</div>
+        `;
+        return;
+      }
+
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      const leadIdIdx = headers.indexOf('leadid');
+      const createdIdx = headers.indexOf('created_on');
+      const assigneeIdx = headers.indexOf('assignee');
+      const statusIdx = headers.indexOf('status');
+      const nameIdx = headers.indexOf('text_name');
+      const cityIdx = headers.indexOf('text_city');
+      const pincodeIdx = headers.indexOf('number_pincode');
+      const childNameIdx = headers.indexOf('text_child_name');
+      const childAgeIdx = headers.indexOf('number_childs_age');
+      const serviceableIdx = headers.indexOf('dropdown_is_serviceable');
+      const otpIdx = headers.indexOf('dropdown_otp_verified');
+      const sourceIdx = headers.indexOf('text_source');
+      const campaignIdx = headers.indexOf('text_campaign');
+      const hubIdx = headers.indexOf('text_library_name');
+      const addressIdx = headers.indexOf('text_address');
+      const screenTimeIdx = headers.indexOf('text_time_spent_on_screen_daily_by_your_child');
+
+      allLeads = [];
+      const assigneeSet = new Set();
+
+      for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        if (!r[leadIdIdx] && !r[assigneeIdx]) continue;
+        const assignee = (r[assigneeIdx] || '').trim();
+        if (assignee) assigneeSet.add(assignee);
+
+        let age = (r[childAgeIdx] || '').trim();
+        if (age && !isNaN(parseFloat(age))) age = `${parseFloat(age)} yrs`;
+
+        let pin = (r[pincodeIdx] || '').trim();
+        if (pin && pin.endsWith('.0')) pin = pin.slice(0, -2);
+
+        allLeads.push({
+          leadId: r[leadIdIdx] || '',
+          createdOn: r[createdIdx] || '',
+          assignee: assignee,
+          status: r[statusIdx] || 'Fresh',
+          customerName: r[nameIdx] || '',
+          city: (r[cityIdx] || '').trim(),
+          pincode: pin,
+          childName: (r[childNameIdx] || '').trim(),
+          childAge: age,
+          serviceable: (r[serviceableIdx] || '').trim(),
+          otpVerified: (r[otpIdx] || '').trim(),
+          source: (r[sourceIdx] || '').trim(),
+          campaign: (r[campaignIdx] || '').trim(),
+          hub: (r[hubIdx] || '').trim(),
+          address: (r[addressIdx] || '').trim(),
+          screenTime: (r[screenTimeIdx] || '').trim(),
+          raw: r
+        });
+      }
+
+      // Populate Assignee filter dropdown
+      const assigneeSel = document.getElementById('filter-assignee');
+      assigneeSel.innerHTML = '<option value="">All Assignees</option>' + 
+        Array.from(assigneeSet).sort().map(a => `<option value="${a}">${a.split('@')[0]}</option>`).join('');
+
+      updateKPIs();
+      checkUrlParams();
+      applyFilters();
+
+      document.getElementById('loading-state').style.display = 'none';
+      document.getElementById('table-container').style.display = 'block';
+      document.getElementById('pagination-container').style.display = 'flex';
+    }
+
+    function updateKPIs() {
+      const total = allLeads.length;
+      let servCount = 0;
+      let nonServCount = 0;
+      let metaCount = 0;
+      let organicCount = 0;
+
+      allLeads.forEach(l => {
+        if (l.serviceable.toLowerCase() === 'yes') servCount++;
+        if (l.serviceable.toLowerCase() === 'no') nonServCount++;
+        if (l.source.toUpperCase().includes('META')) metaCount++;
+        if (l.source.toUpperCase().includes('ORGANIC') || (!l.source && l.assignee.includes('organic'))) organicCount++;
+      });
+
+      document.getElementById('stat-total').textContent = total.toLocaleString('en-IN');
+      document.getElementById('stat-serviceable').textContent = servCount.toLocaleString('en-IN');
+      document.getElementById('stat-nonserviceable').textContent = nonServCount.toLocaleString('en-IN');
+      document.getElementById('stat-meta').textContent = metaCount.toLocaleString('en-IN');
+
+      const pct = (n) => total > 0 ? `${((n / total) * 100).toFixed(1)}%` : '';
+      document.getElementById('stat-serviceable-sub').textContent = `${pct(servCount)} within coverage`;
+      document.getElementById('stat-nonserviceable-sub').textContent = `${pct(nonServCount)} out of zone`;
+      document.getElementById('stat-meta-sub').textContent = `${pct(metaCount)} acquisition via Meta`;
+
+      document.getElementById('badge-count-all').textContent = total.toLocaleString('en-IN');
+      document.getElementById('badge-count-serviceable').textContent = servCount.toLocaleString('en-IN');
+      document.getElementById('badge-count-nonserviceable').textContent = nonServCount.toLocaleString('en-IN');
+      document.getElementById('badge-count-meta').textContent = metaCount.toLocaleString('en-IN');
+      document.getElementById('badge-count-organic').textContent = organicCount.toLocaleString('en-IN');
+    }
+
+    function checkUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const filter = params.get('filter');
+      if (filter) {
+        currentFilter = filter.toLowerCase().trim();
+      }
+    }
+
+    function setFilter(f) {
+      currentFilter = f.toLowerCase().trim();
+      currentPage = 1;
+
+      // Update URL without reload
+      const url = new URL(window.location);
+      if (currentFilter === 'all') {
+        url.searchParams.delete('filter');
+      } else {
+        url.searchParams.set('filter', currentFilter);
+      }
+      window.history.replaceState({}, '', url);
+
+      applyFilters();
+    }
+
+    function applyFilters() {
+      // Sync UI Pills
+      document.querySelectorAll('.time-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById(`pill-${currentFilter}`)?.classList.add('active');
+
+      // Sync KPI card active
+      document.querySelectorAll('.kpi-card').forEach(c => c.classList.remove('active-card'));
+      document.getElementById(`card-${currentFilter}`)?.classList.add('active-card');
+
+      // Filter Banner
+      const banner = document.getElementById('active-filter-banner');
+      const bannerText = document.getElementById('active-filter-text');
+      if (currentFilter !== 'all') {
+        const labels = {
+          serviceable: 'Serviceable Leads',
+          non_serviceable: 'Non-Serviceable Leads',
+          meta: 'Meta Ads Campaign Leads',
+          organic: 'Organic Leads'
+        };
+        banner.style.display = 'flex';
+        bannerText.textContent = `⚡ Showing filtered view: ${labels[currentFilter] || currentFilter.toUpperCase()}`;
+      } else {
+        banner.style.display = 'none';
+      }
+
+      const searchQuery = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const assigneeVal = document.getElementById('filter-assignee').value;
+      const sourceVal = document.getElementById('filter-source').value;
+      const servVal = document.getElementById('filter-serviceable').value;
+
+      filteredLeads = allLeads.filter(l => {
+        // Pill filter
+        if (currentFilter === 'serviceable' && l.serviceable.toLowerCase() !== 'yes') return false;
+        if (currentFilter === 'non_serviceable' && l.serviceable.toLowerCase() !== 'no') return false;
+        if (currentFilter === 'meta' && !l.source.toUpperCase().includes('META')) return false;
+        if (currentFilter === 'organic' && !(l.source.toUpperCase().includes('ORGANIC') || (!l.source && l.assignee.includes('organic')))) return false;
+
+        // Dropdown filters
+        if (assigneeVal && l.assignee.toLowerCase() !== assigneeVal.toLowerCase()) return false;
+        if (sourceVal && !l.source.toUpperCase().includes(sourceVal.toUpperCase())) return false;
+        if (servVal && l.serviceable.toLowerCase() !== servVal.toLowerCase()) return false;
+
+        // Search Query
+        if (searchQuery) {
+          const matchId = (l.leadId || '').toLowerCase().includes(searchQuery);
+          const matchAssignee = (l.assignee || '').toLowerCase().includes(searchQuery);
+          const matchCity = (l.city || '').toLowerCase().includes(searchQuery);
+          const matchPincode = (l.pincode || '').toLowerCase().includes(searchQuery);
+          const matchChild = (l.childName || '').toLowerCase().includes(searchQuery);
+          const matchHub = (l.hub || '').toLowerCase().includes(searchQuery);
+          const matchCamp = (l.campaign || '').toLowerCase().includes(searchQuery);
+          if (!matchId && !matchAssignee && !matchCity && !matchPincode && !matchChild && !matchHub && !matchCamp) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('leads-table-body');
+      tbody.innerHTML = '';
+
+      if (filteredLeads.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="9" style="text-align: center; padding: 48px; color: var(--muted);">
+              <div style="font-size: 24px; margin-bottom: 8px;">🔍</div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text);">No matching leads found</div>
+              <div style="font-size: 13px; margin-top: 4px;">Try modifying your search or resetting filters</div>
+            </td>
+          </tr>
+        `;
+        document.getElementById('pagination-info').textContent = 'Showing 0 to 0 of 0 entries';
+        document.getElementById('pagination-buttons').innerHTML = '';
+        return;
+      }
+
+      const totalEntries = filteredLeads.length;
+      const totalPages = Math.ceil(totalEntries / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, totalEntries);
+      const pageSlice = filteredLeads.slice(startIndex, endIndex);
+
+      pageSlice.forEach((lead, idx) => {
+        const rowNum = startIndex + idx + 1;
+        const tr = document.createElement('tr');
+        tr.onclick = (e) => {
+          if (e.target.closest('.copy-btn')) return;
+          openModal(lead);
+        };
+
+        const shortAssignee = lead.assignee.split('@')[0] || lead.assignee || 'Unassigned';
+        const loc = lead.city ? `${lead.city}${lead.pincode ? ` (${lead.pincode})` : ''}` : (lead.pincode || '-');
+        const childInfo = lead.childName ? `${lead.childName}${lead.childAge ? ` · ${lead.childAge}` : ''}` : (lead.childAge || '-');
+
+        const isServ = lead.serviceable.toLowerCase() === 'yes';
+        const isNonServ = lead.serviceable.toLowerCase() === 'no';
+        let servBadge = '<span style="color:var(--muted);">-</span>';
+        if (isServ) servBadge = '<span class="badge badge-serviceable">✅ Yes</span>';
+        else if (isNonServ) servBadge = '<span class="badge badge-nonserviceable">❌ No</span>';
+
+        const isMeta = lead.source.toUpperCase().includes('META');
+        const srcBadge = lead.source ? `<span class="badge ${isMeta ? 'badge-meta' : 'badge-organic'}">${lead.source}</span>` : '<span style="color:var(--muted);">-</span>';
+
+        tr.innerHTML = `
+          <td style="color: var(--muted); font-weight: 600;">${rowNum}</td>
+          <td>
+            <div class="id-cell">
+              <span>${lead.leadId.slice(0, 8)}...</span>
+              <button class="copy-btn" onclick="copyText('${lead.leadId}', 'Lead ID', event)" title="Copy Lead ID">📋</button>
+            </div>
+          </td>
+          <td>
+            <span class="badge-assignee" title="${lead.assignee}">${shortAssignee}</span>
+          </td>
+          <td>
+            <div style="font-weight: 600; color: var(--text);">${loc}</div>
+          </td>
+          <td>
+            <div style="font-weight: 600; color: #1e293b;">${childInfo}</div>
+          </td>
+          <td>${servBadge}</td>
+          <td>${srcBadge}</td>
+          <td>
+            <div style="font-weight: 600;">${formatTime(lead.createdOn)}</div>
+            <div style="font-size: 11px; color: var(--muted);">${lead.createdOn.split('T')[0] || ''}</div>
+          </td>
+          <td style="text-align: right;">
+            <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="openModal(${JSON.stringify(lead).replace(/"/g, '&quot;')}); event.stopPropagation();">
+              👁️ Details
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Pagination info
+      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalEntries.toLocaleString('en-IN')} entries`;
+
+      // Pagination Buttons
+      const btnContainer = document.getElementById('pagination-buttons');
+      btnContainer.innerHTML = '';
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '← Prev';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); } };
+      btnContainer.appendChild(prevBtn);
+
+      const maxButtons = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+      let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+      if (endPage - startPage + 1 < maxButtons) {
+        startPage = Math.max(1, endPage - maxButtons + 1);
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `page-btn ${p === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = p;
+        pageBtn.onclick = () => { currentPage = p; renderTable(); };
+        btnContainer.appendChild(pageBtn);
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = 'Next →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); } };
+      btnContainer.appendChild(nextBtn);
+    }
+
+    function changePageSize(sz) {
+      pageSize = parseInt(sz, 10);
+      currentPage = 1;
+      renderTable();
+    }
+
+    function copyText(val, label, e) {
+      if (e) e.stopPropagation();
+      navigator.clipboard.writeText(val).then(() => {
+        showToast(`${label} copied to clipboard!`);
+      }).catch(() => {
+        showToast(`Copied: ${val}`);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => {
+        t.style.display = 'none';
+      }, 2500);
+    }
+
+    function openModal(lead) {
+      const body = document.getElementById('modal-body');
+
+      body.innerHTML = `
+        <div class="modal-grid">
+          <div class="modal-field">
+            <div class="modal-label">Lead ID</div>
+            <div class="modal-val id-cell" style="font-size: 13px;">
+              <span>${lead.leadId}</span>
+              <button class="copy-btn" onclick="copyText('${lead.leadId}', 'Lead ID', event)">📋</button>
+            </div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Assignee / Agent</div>
+            <div class="modal-val" style="font-size: 13px; color: var(--primary);">${lead.assignee || 'Unassigned'}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">City &amp; Pincode</div>
+            <div class="modal-val">${lead.city ? lead.city : '—'}${lead.pincode ? ` (${lead.pincode})` : ''}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Serviceable in Elefant Network?</div>
+            <div class="modal-val">
+              ${lead.serviceable.toLowerCase() === 'yes' ? '<span class="badge badge-serviceable">✅ Yes</span>' : '<span class="badge badge-nonserviceable">❌ No</span>'}
+            </div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Child Name &amp; Age</div>
+            <div class="modal-val">${lead.childName ? lead.childName : '—'}${lead.childAge ? ` · ${lead.childAge}` : ''}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">OTP Verified?</div>
+            <div class="modal-val">${lead.otpVerified ? (lead.otpVerified === 'Yes' || lead.otpVerified === 'true' ? '✅ Yes' : lead.otpVerified) : '—'}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Marketing Source</div>
+            <div class="modal-val">${lead.source ? lead.source : 'Direct / Organic'}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Library Hub / Franchise</div>
+            <div class="modal-val">${lead.hub ? lead.hub : 'Master Library'}</div>
+          </div>
+          <div class="modal-field-full">
+            <div class="modal-label">Created Timestamp</div>
+            <div class="modal-val">${formatDate(lead.createdOn)}</div>
+          </div>
+          ${lead.campaign ? `
+            <div class="modal-field-full">
+              <div class="modal-label">Campaign Name</div>
+              <div class="modal-val" style="font-size: 12.5px; font-weight: 500;">${lead.campaign}</div>
+            </div>
+          ` : ''}
+          ${lead.address ? `
+            <div class="modal-field-full">
+              <div class="modal-label">Captured Address</div>
+              <div class="modal-val" style="font-size: 12.5px; font-weight: 500;">${lead.address}</div>
+            </div>
+          ` : ''}
+          ${lead.screenTime ? `
+            <div class="modal-field-full">
+              <div class="modal-label">Daily Child Screen Time</div>
+              <div class="modal-val">${lead.screenTime}</div>
+            </div>
+          ` : ''}
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button class="btn btn-secondary" onclick="copyText('${lead.leadId}', 'Lead ID', event)">📋 Copy Lead ID</button>
+          <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').style.display = 'none';
+    }
+
+    document.getElementById('modal-close').onclick = closeModal;
+    window.onclick = (e) => {
+      const modal = document.getElementById('detail-modal');
+      if (e.target === modal) closeModal();
+    };
+
+    // Download CSV
+    document.getElementById('btn-download-csv').onclick = () => {
+      if (filteredLeads.length === 0) {
+        alert('No data available to export.');
+        return;
+      }
+      const headers = ['Lead ID', 'Created On', 'Assignee', 'Status', 'City', 'Pincode', 'Child Name', 'Child Age', 'Is Serviceable', 'Source', 'Campaign', 'Library Hub'];
+      const rows = filteredLeads.map(l => [
+        `"${l.leadId}"`,
+        `"${l.createdOn}"`,
+        `"${l.assignee}"`,
+        `"${l.status}"`,
+        `"${l.city}"`,
+        `"${l.pincode}"`,
+        `"${l.childName}"`,
+        `"${l.childAge}"`,
+        `"${l.serviceable}"`,
+        `"${l.source}"`,
+        `"${l.campaign}"`,
+        `"${l.hub}"`
+      ]);
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      const dateStr = new Date().toISOString().split('T')[0];
+      link.setAttribute('download', `telecrm_leads_${currentFilter}_${dateStr}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    // Search input listener
+    document.getElementById('search-input').addEventListener('input', () => {
+      currentPage = 1;
+      applyFilters();
+    });
+
+    // Refresh Button
+    document.getElementById('btn-refresh').onclick = () => {
+      loadData(true);
+    };
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      loadData();
+    });
+  </script>
+</body>
+</html>

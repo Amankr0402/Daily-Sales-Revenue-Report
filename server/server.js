@@ -517,6 +517,66 @@ function buildEmailHTMLServer(allData) {
         </table>
       </div>
 
+      <!-- 9. REFUNDS -->
+      <div style="margin-bottom:28px;">
+        <div style="font-size:12px;font-weight:800;color:#5b3e9b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">
+          💸 REFUNDS
+        </div>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+          <tr>
+            <td width="48%" valign="top" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">
+                REFUND PROCESSED (YESTERDAY)
+              </div>
+              <div style="font-size:24px;font-weight:800;color:#0f172a;">
+                ${fmtINR(yesterday.refunds?.total || 0)}
+              </div>
+              <div style="font-size:11.5px;color:#64748b;margin-top:4px;">
+                ${yesterday.refunds?.count || 0} refunds processed yesterday
+              </div>
+            </td>
+            <td width="4%"></td>
+            <td width="48%" valign="top" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">
+                REFUND PROCESSED (LAST 7 DAYS)
+              </div>
+              <div style="font-size:24px;font-weight:800;color:#0f172a;">
+                ${fmtINR(yesterday.refundsLast7Days?.total || 0)}
+              </div>
+              <div style="font-size:11.5px;color:#64748b;margin-top:4px;">
+                ${yesterday.refundsLast7Days?.count || 0} refunds across rolling 7 days
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 10. FINANCIALS -->
+      <div style="margin-bottom:28px;">
+        <div style="font-size:12px;font-weight:800;color:#5b3e9b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">
+          💼 FINANCIALS
+        </div>
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;max-width:540px;">
+          <div style="padding:14px 18px;font-size:14px;font-weight:800;color:#0f172a;">
+            🧲 Net Revenue
+          </div>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr style="border-top:1px solid #f1f5f9;">
+              <td style="padding:10px 18px;font-size:13px;color:#64748b;font-weight:600;">Total Sales Revenue</td>
+              <td style="padding:10px 18px;font-size:15px;color:#059669;font-weight:800;text-align:right;">${fmtINR((yesterday.totalRevenue || 0) + (yesterday.deliveryFee?.total || 0))}</td>
+            </tr>
+            <tr style="border-top:1px solid #f1f5f9;">
+              <td style="padding:10px 18px;font-size:13px;color:#64748b;font-weight:600;">− Refunds Processed</td>
+              <td style="padding:10px 18px;font-size:14px;color:#e11d48;font-weight:700;text-align:right;">− ${fmtINR(yesterday.refunds?.total || 0)}</td>
+            </tr>
+            <tr style="border-top:1px solid #e2e8f0;background:#f0fdf4;">
+              <td style="padding:12px 18px;font-size:13.5px;color:#0f172a;font-weight:800;">= Net Revenue</td>
+              <td style="padding:12px 18px;font-size:16px;color:#059669;font-weight:900;text-align:right;">${fmtINR(((yesterday.totalRevenue || 0) + (yesterday.deliveryFee?.total || 0)) - (yesterday.refunds?.total || 0))}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
     </div>
 
     <!-- Footer -->
@@ -624,9 +684,688 @@ const handleReportHtml = async (req, res) => {
 app.get('/api/report-html', handleReportHtml);
 app.post('/api/report-html', handleReportHtml);
 
+/* ---------- Active Subscriptions CSV Endpoint ---------- */
+const ACTIVE_SUBS_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv';
+const ACTIVE_SUBS_CACHE_FILE = path.join(__dirname, '..', 'data', 'active_subscriptions.csv');
+
+app.get('/api/active-subscriptions-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(ACTIVE_SUBS_CACHE_FILE)) {
+      const stats = fs.statSync(ACTIVE_SUBS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(ACTIVE_SUBS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(ACTIVE_SUBS_METABASE_URL);
+      if (csvData && csvData.length > 100) {
+        fs.writeFileSync(ACTIVE_SUBS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase active subs CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(ACTIVE_SUBS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ACTIVE_SUBS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Active subscriptions data unavailable');
+  } catch (err) {
+    if (fs.existsSync(ACTIVE_SUBS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ACTIVE_SUBS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- New Users Delivery Status CSV Endpoint ---------- */
+const NEW_USERS_DELIVERY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/46622b98-120c-473a-881b-d2aebe879fce.csv';
+const NEW_USERS_DELIVERY_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'new_users_delivery_status_details.csv');
+
+app.get('/api/new-users-delivery-status-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(NEW_USERS_DELIVERY_DETAILS_URL);
+      if (csvData && csvData.length > 50) {
+        fs.writeFileSync(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase new users delivery details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('New users delivery status details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(NEW_USERS_DELIVERY_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- User Order and Delivery Status of All New Users CSV Endpoint ---------- */
+const ALL_NEW_USERS_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e142aa5b-7f4f-433a-8540-28baec11c706.csv';
+const ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'all_new_users_order_status_details.csv');
+
+app.get('/api/all-new-users-order-status-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(ALL_NEW_USERS_ORDER_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase all new users order details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('All new users order status details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- New Users & App Downloads Details CSV Endpoint ---------- */
+const APP_DOWNLOADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e964576c-8d8c-4944-b859-57b166a13a1b.csv';
+const APP_DOWNLOADS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'app_downloads_details.csv');
+
+app.get('/api/app-downloads-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(APP_DOWNLOADS_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(APP_DOWNLOADS_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(APP_DOWNLOADS_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(APP_DOWNLOADS_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(APP_DOWNLOADS_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase app downloads details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(APP_DOWNLOADS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(APP_DOWNLOADS_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('App downloads details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(APP_DOWNLOADS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(APP_DOWNLOADS_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- TeleCRM Leads Details CSV Endpoint ---------- */
+const TELECRM_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b3f36132-e371-4fa0-a186-1302ceaa8a80.csv';
+const TELECRM_LEADS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'telecrm_leads_details.csv');
+
+app.get('/api/telecrm-leads-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(TELECRM_LEADS_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(TELECRM_LEADS_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(TELECRM_LEADS_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(TELECRM_LEADS_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(TELECRM_LEADS_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase TeleCRM leads details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(TELECRM_LEADS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(TELECRM_LEADS_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('TeleCRM leads details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(TELECRM_LEADS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(TELECRM_LEADS_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Subscriptions Ending in Next 5 Days Details CSV Endpoint ---------- */
+const SUBS_ENDING_5D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/68f1530b-d09c-446e-b380-5da408fecf2a.csv';
+const SUBS_ENDING_5D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_ending_5d_details.csv');
+
+app.get('/api/subs-ending-5d-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(SUBS_ENDING_5D_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(SUBS_ENDING_5D_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(SUBS_ENDING_5D_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(SUBS_ENDING_5D_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(SUBS_ENDING_5D_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Subscriptions Ending 5d details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(SUBS_ENDING_5D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_ENDING_5D_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Subscriptions ending in next 5 days details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(SUBS_ENDING_5D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_ENDING_5D_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Subscriptions Expired / Cancelled in Last 7 Days Details CSV Endpoint ---------- */
+const SUBS_EXPIRED_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/f2674048-51bb-43bf-beee-c6983651c727.csv';
+const SUBS_EXPIRED_7D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_expired_7d_details.csv');
+
+app.get('/api/subs-expired-7d-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(SUBS_EXPIRED_7D_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Subscriptions Expired 7d details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Subscriptions expired / cancelled in last 7 days details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_EXPIRED_7D_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Subscriptions Expiring Today Details CSV Endpoint ---------- */
+const SUBS_EXPIRING_TODAY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b7e9d453-fd39-4d31-81ce-330f4f5277cb.csv';
+const SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_expiring_today_details.csv');
+
+app.get('/api/subs-expiring-today-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(SUBS_EXPIRING_TODAY_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Subscriptions Expiring Today details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Subscriptions expiring today details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Plan Expired and Not a Single Order Placed Details CSV Endpoint ---------- */
+const PLAN_EXP_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/debcc18f-227d-42ba-93ac-ce47f87e3b7c.csv';
+const PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'plan_exp_no_order_details.csv');
+
+app.get('/api/plan-exp-no-order-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(PLAN_EXP_NO_ORDER_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Plan Expired No Order details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Plan expired no order details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Plan Expiring and Not Placed a Single Order Details CSV Endpoint ---------- */
+const PLAN_EXPIRING_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/cec33372-48dd-44bf-8832-99b757075679.csv';
+const PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'plan_expiring_no_order_details.csv');
+
+app.get('/api/plan-expiring-no-order-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(PLAN_EXPIRING_NO_ORDER_DETAILS_URL);
+      if (csvData && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Plan Expiring No Order details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Plan expiring no order details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Active Subscriber & No Orders Placed Yet Details CSV Endpoint ---------- */
+const ACTIVE_SUB_NO_ORDERS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d94cc795-d77d-477e-b61d-f96da7c2c6a7.csv';
+const ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'active_sub_no_orders_details.csv');
+
+app.get('/api/active-sub-no-orders-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(ACTIVE_SUB_NO_ORDERS_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase Active Sub No Orders details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Active subscriber no orders details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
+/* ---------- Processed Refunds Details CSV Endpoint ---------- */
+const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
+const REFUNDS_SHEET_NAME = 'Refunds';
+const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
+const REFUNDS_URL = `https://docs.google.com/spreadsheets/d/${REFUNDS_SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(REFUNDS_SHEET_NAME)}`;
+
+app.get('/api/refunds-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check if cache exists and is fresh (< 30 minutes old)
+    if (fs.existsSync(REFUNDS_CACHE_FILE)) {
+      const stats = fs.statSync(REFUNDS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(REFUNDS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(REFUNDS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(REFUNDS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Google Sheet Refunds CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(REFUNDS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(REFUNDS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Refunds data unavailable');
+  } catch (err) {
+    if (fs.existsSync(REFUNDS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(REFUNDS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
 /* ---------- Trigger Daily Report Endpoint (Sync + Email Send) ---------- */
 const handleTriggerDailyReport = async (req, res) => {
   try {
+    if (process.env.DISABLE_EMAIL === 'true') {
+      console.log('⏸️ [PAUSED] Email sending is currently disabled (DISABLE_EMAIL=true). No email sent.');
+      return res.json({ success: true, paused: true, message: 'Email sending is paused until you re-enable it.' });
+    }
+
     console.log(`🚀 Trigger received — fetching latest live data & sending daily sales report...`);
     
     let allData;
@@ -674,9 +1413,9 @@ app.get('/api/trigger-daily-report', handleTriggerDailyReport);
 /* ---------- Cron Job: Auto-send daily at 10:00 AM IST ---------- */
 function parseCronExpression(raw) {
   if (!raw || typeof raw !== 'string') return '0 10 * * *';
-  const clean = raw.replace(/^["']|["']$/g, '').trim();
+  const clean = raw.trim().replace(/^["']|["']$/g, '');
   const parts = clean.split(/\s+/);
-  if (parts.length === 5 || parts.length === 6) {
+  if (parts.length === 5) {
     return clean;
   }
   console.warn(`⚠️ Invalid CRON_SCHEDULE ("${raw}"). Falling back to default "0 10 * * *".`);
@@ -687,6 +1426,11 @@ const CRON_SCHEDULE = parseCronExpression(process.env.CRON_SCHEDULE);
 
 try {
   cron.schedule(CRON_SCHEDULE, async () => {
+    if (process.env.DISABLE_EMAIL === 'true') {
+      console.log('⏸️ [PAUSED] Automated 10:00 AM email is currently disabled (DISABLE_EMAIL=true). Skipping email send.');
+      return;
+    }
+
     console.log(`⏰ Cron triggered at ${new Date().toISOString()} — fetching latest data & sending daily sales report...`);
 
     try {

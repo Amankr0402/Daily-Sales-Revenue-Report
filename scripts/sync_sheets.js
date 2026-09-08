@@ -15,6 +15,7 @@ const SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
 const SHEET_NAME = 'Sales/Rev (Auto)';
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
 const REFUNDS_SHEET_NAME = 'Refunds';
+const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
 const METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/a7ec6872-1841-408d-8f63-7d16e959b67c.csv';
 const DELIVERY_FEE_CSV = path.join(__dirname, '..', 'data', 'delivery_fees.csv');
 const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv';
@@ -33,7 +34,27 @@ const PLAN_EXPIRING_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/qu
 const PLAN_EXP_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/question/3a786b1a-8b6e-4856-9f18-60949bc19d58.csv';
 const ACTIVE_SUB_NO_ORDER_URL = 'https://metabase-bkp.theelefant.ai/public/question/fb796af2-6ed7-4c79-b39f-94f48aca3966.csv';
 const NEW_USERS_DELIVERY_STATUS_URL = 'https://metabase-bkp.theelefant.ai/public/question/0b3450ef-d477-4a21-9038-73776a3904f4.csv';
+const NEW_USERS_DELIVERY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/46622b98-120c-473a-881b-d2aebe879fce.csv';
+const NEW_USERS_DELIVERY_DETAILS_FILE = path.join(__dirname, '..', 'data', 'new_users_delivery_status_details.csv');
 const ALL_NEW_USERS_ORDER_STATUS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d88a76c5-bbde-4300-9421-8d86f9180a0d.csv';
+const ALL_NEW_USERS_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e142aa5b-7f4f-433a-8540-28baec11c706.csv';
+const ALL_NEW_USERS_ORDER_DETAILS_FILE = path.join(__dirname, '..', 'data', 'all_new_users_order_status_details.csv');
+const APP_DOWNLOADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e964576c-8d8c-4944-b859-57b166a13a1b.csv';
+const APP_DOWNLOADS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'app_downloads_details.csv');
+const TELECRM_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b3f36132-e371-4fa0-a186-1302ceaa8a80.csv';
+const TELECRM_LEADS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'telecrm_leads_details.csv');
+const SUBS_ENDING_5D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/68f1530b-d09c-446e-b380-5da408fecf2a.csv';
+const SUBS_ENDING_5D_DETAILS_FILE = path.join(__dirname, '..', 'data', 'subs_ending_5d_details.csv');
+const SUBS_EXPIRED_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/f2674048-51bb-43bf-beee-c6983651c727.csv';
+const SUBS_EXPIRED_7D_DETAILS_FILE = path.join(__dirname, '..', 'data', 'subs_expired_7d_details.csv');
+const SUBS_EXPIRING_TODAY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b7e9d453-fd39-4d31-81ce-330f4f5277cb.csv';
+const SUBS_EXPIRING_TODAY_DETAILS_FILE = path.join(__dirname, '..', 'data', 'subs_expiring_today_details.csv');
+const PLAN_EXP_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/debcc18f-227d-42ba-93ac-ce47f87e3b7c.csv';
+const PLAN_EXP_NO_ORDER_DETAILS_FILE = path.join(__dirname, '..', 'data', 'plan_exp_no_order_details.csv');
+const PLAN_EXPIRING_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/cec33372-48dd-44bf-8832-99b757075679.csv';
+const PLAN_EXPIRING_NO_ORDER_DETAILS_FILE = path.join(__dirname, '..', 'data', 'plan_expiring_no_order_details.csv');
+const ACTIVE_SUB_NO_ORDERS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d94cc795-d77d-477e-b61d-f96da7c2c6a7.csv';
+const ACTIVE_SUB_NO_ORDERS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'active_sub_no_orders_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -417,6 +438,10 @@ async function syncSalesData() {
   try {
     console.log(`💸 Fetching Refunds data from Google Sheet: "${REFUNDS_SHEET_NAME}"...`);
     const refundsCSV = await fetchSheetCSV(REFUNDS_SPREADSHEET_ID, REFUNDS_SHEET_NAME);
+    if (refundsCSV && refundsCSV.length > 50) {
+      fs.writeFileSync(REFUNDS_CACHE_FILE, refundsCSV, 'utf-8');
+      console.log(`✅ Cached Refunds CSV to ${REFUNDS_CACHE_FILE}`);
+    }
     const refLines = refundsCSV.split('\n').map(l => l.trim()).filter(Boolean);
     console.log(`📊 Processing ${Math.max(0, refLines.length - 1)} Refunds rows...`);
 
@@ -794,6 +819,18 @@ async function syncSalesData() {
     console.warn('⚠️ Warning: Could not process New Users Delivery Status from Metabase:', err.message);
   }
 
+  // Fetch and cache New Users Delivery Status Detailed Records (46622b98)
+  try {
+    console.log(`🚚 Fetching New Users Delivery Status Detailed List from Metabase...`);
+    const delivDetailsCSV = await fetchURLWithRedirect(NEW_USERS_DELIVERY_DETAILS_URL);
+    if (delivDetailsCSV && delivDetailsCSV.length > 50) {
+      fs.writeFileSync(NEW_USERS_DELIVERY_DETAILS_FILE, delivDetailsCSV, 'utf-8');
+      console.log(`✅ Cached New Users Delivery Status details (${delivDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${NEW_USERS_DELIVERY_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache New Users Delivery Status details from Metabase:', err.message);
+  }
+
   // Fetch User Order and Delivery Status of all New Users (d88a76c5)
   try {
     console.log(`📦 Fetching User Order and Delivery Status of all New Users from Metabase...`);
@@ -816,6 +853,116 @@ async function syncSalesData() {
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not process All New Users Order Status from Metabase:', err.message);
+  }
+
+  // Fetch and cache User Order and Delivery Status of all New Users Detailed Records (e142aa5b)
+  try {
+    console.log(`📦 Fetching User Order & Delivery Status Detailed List for All New Users from Metabase...`);
+    const allNuDetailsCSV = await fetchURLWithRedirect(ALL_NEW_USERS_ORDER_DETAILS_URL);
+    if (allNuDetailsCSV && allNuDetailsCSV.length > 50 && !allNuDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(ALL_NEW_USERS_ORDER_DETAILS_FILE, allNuDetailsCSV, 'utf-8');
+      console.log(`✅ Cached All New Users Order Status details (${allNuDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${ALL_NEW_USERS_ORDER_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache All New Users Order Status details from Metabase:', err.message);
+  }
+
+  // Fetch and cache App Downloads / New Users Details (e964576c)
+  try {
+    console.log(`📱 Fetching App Downloads / New Users Detailed List from Metabase...`);
+    const appDlDetailsCSV = await fetchURLWithRedirect(APP_DOWNLOADS_DETAILS_URL);
+    if (appDlDetailsCSV && appDlDetailsCSV.length > 50 && !appDlDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(APP_DOWNLOADS_DETAILS_FILE, appDlDetailsCSV, 'utf-8');
+      console.log(`✅ Cached App Downloads details (${appDlDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${APP_DOWNLOADS_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache App Downloads details from Metabase:', err.message);
+  }
+
+  // Fetch and cache TeleCRM Leads Details (b3f36132)
+  try {
+    console.log(`📞 Fetching TeleCRM Leads Detailed List from Metabase...`);
+    const telecrmDetailsCSV = await fetchURLWithRedirect(TELECRM_LEADS_DETAILS_URL);
+    if (telecrmDetailsCSV && telecrmDetailsCSV.length > 50 && !telecrmDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(TELECRM_LEADS_DETAILS_FILE, telecrmDetailsCSV, 'utf-8');
+      console.log(`✅ Cached TeleCRM Leads details (${telecrmDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${TELECRM_LEADS_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache TeleCRM Leads details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Subscriptions Ending in Next 5 Days Details (68f1530b)
+  try {
+    console.log(`📅 Fetching Subscriptions Ending (Next 5 Days) Detailed List from Metabase...`);
+    const subs5dDetailsCSV = await fetchURLWithRedirect(SUBS_ENDING_5D_DETAILS_URL);
+    if (subs5dDetailsCSV && subs5dDetailsCSV.length > 50 && !subs5dDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(SUBS_ENDING_5D_DETAILS_FILE, subs5dDetailsCSV, 'utf-8');
+      console.log(`✅ Cached Subscriptions Ending 5d details (${subs5dDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_ENDING_5D_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Subscriptions Ending 5d details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Subscriptions Expired / Cancelled in Last 7 Days Details (f2674048)
+  try {
+    console.log(`📅 Fetching Subscriptions Expired / Cancelled (Last 7 Days) Detailed List from Metabase...`);
+    const subsExpiredDetailsCSV = await fetchURLWithRedirect(SUBS_EXPIRED_7D_DETAILS_URL);
+    if (subsExpiredDetailsCSV && subsExpiredDetailsCSV.length > 50 && !subsExpiredDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(SUBS_EXPIRED_7D_DETAILS_FILE, subsExpiredDetailsCSV, 'utf-8');
+      console.log(`✅ Cached Subscriptions Expired 7d details (${subsExpiredDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_EXPIRED_7D_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Subscriptions Expired 7d details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Subscriptions Expiring Today Details (b7e9d453)
+  try {
+    console.log(`📅 Fetching Subscriptions Expiring Today Detailed List from Metabase...`);
+    const subsTodayDetailsCSV = await fetchURLWithRedirect(SUBS_EXPIRING_TODAY_DETAILS_URL);
+    if (subsTodayDetailsCSV && subsTodayDetailsCSV.length > 50 && !subsTodayDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(SUBS_EXPIRING_TODAY_DETAILS_FILE, subsTodayDetailsCSV, 'utf-8');
+      console.log(`✅ Cached Subscriptions Expiring Today details (${subsTodayDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_EXPIRING_TODAY_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Subscriptions Expiring Today details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Plan Expired and Not a Single Order Placed Details (debcc18f)
+  try {
+    console.log(`📦 Fetching Plan Expired & No Order Detailed List from Metabase...`);
+    const planExpDetailsCSV = await fetchURLWithRedirect(PLAN_EXP_NO_ORDER_DETAILS_URL);
+    if (planExpDetailsCSV && planExpDetailsCSV.length > 50 && !planExpDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(PLAN_EXP_NO_ORDER_DETAILS_FILE, planExpDetailsCSV, 'utf-8');
+      console.log(`✅ Cached Plan Expired No Order details (${planExpDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${PLAN_EXP_NO_ORDER_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Plan Expired No Order details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Plan Expiring and Not Placed a Single Order Details (cec33372)
+  try {
+    console.log(`📦 Fetching Plan Expiring & No Order Detailed List from Metabase...`);
+    const planExpiringDetailsCSV = await fetchURLWithRedirect(PLAN_EXPIRING_NO_ORDER_DETAILS_URL);
+    if (planExpiringDetailsCSV && !planExpiringDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(PLAN_EXPIRING_NO_ORDER_DETAILS_FILE, planExpiringDetailsCSV, 'utf-8');
+      const linesCount = planExpiringDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached Plan Expiring No Order details (${Math.max(0, linesCount - 1)} records) to ${PLAN_EXPIRING_NO_ORDER_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Plan Expiring No Order details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Active Subscriber & No Orders Placed Yet Details (d94cc795)
+  try {
+    console.log(`📦 Fetching Active Sub & No Order Detailed List from Metabase...`);
+    const actSubNoOrdDetailsCSV = await fetchURLWithRedirect(ACTIVE_SUB_NO_ORDERS_DETAILS_URL);
+    if (actSubNoOrdDetailsCSV && actSubNoOrdDetailsCSV.length > 50 && !actSubNoOrdDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(ACTIVE_SUB_NO_ORDERS_DETAILS_FILE, actSubNoOrdDetailsCSV, 'utf-8');
+      const linesCount = actSubNoOrdDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached Active Sub No Order details (${Math.max(0, linesCount - 1)} records) to ${ACTIVE_SUB_NO_ORDERS_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Active Sub No Order details from Metabase:', err.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

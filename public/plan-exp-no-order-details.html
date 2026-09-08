@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Expired & No Order Placed — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -4px rgba(0,0,0,0.06);
+      border-color: #cbd5e1;
+    }
+
+    .kpi-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+      background: #faf8ff;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Controls: Filter Pills & Search */
+    .controls-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8faff;
+    }
+
+    tbody td {
+      padding: 14px 18px;
+      vertical-align: middle;
+      color: var(--text);
+    }
+
+    .user-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .sub-id-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-expired {
+      background: var(--amber-light);
+      color: #d97706;
+    }
+
+    .type-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 2px 7px;
+      border-radius: 5px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .zero-orders-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #dc2626;
+      background: var(--rose-light);
+      padding: 2px 7px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .price-tag {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 14px;
+    }
+
+    .view-btn {
+      padding: 4px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(91, 62, 155, 0.15);
+      transition: all 0.15s ease;
+    }
+
+    .view-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border);
+      animation: modalSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 10;
+    }
+
+    .modal-header h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .close-btn {
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 16px;
+      transition: all 0.15s ease;
+    }
+
+    .close-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .detail-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .detail-section-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .detail-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 500px) {
+      .full-width {
+        grid-column: span 1;
+      }
+    }
+
+    /* Pagination controls */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+
+    .pagination-btns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Empty and Loading states */
+    .state-container {
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .spinner {
+      border: 3px solid rgba(91, 62, 155, 0.1);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" title="Go back to Dashboard">
+        <img src="https://theelefant.com/cdn/shop/files/the_elefant_logo.png?v=1697011689" alt="The Elefant Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'34\' viewBox=\'0 0 120 34\'%3E%3Crect width=\'120\' height=\'34\' fill=\'%235b3e9b\' rx=\'6\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'14\'%3EThe Elefant%3C/text%3E%3C/svg%3E'">
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>📦 Plan Expired & Not a Single Order Placed</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="exportFilteredCSV()" title="Export current list as CSV">
+        📥 Export CSV
+      </button>
+      <a href="index.html" class="btn btn-primary" title="Back to Dashboard">
+        ← Back to Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- KPI Summary Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card active" id="card-all" onclick="setFilter('all')" title="Click to view all plan expired no order accounts">
+        <div class="kpi-label">
+          <span>Total Expired (No Orders)</span>
+          <span>📦</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-subs">-</div>
+        <div class="kpi-sub">Users subscribed but never ordered</div>
+      </div>
+
+      <div class="kpi-card" id="card-trial" onclick="setFilter('trial')" title="Click to view trial subscriptions">
+        <div class="kpi-label">
+          <span>Trial Plans</span>
+          <span>🧪</span>
+        </div>
+        <div class="kpi-value" id="kpi-trial-subs">-</div>
+        <div class="kpi-sub">Expired without toy request</div>
+      </div>
+
+      <div class="kpi-card" id="card-onetime" onclick="setFilter('one-time')" title="Click to view one-time plans">
+        <div class="kpi-label">
+          <span>One-Time Plans</span>
+          <span>🎟️</span>
+        </div>
+        <div class="kpi-value" id="kpi-onetime-subs">-</div>
+        <div class="kpi-sub">Direct paid one-time subscribers</div>
+      </div>
+
+      <div class="kpi-card" id="card-revenue" onclick="setFilter('high-value')" title="Click to view high-value unutilized value">
+        <div class="kpi-label">
+          <span>Total Unutilized Value</span>
+          <span>💰</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-value">-</div>
+        <div class="kpi-sub">Cumulative plan value expired</div>
+      </div>
+    </div>
+
+    <!-- Controls: Filter Pills & Search -->
+    <div class="controls-wrapper">
+      <div class="pills-bar">
+        <span style="font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-right: 4px;">Quick Filters:</span>
+        <button class="pill-btn active" id="pill-all" onclick="setFilter('all')">All Records</button>
+        <button class="pill-btn" id="pill-trial" onclick="setFilter('trial')">🧪 Trial (1,090)</button>
+        <button class="pill-btn" id="pill-onetime" onclick="setFilter('one-time')">🎟️ One-Time (863)</button>
+        <button class="pill-btn" id="pill-assigned" onclick="setFilter('assigned')">📦 Assigned (290)</button>
+        <button class="pill-btn" id="pill-gift" onclick="setFilter('gift-card')">🎁 Gift Card (107)</button>
+        <button class="pill-btn" id="pill-purchase" onclick="setFilter('purchase')">🛍️ Purchase (63)</button>
+        <button class="pill-btn" id="pill-high-value" onclick="setFilter('high-value')">💎 High Value (₹2,000+)</button>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by User ID, Subscription ID, Plan ID, Price, Type, Transaction..." oninput="handleSearch()">
+        </div>
+        <div class="results-count" id="results-count">
+          Loading records...
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table id="subs-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Subscription & Plan</th>
+            <th>Type</th>
+            <th>Plan Value</th>
+            <th>Started Date (IST)</th>
+            <th>Expired Date (IST)</th>
+            <th>Orders Placed</th>
+            <th style="text-align: right;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="subs-tbody">
+          <!-- Rows will be injected by JavaScript -->
+        </tbody>
+      </table>
+
+      <!-- Pagination bar -->
+      <div class="pagination-bar" id="pagination-bar" style="display: none;">
+        <div style="font-size: 12.5px; color: var(--muted); font-weight: 600;" id="page-info">
+          Page 1 of 1
+        </div>
+        <div class="pagination-btns">
+          <button class="page-btn" id="btn-prev" onclick="changePage(-1)">← Previous</button>
+          <button class="page-btn" id="btn-next" onclick="changePage(1)">Next →</button>
+        </div>
+      </div>
+
+      <div id="loading-state" class="state-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Plan Expired No Order Records...</div>
+        <div style="font-size: 12.5px; color: var(--muted); margin-top: 4px;">Fetching live Metabase data (2,400+ records)</div>
+      </div>
+
+      <div id="empty-state" class="state-container" style="display: none;">
+        <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">No records match your search or filter</div>
+        <div style="font-size: 12.5px; color: var(--muted); margin-top: 4px;">Try clearing filters or searching another keyword</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal" onclick="handleModalOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>
+          <span>📦 Plan Expired (No Orders Placed) Details</span>
+        </h3>
+        <button class="close-btn" onclick="closeModal()" title="Close details">✕</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = '/api/plan-exp-no-order-details-csv';
+    let allSubs = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let currentPage = 1;
+    const PAGE_SIZE = 100;
+
+    // Fast CSV parser supporting quotes and escaped delimiters
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      let i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') { i++; }
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+        i++;
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    async function loadSubsData() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const parsed = parseCSV(text.trim());
+        if (parsed.length < 2) {
+          throw new Error('No data rows in CSV');
+        }
+
+        const headers = parsed[0].map(h => h.trim());
+        allSubs = parsed.slice(1).map((cols, idx) => {
+          const item = { _index: idx };
+          headers.forEach((h, colIdx) => {
+            item[h] = (cols[colIdx] || '').trim();
+          });
+          return item;
+        });
+
+        computeKPIs();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to load plan expired no order data:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch plan expired no order records</div>
+          <div style="font-size: 12.5px; color: var(--muted);">${err.message}</div>
+          <button class="btn btn-secondary" onclick="loadSubsData()" style="margin-top: 14px;">Retry</button>
+        `;
+      }
+    }
+
+    function computeKPIs() {
+      const total = allSubs.length;
+      let trialCount = 0;
+      let onetimeCount = 0;
+      let totalValue = 0;
+
+      allSubs.forEach(s => {
+        const t = (s.type || '').toUpperCase();
+        if (t === 'TRIAL') trialCount++;
+        else if (t === 'ONE_TIME') onetimeCount++;
+
+        const p = parseFloat(s.price) || 0;
+        totalValue += p;
+      });
+
+      document.getElementById('kpi-total-subs').innerText = total.toLocaleString('en-IN');
+      document.getElementById('kpi-trial-subs').innerText = trialCount.toLocaleString('en-IN');
+      document.getElementById('kpi-onetime-subs').innerText = onetimeCount.toLocaleString('en-IN');
+      document.getElementById('kpi-total-value').innerText = '₹' + Math.round(totalValue).toLocaleString('en-IN');
+    }
+
+    function formatIST(dateStr) {
+      if (!dateStr) return '-';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function setFilter(filterKey) {
+      currentFilter = filterKey;
+      currentPage = 1;
+
+      // Update KPI card styles
+      ['all', 'trial', 'onetime', 'revenue'].forEach(key => {
+        const el = document.getElementById('card-' + key);
+        if (el) el.classList.remove('active');
+      });
+      if (filterKey === 'all') document.getElementById('card-all')?.classList.add('active');
+      if (filterKey === 'trial') document.getElementById('card-trial')?.classList.add('active');
+      if (filterKey === 'one-time') document.getElementById('card-onetime')?.classList.add('active');
+      if (filterKey === 'high-value') document.getElementById('card-revenue')?.classList.add('active');
+
+      // Update Pill styles
+      ['all', 'trial', 'onetime', 'assigned', 'gift', 'purchase', 'high-value'].forEach(p => {
+        const el = document.getElementById('pill-' + p);
+        if (el) {
+          const map = {
+            'all': 'all',
+            'trial': 'trial',
+            'onetime': 'one-time',
+            'assigned': 'assigned',
+            'gift': 'gift-card',
+            'purchase': 'purchase',
+            'high-value': 'high-value'
+          };
+          el.classList.toggle('active', map[p] === filterKey);
+        }
+      });
+
+      renderTable();
+    }
+
+    function handleSearch() {
+      searchQuery = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      currentPage = 1;
+      renderTable();
+    }
+
+    function getFilteredSubs() {
+      return allSubs.filter(sub => {
+        const type = (sub.type || '').toUpperCase();
+        const price = parseFloat(sub.price) || 0;
+
+        // Apply filter
+        if (currentFilter === 'trial' && type !== 'TRIAL') return false;
+        if (currentFilter === 'one-time' && type !== 'ONE_TIME') return false;
+        if (currentFilter === 'assigned' && type !== 'ASSIGNED') return false;
+        if (currentFilter === 'gift-card' && type !== 'GIFT_CARD') return false;
+        if (currentFilter === 'purchase' && type !== 'PURCHASE') return false;
+        if (currentFilter === 'high-value' && price < 2000) return false;
+
+        // Apply search
+        if (searchQuery) {
+          const userId = (sub.user_id || '').toLowerCase();
+          const subId = (sub.subscription_id || '').toLowerCase();
+          const planId = (sub.plan_id || '').toLowerCase();
+          const txnId = (sub.transaction_id || '').toLowerCase();
+          const m = (sub.method || '').toLowerCase();
+          const t = (sub.type || '').toLowerCase();
+          const id = (sub.id || '').toLowerCase();
+
+          const match = userId.includes(searchQuery) ||
+                        subId.includes(searchQuery) ||
+                        planId.includes(searchQuery) ||
+                        txnId.includes(searchQuery) ||
+                        m.includes(searchQuery) ||
+                        t.includes(searchQuery) ||
+                        id.includes(searchQuery);
+          if (!match) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function renderTable() {
+      const filtered = getFilteredSubs();
+      const tbody = document.getElementById('subs-tbody');
+      const countEl = document.getElementById('results-count');
+      const emptyState = document.getElementById('empty-state');
+      const loadingState = document.getElementById('loading-state');
+      const paginationBar = document.getElementById('pagination-bar');
+
+      loadingState.style.display = 'none';
+
+      countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${allSubs.length.toLocaleString('en-IN')} unactivated accounts`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        paginationBar.style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      // Pagination calculation
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      const startIdx = (currentPage - 1) * PAGE_SIZE;
+      const pageRows = filtered.slice(startIdx, startIdx + PAGE_SIZE);
+
+      paginationBar.style.display = filtered.length > PAGE_SIZE ? 'flex' : 'none';
+      document.getElementById('page-info').innerText = `Page ${currentPage} of ${totalPages} (${filtered.length.toLocaleString('en-IN')} records)`;
+      document.getElementById('btn-prev').disabled = currentPage <= 1;
+      document.getElementById('btn-next').disabled = currentPage >= totalPages;
+
+      tbody.innerHTML = pageRows.map(sub => {
+        const price = parseFloat(sub.price) || 0;
+        const priceFormatted = '₹' + Math.round(price).toLocaleString('en-IN');
+        const startedFormatted = formatIST(sub.started_at);
+        const expiredFormatted = formatIST(sub.expire_at);
+
+        return `
+          <tr onclick="openModal(${sub._index})">
+            <td>
+              <span class="user-badge">${escapeHTML(sub.user_id ? sub.user_id.slice(0, 16) + '...' : '-')}</span>
+            </td>
+            <td>
+              <div style="font-weight: 700; color: #0f172a;">${escapeHTML(sub.plan_id ? sub.plan_id.slice(0, 18) + '...' : 'Standard Plan')}</div>
+              <div class="sub-id-meta" title="${escapeHTML(sub.subscription_id || sub.id || '')}">ID: ${escapeHTML(sub.subscription_id || sub.id || '-')}</div>
+            </td>
+            <td>
+              <span class="type-badge">${escapeHTML(sub.type || '-')}</span>
+            </td>
+            <td>
+              <div class="price-tag">${priceFormatted}</div>
+            </td>
+            <td>
+              <div style="font-weight: 600; font-size: 12px; color: var(--muted);">${startedFormatted}</div>
+            </td>
+            <td>
+              <div style="font-weight: 700; font-size: 12.5px; color: #d97706;">${expiredFormatted}</div>
+            </td>
+            <td>
+              <span class="zero-orders-badge">0 Orders</span>
+            </td>
+            <td style="text-align: right;">
+              <button class="view-btn" onclick="event.stopPropagation(); openModal(${sub._index})">
+                View Details ↗
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function changePage(delta) {
+      currentPage += delta;
+      renderTable();
+      window.scrollTo({ top: 380, behavior: 'smooth' });
+    }
+
+    function parseFeatures(featStr) {
+      if (!featStr) return null;
+      try {
+        return JSON.parse(featStr);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function openModal(index) {
+      const sub = allSubs[index];
+      if (!sub) return;
+
+      const price = parseFloat(sub.price) || 0;
+      const priceFormatted = '₹' + Math.round(price).toLocaleString('en-IN');
+      const features = parseFeatures(sub.subscription_features);
+
+      const html = `
+        <div class="detail-section">
+          <div class="detail-section-title">👤 User & Subscription Identifiers</div>
+          <div class="detail-grid">
+            <div class="detail-item full-width">
+              <span class="detail-label">User ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';color:var(--primary);">${escapeHTML(sub.user_id || '-')}</span>
+            </div>
+            <div class="detail-item full-width">
+              <span class="detail-label">Subscription / Record ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:12px;">${escapeHTML(sub.subscription_id || sub.id || '-')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Current Status</span>
+              <span class="detail-val"><span class="status-badge status-expired">Expired</span></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Activation / Orders</span>
+              <span class="detail-val"><span class="zero-orders-badge">0 Orders Placed</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">⏱️ Plan Timeline & Financials</div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">Plan Price / Value</span>
+              <span class="detail-val" style="font-size:15px;color:#0f172a;">${priceFormatted}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Subscription Type</span>
+              <span class="detail-val"><span class="type-badge">${escapeHTML(sub.type || '-')}</span></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Started At</span>
+              <span class="detail-val">${formatIST(sub.started_at)}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Expired At</span>
+              <span class="detail-val" style="color:#d97706;">${formatIST(sub.expire_at)}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Used Free Deliveries</span>
+              <span class="detail-val">${escapeHTML(sub.used_free_delivery_count || '0')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Plan ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:11.5px;">${escapeHTML(sub.plan_id || '-')}</span>
+            </div>
+          </div>
+        </div>
+
+        ${features ? `
+          <div class="detail-section" style="background:#f5f3ff;border-color:rgba(139,92,246,0.2);">
+            <div class="detail-section-title" style="color:var(--primary);">🎁 Plan Features Breakdown</div>
+            <div class="detail-grid">
+              ${features.discount && features.discount !== '-' ? `
+                <div class="detail-item">
+                  <span class="detail-label">Discount Applied</span>
+                  <span class="detail-val" style="color:#10b981;">${escapeHTML(features.discount)}</span>
+                </div>
+              ` : ''}
+              ${features.planSavings ? `
+                <div class="detail-item">
+                  <span class="detail-label">Plan Savings</span>
+                  <span class="detail-val" style="color:#10b981;">₹${escapeHTML(String(features.planSavings))}</span>
+                </div>
+              ` : ''}
+              ${features.trialDays !== undefined ? `
+                <div class="detail-item">
+                  <span class="detail-label">Trial Days</span>
+                  <span class="detail-val">${escapeHTML(String(features.trialDays))} days</span>
+                </div>
+              ` : ''}
+              ${features.deliveryCharges !== undefined ? `
+                <div class="detail-item">
+                  <span class="detail-label">Delivery Charges</span>
+                  <span class="detail-val">₹${escapeHTML(String(features.deliveryCharges))}</span>
+                </div>
+              ` : ''}
+              ${features.pricePaid !== undefined ? `
+                <div class="detail-item">
+                  <span class="detail-label">Price Paid</span>
+                  <span class="detail-val">₹${escapeHTML(String(features.pricePaid))}</span>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        ` : ''}
+
+        <div class="detail-section">
+          <div class="detail-section-title">💳 Payment & Provider</div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">Payment Method</span>
+              <span class="detail-val">${escapeHTML(sub.method ? sub.method.toUpperCase() : 'Online / Free')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Payment Status</span>
+              <span class="detail-val">${escapeHTML(sub.payment_status || 'COMPLETED')}</span>
+            </div>
+            <div class="detail-item full-width">
+              <span class="detail-label">Transaction ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:12px;">${escapeHTML(sub.transaction_id || '-')}</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('modal-content').innerHTML = html;
+      document.getElementById('detail-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalOverlayClick(e) {
+      if (e.target.id === 'detail-modal') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function exportFilteredCSV() {
+      const filtered = getFilteredSubs();
+      if (filtered.length === 0) {
+        alert('No records to export with current filters');
+        return;
+      }
+
+      const headers = ['user_id', 'subscription_id', 'plan_id', 'type', 'price', 'status', 'started_at', 'expire_at', 'method'];
+      const csvRows = [headers.join(',')];
+
+      filtered.forEach(sub => {
+        const row = headers.map(h => {
+          let val = sub[h] || '';
+          val = val.replace(/"/g, '""');
+          return `"${val}"`;
+        });
+        csvRows.push(row.join(','));
+      });
+
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `plan_expired_no_order_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', loadSubsData);
+  </script>
+</body>
+</html>

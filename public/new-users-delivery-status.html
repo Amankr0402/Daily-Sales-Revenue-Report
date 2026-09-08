@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Users Delivery Status & Orders — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1280px) {
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
+    }
+
+    .kpi-card.active-card {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Time / Status Pills Bar */
+    .time-pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .time-pill {
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .time-pill:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .time-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25);
+    }
+
+    .time-pill .pill-badge {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .time-pill.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .filter-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .clear-filter-btn {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .clear-filter-btn:hover {
+      background: #dbeafe;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(91, 62, 155, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .select-input {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Table Container */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    thead th {
+      background: #5b3e9b;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 14px 16px;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-placed {
+      background: var(--amber-light);
+      color: #b45309;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-confirmed {
+      background: var(--blue-light);
+      color: #1d4ed8;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-ready {
+      background: var(--purple-light);
+      color: #6d28d9;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .badge-shipped {
+      background: var(--green-light);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-not-delivered {
+      background: var(--rose-light);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .badge-bucket {
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 600;
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .badge-delivery-time {
+      background: #eef2ff;
+      color: #4338ca;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .id-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .copy-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    /* Loading Spinner */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: var(--text);
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-field {
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-field-full {
+      grid-column: 1 / -1;
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .modal-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      z-index: 200;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>🚚 New Users Delivery &amp; Orders Status</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid">
+      <div class="kpi-card" id="card-all" onclick="setStatusFilter('all')" title="Click to view all orders">
+        <div class="kpi-label">Total Orders</div>
+        <div class="kpi-value" id="stat-total">—</div>
+        <div class="kpi-sub">Total tracked orders</div>
+      </div>
+      <div class="kpi-card" id="card-placed" onclick="setStatusFilter('placed')" style="border-left: 4px solid #f59e0b;" title="Click to filter by Orders Placed">
+        <div class="kpi-label">
+          <span>Orders Placed</span>
+          <span style="font-size:9.5px;background:var(--amber-light);color:#b45309;padding:1px 5px;border-radius:4px;font-weight:800;">PLACED</span>
+        </div>
+        <div class="kpi-value" id="stat-placed" style="color: #b45309;">—</div>
+        <div class="kpi-sub" id="stat-placed-sub">Orders placed by users</div>
+      </div>
+      <div class="kpi-card" id="card-confirmed" onclick="setStatusFilter('confirmed')" style="border-left: 4px solid #3b82f6;" title="Click to filter by Orders Confirmed">
+        <div class="kpi-label">
+          <span>Confirmed</span>
+          <span style="font-size:9.5px;background:var(--blue-light);color:#1d4ed8;padding:1px 5px;border-radius:4px;font-weight:800;">CONFIRMED</span>
+        </div>
+        <div class="kpi-value" id="stat-confirmed" style="color: #1d4ed8;">—</div>
+        <div class="kpi-sub" id="stat-confirmed-sub">Orders verified &amp; confirmed</div>
+      </div>
+      <div class="kpi-card" id="card-ready_to_ship" onclick="setStatusFilter('ready_to_ship')" style="border-left: 4px solid #8b5cf6;" title="Click to filter by Ready to Ship">
+        <div class="kpi-label">
+          <span>Ready to Ship</span>
+          <span style="font-size:9.5px;background:var(--purple-light);color:#6d28d9;padding:1px 5px;border-radius:4px;font-weight:800;">READY</span>
+        </div>
+        <div class="kpi-value" id="stat-ready" style="color: #6d28d9;">—</div>
+        <div class="kpi-sub" id="stat-ready-sub">Packed and ready to dispatch</div>
+      </div>
+      <div class="kpi-card" id="card-shipped" onclick="setStatusFilter('shipped')" style="border-left: 4px solid #10b981;" title="Click to filter by Orders Shipped">
+        <div class="kpi-label">
+          <span>Shipped</span>
+          <span style="font-size:9.5px;background:var(--green-light);color:#047857;padding:1px 5px;border-radius:4px;font-weight:800;">SHIPPED</span>
+        </div>
+        <div class="kpi-value" id="stat-shipped" style="color: #047857;">—</div>
+        <div class="kpi-sub" id="stat-shipped-sub">In transit for delivery</div>
+      </div>
+      <div class="kpi-card" id="card-not_delivered" onclick="setStatusFilter('not_delivered')" style="border-left: 4px solid #ef4444;" title="Click to filter by Orders Not Delivered">
+        <div class="kpi-label">
+          <span>Not Delivered</span>
+          <span style="font-size:9.5px;background:var(--rose-light);color:#b91c1c;padding:1px 5px;border-radius:4px;font-weight:800;">NOT DELIVERED</span>
+        </div>
+        <div class="kpi-value" id="stat-not-delivered" style="color: #b91c1c;">—</div>
+        <div class="kpi-sub" id="stat-not-delivered-sub">Undelivered / pending action</div>
+      </div>
+    </section>
+
+    <!-- Quick Status Filter Pills -->
+    <div class="time-pills-bar">
+      <span style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:6px;">Filter By:</span>
+      <button class="time-pill active" id="pill-all" onclick="setStatusFilter('all')">
+        All Orders <span class="pill-badge" id="badge-count-all">0</span>
+      </button>
+      <button class="time-pill" id="pill-placed" onclick="setStatusFilter('placed')">
+        📦 Orders Placed <span class="pill-badge" id="badge-count-placed">0</span>
+      </button>
+      <button class="time-pill" id="pill-confirmed" onclick="setStatusFilter('confirmed')">
+        ✔️ Confirmed <span class="pill-badge" id="badge-count-confirmed">0</span>
+      </button>
+      <button class="time-pill" id="pill-ready_to_ship" onclick="setStatusFilter('ready_to_ship')">
+        📦 Ready to Ship <span class="pill-badge" id="badge-count-ready">0</span>
+      </button>
+      <button class="time-pill" id="pill-shipped" onclick="setStatusFilter('shipped')">
+        🚚 Shipped <span class="pill-badge" id="badge-count-shipped">0</span>
+      </button>
+      <button class="time-pill" id="pill-not_delivered" onclick="setStatusFilter('not_delivered')">
+        ⚠️ Not Delivered <span class="pill-badge" id="badge-count-not-delivered">0</span>
+      </button>
+    </div>
+
+    <!-- Active Filter Notice Banner -->
+    <div id="active-filter-banner" class="filter-banner" style="display:none;">
+      <div id="active-filter-text">Showing Orders Placed</div>
+      <button class="clear-filter-btn" onclick="setStatusFilter('all')">✕ Reset Filter</button>
+    </div>
+
+    <!-- Controls Row -->
+    <section class="controls-card">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by Order ID, Status, Expected Delivery, or Bucket..." />
+      </div>
+      <div class="filter-group">
+        <select id="filter-status-select" class="select-input" onchange="setStatusFilter(this.value)">
+          <option value="all">All Statuses</option>
+          <option value="placed">Orders Placed</option>
+          <option value="confirmed">Confirmed</option>
+          <option value="ready_to_ship">Ready to Ship</option>
+          <option value="shipped">Shipped</option>
+          <option value="not_delivered">Not Delivered</option>
+        </select>
+        <select id="sort-select" class="select-input" onchange="applyFilters()">
+          <option value="newest">Created: Newest First</option>
+          <option value="oldest">Created: Oldest First</option>
+          <option value="status">Status (A-Z)</option>
+        </select>
+        <select id="page-size" class="select-input" onchange="changePageSize(this.value)">
+          <option value="25">25 per page</option>
+          <option value="50" selected>50 per page</option>
+          <option value="100">100 per page</option>
+          <option value="1000">Show All</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Table Card -->
+    <section class="table-card">
+      <div id="loading-state" class="loading-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading New Users Delivery Status Data...</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Fetching live Metabase query records</div>
+      </div>
+
+      <div class="table-responsive" id="table-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">#</th>
+              <th>Order ID</th>
+              <th>Status</th>
+              <th>Order Created At</th>
+              <th>Expected Delivery</th>
+              <th>Bucket / Classification</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-bar" id="pagination-container" style="display: none;">
+        <div id="pagination-info">Showing 0 to 0 of 0 entries</div>
+        <div class="page-nav" id="pagination-buttons">
+          <!-- Page buttons -->
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📦 Order &amp; Delivery Details</span>
+        </div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Order ID copied to clipboard!</div>
+
+  <script>
+    const API_URL = '/api/new-users-delivery-status-csv';
+    const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/46622b98-120c-473a-881b-d2aebe879fce.csv';
+
+    let allOrders = [];
+    let filteredOrders = [];
+    let currentFilter = 'all';
+    let currentPage = 1;
+    let pageSize = 50;
+
+    // RFC-compliant CSV line parser
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push(field.trim());
+          field = '';
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          row.push(field.trim());
+          if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+            rows.push(row);
+          }
+          row = [];
+          field = '';
+        } else {
+          field += c;
+        }
+      }
+      if (field.length > 0 || row.length > 0) {
+        row.push(field.trim());
+        if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+          rows.push(row);
+        }
+      }
+      return rows;
+    }
+
+    function formatDate(str) {
+      if (!str) return '-';
+      try {
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return str;
+        return d.toLocaleDateString('en-IN', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (e) {
+        return str;
+      }
+    }
+
+    function timeAgo(str) {
+      if (!str) return '';
+      try {
+        const d = new Date(str);
+        if (isNaN(d.getTime())) return '';
+        const diffMs = Date.now() - d.getTime();
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        if (diffDays === 0) {
+          const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+          return diffHours <= 1 ? 'Just now' : `${diffHours} hrs ago`;
+        }
+        return diffDays === 1 ? '1 day ago' : `${diffDays} days ago`;
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function getStatusBadge(status) {
+      const s = (status || '').toUpperCase().trim();
+      if (s === 'PLACED' || /placed/i.test(s)) {
+        return '<span class="badge badge-placed">📦 Placed</span>';
+      }
+      if (s === 'CONFIRMED' || /confirmed/i.test(s)) {
+        return '<span class="badge badge-confirmed">✔️ Confirmed</span>';
+      }
+      if (s === 'READY_TO_SHIP' || /ready/i.test(s)) {
+        return '<span class="badge badge-ready">📦 Ready to Ship</span>';
+      }
+      if (s === 'SHIPPED' || /shipped/i.test(s)) {
+        return '<span class="badge badge-shipped">🚚 Shipped</span>';
+      }
+      if (s === 'NOT_DELIVERED' || /not.?delivered/i.test(s)) {
+        return '<span class="badge badge-not-delivered">⚠️ Not Delivered</span>';
+      }
+      return `<span class="badge badge-bucket">${status || 'Unknown'}</span>`;
+    }
+
+    function normalizeFilter(f) {
+      if (!f) return 'all';
+      const clean = f.toLowerCase().trim().replace(/orders\s*-\s*|\s+/g, '_');
+      if (clean.includes('placed')) return 'placed';
+      if (clean.includes('confirmed')) return 'confirmed';
+      if (clean.includes('ready')) return 'ready_to_ship';
+      if (clean.includes('shipped')) return 'shipped';
+      if (clean.includes('not') && clean.includes('deliv')) return 'not_delivered';
+      return clean;
+    }
+
+    async function loadData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('table-container').style.display = 'none';
+      document.getElementById('pagination-container').style.display = 'none';
+
+      let csvText = '';
+      try {
+        const url = forceRefresh ? `${API_URL}?refresh=true&t=${Date.now()}` : API_URL;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        csvText = await resp.text();
+      } catch (err) {
+        console.warn('Backend proxy fetch failed, falling back directly to Metabase URL:', err);
+        try {
+          const resp = await fetch(FALLBACK_DIRECT_URL);
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          csvText = await resp.text();
+        } catch (fbErr) {
+          console.error('All fetch attempts failed:', fbErr);
+          document.getElementById('loading-state').innerHTML = `
+            <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Failed to load New Users Delivery records</div>
+            <div style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">${fbErr.message}</div>
+            <button class="btn btn-primary" onclick="loadData(true)">🔄 Try Again</button>
+          `;
+          return;
+        }
+      }
+
+      const rows = parseCSV(csvText);
+      if (rows.length < 2) {
+        document.getElementById('loading-state').innerHTML = `
+          <div style="font-size: 15px; font-weight: 700; color: var(--text);">No records found</div>
+        `;
+        return;
+      }
+
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      const idIdx = headers.indexOf('id');
+      const statusIdx = headers.indexOf('status');
+      const createdIdx = headers.indexOf('created_at');
+      const deliveryTimeIdx = headers.indexOf('expected_delivery_time');
+      const bucketIdx = headers.indexOf('bucket');
+
+      allOrders = [];
+      for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        if (!r[idIdx] && !r[statusIdx]) continue;
+        allOrders.push({
+          id: r[idIdx] || '',
+          status: r[statusIdx] || '',
+          created_at: r[createdIdx] || '',
+          expected_delivery_time: r[deliveryTimeIdx] || '1-3 days',
+          bucket: r[bucketIdx] || '',
+          raw: r
+        });
+      }
+
+      updateKPIs();
+      checkUrlParams();
+      applyFilters();
+
+      document.getElementById('loading-state').style.display = 'none';
+      document.getElementById('table-container').style.display = 'block';
+      document.getElementById('pagination-container').style.display = 'flex';
+    }
+
+    function updateKPIs() {
+      const counts = {
+        total: allOrders.length,
+        placed: 0,
+        confirmed: 0,
+        ready_to_ship: 0,
+        shipped: 0,
+        not_delivered: 0
+      };
+
+      allOrders.forEach(o => {
+        const s = (o.status || '').toUpperCase();
+        if (s === 'PLACED' || /placed/i.test(s)) counts.placed++;
+        else if (s === 'CONFIRMED' || /confirmed/i.test(s)) counts.confirmed++;
+        else if (s === 'READY_TO_SHIP' || /ready/i.test(s)) counts.ready_to_ship++;
+        else if (s === 'SHIPPED' || /shipped/i.test(s)) counts.shipped++;
+        else if (s === 'NOT_DELIVERED' || /not.?delivered/i.test(s)) counts.not_delivered++;
+      });
+
+      document.getElementById('stat-total').textContent = counts.total.toLocaleString('en-IN');
+      document.getElementById('stat-placed').textContent = counts.placed.toLocaleString('en-IN');
+      document.getElementById('stat-confirmed').textContent = counts.confirmed.toLocaleString('en-IN');
+      document.getElementById('stat-ready').textContent = counts.ready_to_ship.toLocaleString('en-IN');
+      document.getElementById('stat-shipped').textContent = counts.shipped.toLocaleString('en-IN');
+      document.getElementById('stat-not-delivered').textContent = counts.not_delivered.toLocaleString('en-IN');
+
+      const pct = (n) => counts.total > 0 ? `${((n / counts.total) * 100).toFixed(1)}% of total` : '';
+      document.getElementById('stat-placed-sub').textContent = `${pct(counts.placed)} · Awaiting confirmation`;
+      document.getElementById('stat-confirmed-sub').textContent = `${pct(counts.confirmed)} · Ready for packing`;
+      document.getElementById('stat-ready-sub').textContent = `${pct(counts.ready_to_ship)} · Awaiting pickup`;
+      document.getElementById('stat-shipped-sub').textContent = `${pct(counts.shipped)} · In transit`;
+      document.getElementById('stat-not-delivered-sub').textContent = `${pct(counts.not_delivered)} · Delivery delayed`;
+
+      document.getElementById('badge-count-all').textContent = counts.total;
+      document.getElementById('badge-count-placed').textContent = counts.placed;
+      document.getElementById('badge-count-confirmed').textContent = counts.confirmed;
+      document.getElementById('badge-count-ready').textContent = counts.ready_to_ship;
+      document.getElementById('badge-count-shipped').textContent = counts.shipped;
+      document.getElementById('badge-count-not-delivered').textContent = counts.not_delivered;
+    }
+
+    function checkUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const filter = params.get('filter') || params.get('status');
+      if (filter) {
+        currentFilter = normalizeFilter(filter);
+      }
+    }
+
+    function setStatusFilter(filterKey) {
+      currentFilter = normalizeFilter(filterKey);
+      currentPage = 1;
+      
+      // Update URL without full refresh
+      const url = new URL(window.location);
+      if (currentFilter === 'all') {
+        url.searchParams.delete('filter');
+        url.searchParams.delete('status');
+      } else {
+        url.searchParams.set('filter', currentFilter);
+      }
+      window.history.replaceState({}, '', url);
+
+      applyFilters();
+    }
+
+    function applyFilters() {
+      // Sync UI pills
+      document.querySelectorAll('.time-pill').forEach(el => el.classList.remove('active'));
+      const activePill = document.getElementById(`pill-${currentFilter}`);
+      if (activePill) activePill.classList.add('active');
+
+      // Sync KPI card active state
+      document.querySelectorAll('.kpi-card').forEach(c => c.classList.remove('active-card'));
+      const activeCard = document.getElementById(`card-${currentFilter}`);
+      if (activeCard) activeCard.classList.add('active-card');
+
+      // Sync dropdown
+      const sel = document.getElementById('filter-status-select');
+      if (sel) sel.value = currentFilter;
+
+      // Filter Banner
+      const banner = document.getElementById('active-filter-banner');
+      const bannerText = document.getElementById('active-filter-text');
+      if (currentFilter !== 'all') {
+        const labels = {
+          placed: 'Orders Placed',
+          confirmed: 'Orders Confirmed',
+          ready_to_ship: 'Orders Ready to Ship',
+          shipped: 'Orders Shipped',
+          not_delivered: 'Orders Not Delivered'
+        };
+        const labelName = labels[currentFilter] || currentFilter.toUpperCase();
+        banner.style.display = 'flex';
+        bannerText.textContent = `⚡ Showing filtered view: ${labelName}`;
+      } else {
+        banner.style.display = 'none';
+      }
+
+      // Filter logic
+      const searchQuery = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const sortMode = document.getElementById('sort-select').value;
+
+      filteredOrders = allOrders.filter(o => {
+        // Status filter
+        if (currentFilter !== 'all') {
+          const s = (o.status || '').toUpperCase();
+          if (currentFilter === 'placed' && s !== 'PLACED' && !/placed/i.test(s)) return false;
+          if (currentFilter === 'confirmed' && s !== 'CONFIRMED' && !/confirmed/i.test(s)) return false;
+          if (currentFilter === 'ready_to_ship' && s !== 'READY_TO_SHIP' && !/ready/i.test(s)) return false;
+          if (currentFilter === 'shipped' && s !== 'SHIPPED' && !/shipped/i.test(s)) return false;
+          if (currentFilter === 'not_delivered' && s !== 'NOT_DELIVERED' && !/not.?delivered/i.test(s)) return false;
+        }
+
+        // Search query
+        if (searchQuery) {
+          const matchId = (o.id || '').toLowerCase().includes(searchQuery);
+          const matchStatus = (o.status || '').toLowerCase().includes(searchQuery);
+          const matchBucket = (o.bucket || '').toLowerCase().includes(searchQuery);
+          const matchTime = (o.expected_delivery_time || '').toLowerCase().includes(searchQuery);
+          const matchDate = (o.created_at || '').toLowerCase().includes(searchQuery);
+          if (!matchId && !matchStatus && !matchBucket && !matchTime && !matchDate) return false;
+        }
+
+        return true;
+      });
+
+      // Sorting
+      if (sortMode === 'newest') {
+        filteredOrders.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+      } else if (sortMode === 'oldest') {
+        filteredOrders.sort((a, b) => new Date(a.created_at || 0) - new Date(b.created_at || 0));
+      } else if (sortMode === 'status') {
+        filteredOrders.sort((a, b) => (a.status || '').localeCompare(b.status || ''));
+      }
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('orders-table-body');
+      tbody.innerHTML = '';
+
+      if (filteredOrders.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 48px; color: var(--muted);">
+              <div style="font-size: 24px; margin-bottom: 8px;">🔍</div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text);">No matching orders found</div>
+              <div style="font-size: 13px; margin-top: 4px;">Try modifying your search or resetting filters</div>
+            </td>
+          </tr>
+        `;
+        document.getElementById('pagination-info').textContent = 'Showing 0 to 0 of 0 entries';
+        document.getElementById('pagination-buttons').innerHTML = '';
+        return;
+      }
+
+      const totalEntries = filteredOrders.length;
+      const totalPages = Math.ceil(totalEntries / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, totalEntries);
+      const pageSlice = filteredOrders.slice(startIndex, endIndex);
+
+      pageSlice.forEach((order, idx) => {
+        const rowNum = startIndex + idx + 1;
+        const tr = document.createElement('tr');
+        tr.onclick = (e) => {
+          if (e.target.closest('.copy-btn')) return;
+          openModal(order);
+        };
+
+        const ago = timeAgo(order.created_at);
+
+        tr.innerHTML = `
+          <td style="color: var(--muted); font-weight: 600;">${rowNum}</td>
+          <td>
+            <div class="id-cell">
+              <span>${order.id}</span>
+              <button class="copy-btn" onclick="copyId('${order.id}', event)" title="Copy Order ID">📋</button>
+            </div>
+          </td>
+          <td>${getStatusBadge(order.status)}</td>
+          <td>
+            <div style="font-weight: 600;">${formatDate(order.created_at)}</div>
+            ${ago ? `<div style="font-size: 11px; color: var(--muted);">${ago}</div>` : ''}
+          </td>
+          <td>
+            <span class="badge badge-delivery-time">⏱️ ${order.expected_delivery_time || '1-3 days'}</span>
+          </td>
+          <td>
+            <span class="badge badge-bucket">${order.bucket || '-'}</span>
+          </td>
+          <td style="text-align: right;">
+            <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="openModal(${JSON.stringify(order).replace(/"/g, '&quot;')}); event.stopPropagation();">
+              👁️ Details
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Pagination info
+      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalEntries.toLocaleString('en-IN')} entries`;
+
+      // Pagination Buttons
+      const btnContainer = document.getElementById('pagination-buttons');
+      btnContainer.innerHTML = '';
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '← Prev';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); } };
+      btnContainer.appendChild(prevBtn);
+
+      const maxButtons = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+      let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+      if (endPage - startPage + 1 < maxButtons) {
+        startPage = Math.max(1, endPage - maxButtons + 1);
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `page-btn ${p === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = p;
+        pageBtn.onclick = () => { currentPage = p; renderTable(); };
+        btnContainer.appendChild(pageBtn);
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = 'Next →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); } };
+      btnContainer.appendChild(nextBtn);
+    }
+
+    function changePageSize(sz) {
+      pageSize = parseInt(sz, 10);
+      currentPage = 1;
+      renderTable();
+    }
+
+    function copyId(id, e) {
+      if (e) e.stopPropagation();
+      navigator.clipboard.writeText(id).then(() => {
+        showToast('Order ID copied to clipboard!');
+      }).catch(() => {
+        showToast(`Copied: ${id}`);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => {
+        t.style.display = 'none';
+      }, 2500);
+    }
+
+    function openModal(order) {
+      const body = document.getElementById('modal-body');
+      const ago = timeAgo(order.created_at);
+
+      body.innerHTML = `
+        <div class="modal-grid">
+          <div class="modal-field-full">
+            <div class="modal-label">Order / User ID</div>
+            <div class="modal-val id-cell" style="font-size: 13px;">
+              <span>${order.id}</span>
+              <button class="copy-btn" onclick="copyId('${order.id}', event)" title="Copy Order ID">📋 Copy</button>
+            </div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Current Status</div>
+            <div class="modal-val">${getStatusBadge(order.status)}</div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Expected Delivery Timeframe</div>
+            <div class="modal-val">
+              <span class="badge badge-delivery-time">⏱️ ${order.expected_delivery_time || '1-3 days'}</span>
+            </div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Order Created At</div>
+            <div class="modal-val">
+              <div>${formatDate(order.created_at)}</div>
+              ${ago ? `<div style="font-size: 11.5px; color: var(--muted); font-weight: 500; margin-top: 2px;">(${ago})</div>` : ''}
+            </div>
+          </div>
+          <div class="modal-field">
+            <div class="modal-label">Bucket / Funnel Stage</div>
+            <div class="modal-val">
+              <span class="badge badge-bucket">${order.bucket || '-'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button class="btn btn-secondary" onclick="copyId('${order.id}', event)">📋 Copy Order ID</button>
+          <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').style.display = 'none';
+    }
+
+    document.getElementById('modal-close').onclick = closeModal;
+    window.onclick = (e) => {
+      const modal = document.getElementById('detail-modal');
+      if (e.target === modal) closeModal();
+    };
+
+    // Download CSV
+    document.getElementById('btn-download-csv').onclick = () => {
+      if (filteredOrders.length === 0) {
+        alert('No data available to export.');
+        return;
+      }
+      const headers = ['Order ID', 'Status', 'Created At', 'Expected Delivery Time', 'Bucket'];
+      const rows = filteredOrders.map(o => [
+        `"${o.id}"`,
+        `"${o.status}"`,
+        `"${o.created_at}"`,
+        `"${o.expected_delivery_time}"`,
+        `"${o.bucket}"`
+      ]);
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      const dateStr = new Date().toISOString().split('T')[0];
+      link.setAttribute('download', `new_users_delivery_status_${currentFilter}_${dateStr}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    // Search input listener
+    document.getElementById('search-input').addEventListener('input', () => {
+      currentPage = 1;
+      applyFilters();
+    });
+
+    // Refresh Button
+    document.getElementById('btn-refresh').onclick = () => {
+      loadData(true);
+    };
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      loadData();
+    });
+  </script>
+</body>
+</html>

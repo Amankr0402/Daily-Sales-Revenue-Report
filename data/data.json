@@ -23677,21 +23677,21 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 314073,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 400742,
+    "salesCount": 43,
+    "transactions": 43,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta"
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 41128,
-        "count": 4
+        "revenue": 56128,
+        "count": 6
       },
       "Honey Talreja": {
-        "revenue": 35200,
-        "count": 4
+        "revenue": 46200,
+        "count": 5
       },
       "Vikas Poonia": {
         "revenue": 47376,
@@ -23702,8 +23702,8 @@
         "count": 1
       },
       "Shubham Rai": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 15500,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 11000,
@@ -23726,30 +23726,42 @@
         "count": 2
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 24431,
-        "count": 2
+        "revenue": 36646,
+        "count": 3
       },
       "Others": {
         "revenue": 3160,
         "count": 1
       },
       "Shashank Tiwari": {
-        "revenue": 3000,
-        "count": 1
+        "revenue": 14000,
+        "count": 2
       },
       "Prerak Bhavsar": {
+        "revenue": 15198,
+        "count": 2
+      },
+      "Jivesh Harde": {
         "revenue": 11000,
+        "count": 1
+      },
+      "Abhijeet Mathur": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 5756,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 241135,
-        "count": 22
+        "revenue": 309350,
+        "count": 28
       },
       "Quarterly Max": {
-        "revenue": 18500,
-        "count": 4
+        "revenue": 36954,
+        "count": 8
       },
       "Quarterly Plus": {
         "revenue": 6160,
@@ -23758,8 +23770,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180467,
-        "count": 19
+        "revenue": 258938,
+        "count": 27
       },
       "Events": {
         "revenue": 47376,
@@ -23770,8 +23782,8 @@
         "count": 1
       },
       "Renewals": {
-        "revenue": 30752,
-        "count": 3
+        "revenue": 38950,
+        "count": 5
       },
       "Direct Sale": {
         "revenue": 48278,
@@ -25974,19 +25986,7 @@
         "count": 4
       }
     },
-    "userBreakdown": {
-      "signups": 1867,
-      "otpVerified": 1650,
-      "serviceable": 1022,
-      "serviceableWithPct": "1,022 (54.7%)",
-      "serviceablePct": "54.7%"
-    },
-    "deliveryFee": {
-      "transactions": 3,
-      "charge": 300,
-      "tax": 54,
-      "total": 354
-    },
+    "userBreakdown": null,
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26299,9 +26299,9 @@
     "userBreakdown": {
       "signups": 1569,
       "otpVerified": 1548,
-      "serviceable": 959,
-      "serviceableWithPct": "959 (61.1%)",
-      "serviceablePct": "61.1%"
+      "serviceable": 960,
+      "serviceableWithPct": "960 (61.2%)",
+      "serviceablePct": "61.2%"
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26409,10 +26409,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1640,
-      "otpVerified": 1616,
-      "serviceable": 1029,
-      "serviceableWithPct": "1,029 (62.7%)",
+      "signups": 1639,
+      "otpVerified": 1615,
+      "serviceable": 1028,
+      "serviceableWithPct": "1,028 (62.7%)",
       "serviceablePct": "62.7%"
     },
     "deliveryFee": {
@@ -26693,22 +26693,17 @@
       }
     },
     "userBreakdown": {
-      "signups": 1692,
-      "otpVerified": 1675,
+      "signups": 1691,
+      "otpVerified": 1674,
       "serviceable": 1060,
-      "serviceableWithPct": "1,060 (62.6%)",
-      "serviceablePct": "62.6%"
+      "serviceableWithPct": "1,060 (62.7%)",
+      "serviceablePct": "62.7%"
     },
     "deliveryFee": {
       "transactions": 4,
       "charge": 400,
       "tax": 72,
       "total": 472
-    },
-    "missedLeads": {
-      "Connected": 462,
-      "Interested": 257,
-      "Paise Dega": 41
     },
     "refunds": {
       "count": 1,
@@ -26726,50 +26721,21 @@
     "refundsLast7Days": {
       "total": 18058,
       "count": 3
-    },
-    "newUsers7d": 11930,
-    "newUsersYesterday": 1706,
-    "activeSubs": 4673,
-    "newSubs7d": 156,
-    "teleCrmLeads": 2076,
-    "subsEnding5d": 79,
-    "subsExpired7d": 99,
-    "subsExpiringToday": 16,
-    "planExpiringNoOrder": 0,
-    "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
-      "Orders - Not Delivered": 77,
-      "Orders Not Delivered": 77
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 136,
-      "New Subscribers Orders that have been Delivered": 59,
-      "New Subscribers Orders yet to be Delivered": 77,
-      "New Subscribers Orders yet to be Delivered & Delayed": 21
     }
   },
   {
     "date": "2026-09-07",
-    "totalRevenue": 62128,
-    "salesCount": 7,
-    "transactions": 7,
+    "totalRevenue": 141889,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
-      "amount": 12216,
-      "agent": "Vivek Shah"
+      "amount": 13073,
+      "agent": "Aparnna Mohanarengan"
     },
     "agents": {
       "Vikas Poonia": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 13244,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 11000,
@@ -26784,48 +26750,91 @@
         "count": 1
       },
       "Shubham Rai": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Sneha Anand": {
         "revenue": 4000,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 3160,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 54968,
-        "count": 5
+        "revenue": 98968,
+        "count": 9
       },
       "Quarterly Max": {
-        "revenue": 4000,
-        "count": 1
+        "revenue": 17500,
+        "count": 4
+      },
+      "Quarterly Plus": {
+        "revenue": 6028,
+        "count": 2
       }
     },
     "sources": {
       "Renewals": {
-        "revenue": 24752,
-        "count": 3
+        "revenue": 27620,
+        "count": 4
       },
       "Organic": {
-        "revenue": 34216,
-        "count": 3
+        "revenue": 94876,
+        "count": 11
       },
       "Direct Sale": {
-        "revenue": 3160,
-        "count": 1
+        "revenue": 19393,
+        "count": 3
       }
     },
     "userBreakdown": {
-      "signups": 585,
-      "otpVerified": 578,
-      "serviceable": 372,
-      "serviceableWithPct": "372 (63.6%)",
-      "serviceablePct": "63.6%"
+      "signups": 1257,
+      "otpVerified": 1242,
+      "serviceable": 802,
+      "serviceableWithPct": "802 (63.8%)",
+      "serviceablePct": "63.8%"
+    },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
+    "missedLeads": {
+      "Connected": 479,
+      "Interested": 265,
+      "Paise Dega": 41
     },
     "refunds": {
-      "count": 4,
-      "total": 41267,
+      "count": 5,
+      "total": 41385,
       "items": [
         {
           "refundId": "rfnd_TZ2mJ0r9n5R5bI",
@@ -26854,41 +26863,111 @@
           "amount": 11022,
           "status": "processed",
           "date": "07/09/2026 11:59:06"
+        },
+        {
+          "refundId": "rfnd_TZDOXUEUkGbuI2",
+          "paymentId": "pay_TZDMgYfdxZSccr",
+          "amount": 118,
+          "status": "processed",
+          "date": "07/09/2026 22:06:28"
         }
       ]
     },
     "refundsLast7Days": {
-      "total": 59325,
-      "count": 7
+      "total": 59443,
+      "count": 8
     },
-    "newUsers7d": 11930,
-    "newUsersYesterday": 1706,
-    "activeSubs": 4673,
-    "newSubs7d": 141,
-    "teleCrmLeads": 2076,
+    "newUsers7d": 11312,
+    "newUsersYesterday": 1266,
+    "activeSubs": 4688,
+    "newSubs7d": 151,
+    "teleCrmLeads": 1595,
     "subsEnding5d": 79,
-    "subsExpired7d": 99,
-    "subsExpiringToday": 16,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 12,
     "planExpiringNoOrder": 0,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 117,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
-      "Orders - Not Delivered": 77,
-      "Orders Not Delivered": 77
+      "Orders - PLACED": 25,
+      "Orders Placed": 25,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 7,
+      "Orders Ready to Ship": 7,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 76,
+      "Orders Not Delivered": 74
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 136,
-      "New Subscribers Orders that have been Delivered": 59,
-      "New Subscribers Orders yet to be Delivered": 77,
-      "New Subscribers Orders yet to be Delivered & Delayed": 21
+      "New Subscribers who have Ordered": 159,
+      "New Subscribers Orders that have been Delivered": 83,
+      "New Subscribers Orders yet to be Delivered": 76,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
+    }
+  },
+  {
+    "date": "2026-09-08",
+    "totalRevenue": 23728,
+    "salesCount": 3,
+    "transactions": 3,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Swapnil Balasaheb Chavan"
+    },
+    "agents": {},
+    "plans": {},
+    "sources": {
+      "Direct Sale": {
+        "revenue": 23728,
+        "count": 3
+      }
+    },
+    "userBreakdown": {
+      "signups": 752,
+      "otpVerified": 734,
+      "serviceable": 519,
+      "serviceableWithPct": "519 (69.0%)",
+      "serviceablePct": "69.0%"
+    },
+    "refundsLast7Days": {
+      "total": 59443,
+      "count": 8
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "newUsers7d": 11312,
+    "newUsersYesterday": 1266,
+    "activeSubs": 4688,
+    "newSubs7d": 131,
+    "teleCrmLeads": 1595,
+    "subsEnding5d": 79,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 12,
+    "planExpiringNoOrder": 0,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 117,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 25,
+      "Orders Placed": 25,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 7,
+      "Orders Ready to Ship": 7,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 76,
+      "Orders Not Delivered": 74
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 159,
+      "New Subscribers Orders that have been Delivered": 83,
+      "New Subscribers Orders yet to be Delivered": 76,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
 ]

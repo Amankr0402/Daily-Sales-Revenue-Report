@@ -113,6 +113,8 @@ const html = `<!DOCTYPE html>
     .ftbl th{text-align:left;padding:10px 14px;background:var(--surface2);color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
     .ftbl td{padding:10px 14px;border-bottom:1px solid var(--border)}
     .ftbl tr:last-child td{border-bottom:none}
+    .clickable-row{cursor:pointer!important;transition:background .15s ease}
+    .clickable-row:hover{background:rgba(91,62,155,0.08)!important}
     .fbar-wrap{display:flex;align-items:center;gap:10px}
     .fbar-bg{flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
     .fbar-fill{height:100%;border-radius:3px}
@@ -322,20 +324,78 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- 8. SALES TREND -->
+  <!-- 8. SALES TREND TABLE -->
   <div class="sec-gap">
     <div class="sec-title">\ud83d\udcc8 Sales Trend \u2014 Last 7 Days</div>
-    <div class="chart-card">
-      <div class="chart-title">Daily Revenue (Last 7 Days) <span class="cbadge">Bar Chart</span></div>
-      <div style="position: relative; height: 320px; width: 100%;">
-        <canvas id="trendChart"></canvas>
-      </div>
+    <div class="chart-card" style="padding:0;overflow:hidden;border-radius:14px">
+      <table class="ftbl" style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em">DATE</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:center">DEALS CLOSED</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">SALES REVENUE</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">DELIVERY FEE</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">TOTAL REVENUE</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">BLENDED AOV</th>
+          </tr>
+        </thead>
+        <tbody id="trend-tbl-body">
+          <!-- Populated dynamically via JS -->
+        </tbody>
+        <tfoot id="trend-tbl-foot">
+          <!-- Populated dynamically via JS -->
+        </tfoot>
+      </table>
     </div>
   </div>
+    <!-- 9. REFUNDS -->
+    <div class="sec-gap">
+      <div class="sec-title">💸 REFUNDS</div>
+      <div class="grid g2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div class="chart-card clickable-card" onclick="window.open(\'refunds-details.html?filter=yesterday\', \'_blank\')" style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;" title="Click to view yesterday\'s processed refunds in a new tab">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="kpi-lbl" style="margin-bottom: 0;">REFUND PROCESSED (YESTERDAY)</div>
+            <span style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View List ↗</span>
+          </div>
+          <div class="kpi-val" id="refund-yesterday" style="font-size: 28px; font-weight: 800; color: var(--text);">—</div>
+          <div class="kpi-sub" id="refund-yesterday-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">Loading…</div>
+        </div>
+        <div class="chart-card clickable-card" onclick="window.open(\'refunds-details.html?filter=last7days\', \'_blank\')" style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;" title="Click to view 7-day processed refunds in a new tab">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="kpi-lbl" style="margin-bottom: 0;">REFUND PROCESSED (LAST 7 DAYS)</div>
+            <span style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View List ↗</span>
+          </div>
+          <div class="kpi-val" id="refund-7days" style="font-size: 28px; font-weight: 800; color: var(--text);">—</div>
+          <div class="kpi-sub" id="refund-7days-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">Loading…</div>
+        </div>
+      </div>
+    </div>
 
-
-
-  <div style="text-align:center;padding:20px 0 0;font-size:12px;color:rgba(136,150,179,0.5);border-top:1px solid var(--border);margin-top:8px">
+    <!-- 10. FINANCIALS -->
+    <div class="sec-gap">
+      <div class="sec-title">💼 FINANCIALS</div>
+      <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px; max-width: 650px;">
+        <div style="padding: 16px 20px 12px; font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 18px;">🧲</span>
+          <span>Net Revenue</span>
+        </div>
+        <div class="net-row" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);">
+          <span style="font-size: 13.5px; font-weight: 600; color: var(--muted);">Total Sales Revenue</span>
+          <span style="font-size: 16px; font-weight: 800; color: var(--green);" id="net-sales">—</span>
+        </div>
+        <div class="net-row clickable-row" onclick="window.open(\'refunds-details.html?filter=yesterday\', \'_blank\')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);" title="Click to view processed refunds in a new tab">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--muted);">− Refunds Processed</span>
+            <span style="font-size: 10px; font-weight: 700; background: rgba(225,29,72,0.1); color: var(--red); padding: 2px 6px; border-radius: 10px;">View List ↗</span>
+          </div>
+          <span style="font-size: 15px; font-weight: 700; color: var(--red);" id="net-refunds">₹0</span>
+        </div>
+        <div class="net-row" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-top: 1px solid var(--border); background: rgba(16,185,129,0.06);">
+          <span style="font-size: 14px; font-weight: 800; color: var(--text);">= Net Revenue</span>
+          <span style="font-size: 17px; font-weight: 900; color: var(--green);" id="net-total">—</span>
+        </div>
+      </div>
+    </div>  <div style="text-align:center;padding:20px 0 0;font-size:12px;color:rgba(136,150,179,0.5);border-top:1px solid var(--border);margin-top:8px">
     \ud83d\udc18 The Elefant \u2014 Automated Daily Sales Intelligence Report &nbsp;|&nbsp; Generated daily at 10:00 AM IST
   </div>
 </div>
@@ -480,10 +540,47 @@ async function init() {
       }
     }
 
-    // Trend
-    const tRevs = l7.map(d=>d.totalRevenue||0);
-    const maxR = Math.max(...tRevs);
-    new Chart(document.getElementById('trendChart'),{type:'bar',data:{labels:sLabels,datasets:[{label:'Revenue',data:tRevs,backgroundColor:tRevs.map(r=>r===maxR?'rgba(245,158,11,0.85)':'rgba(99,102,241,0.7)'),borderRadius:8,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+fmt(ctx.parsed.y)}}},scales:{x:{ticks:{color:'#8896b3',font:{size:11}},grid:{display:false}},y:{ticks:{color:'#8896b3',font:{size:11},callback:v=>fmtK(v)},grid:{color:'rgba(255,255,255,0.04)'}}}}});
+    // Sales Trend — Last 7 Days Table
+    const trendBody = document.getElementById('trend-tbl-body');
+    const trendFoot = document.getElementById('trend-tbl-foot');
+    if (trendBody) {
+      const revL7 = l7.slice().reverse();
+      let sumDeals = 0, sumSalesRev = 0, sumDeliv = 0, sumTotalRev = 0;
+
+      trendBody.innerHTML = revL7.map(d => {
+        const deals = d.salesCount || 0;
+        const sRev = d.totalRevenue || 0;
+        const dFee = (d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0;
+        const tot = sRev + dFee;
+        const aov = deals > 0 ? Math.round(sRev / deals) : 0;
+
+        sumDeals += deals;
+        sumSalesRev += sRev;
+        sumDeliv += dFee;
+        sumTotalRev += tot;
+
+        return '<tr>' +
+          '<td style="font-weight:700;color:var(--text);padding:12px 16px;">' + sd(d.date) + (d.date === yd.date ? ' <span style="font-size:10px;font-weight:700;background:rgba(16,185,129,0.15);color:#059669;padding:2px 8px;border-radius:10px;margin-left:6px;">Yesterday</span>' : '') + '</td>' +
+          '<td style="text-align:center;font-weight:700;color:#0f172a;padding:12px 16px;">' + deals.toLocaleString('en-IN') + '</td>' +
+          '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + fmt(sRev) + '</td>' +
+          '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + (dFee > 0 ? fmt(dFee) : '₹0') + '</td>' +
+          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:12px 16px;">' + fmt(tot) + '</td>' +
+          '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + fmt(aov) + '</td>' +
+        '</tr>';
+      }).join('');
+
+      if (trendFoot) {
+        const blendedAov = sumDeals > 0 ? Math.round(sumSalesRev / sumDeals) : 0;
+        trendFoot.innerHTML = '<tr style="background:var(--surface2);border-top:2px solid var(--border);">' +
+          '<td style="font-weight:900;color:var(--text);padding:14px 16px;text-transform:uppercase;font-size:12px;letter-spacing:0.04em;">Total (Last 7 Days)</td>' +
+          '<td style="text-align:center;font-weight:900;color:#0f172a;padding:14px 16px;">' + sumDeals.toLocaleString('en-IN') + ' deals</td>' +
+          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(sumSalesRev) + '</td>' +
+          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(sumDeliv) + '</td>' +
+          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;font-size:15px;">' + fmt(sumTotalRev) + '</td>' +
+          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(blendedAov) + '</td>' +
+        '</tr>';
+      }
+    }
 
 
     // Subscriptions & Lead Journey
@@ -492,19 +589,52 @@ async function init() {
     const jBody = document.getElementById('journey-tbl-body');
     if (jBody) {
       jBody.innerHTML = '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Statistics</td></tr>' +
-        '<tr><td>Total Active Subscriptions as on date</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubs ? yd.activeSubs.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>New Subscriber in last 7 days</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newSubs7d ? yd.newSubs7d.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>New user in last 7 days (app downloads)</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsers7d ? yd.newUsers7d.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>New user yesterday (app downloads)</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsersYesterday ? yd.newUsersYesterday.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>Total TeleCRM Leads Generated yesterday</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.teleCrmLeads ? yd.teleCrmLeads.toLocaleString('en-IN') : '-') + '</td></tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'active-subscriptions.html\', \'_blank\')" style="cursor: pointer;" title="Click to view all active subscriptions in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span>Total Active Subscriptions as on date</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubs ? yd.activeSubs.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'active-subscriptions.html?filter=last7days\', \'_blank\')" style="cursor: pointer;" title="Click to view new subscribers joined in the last 7 days in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span>New Subscriber in last 7 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newSubs7d ? yd.newSubs7d.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'app-downloads-details.html?filter=last7days\', \'_blank\')" style="cursor: pointer;" title="Click to view new users &amp; app downloads in the last 7 days in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">New user in last 7 days (app downloads)</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsers7d ? yd.newUsers7d.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'app-downloads-details.html?filter=yesterday\', \'_blank\')" style="cursor: pointer;" title="Click to view new users &amp; app downloads yesterday in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">New user yesterday (app downloads)</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsersYesterday ? yd.newUsersYesterday.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'telecrm-leads-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view TeleCRM leads generated yesterday in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Total TeleCRM Leads Generated yesterday</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.teleCrmLeads ? yd.teleCrmLeads.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
         '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Subscription details</td></tr>' +
-        '<tr><td>Subscription ending in next 5 days</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsEnding5d ? yd.subsEnding5d.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>Subscription expired / cancelled in last 7 days</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpired7d ? yd.subsExpired7d.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>Subscription expiring today</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpiringToday ? yd.subsExpiringToday.toLocaleString('en-IN') : '-') + '</td></tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'subs-ending-5d-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view subscriptions ending in next 5 days in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription ending in next 5 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsEnding5d ? yd.subsEnding5d.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'subs-expired-7d-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view subscriptions expired / cancelled in last 7 days in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription expired / cancelled in last 7 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpired7d ? yd.subsExpired7d.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'subs-expiring-today-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view subscriptions expiring today in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription expiring today</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpiringToday ? yd.subsExpiringToday.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
         '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Ordering details</td></tr>' +
-        '<tr><td>Plan expired and not a single order placed</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpNoOrder ? yd.planExpNoOrder.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>Plan expiring and not placed a single order</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpiringNoOrder ? yd.planExpiringNoOrder.toLocaleString('en-IN') : '-') + '</td></tr>' +
-        '<tr><td>Active subscriber &amp; no orders placed yet</td><td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubNoOrder ? yd.activeSubNoOrder.toLocaleString('en-IN') : '-') + '</td></tr>';
+        '<tr class="clickable-row" onclick="window.open(\'plan-exp-no-order-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view plan expired with no orders placed in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Plan expired and not a single order placed</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpNoOrder ? yd.planExpNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'plan-expiring-no-order-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view plan expiring with no orders placed in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Plan expiring and not placed a single order</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpiringNoOrder ? yd.planExpiringNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="window.open(\'active-sub-no-order-details.html\', \'_blank\')" style="cursor: pointer;" title="Click to view active subscribers with no orders placed yet in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Active subscriber &amp; no orders placed yet</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubNoOrder ? yd.activeSubNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>';
     }
 
     // New Users Delivery Status
@@ -547,11 +677,19 @@ async function init() {
         }
         return '-';
       };
+      const filterMap = {
+        'Orders Placed': 'placed',
+        'Orders Confirmed': 'confirmed',
+        'Orders Ready to Ship': 'ready_to_ship',
+        'Orders Shipped': 'shipped',
+        'Orders Not Delivered': 'not_delivered'
+      };
       dsEl.innerHTML = deliveryRows.map(row => {
         const val = getVal(row);
         const count = (val !== '-' && val !== undefined) ? Number(val).toLocaleString('en-IN') : '-';
-        return '<tr>' +
-          '<td style="font-weight: 600; color: var(--text);">' + row + '</td>' +
+        const filterKey = filterMap[row] || 'all';
+        return '<tr class="clickable-row" onclick="window.open(\'new-users-delivery-status.html?filter=' + filterKey + '\', \'_blank\')" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
+          '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight: 600; color: var(--text);">' + row + '</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
           '<td style="text-align: right; font-weight: 700; color: var(--text);">' + count + '</td>' +
         '</tr>';
       }).join('');
@@ -566,15 +704,49 @@ async function init() {
     ];
     const allNu = yd.allNewUsersOrderStatus || {};
     const allNuEl = document.getElementById('all-new-users-status-tbl-body');
+    const allNuFilterMap = {
+      'New Subscribers who have Ordered': 'all',
+      'New Subscribers Orders that have been Delivered': 'delivered',
+      'New Subscribers Orders yet to be Delivered': 'yet_to_deliver',
+      'New Subscribers Orders yet to be Delivered & Delayed': 'delayed'
+    };
     if (allNuEl) {
       allNuEl.innerHTML = allNewUserRows.map(row => {
         const key = Object.keys(allNu).find(k => k.trim().toLowerCase() === row.toLowerCase()) || row;
         const count = allNu[key] !== undefined ? allNu[key].toLocaleString('en-IN') : '-';
-        return '<tr>' +
-          '<td style="font-weight: 600; color: var(--text);">' + row + '</td>' +
+        const filterKey = allNuFilterMap[row] || 'all';
+        return '<tr class="clickable-row" onclick="window.open(\'all-new-users-order-status.html?filter=' + filterKey + '\', \'_blank\')" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
+          '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight: 600; color: var(--text);">' + row + '</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
           '<td style="text-align: right; font-weight: 700; color: var(--text);">' + count + '</td>' +
         '</tr>';
       }).join('');
+    }
+
+    // 9. Refunds
+    const refYd = yd.refunds || { count: 0, total: 0 };
+    const ref7d = yd.refundsLast7Days || { count: 0, total: 0 };
+
+    const refYdEl = document.getElementById('refund-yesterday');
+    if (refYdEl) {
+      refYdEl.textContent = fmt(refYd.total);
+      document.getElementById('refund-yesterday-sub').textContent = refYd.count + ' refund' + (refYd.count !== 1 ? 's' : '') + ' processed yesterday';
+    }
+
+    const ref7dEl = document.getElementById('refund-7days');
+    if (ref7dEl) {
+      ref7dEl.textContent = fmt(ref7d.total);
+      document.getElementById('refund-7days-sub').textContent = ref7d.count + ' refund' + (ref7d.count !== 1 ? 's' : '') + ' across rolling 7 days';
+    }
+
+    // 10. Net Financials
+    const refAmt = refYd.total || 0;
+    const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
+    const grandTotal = (yd.totalRevenue || 0) + deliveryTotal;
+    const netSalesEl = document.getElementById('net-sales');
+    if (netSalesEl) {
+      netSalesEl.textContent = fmt(grandTotal);
+      document.getElementById('net-refunds').textContent = (refAmt > 0 ? '− ' : '') + fmt(refAmt);
+      document.getElementById('net-total').textContent = fmt(grandTotal - refAmt);
     }
   } catch(err) {
     document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">\u26a0 Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';

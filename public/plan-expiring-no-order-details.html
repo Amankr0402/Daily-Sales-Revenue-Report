@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Expiring & No Order Placed — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Controls: Filter Pills & Search */
+    .controls-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8faff;
+    }
+
+    tbody td {
+      padding: 14px 18px;
+      vertical-align: middle;
+      color: var(--text);
+    }
+
+    .user-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .zero-orders-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #dc2626;
+      background: var(--rose-light);
+      padding: 2px 7px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* Empty and Loading states */
+    .state-container {
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .spinner {
+      border: 3px solid rgba(91, 62, 155, 0.1);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" title="Go back to Dashboard">
+        <img src="https://theelefant.com/cdn/shop/files/the_elefant_logo.png?v=1697011689" alt="The Elefant Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'34\' viewBox=\'0 0 120 34\'%3E%3Crect width=\'120\' height=\'34\' fill=\'%235b3e9b\' rx=\'6\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'14\'%3EThe Elefant%3C/text%3E%3C/svg%3E'">
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>⚠️ Plan Expiring and Not Placed a Single Order</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="exportFilteredCSV()" title="Export current list as CSV">
+        📥 Export CSV
+      </button>
+      <a href="index.html" class="btn btn-primary" title="Back to Dashboard">
+        ← Back to Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- KPI Summary Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card" id="card-all">
+        <div class="kpi-label">
+          <span>Expiring Plans (No Order)</span>
+          <span>⚠️</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-subs">0</div>
+        <div class="kpi-sub">Active plans nearing expiry with 0 orders</div>
+      </div>
+
+      <div class="kpi-card" id="card-status">
+        <div class="kpi-label">
+          <span>Fulfillment Status</span>
+          <span>📦</span>
+        </div>
+        <div class="kpi-value" id="kpi-zero-orders">0 Orders</div>
+        <div class="kpi-sub">Subscribed members requiring urgent activation</div>
+      </div>
+
+      <div class="kpi-card" id="card-metric">
+        <div class="kpi-label">
+          <span>Live Metabase Metric</span>
+          <span>📊</span>
+        </div>
+        <div class="kpi-value" style="color: #10b981;">Synced</div>
+        <div class="kpi-sub">Direct query cec33372 connection</div>
+      </div>
+    </div>
+
+    <!-- Controls: Filter Pills & Search -->
+    <div class="controls-wrapper">
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by User ID, Expiry Date..." oninput="handleSearch()">
+        </div>
+        <div class="results-count" id="results-count">
+          0 records
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table id="subs-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Expiry Date (IST)</th>
+            <th>Orders Status</th>
+            <th>Activation Urgency</th>
+          </tr>
+        </thead>
+        <tbody id="subs-tbody">
+          <!-- Rows will be injected by JavaScript -->
+        </tbody>
+      </table>
+
+      <div id="loading-state" class="state-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Records...</div>
+        <div style="font-size: 12.5px; color: var(--muted); margin-top: 4px;">Fetching live Metabase data</div>
+      </div>
+
+      <div id="empty-state" class="state-container" style="display: none;">
+        <div style="font-size: 38px; margin-bottom: 8px;">🎉</div>
+        <div style="font-size: 16px; font-weight: 700; color: var(--text);">No users currently have plans expiring without orders</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">All active members nearing expiry have placed at least one order!</div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const API_URL = '/api/plan-expiring-no-order-details-csv';
+    let allSubs = [];
+    let searchQuery = '';
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      let i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') { i++; }
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+        i++;
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    async function loadSubsData() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const parsed = parseCSV(text.trim());
+
+        if (parsed.length <= 1 || (parsed.length === 2 && !parsed[1][0])) {
+          allSubs = [];
+        } else {
+          const headers = parsed[0].map(h => h.trim());
+          allSubs = parsed.slice(1).filter(cols => cols.some(c => c.trim())).map((cols, idx) => {
+            const item = { _index: idx };
+            headers.forEach((h, colIdx) => {
+              item[h] = (cols[colIdx] || '').trim();
+            });
+            return item;
+          });
+        }
+
+        computeKPIs();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to load plan expiring no order data:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch records</div>
+          <div style="font-size: 12.5px; color: var(--muted);">${err.message}</div>
+          <button class="btn btn-secondary" onclick="loadSubsData()" style="margin-top: 14px;">Retry</button>
+        `;
+      }
+    }
+
+    function computeKPIs() {
+      const total = allSubs.length;
+      document.getElementById('kpi-total-subs').innerText = total.toLocaleString('en-IN');
+      document.getElementById('kpi-zero-orders').innerText = total === 0 ? '0 Pending' : `${total} Unordered`;
+    }
+
+    function formatIST(dateStr) {
+      if (!dateStr) return '-';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function handleSearch() {
+      searchQuery = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      renderTable();
+    }
+
+    function getFilteredSubs() {
+      if (!searchQuery) return allSubs;
+      return allSubs.filter(sub => {
+        const userId = (sub.user_id || '').toLowerCase();
+        const exp = (sub.expire_at || '').toLowerCase();
+        return userId.includes(searchQuery) || exp.includes(searchQuery);
+      });
+    }
+
+    function renderTable() {
+      const filtered = getFilteredSubs();
+      const tbody = document.getElementById('subs-tbody');
+      const countEl = document.getElementById('results-count');
+      const emptyState = document.getElementById('empty-state');
+      const loadingState = document.getElementById('loading-state');
+
+      loadingState.style.display = 'none';
+
+      countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${allSubs.length.toLocaleString('en-IN')} records`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      tbody.innerHTML = filtered.map(sub => {
+        return `
+          <tr>
+            <td>
+              <span class="user-badge">${escapeHTML(sub.user_id || '-')}</span>
+            </td>
+            <td>
+              <div style="font-weight: 700; color: #dc2626;">${formatIST(sub.expire_at)}</div>
+            </td>
+            <td>
+              <span class="zero-orders-badge">0 Orders Placed</span>
+            </td>
+            <td>
+              <span style="font-size: 11.5px; font-weight: 700; color: #b45309; background: var(--amber-light); padding: 2px 8px; border-radius: 6px;">Needs Immediate Attention</span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function exportFilteredCSV() {
+      const filtered = getFilteredSubs();
+      if (filtered.length === 0) {
+        alert('No records to export currently');
+        return;
+      }
+
+      const headers = ['user_id', 'expire_at'];
+      const csvRows = [headers.join(',')];
+
+      filtered.forEach(sub => {
+        const row = headers.map(h => `"${(sub[h] || '').replace(/"/g, '""')}"`);
+        csvRows.push(row.join(','));
+      });
+
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `plan_expiring_no_order_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    window.addEventListener('DOMContentLoaded', loadSubsData);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscriptions Expiring Today — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -4px rgba(0,0,0,0.06);
+      border-color: #cbd5e1;
+    }
+
+    .kpi-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+      background: #faf8ff;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Controls: Filter Pills & Search */
+    .controls-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8faff;
+    }
+
+    tbody td {
+      padding: 14px 18px;
+      vertical-align: middle;
+      color: var(--text);
+    }
+
+    .customer-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .sub-id-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-active {
+      background: var(--green-light);
+      color: #059669;
+    }
+
+    .status-cancelled {
+      background: var(--rose-light);
+      color: #dc2626;
+    }
+
+    .type-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 2px 7px;
+      border-radius: 5px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .urgent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--rose-light);
+      color: #dc2626;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .price-tag {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 14px;
+    }
+
+    .view-btn {
+      padding: 4px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(91, 62, 155, 0.15);
+      transition: all 0.15s ease;
+    }
+
+    .view-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border);
+      animation: modalSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 10;
+    }
+
+    .modal-header h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .close-btn {
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 16px;
+      transition: all 0.15s ease;
+    }
+
+    .close-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .detail-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .detail-section-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .detail-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 500px) {
+      .full-width {
+        grid-column: span 1;
+      }
+    }
+
+    /* Empty and Loading states */
+    .state-container {
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .spinner {
+      border: 3px solid rgba(91, 62, 155, 0.1);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" title="Go back to Dashboard">
+        <img src="https://theelefant.com/cdn/shop/files/the_elefant_logo.png?v=1697011689" alt="The Elefant Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'34\' viewBox=\'0 0 120 34\'%3E%3Crect width=\'120\' height=\'34\' fill=\'%235b3e9b\' rx=\'6\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'14\'%3EThe Elefant%3C/text%3E%3C/svg%3E'">
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>⚡ Subscriptions Expiring Today</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="exportFilteredCSV()" title="Export current list as CSV">
+        📥 Export CSV
+      </button>
+      <a href="index.html" class="btn btn-primary" title="Back to Dashboard">
+        ← Back to Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- KPI Summary Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card active" id="card-all" onclick="setFilter('all')" title="Click to view all subscriptions expiring today">
+        <div class="kpi-label">
+          <span>Expiring Today</span>
+          <span>⚡</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-subs">-</div>
+        <div class="kpi-sub">Accounts expiring within 24h</div>
+      </div>
+
+      <div class="kpi-card" id="card-active" onclick="setFilter('active')" title="Click to view active status accounts">
+        <div class="kpi-label">
+          <span>Active Status</span>
+          <span>🟢</span>
+        </div>
+        <div class="kpi-value" id="kpi-active-subs">-</div>
+        <div class="kpi-sub">Ready for immediate renewal outreach</div>
+      </div>
+
+      <div class="kpi-card" id="card-high-value" onclick="setFilter('high-value')" title="Click to view high-value subscriptions">
+        <div class="kpi-label">
+          <span>High Value (₹4k+)</span>
+          <span>💎</span>
+        </div>
+        <div class="kpi-value" id="kpi-high-value-subs">-</div>
+        <div class="kpi-sub">Top priority renewal revenue</div>
+      </div>
+
+      <div class="kpi-card" id="card-revenue" onclick="setFilter('high-value')" title="Click to view expiring value">
+        <div class="kpi-label">
+          <span>Expiring Value Today</span>
+          <span>💰</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-value">-</div>
+        <div class="kpi-sub">Total subscription plan amount</div>
+      </div>
+    </div>
+
+    <!-- Controls: Filter Pills & Search -->
+    <div class="controls-wrapper">
+      <div class="pills-bar">
+        <span style="font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-right: 4px;">Quick Filters:</span>
+        <button class="pill-btn active" id="pill-all" onclick="setFilter('all')">All Records (12)</button>
+        <button class="pill-btn" id="pill-onetime" onclick="setFilter('one-time')">🎟️ One-Time (7)</button>
+        <button class="pill-btn" id="pill-assigned" onclick="setFilter('assigned')">📦 Assigned (4)</button>
+        <button class="pill-btn" id="pill-high-value" onclick="setFilter('high-value')">💎 High Value (₹4,000+)</button>
+        <button class="pill-btn" id="pill-upi" onclick="setFilter('upi')">📱 UPI Payment</button>
+        <button class="pill-btn" id="pill-card" onclick="setFilter('card')">💳 Card Payment</button>
+        <button class="pill-btn" id="pill-razorpay" onclick="setFilter('razorpay')">⚡ Razorpay</button>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by Contact Phone, Subscription ID, Plan ID, Method, Transaction..." oninput="handleSearch()">
+        </div>
+        <div class="results-count" id="results-count">
+          Loading records...
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table id="subs-table">
+        <thead>
+          <tr>
+            <th>Customer Phone</th>
+            <th>Subscription & Plan</th>
+            <th>Plan Type</th>
+            <th>Value</th>
+            <th>Started At (IST)</th>
+            <th>Expiring At (IST)</th>
+            <th>Status</th>
+            <th style="text-align: right;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="subs-tbody">
+          <!-- Rows will be injected by JavaScript -->
+        </tbody>
+      </table>
+
+      <div id="loading-state" class="state-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Subscriptions Expiring Today...</div>
+        <div style="font-size: 12.5px; color: var(--muted); margin-top: 4px;">Fetching live Metabase data</div>
+      </div>
+
+      <div id="empty-state" class="state-container" style="display: none;">
+        <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">No subscriptions match your search or filter</div>
+        <div style="font-size: 12.5px; color: var(--muted); margin-top: 4px;">Try clearing filters or searching another keyword</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal" onclick="handleModalOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>
+          <span>⚡ Subscription Expiring Today Details</span>
+        </h3>
+        <button class="close-btn" onclick="closeModal()" title="Close details">✕</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = '/api/subs-expiring-today-details-csv';
+    let allSubs = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // CSV parser supporting quoted newlines and commas
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      let i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') { i++; }
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+        i++;
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    async function loadSubsData() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const parsed = parseCSV(text.trim());
+        if (parsed.length < 2) {
+          throw new Error('No data rows in CSV');
+        }
+
+        const headers = parsed[0].map(h => h.trim());
+        allSubs = parsed.slice(1).map((cols, idx) => {
+          const item = { _index: idx };
+          headers.forEach((h, colIdx) => {
+            item[h] = (cols[colIdx] || '').trim();
+          });
+          return item;
+        });
+
+        computeKPIs();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to load subscriptions expiring today data:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch subscriptions expiring today</div>
+          <div style="font-size: 12.5px; color: var(--muted);">${err.message}</div>
+          <button class="btn btn-secondary" onclick="loadSubsData()" style="margin-top: 14px;">Retry</button>
+        `;
+      }
+    }
+
+    function computeKPIs() {
+      const total = allSubs.length;
+      let activeCount = 0;
+      let highValueCount = 0;
+      let totalValue = 0;
+
+      allSubs.forEach(s => {
+        const st = (s.status || '').toUpperCase();
+        if (st === 'ACTIVE') activeCount++;
+
+        const p = parseFloat(s.price) || 0;
+        totalValue += p;
+        if (p >= 4000) highValueCount++;
+      });
+
+      document.getElementById('kpi-total-subs').innerText = total.toLocaleString('en-IN');
+      document.getElementById('kpi-active-subs').innerText = activeCount.toLocaleString('en-IN');
+      document.getElementById('kpi-high-value-subs').innerText = highValueCount.toLocaleString('en-IN');
+      document.getElementById('kpi-total-value').innerText = '₹' + Math.round(totalValue).toLocaleString('en-IN');
+    }
+
+    function formatIST(dateStr) {
+      if (!dateStr) return '-';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function setFilter(filterKey) {
+      currentFilter = filterKey;
+
+      // Update KPI card styles
+      ['all', 'active', 'high-value', 'revenue'].forEach(key => {
+        const el = document.getElementById('card-' + key);
+        if (el) el.classList.remove('active');
+      });
+      if (filterKey === 'all') document.getElementById('card-all')?.classList.add('active');
+      if (filterKey === 'active') document.getElementById('card-active')?.classList.add('active');
+      if (filterKey === 'high-value') {
+        document.getElementById('card-high-value')?.classList.add('active');
+        document.getElementById('card-revenue')?.classList.add('active');
+      }
+
+      // Update Pill styles
+      ['all', 'one-time', 'assigned', 'high-value', 'upi', 'card', 'razorpay'].forEach(p => {
+        const el = document.getElementById('pill-' + p);
+        if (el) el.classList.toggle('active', p === filterKey);
+      });
+
+      renderTable();
+    }
+
+    function handleSearch() {
+      searchQuery = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      renderTable();
+    }
+
+    function getFilteredSubs() {
+      return allSubs.filter(sub => {
+        const st = (sub.status || '').toUpperCase();
+        const type = (sub.type || '').toUpperCase();
+        const price = parseFloat(sub.price) || 0;
+        const method = (sub.method || '').toLowerCase();
+
+        // Apply filter
+        if (currentFilter === 'active' && st !== 'ACTIVE') return false;
+        if (currentFilter === 'assigned' && type !== 'ASSIGNED') return false;
+        if (currentFilter === 'one-time' && type !== 'ONE_TIME') return false;
+        if (currentFilter === 'high-value' && price < 4000) return false;
+        if (currentFilter === 'upi' && !method.includes('upi')) return false;
+        if (currentFilter === 'card' && !method.includes('card')) return false;
+        if (currentFilter === 'razorpay' && !method.includes('razorpay')) return false;
+
+        // Apply search
+        if (searchQuery) {
+          const contact = (sub.contact_no || '').toLowerCase();
+          const subId = (sub.subscription_id || '').toLowerCase();
+          const planId = (sub.plan_id || '').toLowerCase();
+          const txnId = (sub.transaction_id || '').toLowerCase();
+          const m = (sub.method || '').toLowerCase();
+          const s = (sub.status || '').toLowerCase();
+          const t = (sub.type || '').toLowerCase();
+          const exp = (sub.expire_at || '').toLowerCase();
+
+          const match = contact.includes(searchQuery) ||
+                        subId.includes(searchQuery) ||
+                        planId.includes(searchQuery) ||
+                        txnId.includes(searchQuery) ||
+                        m.includes(searchQuery) ||
+                        s.includes(searchQuery) ||
+                        t.includes(searchQuery) ||
+                        exp.includes(searchQuery);
+          if (!match) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function renderTable() {
+      const filtered = getFilteredSubs();
+      const tbody = document.getElementById('subs-tbody');
+      const countEl = document.getElementById('results-count');
+      const emptyState = document.getElementById('empty-state');
+      const loadingState = document.getElementById('loading-state');
+
+      loadingState.style.display = 'none';
+
+      countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${allSubs.length.toLocaleString('en-IN')} records`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      tbody.innerHTML = filtered.map(sub => {
+        const statusBadge = `<span class="status-badge status-active">Active</span>`;
+        const price = parseFloat(sub.price) || 0;
+        const priceFormatted = '₹' + price.toLocaleString('en-IN');
+        const startedFormatted = formatIST(sub.started_at);
+        const expiredFormatted = formatIST(sub.expire_at);
+
+        return `
+          <tr onclick="openModal(${sub._index})">
+            <td>
+              <span class="customer-badge">📱 ${escapeHTML(sub.contact_no || 'N/A')}</span>
+            </td>
+            <td>
+              <div style="font-weight: 700; color: #0f172a;">${escapeHTML(sub.plan_id ? sub.plan_id.slice(0, 18) + '...' : 'Standard Plan')}</div>
+              <div class="sub-id-meta" title="${escapeHTML(sub.subscription_id || '')}">ID: ${escapeHTML(sub.subscription_id || '-')}</div>
+            </td>
+            <td>
+              <span class="type-badge">${escapeHTML(sub.type || '-')}</span>
+            </td>
+            <td>
+              <div class="price-tag">${priceFormatted}</div>
+              <div style="font-size:11px;color:var(--muted);">${escapeHTML(sub.method ? sub.method.toUpperCase() : 'ONLINE')}</div>
+            </td>
+            <td>
+              <div style="font-weight: 600; font-size: 12px; color: var(--muted);">${startedFormatted}</div>
+            </td>
+            <td>
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <div style="font-weight: 700; font-size: 12.5px; color: #dc2626;">${expiredFormatted}</div>
+                <span class="urgent-badge">⚡ Today</span>
+              </div>
+            </td>
+            <td>
+              ${statusBadge}
+            </td>
+            <td style="text-align: right;">
+              <button class="view-btn" onclick="event.stopPropagation(); openModal(${sub._index})">
+                View Details ↗
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function parseFeatures(featStr) {
+      if (!featStr) return null;
+      try {
+        return JSON.parse(featStr);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function openModal(index) {
+      const sub = allSubs[index];
+      if (!sub) return;
+
+      const statusBadge = `<span class="status-badge status-active">Active</span>`;
+      const price = parseFloat(sub.price) || 0;
+      const priceFormatted = '₹' + price.toLocaleString('en-IN');
+      const features = parseFeatures(sub.subscription_features);
+
+      const html = `
+        <div class="detail-section">
+          <div class="detail-section-title">👤 Customer Contact & Identifiers</div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">Contact Phone</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';color:var(--primary);">${sub.contact_no ? `<a href="tel:${escapeHTML(sub.contact_no)}" style="color:var(--primary);text-decoration:none;">📱 ${escapeHTML(sub.contact_no)}</a>` : '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Current Status</span>
+              <span class="detail-val">${statusBadge}</span>
+            </div>
+            <div class="detail-item full-width">
+              <span class="detail-label">Subscription ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:12px;">${escapeHTML(sub.subscription_id || '-')}</span>
+            </div>
+            <div class="detail-item full-width">
+              <span class="detail-label">User ID (Internal)</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:12px;">${escapeHTML(sub.user_id || '-')}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">⚡ Plan & Urgency Timeline</div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">Plan Value / Price</span>
+              <span class="detail-val" style="font-size:15px;color:#0f172a;">${priceFormatted}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Subscription Type</span>
+              <span class="detail-val"><span class="type-badge">${escapeHTML(sub.type || '-')}</span></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Started At (IST)</span>
+              <span class="detail-val">${formatIST(sub.started_at)}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Expiring At (IST)</span>
+              <span class="detail-val" style="color:#dc2626;font-size:14.5px;">${formatIST(sub.expire_at)} <span class="urgent-badge" style="margin-left:4px;">Today</span></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Free Deliveries Used</span>
+              <span class="detail-val">${escapeHTML(sub.used_free_delivery_count || '0')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Plan ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:11.5px;">${escapeHTML(sub.plan_id || '-')}</span>
+            </div>
+          </div>
+        </div>
+
+        ${features ? `
+          <div class="detail-section" style="background:#f5f3ff;border-color:rgba(139,92,246,0.2);">
+            <div class="detail-section-title" style="color:var(--primary);">🎁 Plan Features & Discount Breakdown</div>
+            <div class="detail-grid">
+              ${features.discount ? `
+                <div class="detail-item">
+                  <span class="detail-label">Discount Applied</span>
+                  <span class="detail-val" style="color:#10b981;">${escapeHTML(features.discount)}</span>
+                </div>
+              ` : ''}
+              ${features.planSavings ? `
+                <div class="detail-item">
+                  <span class="detail-label">Estimated Plan Savings</span>
+                  <span class="detail-val" style="color:#10b981;">₹${escapeHTML(String(features.planSavings))}</span>
+                </div>
+              ` : ''}
+              ${features.trialDays !== undefined ? `
+                <div class="detail-item">
+                  <span class="detail-label">Trial Days</span>
+                  <span class="detail-val">${escapeHTML(String(features.trialDays))} days</span>
+                </div>
+              ` : ''}
+              ${features.toyProgram ? `
+                <div class="detail-item">
+                  <span class="detail-label">Toy Program</span>
+                  <span class="detail-val">${escapeHTML(features.toyProgram)}</span>
+                </div>
+              ` : ''}
+              ${features.pricePaid ? `
+                <div class="detail-item">
+                  <span class="detail-label">Price Paid</span>
+                  <span class="detail-val">₹${escapeHTML(String(features.pricePaid))}</span>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        ` : ''}
+
+        <div class="detail-section">
+          <div class="detail-section-title">💳 Payment & Provider</div>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">Payment Method</span>
+              <span class="detail-val">${escapeHTML(sub.method ? sub.method.toUpperCase() : 'Online')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Payment Status</span>
+              <span class="detail-val">${escapeHTML(sub.payment_status || 'SUCCESS')}</span>
+            </div>
+            <div class="detail-item full-width">
+              <span class="detail-label">Transaction ID</span>
+              <span class="detail-val" style="font-family:'JetBrains Mono';font-size:12px;">${escapeHTML(sub.transaction_id || '-')}</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('modal-content').innerHTML = html;
+      document.getElementById('detail-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalOverlayClick(e) {
+      if (e.target.id === 'detail-modal') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function exportFilteredCSV() {
+      const filtered = getFilteredSubs();
+      if (filtered.length === 0) {
+        alert('No records to export with current filters');
+        return;
+      }
+
+      const headers = ['contact_no', 'subscription_id', 'plan_id', 'type', 'price', 'status', 'started_at', 'expire_at', 'method'];
+      const csvRows = [headers.join(',')];
+
+      filtered.forEach(sub => {
+        const row = headers.map(h => {
+          let val = sub[h] || '';
+          val = val.replace(/"/g, '""');
+          return `"${val}"`;
+        });
+        csvRows.push(row.join(','));
+      });
+
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `subscriptions_expiring_today_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', loadSubsData);
+  </script>
+</body>
+</html>

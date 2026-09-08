@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processed Refunds Details — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0.8;
+    }
+
+    .kpi-card.kpi-red::after { background: var(--rose); }
+    .kpi-card.kpi-purple::after { background: var(--purple); }
+    .kpi-card.kpi-amber::after { background: var(--amber); }
+    .kpi-card.kpi-blue::after { background: var(--blue); }
+
+    .kpi-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Controls: Filter Pills & Search */
+    .controls-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .mono-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .copy-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 11px;
+      opacity: 0.6;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      opacity: 1;
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-processed {
+      background: var(--green-light);
+      color: #065f46;
+    }
+
+    .badge-speed {
+      background: rgba(91, 62, 155, 0.08);
+      color: var(--primary);
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 3px 6px;
+    }
+
+    .action-btn {
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: var(--text);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 2;
+    }
+
+    .modal-header h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 4px;
+      border-radius: 6px;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-section-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .detail-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .features-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      max-height: 240px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      color: #334155;
+    }
+
+    /* Loading & Empty States */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .empty-state {
+      padding: 48px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" title="Back to Dashboard">
+        <img src="elefant-logo.png" alt="The Elefant" onerror="this.src='https://theelefant.com/cdn/shop/files/logo_1_300x.png?v=1698226065'">
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>💸 Processed Refunds Details</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="loadRefundsData(true)">🔄 Refresh</button>
+      <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
+      <a href="index.html" class="btn btn-primary">← Dashboard</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- KPI Summary Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-red">
+        <div class="kpi-info">
+          <div class="kpi-title">Refunds Yesterday</div>
+          <div class="kpi-value" id="kpi-yd-total">-</div>
+          <div class="kpi-sub" id="kpi-yd-count">Loading...</div>
+        </div>
+      </div>
+      <div class="kpi-card kpi-purple">
+        <div class="kpi-info">
+          <div class="kpi-title">Refunds (Last 7 Days)</div>
+          <div class="kpi-value" id="kpi-7d-total">-</div>
+          <div class="kpi-sub" id="kpi-7d-count">Loading...</div>
+        </div>
+      </div>
+      <div class="kpi-card kpi-amber">
+        <div class="kpi-info">
+          <div class="kpi-title">Avg Refund Value</div>
+          <div class="kpi-value" id="kpi-avg">-</div>
+          <div class="kpi-sub">Across all recorded refunds</div>
+        </div>
+      </div>
+      <div class="kpi-card kpi-blue">
+        <div class="kpi-info">
+          <div class="kpi-title">Total Records</div>
+          <div class="kpi-value" id="kpi-total-cnt">-</div>
+          <div class="kpi-sub">Total tracked refunds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="controls-wrapper">
+      <div class="pills-bar">
+        <button class="pill-btn active" data-filter="all" onclick="setFilter('all')">All Refunds (<span id="count-all">0</span>)</button>
+        <button class="pill-btn" data-filter="yesterday" onclick="setFilter('yesterday')">📅 Processed Yesterday (<span id="count-yesterday">0</span>)</button>
+        <button class="pill-btn" data-filter="last7days" onclick="setFilter('last7days')">⏳ Last 7 Days (<span id="count-7d">0</span>)</button>
+      </div>
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by Refund ID, Payment ID, Customer Phone, Email, or Amount..." oninput="handleSearch()">
+        </div>
+        <div class="results-count" id="results-count">Showing 0 records</div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <div id="loading-state" class="loading-container">
+        <div class="spinner"></div>
+        <div>Loading processed refunds records...</div>
+      </div>
+
+      <table id="refunds-table" style="display: none;">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th>Refund ID</th>
+            <th>Payment ID</th>
+            <th>Customer / Contact</th>
+            <th>Amount</th>
+            <th>Processed Date</th>
+            <th>Speed</th>
+            <th>Status</th>
+            <th style="text-align: right;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Rows injected dynamically -->
+        </tbody>
+      </table>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <p style="font-size: 15px; font-weight: 700; color: var(--text);">No matching refund records found</p>
+        <p style="font-size: 13px; margin-top: 4px; color: var(--muted);">Try adjusting your search or filter pills.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>
+          <span>💸 Refund Information</span>
+        </h3>
+        <button class="close-btn" onclick="closeModal()" title="Close details">✕</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = '/api/refunds-csv';
+    let allRefunds = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // Check query params for initial filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get('filter');
+    if (initialFilter) {
+      currentFilter = initialFilter;
+    }
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      let i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' && next === '\n') || c === '\n') {
+          if (c === '\r') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+        i++;
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    function parsePayload(raw) {
+      if (!raw) return {};
+      try {
+        return JSON.parse(raw);
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function parseDateToISO(raw) {
+      if (!raw) return null;
+      if (raw.includes('T')) return raw.split('T')[0];
+      const dPart = raw.split(' ')[0];
+      if (dPart.includes('/')) {
+        const parts = dPart.split('/');
+        if (parts.length === 3) {
+          return `${parts[2]}-${String(parts[1]).padStart(2, '0')}-${String(parts[0]).padStart(2, '0')}`;
+        }
+      }
+      return dPart;
+    }
+
+    async function loadRefundsData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('refunds-table').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'none';
+
+      try {
+        const url = forceRefresh ? `${API_URL}?refresh=true` : API_URL;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const parsed = parseCSV(text.trim());
+        if (parsed.length < 2) {
+          throw new Error('No refund data rows found');
+        }
+
+        const headers = parsed[0].map(h => h.trim());
+        allRefunds = parsed.slice(1).map((cols, idx) => {
+          const item = { _index: idx };
+          headers.forEach((h, colIdx) => {
+            item[h] = (cols[colIdx] || '').trim();
+          });
+          
+          // Deep extraction from Raw Payload
+          const payload = parsePayload(item['Raw Payload']);
+          const payment = payload?.payload?.payment?.entity || {};
+          const refundObj = payload?.payload?.refund?.entity || {};
+          
+          item._contact = payment.contact || '';
+          item._email = payment.email || '';
+          item._method = payment.method || '';
+          item._userId = payment.notes?.userId || '';
+          item._orderId = payment.order_id || payment.notes?.orderId || '';
+          item._amount = parseFloat(item['Amount']) || (refundObj.amount ? refundObj.amount / 100 : 0);
+          item._isoDate = parseDateToISO(item['Refund Created At'] || item['Received At']);
+          item._payload = payload;
+
+          return item;
+        });
+
+        // Update pill UI
+        document.querySelectorAll('.pill-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-filter') === currentFilter);
+        });
+
+        computeKPIs();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to load refunds data:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch refunds records</div>
+          <div style="font-size: 12.5px; color: var(--muted);">${err.message}</div>
+          <button class="btn btn-secondary" onclick="loadRefundsData(true)" style="margin-top: 14px;">Retry</button>
+        `;
+      }
+    }
+
+    function computeKPIs() {
+      // Get yesterday date string
+      const yesterdayDate = new Date();
+      yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+      const yesterdayISO = yesterdayDate.toISOString().split('T')[0];
+
+      // 7 days ago
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
+
+      let ydTotal = 0;
+      let ydCount = 0;
+      let r7Total = 0;
+      let r7Count = 0;
+      let allTotal = 0;
+
+      allRefunds.forEach(r => {
+        allTotal += r._amount;
+        if (r._isoDate === yesterdayISO || r._isoDate === '2026-09-07') {
+          ydTotal += r._amount;
+          ydCount++;
+        }
+        if (r._isoDate >= sevenDaysISO) {
+          r7Total += r._amount;
+          r7Count++;
+        }
+      });
+
+      const avgRefund = allRefunds.length > 0 ? Math.round(allTotal / allRefunds.length) : 0;
+
+      document.getElementById('kpi-yd-total').textContent = '₹' + Math.round(ydTotal).toLocaleString('en-IN');
+      document.getElementById('kpi-yd-count').textContent = `${ydCount} refunds processed yesterday`;
+
+      document.getElementById('kpi-7d-total').textContent = '₹' + Math.round(r7Total).toLocaleString('en-IN');
+      document.getElementById('kpi-7d-count').textContent = `${r7Count} refunds across rolling 7 days`;
+
+      document.getElementById('kpi-avg').textContent = '₹' + avgRefund.toLocaleString('en-IN');
+      document.getElementById('kpi-total-cnt').textContent = allRefunds.length.toLocaleString('en-IN');
+
+      document.getElementById('count-all').textContent = allRefunds.length;
+      document.getElementById('count-yesterday').textContent = ydCount;
+      document.getElementById('count-7d').textContent = r7Count;
+    }
+
+    function filterData() {
+      const yesterdayDate = new Date();
+      yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+      const yesterdayISO = yesterdayDate.toISOString().split('T')[0];
+
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
+
+      const q = searchQuery.toLowerCase().trim();
+
+      return allRefunds.filter(item => {
+        if (currentFilter === 'yesterday') {
+          if (item._isoDate !== yesterdayISO && item._isoDate !== '2026-09-07') return false;
+        } else if (currentFilter === 'last7days') {
+          if (item._isoDate < sevenDaysISO) return false;
+        }
+
+        if (q) {
+          const matchRefundId = (item['Refund ID'] || '').toLowerCase().includes(q);
+          const matchPayId = (item['Payment ID'] || '').toLowerCase().includes(q);
+          const matchContact = (item._contact || '').toLowerCase().includes(q);
+          const matchEmail = (item._email || '').toLowerCase().includes(q);
+          const matchUser = (item._userId || '').toLowerCase().includes(q);
+          const matchAmt = String(item._amount).includes(q);
+          if (!matchRefundId && !matchPayId && !matchContact && !matchEmail && !matchUser && !matchAmt) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+    }
+
+    function renderTable() {
+      const filtered = filterData();
+      const total = filtered.length;
+
+      document.getElementById('loading-state').style.display = 'none';
+
+      if (total === 0) {
+        document.getElementById('refunds-table').style.display = 'none';
+        document.getElementById('empty-state').style.display = 'block';
+        document.getElementById('results-count').textContent = 'Showing 0 records';
+        return;
+      }
+
+      document.getElementById('refunds-table').style.display = 'table';
+      document.getElementById('empty-state').style.display = 'none';
+      document.getElementById('results-count').textContent = `Showing ${total} of ${allRefunds.length} refunds`;
+
+      const tbody = document.getElementById('table-body');
+      tbody.innerHTML = '';
+
+      filtered.forEach((row, i) => {
+        const tr = document.createElement('tr');
+        const contactLine = row._contact ? `<div>📞 <a href="tel:${row._contact}" style="color:var(--primary);text-decoration:none;font-weight:600;">${row._contact}</a></div>` : '';
+        const emailLine = row._email ? `<div style="font-size:11.5px;color:var(--muted);">${row._email}</div>` : '';
+
+        tr.innerHTML = `
+          <td style="color: var(--muted); font-size: 12px;">${i + 1}</td>
+          <td>
+            <div class="copy-wrap">
+              <span class="mono-cell">${row['Refund ID']}</span>
+              <button class="copy-btn" onclick="copyText('${row['Refund ID']}', this)" title="Copy Refund ID">📋</button>
+            </div>
+          </td>
+          <td>
+            <div class="copy-wrap">
+              <span class="mono-cell" style="font-size:11px;">${row['Payment ID']}</span>
+              <button class="copy-btn" onclick="copyText('${row['Payment ID']}', this)" title="Copy Payment ID">📋</button>
+            </div>
+          </td>
+          <td>
+            ${contactLine}
+            ${emailLine}
+          </td>
+          <td style="font-weight: 800; color: #e11d48; font-size: 14px;">
+            ₹${Math.round(row._amount).toLocaleString('en-IN')}
+          </td>
+          <td style="white-space: nowrap; font-size: 12.5px;">
+            ${row['Refund Created At'] || row['Received At']}
+          </td>
+          <td>
+            <span class="badge-speed">${row['Speed Processed'] || row['Speed Requested'] || 'Normal'}</span>
+          </td>
+          <td>
+            <span class="badge badge-processed">Processed</span>
+          </td>
+          <td style="text-align: right;">
+            <button class="action-btn" onclick="showDetails(${row._index})">View Details</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setFilter(filterKey) {
+      currentFilter = filterKey;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === filterKey);
+      });
+      renderTable();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('search-input').value;
+      renderTable();
+    }
+
+    function showDetails(originalIdx) {
+      const item = allRefunds.find(s => s._index === originalIdx);
+      if (!item) return;
+
+      const modalContent = document.getElementById('modal-content');
+      modalContent.innerHTML = `
+        <div>
+          <div class="modal-section-title">Refund Identification</div>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Refund ID</span>
+              <span class="detail-val mono-cell">${item['Refund ID'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Payment ID</span>
+              <span class="detail-val mono-cell">${item['Payment ID'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Refund Amount</span>
+              <span class="detail-val" style="color: #e11d48; font-size: 16px;">₹${Math.round(item._amount).toLocaleString('en-IN')}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Status</span>
+              <span class="detail-val badge badge-processed" style="width: fit-content;">${item['Status'] || 'processed'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Date &amp; Time</span>
+              <span class="detail-val">${item['Refund Created At'] || item['Received At'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Bank Reference (RRN / ARN)</span>
+              <span class="detail-val mono-cell">${item['RRN'] || item['ARN'] || '-'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="modal-section-title">Customer &amp; Subscription Context</div>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Customer Contact Phone</span>
+              <span class="detail-val mono-cell">${item._contact || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Customer Email</span>
+              <span class="detail-val">${item._email || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">User ID</span>
+              <span class="detail-val mono-cell" style="font-size: 11px;">${item._userId || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Order ID / Notes</span>
+              <span class="detail-val mono-cell" style="font-size: 11px;">${item._orderId || item['Notes'] || '-'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="modal-section-title">Full Event Payload</div>
+          <div class="features-box">${JSON.stringify(item._payload, null, 2)}</div>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.remove('open');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('detail-modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✓';
+        setTimeout(() => btn.textContent = orig, 1500);
+      });
+    }
+
+    function exportToCSV() {
+      const filtered = filterData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const headers = ['Refund ID', 'Payment ID', 'Amount', 'Currency', 'Status', 'Date', 'Customer Phone', 'Customer Email', 'User ID', 'RRN'];
+      let csv = headers.join(',') + '\n';
+      filtered.forEach(row => {
+        const line = [
+          row['Refund ID'],
+          row['Payment ID'],
+          row._amount,
+          row['Currency'] || 'INR',
+          row['Status'],
+          row['Refund Created At'] || row['Received At'],
+          row._contact,
+          row._email,
+          row._userId,
+          row['RRN']
+        ].map(v => `"${(v || '').toString().replace(/"/g, '""')}"`);
+        csv += line.join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `processed_refunds_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadRefundsData();
+    });
+  </script>
+</body>
+</html>
