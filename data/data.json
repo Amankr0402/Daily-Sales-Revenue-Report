@@ -27000,11 +27000,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 74,
-      "otpVerified": 73,
-      "serviceable": 52,
-      "serviceableWithPct": "52 (70.3%)",
-      "serviceablePct": "70.3%"
+      "signups": 91,
+      "otpVerified": 90,
+      "serviceable": 67,
+      "serviceableWithPct": "67 (73.6%)",
+      "serviceablePct": "73.6%"
     },
     "refundsLast7Days": {
       "total": 59443,
