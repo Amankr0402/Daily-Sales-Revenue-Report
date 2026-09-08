@@ -1424,96 +1424,98 @@ function parseCronExpression(raw) {
 
 const CRON_SCHEDULE = parseCronExpression(process.env.CRON_SCHEDULE);
 
-try {
-  cron.schedule(CRON_SCHEDULE, async () => {
-    if (process.env.DISABLE_EMAIL === 'true') {
-      console.log('⏸️ [PAUSED] Automated 10:00 AM email is currently disabled (DISABLE_EMAIL=true). Skipping email send.');
-      return;
-    }
-
-    console.log(`⏰ Cron triggered at ${new Date().toISOString()} — fetching latest data & sending daily sales report...`);
-
-    try {
-      // 1. Always sync latest live Google Sheets & Metabase data first
-      let allData;
-      try {
-        const { syncSalesData } = require('../scripts/sync_sheets');
-        allData = await syncSalesData();
-        console.log(`📡 Successfully synced ${allData.length} days of data before email trigger.`);
-      } catch (syncErr) {
-        console.warn('⚠️ Could not sync live data during cron, using existing data.json:', syncErr.message);
-        allData = getAllReportData();
-      }
-
-      if (!allData || allData.length === 0) {
-        console.error('❌ No data available to send report.');
+if (require.main === module) {
+  try {
+    cron.schedule(CRON_SCHEDULE, async () => {
+      if (process.env.DISABLE_EMAIL === 'true') {
+        console.log('⏸️ [PAUSED] Automated 10:00 AM email is currently disabled (DISABLE_EMAIL=true). Skipping email send.');
         return;
       }
 
-      const today = allData[allData.length - 1];
-      const d = new Date(today.date + 'T00:00:00');
-      const dateStr = d.toLocaleDateString('en-IN', {
-        month: 'short', day: 'numeric', year: 'numeric',
-      });
+      console.log(`⏰ Cron triggered at ${new Date().toISOString()} — fetching latest data & sending daily sales report...`);
 
-      const html = buildEmailHTMLServer(allData);
-      const recipients = getRecipients();
-      const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
+      try {
+        // 1. Always sync latest live Google Sheets & Metabase data first
+        let allData;
+        try {
+          const { syncSalesData } = require('../scripts/sync_sheets');
+          allData = await syncSalesData();
+          console.log(`📡 Successfully synced ${allData.length} days of data before email trigger.`);
+        } catch (syncErr) {
+          console.warn('⚠️ Could not sync live data during cron, using existing data.json:', syncErr.message);
+          allData = getAllReportData();
+        }
 
-      const info = await transporter.sendMail({
-        from: SMTP_FROM,
-        to: toList,
-        subject: `📈 Daily Sales Report — ${dateStr} [${fmtINR(today.totalRevenue)}]`,
-        html,
-      });
+        if (!allData || allData.length === 0) {
+          console.error('❌ No data available to send report.');
+          return;
+        }
 
-      console.log(`✅ Automated 10:00 AM Sales Report sent — Message ID: ${info.messageId}`);
-    } catch (err) {
-      console.error('❌ Cron email error:', err);
-    }
-  }, { timezone: 'Asia/Kolkata' });
+        const today = allData[allData.length - 1];
+        const d = new Date(today.date + 'T00:00:00');
+        const dateStr = d.toLocaleDateString('en-IN', {
+          month: 'short', day: 'numeric', year: 'numeric',
+        });
 
-  console.log(`📅 Cron scheduled: "${CRON_SCHEDULE}" (10:00 AM IST daily)`);
-} catch (cronErr) {
-  console.error('⚠️ Could not schedule cron job:', cronErr.message);
-}
+        const html = buildEmailHTMLServer(allData);
+        const recipients = getRecipients();
+        const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
 
-/* ---------- Auto-Sync Cron: Refresh data every 30 minutes in background process ---------- */
-try {
-  cron.schedule('*/30 * * * *', () => {
-    const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-    console.log(`🔄 [${ts} IST] Auto-sync triggered in background process...`);
-    const { fork } = require('child_process');
-    const child = fork(path.join(__dirname, '..', 'scripts', 'sync_sheets.js'));
-    child.on('exit', (code) => {
-      const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-      if (code === 0) {
-        console.log(`✅ [${ts2} IST] Auto-sync complete — data.json refreshed.`);
-      } else {
-        console.warn(`⚠️ [${ts2} IST] Auto-sync background process exited with code ${code}`);
+        const info = await transporter.sendMail({
+          from: SMTP_FROM,
+          to: toList,
+          subject: `📈 Daily Sales Report — ${dateStr} [${fmtINR(today.totalRevenue)}]`,
+          html,
+        });
+
+        console.log(`✅ Automated 10:00 AM Sales Report sent — Message ID: ${info.messageId}`);
+      } catch (err) {
+        console.error('❌ Cron email error:', err);
       }
-    });
-  }, { timezone: 'Asia/Kolkata' });
+    }, { timezone: 'Asia/Kolkata' });
 
-  console.log('🔄 Auto-sync scheduled: every 30 minutes (non-blocking background process)');
-} catch (autoSyncErr) {
-  console.error('⚠️ Could not schedule auto-sync:', autoSyncErr.message);
-}
-
-/* ---------- Start Server ---------- */
-const server = app.listen(PORT, () => {
-  console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);
-});
-
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`\n⚠️ Port ${PORT} is already in use by another running process.`);
-    console.error(`To free port ${PORT} on Windows, run in PowerShell:`);
-    console.error(`  Stop-Process -Id (Get-NetTCPConnection -LocalPort ${PORT}).OwningProcess -Force\n`);
-  } else {
-    console.error('Server error:', err);
+    console.log(`📅 Cron scheduled: "${CRON_SCHEDULE}" (10:00 AM IST daily)`);
+  } catch (cronErr) {
+    console.error('⚠️ Could not schedule cron job:', cronErr.message);
   }
-  process.exit(1);
-});
+
+  /* ---------- Auto-Sync Cron: Refresh data every 30 minutes in background process ---------- */
+  try {
+    cron.schedule('*/30 * * * *', () => {
+      const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+      console.log(`🔄 [${ts} IST] Auto-sync triggered in background process...`);
+      const { fork } = require('child_process');
+      const child = fork(path.join(__dirname, '..', 'scripts', 'sync_sheets.js'));
+      child.on('exit', (code) => {
+        const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+        if (code === 0) {
+          console.log(`✅ [${ts2} IST] Auto-sync complete — data.json refreshed.`);
+        } else {
+          console.warn(`⚠️ [${ts2} IST] Auto-sync background process exited with code ${code}`);
+        }
+      });
+    }, { timezone: 'Asia/Kolkata' });
+
+    console.log('🔄 Auto-sync scheduled: every 30 minutes (non-blocking background process)');
+  } catch (autoSyncErr) {
+    console.error('⚠️ Could not schedule auto-sync:', autoSyncErr.message);
+  }
+
+  /* ---------- Start Server ---------- */
+  const server = app.listen(PORT, () => {
+    console.log(`\n🚀 Daily Sales Report Server running at http://localhost:${PORT}\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`\n⚠️ Port ${PORT} is already in use by another running process.`);
+      console.error(`To free port ${PORT} on Windows, run in PowerShell:`);
+      console.error(`  Stop-Process -Id (Get-NetTCPConnection -LocalPort ${PORT}).OwningProcess -Force\n`);
+    } else {
+      console.error('Server error:', err);
+    }
+    process.exit(1);
+  });
+}
 
 module.exports = app;
