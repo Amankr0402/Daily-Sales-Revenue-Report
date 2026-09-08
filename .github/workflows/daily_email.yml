@@ -1,9 +1,10 @@
 name: Automated Daily Sales Report Email
 
 on:
-  schedule:
-    # 10:00 AM IST = 04:30 AM UTC
-    - cron: '30 4 * * *'
+  # Automated schedule disabled as requested.
+  # schedule:
+  #   # 10:00 AM IST = 04:30 AM UTC
+  #   - cron: '30 4 * * *'
   workflow_dispatch:
 
 jobs:
