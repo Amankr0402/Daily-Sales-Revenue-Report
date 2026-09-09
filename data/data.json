@@ -38296,11 +38296,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 38,
-      "otpVerified": 38,
-      "serviceable": 26,
-      "serviceableWithPct": "26 (68.4%)",
-      "serviceablePct": "68.4%"
+      "signups": 41,
+      "otpVerified": 41,
+      "serviceable": 28,
+      "serviceableWithPct": "28 (68.3%)",
+      "serviceablePct": "68.3%"
     },
     "refundsLast7Days": {
       "total": 74193,
