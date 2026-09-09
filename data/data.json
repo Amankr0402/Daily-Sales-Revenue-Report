@@ -23677,113 +23677,89 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 484460,
-    "salesCount": 53,
-    "transactions": 53,
+    "totalRevenue": 314073,
+    "salesCount": 33,
+    "transactions": 33,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta"
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 56128,
-        "count": 6
+        "revenue": 41128,
+        "count": 4
       },
       "Honey Talreja": {
-        "revenue": 46200,
-        "count": 5
+        "revenue": 35200,
+        "count": 4
       },
       "Vikas Poonia": {
-        "revenue": 61950,
-        "count": 7
+        "revenue": 47376,
+        "count": 5
       },
       "Rohit Jain": {
         "revenue": 11000,
         "count": 1
       },
       "Shubham Rai": {
-        "revenue": 15500,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Tanveer Ahmed": {
         "revenue": 11000,
         "count": 1
       },
       "Kush Shah": {
-        "revenue": 37500,
-        "count": 4
+        "revenue": 15500,
+        "count": 2
       },
       "Shivani Gupta": {
         "revenue": 19000,
         "count": 2
       },
       "Preyashi Roy": {
-        "revenue": 23960,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Sneha Anand": {
         "revenue": 22000,
         "count": 2
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 36646,
-        "count": 3
+        "revenue": 24431,
+        "count": 2
       },
       "Others": {
         "revenue": 3160,
         "count": 1
       },
       "Shashank Tiwari": {
-        "revenue": 14000,
-        "count": 2
+        "revenue": 3000,
+        "count": 1
       },
       "Prerak Bhavsar": {
-        "revenue": 18382,
-        "count": 3
-      },
-      "Jivesh Harde": {
-        "revenue": 22000,
-        "count": 2
-      },
-      "Abhijeet Mathur": {
-        "revenue": 12000,
-        "count": 1
-      },
-      "Rani Singh": {
-        "revenue": 5756,
-        "count": 1
-      },
-      "Neeru Yadav": {
-        "revenue": 4500,
-        "count": 1
-      },
-      "Yuvraj Singh Dodiya": {
-        "revenue": 4500,
-        "count": 1
-      },
-      "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 376686,
-        "count": 34
+        "revenue": 241135,
+        "count": 22
       },
       "Quarterly Max": {
-        "revenue": 50152,
-        "count": 11
+        "revenue": 18500,
+        "count": 4
       },
       "Quarterly Plus": {
-        "revenue": 9344,
-        "count": 3
+        "revenue": 6160,
+        "count": 2
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 328082,
-        "count": 35
+        "revenue": 180467,
+        "count": 19
       },
       "Events": {
         "revenue": 47376,
@@ -23794,8 +23770,8 @@
         "count": 1
       },
       "Renewals": {
-        "revenue": 53524,
-        "count": 7
+        "revenue": 30752,
+        "count": 3
       },
       "Direct Sale": {
         "revenue": 48278,
@@ -26875,19 +26851,101 @@
   },
   {
     "date": "2026-09-08",
-    "totalRevenue": 57554.86,
-    "salesCount": 6,
-    "transactions": 6,
+    "totalRevenue": 209225,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 13573,
       "agent": "Maduri Sindhu"
     },
-    "agents": {},
-    "plans": {},
+    "agents": {
+      "Jivesh Harde": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 7382,
+        "count": 2
+      },
+      "Abhijeet Mathur": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 5756,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 15000,
+        "count": 2
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12215,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 12960,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 14574,
+        "count": 2
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 135551,
+        "count": 12
+      },
+      "Quarterly Max": {
+        "revenue": 31652,
+        "count": 7
+      },
+      "Quarterly Plus": {
+        "revenue": 3184,
+        "count": 1
+      }
+    },
     "sources": {
+      "Organic": {
+        "revenue": 147615,
+        "count": 16
+      },
+      "Renewals": {
+        "revenue": 22772,
+        "count": 4
+      },
       "Direct Sale": {
-        "revenue": 57554.86,
-        "count": 6
+        "revenue": 38838,
+        "count": 4
       }
     },
     "userBreakdown": {
@@ -26919,8 +26977,8 @@
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4694,
-    "newSubs7d": 134,
+    "activeSubs": 4695,
+    "newSubs7d": 148,
     "teleCrmLeads": 1524,
     "subsEnding5d": 86,
     "subsExpired7d": 82,
@@ -26965,11 +27023,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 381,
-      "otpVerified": 375,
-      "serviceable": 268,
-      "serviceableWithPct": "268 (70.3%)",
-      "serviceablePct": "70.3%"
+      "signups": 388,
+      "otpVerified": 382,
+      "serviceable": 275,
+      "serviceableWithPct": "275 (70.9%)",
+      "serviceablePct": "70.9%"
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -26982,8 +27040,8 @@
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4694,
-    "newSubs7d": 125,
+    "activeSubs": 4695,
+    "newSubs7d": 139,
     "teleCrmLeads": 1524,
     "subsEnding5d": 86,
     "subsExpired7d": 82,

@@ -114,19 +114,23 @@ function parseDate(rawDate) {
       if (y.length === 2) y = '20' + y;
 
       let m, d;
-      // Handle August mixed formatting in source sheet (8/D/YYYY vs DD/08/YYYY)
-      if (p1 === 8) {
-        m = 8;
-        d = p2;
-      } else if (p2 === 8) {
-        m = 8;
-        d = p1;
-      } else if (p1 > 12) {
-        // DD/MM/YYYY
+      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/08/2026)
+      if (p1 > 12) {
         d = p1;
         m = p2;
-      } else {
-        // MM/DD/YYYY
+      }
+      // If second part has leading zero and 2 digits like '08' or '09' (e.g. 12/08/2026)
+      else if (parts[1].startsWith('0') && parts[1].length === 2) {
+        d = p1;
+        m = p2;
+      }
+      // If p1 is 8 or 9 (August or September in M/D/YYYY format like 8/1/2026 or 9/8/2026)
+      else if (p1 === 8 || p1 === 9) {
+        m = p1;
+        d = p2;
+      }
+      // Fallback
+      else {
         m = p1;
         d = p2;
       }
