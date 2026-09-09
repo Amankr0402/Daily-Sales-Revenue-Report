@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leads Missed (>24 hrs, no activity) — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .kpi-card.active-kpi {
+      outline: 2px solid var(--primary);
+      background: #faf7ff;
+    }
+
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Filter Pills */
+    .time-pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .time-pill {
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .time-pill:hover {
+      border-color: #cbd5e1;
+      color: var(--text);
+    }
+
+    .time-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .pill-badge {
+      font-size: 11px;
+      padding: 1px 7px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.07);
+    }
+
+    .time-pill.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .filter-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .clear-filter-btn {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .clear-filter-btn:hover {
+      background: #dbeafe;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(91, 62, 155, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .select-input {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Table & Card Area */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      max-height: 680px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead {
+      background: #f8fafc;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    thead th {
+      padding: 12px 16px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover {
+      background: #fdfcff;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-connected {
+      background: var(--blue-light);
+      color: #1d4ed8;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-interested {
+      background: var(--amber-light);
+      color: #b45309;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-paise-dega {
+      background: var(--green-light);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 6px rgba(16, 185, 129, 0.15);
+    }
+
+    .badge-assignee {
+      background: #f5f3ff;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .assignee-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #8b5cf6;
+    }
+
+    .id-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .copy-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .age-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fca5a5;
+    }
+
+    /* Loading Spinner */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--muted);
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .detail-row {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 13.5px;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      width: 150px;
+      font-weight: 600;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .detail-val {
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      z-index: 200;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>⏰ Leads Missed (&gt;24 hrs, no activity)</span>
+        <span style="font-size:12px;background:rgba(239,68,68,0.1);color:#ef4444;padding:3px 8px;border-radius:12px;font-weight:700;">Live Feed</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid">
+      <div class="kpi-card active-kpi" id="card-all" onclick="setFilter('all')" title="Click to view all missed leads">
+        <div class="kpi-label">
+          <span>Total Leads Missed</span>
+          <span style="font-size:9.5px;background:var(--primary-light);color:var(--primary);padding:1px 6px;border-radius:4px;font-weight:800;">ALL</span>
+        </div>
+        <div class="kpi-value" id="stat-total" style="color: #f43f5e;">—</div>
+        <div class="kpi-sub">Total leads with &gt;24h inactivity</div>
+      </div>
+      <div class="kpi-card" id="card-connected" onclick="setFilter('Connected')" style="border-left: 4px solid #3b82f6;" title="Click to view Connected leads">
+        <div class="kpi-label">
+          <span>Connected</span>
+          <span style="font-size:9.5px;background:var(--blue-light);color:#1d4ed8;padding:1px 6px;border-radius:4px;font-weight:800;">STATUS</span>
+        </div>
+        <div class="kpi-value" id="stat-connected" style="color: #1d4ed8;">—</div>
+        <div class="kpi-sub" id="stat-connected-sub">Connected with lead</div>
+      </div>
+      <div class="kpi-card" id="card-interested" onclick="setFilter('Interested')" style="border-left: 4px solid #f59e0b;" title="Click to view Interested leads">
+        <div class="kpi-label">
+          <span>Interested</span>
+          <span style="font-size:9.5px;background:var(--amber-light);color:#b45309;padding:1px 6px;border-radius:4px;font-weight:800;">HIGH INTENT</span>
+        </div>
+        <div class="kpi-value" id="stat-interested" style="color: #b45309;">—</div>
+        <div class="kpi-sub" id="stat-interested-sub">Interested in subscription</div>
+      </div>
+      <div class="kpi-card" id="card-paise-dega" onclick="setFilter('Paise Dega')" style="border-left: 4px solid #10b981;" title="Click to view Paise Dega leads">
+        <div class="kpi-label">
+          <span>Paise Dega</span>
+          <span style="font-size:9.5px;background:var(--green-light);color:#047857;padding:1px 6px;border-radius:4px;font-weight:800;">READY TO PAY</span>
+        </div>
+        <div class="kpi-value" id="stat-paise-dega" style="color: #047857;">—</div>
+        <div class="kpi-sub" id="stat-paise-dega-sub">Payment pending closing</div>
+      </div>
+      <div class="kpi-card" id="card-assignees" style="border-left: 4px solid #8b5cf6;" title="Total sales representatives assigned">
+        <div class="kpi-label">
+          <span>Active Sales Reps</span>
+          <span style="font-size:9.5px;background:var(--purple-light);color:#6d28d9;padding:1px 6px;border-radius:4px;font-weight:800;">TEAM</span>
+        </div>
+        <div class="kpi-value" id="stat-assignees" style="color: #6d28d9;">—</div>
+        <div class="kpi-sub">Reps handling these leads</div>
+      </div>
+    </section>
+
+    <!-- Quick Status Filter Pills -->
+    <div class="time-pills-bar">
+      <span style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:6px;">Filter By Status:</span>
+      <button class="time-pill active" id="pill-all" onclick="setFilter('all')">
+        All Leads <span class="pill-badge" id="badge-count-all">0</span>
+      </button>
+      <button class="time-pill" id="pill-connected" onclick="setFilter('Connected')">
+        📞 Connected <span class="pill-badge" id="badge-count-connected">0</span>
+      </button>
+      <button class="time-pill" id="pill-interested" onclick="setFilter('Interested')">
+        🌟 Interested <span class="pill-badge" id="badge-count-interested">0</span>
+      </button>
+      <button class="time-pill" id="pill-paise-dega" onclick="setFilter('Paise Dega')">
+        💰 Paise Dega <span class="pill-badge" id="badge-count-paise-dega">0</span>
+      </button>
+    </div>
+
+    <!-- Active Filter Notice Banner -->
+    <div id="active-filter-banner" class="filter-banner" style="display:none;">
+      <div id="active-filter-text">Showing Leads</div>
+      <button class="clear-filter-btn" onclick="setFilter('all')">✕ Reset Filter</button>
+    </div>
+
+    <!-- Controls Row -->
+    <section class="controls-card">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by Lead ID, Assignee, Status, or Inactivity Age..." />
+      </div>
+      <div class="filter-group">
+        <select class="select-input" id="status-select">
+          <option value="all">All Statuses</option>
+          <option value="Connected">Connected</option>
+          <option value="Interested">Interested</option>
+          <option value="Paise Dega">Paise Dega</option>
+        </select>
+
+        <select class="select-input" id="assignee-select">
+          <option value="all">All Sales Reps</option>
+        </select>
+
+        <select class="select-input" id="sort-select">
+          <option value="age-desc">Sort by Age (Oldest First)</option>
+          <option value="age-asc">Sort by Age (Recent First)</option>
+          <option value="created-desc">Created Date (Newest First)</option>
+          <option value="created-asc">Created Date (Oldest First)</option>
+        </select>
+
+        <select class="select-input" id="page-size-select">
+          <option value="25">25 per page</option>
+          <option value="50" selected>50 per page</option>
+          <option value="100">100 per page</option>
+          <option value="all">Show All</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Table Container -->
+    <section class="table-card">
+      <div class="loading-container" id="loading-state">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Leads Missed Data...</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Fetching live Metabase records</div>
+      </div>
+
+      <div class="table-responsive" id="table-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">#</th>
+              <th>Lead ID</th>
+              <th>Status</th>
+              <th>Assignee (Sales Rep)</th>
+              <th>Lead Created On</th>
+              <th>Last Called On</th>
+              <th>Inactivity Age</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-bar" id="pagination-container" style="display: none;">
+        <div id="pagination-info">Showing 0 to 0 of 0 entries</div>
+        <div class="page-nav" id="pagination-buttons">
+          <!-- Page buttons -->
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⏰ Missed Lead Profile Details</span>
+        </div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    const API_URL = '/api/missed-leads-details-csv';
+    const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/a213917a-7722-4459-8c47-d9c0335babec.csv';
+
+    let allLeads = [];
+    let filteredLeads = [];
+    let currentFilter = 'all';
+    let currentAssignee = 'all';
+    let searchQuery = '';
+    let sortMode = 'age-desc';
+    let currentPage = 1;
+    let pageSize = 50;
+
+    // RFC-compliant CSV parser
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push(field.trim());
+          field = '';
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          row.push(field.trim());
+          if (row.length > 1 || row[0] !== '') {
+            rows.push(row);
+          }
+          row = [];
+          field = '';
+        } else {
+          field += c;
+        }
+      }
+      if (field || row.length) {
+        row.push(field.trim());
+        if (row.length > 1 || row[0] !== '') rows.push(row);
+      }
+      return rows;
+    }
+
+    // Format ISO date to readable string
+    function formatDate(isoStr) {
+      if (!isoStr) return '—';
+      try {
+        const d = new Date(isoStr);
+        if (isNaN(d.getTime())) return isoStr;
+        return d.toLocaleDateString('en-IN', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        }) + ', ' + d.toLocaleTimeString('en-IN', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (_) {
+        return isoStr;
+      }
+    }
+
+    // Parse age string (e.g. "104 hrs ago") to numerical hours
+    function parseAgeHours(ageStr) {
+      if (!ageStr) return 0;
+      const m = ageStr.match(/(\d+(\.\d+)?)/);
+      return m ? parseFloat(m[1]) : 0;
+    }
+
+    // Clean name from email
+    function formatAssignee(email) {
+      if (!email) return 'Unassigned';
+      const namePart = email.split('@')[0];
+      return namePart
+        .split('.')
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
+    }
+
+    // Copy to clipboard helper
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied Lead ID to clipboard: ' + text);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('Copied Lead ID: ' + text);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
+    // Fetch data from API or fallback
+    async function loadData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('table-container').style.display = 'none';
+      document.getElementById('pagination-container').style.display = 'none';
+
+      try {
+        let res;
+        const targetUrl = forceRefresh ? `${API_URL}?refresh=true` : API_URL;
+        try {
+          res = await fetch(targetUrl);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        } catch (apiErr) {
+          console.warn('Backend API failed, trying direct Metabase URL:', apiErr);
+          res = await fetch(FALLBACK_DIRECT_URL);
+          if (!res.ok) throw new Error(`Direct fetch failed HTTP ${res.status}`);
+        }
+
+        const csvText = await res.text();
+        processCSV(csvText);
+      } catch (err) {
+        console.error('Failed to load missed leads CSV:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: var(--rose); font-weight: 700; font-size: 16px; margin-bottom: 8px;">Failed to load data</div>
+          <div style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">${err.message}</div>
+          <button class="btn btn-primary" onclick="loadData(true)">Try Again</button>
+        `;
+      }
+    }
+
+    function processCSV(csvText) {
+      const rows = parseCSV(csvText);
+      if (rows.length < 2) {
+        document.getElementById('loading-state').innerHTML = '<div style="color:var(--muted)">No missed leads records found.</div>';
+        return;
+      }
+
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      const leadIdIdx = headers.indexOf('leadid');
+      const statusIdx = headers.indexOf('status');
+      const assigneeIdx = headers.indexOf('assignee');
+      const createdIdx = headers.indexOf('lead_created_on');
+      const calledIdx = headers.indexOf('last_called_on');
+      const ageIdx = headers.indexOf('last_call_age');
+
+      allLeads = rows.slice(1).map((r, idx) => {
+        const status = r[statusIdx] || 'Unknown';
+        const assignee = r[assigneeIdx] || 'Unassigned';
+        const ageStr = r[ageIdx] || '';
+        return {
+          id: r[leadIdIdx] || `LEAD-${idx + 1}`,
+          status: status,
+          assignee: assignee,
+          assigneeName: formatAssignee(assignee),
+          createdOn: r[createdIdx] || '',
+          calledOn: r[calledIdx] || '',
+          lastCallAge: ageStr,
+          ageHours: parseAgeHours(ageStr),
+          rawIndex: idx + 1
+        };
+      });
+
+      populateAssigneeDropdown();
+      computeKPIs();
+      applyFiltersAndSort();
+
+      document.getElementById('loading-state').style.display = 'none';
+      document.getElementById('table-container').style.display = 'block';
+      document.getElementById('pagination-container').style.display = 'flex';
+    }
+
+    function populateAssigneeDropdown() {
+      const counts = {};
+      allLeads.forEach(l => {
+        counts[l.assignee] = (counts[l.assignee] || 0) + 1;
+      });
+
+      const sortedReps = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const select = document.getElementById('assignee-select');
+      select.innerHTML = '<option value="all">All Sales Reps (' + Object.keys(counts).length + ')</option>';
+
+      sortedReps.forEach(rep => {
+        const opt = document.createElement('option');
+        opt.value = rep;
+        opt.textContent = `${formatAssignee(rep)} (${counts[rep]})`;
+        select.appendChild(opt);
+      });
+
+      if (currentAssignee !== 'all') {
+        select.value = currentAssignee;
+      }
+    }
+
+    function computeKPIs() {
+      const total = allLeads.length;
+      let connected = 0;
+      let interested = 0;
+      let paiseDega = 0;
+      const assigneesSet = new Set();
+
+      allLeads.forEach(l => {
+        if (l.assignee && l.assignee !== 'Unassigned') assigneesSet.add(l.assignee);
+        const st = (l.status || '').toLowerCase();
+        if (st.includes('connected')) connected++;
+        else if (st.includes('interested')) interested++;
+        else if (st.includes('paise')) paiseDega++;
+      });
+
+      document.getElementById('stat-total').textContent = total.toLocaleString('en-IN');
+      document.getElementById('stat-connected').textContent = connected.toLocaleString('en-IN');
+      document.getElementById('stat-interested').textContent = interested.toLocaleString('en-IN');
+      document.getElementById('stat-paise-dega').textContent = paiseDega.toLocaleString('en-IN');
+      document.getElementById('stat-assignees').textContent = assigneesSet.size;
+
+      document.getElementById('badge-count-all').textContent = total.toLocaleString('en-IN');
+      document.getElementById('badge-count-connected').textContent = connected.toLocaleString('en-IN');
+      document.getElementById('badge-count-interested').textContent = interested.toLocaleString('en-IN');
+      document.getElementById('badge-count-paise-dega').textContent = paiseDega.toLocaleString('en-IN');
+
+      if (total > 0) {
+        document.getElementById('stat-connected-sub').textContent = `${((connected / total) * 100).toFixed(1)}% of missed leads`;
+        document.getElementById('stat-interested-sub').textContent = `${((interested / total) * 100).toFixed(1)}% of missed leads`;
+        document.getElementById('stat-paise-dega-sub').textContent = `${((paiseDega / total) * 100).toFixed(1)}% of missed leads`;
+      }
+    }
+
+    function setFilter(status) {
+      currentFilter = status;
+
+      // Update pill buttons
+      document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
+      const pillMap = {
+        'all': 'pill-all',
+        'Connected': 'pill-connected',
+        'Interested': 'pill-interested',
+        'Paise Dega': 'pill-paise-dega'
+      };
+      if (pillMap[status]) {
+        document.getElementById(pillMap[status])?.classList.add('active');
+      }
+
+      // Update KPI card highlights
+      document.querySelectorAll('.kpi-card').forEach(c => c.classList.remove('active-kpi'));
+      const cardMap = {
+        'all': 'card-all',
+        'Connected': 'card-connected',
+        'Interested': 'card-interested',
+        'Paise Dega': 'card-paise-dega'
+      };
+      if (cardMap[status]) {
+        document.getElementById(cardMap[status])?.classList.add('active-kpi');
+      }
+
+      // Sync dropdown
+      document.getElementById('status-select').value = status;
+
+      applyFiltersAndSort();
+    }
+
+    function applyFiltersAndSort() {
+      const q = searchQuery.toLowerCase().trim();
+
+      filteredLeads = allLeads.filter(lead => {
+        // Status filter
+        if (currentFilter !== 'all') {
+          if (lead.status.toLowerCase() !== currentFilter.toLowerCase()) return false;
+        }
+
+        // Assignee filter
+        if (currentAssignee !== 'all') {
+          if (lead.assignee !== currentAssignee) return false;
+        }
+
+        // Text search
+        if (q) {
+          const matchId = lead.id.toLowerCase().includes(q);
+          const matchAssignee = lead.assignee.toLowerCase().includes(q) || lead.assigneeName.toLowerCase().includes(q);
+          const matchStatus = lead.status.toLowerCase().includes(q);
+          const matchAge = lead.lastCallAge.toLowerCase().includes(q);
+          if (!matchId && !matchAssignee && !matchStatus && !matchAge) return false;
+        }
+
+        return true;
+      });
+
+      // Sorting
+      filteredLeads.sort((a, b) => {
+        if (sortMode === 'age-desc') return b.ageHours - a.ageHours;
+        if (sortMode === 'age-asc') return a.ageHours - b.ageHours;
+        if (sortMode === 'created-desc') return new Date(b.createdOn) - new Date(a.createdOn);
+        if (sortMode === 'created-asc') return new Date(a.createdOn) - new Date(b.createdOn);
+        return 0;
+      });
+
+      // Banner update
+      const banner = document.getElementById('active-filter-banner');
+      const bannerText = document.getElementById('active-filter-text');
+      const isFiltered = currentFilter !== 'all' || currentAssignee !== 'all' || q.length > 0;
+
+      if (isFiltered) {
+        banner.style.display = 'flex';
+        const parts = [];
+        if (currentFilter !== 'all') parts.push(`Status: <strong>${currentFilter}</strong>`);
+        if (currentAssignee !== 'all') parts.push(`Rep: <strong>${formatAssignee(currentAssignee)}</strong>`);
+        if (q) parts.push(`Search: <strong>"${q}"</strong>`);
+        bannerText.innerHTML = `Showing <strong>${filteredLeads.length}</strong> matching leads (${parts.join(', ')})`;
+      } else {
+        banner.style.display = 'none';
+      }
+
+      currentPage = 1;
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('leads-table-body');
+      tbody.innerHTML = '';
+
+      if (filteredLeads.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" style="text-align: center; padding: 48px 16px; color: var(--muted);">
+              <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text);">No matching leads found</div>
+              <div style="font-size: 13px; margin-top: 4px;">Try clearing filters or changing your search terms</div>
+            </td>
+          </tr>
+        `;
+        document.getElementById('pagination-container').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('pagination-container').style.display = 'flex';
+
+      const total = filteredLeads.length;
+      let start = 0;
+      let end = total;
+
+      if (pageSize !== 'all') {
+        const ps = parseInt(pageSize, 10);
+        start = (currentPage - 1) * ps;
+        end = Math.min(start + ps, total);
+      }
+
+      const paged = filteredLeads.slice(start, end);
+
+      paged.forEach((lead, idx) => {
+        const row = document.createElement('tr');
+
+        // Status badge styling
+        let statusBadgeClass = 'badge-connected';
+        let statusIcon = '📞';
+        const stLower = lead.status.toLowerCase();
+        if (stLower.includes('interested')) {
+          statusBadgeClass = 'badge-interested';
+          statusIcon = '🌟';
+        } else if (stLower.includes('paise')) {
+          statusBadgeClass = 'badge-paise-dega';
+          statusIcon = '💰';
+        }
+
+        row.innerHTML = `
+          <td style="color: var(--muted); font-weight: 600;">${start + idx + 1}</td>
+          <td>
+            <div class="id-cell">
+              <span title="${lead.id}">${lead.id}</span>
+              <button class="copy-btn" onclick="copyText('${lead.id}')" title="Copy Lead ID">📋</button>
+            </div>
+          </td>
+          <td>
+            <span class="badge ${statusBadgeClass}">
+              <span>${statusIcon}</span> ${lead.status}
+            </span>
+          </td>
+          <td>
+            <span class="badge-assignee" title="${lead.assignee}">
+              <span class="assignee-dot"></span>
+              <span>${lead.assigneeName}</span>
+            </span>
+          </td>
+          <td style="color: var(--muted); font-size: 12.5px;">
+            ${formatDate(lead.createdOn)}
+          </td>
+          <td style="color: var(--muted); font-size: 12.5px;">
+            ${formatDate(lead.calledOn)}
+          </td>
+          <td>
+            <span class="age-badge" title="Time since last call attempt">
+              ⏱️ ${lead.lastCallAge || '—'}
+            </span>
+          </td>
+          <td style="text-align: right;">
+            <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 12px;" onclick="openModal('${lead.id}')">
+              View ↗
+            </button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      renderPagination(total, start, end);
+    }
+
+    function renderPagination(total, start, end) {
+      document.getElementById('pagination-info').textContent =
+        `Showing ${start + 1} to ${end} of ${total.toLocaleString('en-IN')} leads`;
+
+      const buttonsContainer = document.getElementById('pagination-buttons');
+      buttonsContainer.innerHTML = '';
+
+      if (pageSize === 'all') return;
+
+      const ps = parseInt(pageSize, 10);
+      const totalPages = Math.ceil(total / ps);
+      if (totalPages <= 1) return;
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.textContent = '← Prev';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); } };
+      buttonsContainer.appendChild(prevBtn);
+
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, startPage + 4);
+      if (endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        const pBtn = document.createElement('button');
+        pBtn.className = `page-btn ${p === currentPage ? 'active' : ''}`;
+        pBtn.textContent = p;
+        pBtn.onclick = ((page) => () => { currentPage = page; renderTable(); })(p);
+        buttonsContainer.appendChild(pBtn);
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.textContent = 'Next →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); } };
+      buttonsContainer.appendChild(nextBtn);
+    }
+
+    function openModal(leadId) {
+      const lead = allLeads.find(l => l.id === leadId);
+      if (!lead) return;
+
+      const body = document.getElementById('modal-body');
+      body.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--primary);">
+            ${lead.id}
+          </div>
+          <button class="btn btn-secondary" style="padding:4px 8px;font-size:12px;" onclick="copyText('${lead.id}')">
+            📋 Copy ID
+          </button>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">Current Status</div>
+          <div class="detail-val">
+            <span class="badge ${lead.status.toLowerCase().includes('paise') ? 'badge-paise-dega' : lead.status.toLowerCase().includes('interested') ? 'badge-interested' : 'badge-connected'}">
+              ${lead.status}
+            </span>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">Sales Rep (Assignee)</div>
+          <div class="detail-val">
+            <strong>${lead.assigneeName}</strong>
+            <div style="font-size:12px;color:var(--muted);">${lead.assignee}</div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">Lead Created On</div>
+          <div class="detail-val">${formatDate(lead.createdOn)}</div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">Last Called On</div>
+          <div class="detail-val">${formatDate(lead.calledOn)}</div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">Inactivity Duration</div>
+          <div class="detail-val">
+            <span class="age-badge">⏱️ ${lead.lastCallAge}</span>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:10px;">
+          <button class="btn btn-secondary" style="flex:1;" onclick="closeModal()">Close</button>
+          <button class="btn btn-primary" style="flex:1;" onclick="copyText('${lead.id}');closeModal();">Copy Lead ID &amp; Done</button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.remove('open');
+    }
+
+    function downloadCSV() {
+      if (filteredLeads.length === 0) {
+        alert('No leads available to export.');
+        return;
+      }
+
+      const headers = ['Lead ID', 'Status', 'Assignee Email', 'Assignee Name', 'Lead Created On', 'Last Called On', 'Last Call Age'];
+      const rows = filteredLeads.map(l => [
+        `"${l.id}"`,
+        `"${l.status}"`,
+        `"${l.assignee}"`,
+        `"${l.assigneeName}"`,
+        `"${l.createdOn}"`,
+        `"${l.calledOn}"`,
+        `"${l.lastCallAge}"`
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `leads_missed_24hrs_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Event Listeners
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFiltersAndSort();
+    });
+
+    document.getElementById('status-select').addEventListener('change', (e) => {
+      setFilter(e.target.value);
+    });
+
+    document.getElementById('assignee-select').addEventListener('change', (e) => {
+      currentAssignee = e.target.value;
+      applyFiltersAndSort();
+    });
+
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      sortMode = e.target.value;
+      applyFiltersAndSort();
+    });
+
+    document.getElementById('page-size-select').addEventListener('change', (e) => {
+      pageSize = e.target.value;
+      currentPage = 1;
+      renderTable();
+    });
+
+    document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
+    document.getElementById('btn-refresh').addEventListener('click', () => loadData(true));
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('detail-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'detail-modal') closeModal();
+    });
+
+    // Check URL parameters for pre-filtering (e.g. ?status=Connected)
+    function initUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const st = params.get('status');
+      if (st) {
+        if (st.toLowerCase() === 'connected') currentFilter = 'Connected';
+        else if (st.toLowerCase() === 'interested') currentFilter = 'Interested';
+        else if (st.toLowerCase().includes('paise')) currentFilter = 'Paise Dega';
+      }
+      const as = params.get('assignee');
+      if (as) currentAssignee = as;
+      const q = params.get('q');
+      if (q) {
+        searchQuery = q;
+        document.getElementById('search-input').value = q;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initUrlParams();
+      loadData();
+    });
+  </script>
+</body>
+</html>

@@ -248,6 +248,133 @@
       border-color: var(--primary);
     }
 
+    /* Date Filter Bar */
+    .date-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .date-filter-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .date-filter-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .date-pill-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .date-pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .date-pill-btn.active {
+      background: #5b3e9b;
+      color: #ffffff;
+      border-color: #5b3e9b;
+      box-shadow: 0 2px 6px rgba(91, 62, 155, 0.25);
+    }
+
+    .date-range-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .date-input-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .date-input {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .date-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .btn-date-apply {
+      padding: 5px 14px;
+      background: #5b3e9b;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-date-apply:hover {
+      opacity: 0.9;
+    }
+
+    .btn-date-clear {
+      padding: 5px 10px;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-date-clear:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
     .search-row {
       display: flex;
       gap: 12px;
@@ -705,6 +832,39 @@
 
     <!-- Controls: Filter Pills & Search -->
     <div class="controls-wrapper">
+
+      <!-- Date Filter Bar -->
+      <div class="date-filter-bar">
+        <div class="date-filter-left">
+          <span class="date-filter-label">📅 Date Filter:</span>
+          <button class="date-pill-btn active" id="date-btn-all" onclick="setDateFilter('all')">All Time</button>
+          <button class="date-pill-btn" id="date-btn-yesterday" onclick="setDateFilter('yesterday')">Yesterday</button>
+          <button class="date-pill-btn" id="date-btn-7d" onclick="setDateFilter('7d')">Last 7 Days</button>
+          <button class="date-pill-btn" id="date-btn-custom" onclick="toggleCustomRange()">Select Range ▾</button>
+
+          <div style="display:flex;align-items:center;gap:6px;margin-left:6px;padding-left:10px;border-left:1px solid var(--border);">
+            <span style="font-size: 11.5px; color: var(--muted); font-weight: 600;">By:</span>
+            <select id="date-field-select" onchange="changeDateField()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--text); background: #ffffff; cursor: pointer;">
+              <option value="expire_at" selected>Expired Date</option>
+              <option value="started_at">Started Date</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="date-range-picker" id="custom-range-picker" style="display: none;">
+          <div class="date-input-group">
+            <label for="date-start">From:</label>
+            <input type="date" id="date-start" class="date-input">
+          </div>
+          <div class="date-input-group">
+            <label for="date-end">To:</label>
+            <input type="date" id="date-end" class="date-input">
+          </div>
+          <button class="btn-date-apply" onclick="applyCustomRange()">Apply</button>
+          <button class="btn-date-clear" onclick="clearCustomRange()">Clear</button>
+        </div>
+      </div>
+
       <div class="pills-bar">
         <span style="font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-right: 4px;">Quick Filters:</span>
         <button class="pill-btn active" id="pill-all" onclick="setFilter('all')">All Records</button>
@@ -795,6 +955,10 @@
     let searchQuery = '';
     let currentPage = 1;
     const PAGE_SIZE = 100;
+    let dateFilterMode = 'all'; // 'all', 'yesterday', '7d', 'custom'
+    let customStartDate = '';
+    let customEndDate = '';
+    let filterDateField = 'expire_at';
 
     // Fast CSV parser supporting quotes and escaped delimiters
     function parseCSV(text) {
@@ -860,18 +1024,127 @@
       }
     }
 
+    /* ---------- Date Filtering Logic ---------- */
+    function setDateFilter(mode) {
+      dateFilterMode = mode;
+      currentPage = 1;
+
+      const customPicker = document.getElementById('custom-range-picker');
+      if (mode !== 'custom' && customPicker) {
+        customPicker.style.display = 'none';
+      }
+
+      ['all', 'yesterday', '7d', 'custom'].forEach(m => {
+        const btn = document.getElementById('date-btn-' + m);
+        if (btn) btn.classList.toggle('active', m === mode);
+      });
+
+      computeKPIs();
+      renderTable();
+    }
+
+    function toggleCustomRange() {
+      const picker = document.getElementById('custom-range-picker');
+      if (!picker) return;
+      if (picker.style.display === 'none' || !picker.style.display) {
+        picker.style.display = 'flex';
+        if (!document.getElementById('date-end').value) {
+          const today = new Date().toISOString().split('T')[0];
+          const d7 = new Date(); d7.setDate(d7.getDate() - 7);
+          document.getElementById('date-end').value = today;
+          document.getElementById('date-start').value = d7.toISOString().split('T')[0];
+        }
+      } else {
+        picker.style.display = 'none';
+      }
+    }
+
+    function applyCustomRange() {
+      const start = document.getElementById('date-start').value;
+      const end = document.getElementById('date-end').value;
+      if (!start && !end) {
+        alert('Please select at least a start or end date');
+        return;
+      }
+      customStartDate = start;
+      customEndDate = end;
+      dateFilterMode = 'custom';
+      currentPage = 1;
+
+      ['all', 'yesterday', '7d', 'custom'].forEach(m => {
+        const btn = document.getElementById('date-btn-' + m);
+        if (btn) btn.classList.toggle('active', m === 'custom');
+      });
+
+      computeKPIs();
+      renderTable();
+    }
+
+    function clearCustomRange() {
+      document.getElementById('date-start').value = '';
+      document.getElementById('date-end').value = '';
+      customStartDate = '';
+      customEndDate = '';
+      setDateFilter('all');
+    }
+
+    function changeDateField() {
+      filterDateField = document.getElementById('date-field-select').value || 'expire_at';
+      computeKPIs();
+      renderTable();
+    }
+
+    function getDateFilteredSubs() {
+      if (dateFilterMode === 'all') return allSubs;
+
+      const now = new Date();
+      const yDate = new Date(); yDate.setDate(now.getDate() - 1);
+      const yesterdayStr = yDate.toISOString().split('T')[0];
+
+      const d7 = new Date(); d7.setDate(now.getDate() - 7);
+      const d7Str = d7.toISOString().split('T')[0];
+      const todayStr = now.toISOString().split('T')[0];
+
+      return allSubs.filter(sub => {
+        const rawDate = sub[filterDateField];
+        if (!rawDate) return false;
+        const dStr = rawDate.substring(0, 10);
+
+        if (dateFilterMode === 'yesterday') {
+          return dStr === yesterdayStr;
+        }
+        if (dateFilterMode === '7d') {
+          return dStr >= d7Str && dStr <= todayStr;
+        }
+        if (dateFilterMode === 'custom') {
+          if (customStartDate && dStr < customStartDate) return false;
+          if (customEndDate && dStr > customEndDate) return false;
+          return true;
+        }
+        return true;
+      });
+    }
+
     function computeKPIs() {
-      const total = allSubs.length;
+      const pool = getDateFilteredSubs();
+      const total = pool.length;
       let trialCount = 0;
       let onetimeCount = 0;
+      let assignedCount = 0;
+      let giftCount = 0;
+      let purchaseCount = 0;
+      let highValCount = 0;
       let totalValue = 0;
 
-      allSubs.forEach(s => {
+      pool.forEach(s => {
         const t = (s.type || '').toUpperCase();
+        const p = parseFloat(s.price) || 0;
         if (t === 'TRIAL') trialCount++;
         else if (t === 'ONE_TIME') onetimeCount++;
-
-        const p = parseFloat(s.price) || 0;
+        else if (t === 'ASSIGNED') assignedCount++;
+        else if (t === 'GIFT_CARD') giftCount++;
+        else if (t === 'PURCHASE') purchaseCount++;
+        if (p >= 2000) highValCount++;
         totalValue += p;
       });
 
@@ -879,6 +1152,19 @@
       document.getElementById('kpi-trial-subs').innerText = trialCount.toLocaleString('en-IN');
       document.getElementById('kpi-onetime-subs').innerText = onetimeCount.toLocaleString('en-IN');
       document.getElementById('kpi-total-value').innerText = '₹' + Math.round(totalValue).toLocaleString('en-IN');
+
+      // Update pill badge counts dynamically
+      const setPill = (id, label, count) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = `${label} (${count.toLocaleString('en-IN')})`;
+      };
+      setPill('pill-all', 'All Records', total);
+      setPill('pill-trial', '🧪 Trial', trialCount);
+      setPill('pill-onetime', '🎟️ One-Time', onetimeCount);
+      setPill('pill-assigned', '📦 Assigned', assignedCount);
+      setPill('pill-gift', '🎁 Gift Card', giftCount);
+      setPill('pill-purchase', '🛍️ Purchase', purchaseCount);
+      setPill('pill-high-value', '💎 High Value (₹2k+)', highValCount);
     }
 
     function formatIST(dateStr) {
@@ -937,7 +1223,8 @@
     }
 
     function getFilteredSubs() {
-      return allSubs.filter(sub => {
+      const pool = getDateFilteredSubs();
+      return pool.filter(sub => {
         const type = (sub.type || '').toUpperCase();
         const price = parseFloat(sub.price) || 0;
 
@@ -981,9 +1268,12 @@
       const loadingState = document.getElementById('loading-state');
       const paginationBar = document.getElementById('pagination-bar');
 
-      loadingState.style.display = 'none';
-
-      countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${allSubs.length.toLocaleString('en-IN')} unactivated accounts`;
+      const datePool = getDateFilteredSubs();
+      if (dateFilterMode !== 'all') {
+        countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${datePool.length.toLocaleString('en-IN')} records in selected range (${allSubs.length.toLocaleString('en-IN')} all-time)`;
+      } else {
+        countEl.innerText = `Showing ${filtered.length.toLocaleString('en-IN')} of ${allSubs.length.toLocaleString('en-IN')} unactivated accounts`;
+      }
 
       if (filtered.length === 0) {
         tbody.innerHTML = '';

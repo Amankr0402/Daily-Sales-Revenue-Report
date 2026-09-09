@@ -23,8 +23,9 @@ These endpoints provide live, real-time query results exported automatically in 
 | :--- | :--- |
 | **User Signups, OTP Verified & Serviceability Funnel** | [https://metabase-bkp.theelefant.ai/public/question/a7ec6872-1841-408d-8f63-7d16e959b67c.csv](https://metabase-bkp.theelefant.ai/public/question/a7ec6872-1841-408d-8f63-7d16e959b67c.csv) |
 | **Delivery Fees (Orders & Amount)** | [https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv](https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv) |
+| **Delivery Fees (Transactions & Details)** | [https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv](https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv) |
 | **Direct Sales (Self Subscriptions)** | [https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv](https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv) |
-| **Leads Missed (>8 hrs, no activity)** | [https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv](https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv) |
+| **Leads Missed (>24 hrs, no activity)** | [https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv](https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv) |
 
 ---
 
@@ -95,6 +96,8 @@ These files are located in the `data/` directory of the project:
 - `data/refunds.csv` — Cached full processed refunds records from Google Sheets linked from `Refund Processed (Yesterday)` and `Refund Processed (Last 7 Days)`.
 - `data/secondary_sales_sheet.csv` — Cached raw export of Secondary Sales Sheet (`10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8`).
 - `data/delivery_fees.csv` — Cached delivery fee records.
+- `data/delivery_fees_details.csv` — Cached delivery fees detailed transactions records linked from the dashboard Delivery Fee pill (`delivery-fee-details.html`).
+- `data/direct_sales_details.csv` — Cached direct sales transactions & orders records (9,100+ records) linked from the dashboard Direct Sale pills (`direct-sales-details.html`).
 - `data/app_downloads.csv` — Cached app downloads records.
 - `data/daily_lead_journey.csv` — Cached lead journey and subscription statistics.
 

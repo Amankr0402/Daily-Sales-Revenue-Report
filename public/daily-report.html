@@ -85,6 +85,10 @@
     .pod-block.b1{background:linear-gradient(180deg,rgba(244,63,94,0.18),rgba(244,63,94,0.05));height:80px;color:#f43f5e}
     .pod-block.b2{background:linear-gradient(180deg,rgba(251,146,60,0.15),rgba(251,146,60,0.04));height:56px;min-width:90px;color:#ea580c}
     .pod-block.b3{background:linear-gradient(180deg,rgba(168,85,247,0.15),rgba(168,85,247,0.04));height:40px;min-width:90px;color:#a855f7}
+    /* PODIUM FILTER BUTTONS */
+    .pod-filter-btn { padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #ffffff; color: var(--muted); cursor: pointer; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 5px; }
+    .pod-filter-btn:hover { background: #f1f5f9; color: var(--text); border-color: #cbd5e1; }
+    .pod-filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25); }
     /* CHART CARD */
     .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
     .chart-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
@@ -175,19 +179,41 @@
 
   <!-- 3. KEY INSIGHTS (TOP & BOTTOM AGENTS) -->
   <div class="sec-gap">
-    <div class="sec-title">🎯 Key Insights</div>
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+      <div class="sec-title" style="margin-bottom: 0;">🎯 Key Insights</div>
+      
+      <!-- Podium Date Filter Bar -->
+      <div class="podium-filter-bar" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <button class="pod-filter-btn active" id="btn-pod-1d" onclick="filterPodium('1d')">⚡ Last 1 Day</button>
+        <button class="pod-filter-btn" id="btn-pod-7d" onclick="filterPodium('7d')">📅 Last 7 Days</button>
+        <button class="pod-filter-btn" id="btn-pod-mtd" onclick="filterPodium('mtd')">🗓️ This Month</button>
+        <button class="pod-filter-btn" id="btn-pod-custom" onclick="togglePodiumCustomRange()">📆 Select Range</button>
+        
+        <div id="podium-custom-range-wrap" style="display: none; align-items: center; gap: 6px; background: #ffffff; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
+          <input type="date" id="pod-start-date" style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;" onchange="onPodiumCustomDateChange()">
+          <span style="font-size: 11.5px; color: var(--muted); font-weight: 700;">to</span>
+          <input type="date" id="pod-end-date" style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;" onchange="onPodiumCustomDateChange()">
+          <button class="btn btn-primary" style="padding: 3px 8px; font-size: 11px; border-radius: 6px; height: auto;" onclick="onPodiumCustomDateChange()">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size: 11.5px; color: var(--muted); margin-bottom: 14px; font-weight: 600;">
+      Showing agent sales ranking for: <span id="podium-range-text" style="color: var(--primary); font-weight: 700;">—</span>
+    </div>
+
     <div class="grid g2">
       <!-- Left: Top Agents -->
       <div class="chart-card" style="padding: 18px 16px;">
-        <div style="font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
-          🏆 TOP 3 AGENTS (THIS MONTH)
+        <div id="top-podium-title" style="font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
+          🏆 TOP 3 AGENTS
         </div>
         <div class="podium-wrap" id="podium" style="padding-top: 12px;"></div>
       </div>
       <!-- Right: Bottom Agents -->
       <div class="chart-card" style="padding: 18px 16px;">
-        <div style="font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
-          🔻 BOTTOM 3 AGENTS (THIS MONTH)
+        <div id="bottom-podium-title" style="font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
+          🔻 BOTTOM 3 AGENTS
         </div>
         <div class="podium-wrap" id="podium-bottom" style="padding-top: 12px;"></div>
       </div>
@@ -248,11 +274,14 @@
           </table>
         </div>
 
-        <!-- Leads Missed (>8 hrs, no activity) -->
-        <div style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-          <div style="font-size: 26px; line-height: 1; margin-bottom: 6px;">⏰</div>
-          <div style="font-size: 13.5px; font-weight: 800; color: var(--text); margin-bottom: 12px;">
-            Leads Missed (&gt;8 hrs, no activity)
+        <!-- Leads Missed (>24 hrs, no activity) -->
+        <div class="clickable-card" onclick="window.open('leads-missed-details.html', '_blank')" style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); cursor: pointer; transition: all 0.2s ease;" title="Click to view all Leads Missed details in a new tab" onmouseover="this.style.boxShadow='0 6px 16px rgba(91,62,155,0.12)';this.style.borderColor='#cbd5e1';" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.02)';this.style.borderColor='var(--border)';">
+          <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span style="font-size: 22px; line-height: 1;">⏰</span>
+            <span style="font-size: 13.5px; font-weight: 800; color: var(--text);">
+              Leads Missed (&gt;24 hrs, no activity)
+            </span>
+            <span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:var(--primary);padding:2px 8px;border-radius:12px;margin-left:4px;">View All ↗</span>
           </div>
           <div id="missed-leads-tag">
             <!-- Populated dynamically via JS -->
@@ -325,7 +354,7 @@
             <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em">DATE</th>
             <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:center">DEALS CLOSED</th>
             <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">SALES REVENUE</th>
-            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">DELIVERY FEE</th>
+            <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right;cursor:pointer;" onclick="window.open('delivery-fee-details.html', '_blank')" title="Click to view delivery fee transactions in a new tab">DELIVERY FEE ↗</th>
             <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">TOTAL REVENUE</th>
             <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">BLENDED AOV</th>
           </tr>
@@ -397,9 +426,144 @@ const fmtK = n => { n=Math.round(n||0); if(n>=100000) return '₹'+(n/100000).to
 const sd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{month:'short',day:'numeric'});
 const fd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 const ini = n => n.split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
-const SRC_C = {Events:'#6366f1',Organic:'#10b981',Renewals:'#f59e0b',Upgrade:'#06b6d4','Self Subscription':'#8b5cf6'};
-const SRC_L = {Organic:'🤝 Inside Sales',Events:'🎤 Events',Renewals:'🔄 Renewals',Upgrade:'⬆️ Upgrades','Self Subscription':'📱 Self Sub'};
+const SRC_C = {Events:'#6366f1',Organic:'#10b981',Renewals:'#f59e0b',Upgrade:'#06b6d4','Self Subscription':'#8b5cf6','Direct Sale':'#ec4899'};
+const SRC_L = {Organic:'🤝 Inside Sales',Events:'🎤 Events',Renewals:'🔄 Renewals',Upgrade:'⬆️ Upgrades','Self Subscription':'📱 Self Sub','Direct Sale':'🛍️ Direct Sale'};
 const PC = ['#6366f1','#10b981','#06b6d4','#f59e0b','#f43f5e','#8b5cf6','#fb923c'];
+
+let globalReportData = [];
+let globalYesterdayData = null;
+
+function renderPodium(startDate, endDate, label) {
+  if (!globalReportData || !globalReportData.length) return;
+
+  const filtered = globalReportData.filter(d => d.date >= startDate && d.date <= endDate);
+  const agentsMap = {};
+  filtered.forEach(d => {
+    Object.entries(d.agents || {}).forEach(([name, info]) => {
+      if (!agentsMap[name]) {
+        agentsMap[name] = { revenue: 0, count: 0 };
+      }
+      agentsMap[name].revenue += (info.revenue || 0);
+      agentsMap[name].count += (info.count || 0);
+    });
+  });
+
+  const ag = Object.entries(agentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
+
+  const topTitleEl = document.getElementById('top-podium-title');
+  const bottomTitleEl = document.getElementById('bottom-podium-title');
+  const rangeTextEl = document.getElementById('podium-range-text');
+
+  if (topTitleEl) topTitleEl.textContent = '🏆 TOP 3 AGENTS (' + label.toUpperCase() + ')';
+  if (bottomTitleEl) bottomTitleEl.textContent = '🔻 BOTTOM 3 AGENTS (' + label.toUpperCase() + ')';
+  if (rangeTextEl) {
+    if (startDate === endDate) {
+      rangeTextEl.textContent = sd(startDate) + ' (' + label + ')';
+    } else {
+      rangeTextEl.textContent = sd(startDate) + ' – ' + sd(endDate) + ' (' + label + ')';
+    }
+  }
+
+  const top3 = ag.slice(0, 3);
+  const pw = document.getElementById('podium');
+  if (pw) {
+    if (!top3.length) {
+      pw.innerHTML = '<div style="color:#8896b3;text-align:center;padding:24px 0;font-weight:600;">No agent sales in this period.</div>';
+    } else {
+      const order = top3.length >= 3 ? [top3[1], top3[0], top3[2]] : top3.length === 2 ? [top3[1], top3[0]] : [top3[0]];
+      const pcs = top3.length >= 3 ? ['p2', 'p1', 'p3'] : top3.length === 2 ? ['p2', 'p1'] : ['p1'];
+      const medals = { p1: '🥇', p2: '🥈', p3: '🥉' };
+      const tds = order.map(([n, d], i) => {
+        const pc = pcs[i]; const rank = pc === 'p1' ? 1 : pc === 'p2' ? 2 : 3;
+        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + pc + '" style="margin:0 auto 10px">' + (rank === 1 ? '<div class="pod-crown">👑</div>' : '') + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + pc + '">' + fmt(d.revenue) + '</div><div class="pod-deals">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div><div class="pod-block ' + pc + '" style="margin:10px auto 0">' + medals[pc] + '</div></div></td>';
+      }).join('');
+      pw.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tds + '</tr></table>';
+    }
+  }
+
+  const bottom3 = ag.length >= 3 ? ag.slice(-3) : [];
+  const pwBottom = document.getElementById('podium-bottom');
+  if (pwBottom) {
+    if (!bottom3.length) {
+      pwBottom.innerHTML = '<div style="color:#8896b3;text-align:center;padding:24px 0;font-weight:600;">No agent sales in this period.</div>';
+    } else {
+      const orderBottom = [bottom3[1], bottom3[2], bottom3[0]];
+      const bcs = ['b2', 'b1', 'b3'];
+      const rankBadges = {
+        b1: '🔻 #' + ag.length,
+        b2: '🔻 #' + (ag.length - 1),
+        b3: '🔻 #' + (ag.length - 2)
+      };
+      const tdsBottom = orderBottom.map(([n, d], i) => {
+        const bc = bcs[i];
+        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + bc + '" style="margin:0 auto 10px">' + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + bc + '">' + fmt(d.revenue) + '</div><div class="pod-deals">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div><div class="pod-block ' + bc + '" style="margin:10px auto 0; font-size: 13px; font-weight: 800;">' + rankBadges[bc] + '</div></div></td>';
+      }).join('');
+      pwBottom.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tdsBottom + '</tr></table>';
+    }
+  }
+}
+
+function filterPodium(mode) {
+  if (!globalYesterdayData) return;
+  const ydDate = globalYesterdayData.date;
+
+  document.querySelectorAll('.pod-filter-btn').forEach(b => b.classList.remove('active'));
+  const customWrap = document.getElementById('podium-custom-range-wrap');
+
+  let start, end, label;
+
+  if (mode === '1d') {
+    document.getElementById('btn-pod-1d')?.classList.add('active');
+    if (customWrap) customWrap.style.display = 'none';
+    start = ydDate;
+    end = ydDate;
+    label = 'Last 1 Day';
+  } else if (mode === '7d') {
+    document.getElementById('btn-pod-7d')?.classList.add('active');
+    if (customWrap) customWrap.style.display = 'none';
+    const dObj = new Date(ydDate + 'T00:00:00');
+    dObj.setDate(dObj.getDate() - 6);
+    start = dObj.toISOString().split('T')[0];
+    end = ydDate;
+    label = 'Last 7 Days';
+  } else if (mode === 'mtd') {
+    document.getElementById('btn-pod-mtd')?.classList.add('active');
+    if (customWrap) customWrap.style.display = 'none';
+    start = ydDate.slice(0, 7) + '-01';
+    end = ydDate;
+    label = 'This Month';
+  } else if (mode === 'custom') {
+    document.getElementById('btn-pod-custom')?.classList.add('active');
+    if (customWrap) customWrap.style.display = 'inline-flex';
+    const sInput = document.getElementById('pod-start-date');
+    const eInput = document.getElementById('pod-end-date');
+    start = sInput.value || ydDate;
+    end = eInput.value || ydDate;
+    label = sd(start) + ' – ' + sd(end);
+  }
+
+  renderPodium(start, end, label);
+}
+
+function togglePodiumCustomRange() {
+  const customWrap = document.getElementById('podium-custom-range-wrap');
+  if (customWrap) {
+    customWrap.style.display = 'inline-flex';
+  }
+  filterPodium('custom');
+}
+
+function onPodiumCustomDateChange() {
+  const sInput = document.getElementById('pod-start-date');
+  const eInput = document.getElementById('pod-end-date');
+  if (!sInput.value || !eInput.value) return;
+  if (sInput.value > eInput.value) {
+    const temp = sInput.value;
+    sInput.value = eInput.value;
+    eInput.value = temp;
+  }
+  filterPodium('custom');
+}
 
 async function init() {
   try {
@@ -411,34 +575,39 @@ async function init() {
     document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
 
     // Revenue
-    document.getElementById('total-rev').textContent = fmt(yd.totalRevenue||0);
+    const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
+    const grandTotal = (yd.totalRevenue || 0) + deliveryTotal;
+    document.getElementById('total-rev').textContent = fmt(grandTotal);
     document.getElementById('total-rev-sub').textContent = (yd.salesCount||0) + ' deals across all channels';
     const sg = document.getElementById('src-grid');
-    sg.innerHTML = '';
+    let sgHtml = '';
     Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
-      const c = SRC_C[src]||'#8896b3'; const l = SRC_L[src]||src;
-      sg.innerHTML += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      if (src === 'Direct Sale') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=net&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+        if (yd.directSaleCSV && yd.directSaleCSV.count > 0) {
+          sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=yesterday&apos;, &apos;_blank&apos;)" style="border-color: rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view all Direct Sales deals from CSV in a new tab"><div class="src-dot" style="background:#ec4899;box-shadow:0 0 6px #ec489988"></div><div><div class="src-name">🌐 Total Direct Sales (CSV) <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(yd.directSaleCSV.revenue) + '</div><div class="src-cnt">' + yd.directSaleCSV.count + ' deals (Full CSV)</div></div></div>';
+          if (yd.collidingTotal && yd.collidingTotal.count > 0) {
+            const namesList = (yd.collidingDeals || []).map(cd => cd.customerName + ' (' + fmt(cd.revenue) + ')').join(', ');
+            const fullDetails = (yd.collidingDeals || []).map(cd => cd.customerName + ' [Agent: ' + cd.agent + ']: ' + fmt(cd.revenue)).join('&#10;');
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=collision&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + fullDetails + ' (Click to view overlap deals in a new tab)"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔀 Direct &amp; Inside Overlap <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(yd.collidingTotal.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + fullDetails + '">' + yd.collidingTotal.count + ' deals: ' + namesList + '</div></div></div>';
+          }
+        }
+      } else {
+        sgHtml += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      }
     });
+
+    // 4. Delivery Fee (if any)
+    if (yd.deliveryFee && yd.deliveryFee.total > 0) {
+      const df = yd.deliveryFee;
+      sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;delivery-fee-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view delivery fee transaction details in a new tab"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(df.total) + '</div><div class="src-cnt">' + df.transactions + ' deliveries</div></div></div>';
+    }
+    sg.innerHTML = sgHtml;
 
     // Deals + AOV
     const rev = yd.totalRevenue||0; const cnt = yd.salesCount||0;
     document.getElementById('deals-closed').textContent = cnt + ' deals';
     document.getElementById('blended-aov').textContent = fmt(cnt>0?Math.round(rev/cnt):0);
-    // Calculate Monthly Top Agents (MTD)
-    const mStr = yd.date.slice(0, 7) + '-01';
-    const mData = data.filter(d => d.date >= mStr && d.date <= yd.date);
-    const monthAgentsMap = {};
-    mData.forEach(d => {
-      Object.entries(d.agents || {}).forEach(([name, info]) => {
-        if (!monthAgentsMap[name]) {
-          monthAgentsMap[name] = { revenue: 0, count: 0 };
-        }
-        monthAgentsMap[name].revenue += (info.revenue || 0);
-        monthAgentsMap[name].count += (info.count || 0);
-      });
-    });
-    const ag = Object.entries(monthAgentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
-
     const dailyAg = Object.entries(yd.agents||{}).sort((a,b)=>b[1].revenue-a[1].revenue);
     const ags = dailyAg.map(([n,d])=>({n,d,avg:d.count>0?d.revenue/d.count:0})).sort((a,b)=>b.avg-a.avg);
     if(ags.length){
@@ -446,42 +615,22 @@ async function init() {
       document.getElementById('highest-sale-sub').textContent = ags[0].n + ' · avg per deal';
     }
 
-    // Podium (Top 3 Agents of This Month)
-    const top3 = ag.slice(0, 3);
-    const pw = document.getElementById('podium');
-    if (!top3.length) { pw.innerHTML = '<div style="color:#8896b3">No agent data.</div>'; }
-    else {
-      const order = top3.length >= 3 ? [top3[1], top3[0], top3[2]] : top3.length === 2 ? [top3[1], top3[0]] : [top3[0]];
-      const pcs = top3.length >= 3 ? ['p2', 'p1', 'p3'] : top3.length === 2 ? ['p2', 'p1'] : ['p1'];
-      const medals = { p1: '🥇', p2: '🥈', p3: '🥉' };
-      const tds = order.map(([n, d], i) => {
-        const pc = pcs[i]; const rank = pc === 'p1' ? 1 : pc === 'p2' ? 2 : 3;
-        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + pc + '" style="margin:0 auto 10px">' + (rank === 1 ? '<div class="pod-crown">👑</div>' : '') + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + pc + '">' + fmt(d.revenue) + '</div><div class="pod-deals">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div><div class="pod-block ' + pc + '" style="margin:10px auto 0">' + medals[pc] + '</div></div></td>';
-      }).join('');
-      pw.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tds + '</tr></table>';
+    // Initialize Podium with Last 1 Day
+    globalReportData = data;
+    globalYesterdayData = yd;
+
+    const podStartInput = document.getElementById('pod-start-date');
+    const podEndInput = document.getElementById('pod-end-date');
+    if (podStartInput && podEndInput) {
+      const dObj = new Date(yd.date + 'T00:00:00');
+      dObj.setDate(dObj.getDate() - 6);
+      podStartInput.value = dObj.toISOString().split('T')[0];
+      podStartInput.max = yd.date;
+      podEndInput.value = yd.date;
+      podEndInput.max = yd.date;
     }
 
-    // Podium (Bottom 3 Agents of This Month)
-    const bottom3 = ag.length >= 3 ? ag.slice(-3) : [];
-    const pwBottom = document.getElementById('podium-bottom');
-    if (pwBottom) {
-      if (!bottom3.length) {
-        pwBottom.innerHTML = '<div style="color:#8896b3;text-align:center;padding:20px 0;">No agent data.</div>';
-      } else {
-        const orderBottom = [bottom3[1], bottom3[2], bottom3[0]];
-        const bcs = ['b2', 'b1', 'b3'];
-        const rankBadges = {
-          b1: '🔻 #' + ag.length,
-          b2: '🔻 #' + (ag.length - 1),
-          b3: '🔻 #' + (ag.length - 2)
-        };
-        const tdsBottom = orderBottom.map(([n, d], i) => {
-          const bc = bcs[i];
-          return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + bc + '" style="margin:0 auto 10px">' + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + bc + '">' + fmt(d.revenue) + '</div><div class="pod-deals">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div><div class="pod-block ' + bc + '" style="margin:10px auto 0; font-size: 13px; font-weight: 800;">' + rankBadges[bc] + '</div></div></td>';
-        }).join('');
-        pwBottom.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tdsBottom + '</tr></table>';
-      }
-    }
+    filterPodium('1d');
 
     // Period
     const yDate = new Date(yd.date+'T00:00:00');
@@ -523,10 +672,10 @@ async function init() {
       const mlTarget = document.getElementById('missed-leads-tag');
       if (mlTarget) {
         mlTarget.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:14px; padding-top:14px; border-top:1px solid #f1f5f9; table-layout:fixed;"><tr>' +
-          '<td valign="top" align="left" style="padding:0 6px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">CONNECTED</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Connected'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="left" style="padding:0 6px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">INTERESTED</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Interested'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="left" style="padding:0 6px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">PAISE DEGA</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Paise Dega'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="right" style="padding:0 6px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">TOTAL</div><div style="font-size:22px;font-weight:900;color:#f43f5e;margin-top:5px">' + mlTotal.toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(\'leads-missed-details.html?status=Connected\', \'_blank\')" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View 462 Connected Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#3b82f6;font-weight:700">CONNECTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Connected'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(\'leads-missed-details.html?status=Interested\', \'_blank\')" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View 174 Interested Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#f59e0b;font-weight:700">INTERESTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Interested'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(\'leads-missed-details.html?status=Paise%20Dega\', \'_blank\')" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View 28 Paise Dega Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#10b981;font-weight:700">PAISE DEGA ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Paise Dega'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="right" onclick="event.stopPropagation();window.open(\'leads-missed-details.html\', \'_blank\')" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View All Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">TOTAL ↗</div><div style="font-size:22px;font-weight:900;color:#f43f5e;margin-top:5px">' + mlTotal.toLocaleString('en-IN') + '</div></td>' +
           '</tr></table>';
       }
     }
@@ -554,7 +703,7 @@ async function init() {
           '<td style="font-weight:700;color:var(--text);padding:12px 16px;">' + sd(d.date) + (d.date === yd.date ? ' <span style="font-size:10px;font-weight:700;background:rgba(16,185,129,0.15);color:#059669;padding:2px 8px;border-radius:10px;margin-left:6px;">Yesterday</span>' : '') + '</td>' +
           '<td style="text-align:center;font-weight:700;color:#0f172a;padding:12px 16px;">' + deals.toLocaleString('en-IN') + '</td>' +
           '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + fmt(sRev) + '</td>' +
-          '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + (dFee > 0 ? fmt(dFee) : '₹0') + '</td>' +
+          '<td onclick="window.open(&apos;delivery-fee-details.html&apos;, &apos;_blank&apos;)" style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;cursor:pointer;" title="Click to view delivery fee transactions in a new tab">' + (dFee > 0 ? fmt(dFee) : '₹0') + '</td>' +
           '<td style="text-align:right;font-weight:900;color:#0f172a;padding:12px 16px;">' + fmt(tot) + '</td>' +
           '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + fmt(aov) + '</td>' +
         '</tr>';
@@ -566,7 +715,7 @@ async function init() {
           '<td style="font-weight:900;color:var(--text);padding:14px 16px;text-transform:uppercase;font-size:12px;letter-spacing:0.04em;">Total (Last 7 Days)</td>' +
           '<td style="text-align:center;font-weight:900;color:#0f172a;padding:14px 16px;">' + sumDeals.toLocaleString('en-IN') + ' deals</td>' +
           '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(sumSalesRev) + '</td>' +
-          '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(sumDeliv) + '</td>' +
+          '<td onclick="window.open(&apos;delivery-fee-details.html&apos;, &apos;_blank&apos;)" style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;cursor:pointer;" title="Click to view delivery fee transactions in a new tab">' + fmt(sumDeliv) + '</td>' +
           '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;font-size:15px;">' + fmt(sumTotalRev) + '</td>' +
           '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(blendedAov) + '</td>' +
         '</tr>';
@@ -580,49 +729,49 @@ async function init() {
     const jBody = document.getElementById('journey-tbl-body');
     if (jBody) {
       jBody.innerHTML = '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Statistics</td></tr>' +
-        '<tr class="clickable-row" onclick="window.open('active-subscriptions.html', '_blank')" style="cursor: pointer;" title="Click to view all active subscriptions in a new tab">' +
-        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span>Total Active Subscriptions as on date</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<tr class="clickable-row" onclick="window.open(&apos;active-subscriptions.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view all active subscriptions in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Total Active Subscriptions as on date</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubs ? yd.activeSubs.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('active-subscriptions.html?filter=last7days', '_blank')" style="cursor: pointer;" title="Click to view new subscribers joined in the last 7 days in a new tab">' +
-        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span>New Subscriber in last 7 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<tr class="clickable-row" onclick="window.open(&apos;active-subscriptions.html?filter=last7days&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view new subscribers joined in the last 7 days in a new tab">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">New Subscriber in last 7 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newSubs7d ? yd.newSubs7d.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('app-downloads-details.html?filter=last7days', '_blank')" style="cursor: pointer;" title="Click to view new users &amp; app downloads in the last 7 days in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;app-downloads-details.html?filter=last7days&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view new users &amp; app downloads in the last 7 days in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">New user in last 7 days (app downloads)</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsers7d ? yd.newUsers7d.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('app-downloads-details.html?filter=yesterday', '_blank')" style="cursor: pointer;" title="Click to view new users &amp; app downloads yesterday in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;app-downloads-details.html?filter=yesterday&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view new users &amp; app downloads yesterday in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">New user yesterday (app downloads)</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.newUsersYesterday ? yd.newUsersYesterday.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('telecrm-leads-details.html', '_blank')" style="cursor: pointer;" title="Click to view TeleCRM leads generated yesterday in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;telecrm-leads-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view TeleCRM leads generated yesterday in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Total TeleCRM Leads Generated yesterday</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.teleCrmLeads ? yd.teleCrmLeads.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
         '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Subscription details</td></tr>' +
-        '<tr class="clickable-row" onclick="window.open('subs-ending-5d-details.html', '_blank')" style="cursor: pointer;" title="Click to view subscriptions ending in next 5 days in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;subs-ending-5d-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view subscriptions ending in next 5 days in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription ending in next 5 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsEnding5d ? yd.subsEnding5d.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('subs-expired-7d-details.html', '_blank')" style="cursor: pointer;" title="Click to view subscriptions expired / cancelled in last 7 days in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;subs-expired-7d-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view subscriptions expired / cancelled in last 7 days in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription expired / cancelled in last 7 days</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpired7d ? yd.subsExpired7d.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('subs-expiring-today-details.html', '_blank')" style="cursor: pointer;" title="Click to view subscriptions expiring today in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;subs-expiring-today-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view subscriptions expiring today in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Subscription expiring today</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.subsExpiringToday ? yd.subsExpiringToday.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
         '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Ordering details</td></tr>' +
-        '<tr class="clickable-row" onclick="window.open('plan-exp-no-order-details.html', '_blank')" style="cursor: pointer;" title="Click to view plan expired with no orders placed in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;plan-exp-no-order-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view plan expired with no orders placed in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Plan expired and not a single order placed</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpNoOrder ? yd.planExpNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('plan-expiring-no-order-details.html', '_blank')" style="cursor: pointer;" title="Click to view plan expiring with no orders placed in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;plan-expiring-no-order-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view plan expiring with no orders placed in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Plan expiring and not placed a single order</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.planExpiringNoOrder ? yd.planExpiringNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>' +
-        '<tr class="clickable-row" onclick="window.open('active-sub-no-order-details.html', '_blank')" style="cursor: pointer;" title="Click to view active subscribers with no orders placed yet in a new tab">' +
+        '<tr class="clickable-row" onclick="window.open(&apos;active-sub-no-order-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view active subscribers with no orders placed yet in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Active subscriber &amp; no orders placed yet</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.activeSubNoOrder ? yd.activeSubNoOrder.toLocaleString('en-IN') : '-') + '</td>' +
         '</tr>';
@@ -679,7 +828,7 @@ async function init() {
         const val = getVal(row);
         const count = (val !== '-' && val !== undefined) ? Number(val).toLocaleString('en-IN') : '-';
         const filterKey = filterMap[row] || 'all';
-        return '<tr class="clickable-row" onclick="window.open('new-users-delivery-status.html?filter=' + filterKey + '', '_blank')" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
+        return '<tr class="clickable-row" onclick="window.open(&apos;new-users-delivery-status.html?filter=' + filterKey + '&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
           '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight: 600; color: var(--text);">' + row + '</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
           '<td style="text-align: right; font-weight: 700; color: var(--text);">' + count + '</td>' +
         '</tr>';
@@ -706,7 +855,7 @@ async function init() {
         const key = Object.keys(allNu).find(k => k.trim().toLowerCase() === row.toLowerCase()) || row;
         const count = allNu[key] !== undefined ? allNu[key].toLocaleString('en-IN') : '-';
         const filterKey = allNuFilterMap[row] || 'all';
-        return '<tr class="clickable-row" onclick="window.open('all-new-users-order-status.html?filter=' + filterKey + '', '_blank')" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
+        return '<tr class="clickable-row" onclick="window.open(&apos;all-new-users-order-status.html?filter=' + filterKey + '&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view ' + row + ' details in a new tab">' +
           '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight: 600; color: var(--text);">' + row + '</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
           '<td style="text-align: right; font-weight: 700; color: var(--text);">' + count + '</td>' +
         '</tr>';
@@ -731,8 +880,6 @@ async function init() {
 
     // 10. Net Financials
     const refAmt = refYd.total || 0;
-    const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
-    const grandTotal = (yd.totalRevenue || 0) + deliveryTotal;
     const netSalesEl = document.getElementById('net-sales');
     if (netSalesEl) {
       netSalesEl.textContent = fmt(grandTotal);

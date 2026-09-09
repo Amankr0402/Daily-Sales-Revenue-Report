@@ -22,6 +22,8 @@ const DELIVERY_FEE_CSV = path.join(__dirname, '..', 'data', 'delivery_fees.csv')
 const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv';
 const DIRECT_SALE_URL = 'https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv';
 const MISSED_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv';
+const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a213917a-7722-4459-8c47-d9c0335babec.csv';
+const MISSED_LEADS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'missed_leads_details.csv');
 const APP_DOWNLOADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/739c97ae-ef79-4088-ac33-67c4b37ba6fd.csv';
 const TOTAL_ACTIVE_SUBS_URL = 'https://metabase-bkp.theelefant.ai/public/question/ef5cfe31-4213-43e8-8c8d-cbd876733e57.csv';
 const NEW_SUBS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/a0d790ad-d435-4424-b18d-603881c72f26.csv';
@@ -56,6 +58,9 @@ const PLAN_EXPIRING_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/p
 const PLAN_EXPIRING_NO_ORDER_DETAILS_FILE = path.join(__dirname, '..', 'data', 'plan_expiring_no_order_details.csv');
 const ACTIVE_SUB_NO_ORDERS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d94cc795-d77d-477e-b61d-f96da7c2c6a7.csv';
 const ACTIVE_SUB_NO_ORDERS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'active_sub_no_orders_details.csv');
+const DELIVERY_FEES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
+const DELIVERY_FEES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'delivery_fees_details.csv');
+const DIRECT_SALE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -197,8 +202,8 @@ async function syncSalesData() {
     const isoDate = parseDate(rawDate);
     if (!isoDate || isoDate.length !== 10) continue;
 
-    if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = new Set();
-    if (phone && phone.length >= 10) sheetPhonesByDate[isoDate].add(phone);
+    if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
+    if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent };
 
     if (!recordsByDate[isoDate]) {
       recordsByDate[isoDate] = {
@@ -273,8 +278,8 @@ async function syncSalesData() {
       const isoDate = parseDate(rawDate);
       if (!isoDate || isoDate.length !== 10) continue;
 
-      if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = new Set();
-      if (phone && phone.length >= 10) sheetPhonesByDate[isoDate].add(phone);
+      if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
+      if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent };
 
       if (!recordsByDate[isoDate]) {
         recordsByDate[isoDate] = {
@@ -317,6 +322,12 @@ async function syncSalesData() {
   try {
     console.log('🛍️ Fetching Direct Sale data from Metabase...');
     const dsCSV = await fetchURLWithRedirect(DIRECT_SALE_URL);
+    try {
+      fs.writeFileSync(DIRECT_SALE_DETAILS_FILE, dsCSV, 'utf8');
+      console.log('🛍️ Cached Direct Sale CSV to data/direct_sales_details.csv');
+    } catch (saveErr) {
+      console.warn('⚠️ Could not cache direct_sales_details.csv:', saveErr.message);
+    }
     const dsLines = dsCSV.split('\n').map(l => l.trim()).filter(Boolean);
     console.log(`🛍️ Processing ${dsLines.length - 1} Direct Sale rows...`);
     for (let i = 1; i < dsLines.length; i++) {
@@ -327,13 +338,6 @@ async function syncSalesData() {
       const dParts = datePart.split('/');
       if (dParts.length !== 3) continue;
       const isoDate = `${dParts[2]}-${dParts[1]}-${dParts[0]}`; // YYYY-MM-DD
-      const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
-
-      // Deduplicate: If this customer's deal was already logged by an agent in Google Sheets on this date, skip to avoid double counting!
-      if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate].has(phone)) {
-        continue;
-      }
-
       const rev = parseFloat(cols[7]) || 0; // Amount Paid
       if (rev <= 0) continue;
 
@@ -346,6 +350,30 @@ async function syncSalesData() {
       }
 
       const day = recordsByDate[isoDate];
+      if (!day.directSaleCSV) {
+        day.directSaleCSV = { count: 0, revenue: 0 };
+      }
+      day.directSaleCSV.count += 1;
+      day.directSaleCSV.revenue += rev;
+      const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+
+      // Deduplicate: If this customer's deal was already logged by an agent in Google Sheets on this date, record collision and skip to avoid double counting!
+      if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate][phone]) {
+        const inside = sheetPhonesByDate[isoDate][phone];
+        if (!day.collidingDeals) day.collidingDeals = [];
+        day.collidingDeals.push({
+          customerName: cols[1] || inside.customer || 'Unknown',
+          agent: inside.agent || 'Unknown',
+          revenue: rev,
+          insideRevenue: inside.revenue || 0,
+          phone
+        });
+        if (!day.collidingTotal) day.collidingTotal = { count: 0, revenue: 0 };
+        day.collidingTotal.count += 1;
+        day.collidingTotal.revenue += rev;
+        continue;
+      }
+
       day.totalRevenue += rev;
       day.salesCount += 1;
       day.transactions += 1;
@@ -619,23 +647,44 @@ async function syncSalesData() {
     console.warn('⚠️ Warning: Could not process New Users (7d) from Metabase:', appErr.message);
   }
 
-  // Fetch New user yesterday (app downloads) — direct count from Metabase (2a2bb684)
+  // Fetch New user yesterday (app downloads) — calculated from details list to match app-downloads-details.html
   try {
-    console.log(`📱 Fetching New Users (yesterday, app downloads) from Metabase...`);
-    const nuYestCSV = await fetchURLWithRedirect(NEW_USERS_YESTERDAY_URL);
-    const nuYestLines = nuYestCSV.split('\n').map(l => l.trim()).filter(Boolean);
-    if (nuYestLines.length > 1 && sortedDays.length > 0) {
-      const cols = parseCSVLine(nuYestLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
-      const newUsersYesterday = parseInt(cols[0], 10);
-      if (!isNaN(newUsersYesterday)) {
+    console.log(`📱 Calculating New Users (yesterday, app downloads) from Details list...`);
+    let appDlCSV = '';
+    if (fs.existsSync(APP_DOWNLOADS_DETAILS_FILE)) {
+      appDlCSV = fs.readFileSync(APP_DOWNLOADS_DETAILS_FILE, 'utf-8');
+    }
+    if (!appDlCSV || appDlCSV.length < 50) {
+      appDlCSV = await fetchURLWithRedirect(APP_DOWNLOADS_DETAILS_URL);
+      fs.writeFileSync(APP_DOWNLOADS_DETAILS_FILE, appDlCSV, 'utf-8');
+    }
+
+    if (appDlCSV && appDlCSV.length > 50 && !appDlCSV.includes('HTTP ERROR 500')) {
+      const allLines = appDlCSV.split('\n').filter(Boolean);
+      const headerCols = parseCSVLine(allLines[0]).map(h => h.trim().toLowerCase());
+      const createdIdx = headerCols.indexOf('created_at');
+      const dateCounts = {};
+      for (let i = 1; i < allLines.length; i++) {
+        const c = parseCSVLine(allLines[i]);
+        const created = c[createdIdx] || '';
+        if (created) {
+          const dPart = created.split('T')[0];
+          dateCounts[dPart] = (dateCounts[dPart] || 0) + 1;
+        }
+      }
+      const availDates = Object.keys(dateCounts).sort().reverse();
+      const latestDateStr = availDates[0] || '';
+      const yesterdayCount = dateCounts[latestDateStr] || 0;
+
+      if (yesterdayCount > 0) {
         getTargetDays(sortedDays).forEach(targetDay => {
-          targetDay.newUsersYesterday = newUsersYesterday;
-          console.log(`✅ New Users (yesterday, app downloads): ${newUsersYesterday} attached to ${targetDay.date}`);
+          targetDay.newUsersYesterday = yesterdayCount;
+          console.log(`✅ New Users (yesterday, app downloads) from Details (${latestDateStr}): ${yesterdayCount} attached to ${targetDay.date}`);
         });
       }
     }
   } catch (appErr) {
-    console.warn('⚠️ Warning: Could not process New Users (yesterday) from Metabase:', appErr.message);
+    console.warn('⚠️ Warning: Could not process New Users (yesterday) from Details list:', appErr.message);
   }
 
   // Fetch Total Active Subscriptions from Metabase (ef5cfe31)
@@ -657,26 +706,56 @@ async function syncSalesData() {
     console.warn('⚠️ Warning: Could not process Total Active Subscriptions:', err.message);
   }
 
-  // Fetch New Subscribers in last 7 days from Metabase (a0d790ad)
+  // Fetch New Subscribers in last 7 days from active_subscriptions.csv (matching active-subscriptions.html)
   try {
-    console.log(`📡 Fetching New Subscribers (7d) from Metabase...`);
-    const newSubsCSV = await fetchURLWithRedirect(NEW_SUBS_7D_URL);
-    const newSubsLines = newSubsCSV.split('\n').map(l => l.trim()).filter(Boolean);
-    if (newSubsLines.length > 1 && sortedDays.length > 0) {
-      const cols = parseCSVLine(newSubsLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
-      const newSubs7d = parseInt(cols[1], 10);
-      if (!isNaN(newSubs7d)) {
+    const activeSubsFile = path.join(__dirname, '..', 'data', 'active_subscriptions.csv');
+    let csvData = '';
+    if (fs.existsSync(activeSubsFile)) {
+      csvData = fs.readFileSync(activeSubsFile, 'utf8');
+    }
+    if (!csvData || csvData.length < 100) {
+      csvData = await fetchURLWithRedirect('https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv');
+      fs.writeFileSync(activeSubsFile, csvData, 'utf8');
+    }
+
+    if (csvData && csvData.length > 100) {
+      const allLines = csvData.split('\n').filter(Boolean);
+      const headerCols = parseCSVLine(allLines[0]).map(h => h.trim().toLowerCase());
+      const startIdx = headerCols.indexOf('started_at');
+
+      let maxStartedTime = 0;
+      for (let i = 1; i < allLines.length; i++) {
+        const c = parseCSVLine(allLines[i]);
+        if (c[startIdx]) {
+          const t = new Date(c[startIdx]).getTime();
+          if (!isNaN(t) && t > maxStartedTime) maxStartedTime = t;
+        }
+      }
+      if (maxStartedTime === 0) maxStartedTime = Date.now();
+      const sevenDaysAgoStr = new Date(maxStartedTime - 6 * 24 * 60 * 60 * 1000).toISOString().substring(0, 10);
+      const maxStartedStr = new Date(maxStartedTime).toISOString().substring(0, 10);
+
+      let count7d = 0;
+      for (let i = 1; i < allLines.length; i++) {
+        const c = parseCSVLine(allLines[i]);
+        const sDate = (c[startIdx] || '').substring(0, 10);
+        if (sDate >= sevenDaysAgoStr && sDate <= maxStartedStr) {
+          count7d++;
+        }
+      }
+
+      if (count7d > 0) {
         getTargetDays(sortedDays).forEach(targetDay => {
-          targetDay.newSubs7d = newSubs7d;
-          console.log(`✅ New Subs (7d): ${newSubs7d} attached to ${targetDay.date}`);
+          targetDay.newSubs7d = count7d;
+          console.log(`✅ New Subs (7d) from Active Subs CSV: ${count7d} attached to ${targetDay.date}`);
         });
       }
     }
-  } catch (err) {
-    console.warn('⚠️ Warning: Could not process New Subscribers (7d) from Metabase:', err.message);
+  } catch (subsErr) {
+    console.warn('⚠️ Warning: Could not calculate New Subs (7d) from Active Subs CSV:', subsErr.message);
   }
 
-  // Fallback: calculate New Subscribers in last 7 days from verified sales data if not populated by Metabase
+  // Fallback: calculate New Subscribers in last 7 days from verified sales data if not populated
   getTargetDays(sortedDays).forEach(targetDay => {
     if (targetDay.newSubs7d === undefined) {
       const l7 = sortedDays.filter(d => d.date <= targetDay.date).slice(-7);
@@ -1006,6 +1085,32 @@ async function syncSalesData() {
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache Active Sub No Order details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Delivery Fees Detailed List (69801b76)
+  try {
+    console.log(`🚚 Fetching Delivery Fees Detailed List from Metabase...`);
+    const delivFeesDetailsCSV = await fetchURLWithRedirect(DELIVERY_FEES_DETAILS_URL);
+    if (delivFeesDetailsCSV && delivFeesDetailsCSV.length > 50 && !delivFeesDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(DELIVERY_FEES_DETAILS_FILE, delivFeesDetailsCSV, 'utf-8');
+      const linesCount = delivFeesDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached Delivery Fees details (${Math.max(0, linesCount - 1)} records) to ${DELIVERY_FEES_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Delivery Fees details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Missed Leads Details (a213917a)
+  try {
+    console.log(`⏰ Fetching Missed Leads (>24 hrs) Detailed List from Metabase...`);
+    const missedDetailsCSV = await fetchURLWithRedirect(MISSED_LEADS_DETAILS_URL);
+    if (missedDetailsCSV && missedDetailsCSV.length > 50 && !missedDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(MISSED_LEADS_DETAILS_FILE, missedDetailsCSV, 'utf-8');
+      const linesCount = missedDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached Missed Leads details (${Math.max(0, linesCount - 1)} records) to ${MISSED_LEADS_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Missed Leads details from Metabase:', err.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Fee Transactions — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Controls: Filter Pills & Search */
+    .controls-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .pill-badge {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pill-btn.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .mono-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #334155;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-paid {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .badge-pending {
+      background: var(--amber-light);
+      color: var(--amber);
+    }
+
+    .badge-other {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 12px;
+      margin-left: 6px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 760px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      animation: modalIn 0.2s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafafa;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .modal-close:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .detail-val {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .features-box {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .empty-state {
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .empty-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .loading-spinner {
+      border: 3px solid rgba(91, 62, 155, 0.1);
+      border-radius: 50%;
+      border-top: 3px solid var(--primary);
+      width: 32px;
+      height: 32px;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" onerror="this.style.display='none'">
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>🚚</span> Delivery Fee Transactions Details
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
+      <button class="btn btn-primary" onclick="loadData(true)">🔄 Refresh</button>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">
+          <span>Total Collected Fee</span>
+          <span>💰</span>
+        </div>
+        <div class="kpi-value" id="kpi-total-amount">₹0</div>
+        <div class="kpi-sub" id="kpi-total-cnt">0 delivery transactions</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">
+          <span>Yesterday Collected</span>
+          <span>📅</span>
+        </div>
+        <div class="kpi-value" id="kpi-yd-amount" style="color: #059669;">₹0</div>
+        <div class="kpi-sub" id="kpi-yd-cnt">0 deliveries yesterday</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">
+          <span>Paid Status Rate</span>
+          <span>✅</span>
+        </div>
+        <div class="kpi-value" id="kpi-paid-rate" style="color: #3b82f6;">100%</div>
+        <div class="kpi-sub" id="kpi-paid-cnt">0 paid deliveries</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">
+          <span>Average Delivery Fee</span>
+          <span>🚚</span>
+        </div>
+        <div class="kpi-value" id="kpi-avg-fee" style="color: #8b5cf6;">₹100</div>
+        <div class="kpi-sub">Per completed transaction</div>
+      </div>
+    </div>
+
+    <!-- Controls: Filter Pills & Search -->
+    <div class="controls-wrapper">
+      <div class="pills-bar">
+        <span style="font-size: 12px; font-weight: 700; color: var(--muted); margin-right: 4px;">FILTER:</span>
+        <button class="pill-btn active" data-filter="all" onclick="setFilter('all')">
+          All Deliveries <span class="pill-badge" id="count-all">0</span>
+        </button>
+        <button class="pill-btn" data-filter="yesterday" onclick="setFilter('yesterday')">
+          Yesterday <span class="pill-badge" id="count-yesterday">0</span>
+        </button>
+        <button class="pill-btn" data-filter="paid" onclick="setFilter('paid')">
+          Paid Deliveries <span class="pill-badge" id="count-paid">0</span>
+        </button>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by Transaction ID (TR...), User ID, Order ID, Payment Provider ID..." oninput="handleSearch()">
+        </div>
+        <div class="results-count" id="results-count">Showing 0 deliveries</div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <div id="loading-state" class="empty-state">
+        <div class="loading-spinner"></div>
+        <div class="empty-title">Loading Delivery Fee Records...</div>
+        <div style="font-size: 13px; color: var(--muted);">Fetching latest transaction details from Metabase</div>
+      </div>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <div class="empty-icon">📭</div>
+        <div class="empty-title">No transactions found</div>
+        <div style="font-size: 13px; color: var(--muted);">Try changing your search term or filter selection</div>
+      </div>
+
+      <table id="delivery-table" style="display: none;">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th>Transaction #</th>
+            <th>Date &amp; Time</th>
+            <th style="text-align: right;">Charge (₹)</th>
+            <th>Status</th>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Payment Provider &amp; ID</th>
+            <th style="text-align: center;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Populated dynamically via JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📦</span> <span id="modal-title-text">Transaction Details</span>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = '/api/delivery-fees-details-csv';
+    const FALLBACK_URL = '/data/delivery_fees_details.csv';
+    const DIRECT_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
+
+    let allTransactions = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // Check query params for initial filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get('filter');
+    if (initialFilter) {
+      currentFilter = initialFilter;
+    }
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      let i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' && next === '\n') || c === '\n') {
+          if (c === '\r') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+        i++;
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    function parseMetaData(raw) {
+      if (!raw) return {};
+      try {
+        return JSON.parse(raw);
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function formatDateTime(rawDate) {
+      if (!rawDate) return '-';
+      try {
+        const d = new Date(rawDate);
+        if (isNaN(d.getTime())) return rawDate;
+        return d.toLocaleDateString('en-IN', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      } catch (e) {
+        return rawDate;
+      }
+    }
+
+    function parseDateToISO(raw) {
+      if (!raw) return null;
+      if (raw.includes('T')) return raw.split('T')[0];
+      return raw.split(' ')[0];
+    }
+
+    async function loadData(forceRefresh = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('delivery-table').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'none';
+
+      let text = '';
+      try {
+        const url = forceRefresh ? `${API_URL}?refresh=true&t=${Date.now()}` : `${API_URL}?t=${Date.now()}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        text = await res.text();
+      } catch (err) {
+        console.warn('API fetch failed, trying local fallback:', err);
+        try {
+          const res = await fetch(`${FALLBACK_URL}?t=${Date.now()}`);
+          if (!res.ok) throw new Error('Fallback HTTP ' + res.status);
+          text = await res.text();
+        } catch (fbErr) {
+          console.warn('Local fallback failed, trying direct Metabase URL:', fbErr);
+          const res = await fetch(DIRECT_METABASE_URL);
+          if (!res.ok) throw new Error('Direct Metabase HTTP ' + res.status);
+          text = await res.text();
+        }
+      }
+
+      try {
+        const parsed = parseCSV(text.trim());
+        if (parsed.length < 2) {
+          throw new Error('No delivery fee rows found');
+        }
+
+        const headers = parsed[0].map(h => h.trim());
+        allTransactions = parsed.slice(1).map((cols, idx) => {
+          const item = { _index: idx + 1 };
+          headers.forEach((h, colIdx) => {
+            item[h] = (cols[colIdx] || '').trim();
+          });
+
+          const meta = parseMetaData(item['meta_data']);
+          item._meta = meta;
+          item._price = parseFloat(item['price']) || 0;
+          item._isoDate = parseDateToISO(item['created_at'] || item['updated_at']);
+          item._orderGroupId = meta.orderGroupId || meta.refData?.notes?.orderGroupId || '';
+          item._associatedOrderIds = meta.refData?.notes?.orderIds || '';
+          item._taxType = meta.taxesApplied?.type || 'GST';
+          item._taxPercentage = meta.taxesApplied?.percentage || 18;
+          item._razorpayPaymentId = item['payment_provider_id'] || '';
+
+          return item;
+        });
+
+        // Update active filter pill
+        document.querySelectorAll('.pill-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-filter') === currentFilter);
+        });
+
+        computeKPIs();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to parse delivery fee data:', err);
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color: #ef4444; font-size: 15px; font-weight: 700; margin-bottom: 8px;">⚠️ Could not fetch Delivery Fee records</div>
+          <div style="font-size: 12.5px; color: var(--muted);">${err.message}</div>
+          <button class="btn btn-secondary" onclick="loadData(true)" style="margin-top: 14px;">Retry</button>
+        `;
+      }
+    }
+
+    function computeKPIs() {
+      // Determine yesterday date relative to transactions or system
+      const dates = allTransactions.map(t => t._isoDate).filter(Boolean).sort();
+      const latestDate = dates.length ? dates[dates.length - 1] : '';
+
+      let totalAmount = 0;
+      let ydAmount = 0;
+      let ydCount = 0;
+      let paidCount = 0;
+
+      allTransactions.forEach(t => {
+        totalAmount += t._price;
+        if (t._isoDate === latestDate) {
+          ydAmount += t._price;
+          ydCount++;
+        }
+        if ((t['status'] || '').toUpperCase() === 'PAID') {
+          paidCount++;
+        }
+      });
+
+      const avgFee = allTransactions.length > 0 ? Math.round(totalAmount / allTransactions.length) : 0;
+      const paidRate = allTransactions.length > 0 ? Math.round((paidCount / allTransactions.length) * 100) : 0;
+
+      document.getElementById('kpi-total-amount').textContent = '₹' + Math.round(totalAmount).toLocaleString('en-IN');
+      document.getElementById('kpi-total-cnt').textContent = `${allTransactions.length} delivery transaction${allTransactions.length !== 1 ? 's' : ''}`;
+
+      document.getElementById('kpi-yd-amount').textContent = '₹' + Math.round(ydAmount).toLocaleString('en-IN');
+      document.getElementById('kpi-yd-cnt').textContent = `${ydCount} deliveries on ${latestDate || 'yesterday'}`;
+
+      document.getElementById('kpi-paid-rate').textContent = `${paidRate}%`;
+      document.getElementById('kpi-paid-cnt').textContent = `${paidCount} paid out of ${allTransactions.length}`;
+
+      document.getElementById('kpi-avg-fee').textContent = '₹' + avgFee.toLocaleString('en-IN');
+
+      document.getElementById('count-all').textContent = allTransactions.length;
+      document.getElementById('count-yesterday').textContent = ydCount;
+      document.getElementById('count-paid').textContent = paidCount;
+    }
+
+    function filterData() {
+      const dates = allTransactions.map(t => t._isoDate).filter(Boolean).sort();
+      const latestDate = dates.length ? dates[dates.length - 1] : '';
+
+      return allTransactions.filter(item => {
+        // Filter by pill
+        if (currentFilter === 'yesterday' && item._isoDate !== latestDate) return false;
+        if (currentFilter === 'paid' && (item['status'] || '').toUpperCase() !== 'PAID') return false;
+
+        // Search Query
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          const matchTxn = (item['transaction_number'] || '').toLowerCase().includes(q);
+          const matchUser = (item['user_id'] || '').toLowerCase().includes(q);
+          const matchOrder = (item['order_id'] || '').toLowerCase().includes(q);
+          const matchPayment = (item['payment_provider_id'] || '').toLowerCase().includes(q);
+          const matchProvider = (item['payment_provider'] || '').toLowerCase().includes(q);
+          const matchStatus = (item['status'] || '').toLowerCase().includes(q);
+          const matchGroup = (item._orderGroupId || '').toLowerCase().includes(q);
+
+          if (!matchTxn && !matchUser && !matchOrder && !matchPayment && !matchProvider && !matchStatus && !matchGroup) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+    }
+
+    function renderTable() {
+      const filtered = filterData();
+      const tbody = document.getElementById('table-body');
+      const table = document.getElementById('delivery-table');
+      const emptyState = document.getElementById('empty-state');
+      const loadingState = document.getElementById('loading-state');
+      const countEl = document.getElementById('results-count');
+
+      loadingState.style.display = 'none';
+
+      if (!filtered.length) {
+        table.style.display = 'none';
+        emptyState.style.display = 'block';
+        countEl.textContent = 'Showing 0 deliveries';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      table.style.display = 'table';
+      countEl.textContent = `Showing ${filtered.length} of ${allTransactions.length} delivery transaction${allTransactions.length !== 1 ? 's' : ''}`;
+
+      tbody.innerHTML = filtered.map(t => {
+        const status = (t['status'] || '').toUpperCase();
+        const badgeClass = status === 'PAID' ? 'badge-paid' : status === 'PENDING' ? 'badge-pending' : 'badge-other';
+
+        return `
+          <tr>
+            <td style="color: var(--muted); font-weight: 600;">${t._index}</td>
+            <td>
+              <div style="font-weight: 700; color: var(--primary);" class="mono-cell">${t['transaction_number'] || '-'}</div>
+              <div style="font-size: 11px; color: var(--muted);">${t['type'] || 'DELIVERY_CHARGED'}</div>
+            </td>
+            <td>
+              <div style="font-weight: 600;">${formatDateTime(t['created_at'])}</div>
+            </td>
+            <td style="text-align: right;">
+              <div style="font-size: 15px; font-weight: 800; color: #059669;">₹${t._price.toFixed(2)}</div>
+              <div style="font-size: 10.5px; color: var(--muted);">+ ${t._taxPercentage}% ${t._taxType}</div>
+            </td>
+            <td>
+              <span class="badge ${badgeClass}">● ${status || 'UNKNOWN'}</span>
+            </td>
+            <td>
+              <span class="mono-cell" title="${t['order_id']}">${(t['order_id'] || '-').slice(0, 14)}...</span>
+              ${t['order_id'] ? `<button class="copy-btn" onclick="copyText('${t['order_id']}', this)" title="Copy Order ID">📋</button>` : ''}
+            </td>
+            <td>
+              <span class="mono-cell" title="${t['user_id']}">${(t['user_id'] || '-').slice(0, 14)}...</span>
+              ${t['user_id'] ? `<button class="copy-btn" onclick="copyText('${t['user_id']}', this)" title="Copy User ID">📋</button>` : ''}
+            </td>
+            <td>
+              <div style="font-weight: 600; font-size: 12px;">${t['payment_provider'] || 'RAZOR_PAY'}</div>
+              <div class="mono-cell" style="font-size: 11px; color: var(--muted);" title="${t._razorpayPaymentId}">
+                ${t._razorpayPaymentId || '-'}
+                ${t._razorpayPaymentId ? `<button class="copy-btn" onclick="copyText('${t._razorpayPaymentId}', this)" title="Copy Payment ID">📋</button>` : ''}
+              </div>
+            </td>
+            <td style="text-align: center;">
+              <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="openModal(${t._index})">View Details</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
+      });
+      renderTable();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('search-input').value.trim();
+      renderTable();
+    }
+
+    function openModal(index) {
+      const item = allTransactions.find(t => t._index === index);
+      if (!item) return;
+
+      document.getElementById('modal-title-text').textContent = `Transaction ${item['transaction_number'] || ''}`;
+
+      const meta = item._meta || {};
+      const refData = meta.refData || {};
+
+      document.getElementById('modal-body-content').innerHTML = `
+        <div>
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; margin-bottom: 12px;">Transaction Overview</div>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Transaction Number</span>
+              <span class="detail-val mono-cell">${item['transaction_number'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Delivery Charge</span>
+              <span class="detail-val" style="color: #059669; font-size: 16px; font-weight: 800;">₹${item._price.toFixed(2)}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Status</span>
+              <span class="detail-val badge badge-paid" style="width: fit-content;">● ${item['status'] || 'PAID'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Taxes Applied</span>
+              <span class="detail-val">${item._taxType} (${item._taxPercentage}%)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Payment Provider</span>
+              <span class="detail-val">${item['payment_provider'] || 'RAZOR_PAY'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Payment Provider ID</span>
+              <span class="detail-val mono-cell">${item['payment_provider_id'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Created At</span>
+              <span class="detail-val">${formatDateTime(item['created_at'])}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Updated At</span>
+              <span class="detail-val">${formatDateTime(item['updated_at'])}</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; margin-bottom: 12px;">Order &amp; Customer Context</div>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">User ID</span>
+              <span class="detail-val mono-cell">${item['user_id'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Order ID</span>
+              <span class="detail-val mono-cell">${item['order_id'] || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Order Group ID</span>
+              <span class="detail-val mono-cell">${item._orderGroupId || '-'}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Associated Order IDs</span>
+              <span class="detail-val mono-cell">${item._associatedOrderIds || '-'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700;">Full Metadata &amp; Payload</div>
+            <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 11px;" onclick="copyText(document.getElementById('payload-code').innerText, this)">Copy JSON</button>
+          </div>
+          <div class="features-box" id="payload-code">${JSON.stringify(meta, null, 2)}</div>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.remove('open');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('detail-modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(() => btn.textContent = orig, 1500);
+      });
+    }
+
+    function exportToCSV() {
+      const filtered = filterData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const headers = ['Transaction Number', 'Date', 'Price', 'Status', 'Type', 'Order ID', 'User ID', 'Payment Provider', 'Payment Provider ID', 'Order Group ID'];
+      let csv = headers.join(',') + '\n';
+      filtered.forEach(t => {
+        const line = [
+          t['transaction_number'],
+          t['created_at'],
+          t._price,
+          t['status'],
+          t['type'],
+          t['order_id'],
+          t['user_id'],
+          t['payment_provider'],
+          t['payment_provider_id'],
+          t._orderGroupId
+        ].map(v => `"${(v || '').toString().replace(/"/g, '""')}"`);
+        csv += line.join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `delivery_fee_transactions_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData();
+    });
+  </script>
+</body>
+</html>
