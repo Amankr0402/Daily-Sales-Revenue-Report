@@ -26965,11 +26965,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 379,
-      "otpVerified": 373,
-      "serviceable": 265,
-      "serviceableWithPct": "265 (69.9%)",
-      "serviceablePct": "69.9%"
+      "signups": 381,
+      "otpVerified": 375,
+      "serviceable": 268,
+      "serviceableWithPct": "268 (70.3%)",
+      "serviceablePct": "70.3%"
     },
     "refundsLast7Days": {
       "total": 59443,
