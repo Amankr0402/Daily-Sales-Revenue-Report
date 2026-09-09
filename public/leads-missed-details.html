@@ -982,9 +982,15 @@
           res = await fetch(targetUrl);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
         } catch (apiErr) {
-          console.warn('Backend API failed, trying direct Metabase URL:', apiErr);
-          res = await fetch(FALLBACK_DIRECT_URL);
-          if (!res.ok) throw new Error(`Direct fetch failed HTTP ${res.status}`);
+          console.warn('Backend API failed, trying local data CSV:', apiErr);
+          try {
+            res = await fetch('/data/missed_leads_details.csv');
+            if (!res.ok) throw new Error(`Static data fetch failed HTTP ${res.status}`);
+          } catch (staticErr) {
+            console.warn('Static data failed, trying direct Metabase URL:', staticErr);
+            res = await fetch(FALLBACK_DIRECT_URL);
+            if (!res.ok) throw new Error(`Direct fetch failed HTTP ${res.status}`);
+          }
         }
 
         const csvText = await res.text();
