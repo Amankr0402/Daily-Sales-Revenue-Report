@@ -13,6 +13,7 @@ const path = require('path');
 const SPREADSHEET_ID = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c';
 const SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
 const SHEET_NAME = 'Sales/Rev (Auto)';
+const SECONDARY_SHEET_CACHE_FILE = path.join(__dirname, '..', 'data', 'secondary_sales_sheet.csv');
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
 const REFUNDS_SHEET_NAME = 'Refunds';
 const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
@@ -217,6 +218,10 @@ async function syncSalesData() {
   try {
     console.log(`📡 Fetching 2nd sales sheet data...`);
     const sheet2CSV = await fetchSheetCSV(SPREADSHEET_ID2, SHEET_NAME);
+    if (sheet2CSV && sheet2CSV.length > 50) {
+      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, sheet2CSV, 'utf-8');
+      console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
+    }
     const sheet2Lines = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
     console.log(`📊 Processing ${sheet2Lines.length} rows from 2nd sheet...`);
 

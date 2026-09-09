@@ -93,6 +93,7 @@ These files are located in the `data/` directory of the project:
 - `data/plan_expiring_no_order_details.csv` — Cached full detailed records list of plan expiring and not placed a single order (0 records) linked from `Plan expiring and not placed a single order`.
 - `data/active_sub_no_orders_details.csv` — Cached full detailed records list of active subscribers who have not placed a single order yet (117 records) linked from `Active subscriber & no orders placed yet`.
 - `data/refunds.csv` — Cached full processed refunds records from Google Sheets linked from `Refund Processed (Yesterday)` and `Refund Processed (Last 7 Days)`.
+- `data/secondary_sales_sheet.csv` — Cached raw export of Secondary Sales Sheet (`10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8`).
 - `data/delivery_fees.csv` — Cached delivery fee records.
 - `data/app_downloads.csv` — Cached app downloads records.
 - `data/daily_lead_journey.csv` — Cached lead journey and subscription statistics.

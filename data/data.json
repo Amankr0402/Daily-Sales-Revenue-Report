@@ -26905,8 +26905,8 @@
     },
     "missedLeads": {
       "Connected": 502,
-      "Interested": 272,
-      "Paise Dega": 52
+      "Interested": 271,
+      "Paise Dega": 51
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -26919,7 +26919,7 @@
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4691,
+    "activeSubs": 4694,
     "newSubs7d": 134,
     "teleCrmLeads": 1524,
     "subsEnding5d": 86,
@@ -26927,31 +26927,31 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 37,
-      "Orders Confirmed": 37,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 88,
-      "Orders Not Delivered": 85
+      "Orders - PLACED": 27,
+      "Orders Placed": 27,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
+      "Orders - READY_TO_SHIP": 8,
+      "Orders Ready to Ship": 8,
+      "Orders - SHIPPED": 21,
+      "Orders Shipped": 21,
+      "Orders - Not Delivered": 87,
+      "Orders Not Delivered": 84
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
-      "New Subscribers Orders that have been Delivered": 89,
-      "New Subscribers Orders yet to be Delivered": 88,
-      "New Subscribers Orders yet to be Delivered & Delayed": 31
+      "New Subscribers Orders that have been Delivered": 90,
+      "New Subscribers Orders yet to be Delivered": 87,
+      "New Subscribers Orders yet to be Delivered & Delayed": 33
     }
   },
   {
     "date": "2026-09-09",
-    "totalRevenue": 19329,
-    "salesCount": 2,
-    "transactions": 2,
+    "totalRevenue": 25085,
+    "salesCount": 3,
+    "transactions": 3,
     "highestSale": {
       "amount": 13573,
       "agent": "riyaz baseer mohammed"
@@ -26960,16 +26960,16 @@
     "plans": {},
     "sources": {
       "Direct Sale": {
-        "revenue": 19329,
-        "count": 2
+        "revenue": 25085,
+        "count": 3
       }
     },
     "userBreakdown": {
-      "signups": 116,
-      "otpVerified": 115,
-      "serviceable": 87,
-      "serviceableWithPct": "87 (75.0%)",
-      "serviceablePct": "75.0%"
+      "signups": 379,
+      "otpVerified": 373,
+      "serviceable": 265,
+      "serviceableWithPct": "265 (69.9%)",
+      "serviceablePct": "69.9%"
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -26982,32 +26982,32 @@
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4691,
-    "newSubs7d": 124,
+    "activeSubs": 4694,
+    "newSubs7d": 125,
     "teleCrmLeads": 1524,
     "subsEnding5d": 86,
     "subsExpired7d": 82,
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 37,
-      "Orders Confirmed": 37,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 88,
-      "Orders Not Delivered": 85
+      "Orders - PLACED": 27,
+      "Orders Placed": 27,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
+      "Orders - READY_TO_SHIP": 8,
+      "Orders Ready to Ship": 8,
+      "Orders - SHIPPED": 21,
+      "Orders Shipped": 21,
+      "Orders - Not Delivered": 87,
+      "Orders Not Delivered": 84
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
-      "New Subscribers Orders that have been Delivered": 89,
-      "New Subscribers Orders yet to be Delivered": 88,
-      "New Subscribers Orders yet to be Delivered & Delayed": 31
+      "New Subscribers Orders that have been Delivered": 90,
+      "New Subscribers Orders yet to be Delivered": 87,
+      "New Subscribers Orders yet to be Delivered & Delayed": 33
     }
   }
 ]
