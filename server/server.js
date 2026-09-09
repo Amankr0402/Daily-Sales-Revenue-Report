@@ -618,6 +618,46 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+/* ---------- Live Data JSON Endpoint (bypasses static file cache) ---------- */
+app.get('/api/data', (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, '..', 'data', 'data.json');
+    const raw = fs.readFileSync(dataPath, 'utf-8');
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.send(raw);
+  } catch (err) {
+    res.status(500).json({ error: 'Could not read data.json: ' + err.message });
+  }
+});
+
+/* ---------- Live Data JSON Endpoint (syncs fresh from Google Sheets + Metabase) ---------- */
+app.get('/api/data/live', async (req, res) => {
+  try {
+    const { syncSalesData } = require('../scripts/sync_sheets');
+    const data = await syncSalesData();
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.json(data);
+  } catch (err) {
+    console.error('❌ Live sync error:', err.message);
+    // Fallback to static data.json
+    try {
+      const dataPath = path.join(__dirname, '..', 'data', 'data.json');
+      const raw = fs.readFileSync(dataPath, 'utf-8');
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Cache-Control', 'no-store');
+      res.send(raw);
+    } catch (fallbackErr) {
+      res.status(500).json({ error: err.message });
+    }
+  }
+});
+
 /* ---------- Live Google Sheets Sync Route ---------- */
 app.post('/api/sync-sheets', async (req, res) => {
   try {

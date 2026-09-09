@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "server/server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["data/**", "config/**"]
+      }
     },
     {
       "src": "public/**",
@@ -21,6 +24,9 @@
     },
     {
       "src": "/data/(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/data/$1"
     },
     {
