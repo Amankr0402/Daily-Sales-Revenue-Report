@@ -33927,9 +33927,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 527,
-      "Interested": 256,
-      "Paise Dega": 53
+      "Connected": 470,
+      "Interested": 191,
+      "Paise Dega": 35
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -33942,55 +33942,55 @@
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4700,
+    "activeSubs": 4704,
     "newSubs7d": 148,
     "teleCrmLeads": 1524,
-    "subsEnding5d": 86,
+    "subsEnding5d": 87,
     "subsExpired7d": 82,
-    "subsExpiringToday": 8,
+    "subsExpiringToday": 9,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 23,
-      "Orders Placed": 23,
-      "Orders - CONFIRMED": 18,
-      "Orders Confirmed": 18,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 29,
-      "Orders Shipped": 29,
-      "Orders - Not Delivered": 77,
-      "Orders Not Delivered": 74
+      "Orders - PLACED": 19,
+      "Orders Placed": 19,
+      "Orders - CONFIRMED": 21,
+      "Orders Confirmed": 21,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 63,
+      "Orders Not Delivered": 62
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
-      "New Subscribers Orders that have been Delivered": 100,
-      "New Subscribers Orders yet to be Delivered": 77,
-      "New Subscribers Orders yet to be Delivered & Delayed": 36
+      "New Subscribers Orders that have been Delivered": 114,
+      "New Subscribers Orders yet to be Delivered": 63,
+      "New Subscribers Orders yet to be Delivered & Delayed": 26
     }
   },
   {
     "date": "2026-09-09",
-    "totalRevenue": 114951,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 177259,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 13573,
       "agent": "riyaz baseer mohammed"
     },
     "agents": {
       "Shivani Gupta": {
-        "revenue": 14876,
-        "count": 2
+        "revenue": 26876,
+        "count": 3
       },
       "Vikas Poonia": {
         "revenue": 4198,
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 20752,
+        "count": 2
       },
       "Vivek Shah": {
         "revenue": 18000,
@@ -34011,16 +34011,28 @@
       "Tanveer Ahmed": {
         "revenue": 8200,
         "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 24432,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 4500,
+        "count": 1
       }
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 20210,
-        "count": 4
+        "revenue": 24710,
+        "count": 5
       },
       "Annual Max": {
-        "revenue": 86541,
-        "count": 8
+        "revenue": 144349,
+        "count": 13
       },
       "Annual Plus": {
         "revenue": 8200,
@@ -34029,12 +34041,12 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 57916,
-        "count": 6
+        "revenue": 109848,
+        "count": 11
       },
       "Renewals": {
-        "revenue": 24950,
-        "count": 3
+        "revenue": 35326,
+        "count": 4
       },
       "Upgrade": {
         "revenue": 7000,
@@ -34046,49 +34058,64 @@
       }
     },
     "userBreakdown": {
-      "signups": 696,
-      "otpVerified": 684,
-      "serviceable": 490,
-      "serviceableWithPct": "490 (70.4%)",
-      "serviceablePct": "70.4%"
-    },
-    "refundsLast7Days": {
-      "total": 59443,
-      "count": 8
+      "signups": 920,
+      "otpVerified": 886,
+      "serviceable": 641,
+      "serviceableWithPct": "641 (69.7%)",
+      "serviceablePct": "69.7%"
     },
     "refunds": {
-      "count": 0,
-      "total": 0,
-      "items": []
+      "count": 2,
+      "total": 14750,
+      "items": [
+        {
+          "refundId": "rfnd_TZugTh3vF0L7eH",
+          "paymentId": "pay_TMl22AvRICr0wZ",
+          "amount": 2750,
+          "status": "pending",
+          "date": "09/09/2026 16:27:16"
+        },
+        {
+          "refundId": "rfnd_TZxpzsGgJ2hwdq",
+          "paymentId": "pay_TSjzJZsPwAWE4m",
+          "amount": 12000,
+          "status": "processed",
+          "date": "09/09/2026 19:32:22"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 74193,
+      "count": 10
     },
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
-    "activeSubs": 4700,
-    "newSubs7d": 145,
+    "activeSubs": 4704,
+    "newSubs7d": 150,
     "teleCrmLeads": 1524,
-    "subsEnding5d": 86,
+    "subsEnding5d": 87,
     "subsExpired7d": 82,
-    "subsExpiringToday": 8,
+    "subsExpiringToday": 9,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 23,
-      "Orders Placed": 23,
-      "Orders - CONFIRMED": 18,
-      "Orders Confirmed": 18,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 29,
-      "Orders Shipped": 29,
-      "Orders - Not Delivered": 77,
-      "Orders Not Delivered": 74
+      "Orders - PLACED": 19,
+      "Orders Placed": 19,
+      "Orders - CONFIRMED": 21,
+      "Orders Confirmed": 21,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 63,
+      "Orders Not Delivered": 62
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
-      "New Subscribers Orders that have been Delivered": 100,
-      "New Subscribers Orders yet to be Delivered": 77,
-      "New Subscribers Orders yet to be Delivered & Delayed": 36
+      "New Subscribers Orders that have been Delivered": 114,
+      "New Subscribers Orders yet to be Delivered": 63,
+      "New Subscribers Orders yet to be Delivered & Delayed": 26
     }
   }
 ]
