@@ -26989,10 +26989,10 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 27,
       "Orders Placed": 27,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
-      "Orders - READY_TO_SHIP": 8,
-      "Orders Ready to Ship": 8,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 13,
+      "Orders Ready to Ship": 13,
       "Orders - SHIPPED": 21,
       "Orders Shipped": 21,
       "Orders - Not Delivered": 87,
@@ -27023,11 +27023,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 388,
-      "otpVerified": 382,
-      "serviceable": 275,
-      "serviceableWithPct": "275 (70.9%)",
-      "serviceablePct": "70.9%"
+      "signups": 389,
+      "otpVerified": 383,
+      "serviceable": 276,
+      "serviceableWithPct": "276 (71.0%)",
+      "serviceablePct": "71.0%"
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -27052,10 +27052,10 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 27,
       "Orders Placed": 27,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
-      "Orders - READY_TO_SHIP": 8,
-      "Orders Ready to Ship": 8,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 13,
+      "Orders Ready to Ship": 13,
       "Orders - SHIPPED": 21,
       "Orders Shipped": 21,
       "Orders - Not Delivered": 87,
