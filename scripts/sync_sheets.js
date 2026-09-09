@@ -140,6 +140,32 @@ function parseDate(rawDate) {
   return clean;
 }
 
+function formatDirectSalePlan(rawPlan, rawCycle) {
+  const p = (rawPlan || '').trim();
+  const bc = (rawCycle || '').trim().toUpperCase();
+
+  let cyclePrefix = '';
+  if (bc === 'ANNUALLY') cyclePrefix = 'Annual';
+  else if (bc === 'QUARTERLY') cyclePrefix = 'Quarterly';
+  else if (bc === 'SEMI_ANNUAL' || bc === 'SEMI_ANNUALLY' || bc === '6 MONTHS') cyclePrefix = '6 months';
+  else if (bc === 'MONTHLY') cyclePrefix = 'Monthly';
+
+  let tier = p;
+  if (tier.toLowerCase().startsWith('play ')) {
+    tier = tier.slice(5).trim();
+  }
+
+  if (tier.toLowerCase().includes('ultra')) {
+    if (cyclePrefix === 'Quarterly') return 'Quarterly Ultra';
+    return 'Ultra Annually';
+  }
+
+  if (cyclePrefix && tier) {
+    return `${cyclePrefix} ${tier}`;
+  }
+  return p || 'Annual Max';
+}
+
 async function syncSalesData() {
   console.log(`📡 Fetching sales data from Google Sheet: "${SHEET_NAME}"...`);
   const sheetCSV = await fetchSheetCSV(SPREADSHEET_ID, SHEET_NAME);
@@ -333,6 +359,14 @@ async function syncSalesData() {
       if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
       day.sources[cleanSource].revenue += rev;
       day.sources[cleanSource].count += 1;
+
+      // Populate Plan Distribution for Direct Sale
+      const rawPlan = cols[4] || '';
+      const rawCycle = cols[5] || '';
+      const cleanPlan = formatDirectSalePlan(rawPlan, rawCycle);
+      if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
+      day.plans[cleanPlan].revenue += rev;
+      day.plans[cleanPlan].count += 1;
     }
   } catch (dsErr) {
     console.warn(`⚠️ Warning: Could not fetch Direct Sale data:`, dsErr.message);
