@@ -26985,18 +26985,18 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 27,
-      "Orders Placed": 27,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
-      "Orders - READY_TO_SHIP": 13,
-      "Orders Ready to Ship": 13,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
+      "Orders - PLACED": 26,
+      "Orders Placed": 26,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 16,
+      "Orders Ready to Ship": 16,
+      "Orders - SHIPPED": 25,
+      "Orders Shipped": 25,
       "Orders - Not Delivered": 87,
-      "Orders Not Delivered": 84
+      "Orders Not Delivered": 85
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
@@ -27007,27 +27007,53 @@
   },
   {
     "date": "2026-09-09",
-    "totalRevenue": 25085,
-    "salesCount": 3,
-    "transactions": 3,
+    "totalRevenue": 44159,
+    "salesCount": 6,
+    "transactions": 6,
     "highestSale": {
       "amount": 13573,
       "agent": "riyaz baseer mohammed"
     },
-    "agents": {},
-    "plans": {},
+    "agents": {
+      "Shivani Gupta": {
+        "revenue": 14876,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 4198,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Quarterly Max": {
+        "revenue": 8698,
+        "count": 2
+      },
+      "Annual Max": {
+        "revenue": 10376,
+        "count": 1
+      }
+    },
     "sources": {
+      "Organic": {
+        "revenue": 4500,
+        "count": 1
+      },
+      "Renewals": {
+        "revenue": 14574,
+        "count": 2
+      },
       "Direct Sale": {
         "revenue": 25085,
         "count": 3
       }
     },
     "userBreakdown": {
-      "signups": 389,
-      "otpVerified": 383,
-      "serviceable": 276,
-      "serviceableWithPct": "276 (71.0%)",
-      "serviceablePct": "71.0%"
+      "signups": 409,
+      "otpVerified": 403,
+      "serviceable": 291,
+      "serviceableWithPct": "291 (71.1%)",
+      "serviceablePct": "71.1%"
     },
     "refundsLast7Days": {
       "total": 59443,
@@ -27041,25 +27067,25 @@
     "newUsers7d": 10572,
     "newUsersYesterday": 1163,
     "activeSubs": 4695,
-    "newSubs7d": 139,
+    "newSubs7d": 140,
     "teleCrmLeads": 1524,
     "subsEnding5d": 86,
     "subsExpired7d": 82,
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 27,
-      "Orders Placed": 27,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
-      "Orders - READY_TO_SHIP": 13,
-      "Orders Ready to Ship": 13,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
+      "Orders - PLACED": 26,
+      "Orders Placed": 26,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 16,
+      "Orders Ready to Ship": 16,
+      "Orders - SHIPPED": 25,
+      "Orders Shipped": 25,
       "Orders - Not Delivered": 87,
-      "Orders Not Delivered": 84
+      "Orders Not Delivered": 85
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 177,
