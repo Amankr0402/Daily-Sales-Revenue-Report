@@ -26,7 +26,7 @@ const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/ques
 const MISSED_LEADS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'missed_leads_details.csv');
 const APP_DOWNLOADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/739c97ae-ef79-4088-ac33-67c4b37ba6fd.csv';
 const TOTAL_ACTIVE_SUBS_URL = 'https://metabase-bkp.theelefant.ai/public/question/ef5cfe31-4213-43e8-8c8d-cbd876733e57.csv';
-const NEW_SUBS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/a0d790ad-d435-4424-b18d-603881c72f26.csv';
+const NEW_SUBS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/9fc5c23c-8297-4511-8763-bdfb4036b7eb.csv';
 const NEW_USERS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/40be1f89-570d-42b8-ab51-243e57425142.csv';
 const NEW_USERS_YESTERDAY_URL = 'https://metabase-bkp.theelefant.ai/public/question/2a2bb684-0dd7-4b90-91d1-9e3de228e1b4.csv';
 const TELECRM_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/30989a6b-c8d3-4e44-abc8-a03dbda8f55b.csv';
@@ -706,53 +706,23 @@ async function syncSalesData() {
     console.warn('⚠️ Warning: Could not process Total Active Subscriptions:', err.message);
   }
 
-  // Fetch New Subscribers in last 7 days from active_subscriptions.csv (matching active-subscriptions.html)
+  // Fetch New Subscribers in last 7 days directly from Metabase (9fc5c23c)
   try {
-    const activeSubsFile = path.join(__dirname, '..', 'data', 'active_subscriptions.csv');
-    let csvData = '';
-    if (fs.existsSync(activeSubsFile)) {
-      csvData = fs.readFileSync(activeSubsFile, 'utf8');
-    }
-    if (!csvData || csvData.length < 100) {
-      csvData = await fetchURLWithRedirect('https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv');
-      fs.writeFileSync(activeSubsFile, csvData, 'utf8');
-    }
-
-    if (csvData && csvData.length > 100) {
-      const allLines = csvData.split('\n').filter(Boolean);
-      const headerCols = parseCSVLine(allLines[0]).map(h => h.trim().toLowerCase());
-      const startIdx = headerCols.indexOf('started_at');
-
-      let maxStartedTime = 0;
-      for (let i = 1; i < allLines.length; i++) {
-        const c = parseCSVLine(allLines[i]);
-        if (c[startIdx]) {
-          const t = new Date(c[startIdx]).getTime();
-          if (!isNaN(t) && t > maxStartedTime) maxStartedTime = t;
-        }
-      }
-      if (maxStartedTime === 0) maxStartedTime = Date.now();
-      const sevenDaysAgoStr = new Date(maxStartedTime - 6 * 24 * 60 * 60 * 1000).toISOString().substring(0, 10);
-      const maxStartedStr = new Date(maxStartedTime).toISOString().substring(0, 10);
-
-      let count7d = 0;
-      for (let i = 1; i < allLines.length; i++) {
-        const c = parseCSVLine(allLines[i]);
-        const sDate = (c[startIdx] || '').substring(0, 10);
-        if (sDate >= sevenDaysAgoStr && sDate <= maxStartedStr) {
-          count7d++;
-        }
-      }
-
-      if (count7d > 0) {
+    console.log(`📡 Fetching New Subscribers in last 7 days from Metabase (${NEW_SUBS_7D_URL})...`);
+    const newSubsCSV = await fetchURLWithRedirect(NEW_SUBS_7D_URL);
+    const newSubsLines = newSubsCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    if (newSubsLines.length > 1 && sortedDays.length > 0) {
+      const cols = parseCSVLine(newSubsLines[1]).map(c => c.replace(/^"|"$/g, '').trim());
+      const newSubs7d = parseInt(cols[0], 10);
+      if (!isNaN(newSubs7d)) {
         getTargetDays(sortedDays).forEach(targetDay => {
-          targetDay.newSubs7d = count7d;
-          console.log(`✅ New Subs (7d) from Active Subs CSV: ${count7d} attached to ${targetDay.date}`);
+          targetDay.newSubs7d = newSubs7d;
+          console.log(`✅ New Subs (7d) from Metabase: ${newSubs7d} attached to ${targetDay.date}`);
         });
       }
     }
   } catch (subsErr) {
-    console.warn('⚠️ Warning: Could not calculate New Subs (7d) from Active Subs CSV:', subsErr.message);
+    console.warn('⚠️ Warning: Could not fetch New Subscribers (7d) from Metabase:', subsErr.message);
   }
 
   // Fallback: calculate New Subscribers in last 7 days from verified sales data if not populated
