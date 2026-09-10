@@ -39779,7 +39779,7 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 514,
+      "Connected": 509,
       "Interested": 197,
       "Paise Dega": 34
     },
@@ -39819,29 +39819,29 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 26,
-      "Orders Placed": 26,
-      "Orders - CONFIRMED": 26,
-      "Orders Confirmed": 26,
+      "Orders - PLACED": 24,
+      "Orders Placed": 24,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
-      "Orders - Not Delivered": 70,
-      "Orders Not Delivered": 69
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 67
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 127,
-      "New Subscribers Orders yet to be Delivered": 70,
-      "New Subscribers Orders yet to be Delivered & Delayed": 25
+      "New Subscribers Orders that have been Delivered": 129,
+      "New Subscribers Orders yet to be Delivered": 68,
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     }
   },
   {
     "date": "2026-09-10",
-    "totalRevenue": 73548,
-    "salesCount": 9,
-    "transactions": 9,
+    "totalRevenue": 78548,
+    "salesCount": 10,
+    "transactions": 10,
     "highestSale": {
       "amount": 11000,
       "agent": "Neeru Yadav"
@@ -39870,6 +39870,10 @@
       "Kush Shah": {
         "revenue": 11000,
         "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 5000,
+        "count": 1
       }
     },
     "plans": {
@@ -39878,8 +39882,8 @@
         "count": 5
       },
       "Quarterly Max": {
-        "revenue": 16012,
-        "count": 3
+        "revenue": 21012,
+        "count": 4
       },
       "Quarterly Plus": {
         "revenue": 3160,
@@ -39888,8 +39892,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 47876,
-        "count": 5
+        "revenue": 52876,
+        "count": 6
       },
       "Upgrade": {
         "revenue": 11000,
@@ -39901,11 +39905,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 690,
-      "otpVerified": 682,
-      "serviceable": 496,
-      "serviceableWithPct": "496 (71.9%)",
-      "serviceablePct": "71.9%"
+      "signups": 721,
+      "otpVerified": 713,
+      "serviceable": 524,
+      "serviceableWithPct": "524 (72.7%)",
+      "serviceablePct": "72.7%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -39932,22 +39936,22 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 26,
-      "Orders Placed": 26,
-      "Orders - CONFIRMED": 26,
-      "Orders Confirmed": 26,
+      "Orders - PLACED": 24,
+      "Orders Placed": 24,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
-      "Orders - Not Delivered": 70,
-      "Orders Not Delivered": 69
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 67
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 127,
-      "New Subscribers Orders yet to be Delivered": 70,
-      "New Subscribers Orders yet to be Delivered & Delayed": 25
+      "New Subscribers Orders that have been Delivered": 129,
+      "New Subscribers Orders yet to be Delivered": 68,
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     }
   }
 ]
