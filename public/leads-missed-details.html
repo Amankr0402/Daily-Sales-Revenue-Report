@@ -1083,21 +1083,26 @@
         else if (st.includes('paise')) paiseDega++;
       });
 
-      document.getElementById('stat-total').textContent = total.toLocaleString('en-IN');
-      document.getElementById('stat-connected').textContent = connected.toLocaleString('en-IN');
-      document.getElementById('stat-interested').textContent = interested.toLocaleString('en-IN');
-      document.getElementById('stat-paise-dega').textContent = paiseDega.toLocaleString('en-IN');
-      document.getElementById('stat-assignees').textContent = assigneesSet.size;
+      const setSafeText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      };
 
-      document.getElementById('badge-count-all').textContent = total.toLocaleString('en-IN');
-      document.getElementById('badge-count-connected').textContent = connected.toLocaleString('en-IN');
-      document.getElementById('badge-count-interested').textContent = interested.toLocaleString('en-IN');
-      document.getElementById('badge-count-paise-dega').textContent = paiseDega.toLocaleString('en-IN');
+      setSafeText('stat-total', total.toLocaleString('en-IN'));
+      setSafeText('stat-connected', connected.toLocaleString('en-IN'));
+      setSafeText('stat-interested', interested.toLocaleString('en-IN'));
+      setSafeText('stat-paise-dega', paiseDega.toLocaleString('en-IN'));
+      setSafeText('stat-assignees', assigneesSet.size);
+
+      setSafeText('badge-count-all', total.toLocaleString('en-IN'));
+      setSafeText('badge-count-connected', connected.toLocaleString('en-IN'));
+      setSafeText('badge-count-interested', interested.toLocaleString('en-IN'));
+      setSafeText('badge-count-paise-dega', paiseDega.toLocaleString('en-IN'));
 
       if (total > 0) {
-        document.getElementById('stat-connected-sub').textContent = `${((connected / total) * 100).toFixed(1)}% of missed leads`;
-        document.getElementById('stat-interested-sub').textContent = `${((interested / total) * 100).toFixed(1)}% of missed leads`;
-        document.getElementById('stat-paise-dega-sub').textContent = `${((paiseDega / total) * 100).toFixed(1)}% of missed leads`;
+        setSafeText('stat-connected-sub', `${((connected / total) * 100).toFixed(1)}% of missed leads`);
+        setSafeText('stat-interested-sub', `${((interested / total) * 100).toFixed(1)}% of missed leads`);
+        setSafeText('stat-paise-dega-sub', `${((paiseDega / total) * 100).toFixed(1)}% of missed leads`);
       }
     }
 
