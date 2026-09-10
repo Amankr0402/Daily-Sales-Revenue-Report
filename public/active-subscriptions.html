@@ -855,7 +855,7 @@
         });
 
         populateFilterDropdowns();
-        renderSummaryKPIs();
+        await renderSummaryKPIs();
         checkUrlParams();
         applyFilters();
 
@@ -925,12 +925,24 @@
       }
     }
 
-    function renderSummaryKPIs() {
+    async function renderSummaryKPIs() {
       const totalCount = allRows.length;
       const totalRev = allRows.reduce((s, r) => s + r.price, 0);
       const avgPrice = totalCount > 0 ? totalRev / totalCount : 0;
 
-      const count7d = allRows.filter(r => r.isLast7DaysStarted).length;
+      let count7d = allRows.filter(r => r.isLast7DaysStarted).length;
+      try {
+        const metaRes = await fetch('/data/data.json?v=' + Date.now());
+        if (metaRes.ok) {
+          const metaData = await metaRes.json();
+          const days = Array.isArray(metaData) ? metaData : metaData.days || [];
+          const latestDay = days[days.length - 1];
+          if (latestDay && latestDay.newSubs7d) {
+            count7d = latestDay.newSubs7d;
+          }
+        }
+      } catch (e) {}
+
       const countCreated7d = allRows.filter(r => r.isLast7DaysCreated).length;
       const count30d = allRows.filter(r => r.isLast30Days).length;
 
