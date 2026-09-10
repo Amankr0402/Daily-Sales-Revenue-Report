@@ -39334,10 +39334,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1257,
-      "otpVerified": 1242,
-      "serviceable": 803,
-      "serviceableWithPct": "803 (63.9%)",
+      "signups": 1256,
+      "otpVerified": 1241,
+      "serviceable": 802,
+      "serviceableWithPct": "802 (63.9%)",
       "serviceablePct": "63.9%"
     },
     "directSaleCSV": {
@@ -39971,11 +39971,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 60,
-      "otpVerified": 59,
-      "serviceable": 45,
-      "serviceableWithPct": "45 (75.0%)",
-      "serviceablePct": "75.0%"
+      "signups": 84,
+      "otpVerified": 83,
+      "serviceable": 66,
+      "serviceableWithPct": "66 (78.6%)",
+      "serviceablePct": "78.6%"
     },
     "refundsLast7Days": {
       "total": 70799,
