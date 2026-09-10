@@ -39779,8 +39779,8 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 512,
-      "Interested": 193,
+      "Connected": 514,
+      "Interested": 197,
       "Paise Dega": 34
     },
     "refunds": {
@@ -39809,7 +39809,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4711,
+    "activeSubs": 4712,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39817,7 +39817,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 111,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 26,
       "Orders Placed": 26,
@@ -39825,16 +39825,16 @@
       "Orders Confirmed": 26,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 16,
-      "Orders Shipped": 16,
-      "Orders - Not Delivered": 71,
-      "Orders Not Delivered": 70
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 70,
+      "Orders Not Delivered": 69
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 126,
-      "New Subscribers Orders yet to be Delivered": 71,
-      "New Subscribers Orders yet to be Delivered & Delayed": 26
+      "New Subscribers Orders that have been Delivered": 127,
+      "New Subscribers Orders yet to be Delivered": 70,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   },
   {
@@ -39901,10 +39901,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 666,
-      "otpVerified": 658,
-      "serviceable": 479,
-      "serviceableWithPct": "479 (71.9%)",
+      "signups": 690,
+      "otpVerified": 682,
+      "serviceable": 496,
+      "serviceableWithPct": "496 (71.9%)",
       "serviceablePct": "71.9%"
     },
     "directSaleCSV": {
@@ -39922,7 +39922,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4711,
+    "activeSubs": 4712,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39930,7 +39930,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 111,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 26,
       "Orders Placed": 26,
@@ -39938,16 +39938,16 @@
       "Orders Confirmed": 26,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 16,
-      "Orders Shipped": 16,
-      "Orders - Not Delivered": 71,
-      "Orders Not Delivered": 70
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 70,
+      "Orders Not Delivered": 69
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 126,
-      "New Subscribers Orders yet to be Delivered": 71,
-      "New Subscribers Orders yet to be Delivered & Delayed": 26
+      "New Subscribers Orders that have been Delivered": 127,
+      "New Subscribers Orders yet to be Delivered": 70,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
 ]
