@@ -987,8 +987,18 @@
     }
 
     function getYesterdayISO() {
-      const dates = allDeals.map(d => d.isoDate).sort();
-      return dates.length ? dates[dates.length - 1] : '';
+      const pDate = new URLSearchParams(window.location.search).get('date');
+      if (pDate) return pDate;
+
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      const yd = d.toISOString().slice(0, 10);
+      const hasYd = allDeals.some(x => x.isoDate === yd);
+      if (hasYd) return yd;
+
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const pastDates = allDeals.map(x => x.isoDate).filter(dt => dt < todayStr).sort();
+      return pastDates.length ? pastDates[pastDates.length - 1] : yd;
     }
 
     function computeKPIs() {

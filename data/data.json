@@ -38884,10 +38884,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1520,
-      "otpVerified": 1501,
-      "serviceable": 976,
-      "serviceableWithPct": "976 (64.2%)",
+      "signups": 1519,
+      "otpVerified": 1500,
+      "serviceable": 975,
+      "serviceableWithPct": "975 (64.2%)",
       "serviceablePct": "64.2%"
     },
     "directSaleCSV": {
@@ -39572,11 +39572,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1155,
-      "otpVerified": 1128,
-      "serviceable": 778,
-      "serviceableWithPct": "778 (67.4%)",
-      "serviceablePct": "67.4%"
+      "signups": 1154,
+      "otpVerified": 1127,
+      "serviceable": 779,
+      "serviceableWithPct": "779 (67.5%)",
+      "serviceablePct": "67.5%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -39779,9 +39779,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 509,
-      "Interested": 197,
-      "Paise Dega": 35
+      "Connected": 476,
+      "Interested": 160,
+      "Paise Dega": 30
     },
     "refunds": {
       "count": 2,
@@ -39809,7 +39809,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4712,
+    "activeSubs": 4715,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39819,37 +39819,37 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 24,
-      "Orders Placed": 24,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 68,
-      "Orders Not Delivered": 67
+      "Orders - SHIPPED": 9,
+      "Orders Shipped": 9,
+      "Orders - Not Delivered": 63,
+      "Orders Not Delivered": 62
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 129,
-      "New Subscribers Orders yet to be Delivered": 68,
-      "New Subscribers Orders yet to be Delivered & Delayed": 23
+      "New Subscribers Orders that have been Delivered": 134,
+      "New Subscribers Orders yet to be Delivered": 63,
+      "New Subscribers Orders yet to be Delivered & Delayed": 21
     }
   },
   {
     "date": "2026-09-10",
-    "totalRevenue": 78548,
-    "salesCount": 10,
-    "transactions": 10,
+    "totalRevenue": 112548,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
-      "amount": 11000,
-      "agent": "Neeru Yadav"
+      "amount": 12000,
+      "agent": "Shubham Rai"
     },
     "agents": {
       "Neeru Yadav": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Honey Talreja": {
         "revenue": 11000,
@@ -39874,12 +39874,16 @@
       "Shivani Gupta": {
         "revenue": 5000,
         "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 23000,
+        "count": 2
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 54376,
-        "count": 5
+        "revenue": 88376,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 21012,
@@ -39892,8 +39896,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 52876,
-        "count": 6
+        "revenue": 86876,
+        "count": 9
       },
       "Upgrade": {
         "revenue": 11000,
@@ -39905,11 +39909,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 739,
-      "otpVerified": 731,
-      "serviceable": 537,
-      "serviceableWithPct": "537 (72.7%)",
-      "serviceablePct": "72.7%"
+      "signups": 941,
+      "otpVerified": 928,
+      "serviceable": 682,
+      "serviceableWithPct": "682 (72.5%)",
+      "serviceablePct": "72.5%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -39926,7 +39930,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4712,
+    "activeSubs": 4715,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39936,22 +39940,22 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 24,
-      "Orders Placed": 24,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 68,
-      "Orders Not Delivered": 67
+      "Orders - SHIPPED": 9,
+      "Orders Shipped": 9,
+      "Orders - Not Delivered": 63,
+      "Orders Not Delivered": 62
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
-      "New Subscribers Orders that have been Delivered": 129,
-      "New Subscribers Orders yet to be Delivered": 68,
-      "New Subscribers Orders yet to be Delivered & Delayed": 23
+      "New Subscribers Orders that have been Delivered": 134,
+      "New Subscribers Orders yet to be Delivered": 63,
+      "New Subscribers Orders yet to be Delivered & Delayed": 21
     }
   }
 ]
