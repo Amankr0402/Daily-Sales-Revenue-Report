@@ -975,6 +975,7 @@
 
         updatePillUI();
         computeKPIs();
+        checkUrlParams();
         render();
       } catch (parseErr) {
         console.error('Error processing direct sale data:', parseErr);
@@ -1092,6 +1093,31 @@
       }
       currentPage = 1;
       render();
+    }
+
+    function checkUrlParams() {
+      const p = new URLSearchParams(window.location.search);
+      const tf = (p.get('timeframe') || p.get('filter') || '').toLowerCase();
+      const from = p.get('from') || p.get('start');
+      const to = p.get('to') || p.get('end');
+
+      if (from && to) {
+        currentFilter = 'custom';
+        customStartDate = from;
+        customEndDate = to;
+        const dFrom = document.getElementById('date-from');
+        const dTo = document.getElementById('date-to');
+        if (dFrom) dFrom.value = from;
+        if (dTo) dTo.value = to;
+        document.getElementById('custom-range-box')?.classList.add('show');
+        updatePillUI();
+      } else if (tf === 'mtd' || tf === 'month' || tf === 'thismonth') {
+        currentFilter = 'mtd';
+        updatePillUI();
+      } else if (tf === '7d' || tf === 'week') {
+        currentFilter = '7d';
+        updatePillUI();
+      }
     }
 
     function handleSearch(val) {

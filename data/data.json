@@ -39809,7 +39809,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4715,
+    "activeSubs": 4712,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39821,14 +39821,14 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 23,
       "Orders Placed": 23,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
+      "Orders - READY_TO_SHIP": 4,
+      "Orders Ready to Ship": 4,
       "Orders - SHIPPED": 9,
       "Orders Shipped": 9,
       "Orders - Not Delivered": 63,
-      "Orders Not Delivered": 62
+      "Orders Not Delivered": 63
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,
@@ -39909,11 +39909,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 941,
-      "otpVerified": 928,
-      "serviceable": 682,
-      "serviceableWithPct": "682 (72.5%)",
-      "serviceablePct": "72.5%"
+      "signups": 962,
+      "otpVerified": 949,
+      "serviceable": 698,
+      "serviceableWithPct": "698 (72.6%)",
+      "serviceablePct": "72.6%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -39930,7 +39930,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
-    "activeSubs": 4715,
+    "activeSubs": 4712,
     "newSubs7d": 457,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -39942,14 +39942,14 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 23,
       "Orders Placed": 23,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
+      "Orders - READY_TO_SHIP": 4,
+      "Orders Ready to Ship": 4,
       "Orders - SHIPPED": 9,
       "Orders Shipped": 9,
       "Orders - Not Delivered": 63,
-      "Orders Not Delivered": 62
+      "Orders Not Delivered": 63
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 197,

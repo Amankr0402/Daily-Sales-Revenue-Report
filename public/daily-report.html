@@ -103,6 +103,35 @@
     .period-val{font-size:24px;font-weight:900;margin-top:4px;letter-spacing:-0.02em}
     .period-val.green{color:var(--green)}.period-val.blue{color:var(--blue)}
     .period-sub{font-size:12px;color:var(--muted);margin-top:3px}
+    .clickable-period{cursor:pointer;position:relative;transition:transform .2s cubic-bezier(0.4, 0, 0.2, 1),box-shadow .2s cubic-bezier(0.4, 0, 0.2, 1),border-color .2s cubic-bezier(0.4, 0, 0.2, 1)}
+    .clickable-period:hover{transform:translateY(-3px);box-shadow:0 12px 28px -6px rgba(91,62,155,0.18),0 8px 10px -6px rgba(91,62,155,0.1);border-color:var(--primary)!important}
+    .clickable-period:active{transform:translateY(0)}
+    .period-drill-btn{font-size:11px;font-weight:800;color:var(--primary);background:rgba(91,62,155,0.08);border:1px solid rgba(91,62,155,0.2);padding:3px 9px;border-radius:6px;transition:all .15s ease;display:inline-flex;align-items:center;gap:4px}
+    .clickable-period:hover .period-drill-btn{background:var(--primary);color:#ffffff;border-color:var(--primary)}
+    .modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(15,23,42,0.65);backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s ease}
+    .modal-overlay.open{opacity:1;pointer-events:auto}
+    .modal-card{background:#ffffff;border-radius:16px;width:94%;max-width:920px;max-height:88vh;overflow-y:auto;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);border:1px solid var(--border);display:flex;flex-direction:column}
+    .modal-header{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#ffffff;z-index:10}
+    .modal-close-btn{background:none;border:none;font-size:20px;font-weight:700;color:var(--muted);cursor:pointer;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .15s ease}
+    .modal-close-btn:hover{background:#f1f5f9;color:var(--text)}
+    .modal-body{padding:24px;display:flex;flex-direction:column;gap:20px}
+    .pm-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media(max-width:768px){.pm-kpi-grid{grid-template-columns:repeat(2,1fr)}}
+    .pm-kpi-card{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:14px}
+    .pm-kpi-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+    .pm-kpi-val{font-size:20px;font-weight:900;margin-top:4px;color:var(--text)}
+    .pm-kpi-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
+    .pm-actions-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .pm-btn{padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:700;border:1px solid var(--border);background:#ffffff;color:var(--text);cursor:pointer;transition:all .15s ease;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+    .pm-btn:hover{background:#f1f5f9;border-color:#cbd5e1}
+    .pm-btn-primary{background:var(--primary);color:#ffffff;border-color:var(--primary)}
+    .pm-btn-primary:hover{background:#4a2f85}
+    .pm-table-wrap{border:1px solid var(--border);border-radius:10px;overflow-x:auto;background:#ffffff}
+    .pm-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+    .pm-tbl th{background:#f8fafc;padding:10px 14px;text-align:left;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+    .pm-tbl td{padding:10px 14px;border-bottom:1px solid #f1f5f9;color:var(--text)}
+    .pm-tbl tr:last-child td{border-bottom:none}
+    .pm-tbl tr:hover td{background:#f8fafc}
     /* FUNNEL TABLE */
     .ftbl{width:100%;border-collapse:collapse;font-size:13px}
     .ftbl th{text-align:left;padding:10px 14px;background:var(--surface2);color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
@@ -224,18 +253,24 @@
   <div class="sec-gap">
     <div class="sec-title">📆 Period Revenue</div>
     <div class="grid g2">
-      <div class="period-card">
+      <div class="period-card clickable-period" onclick="openPeriodModal('week')" title="Click to view detailed day-by-day breakdown, sales reps & deals for this week">
         <div class="period-ico">📅</div>
-        <div>
-          <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+            <span class="period-drill-btn">View Details ↗</span>
+          </div>
           <div class="period-val green" id="rev-week">—</div>
           <div class="period-sub" id="rev-week-sub">—</div>
         </div>
       </div>
-      <div class="period-card">
+      <div class="period-card clickable-period" onclick="openPeriodModal('month')" title="Click to view detailed day-by-day breakdown, sales reps & deals for this month">
         <div class="period-ico">🗓️</div>
-        <div>
-          <div class="period-lbl">Revenue This Month (1st–Today)</div>
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="period-lbl">Revenue This Month (1st–Today)</div>
+            <span class="period-drill-btn">View Details ↗</span>
+          </div>
           <div class="period-val blue" id="rev-month">—</div>
           <div class="period-sub" id="rev-month-sub">—</div>
         </div>
@@ -891,6 +926,292 @@ async function init() {
   }
 }
 init();
+
+function formatDateLong(iso) {
+  if (!iso) return '—';
+  var parts = iso.split('-');
+  if (parts.length !== 3) return iso;
+  var d = new Date(iso + 'T00:00:00');
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return days[d.getDay()] + ', ' + parseInt(parts[2]) + ' ' + months[parseInt(parts[1]) - 1] + ' ' + parts[0];
+}
+
+function openPeriodModal(type) {
+  if (!globalReportData || !globalYesterdayData) return;
+  var yd = globalYesterdayData;
+  var yDate = new Date(yd.date + 'T00:00:00');
+  var isWeek = (type === 'week');
+
+  var startDate, title, icon;
+  if (isWeek) {
+    var dow = yDate.getDay();
+    var sun = new Date(yDate);
+    sun.setDate(yDate.getDate() - dow);
+    startDate = sun.toISOString().slice(0, 10);
+    title = 'Revenue This Week (Sun–Today)';
+    icon = '📅';
+  } else {
+    startDate = yd.date.slice(0, 7) + '-01';
+    title = 'Revenue This Month (1st–Today)';
+    icon = '🗓️';
+  }
+  var endDate = yd.date;
+
+  var pDays = globalReportData.filter(function(d) { return d.date >= startDate && d.date <= endDate; }).sort(function(a, b) { return b.date.localeCompare(a.date); });
+
+  var totalRevenue = 0;
+  var totalDeals = 0;
+  var totalDirectRev = 0;
+  var totalDirectCnt = 0;
+  var totalDelFeeRev = 0;
+  var totalDelFeeCnt = 0;
+
+  var agentMap = {};
+  var planMap = {};
+
+  pDays.forEach(function(d) {
+    var dayTotRev = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
+    totalRevenue += dayTotRev;
+    totalDeals += (d.salesCount || 0);
+
+    var dirRev = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+    var dirCnt = (d.directSaleCSV && d.directSaleCSV.count) || 0;
+    totalDirectRev += dirRev;
+    totalDirectCnt += dirCnt;
+
+    var delRev = (d.deliveryFee && d.deliveryFee.total) || 0;
+    var delCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
+    totalDelFeeRev += delRev;
+    totalDelFeeCnt += delCnt;
+
+    Object.entries(d.agents || {}).forEach(function([agName, agData]) {
+      if (!agentMap[agName]) agentMap[agName] = { count: 0, revenue: 0 };
+      agentMap[agName].count += (agData.count || 0);
+      agentMap[agName].revenue += (agData.revenue || 0);
+    });
+
+    Object.entries(d.plans || {}).forEach(function([pName, pData]) {
+      if (!planMap[pName]) planMap[pName] = { count: 0, revenue: 0 };
+      planMap[pName].count += (pData.count || 0);
+      planMap[pName].revenue += (pData.revenue || 0);
+    });
+  });
+
+  var totalInsideRev = totalRevenue - totalDirectRev - totalDelFeeRev;
+  var totalInsideCnt = Math.max(0, totalDeals - totalDirectCnt);
+
+  document.getElementById('modal-period-icon').textContent = icon;
+  document.getElementById('modal-period-title').textContent = title;
+  document.getElementById('modal-period-subtitle').textContent = sd(startDate) + ' → ' + sd(endDate) + ' (' + pDays.length + ' days recorded) · Total ' + totalDeals + ' deals across all channels';
+
+  var sortedAgents = Object.entries(agentMap).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
+  var sortedPlans = Object.entries(planMap).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
+
+  var outHtml = '<div class="pm-kpi-grid">' +
+    '<div class="pm-kpi-card" style="border-left: 4px solid var(--primary);">' +
+      '<div class="pm-kpi-lbl">Total Period Revenue</div>' +
+      '<div class="pm-kpi-val" style="color: var(--primary);">' + fmt(totalRevenue) + '</div>' +
+      '<div class="pm-kpi-sub">' + totalDeals + ' total deals</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card" style="border-left: 4px solid var(--green);">' +
+      '<div class="pm-kpi-lbl">⚡ Inside Sales</div>' +
+      '<div class="pm-kpi-val" style="color: var(--green);">' + fmt(totalInsideRev) + '</div>' +
+      '<div class="pm-kpi-sub">' + totalInsideCnt + ' deals (' + (totalRevenue > 0 ? ((totalInsideRev / totalRevenue) * 100).toFixed(1) : 0) + '%)</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card" style="border-left: 4px solid var(--blue);">' +
+      '<div class="pm-kpi-lbl">🛍️ Direct Sales</div>' +
+      '<div class="pm-kpi-val" style="color: var(--blue);">' + fmt(totalDirectRev) + '</div>' +
+      '<div class="pm-kpi-sub">' + totalDirectCnt + ' deals (' + (totalRevenue > 0 ? ((totalDirectRev / totalRevenue) * 100).toFixed(1) : 0) + '%)</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card" style="border-left: 4px solid var(--orange);">' +
+      '<div class="pm-kpi-lbl">🚚 Delivery Fees</div>' +
+      '<div class="pm-kpi-val" style="color: var(--orange);">' + fmt(totalDelFeeRev) + '</div>' +
+      '<div class="pm-kpi-sub">' + totalDelFeeCnt + ' fee collections</div>' +
+    '</div>' +
+  '</div>' +
+
+  '<div class="pm-actions-bar">' +
+    '<a href="inside-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn pm-btn-primary">' +
+      '⚡ View Inside Sales Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
+    '</a>' +
+    '<a href="direct-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn">' +
+      '🛍️ View Direct Sales Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
+    '</a>' +
+    '<a href="delivery-fee-details.html" target="_blank" class="pm-btn">' +
+      '🚚 Delivery Fee Details ↗' +
+    '</a>' +
+    '<button class="pm-btn" onclick="exportPeriodPDF(&apos;' + title + '&apos;, &apos;' + startDate + '&apos;, &apos;' + endDate + '&apos;)" style="background:#5b3e9b;color:#ffffff;border-color:#5b3e9b;margin-left:auto;">' +
+      '📄 Download Period PDF' +
+    '</button>' +
+  '</div>' +
+
+  '<div>' +
+    '<div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px;">' +
+      '📅 Day-by-Day Revenue Breakdown' +
+    '</div>' +
+    '<div class="pm-table-wrap">' +
+      '<table class="pm-tbl">' +
+        '<thead>' +
+          '<tr>' +
+            '<th>Date</th>' +
+            '<th style="text-align: right;">Inside Sales</th>' +
+            '<th style="text-align: right;">Direct Sales</th>' +
+            '<th style="text-align: right;">Delivery Fee</th>' +
+            '<th style="text-align: right;">Total Day Revenue</th>' +
+            '<th style="text-align: center;">Deals</th>' +
+            '<th>Top Sales Rep</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody>';
+
+  pDays.forEach(function(d) {
+    var dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
+    var dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+    var dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+    var dIns = dTot - dDir - dDel;
+    var dCnt = (d.salesCount || 0);
+
+    var ags = Object.entries(d.agents || {}).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
+    var topRep = ags.length ? (ags[0][0] + ' (' + fmt(ags[0][1].revenue) + ')') : '—';
+
+    outHtml += '<tr>' +
+      '<td style="font-weight: 700; white-space: nowrap;">' + formatDateLong(d.date) + '</td>' +
+      '<td style="text-align: right; color: var(--green); font-weight: 700;">' + fmt(dIns) + '</td>' +
+      '<td style="text-align: right; color: var(--blue); font-weight: 700;">' + fmt(dDir) + '</td>' +
+      '<td style="text-align: right; color: var(--orange); font-weight: 600;">' + fmt(dDel) + '</td>' +
+      '<td style="text-align: right; font-weight: 900; color: var(--text);">' + fmt(dTot) + '</td>' +
+      '<td style="text-align: center; font-weight: 700;">' + dCnt + '</td>' +
+      '<td style="color: var(--muted); font-size: 12px;">' + topRep + '</td>' +
+    '</tr>';
+  });
+
+  outHtml += '</tbody></table></div></div>' +
+    '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">' +
+      '<div>' +
+        '<div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px;">' +
+          '🏆 Top Sales Reps (' + sd(startDate) + '–' + sd(endDate) + ')' +
+        '</div>' +
+        '<div class="pm-table-wrap">' +
+          '<table class="pm-tbl">' +
+            '<thead>' +
+              '<tr>' +
+                '<th>#</th>' +
+                '<th>Agent</th>' +
+                '<th style="text-align: center;">Deals</th>' +
+                '<th style="text-align: right;">Revenue</th>' +
+              '</tr>' +
+            '</thead>' +
+            '<tbody>';
+
+  sortedAgents.slice(0, 8).forEach(function(item, i) {
+    var agName = item[0];
+    var agData = item[1];
+    outHtml += '<tr>' +
+      '<td style="font-weight: 800; color: var(--muted); width: 24px;">' + (i + 1) + '</td>' +
+      '<td style="font-weight: 700;">' + agName + '</td>' +
+      '<td style="text-align: center;">' + agData.count + '</td>' +
+      '<td style="text-align: right; font-weight: 800; color: var(--green);">' + fmt(agData.revenue) + '</td>' +
+    '</tr>';
+  });
+
+  outHtml += '</tbody></table></div></div>' +
+      '<div>' +
+        '<div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px;">' +
+          '📦 Plan Distribution' +
+        '</div>' +
+        '<div class="pm-table-wrap">' +
+          '<table class="pm-tbl">' +
+            '<thead>' +
+              '<tr>' +
+                '<th>Plan</th>' +
+                '<th style="text-align: center;">Units</th>' +
+                '<th style="text-align: right;">Revenue</th>' +
+              '</tr>' +
+            '</thead>' +
+            '<tbody>';
+
+  sortedPlans.slice(0, 8).forEach(function(item) {
+    var pName = item[0];
+    var pData = item[1];
+    outHtml += '<tr>' +
+      '<td style="font-weight: 700;">' + pName + '</td>' +
+      '<td style="text-align: center;">' + pData.count + '</td>' +
+      '<td style="text-align: right; font-weight: 800; color: var(--blue);">' + fmt(pData.revenue) + '</td>' +
+    '</tr>';
+  });
+
+  outHtml += '</tbody></table></div></div></div>';
+
+  document.getElementById('modal-period-body').innerHTML = outHtml;
+  document.getElementById('period-modal').classList.add('open');
+}
+
+function closePeriodModal() {
+  document.getElementById('period-modal').classList.remove('open');
+}
+
+window.addEventListener('click', function(e) {
+  var modal = document.getElementById('period-modal');
+  if (e.target === modal) closePeriodModal();
+});
+
+function exportPeriodPDF(title, startDate, endDate) {
+  if (!window.exportTableToPDF || !globalReportData) {
+    alert('PDF generator is loading, please try again in a second.');
+    return;
+  }
+  var pDays = globalReportData.filter(function(d) { return d.date >= startDate && d.date <= endDate; }).sort(function(a, b) { return b.date.localeCompare(a.date); });
+  var head = [['Date', 'Inside Sales (₹)', 'Direct Sales (₹)', 'Delivery Fees (₹)', 'Total Revenue (₹)', 'Deals', 'Top Rep']];
+  var body = pDays.map(function(d) {
+    var dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
+    var dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+    var dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+    var dIns = dTot - dDir - dDel;
+    var dCnt = (d.salesCount || 0);
+    var ags = Object.entries(d.agents || {}).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
+    var topRep = ags.length ? (ags[0][0] + ' (₹' + Math.round(ags[0][1].revenue).toLocaleString('en-IN') + ')') : '—';
+    return [
+      formatDateLong(d.date),
+      '₹' + Math.round(dIns).toLocaleString('en-IN'),
+      '₹' + Math.round(dDir).toLocaleString('en-IN'),
+      '₹' + Math.round(dDel).toLocaleString('en-IN'),
+      '₹' + Math.round(dTot).toLocaleString('en-IN'),
+      dCnt,
+      topRep
+    ];
+  });
+
+  window.exportTableToPDF({
+    title: title,
+    subtitle: 'Period: ' + startDate + ' to ' + endDate + ' (' + pDays.length + ' days) • Generated on ' + new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}),
+    filename: 'period_revenue_' + startDate + '_' + endDate + '.pdf',
+    head: head,
+    body: body
+  });
+}
 </script>
+
+  <!-- PERIOD REVENUE BREAKDOWN MODAL -->
+  <div class="modal-overlay" id="period-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:24px;" id="modal-period-icon">📆</span>
+          <div>
+            <h3 id="modal-period-title" style="margin:0;font-size:18px;font-weight:800;color:var(--text);">Period Revenue Breakdown</h3>
+            <div id="modal-period-subtitle" style="font-size:12.5px;color:var(--muted);margin-top:2px;">Detailed sales & performance breakdown</div>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closePeriodModal()" title="Close details">✕</button>
+      </div>
+
+      <div class="modal-body" id="modal-period-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="export-pdf.js"></script>
 </body>
 </html>
