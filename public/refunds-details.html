@@ -586,6 +586,7 @@
     <div class="nav-actions">
       <button class="btn btn-secondary" onclick="loadRefundsData(true)">🔄 Refresh</button>
       <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
+      <button class="btn btn-secondary" onclick="exportToPDF()" style="background:#5b3e9b;color:#ffffff;border-color:#5b3e9b;">📄 Download PDF</button>
       <a href="index.html" class="btn btn-primary">← Dashboard</a>
     </div>
   </header>
@@ -1093,9 +1094,38 @@
       document.body.removeChild(link);
     }
 
+    function exportToPDF() {
+      const filtered = filterData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const itemsToExport = filtered.slice(0, 500);
+      const head = [['#', 'Refund ID', 'Payment ID', 'Amount (₹)', 'Status', 'Date', 'Customer Phone']];
+      const body = itemsToExport.map((row, i) => [
+        i + 1,
+        row['Refund ID'] || '—',
+        row['Payment ID'] || '—',
+        '₹' + Math.round(row._amount || 0).toLocaleString('en-IN'),
+        row['Status'] || 'processed',
+        row['Refund Created At'] || row['Received At'] || '—',
+        row._contact || '—'
+      ]);
+
+      window.exportTableToPDF({
+        title: 'Processed Refunds Details',
+        subtitle: `Filter: ${activeFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `refunds_${activeFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadRefundsData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

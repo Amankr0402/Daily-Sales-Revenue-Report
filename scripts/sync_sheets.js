@@ -65,6 +65,7 @@ const ACTIVE_SUB_NO_ORDERS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'ac
 const DELIVERY_FEES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
 const DELIVERY_FEES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'delivery_fees_details.csv');
 const DIRECT_SALE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
+const DISPUTED_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'disputed_sales_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -207,7 +208,7 @@ async function syncSalesData() {
     if (!isoDate || isoDate.length !== 10) continue;
 
     if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
-    if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent };
+    if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
 
     if (!recordsByDate[isoDate]) {
       recordsByDate[isoDate] = {
@@ -283,7 +284,7 @@ async function syncSalesData() {
       if (!isoDate || isoDate.length !== 10) continue;
 
       if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
-      if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent };
+      if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
 
       if (!recordsByDate[isoDate]) {
         recordsByDate[isoDate] = {
@@ -334,6 +335,8 @@ async function syncSalesData() {
     }
     const dsLines = dsCSV.split('\n').map(l => l.trim()).filter(Boolean);
     console.log(`🛍️ Processing ${dsLines.length - 1} Direct Sale rows...`);
+    const allDisputedDeals = [];
+
     for (let i = 1; i < dsLines.length; i++) {
       const cols = parseCSVLine(dsLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       const rawDate = cols[8]; // Payment Date, e.g. 02/09/2026 11:31
@@ -361,20 +364,40 @@ async function syncSalesData() {
       day.directSaleCSV.revenue += rev;
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
 
-      // Deduplicate: If this customer's deal was already logged by an agent in Google Sheets on this date, record collision and skip to avoid double counting!
+      // Deduplicate & Dispute detection: If this customer's deal was already logged by an agent in Google Sheets on this date, record as Disputed Deal and skip from direct sale to avoid double counting!
       if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate][phone]) {
         const inside = sheetPhonesByDate[isoDate][phone];
-        if (!day.collidingDeals) day.collidingDeals = [];
-        day.collidingDeals.push({
+        const cleanPlan = formatDirectSalePlan(cols[4] || '', cols[5] || '') || inside.plan || 'Annual Max';
+        const disputedItem = {
+          date: isoDate,
+          rawDate: rawDate,
           customerName: cols[1] || inside.customer || 'Unknown',
+          phone,
           agent: inside.agent || 'Unknown',
-          revenue: rev,
           insideRevenue: inside.revenue || 0,
-          phone
-        });
+          revenue: rev,
+          directRevenue: rev,
+          plan: cleanPlan,
+          source: inside.source || 'Organic',
+          directOrderId: cols[6] || '',
+          directUserId: cols[0] || '',
+          disputeNote: `Logged by Inside Sales agent (${inside.agent}) for ₹${inside.revenue} and also completed on Direct Portal for ₹${rev}`
+        };
+
+        if (!day.collidingDeals) day.collidingDeals = [];
+        if (!day.disputedDeals) day.disputedDeals = [];
+        day.collidingDeals.push(disputedItem);
+        day.disputedDeals.push(disputedItem);
+
         if (!day.collidingTotal) day.collidingTotal = { count: 0, revenue: 0 };
         day.collidingTotal.count += 1;
         day.collidingTotal.revenue += rev;
+
+        if (!day.disputedTotal) day.disputedTotal = { count: 0, revenue: 0 };
+        day.disputedTotal.count += 1;
+        day.disputedTotal.revenue += rev;
+
+        allDisputedDeals.push(disputedItem);
         continue;
       }
 
@@ -399,6 +422,18 @@ async function syncSalesData() {
       if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
       day.plans[cleanPlan].revenue += rev;
       day.plans[cleanPlan].count += 1;
+    }
+
+    // Cache all disputed deals across dates to data/disputed_sales_details.csv
+    try {
+      const csvHeader = 'date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note\n';
+      const csvRows = allDisputedDeals.map(d =>
+        `"${d.date}","${(d.customerName || '').replace(/"/g, '""')}","${d.phone}","${(d.agent || '').replace(/"/g, '""')}",${d.insideRevenue},${d.directRevenue},"${(d.plan || '').replace(/"/g, '""')}","${(d.source || '').replace(/"/g, '""')}","${d.directOrderId}","${d.directUserId}","${(d.disputeNote || '').replace(/"/g, '""')}"`
+      ).join('\n');
+      fs.writeFileSync(DISPUTED_SALES_DETAILS_FILE, csvHeader + csvRows, 'utf8');
+      console.log(`⚠️ Cached ${allDisputedDeals.length} Disputed Deals to ${DISPUTED_SALES_DETAILS_FILE}`);
+    } catch (saveErr) {
+      console.warn('⚠️ Could not cache disputed_sales_details.csv:', saveErr.message);
     }
   } catch (dsErr) {
     console.warn(`⚠️ Warning: Could not fetch Direct Sale data:`, dsErr.message);

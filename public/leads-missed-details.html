@@ -945,6 +945,7 @@
     </div>
     <div class="nav-actions">
       <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
       <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
     </div>
@@ -1313,7 +1314,7 @@
 
       populateAssigneeDropdown();
       computeKPIs();
-      applyFiltersAndSort();
+      setFilter(currentFilter || 'all');
 
       document.getElementById('loading-state').style.display = 'none';
       document.getElementById('table-container').style.display = 'block';
@@ -1532,7 +1533,15 @@
     }
 
     function setFilter(status) {
-      currentFilter = status;
+      if (!status) status = 'all';
+      const sLower = status.toLowerCase().trim();
+      let canonicalStatus = 'all';
+      if (sLower.includes('connect')) canonicalStatus = 'Connected';
+      else if (sLower.includes('interest')) canonicalStatus = 'Interested';
+      else if (sLower.includes('pais')) canonicalStatus = 'Paise Dega';
+      else if (sLower !== 'all') canonicalStatus = status;
+
+      currentFilter = canonicalStatus;
 
       // Update pill buttons
       document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
@@ -1542,8 +1551,8 @@
         'Interested': 'pill-interested',
         'Paise Dega': 'pill-paise-dega'
       };
-      if (pillMap[status]) {
-        document.getElementById(pillMap[status])?.classList.add('active');
+      if (pillMap[canonicalStatus]) {
+        document.getElementById(pillMap[canonicalStatus])?.classList.add('active');
       }
 
       // Update KPI card highlights
@@ -1554,14 +1563,17 @@
         'Interested': 'card-interested',
         'Paise Dega': 'card-paise-dega'
       };
-      if (cardMap[status]) {
-        document.getElementById(cardMap[status])?.classList.add('active-kpi');
+      if (cardMap[canonicalStatus]) {
+        document.getElementById(cardMap[canonicalStatus])?.classList.add('active-kpi');
       }
 
       // Sync dropdown
-      document.getElementById('status-select').value = status;
+      const sel = document.getElementById('status-select');
+      if (sel) {
+        sel.value = canonicalStatus;
+      }
 
-      if (status === 'all') {
+      if (canonicalStatus === 'all') {
         currentAssignee = 'all';
         if (typeof updateRepDropdownUI === 'function') updateRepDropdownUI();
       }
@@ -1575,7 +1587,17 @@
       filteredLeads = allLeads.filter(lead => {
         // Status filter
         if (currentFilter !== 'all') {
-          if (lead.status.toLowerCase() !== currentFilter.toLowerCase()) return false;
+          const leadStatus = (lead.status || '').toLowerCase().trim();
+          const target = currentFilter.toLowerCase().trim();
+          if (target.includes('pais')) {
+            if (!leadStatus.includes('pais')) return false;
+          } else if (target.includes('connect')) {
+            if (!leadStatus.includes('connect')) return false;
+          } else if (target.includes('interest')) {
+            if (!leadStatus.includes('interest')) return false;
+          } else {
+            if (leadStatus !== target) return false;
+          }
         }
 
         // Assignee filter (case-insensitive & trimmed)
@@ -1870,6 +1892,32 @@
       renderTable();
     });
 
+    document.getElementById('btn-download-pdf').addEventListener('click', () => {
+      if (filteredLeads.length === 0) {
+        alert('No leads to download');
+        return;
+      }
+
+      const itemsToExport = filteredLeads.slice(0, 500);
+      const head = [['Lead ID', 'Status', 'Assignee (Sales Rep)', 'Lead Created On', 'Last Called On', 'Inactivity Age']];
+      const body = itemsToExport.map(l => [
+        l.id,
+        l.status,
+        l.assigneeName || l.assignee,
+        formatDate(l.createdOn),
+        formatDate(l.calledOn),
+        l.lastCallAge
+      ]);
+
+      exportTableToPDF({
+        title: 'Leads Missed (>24 hrs, no activity)',
+        subtitle: `Status Filter: ${currentFilter} • Showing ${itemsToExport.length} of ${filteredLeads.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `leads_missed_${currentFilter.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    });
+
     document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
     document.getElementById('btn-refresh').addEventListener('click', () => loadData(true));
     document.getElementById('modal-close').addEventListener('click', closeModal);
@@ -1920,18 +1968,21 @@
     // Check URL parameters for pre-filtering (e.g. ?status=Connected)
     function initUrlParams() {
       const params = new URLSearchParams(window.location.search);
-      const st = params.get('status');
+      const st = params.get('status') || params.get('filter') || params.get('st');
       if (st) {
-        if (st.toLowerCase() === 'connected') currentFilter = 'Connected';
-        else if (st.toLowerCase() === 'interested') currentFilter = 'Interested';
-        else if (st.toLowerCase().includes('paise')) currentFilter = 'Paise Dega';
+        const lower = st.toLowerCase().trim();
+        if (lower.includes('connect')) currentFilter = 'Connected';
+        else if (lower.includes('interest')) currentFilter = 'Interested';
+        else if (lower.includes('pais')) currentFilter = 'Paise Dega';
+        else currentFilter = st;
       }
-      const as = params.get('assignee');
+      const as = params.get('assignee') || params.get('rep');
       if (as) currentAssignee = as;
-      const q = params.get('q');
+      const q = params.get('q') || params.get('search');
       if (q) {
         searchQuery = q;
-        document.getElementById('search-input').value = q;
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) searchInput.value = q;
       }
     }
 
@@ -1940,5 +1991,6 @@
       loadData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

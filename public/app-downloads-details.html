@@ -674,6 +674,7 @@
     </div>
     <div class="nav-actions">
       <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
       <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
     </div>
@@ -1460,6 +1461,34 @@
       applyFilters();
     });
 
+    document.getElementById('btn-download-pdf').onclick = () => {
+      if (filteredUsers.length === 0) {
+        alert('No users to download');
+        return;
+      }
+
+      const itemsToExport = filteredUsers.slice(0, 500);
+      const head = [['User ID', 'Name', 'Phone', 'Created At', 'City', 'State', 'Source', 'Verified']];
+      const body = itemsToExport.map(u => [
+        u.id || '-',
+        u.name || 'Anonymous',
+        u.phone || '-',
+        u.createdAt || '-',
+        u.city || '-',
+        u.state || '-',
+        u.source || 'Organic',
+        u.isVerified ? 'YES' : 'NO'
+      ]);
+
+      exportTableToPDF({
+        title: 'New Users & App Downloads',
+        subtitle: `Timeframe: ${currentDateFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filteredUsers.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `app_downloads_${currentDateFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    };
+
     // Refresh Button
     document.getElementById('btn-refresh').onclick = () => {
       loadData(true);
@@ -1470,5 +1499,6 @@
       loadData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

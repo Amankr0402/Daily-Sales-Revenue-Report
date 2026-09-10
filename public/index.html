@@ -1193,8 +1193,8 @@
           </div>
 
           <!-- Leads Missed (>24 hrs, no activity) directly underneath matching attached image! -->
-          <div class="clickable-card" onclick="window.open('leads-missed-details.html', '_blank')" style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); cursor: pointer; transition: all 0.2s ease;" title="Click to view all Leads Missed details in a new tab" onmouseover="this.style.boxShadow='0 6px 16px rgba(91,62,155,0.12)';this.style.borderColor='#cbd5e1';" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.02)';this.style.borderColor='var(--border)';">
-            <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+          <div style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: all 0.2s ease;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;" onclick="window.open('leads-missed-details.html', '_blank')" title="Click to view all Leads Missed details in a new tab">
               <span style="font-size: 22px; line-height: 1;">⏰</span>
               <span style="font-size: 13.5px; font-weight: 800; color: var(--text);">
                 Leads Missed (&gt;24 hrs, no activity)
@@ -1536,14 +1536,14 @@
           const c = SRC_C[src] || '#8896b3'; const l = SRC_L[src] || src;
           if (src === 'Direct Sale') {
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=net\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
-            if (yd.directSaleCSV && yd.directSaleCSV.count > 0) {
-              sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=yesterday\', \'_blank\')" style="border-color: rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view all Direct Sales deals from CSV in a new tab"><div class="src-dot" style="background:#ec4899;box-shadow:0 0 6px #ec489988"></div><div><div class="src-name">🌐 Total Direct Sales (CSV) <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(yd.directSaleCSV.revenue) + '</div><div class="src-cnt">' + yd.directSaleCSV.count + ' deals (Full CSV)</div></div></div>';
-              if (yd.collidingTotal && yd.collidingTotal.count > 0) {
-                const namesList = (yd.collidingDeals || []).map(cd => cd.customerName + ' (' + fmt(cd.revenue) + ')').join(', ');
-                const fullDetails = (yd.collidingDeals || []).map(cd => cd.customerName + ' [Agent: ' + cd.agent + ']: ' + fmt(cd.revenue)).join('&#10;');
-                sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=collision\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + fullDetails + ' (Click to view overlap deals in a new tab)"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔀 Direct &amp; Inside Overlap <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(yd.collidingTotal.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + fullDetails + '">' + yd.collidingTotal.count + ' deals: ' + namesList + '</div></div></div>';
-              }
-            }
+            // Disputed Sales KPI pill (deals in both Inside Sales & Direct Sales)
+            const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
+            const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
+            const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
+            const dispTooltip = disp.count > 0
+              ? 'Disputed: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Disputed Sales Table.'
+              : '0 Disputed Deals on this date. Click to view full disputed table.';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Disputed Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
           } else if (src === 'Organic') {
             // Inside Sales — clickable with source=Organic filter
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';

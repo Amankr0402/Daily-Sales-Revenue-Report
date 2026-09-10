@@ -565,6 +565,7 @@
     </div>
     <div class="nav-actions">
       <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" onclick="exportToPDF()" title="Download as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
       <button class="btn btn-primary" onclick="loadData(true)">🔄 Refresh</button>
     </div>
@@ -1116,9 +1117,37 @@
       document.body.removeChild(link);
     }
 
+    function exportToPDF() {
+      const filtered = getFilteredData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const head = [['Txn Number', 'Date (IST)', 'Amount', 'Status', 'Type', 'Order ID', 'Provider']];
+      const body = filtered.map(t => [
+        t['transaction_number'] || '-',
+        formatDate(t['created_at']),
+        '₹' + (t._price || 0).toLocaleString('en-IN'),
+        t['status'] || '-',
+        t['type'] || '-',
+        t['order_id'] || '-',
+        t['payment_provider'] || '-'
+      ]);
+
+      exportTableToPDF({
+        title: 'Delivery Fee Transactions Details',
+        subtitle: `${filtered.length} transactions • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `delivery_fees_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

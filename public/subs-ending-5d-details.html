@@ -647,6 +647,9 @@
       </div>
     </div>
     <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="exportFilteredPDF()" title="Download current list as PDF">
+        📄 Download PDF
+      </button>
       <button class="btn btn-secondary" onclick="exportFilteredCSV()" title="Export current list as CSV">
         📥 Export CSV
       </button>
@@ -1234,6 +1237,35 @@
       document.body.removeChild(link);
     }
 
+    function exportFilteredPDF() {
+      const filtered = getFilteredSubs();
+      if (filtered.length === 0) {
+        alert('No records to export with current filters');
+        return;
+      }
+
+      const head = [['Contact No', 'Plan ID', 'Subscription ID', 'Type', 'Price', 'Started At', 'Expire At', 'Method', 'Status']];
+      const body = filtered.map(sub => [
+        sub.contact_no || '-',
+        sub.plan_id || 'Standard Plan',
+        sub.subscription_id || '-',
+        sub.type || '-',
+        '₹' + (parseFloat(sub.price) || 0).toLocaleString('en-IN'),
+        formatIST(sub.started_at),
+        formatIST(sub.expire_at),
+        sub.method || 'ONLINE',
+        sub.status || 'ACTIVE'
+      ]);
+
+      exportTableToPDF({
+        title: 'Subscriptions Ending in Next 5 Days',
+        subtitle: `Filter: ${currentFilter.toUpperCase()} • ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `subscriptions_ending_5d_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     function escapeHTML(str) {
       if (!str) return '';
       return String(str)
@@ -1247,5 +1279,6 @@
     // Initialize on load
     window.addEventListener('DOMContentLoaded', loadSubsData);
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

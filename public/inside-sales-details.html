@@ -152,6 +152,7 @@
       <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
       <button class="btn btn-secondary" onclick="loadData(true)">↻ Refresh Data</button>
       <button class="btn btn-primary" onclick="exportCSV()">📥 Export Filtered CSV</button>
+      <button class="btn btn-primary" onclick="exportPDF()" style="background:#4338ca;">📄 Download PDF</button>
     </div>
   </header>
 
@@ -793,7 +794,32 @@
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
 
+    function exportPDF() {
+      const filtered = filterData();
+      if (!filtered.length) { alert('No data to export!'); return; }
+      const itemsToExport = filtered.slice(0, 500);
+      const head = [['#', 'Date', 'Agent', 'Phone', 'Rev (₹)', 'Type', 'Plan', 'Source']];
+      const body = itemsToExport.map((d, i) => [
+        i + 1,
+        d.isoDate ? formatDate(d.isoDate) : '—',
+        d.agent || '—',
+        d.phone || '—',
+        '₹' + Math.round(d.rev || 0).toLocaleString('en-IN'),
+        d.dup ? 'Shared' : 'Standard',
+        d.plan || '—',
+        d.source || '—'
+      ]);
+      window.exportTableToPDF({
+        title: 'Inside Sales Transactions Details',
+        subtitle: `Timeframe: ${activeFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `inside_sales_${activeFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => loadData());
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

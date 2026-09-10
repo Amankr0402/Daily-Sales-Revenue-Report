@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disputed Sales Transactions (Inside vs Direct) — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.35);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left img {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .nav-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 1px 2px rgba(245, 158, 11, 0.05);
+    }
+
+    .alert-icon {
+      font-size: 22px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-content {
+      font-size: 13px;
+      color: #92400e;
+      line-height: 1.5;
+    }
+
+    .alert-content strong {
+      color: #78350f;
+      font-weight: 700;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--amber);
+    }
+
+    .kpi-card.purple::before { background: var(--primary); }
+    .kpi-card.blue::before { background: var(--blue); }
+    .kpi-card.green::before { background: var(--green); }
+    .kpi-card.rose::before { background: var(--rose); }
+
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--amber);
+      color: #ffffff;
+      border-color: var(--amber);
+    }
+
+    .filters-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 12px 8px 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--amber);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .select-filter {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      background: #ffffff;
+      color: var(--text);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-filter:focus {
+      border-color: var(--amber);
+    }
+
+    /* Table */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr {
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:hover {
+      background-color: #fefce8;
+    }
+
+    .mono-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #334155;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .badge-match {
+      background: var(--green-light);
+      color: #059669;
+    }
+
+    .badge-diff {
+      background: var(--rose-light);
+      color: #dc2626;
+    }
+
+    .badge-disputed {
+      background: var(--amber-light);
+      color: #b45309;
+      border: 1px solid var(--amber-border);
+    }
+
+    .badge-plan {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .badge-coupon {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px dashed #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+    }
+
+    /* Pagination */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pagination-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .page-btn.active {
+      background: var(--amber);
+      color: #ffffff;
+      border-color: var(--amber);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 14px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .audit-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .audit-box-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .audit-item {
+      font-size: 12.5px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .audit-item strong {
+      color: #0f172a;
+    }
+
+    /* Loading Spinner */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(245, 158, 11, 0.2);
+      border-top-color: var(--amber);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 14px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>⚠️ Disputed Sales Transactions (Inside vs Direct)</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <a href="direct-sales-details.html" class="btn btn-secondary">🌐 Direct Sales</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh" style="background:var(--amber);color:#fff;">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Accounting Notice Banner -->
+    <section class="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <strong>Collision &amp; Dispute Accounting Rule:</strong> These transactions were recorded in <strong>both</strong> Inside Sales (Google Sheets by an agent) and completed online via Direct Sales (Metabase) on the same date for the same phone number.<br>
+        To prevent double-counting, each deal's revenue is <strong>included in Total Revenue exactly once</strong> via Inside Sales. Direct Sales skips adding it again, guaranteeing zero revenue collision.
+      </div>
+    </section>
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid">
+      <div class="kpi-card" id="card-total-deals">
+        <div class="kpi-label">Disputed Deals</div>
+        <div class="kpi-value" id="stat-count">—</div>
+        <div class="kpi-sub" id="stat-count-sub">Overlapping transactions</div>
+      </div>
+      <div class="kpi-card" id="card-total-rev">
+        <div class="kpi-label">Disputed Revenue</div>
+        <div class="kpi-value" id="stat-rev" style="color: #b45309;">—</div>
+        <div class="kpi-sub" id="stat-rev-sub">Total disputed value</div>
+      </div>
+      <div class="kpi-card purple" id="card-inside-rev">
+        <div class="kpi-label">Inside Sales Claimed</div>
+        <div class="kpi-value" id="stat-inside-rev" style="color: var(--primary);">—</div>
+        <div class="kpi-sub">Total logged by Agents</div>
+      </div>
+      <div class="kpi-card blue" id="card-direct-rev">
+        <div class="kpi-label">Direct Portal Claimed</div>
+        <div class="kpi-value" id="stat-direct-rev" style="color: var(--blue);">—</div>
+        <div class="kpi-sub">Total billed online</div>
+      </div>
+      <div class="kpi-card green" id="card-agents">
+        <div class="kpi-label">Inside Agents Involved</div>
+        <div class="kpi-value" id="stat-agents" style="color: var(--green);">—</div>
+        <div class="kpi-sub" id="stat-agents-sub">Distinct inside reps</div>
+      </div>
+    </section>
+
+    <!-- Controls Bar -->
+    <section class="controls-card">
+      <div class="pills-bar">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:6px;">Timeframe:</span>
+        <button class="pill-btn" data-timeframe="yesterday" id="pill-yesterday">Yesterday</button>
+        <button class="pill-btn" data-timeframe="last7days" id="pill-7d">Last 7 Days</button>
+        <button class="pill-btn" data-timeframe="thismonth" id="pill-mtd">This Month (Sep 2026)</button>
+        <button class="pill-btn active" data-timeframe="all" id="pill-all">All Time (77 Deals)</button>
+        <button class="pill-btn" data-timeframe="custom" id="pill-custom">Custom Range</button>
+      </div>
+
+      <div class="filters-row" id="custom-date-row" style="display:none;">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);">From:</span>
+        <input type="date" id="input-start-date" class="select-filter">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);">To:</span>
+        <input type="date" id="input-end-date" class="select-filter">
+        <button class="btn btn-secondary" id="btn-apply-custom-date" style="padding:6px 14px;font-size:12px;">Apply</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Search by customer, phone, agent, plan, order ID...">
+        </div>
+
+        <select id="filter-agent" class="select-filter">
+          <option value="">All Inside Agents</option>
+        </select>
+
+        <select id="filter-plan" class="select-filter">
+          <option value="">All Plans</option>
+        </select>
+
+        <select id="filter-status" class="select-filter">
+          <option value="">All Dispute Statuses</option>
+          <option value="match">Exact Amount Match</option>
+          <option value="diff">Amount Difference</option>
+        </select>
+
+        <button class="btn btn-secondary" id="btn-reset-filters" style="font-size:12px;padding:6px 12px;">Reset</button>
+      </div>
+    </section>
+
+    <!-- Table Section -->
+    <section class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer Name</th>
+            <th>Phone</th>
+            <th>Inside Agent</th>
+            <th>Inside Rev</th>
+            <th>Direct Rev</th>
+            <th>Match Status</th>
+            <th>Plan</th>
+            <th>Coupon / Code</th>
+            <th>Dispute Notes</th>
+          </tr>
+        </thead>
+        <tbody id="disputed-table-body">
+          <tr>
+            <td colspan="10">
+              <div class="loading-container">
+                <div class="spinner"></div>
+                <div style="font-weight:700;color:var(--muted);">Loading Disputed Deals...</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination Bar -->
+      <div class="pagination-bar" id="pagination-bar">
+        <div id="pagination-info">Showing 0 to 0 of 0 records</div>
+        <div class="pagination-controls" id="pagination-controls"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚠️ Disputed Transaction Audit Details</span>
+        </div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let allDeals = [];
+    let filteredDeals = [];
+    let currentPage = 1;
+    const pageSize = 25;
+    let activeTimeframe = 'all';
+    let yesterdayDate = '2026-09-09';
+
+    // Format Currency
+    function fmt(val) {
+      if (val === undefined || val === null || isNaN(val)) return '₹0';
+      return '₹' + Math.round(val).toLocaleString('en-IN');
+    }
+
+    // Format Exact Currency with Decimals
+    function fmtExact(val) {
+      if (val === undefined || val === null || isNaN(val)) return '₹0';
+      return '₹' + Number(val).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    }
+
+    // Parse CSV line safely
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') {
+          if (inQuotes && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += c;
+        }
+      }
+      result.push(current);
+      return result;
+    }
+
+    // Fetch and Load Data
+    async function loadData() {
+      try {
+        // First determine yesterday's date from data.json if available
+        try {
+          const djRes = await fetch('data/data.json');
+          if (djRes.ok) {
+            const dj = await djRes.json();
+            if (Array.isArray(dj) && dj.length > 0) {
+              const dates = dj.map(d => d.date).sort();
+              yesterdayDate = dates[dates.length - 1];
+            }
+          }
+        } catch (e) {
+          console.warn('Could not read data.json for yesterday date:', e);
+        }
+
+        const res = await fetch('data/disputed_sales_details.csv');
+        if (!res.ok) throw new Error('Could not fetch disputed_sales_details.csv');
+        const text = await res.text();
+        const lines = text.trim().split('\n');
+        if (lines.length < 2) {
+          allDeals = [];
+        } else {
+          const header = parseCSVLine(lines[0]);
+          allDeals = lines.slice(1).map(line => {
+            const cols = parseCSVLine(line);
+            return {
+              date: cols[0] || '',
+              customerName: cols[1] || 'Unknown',
+              phone: cols[2] || '',
+              agent: cols[3] || 'Unknown',
+              insideRevenue: parseFloat(cols[4]) || 0,
+              directRevenue: parseFloat(cols[5]) || 0,
+              plan: cols[6] || 'Annual Max',
+              source: cols[7] || 'Organic',
+              directOrderId: cols[8] || '',
+              directUserId: cols[9] || '',
+              disputeNote: cols[10] || ''
+            };
+          });
+        }
+
+        // Sort descending by date
+        allDeals.sort((a, b) => b.date.localeCompare(a.date));
+
+        // Populate Dropdowns
+        populateFilters();
+
+        // Handle URL search params (e.g. ?date=2026-09-08 or ?timeframe=yesterday)
+        const params = new URLSearchParams(window.location.search);
+        const queryDate = params.get('date');
+        const queryFilter = params.get('filter') || params.get('timeframe');
+
+        if (queryDate) {
+          activeTimeframe = 'custom';
+          document.getElementById('input-start-date').value = queryDate;
+          document.getElementById('input-end-date').value = queryDate;
+          document.getElementById('custom-date-row').style.display = 'flex';
+          updateTimeframePills('custom');
+        } else if (queryFilter === 'yesterday') {
+          activeTimeframe = 'yesterday';
+          updateTimeframePills('yesterday');
+        } else if (queryFilter === '7d' || queryFilter === 'last7days') {
+          activeTimeframe = 'last7days';
+          updateTimeframePills('last7days');
+        } else {
+          activeTimeframe = 'all';
+          updateTimeframePills('all');
+        }
+
+        applyFilters();
+      } catch (err) {
+        console.error('Error loading disputed deals:', err);
+        document.getElementById('disputed-table-body').innerHTML = `
+          <tr>
+            <td colspan="10" style="text-align:center;padding:40px;color:var(--rose);">
+              ⚠️ Failed to load disputed sales data: ${err.message}
+            </td>
+          </tr>`;
+      }
+    }
+
+    function populateFilters() {
+      const agentSet = new Set();
+      const planSet = new Set();
+      allDeals.forEach(d => {
+        if (d.agent) agentSet.add(d.agent);
+        if (d.plan) planSet.add(d.plan);
+      });
+
+      const agentSelect = document.getElementById('filter-agent');
+      Array.from(agentSet).sort().forEach(agent => {
+        const opt = document.createElement('option');
+        opt.value = agent;
+        opt.textContent = agent;
+        agentSelect.appendChild(opt);
+      });
+
+      const planSelect = document.getElementById('filter-plan');
+      Array.from(planSet).sort().forEach(plan => {
+        const opt = document.createElement('option');
+        opt.value = plan;
+        opt.textContent = plan;
+        planSelect.appendChild(opt);
+      });
+    }
+
+    function updateTimeframePills(tf) {
+      document.querySelectorAll('.pill-btn').forEach(b => {
+        if (b.dataset.timeframe === tf) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+    }
+
+    function applyFilters() {
+      const search = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const agent = document.getElementById('filter-agent').value;
+      const plan = document.getElementById('filter-plan').value;
+      const status = document.getElementById('filter-status').value;
+
+      let startDate = null;
+      let endDate = null;
+
+      // Determine date bounds based on timeframe
+      if (activeTimeframe === 'yesterday') {
+        startDate = yesterdayDate;
+        endDate = yesterdayDate;
+      } else if (activeTimeframe === 'last7days') {
+        const end = new Date(yesterdayDate);
+        const start = new Date(yesterdayDate);
+        start.setDate(start.getDate() - 6);
+        startDate = start.toISOString().split('T')[0];
+        endDate = end.toISOString().split('T')[0];
+      } else if (activeTimeframe === 'thismonth') {
+        const parts = yesterdayDate.split('-');
+        startDate = `${parts[0]}-${parts[1]}-01`;
+        endDate = yesterdayDate;
+      } else if (activeTimeframe === 'custom') {
+        startDate = document.getElementById('input-start-date').value;
+        endDate = document.getElementById('input-end-date').value;
+      }
+
+      filteredDeals = allDeals.filter(d => {
+        if (startDate && d.date < startDate) return false;
+        if (endDate && d.date > endDate) return false;
+        if (agent && d.agent !== agent) return false;
+        if (plan && d.plan !== plan) return false;
+
+        if (status === 'match') {
+          if (Math.abs(d.insideRevenue - d.directRevenue) > 1) return false;
+        } else if (status === 'diff') {
+          if (Math.abs(d.insideRevenue - d.directRevenue) <= 1) return false;
+        }
+
+        if (search) {
+          const match =
+            d.customerName.toLowerCase().includes(search) ||
+            d.phone.toLowerCase().includes(search) ||
+            d.agent.toLowerCase().includes(search) ||
+            d.plan.toLowerCase().includes(search) ||
+            d.directOrderId.toLowerCase().includes(search) ||
+            d.disputeNote.toLowerCase().includes(search) ||
+            d.date.toLowerCase().includes(search);
+          if (!match) return false;
+        }
+
+        return true;
+      });
+
+      currentPage = 1;
+      updateStats();
+      renderTable();
+    }
+
+    function updateStats() {
+      const count = filteredDeals.length;
+      const insideTotal = filteredDeals.reduce((sum, d) => sum + d.insideRevenue, 0);
+      const directTotal = filteredDeals.reduce((sum, d) => sum + d.directRevenue, 0);
+      const uniqueAgents = new Set(filteredDeals.map(d => d.agent)).size;
+
+      document.getElementById('stat-count').textContent = count;
+      document.getElementById('stat-count-sub').textContent = count === 1 ? '1 transaction' : `${count} transactions`;
+
+      document.getElementById('stat-rev').textContent = fmt(directTotal);
+      document.getElementById('stat-rev-sub').textContent = `Avg ${fmt(count > 0 ? directTotal / count : 0)} / deal`;
+
+      document.getElementById('stat-inside-rev').textContent = fmt(insideTotal);
+      document.getElementById('stat-direct-rev').textContent = fmt(directTotal);
+
+      document.getElementById('stat-agents').textContent = uniqueAgents;
+      document.getElementById('stat-agents-sub').textContent = uniqueAgents === 1 ? '1 agent' : `${uniqueAgents} distinct agents`;
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('disputed-table-body');
+      if (filteredDeals.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="10" style="text-align:center;padding:48px 20px;color:var(--muted);">
+              <div style="font-size:32px;margin-bottom:8px;">🔍</div>
+              <div style="font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px;">No Disputed Deals Found</div>
+              <div style="font-size:13px;">No deals match your selected timeframe or filter criteria.</div>
+            </td>
+          </tr>`;
+        document.getElementById('pagination-info').textContent = 'Showing 0 to 0 of 0 records';
+        document.getElementById('pagination-controls').innerHTML = '';
+        return;
+      }
+
+      const totalPages = Math.ceil(filteredDeals.length / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, filteredDeals.length);
+      const pageItems = filteredDeals.slice(startIndex, endIndex);
+
+      let html = '';
+      pageItems.forEach((d, idx) => {
+        const absDiff = Math.abs(d.insideRevenue - d.directRevenue);
+        const isMatch = absDiff <= 1;
+        const matchBadge = isMatch
+          ? `<span class="badge badge-match">✓ Exact Match</span>`
+          : `<span class="badge badge-diff">Diff: ${d.insideRevenue > d.directRevenue ? '-' : '+'}${fmt(absDiff)}</span>`;
+
+        html += `
+          <tr onclick="openDealModal(${startIndex + idx})">
+            <td style="font-weight:700;white-space:nowrap;">${d.date}</td>
+            <td style="font-weight:700;color:var(--text);">${escapeHtml(d.customerName)}</td>
+            <td class="mono-cell" style="white-space:nowrap;">
+              ${d.phone}
+              <button onclick="event.stopPropagation();copyToClipboard('${d.phone}')" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px;" title="Copy Phone">📋</button>
+            </td>
+            <td>
+              <span style="font-weight:700;color:var(--primary);">${escapeHtml(d.agent)}</span>
+            </td>
+            <td style="font-weight:800;color:var(--primary);white-space:nowrap;">${fmtExact(d.insideRevenue)}</td>
+            <td style="font-weight:800;color:var(--blue);white-space:nowrap;">${fmtExact(d.directRevenue)}</td>
+            <td style="white-space:nowrap;">${matchBadge}</td>
+            <td><span class="badge badge-plan">${escapeHtml(d.plan)}</span></td>
+            <td><span class="badge badge-coupon">${escapeHtml(d.directOrderId || '—')}</span></td>
+            <td style="max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:var(--muted);" title="${escapeHtml(d.disputeNote)}">
+              ${escapeHtml(d.disputeNote)}
+            </td>
+          </tr>`;
+      });
+
+      tbody.innerHTML = html;
+
+      // Pagination Controls
+      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredDeals.length} records`;
+      renderPaginationControls(totalPages);
+    }
+
+    function renderPaginationControls(totalPages) {
+      const container = document.getElementById('pagination-controls');
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+      html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">Prev</button>`;
+
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+          html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+          html += `<span style="padding:6px;">...</span>`;
+        }
+      }
+
+      html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">Next</button>`;
+      container.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderTable();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function openDealModal(index) {
+      const d = filteredDeals[index];
+      if (!d) return;
+
+      const modalBody = document.getElementById('modal-body');
+      const absDiff = Math.abs(d.insideRevenue - d.directRevenue);
+      const isMatch = absDiff <= 1;
+
+      modalBody.innerHTML = `
+        <div style="margin-bottom:16px;">
+          <h3 style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px;">${escapeHtml(d.customerName)}</h3>
+          <div style="font-size:13px;color:var(--muted);">
+            Phone: <strong style="color:var(--text);">${d.phone}</strong> • Transaction Date: <strong style="color:var(--text);">${d.date}</strong>
+          </div>
+        </div>
+
+        <div class="audit-grid">
+          <div class="audit-box" style="border-left:4px solid var(--primary);">
+            <div class="audit-box-title" style="color:var(--primary);">
+              <span>📞 Inside Sales Claim</span>
+            </div>
+            <div class="audit-item">Agent Logged: <strong>${escapeHtml(d.agent)}</strong></div>
+            <div class="audit-item">Inside Revenue: <strong style="color:var(--primary);font-size:14px;">${fmtExact(d.insideRevenue)}</strong></div>
+            <div class="audit-item">Lead Source: <strong>${escapeHtml(d.source)}</strong></div>
+            <div class="audit-item">Plan: <strong>${escapeHtml(d.plan)}</strong></div>
+          </div>
+
+          <div class="audit-box" style="border-left:4px solid var(--blue);">
+            <div class="audit-box-title" style="color:var(--blue);">
+              <span>🌐 Direct Portal Claim</span>
+            </div>
+            <div class="audit-item">Direct User ID: <strong class="mono-cell">${escapeHtml(d.directUserId || '—')}</strong></div>
+            <div class="audit-item">Billed Amount: <strong style="color:var(--blue);font-size:14px;">${fmtExact(d.directRevenue)}</strong></div>
+            <div class="audit-item">Coupon / Order ID: <strong class="mono-cell">${escapeHtml(d.directOrderId || '—')}</strong></div>
+            <div class="audit-item">Plan: <strong>${escapeHtml(d.plan)}</strong></div>
+          </div>
+        </div>
+
+        <div class="audit-box" style="background:#fffbeb;border:1px solid #fde68a;margin-bottom:16px;">
+          <div class="audit-box-title" style="color:#b45309;">
+            <span>⚖️ Reconciliation Audit Status</span>
+          </div>
+          <div class="audit-item" style="color:#78350f;">
+            <strong>Accounting Resolution:</strong> Deal is credited to <strong>${escapeHtml(d.agent)}</strong> in Google Sheets, and was counted in Total Revenue under Inside Sales. Direct Sales skipped this deal to guarantee zero collision and zero double-counting.
+          </div>
+          <div class="audit-item" style="color:#78350f;margin-top:6px;">
+            <strong>Amount Match:</strong> ${isMatch ? '<span class="badge badge-match">Exact Match (' + fmt(d.directRevenue) + ')</span>' : '<span class="badge badge-diff">Difference of ' + fmt(absDiff) + '</span>'}
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;">
+          <button class="btn btn-secondary" onclick="document.getElementById('detail-modal').style.display='none'">Close</button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied phone: ' + text);
+      }).catch(err => {
+        console.warn('Clipboard failed:', err);
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Export to CSV
+    function downloadCSV() {
+      if (filteredDeals.length === 0) {
+        alert('No records to download.');
+        return;
+      }
+
+      const headers = ['Date', 'Customer Name', 'Phone', 'Inside Agent', 'Inside Revenue', 'Direct Revenue', 'Plan', 'Source', 'Coupon/Order ID', 'Direct User ID', 'Dispute Notes'];
+      const rows = filteredDeals.map(d => [
+        `"${d.date}"`,
+        `"${d.customerName.replace(/"/g, '""')}"`,
+        `"${d.phone}"`,
+        `"${d.agent.replace(/"/g, '""')}"`,
+        d.insideRevenue,
+        d.directRevenue,
+        `"${d.plan.replace(/"/g, '""')}"`,
+        `"${d.source.replace(/"/g, '""')}"`,
+        `"${d.directOrderId.replace(/"/g, '""')}"`,
+        `"${d.directUserId.replace(/"/g, '""')}"`,
+        `"${d.disputeNote.replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `disputed_sales_${activeTimeframe}_${new Date().toISOString().split('T')[0]}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      // Timeframe buttons
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeTimeframe = btn.dataset.timeframe;
+          updateTimeframePills(activeTimeframe);
+          if (activeTimeframe === 'custom') {
+            document.getElementById('custom-date-row').style.display = 'flex';
+          } else {
+            document.getElementById('custom-date-row').style.display = 'none';
+            applyFilters();
+          }
+        });
+      });
+
+      document.getElementById('btn-apply-custom-date').addEventListener('click', applyFilters);
+      document.getElementById('search-input').addEventListener('input', applyFilters);
+      document.getElementById('filter-agent').addEventListener('change', applyFilters);
+      document.getElementById('filter-plan').addEventListener('change', applyFilters);
+      document.getElementById('filter-status').addEventListener('change', applyFilters);
+
+      document.getElementById('btn-reset-filters').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('filter-agent').value = '';
+        document.getElementById('filter-plan').value = '';
+        document.getElementById('filter-status').value = '';
+        activeTimeframe = 'all';
+        updateTimeframePills('all');
+        document.getElementById('custom-date-row').style.display = 'none';
+        applyFilters();
+      });
+
+      document.getElementById('btn-download-pdf').addEventListener('click', () => {
+        if (filteredDeals.length === 0) {
+          alert('No records to download.');
+          return;
+        }
+
+        const head = [['Date', 'Customer Name', 'Phone', 'Inside Agent', 'Inside Amount', 'Direct Amount', 'Plan', 'Coupon / Code']];
+        const body = filteredDeals.map(d => [
+          d.date,
+          d.customerName,
+          d.phone,
+          d.agent,
+          '₹' + Math.round(d.insideRevenue).toLocaleString('en-IN'),
+          '₹' + Math.round(d.directRevenue).toLocaleString('en-IN'),
+          d.plan,
+          d.directOrderId || '-'
+        ]);
+
+        exportTableToPDF({
+          title: 'Disputed Sales Transactions (Inside vs Direct)',
+          subtitle: `Timeframe: ${activeTimeframe.toUpperCase()} • ${filteredDeals.length} transactions • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+          filename: `disputed_sales_${activeTimeframe}_${new Date().toISOString().slice(0, 10)}.pdf`,
+          head: head,
+          body: body
+        });
+      });
+
+      document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
+      document.getElementById('btn-refresh').addEventListener('click', loadData);
+
+      // Modal close handlers
+      document.getElementById('modal-close').addEventListener('click', () => {
+        document.getElementById('detail-modal').style.display = 'none';
+      });
+
+      document.getElementById('detail-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'detail-modal') {
+          document.getElementById('detail-modal').style.display = 'none';
+        }
+      });
+
+      loadData();
+    });
+  </script>
+  <script src="export-pdf.js"></script>
+</body>
+</html>

@@ -634,8 +634,9 @@
       </div>
     </div>
     <div class="nav-actions">
-      <button class="btn btn-secondary" onclick="loadSubsData(true)">🔄 Refresh</button>
+      <button class="btn btn-secondary" onclick="exportToPDF()" title="Download as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
+      <button class="btn btn-secondary" onclick="loadSubsData(true)">🔄 Refresh</button>
       <a href="index.html" class="btn btn-primary">← Dashboard</a>
     </div>
   </header>
@@ -1175,10 +1176,39 @@
       document.body.removeChild(link);
     }
 
+    function exportToPDF() {
+      const filtered = getFilteredData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const head = [['Contact No', 'User ID', 'Plan ID', 'Price', 'Started At', 'Expire At', 'Payment Method', 'Status']];
+      const body = filtered.map(row => [
+        row.contact_no || '-',
+        row.user_id || '-',
+        row.plan_id || 'Standard Plan',
+        '₹' + (parseFloat(row.price) || 0).toLocaleString('en-IN'),
+        formatIST(row.started_at),
+        formatIST(row.expire_at),
+        row.method || 'ONLINE',
+        row.status || 'ACTIVE'
+      ]);
+
+      exportTableToPDF({
+        title: 'Active Subscribers & No Orders Placed Yet',
+        subtitle: `Filter: ${currentFilter.toUpperCase()} • ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `active_subscribers_no_orders_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     // Initial load
     document.addEventListener('DOMContentLoaded', () => {
       loadSubsData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

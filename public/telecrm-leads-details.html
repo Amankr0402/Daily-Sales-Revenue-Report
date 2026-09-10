@@ -674,6 +674,7 @@
     </div>
     <div class="nav-actions">
       <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
       <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
     </div>
@@ -1401,6 +1402,35 @@
       applyFilters();
     });
 
+    document.getElementById('btn-download-pdf').onclick = () => {
+      if (filteredLeads.length === 0) {
+        alert('No leads to download');
+        return;
+      }
+
+      const itemsToExport = filteredLeads.slice(0, 500);
+      const head = [['Lead ID', 'Name', 'Phone', 'Created At', 'Child Name', 'Age', 'Serviceable', 'Source', 'City']];
+      const body = itemsToExport.map(l => [
+        l.id || '-',
+        l.name || 'Anonymous',
+        l.phone || '-',
+        l.createdAt || '-',
+        l.childName || '-',
+        l.childAge || '-',
+        l.serviceable || 'NO',
+        l.source || 'Organic',
+        l.hub || '-'
+      ]);
+
+      exportTableToPDF({
+        title: 'TeleCRM Leads Generated Yesterday',
+        subtitle: `Filter: ${currentFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filteredLeads.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `telecrm_leads_${currentFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    };
+
     // Refresh Button
     document.getElementById('btn-refresh').onclick = () => {
       loadData(true);
@@ -1411,5 +1441,6 @@
       loadData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

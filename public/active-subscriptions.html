@@ -563,6 +563,7 @@
     </div>
     <div class="nav-actions">
       <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
       <button class="btn btn-primary" id="btn-refresh">🔄 Refresh</button>
     </div>
@@ -1261,6 +1262,30 @@
     });
 
     document.getElementById('btn-refresh').addEventListener('click', () => loadData(true));
+    document.getElementById('btn-download-pdf').addEventListener('click', () => {
+      const itemsToExport = filteredData.slice(0, 500);
+      const head = [['Contact No', 'Plan ID', 'Subscription ID', 'Type', 'Price', 'Started At', 'Expire At', 'Method', 'Status']];
+      const body = itemsToExport.map(s => [
+        s.contact_no || '-',
+        s.plan_id || 'Standard Plan',
+        s.subscription_id || '-',
+        s.type || '-',
+        '₹' + (parseFloat(s.price) || 0).toLocaleString('en-IN'),
+        formatIST(s.started_at),
+        formatIST(s.expire_at),
+        s.method || 'ONLINE',
+        s.status || 'ACTIVE'
+      ]);
+
+      exportTableToPDF({
+        title: currentTimeframe === 'last7days' ? 'New Subscribers (Last 7 Days)' : 'Total Active Subscriptions',
+        subtitle: `Showing ${itemsToExport.length} of ${filteredData.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `active_subscriptions_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    });
+
     document.getElementById('btn-download-csv').addEventListener('click', () => {
       if (currentTimeframe === 'last7days') {
         window.location.href = '/data/new_subs_7d_details.csv';
@@ -1281,5 +1306,6 @@
     // Initialize
     loadData();
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>

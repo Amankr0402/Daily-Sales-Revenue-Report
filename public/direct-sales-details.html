@@ -619,8 +619,10 @@
     </div>
     <div class="nav-actions">
       <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
-      <button class="btn btn-secondary" onclick="loadData(true)">↻ Refresh Data</button>
-      <button class="btn btn-primary" onclick="exportToCSV()">📥 Export Filtered CSV</button>
+      <a href="disputed-sales-details.html" class="btn btn-secondary" style="border-color:var(--amber);color:#b45309;background:#fffbeb;">⚠️ Disputed Sales</a>
+      <button class="btn btn-secondary" onclick="exportToPDF()" title="Download as PDF">📄 Download PDF</button>
+      <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export Filtered CSV</button>
+      <button class="btn btn-secondary" onclick="loadData(true)">↻ Refresh</button>
     </div>
   </header>
 
@@ -656,13 +658,13 @@
         <div class="kpi-sub" id="kpi-net-cnt">Counted in Total Revenue</div>
       </div>
 
-      <div class="kpi-card amber">
+      <div class="kpi-card amber" onclick="window.open('disputed-sales-details.html?filter=yesterday', '_blank')" style="cursor:pointer;" title="Click to view dedicated Disputed Sales Table in a new tab">
         <div class="kpi-label">
-          <span>Yesterday Inside Overlap</span>
-          <span>🔀</span>
+          <span>Disputed Sales (Yesterday)</span>
+          <span style="font-size:11px;color:var(--primary);font-weight:800;">⚠️ ↗</span>
         </div>
         <div class="kpi-value" id="kpi-overlap-amount" style="color: #d97706;">₹0</div>
-        <div class="kpi-sub" id="kpi-overlap-cnt">Collided with Inside Sales</div>
+        <div class="kpi-sub" id="kpi-overlap-cnt">Deals in both Inside &amp; Direct</div>
       </div>
 
       <div class="kpi-card blue">
@@ -1410,9 +1412,38 @@
       document.body.removeChild(link);
     }
 
+    function exportToPDF() {
+      const filtered = getFilteredData();
+      if (!filtered.length) {
+        alert('No data to export!');
+        return;
+      }
+
+      const itemsToExport = filtered.slice(0, 500);
+      const head = [['User Name', 'Phone', 'Plan', 'Amount', 'Payment Date', 'Coupon', 'Channel']];
+      const body = itemsToExport.map(d => [
+        d.userName || 'Customer',
+        d.phone || '-',
+        d.plan || '-',
+        '₹' + (parseFloat(d.amount) || 0).toLocaleString('en-IN'),
+        d.paymentDate || '-',
+        d.coupon || '-',
+        d.collision ? 'OVERLAP' : 'DIRECT'
+      ]);
+
+      exportTableToPDF({
+        title: 'Direct Sales & Orders Details',
+        subtitle: `Timeframe: ${activeFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `direct_sales_${activeFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        head: head,
+        body: body
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadData();
     });
   </script>
+  <script src="export-pdf.js"></script>
 </body>
 </html>
