@@ -727,6 +727,16 @@
       <button class="time-pill" id="pill-yesterday" onclick="setDateFilter('yesterday')">
         ⚡ Yesterday <span class="pill-badge" id="badge-count-yesterday">0</span>
       </button>
+      <button class="time-pill" id="pill-custom" onclick="setDateFilter('custom')">
+        📆 Select Range
+      </button>
+      <div class="custom-range-box" id="custom-range-box" style="display: none; align-items: center; gap: 8px; background: #f8fafc; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);">
+        <span style="font-size: 11.5px; font-weight: 700; color: var(--muted);">From:</span>
+        <input type="date" id="date-from" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; outline: none; font-weight: 600; background: #ffffff; color: var(--text);">
+        <span style="font-size: 11.5px; font-weight: 700; color: var(--muted);">To:</span>
+        <input type="date" id="date-to" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; outline: none; font-weight: 600; background: #ffffff; color: var(--text);">
+        <button class="btn btn-primary" style="padding: 4px 10px; font-size: 11.5px;" onclick="applyCustomRange()">Apply</button>
+      </div>
       <!-- Date specific buttons added dynamically -->
     </div>
 
@@ -1089,9 +1099,38 @@
       }
     }
 
+    let customStartDate = '';
+    let customEndDate = '';
+
+    function applyCustomRange() {
+      const f = document.getElementById('date-from').value;
+      const t = document.getElementById('date-to').value;
+      if (!f || !t) { alert('Please select both From and To dates'); return; }
+      if (f > t) { alert('From Date cannot be later than To Date'); return; }
+      customStartDate = f;
+      customEndDate = t;
+      setDateFilter('custom');
+    }
+
     function setDateFilter(f) {
       currentDateFilter = f;
       currentPage = 1;
+
+      const customBox = document.getElementById('custom-range-box');
+      if (customBox) {
+        if (f === 'custom') {
+          customBox.style.display = 'inline-flex';
+          if (!document.getElementById('date-from').value && availableDates.length > 0) {
+            const sortedDates = [...availableDates].sort();
+            document.getElementById('date-from').value = sortedDates[0];
+            document.getElementById('date-to').value = sortedDates[sortedDates.length - 1];
+            customStartDate = sortedDates[0];
+            customEndDate = sortedDates[sortedDates.length - 1];
+          }
+        } else {
+          customBox.style.display = 'none';
+        }
+      }
 
       // Update URL without reload
       const url = new URL(window.location);
@@ -1118,6 +1157,8 @@
         document.getElementById('pill-all')?.classList.add('active');
       } else if (currentDateFilter === 'yesterday') {
         document.getElementById('pill-yesterday')?.classList.add('active');
+      } else if (currentDateFilter === 'custom') {
+        document.getElementById('pill-custom')?.classList.add('active');
       } else {
         document.getElementById(`pill-date-${currentDateFilter}`)?.classList.add('active');
       }
@@ -1134,9 +1175,13 @@
       const banner = document.getElementById('active-filter-banner');
       const bannerText = document.getElementById('active-filter-text');
       if (currentDateFilter !== 'all') {
-        const targetDate = currentDateFilter === 'yesterday' ? yesterdayDateStr : currentDateFilter;
         banner.style.display = 'flex';
-        bannerText.textContent = `⚡ Showing filtered view: New users joined on ${targetDate}`;
+        if (currentDateFilter === 'custom') {
+          bannerText.innerHTML = `📆 Showing filtered view: New users joined from <strong>${customStartDate}</strong> to <strong>${customEndDate}</strong>`;
+        } else {
+          const targetDate = currentDateFilter === 'yesterday' ? yesterdayDateStr : currentDateFilter;
+          bannerText.textContent = `⚡ Showing filtered view: New users joined on ${targetDate}`;
+        }
       } else {
         banner.style.display = 'none';
       }
@@ -1150,7 +1195,12 @@
       filteredUsers = allUsers.filter(u => {
         // Date filter
         if (currentDateFilter === 'yesterday' && u.dateStr !== yesterdayDateStr) return false;
-        if (currentDateFilter !== 'all' && currentDateFilter !== 'yesterday' && u.dateStr !== currentDateFilter) return false;
+        if (currentDateFilter === 'custom') {
+          if (customStartDate && u.dateStr < customStartDate) return false;
+          if (customEndDate && u.dateStr > customEndDate) return false;
+        } else if (currentDateFilter !== 'all' && currentDateFilter !== 'yesterday' && u.dateStr !== currentDateFilter) {
+          return false;
+        }
 
         // State filter
         if (stateVal && u.state.toLowerCase() !== stateVal.toLowerCase()) return false;

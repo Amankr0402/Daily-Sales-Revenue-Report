@@ -255,6 +255,31 @@
       border-color: var(--primary);
     }
 
+    .custom-range-box {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .custom-range-box.show {
+      display: inline-flex;
+    }
+
+    .custom-range-box input[type="date"] {
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      outline: none;
+      font-weight: 600;
+      background: #ffffff;
+      color: var(--text);
+    }
+
     .search-row {
       display: flex;
       gap: 12px;
@@ -630,6 +655,15 @@
         <button class="pill-btn active" data-filter="all" onclick="setFilter('all')">All Refunds (<span id="count-all">0</span>)</button>
         <button class="pill-btn" data-filter="yesterday" onclick="setFilter('yesterday')">📅 Processed Yesterday (<span id="count-yesterday">0</span>)</button>
         <button class="pill-btn" data-filter="last7days" onclick="setFilter('last7days')">⏳ Last 7 Days (<span id="count-7d">0</span>)</button>
+        <button class="pill-btn" data-filter="last30days" onclick="setFilter('last30days')">🗓️ Last 1 Month (<span id="count-30d">0</span>)</button>
+        <button class="pill-btn" data-filter="custom" id="pill-custom" onclick="setFilter('custom')">📆 Select Range</button>
+        <div class="custom-range-box" id="custom-range-box">
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--muted);">From:</span>
+          <input type="date" id="date-from">
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--muted);">To:</span>
+          <input type="date" id="date-to">
+          <button class="btn btn-primary" style="padding: 4px 10px; font-size: 11.5px;" onclick="applyCustomRange()">Apply</button>
+        </div>
       </div>
       <div class="search-row">
         <div class="search-box">
@@ -693,6 +727,8 @@
     let allRefunds = [];
     let currentFilter = 'all';
     let searchQuery = '';
+    let customStartDate = '';
+    let customEndDate = '';
 
     // Check query params for initial filter
     const urlParams = new URLSearchParams(window.location.search);
@@ -833,10 +869,15 @@
       const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
       const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
 
+      // 30 days rolling range up to targetYesterday
+      const thirtyDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 29 * 24 * 60 * 60 * 1000);
+      const thirtyDaysISO = thirtyDaysAgo.toISOString().split('T')[0];
+
       let ydTotal = 0;
       let ydCount = 0;
       let r7Total = 0;
       let r7Count = 0;
+      let r30Count = 0;
       let allTotal = 0;
 
       allRefunds.forEach(r => {
@@ -848,6 +889,9 @@
         if (r._isoDate >= sevenDaysISO && r._isoDate <= targetYesterday) {
           r7Total += r._amount;
           r7Count++;
+        }
+        if (r._isoDate >= thirtyDaysISO && r._isoDate <= targetYesterday) {
+          r30Count++;
         }
       });
 
@@ -865,12 +909,17 @@
       document.getElementById('count-all').textContent = allRefunds.length;
       document.getElementById('count-yesterday').textContent = ydCount;
       document.getElementById('count-7d').textContent = r7Count;
+      const count30El = document.getElementById('count-30d');
+      if (count30El) count30El.textContent = r30Count;
     }
 
     function filterData() {
       const targetYesterday = getYesterdayISO();
       const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
       const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
+
+      const thirtyDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 29 * 24 * 60 * 60 * 1000);
+      const thirtyDaysISO = thirtyDaysAgo.toISOString().split('T')[0];
 
       const q = searchQuery.toLowerCase().trim();
 
@@ -879,6 +928,11 @@
           if (item._isoDate !== targetYesterday) return false;
         } else if (currentFilter === 'last7days') {
           if (item._isoDate < sevenDaysISO || item._isoDate > targetYesterday) return false;
+        } else if (currentFilter === 'last30days') {
+          if (item._isoDate < thirtyDaysISO || item._isoDate > targetYesterday) return false;
+        } else if (currentFilter === 'custom') {
+          if (customStartDate && item._isoDate < customStartDate) return false;
+          if (customEndDate && item._isoDate > customEndDate) return false;
         }
 
         if (q) {
@@ -965,6 +1019,43 @@
       document.querySelectorAll('.pill-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-filter') === filterKey);
       });
+      const customBox = document.getElementById('custom-range-box');
+      if (customBox) {
+        if (filterKey === 'custom') {
+          customBox.classList.add('show');
+          if (!document.getElementById('date-from').value) {
+            const yd = getYesterdayISO();
+            const dFrom = new Date(new Date(yd + 'T00:00:00').getTime() - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            document.getElementById('date-from').value = dFrom;
+            document.getElementById('date-to').value = yd;
+            customStartDate = dFrom;
+            customEndDate = yd;
+          }
+        } else {
+          customBox.classList.remove('show');
+        }
+      }
+      renderTable();
+    }
+
+    function applyCustomRange() {
+      const f = document.getElementById('date-from').value;
+      const t = document.getElementById('date-to').value;
+      if (!f || !t) {
+        alert('Please select both From and To dates');
+        return;
+      }
+      if (f > t) {
+        alert('From Date cannot be later than To Date');
+        return;
+      }
+      customStartDate = f;
+      customEndDate = t;
+      currentFilter = 'custom';
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === 'custom');
+      });
+      document.getElementById('custom-range-box').classList.add('show');
       renderTable();
     }
 
@@ -1113,10 +1204,14 @@
         row._contact || '—'
       ]);
 
+      const filterLabel = currentFilter === 'custom' 
+        ? `Custom Range (${customStartDate || 'Start'} to ${customEndDate || 'End'})` 
+        : currentFilter.toUpperCase();
+
       window.exportTableToPDF({
         title: 'Processed Refunds Details',
-        subtitle: `Filter: ${activeFilter.toUpperCase()} • Showing ${itemsToExport.length} of ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
-        filename: `refunds_${activeFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
+        subtitle: `Filter: ${filterLabel} • Showing ${itemsToExport.length} of ${filtered.length} records • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        filename: `refunds_${currentFilter}_${new Date().toISOString().slice(0, 10)}.pdf`,
         head: head,
         body: body
       });
