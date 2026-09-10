@@ -780,6 +780,61 @@ app.get('/api/active-subscriptions-csv', async (req, res) => {
   }
 });
 
+/* ---------- New Subscribers 7D Details CSV Endpoint ---------- */
+const NEW_SUBS_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/1fab800f-1d69-4e26-b356-418144d90443.csv';
+const NEW_SUBS_7D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'new_subs_7d_details.csv');
+
+app.get('/api/new-subs-7d-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    if (fs.existsSync(NEW_SUBS_7D_DETAILS_CACHE_FILE)) {
+      const stats = fs.statSync(NEW_SUBS_7D_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30 && req.query.refresh !== 'true') {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(NEW_SUBS_7D_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(NEW_SUBS_7D_DETAILS_URL);
+      if (csvData && csvData.length > 100) {
+        fs.writeFileSync(NEW_SUBS_7D_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase new subs 7d details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(NEW_SUBS_7D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(NEW_SUBS_7D_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('New subscribers details unavailable');
+  } catch (err) {
+    if (fs.existsSync(NEW_SUBS_7D_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(NEW_SUBS_7D_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
 /* ---------- New Users Delivery Status CSV Endpoint ---------- */
 const NEW_USERS_DELIVERY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/46622b98-120c-473a-881b-d2aebe879fce.csv';
 const NEW_USERS_DELIVERY_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'new_users_delivery_status_details.csv');

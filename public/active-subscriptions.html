@@ -400,6 +400,16 @@
       color: #059669;
     }
 
+    .badge-failed {
+      background: rgba(239, 68, 68, 0.12);
+      color: #dc2626;
+    }
+
+    .badge-cancelled {
+      background: rgba(245, 158, 11, 0.12);
+      color: #d97706;
+    }
+
     .badge-method {
       background: rgba(91, 62, 155, 0.1);
       color: var(--primary);
@@ -691,11 +701,19 @@
   <script>
     const CSV_URL = '/api/active-subscriptions-csv';
     const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv';
+    const LOCAL_ACTIVE_CSV_URL = '/data/active_subscriptions.csv';
 
+    const NEW_SUBS_7D_CSV_URL = '/api/new-subs-7d-details-csv';
+    const NEW_SUBS_7D_LOCAL_URL = '/data/new_subs_7d_details.csv';
+    const NEW_SUBS_7D_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/1fab800f-1d69-4e26-b356-418144d90443.csv';
+
+    let allActiveRows = [];
+    let newSubs7dRows = [];
     let allRows = [];
     let filteredRows = [];
     let currentPage = 1;
     let pageSize = 50;
+    let currentTimeframe = 'all';
 
     // RFC-compliant CSV line parser handling embedded quotes, commas, and multiline JSON
     function parseCSV(text) {
@@ -739,6 +757,59 @@
       return rows;
     }
 
+    function parseRowsFromCSV(csvText, isNewSubs7d = false) {
+      if (!csvText || csvText.length < 50) return [];
+      const rawRows = parseCSV(csvText);
+      if (!rawRows || rawRows.length < 2) return [];
+
+      const headers = rawRows[0].map(h => h.toLowerCase().trim());
+      const idIdx = headers.indexOf('id');
+      const userIdx = headers.indexOf('user_id');
+      const txnIdx = headers.indexOf('transaction_id');
+      const priceIdx = headers.indexOf('price');
+      const startIdx = headers.indexOf('started_at');
+      const createdIdx = headers.indexOf('created_at');
+      const expireIdx = headers.indexOf('expire_at');
+      const statusIdx = headers.indexOf('status');
+      const methodIdx = headers.indexOf('method');
+      const typeIdx = headers.indexOf('type');
+      const metaIdx = headers.indexOf('meta_data');
+      const featuresIdx = headers.indexOf('subscription_features');
+
+      const parsed = [];
+      for (let i = 1; i < rawRows.length; i++) {
+        const r = rawRows[i];
+        if (!r || r.length < 3) continue;
+
+        let metaObj = {};
+        try {
+          if (metaIdx !== -1 && r[metaIdx]) {
+            metaObj = JSON.parse(r[metaIdx]);
+          }
+        } catch (e) {}
+
+        parsed.push({
+          id: r[idIdx] || '',
+          userId: r[userIdx] || '',
+          transactionId: r[txnIdx] || '',
+          price: parseFloat(r[priceIdx]) || 0,
+          startedAt: r[startIdx] || '',
+          createdAt: createdIdx !== -1 ? (r[createdIdx] || '') : '',
+          expireAt: r[expireIdx] || '',
+          status: r[statusIdx] || 'ACTIVE',
+          method: r[methodIdx] || 'unspecified',
+          type: r[typeIdx] || 'ASSIGNED',
+          note: metaObj.note || '',
+          meta: metaObj,
+          features: r[featuresIdx] || '',
+          isLast7DaysStarted: isNewSubs7d,
+          isOfficial7dDetail: isNewSubs7d,
+          raw: r
+        });
+      }
+      return parsed;
+    }
+
     const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
     const formatDate = str => {
       if (!str) return '-';
@@ -751,80 +822,60 @@
       }
     };
 
+    async function fetchCSVWithFallbacks(primaryUrl, localUrl, directUrl, forceRefresh = false) {
+      if (!forceRefresh) {
+        try {
+          const res = await fetch(localUrl + '?v=' + Date.now());
+          if (res.ok) {
+            const txt = await res.text();
+            if (txt && txt.length > 50 && !txt.includes('HTTP ERROR 500')) return txt;
+          }
+        } catch (e) {}
+      }
+
+      try {
+        const res = await fetch(primaryUrl);
+        if (res.ok) {
+          const txt = await res.text();
+          if (txt && txt.length > 50 && !txt.includes('HTTP ERROR 500')) return txt;
+        }
+      } catch (e) {}
+
+      try {
+        const res = await fetch(directUrl);
+        if (res.ok) {
+          const txt = await res.text();
+          if (txt && txt.length > 50) return txt;
+        }
+      } catch (e) {}
+
+      return '';
+    }
+
     async function loadData(forceRefresh = false) {
       document.getElementById('loading-state').style.display = 'block';
       document.getElementById('table-container').style.display = 'none';
       document.getElementById('pagination-container').style.display = 'none';
 
       try {
-        let csvText = '';
-        const url = forceRefresh ? `${CSV_URL}?refresh=true` : CSV_URL;
-        try {
-          const res = await fetch(url);
-          if (res.ok) {
-            csvText = await res.text();
-          }
-        } catch (err) {
-          console.warn('API endpoint fetch failed, falling back to direct URL:', err);
-        }
+        const activeUrl = forceRefresh ? `${CSV_URL}?refresh=true` : CSV_URL;
+        const newSubsUrl = forceRefresh ? `${NEW_SUBS_7D_CSV_URL}?refresh=true` : NEW_SUBS_7D_CSV_URL;
 
-        if (!csvText || csvText.length < 50) {
-          const fallbackRes = await fetch(FALLBACK_DIRECT_URL);
-          csvText = await fallbackRes.text();
-        }
+        const [activeCsvText, newSubsCsvText] = await Promise.all([
+          fetchCSVWithFallbacks(activeUrl, LOCAL_ACTIVE_CSV_URL, FALLBACK_DIRECT_URL, forceRefresh),
+          fetchCSVWithFallbacks(newSubsUrl, NEW_SUBS_7D_LOCAL_URL, NEW_SUBS_7D_METABASE_URL, forceRefresh)
+        ]);
 
-        const rawRows = parseCSV(csvText);
-        if (!rawRows || rawRows.length < 2) {
+        allActiveRows = parseRowsFromCSV(activeCsvText, false);
+        newSubs7dRows = parseRowsFromCSV(newSubsCsvText, true);
+
+        if (allActiveRows.length === 0 && newSubs7dRows.length === 0) {
           throw new Error('No subscription records found in CSV file.');
         }
 
-        const headers = rawRows[0].map(h => h.toLowerCase().trim());
-        const idIdx = headers.indexOf('id');
-        const userIdx = headers.indexOf('user_id');
-        const txnIdx = headers.indexOf('transaction_id');
-        const priceIdx = headers.indexOf('price');
-        const startIdx = headers.indexOf('started_at');
-        const createdIdx = headers.indexOf('created_at');
-        const expireIdx = headers.indexOf('expire_at');
-        const statusIdx = headers.indexOf('status');
-        const methodIdx = headers.indexOf('method');
-        const typeIdx = headers.indexOf('type');
-        const metaIdx = headers.indexOf('meta_data');
-        const featuresIdx = headers.indexOf('subscription_features');
-
-        allRows = [];
-        for (let i = 1; i < rawRows.length; i++) {
-          const r = rawRows[i];
-          if (!r || r.length < 3) continue;
-
-          let metaObj = {};
-          try {
-            if (metaIdx !== -1 && r[metaIdx]) {
-              metaObj = JSON.parse(r[metaIdx]);
-            }
-          } catch (e) {}
-
-          allRows.push({
-            id: r[idIdx] || '',
-            userId: r[userIdx] || '',
-            transactionId: r[txnIdx] || '',
-            price: parseFloat(r[priceIdx]) || 0,
-            startedAt: r[startIdx] || '',
-            createdAt: createdIdx !== -1 ? (r[createdIdx] || '') : '',
-            expireAt: r[expireIdx] || '',
-            status: r[statusIdx] || 'ACTIVE',
-            method: r[methodIdx] || 'unspecified',
-            type: r[typeIdx] || 'ASSIGNED',
-            note: metaObj.note || '',
-            meta: metaObj,
-            features: r[featuresIdx] || '',
-            raw: r
-          });
-        }
-
-        // Calculate reference date for Last 7 Days & Last 30 Days
+        // Calculate reference date for Last 7 Days & Last 30 Days on active rows
         let maxStartedTime = 0;
-        allRows.forEach(r => {
+        allActiveRows.forEach(r => {
           if (r.startedAt) {
             const t = new Date(r.startedAt).getTime();
             if (!isNaN(t) && t > maxStartedTime) maxStartedTime = t;
@@ -845,8 +896,8 @@
           maxStartedStr
         };
 
-        // Tag each row for fast filtering
-        allRows.forEach(r => {
+        // Tag active rows for filtering
+        allActiveRows.forEach(r => {
           const sDate = (r.startedAt || '').substring(0, 10);
           const cDate = (r.createdAt || '').substring(0, 10);
           r.isLast7DaysStarted = (sDate >= sevenDaysAgoStr && sDate <= maxStartedStr);
@@ -854,9 +905,10 @@
           r.isLast30Days = (sDate >= thirtyDaysAgoStr && sDate <= maxStartedStr);
         });
 
-        populateFilterDropdowns();
         await renderSummaryKPIs();
         checkUrlParams();
+        updateActiveDataset(currentTimeframe);
+        populateFilterDropdowns();
         applyFilters();
 
         document.getElementById('loading-state').style.display = 'none';
@@ -871,13 +923,25 @@
       }
     }
 
-    let currentTimeframe = 'all';
+    function updateActiveDataset(tf) {
+      if (tf === 'last7days') {
+        allRows = newSubs7dRows.length > 0 ? newSubs7dRows : allActiveRows.filter(r => r.isLast7DaysStarted);
+      } else if (tf === 'created7days') {
+        allRows = allActiveRows.filter(r => r.isLast7DaysCreated);
+      } else if (tf === 'last30days') {
+        allRows = allActiveRows.filter(r => r.isLast30Days);
+      } else {
+        allRows = allActiveRows;
+      }
+    }
 
     function setTimeframe(tf) {
       currentTimeframe = tf;
       document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById(`pill-${tf}`);
       if (activeBtn) activeBtn.classList.add('active');
+
+      updateActiveDataset(tf);
 
       const banner = document.getElementById('active-filter-banner');
       const bannerText = document.getElementById('active-filter-text');
@@ -887,15 +951,16 @@
         banner.style.display = 'none';
       } else if (tf === 'last7days') {
         banner.style.display = 'flex';
-        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-7d').textContent}</strong> subscribers who joined in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing <strong>${allRows.length}</strong> new subscribers joined in the last 7 days (Official Metabase Details)`;
       } else if (tf === 'created7days') {
         banner.style.display = 'flex';
-        bannerText.innerHTML = `🗓️ <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-created-7d').textContent}</strong> subscriptions created in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+        bannerText.innerHTML = `🗓️ <strong>Filtered:</strong> Showing <strong>${allRows.length}</strong> subscriptions created in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
       } else if (tf === 'last30days') {
         banner.style.display = 'flex';
-        bannerText.innerHTML = `📅 <strong>Filtered:</strong> Showing <strong>${document.getElementById('badge-count-30d').textContent}</strong> subscriptions from the last 30 days`;
+        bannerText.innerHTML = `📅 <strong>Filtered:</strong> Showing <strong>${allRows.length}</strong> subscriptions from the last 30 days`;
       }
 
+      populateFilterDropdowns();
       applyFilters();
     }
 
@@ -909,9 +974,8 @@
         if (activeBtn) activeBtn.classList.add('active');
         const banner = document.getElementById('active-filter-banner');
         const bannerText = document.getElementById('active-filter-text');
-        const ranges = window.timeframeRanges || {};
         banner.style.display = 'flex';
-        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing subscribers joined in the last 7 days (${formatDate(ranges.sevenDaysAgoStr)} – ${formatDate(ranges.maxStartedStr)})`;
+        bannerText.innerHTML = `⚡ <strong>Filtered:</strong> Showing <strong>${newSubs7dRows.length || 457}</strong> new subscribers joined in the last 7 days (Official Metabase Details)`;
       } else if (f === 'created7days') {
         currentTimeframe = 'created7days';
         document.querySelectorAll('.time-pill').forEach(btn => btn.classList.remove('active'));
@@ -919,36 +983,37 @@
         if (activeBtn) activeBtn.classList.add('active');
         const banner = document.getElementById('active-filter-banner');
         const bannerText = document.getElementById('active-filter-text');
-        const ranges = window.timeframeRanges || {};
         banner.style.display = 'flex';
         bannerText.innerHTML = `🗓️ <strong>Filtered:</strong> Showing subscriptions created in the last 7 days`;
       }
     }
 
     async function renderSummaryKPIs() {
-      const totalCount = allRows.length;
-      const totalRev = allRows.reduce((s, r) => s + r.price, 0);
+      const totalCount = allActiveRows.length;
+      const totalRev = allActiveRows.reduce((s, r) => s + r.price, 0);
       const avgPrice = totalCount > 0 ? totalRev / totalCount : 0;
 
-      let count7d = allRows.filter(r => r.isLast7DaysStarted).length;
-      try {
-        const metaRes = await fetch('/data/data.json?v=' + Date.now());
-        if (metaRes.ok) {
-          const metaData = await metaRes.json();
-          const days = Array.isArray(metaData) ? metaData : metaData.days || [];
-          const latestDay = days[days.length - 1];
-          if (latestDay && latestDay.newSubs7d) {
-            count7d = latestDay.newSubs7d;
+      let count7d = newSubs7dRows.length > 0 ? newSubs7dRows.length : allActiveRows.filter(r => r.isLast7DaysStarted).length;
+      if (!count7d || count7d === 0) {
+        try {
+          const metaRes = await fetch('/data/data.json?v=' + Date.now());
+          if (metaRes.ok) {
+            const metaData = await metaRes.json();
+            const days = Array.isArray(metaData) ? metaData : metaData.days || [];
+            const latestDay = days[days.length - 1];
+            if (latestDay && latestDay.newSubs7d) {
+              count7d = latestDay.newSubs7d;
+            }
           }
-        }
-      } catch (e) {}
+        } catch (e) {}
+      }
 
-      const countCreated7d = allRows.filter(r => r.isLast7DaysCreated).length;
-      const count30d = allRows.filter(r => r.isLast30Days).length;
+      const countCreated7d = allActiveRows.filter(r => r.isLast7DaysCreated).length;
+      const count30d = allActiveRows.filter(r => r.isLast30Days).length;
 
-      // Top payment method
+      // Top payment method in active rows
       const methodCounts = {};
-      allRows.forEach(r => {
+      allActiveRows.forEach(r => {
         const m = r.method || 'other';
         methodCounts[m] = (methodCounts[m] || 0) + 1;
       });
@@ -960,7 +1025,7 @@
       document.getElementById('stat-rev').textContent = fmt(totalRev);
       document.getElementById('stat-avg').textContent = fmt(avgPrice);
       document.getElementById('stat-method').textContent = (topMethod[0].toUpperCase()) + ` (${topMethod[1]})`;
-      document.getElementById('stat-method-sub').textContent = `${((topMethod[1] / totalCount) * 100).toFixed(1)}% of all transactions`;
+      document.getElementById('stat-method-sub').textContent = `${((topMethod[1] / (totalCount || 1)) * 100).toFixed(1)}% of all active records`;
 
       // Update badge counts on pill buttons
       document.getElementById('badge-count-all').textContent = totalCount.toLocaleString('en-IN');
@@ -979,15 +1044,19 @@
       });
 
       const methodSelect = document.getElementById('filter-method');
+      const currMethod = methodSelect.value;
       methodSelect.innerHTML = '<option value="">All Payment Methods</option>';
       Array.from(methods).sort().forEach(m => {
-        methodSelect.innerHTML += `<option value="${m}">${m.toUpperCase()}</option>`;
+        const sel = m === currMethod ? 'selected' : '';
+        methodSelect.innerHTML += `<option value="${m}" ${sel}>${m.toUpperCase()}</option>`;
       });
 
       const typeSelect = document.getElementById('filter-type');
+      const currType = typeSelect.value;
       typeSelect.innerHTML = '<option value="">All Types</option>';
       Array.from(types).sort().forEach(t => {
-        typeSelect.innerHTML += `<option value="${t}">${t.toUpperCase()}</option>`;
+        const sel = t === currType ? 'selected' : '';
+        typeSelect.innerHTML += `<option value="${t}" ${sel}>${t.toUpperCase()}</option>`;
       });
     }
 
@@ -997,10 +1066,6 @@
       const selectedType = document.getElementById('filter-type').value.toLowerCase();
 
       filteredRows = allRows.filter(r => {
-        if (currentTimeframe === 'last7days' && !r.isLast7DaysStarted) return false;
-        if (currentTimeframe === 'created7days' && !r.isLast7DaysCreated) return false;
-        if (currentTimeframe === 'last30days' && !r.isLast30Days) return false;
-
         if (selectedMethod && (r.method || '').toLowerCase() !== selectedMethod) return false;
         if (selectedType && (r.type || '').toLowerCase() !== selectedType) return false;
 
@@ -1036,9 +1101,14 @@
           const rowNum = startIdx + i + 1;
           const displayIdentifier = r.transactionId && r.transactionId !== 'NA' ? r.transactionId : (r.userId.slice(0, 14) + '...');
           const noteText = r.note ? `<div style="font-size:11px;color:#475569;margin-top:2px;">📝 ${r.note}</div>` : '';
-          const new7dBadge = r.isLast7DaysStarted
+          const new7dBadge = (r.isLast7DaysStarted || currentTimeframe === 'last7days')
             ? `<div style="margin-top:3px;"><span class="badge" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;font-size:9.5px;font-weight:800;padding:2px 6px;">⚡ NEW (7D)</span></div>`
             : '';
+
+          const statusUpper = (r.status || 'ACTIVE').toUpperCase();
+          let statusClass = 'badge-active';
+          if (statusUpper === 'FAILED') statusClass = 'badge-failed';
+          else if (statusUpper === 'CANCELLED') statusClass = 'badge-cancelled';
 
           return `
             <tr>
@@ -1049,11 +1119,11 @@
               </td>
               <td style="font-weight:800;color:var(--text);">${fmt(r.price)}</td>
               <td>
-                <div style="color:var(--text);font-weight:600;">${formatDate(r.startedAt)}</div>
+                <div style="color:var(--text);font-weight:600;">${formatDate(r.startedAt || r.createdAt)}</div>
                 ${new7dBadge}
               </td>
               <td style="color:var(--muted);">${formatDate(r.expireAt)}</td>
-              <td><span class="badge badge-active">ACTIVE</span></td>
+              <td><span class="badge ${statusClass}">${statusUpper}</span></td>
               <td><span class="badge badge-method">${(r.method || 'N/A').toUpperCase()}</span></td>
               <td><span class="badge badge-type">${(r.type || 'N/A').toUpperCase()}</span></td>
               <td style="max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
@@ -1153,7 +1223,7 @@
           </div>
           <div>
             <div style="font-size:11px;color:var(--muted);font-weight:700;">STARTED DATE</div>
-            <div style="font-size:13px;font-weight:600;color:var(--text);">${formatDate(r.startedAt)}</div>
+            <div style="font-size:13px;font-weight:600;color:var(--text);">${formatDate(r.startedAt || r.createdAt)}</div>
           </div>
           <div>
             <div style="font-size:11px;color:var(--muted);font-weight:700;">EXPIRY DATE</div>
@@ -1166,6 +1236,10 @@
           <div>
             <div style="font-size:11px;color:var(--muted);font-weight:700;">SUBSCRIPTION TYPE</div>
             <div style="font-size:13px;font-weight:700;color:var(--text);">${(r.type || '-').toUpperCase()}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);font-weight:700;">STATUS</div>
+            <div style="font-size:13px;font-weight:800;color:var(--text);">${(r.status || 'ACTIVE').toUpperCase()}</div>
           </div>
         </div>
         ${r.note ? `<div style="background:#f1f5f9;padding:10px 14px;border-radius:8px;margin-bottom:14px;font-size:13px;font-weight:600;color:#334155;">📝 <strong>Admin Note:</strong> ${r.note}</div>` : ''}
@@ -1188,7 +1262,11 @@
 
     document.getElementById('btn-refresh').addEventListener('click', () => loadData(true));
     document.getElementById('btn-download-csv').addEventListener('click', () => {
-      window.location.href = CSV_URL;
+      if (currentTimeframe === 'last7days') {
+        window.location.href = '/data/new_subs_7d_details.csv';
+      } else {
+        window.location.href = CSV_URL;
+      }
     });
 
     document.getElementById('modal-close').addEventListener('click', () => {

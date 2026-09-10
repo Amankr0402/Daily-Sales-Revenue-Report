@@ -26,7 +26,11 @@ const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/ques
 const MISSED_LEADS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'missed_leads_details.csv');
 const APP_DOWNLOADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/739c97ae-ef79-4088-ac33-67c4b37ba6fd.csv';
 const TOTAL_ACTIVE_SUBS_URL = 'https://metabase-bkp.theelefant.ai/public/question/ef5cfe31-4213-43e8-8c8d-cbd876733e57.csv';
+const ACTIVE_SUBS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv';
+const ACTIVE_SUBS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'active_subscriptions.csv');
 const NEW_SUBS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/9fc5c23c-8297-4511-8763-bdfb4036b7eb.csv';
+const NEW_SUBS_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/1fab800f-1d69-4e26-b356-418144d90443.csv';
+const NEW_SUBS_7D_DETAILS_FILE = path.join(__dirname, '..', 'data', 'new_subs_7d_details.csv');
 const NEW_USERS_7D_URL = 'https://metabase-bkp.theelefant.ai/public/question/40be1f89-570d-42b8-ab51-243e57425142.csv';
 const NEW_USERS_YESTERDAY_URL = 'https://metabase-bkp.theelefant.ai/public/question/2a2bb684-0dd7-4b90-91d1-9e3de228e1b4.csv';
 const TELECRM_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/30989a6b-c8d3-4e44-abc8-a03dbda8f55b.csv';
@@ -1081,6 +1085,32 @@ async function syncSalesData() {
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache Missed Leads details from Metabase:', err.message);
+  }
+
+  // Fetch and cache New Subscribers in Last 7 Days Details (1fab800f)
+  try {
+    console.log(`⚡ Fetching New Subscribers (Last 7 Days) Detailed List from Metabase...`);
+    const newSubsDetailsCSV = await fetchURLWithRedirect(NEW_SUBS_7D_DETAILS_URL);
+    if (newSubsDetailsCSV && newSubsDetailsCSV.length > 50 && !newSubsDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(NEW_SUBS_7D_DETAILS_FILE, newSubsDetailsCSV, 'utf-8');
+      const linesCount = newSubsDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached New Subscribers 7d details (${Math.max(0, linesCount - 1)} records) to ${NEW_SUBS_7D_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache New Subscribers 7d details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Total Active Subscriptions Detailed Records (06440078)
+  try {
+    console.log(`📦 Fetching Total Active Subscriptions Detailed List from Metabase...`);
+    const actSubsDetailsCSV = await fetchURLWithRedirect(ACTIVE_SUBS_DETAILS_URL);
+    if (actSubsDetailsCSV && actSubsDetailsCSV.length > 50 && !actSubsDetailsCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(ACTIVE_SUBS_DETAILS_FILE, actSubsDetailsCSV, 'utf-8');
+      const linesCount = actSubsDetailsCSV.split('\n').filter(Boolean).length;
+      console.log(`✅ Cached Active Subscriptions details (${Math.max(0, linesCount - 1)} records) to ${ACTIVE_SUBS_DETAILS_FILE}`);
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Active Subscriptions details from Metabase:', err.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');
