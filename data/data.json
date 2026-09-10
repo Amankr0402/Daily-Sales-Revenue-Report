@@ -38194,8 +38194,8 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 485,
-      "Interested": 183,
+      "Connected": 486,
+      "Interested": 184,
       "Paise Dega": 32
     },
     "refunds": {
@@ -38275,11 +38275,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 462,
-      "otpVerified": 457,
-      "serviceable": 328,
-      "serviceableWithPct": "328 (71.0%)",
-      "serviceablePct": "71.0%"
+      "signups": 463,
+      "otpVerified": 458,
+      "serviceable": 329,
+      "serviceableWithPct": "329 (71.1%)",
+      "serviceablePct": "71.1%"
     },
     "directSaleCSV": {
       "count": 1,
