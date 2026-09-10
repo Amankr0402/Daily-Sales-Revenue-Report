@@ -38178,10 +38178,10 @@
     },
     "userBreakdown": {
       "signups": 1079,
-      "otpVerified": 1042,
-      "serviceable": 747,
-      "serviceableWithPct": "747 (69.2%)",
-      "serviceablePct": "69.2%"
+      "otpVerified": 1043,
+      "serviceable": 748,
+      "serviceableWithPct": "748 (69.3%)",
+      "serviceablePct": "69.3%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -38194,8 +38194,8 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 444,
-      "Interested": 163,
+      "Connected": 474,
+      "Interested": 178,
       "Paise Dega": 28
     },
     "refunds": {
@@ -38225,31 +38225,31 @@
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
     "activeSubs": 4704,
-    "newSubs7d": 278,
+    "newSubs7d": 239,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
     "subsExpired7d": 86,
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 111,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 31,
-      "Orders Placed": 31,
-      "Orders - CONFIRMED": 29,
-      "Orders Confirmed": 29,
-      "Orders - READY_TO_SHIP": 3,
-      "Orders Ready to Ship": 3,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 79,
-      "Orders Not Delivered": 77
+      "Orders - PLACED": 28,
+      "Orders Placed": 28,
+      "Orders - CONFIRMED": 26,
+      "Orders Confirmed": 26,
+      "Orders - READY_TO_SHIP": 5,
+      "Orders Ready to Ship": 5,
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 75,
+      "Orders Not Delivered": 74
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 198,
-      "New Subscribers Orders that have been Delivered": 119,
-      "New Subscribers Orders yet to be Delivered": 79,
-      "New Subscribers Orders yet to be Delivered & Delayed": 28
+      "New Subscribers Orders that have been Delivered": 123,
+      "New Subscribers Orders yet to be Delivered": 75,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   },
   {
@@ -38275,11 +38275,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 256,
-      "otpVerified": 251,
-      "serviceable": 179,
-      "serviceableWithPct": "179 (69.9%)",
-      "serviceablePct": "69.9%"
+      "signups": 417,
+      "otpVerified": 412,
+      "serviceable": 293,
+      "serviceableWithPct": "293 (70.3%)",
+      "serviceablePct": "70.3%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -38297,31 +38297,31 @@
     "newUsers7d": 10004,
     "newUsersYesterday": 1002,
     "activeSubs": 4704,
-    "newSubs7d": 278,
+    "newSubs7d": 239,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
     "subsExpired7d": 86,
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 111,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 31,
-      "Orders Placed": 31,
-      "Orders - CONFIRMED": 29,
-      "Orders Confirmed": 29,
-      "Orders - READY_TO_SHIP": 3,
-      "Orders Ready to Ship": 3,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 79,
-      "Orders Not Delivered": 77
+      "Orders - PLACED": 28,
+      "Orders Placed": 28,
+      "Orders - CONFIRMED": 26,
+      "Orders Confirmed": 26,
+      "Orders - READY_TO_SHIP": 5,
+      "Orders Ready to Ship": 5,
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 75,
+      "Orders Not Delivered": 74
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 198,
-      "New Subscribers Orders that have been Delivered": 119,
-      "New Subscribers Orders yet to be Delivered": 79,
-      "New Subscribers Orders yet to be Delivered & Delayed": 28
+      "New Subscribers Orders that have been Delivered": 123,
+      "New Subscribers Orders yet to be Delivered": 75,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
 ]

@@ -810,15 +810,26 @@
       }
     }
 
-    function computeKPIs() {
-      // Get yesterday date string
-      const yesterdayDate = new Date();
-      yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-      const yesterdayISO = yesterdayDate.toISOString().split('T')[0];
+    function getYesterdayISO() {
+      const pDate = urlParams.get('date');
+      if (pDate) return pDate;
 
-      // 7 days ago
-      const sevenDaysAgo = new Date();
-      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const yd = new Date();
+      yd.setDate(yd.getDate() - 1);
+      const ydISO = yd.toISOString().split('T')[0];
+
+      if (allRefunds.some(r => r._isoDate === ydISO)) {
+        return ydISO;
+      }
+      const dates = allRefunds.map(r => r._isoDate).filter(Boolean).sort();
+      return dates.length > 0 ? dates[dates.length - 1] : ydISO;
+    }
+
+    function computeKPIs() {
+      const targetYesterday = getYesterdayISO();
+
+      // 7 days rolling range up to targetYesterday
+      const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
       const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
 
       let ydTotal = 0;
@@ -829,11 +840,11 @@
 
       allRefunds.forEach(r => {
         allTotal += r._amount;
-        if (r._isoDate === yesterdayISO || r._isoDate === '2026-09-07') {
+        if (r._isoDate === targetYesterday) {
           ydTotal += r._amount;
           ydCount++;
         }
-        if (r._isoDate >= sevenDaysISO) {
+        if (r._isoDate >= sevenDaysISO && r._isoDate <= targetYesterday) {
           r7Total += r._amount;
           r7Count++;
         }
@@ -842,7 +853,7 @@
       const avgRefund = allRefunds.length > 0 ? Math.round(allTotal / allRefunds.length) : 0;
 
       document.getElementById('kpi-yd-total').textContent = '₹' + Math.round(ydTotal).toLocaleString('en-IN');
-      document.getElementById('kpi-yd-count').textContent = `${ydCount} refunds processed yesterday`;
+      document.getElementById('kpi-yd-count').textContent = `${ydCount} refund${ydCount !== 1 ? 's' : ''} processed yesterday`;
 
       document.getElementById('kpi-7d-total').textContent = '₹' + Math.round(r7Total).toLocaleString('en-IN');
       document.getElementById('kpi-7d-count').textContent = `${r7Count} refunds across rolling 7 days`;
@@ -856,21 +867,17 @@
     }
 
     function filterData() {
-      const yesterdayDate = new Date();
-      yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-      const yesterdayISO = yesterdayDate.toISOString().split('T')[0];
-
-      const sevenDaysAgo = new Date();
-      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const targetYesterday = getYesterdayISO();
+      const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
       const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
 
       const q = searchQuery.toLowerCase().trim();
 
       return allRefunds.filter(item => {
         if (currentFilter === 'yesterday') {
-          if (item._isoDate !== yesterdayISO && item._isoDate !== '2026-09-07') return false;
+          if (item._isoDate !== targetYesterday) return false;
         } else if (currentFilter === 'last7days') {
-          if (item._isoDate < sevenDaysISO) return false;
+          if (item._isoDate < sevenDaysISO || item._isoDate > targetYesterday) return false;
         }
 
         if (q) {
