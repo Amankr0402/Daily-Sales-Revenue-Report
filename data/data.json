@@ -38087,9 +38087,9 @@
   },
   {
     "date": "2026-09-09",
-    "totalRevenue": 204759,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 215759,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 13573,
       "agent": "riyaz baseer mohammed"
@@ -38108,8 +38108,8 @@
         "count": 2
       },
       "Vivek Shah": {
-        "revenue": 18000,
-        "count": 2
+        "revenue": 29000,
+        "count": 3
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 11000,
@@ -38150,8 +38150,8 @@
         "count": 6
       },
       "Annual Max": {
-        "revenue": 167349,
-        "count": 15
+        "revenue": 178349,
+        "count": 16
       },
       "Annual Plus": {
         "revenue": 8200,
@@ -38160,8 +38160,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 137348,
-        "count": 14
+        "revenue": 148348,
+        "count": 15
       },
       "Renewals": {
         "revenue": 35326,
@@ -38177,11 +38177,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1081,
-      "otpVerified": 1044,
+      "signups": 1080,
+      "otpVerified": 1043,
       "serviceable": 748,
-      "serviceableWithPct": "748 (69.2%)",
-      "serviceablePct": "69.2%"
+      "serviceableWithPct": "748 (69.3%)",
+      "serviceablePct": "69.3%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -38194,9 +38194,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 399,
-      "Interested": 150,
-      "Paise Dega": 23
+      "Connected": 437,
+      "Interested": 159,
+      "Paise Dega": 27
     },
     "refunds": {
       "count": 2,
@@ -38224,7 +38224,7 @@
     },
     "newUsers7d": 10004,
     "newUsersYesterday": 1102,
-    "activeSubs": 4703,
+    "activeSubs": 4704,
     "newSubs7d": 278,
     "teleCrmLeads": 1365,
     "subsEnding5d": 89,
@@ -38232,7 +38232,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 31,
       "Orders Placed": 31,
@@ -38254,18 +38254,36 @@
   },
   {
     "date": "2026-09-10",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
+    "totalRevenue": 3160,
+    "salesCount": 1,
+    "transactions": 1,
+    "highestSale": {
+      "amount": 3160,
+      "agent": "Piyush"
+    },
     "agents": {},
-    "plans": {},
-    "sources": {},
+    "plans": {
+      "Quarterly Plus": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Direct Sale": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
     "userBreakdown": {
-      "signups": 86,
-      "otpVerified": 85,
-      "serviceable": 58,
-      "serviceableWithPct": "58 (67.4%)",
-      "serviceablePct": "67.4%"
+      "signups": 215,
+      "otpVerified": 210,
+      "serviceable": 150,
+      "serviceableWithPct": "150 (69.8%)",
+      "serviceablePct": "69.8%"
+    },
+    "directSaleCSV": {
+      "count": 1,
+      "revenue": 3160
     },
     "refundsLast7Days": {
       "total": 74193,
@@ -38275,6 +38293,35 @@
       "count": 0,
       "total": 0,
       "items": []
+    },
+    "newUsers7d": 10004,
+    "newUsersYesterday": 1102,
+    "activeSubs": 4704,
+    "newSubs7d": 278,
+    "teleCrmLeads": 1365,
+    "subsEnding5d": 89,
+    "subsExpired7d": 86,
+    "subsExpiringToday": 8,
+    "planExpiringNoOrder": 3,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 113,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 31,
+      "Orders Placed": 31,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 79,
+      "Orders Not Delivered": 77
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 198,
+      "New Subscribers Orders that have been Delivered": 119,
+      "New Subscribers Orders yet to be Delivered": 79,
+      "New Subscribers Orders yet to be Delivered & Delayed": 27
     }
   }
 ]

@@ -490,44 +490,39 @@
       const ydAOV = ydCnt > 0 ? Math.round(ydRev / ydCnt) : 0;
       const dateLabel = formatDate(ydDate);
 
-      // ⚡ Yesterday Revenue (total all sources)
-      document.getElementById('kpi-yd-rev').textContent = fmt(ydRev);
-      document.getElementById('kpi-yd-cnt').textContent = Math.round(ydCnt) + ' deals · ' + dateLabel;
+      // Helper to safely set textContent if element exists
+      const setSafeText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      };
 
-      // 🤝 Yesterday Inside Sales (organic/new only)
-      document.getElementById('kpi-total-rev').textContent = fmt(organicRev);
-      document.getElementById('kpi-total-cnt').textContent = Math.round(organicCnt) + ' organic deals';
+      // ⚡ Yesterday Revenue (total all sources)
+      setSafeText('kpi-yd-rev', fmt(ydRev));
+      setSafeText('kpi-yd-cnt', Math.round(ydCnt) + ' deals · ' + dateLabel);
 
       // 📊 Yesterday AOV
-      document.getElementById('kpi-aov').textContent = fmt(ydAOV);
-      document.getElementById('kpi-aov-sub').textContent = 'Avg over ' + Math.round(ydCnt) + ' deals';
-
-      // 👤 Agents Active Yesterday
-      document.getElementById('kpi-agents').textContent = agentsSet.size;
-      document.getElementById('kpi-agents-sub').textContent = agentsSet.size + ' agent' + (agentsSet.size !== 1 ? 's' : '') + ' · ' + dateLabel;
-
-      // ⚠️ Duplicates Yesterday
-      document.getElementById('kpi-dups').textContent = dupCount;
+      setSafeText('kpi-aov', fmt(ydAOV));
+      setSafeText('kpi-aov-sub', 'Avg over ' + Math.round(ydCnt) + ' deals');
 
       // 🔄 Renewals Yesterday
-      document.getElementById('kpi-renewal-rev').textContent = fmt(renewalRev);
-      document.getElementById('kpi-renewal-cnt').textContent = Math.round(renewalCnt) + ' deals · ' + dateLabel;
+      setSafeText('kpi-renewal-rev', fmt(renewalRev));
+      setSafeText('kpi-renewal-cnt', Math.round(renewalCnt) + ' deals · ' + dateLabel);
 
       // ⬆️ Upgrades Yesterday
-      document.getElementById('kpi-upgrade-rev').textContent = fmt(upgradeRev);
-      document.getElementById('kpi-upgrade-cnt').textContent = Math.round(upgradeCnt) + ' deals · ' + dateLabel;
+      setSafeText('kpi-upgrade-rev', fmt(upgradeRev));
+      setSafeText('kpi-upgrade-cnt', Math.round(upgradeCnt) + ' deals · ' + dateLabel);
 
       // Badge counts on pills (all non-future)
       const nonFuture = allDeals.filter(d => d.isoDate <= todayStr);
-      document.getElementById('count-all').textContent = nonFuture.length.toLocaleString('en-IN');
-      document.getElementById('count-yesterday').textContent = ydDeals.length;
+      setSafeText('count-all', nonFuture.length.toLocaleString('en-IN'));
+      setSafeText('count-yesterday', ydDeals.length);
 
       const dObj7 = new Date(ydDate + 'T00:00:00');
       dObj7.setDate(dObj7.getDate() - 6);
       const s7 = dObj7.toISOString().slice(0, 10);
-      document.getElementById('count-7d').textContent = nonFuture.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate).length;
+      setSafeText('count-7d', nonFuture.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate).length);
       const mtd = ydDate.slice(0, 7) + '-01';
-      document.getElementById('count-mtd').textContent = nonFuture.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate).length;
+      setSafeText('count-mtd', nonFuture.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate).length);
     }
 
 
