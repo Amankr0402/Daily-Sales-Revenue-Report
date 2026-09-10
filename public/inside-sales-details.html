@@ -160,12 +160,12 @@
     <!-- KPI Cards — Yesterday Snapshot -->
     <section class="kpi-grid">
       <div class="kpi-card green">
-        <div class="kpi-label">⚡ Yesterday Revenue</div>
+        <div class="kpi-label">⚡ Yesterday Inside Sales</div>
         <div class="kpi-value" id="kpi-yd-rev" style="color:#059669;">₹0</div>
         <div class="kpi-sub" id="kpi-yd-cnt">0 deals</div>
       </div>
       <div class="kpi-card amber">
-        <div class="kpi-label">📊 Yesterday AOV</div>
+        <div class="kpi-label">📊 Inside Sales AOV</div>
         <div class="kpi-value" id="kpi-aov">₹0</div>
         <div class="kpi-sub" id="kpi-aov-sub">Avg per deal</div>
       </div>
@@ -300,6 +300,14 @@
     const urlParams = new URLSearchParams(window.location.search);
     const fParam = urlParams.get('filter');
     if (fParam) currentFilter = fParam;
+    const sParam = urlParams.get('source');
+    if (sParam) {
+      if (sParam.toLowerCase() === 'inside sales' || sParam.toLowerCase() === 'organic') {
+        selectedSource = 'Organic';
+      } else {
+        selectedSource = sParam;
+      }
+    }
 
     // Agent colour palette (hashed)
     const AGENT_COLOURS = ['#6366f1','#10b981','#f59e0b','#3b82f6','#ec4899','#14b8a6','#8b5cf6','#f97316','#06b6d4','#84cc16'];
@@ -394,13 +402,15 @@
           const isoDate = parseDate(cols[1]);
           if (!isoDate) continue;
           const rev = parseFloat((cols[4] || '0').replace(/,/g, '')) || 0;
+          if (rev <= 0) continue;
+          const agent = (cols[3] || '').trim();
+          if (!agent) continue;
           const cnt = parseFloat((cols[7] || '1').replace(/,/g, '')) || 1;
-          const agent   = cols[3] || 'Unknown Agent';
-          const plan    = cols[6] || 'Annual Max';
-          const source  = cols[8] || 'Organic';
-          const dup     = (cols[5] || '').toLowerCase();
-          const phone   = (cols[2] || '').replace(/\D/g,'').slice(-10);
-          const sheet   = cols[9] || 'Sheet1';
+          const plan = cols[6] || 'Annual Max';
+          const source = cols[8] || 'Organic';
+          const dup = (cols[5] || '').toLowerCase();
+          const phone = (cols[2] || '').replace(/\D/g,'').slice(-10);
+          const sheet = cols[9] || 'Sheet1';
 
           agentsSet.add(agent); sourcesSet.add(source); plansSet.add(plan);
 
@@ -415,6 +425,9 @@
 
         const sourceSel = document.getElementById('source-filter');
         sourceSel.innerHTML = '<option value="ALL">All Sources</option>' + Array.from(sourcesSet).sort().map(s => `<option value="${s}">${s}</option>`).join('');
+        if (selectedSource && selectedSource !== 'ALL') {
+          sourceSel.value = selectedSource;
+        }
 
         const planSel = document.getElementById('plan-filter');
         planSel.innerHTML = '<option value="ALL">All Plans</option>' + Array.from(plansSet).sort().map(p => `<option value="${p}">${p}</option>`).join('');
@@ -496,13 +509,15 @@
         if (el) el.textContent = val;
       };
 
-      // ⚡ Yesterday Revenue (total all sources)
-      setSafeText('kpi-yd-rev', fmt(ydRev));
-      setSafeText('kpi-yd-cnt', Math.round(ydCnt) + ' deals · ' + dateLabel);
+      const organicAOV = organicCnt > 0 ? Math.round(organicRev / organicCnt) : 0;
 
-      // 📊 Yesterday AOV
-      setSafeText('kpi-aov', fmt(ydAOV));
-      setSafeText('kpi-aov-sub', 'Avg over ' + Math.round(ydCnt) + ' deals');
+      // ⚡ Yesterday Inside Sales (matching dashboard's Inside Sales)
+      setSafeText('kpi-yd-rev', fmt(organicRev));
+      setSafeText('kpi-yd-cnt', Math.round(organicCnt) + ' deals · ' + dateLabel);
+
+      // 📊 Inside Sales AOV
+      setSafeText('kpi-aov', fmt(organicAOV));
+      setSafeText('kpi-aov-sub', 'Avg over ' + Math.round(organicCnt) + ' deals');
 
       // 🔄 Renewals Yesterday
       setSafeText('kpi-renewal-rev', fmt(renewalRev));

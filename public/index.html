@@ -1545,8 +1545,14 @@
               }
             }
           } else if (src === 'Organic') {
-            // Inside Sales — clickable
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            // Inside Sales — clickable with source=Organic filter
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+          } else if (src === 'Renewals') {
+            // Renewals — clickable with source=Renewals filter
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Renewals\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Renewals deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+          } else if (src === 'Upgrade') {
+            // Upgrades — clickable with source=Upgrade filter
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Upgrade\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else {
             sgHtml += '<div class="src-pill"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + '</div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           }
