@@ -39779,8 +39779,8 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 470,
-      "Interested": 134,
+      "Connected": 483,
+      "Interested": 140,
       "Paise Dega": 24
     },
     "refunds": {
@@ -39971,11 +39971,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 84,
-      "otpVerified": 83,
-      "serviceable": 66,
-      "serviceableWithPct": "66 (78.6%)",
-      "serviceablePct": "78.6%"
+      "signups": 95,
+      "otpVerified": 93,
+      "serviceable": 71,
+      "serviceableWithPct": "71 (74.7%)",
+      "serviceablePct": "74.7%"
     },
     "refundsLast7Days": {
       "total": 70799,
