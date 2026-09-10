@@ -38177,11 +38177,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1080,
-      "otpVerified": 1043,
-      "serviceable": 748,
-      "serviceableWithPct": "748 (69.3%)",
-      "serviceablePct": "69.3%"
+      "signups": 1079,
+      "otpVerified": 1042,
+      "serviceable": 747,
+      "serviceableWithPct": "747 (69.2%)",
+      "serviceablePct": "69.2%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -38194,9 +38194,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 437,
-      "Interested": 159,
-      "Paise Dega": 27
+      "Connected": 444,
+      "Interested": 163,
+      "Paise Dega": 28
     },
     "refunds": {
       "count": 2,
@@ -38223,7 +38223,7 @@
       "count": 10
     },
     "newUsers7d": 10004,
-    "newUsersYesterday": 1102,
+    "newUsersYesterday": 1002,
     "activeSubs": 4704,
     "newSubs7d": 278,
     "teleCrmLeads": 1365,
@@ -38232,7 +38232,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 113,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 31,
       "Orders Placed": 31,
@@ -38249,7 +38249,7 @@
       "New Subscribers who have Ordered": 198,
       "New Subscribers Orders that have been Delivered": 119,
       "New Subscribers Orders yet to be Delivered": 79,
-      "New Subscribers Orders yet to be Delivered & Delayed": 27
+      "New Subscribers Orders yet to be Delivered & Delayed": 28
     }
   },
   {
@@ -38275,11 +38275,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 215,
-      "otpVerified": 210,
-      "serviceable": 150,
-      "serviceableWithPct": "150 (69.8%)",
-      "serviceablePct": "69.8%"
+      "signups": 256,
+      "otpVerified": 251,
+      "serviceable": 179,
+      "serviceableWithPct": "179 (69.9%)",
+      "serviceablePct": "69.9%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -38295,7 +38295,7 @@
       "items": []
     },
     "newUsers7d": 10004,
-    "newUsersYesterday": 1102,
+    "newUsersYesterday": 1002,
     "activeSubs": 4704,
     "newSubs7d": 278,
     "teleCrmLeads": 1365,
@@ -38304,7 +38304,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 113,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 31,
       "Orders Placed": 31,
@@ -38321,7 +38321,7 @@
       "New Subscribers who have Ordered": 198,
       "New Subscribers Orders that have been Delivered": 119,
       "New Subscribers Orders yet to be Delivered": 79,
-      "New Subscribers Orders yet to be Delivered & Delayed": 27
+      "New Subscribers Orders yet to be Delivered & Delayed": 28
     }
   }
 ]
