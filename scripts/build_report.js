@@ -1235,3 +1235,18 @@ function exportPeriodPDF(title, startDate, endDate) {
 
 fs.writeFileSync(OUT, html, 'utf8');
 console.log('SUCCESS: daily-report.html written to', OUT);
+
+// Ensure public/data is populated with all data files for static serving on Vercel
+const dataSrc = path.join(__dirname, '..', 'data');
+const dataDest = path.join(__dirname, '..', 'public', 'data');
+if (fs.existsSync(dataSrc)) {
+  if (!fs.existsSync(dataDest)) fs.mkdirSync(dataDest, { recursive: true });
+  const dataFiles = fs.readdirSync(dataSrc);
+  dataFiles.forEach(f => {
+    try {
+      fs.copyFileSync(path.join(dataSrc, f), path.join(dataDest, f));
+    } catch (_) {}
+  });
+  console.log(`SUCCESS: Copied ${dataFiles.length} data files to public/data/ for static CDN serving.`);
+}
+

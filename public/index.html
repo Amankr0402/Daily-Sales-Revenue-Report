@@ -1712,21 +1712,60 @@
     async function init() {
       try {
         let data;
-        try {
-          const apiRes = await fetch('/api/data?v=' + Date.now(), { cache: 'no-store' });
-          if (!apiRes.ok) throw new Error('API fetch status: ' + apiRes.status);
-          data = await apiRes.json();
-        } catch (apiErr) {
-          data = await fetch('/data/data.json?v=' + Date.now(), { cache: 'no-store' }).then(r => r.json());
+        const candidates = [
+          '/api/data?v=' + Date.now(),
+          '/data/data.json?v=' + Date.now(),
+          '/data.json?v=' + Date.now()
+        ];
+        for (const url of candidates) {
+          try {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (res.ok) {
+              const text = await res.text();
+              if (text && text.trim().startsWith('[')) {
+                data = JSON.parse(text);
+                break;
+              }
+            }
+          } catch (_) {}
+        }
+        if (!data || !Array.isArray(data) || data.length === 0) {
+          throw new Error('Unable to retrieve sales records from API or static storage.');
         }
         data.sort((a, b) => a.date.localeCompare(b.date));
-        // Always show YESTERDAY's data (report is for the previous day)
+
+        // Support ?date=YYYY-MM-DD in query params if provided
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramDate = urlParams.get('date');
+
+        // Always calculate yesterday accurately in local client timezone
         const yesterdayISO = (function () {
-          var d = new Date(); d.setDate(d.getDate() - 1);
-          return d.toISOString().split('T')[0];
+          var d = new Date();
+          d.setDate(d.getDate() - 1);
+          var yr = d.getFullYear();
+          var mo = String(d.getMonth() + 1).padStart(2, '0');
+          var day = String(d.getDate()).padStart(2, '0');
+          return `${yr}-${mo}-${day}`;
         })();
-        const yd = data.find(function (d) { return d.date === yesterdayISO; })
-          || data[data.length - 1];
+
+        let yd = null;
+        if (paramDate) {
+          yd = data.find(d => d.date === paramDate);
+        }
+        if (!yd) {
+          yd = data.find(d => d.date === yesterdayISO);
+        }
+        if (!yd) {
+          for (let i = data.length - 1; i >= 0; i--) {
+            if ((data[i].totalRevenue > 0 || data[i].salesCount > 0) && data[i].date <= yesterdayISO) {
+              yd = data[i];
+              break;
+            }
+          }
+        }
+        if (!yd) {
+          yd = data[data.length - 1];
+        }
 
         document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date + 'T00:00:00').getFullYear();
         document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);

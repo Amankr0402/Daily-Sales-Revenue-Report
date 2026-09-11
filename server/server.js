@@ -67,8 +67,23 @@ function getRecipients() {
   return recipients;
 }
 
+function resolveDataFile(relPath) {
+  const candidates = [
+    path.join(__dirname, '..', 'data', relPath),
+    path.join(__dirname, '..', 'public', 'data', relPath),
+    path.join(process.cwd(), 'data', relPath),
+    path.join(process.cwd(), 'public', 'data', relPath),
+    path.join(__dirname, 'data', relPath),
+    path.join(__dirname, relPath)
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return path.join(__dirname, '..', 'data', relPath);
+}
+
 function getAllReportData() {
-  const filePath = path.join(__dirname, '..', 'data', 'data.json');
+  const filePath = resolveDataFile('data.json');
   const raw = fs.readFileSync(filePath, 'utf-8');
   const data = JSON.parse(raw);
   data.sort((a, b) => a.date.localeCompare(b.date));
@@ -621,7 +636,7 @@ app.get('/api/health', (req, res) => {
 /* ---------- Live Data JSON Endpoint (bypasses static file cache) ---------- */
 app.get('/api/data', (req, res) => {
   try {
-    const dataPath = path.join(__dirname, '..', 'data', 'data.json');
+    const dataPath = resolveDataFile('data.json');
     const raw = fs.readFileSync(dataPath, 'utf-8');
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -647,7 +662,7 @@ app.get('/api/data/live', async (req, res) => {
     console.error('❌ Live sync error:', err.message);
     // Fallback to static data.json
     try {
-      const dataPath = path.join(__dirname, '..', 'data', 'data.json');
+      const dataPath = resolveDataFile('data.json');
       const raw = fs.readFileSync(dataPath, 'utf-8');
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'no-store');
@@ -726,7 +741,7 @@ app.post('/api/report-html', handleReportHtml);
 
 /* ---------- Active Subscriptions CSV Endpoint ---------- */
 const ACTIVE_SUBS_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/06440078-3d94-4759-974e-0d4b59eccaa5.csv';
-const ACTIVE_SUBS_CACHE_FILE = path.join(__dirname, '..', 'data', 'active_subscriptions.csv');
+const ACTIVE_SUBS_CACHE_FILE = resolveDataFile('active_subscriptions.csv');
 
 app.get('/api/active-subscriptions-csv', async (req, res) => {
   try {
@@ -782,7 +797,7 @@ app.get('/api/active-subscriptions-csv', async (req, res) => {
 
 /* ---------- New Subscribers 7D Details CSV Endpoint ---------- */
 const NEW_SUBS_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/1fab800f-1d69-4e26-b356-418144d90443.csv';
-const NEW_SUBS_7D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'new_subs_7d_details.csv');
+const NEW_SUBS_7D_DETAILS_CACHE_FILE = resolveDataFile('new_subs_7d_details.csv');
 
 app.get('/api/new-subs-7d-details-csv', async (req, res) => {
   try {
@@ -837,7 +852,7 @@ app.get('/api/new-subs-7d-details-csv', async (req, res) => {
 
 /* ---------- New Users Delivery Status CSV Endpoint ---------- */
 const NEW_USERS_DELIVERY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/46622b98-120c-473a-881b-d2aebe879fce.csv';
-const NEW_USERS_DELIVERY_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'new_users_delivery_status_details.csv');
+const NEW_USERS_DELIVERY_DETAILS_CACHE_FILE = resolveDataFile('new_users_delivery_status_details.csv');
 
 app.get('/api/new-users-delivery-status-csv', async (req, res) => {
   try {
@@ -893,7 +908,7 @@ app.get('/api/new-users-delivery-status-csv', async (req, res) => {
 
 /* ---------- User Order and Delivery Status of All New Users CSV Endpoint ---------- */
 const ALL_NEW_USERS_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e142aa5b-7f4f-433a-8540-28baec11c706.csv';
-const ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'all_new_users_order_status_details.csv');
+const ALL_NEW_USERS_ORDER_DETAILS_CACHE_FILE = resolveDataFile('all_new_users_order_status_details.csv');
 
 app.get('/api/all-new-users-order-status-csv', async (req, res) => {
   try {
@@ -949,7 +964,7 @@ app.get('/api/all-new-users-order-status-csv', async (req, res) => {
 
 /* ---------- New Users & App Downloads Details CSV Endpoint ---------- */
 const APP_DOWNLOADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/e964576c-8d8c-4944-b859-57b166a13a1b.csv';
-const APP_DOWNLOADS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'app_downloads_details.csv');
+const APP_DOWNLOADS_DETAILS_CACHE_FILE = resolveDataFile('app_downloads_details.csv');
 
 app.get('/api/app-downloads-details-csv', async (req, res) => {
   try {
@@ -1005,7 +1020,7 @@ app.get('/api/app-downloads-details-csv', async (req, res) => {
 
 /* ---------- TeleCRM Leads Details CSV Endpoint ---------- */
 const TELECRM_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b3f36132-e371-4fa0-a186-1302ceaa8a80.csv';
-const TELECRM_LEADS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'telecrm_leads_details.csv');
+const TELECRM_LEADS_DETAILS_CACHE_FILE = resolveDataFile('telecrm_leads_details.csv');
 
 app.get('/api/telecrm-leads-details-csv', async (req, res) => {
   try {
@@ -1061,7 +1076,7 @@ app.get('/api/telecrm-leads-details-csv', async (req, res) => {
 
 /* ---------- Subscriptions Ending in Next 5 Days Details CSV Endpoint ---------- */
 const SUBS_ENDING_5D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/68f1530b-d09c-446e-b380-5da408fecf2a.csv';
-const SUBS_ENDING_5D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_ending_5d_details.csv');
+const SUBS_ENDING_5D_DETAILS_CACHE_FILE = resolveDataFile('subs_ending_5d_details.csv');
 
 app.get('/api/subs-ending-5d-details-csv', async (req, res) => {
   try {
@@ -1117,7 +1132,7 @@ app.get('/api/subs-ending-5d-details-csv', async (req, res) => {
 
 /* ---------- Subscriptions Expired / Cancelled in Last 7 Days Details CSV Endpoint ---------- */
 const SUBS_EXPIRED_7D_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/f2674048-51bb-43bf-beee-c6983651c727.csv';
-const SUBS_EXPIRED_7D_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_expired_7d_details.csv');
+const SUBS_EXPIRED_7D_DETAILS_CACHE_FILE = resolveDataFile('subs_expired_7d_details.csv');
 
 app.get('/api/subs-expired-7d-details-csv', async (req, res) => {
   try {
@@ -1173,7 +1188,7 @@ app.get('/api/subs-expired-7d-details-csv', async (req, res) => {
 
 /* ---------- Subscriptions Expiring Today Details CSV Endpoint ---------- */
 const SUBS_EXPIRING_TODAY_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/b7e9d453-fd39-4d31-81ce-330f4f5277cb.csv';
-const SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'subs_expiring_today_details.csv');
+const SUBS_EXPIRING_TODAY_DETAILS_CACHE_FILE = resolveDataFile('subs_expiring_today_details.csv');
 
 app.get('/api/subs-expiring-today-details-csv', async (req, res) => {
   try {
@@ -1229,7 +1244,7 @@ app.get('/api/subs-expiring-today-details-csv', async (req, res) => {
 
 /* ---------- Plan Expired and Not a Single Order Placed Details CSV Endpoint ---------- */
 const PLAN_EXP_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/debcc18f-227d-42ba-93ac-ce47f87e3b7c.csv';
-const PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'plan_exp_no_order_details.csv');
+const PLAN_EXP_NO_ORDER_DETAILS_CACHE_FILE = resolveDataFile('plan_exp_no_order_details.csv');
 
 app.get('/api/plan-exp-no-order-details-csv', async (req, res) => {
   try {
@@ -1285,7 +1300,7 @@ app.get('/api/plan-exp-no-order-details-csv', async (req, res) => {
 
 /* ---------- Plan Expiring and Not Placed a Single Order Details CSV Endpoint ---------- */
 const PLAN_EXPIRING_NO_ORDER_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/cec33372-48dd-44bf-8832-99b757075679.csv';
-const PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'plan_expiring_no_order_details.csv');
+const PLAN_EXPIRING_NO_ORDER_DETAILS_CACHE_FILE = resolveDataFile('plan_expiring_no_order_details.csv');
 
 app.get('/api/plan-expiring-no-order-details-csv', async (req, res) => {
   try {
@@ -1341,7 +1356,7 @@ app.get('/api/plan-expiring-no-order-details-csv', async (req, res) => {
 
 /* ---------- Active Subscriber & No Orders Placed Yet Details CSV Endpoint ---------- */
 const ACTIVE_SUB_NO_ORDERS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/d94cc795-d77d-477e-b61d-f96da7c2c6a7.csv';
-const ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'active_sub_no_orders_details.csv');
+const ACTIVE_SUB_NO_ORDERS_DETAILS_CACHE_FILE = resolveDataFile('active_sub_no_orders_details.csv');
 
 app.get('/api/active-sub-no-orders-details-csv', async (req, res) => {
   try {
@@ -1398,7 +1413,7 @@ app.get('/api/active-sub-no-orders-details-csv', async (req, res) => {
 /* ---------- Processed Refunds Details CSV Endpoint ---------- */
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
 const REFUNDS_SHEET_NAME = 'Refunds';
-const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
+const REFUNDS_CACHE_FILE = resolveDataFile('refunds.csv');
 const REFUNDS_URL = `https://docs.google.com/spreadsheets/d/${REFUNDS_SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(REFUNDS_SHEET_NAME)}`;
 
 app.get('/api/refunds-csv', async (req, res) => {
@@ -1455,7 +1470,7 @@ app.get('/api/refunds-csv', async (req, res) => {
 
 /* ---------- Delivery Fees Details CSV Endpoint ---------- */
 const DELIVERY_FEES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
-const DELIVERY_FEES_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'delivery_fees_details.csv');
+const DELIVERY_FEES_DETAILS_CACHE_FILE = resolveDataFile('delivery_fees_details.csv');
 
 app.get('/api/delivery-fees-details-csv', async (req, res) => {
   try {
@@ -1511,7 +1526,7 @@ app.get('/api/delivery-fees-details-csv', async (req, res) => {
 
 /* ---------- Direct Sales Details CSV Endpoint ---------- */
 const DIRECT_SALES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv';
-const DIRECT_SALES_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
+const DIRECT_SALES_DETAILS_CACHE_FILE = resolveDataFile('direct_sales_details.csv');
 
 app.get('/api/direct-sales-details-csv', async (req, res) => {
   try {
@@ -1566,7 +1581,7 @@ app.get('/api/direct-sales-details-csv', async (req, res) => {
 });
 
 /* ---------- Inside Sales Details (Google Sheets) Endpoint ---------- */
-const INSIDE_SALES_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'inside_sales_details.csv');
+const INSIDE_SALES_DETAILS_CACHE_FILE = resolveDataFile('inside_sales_details.csv');
 const INSIDE_SALES_SPREADSHEET_ID  = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c';
 const INSIDE_SALES_SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
 const INSIDE_SALES_SHEET_NAME      = 'Sales/Rev (Auto)';
@@ -1639,7 +1654,7 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
 
 /* ---------- Leads Missed Details CSV Endpoint ---------- */
 const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a213917a-7722-4459-8c47-d9c0335babec.csv';
-const MISSED_LEADS_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'missed_leads_details.csv');
+const MISSED_LEADS_DETAILS_CACHE_FILE = resolveDataFile('missed_leads_details.csv');
 
 const handleMissedLeadsDetailsCSV = async (req, res) => {
   try {

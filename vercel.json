@@ -5,15 +5,11 @@
       "src": "server/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["data/**", "config/**"]
+        "includeFiles": ["data/**", "public/data/**", "config/**"]
       }
     },
     {
       "src": "public/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "data/**",
       "use": "@vercel/static"
     }
   ],
@@ -27,7 +23,14 @@
       "headers": {
         "cache-control": "no-cache, no-store, must-revalidate"
       },
-      "dest": "/data/$1"
+      "dest": "/public/data/$1"
+    },
+    {
+      "src": "/data.json",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/public/data/data.json"
     },
     {
       "src": "/(.*)",

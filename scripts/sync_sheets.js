@@ -1149,6 +1149,12 @@ async function syncSalesData() {
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');
+  try {
+    const pubOut = path.join(__dirname, '..', 'public', 'data', 'data.json');
+    const pubDir = path.dirname(pubOut);
+    if (!fs.existsSync(pubDir)) fs.mkdirSync(pubDir, { recursive: true });
+    fs.writeFileSync(pubOut, JSON.stringify(sortedDays, null, 2), 'utf-8');
+  } catch (_) {}
   console.log(`✅ Successfully synced ${sortedDays.length} days of data with D-o-D User Breakdown & Refunds to ${OUTPUT_FILE}`);
 
   return sortedDays;
