@@ -39902,8 +39902,8 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 486,
-      "Interested": 154,
+      "Connected": 488,
+      "Interested": 155,
       "Paise Dega": 18
     },
     "refundsLast7Days": {
@@ -39931,10 +39931,10 @@
       "Orders Placed": 34,
       "Orders - CONFIRMED": 20,
       "Orders Confirmed": 20,
-      "Orders - READY_TO_SHIP": 10,
-      "Orders Ready to Ship": 10,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
+      "Orders - READY_TO_SHIP": 7,
+      "Orders Ready to Ship": 7,
+      "Orders - SHIPPED": 21,
+      "Orders Shipped": 21,
       "Orders - Not Delivered": 82,
       "Orders Not Delivered": 82
     },
@@ -39954,11 +39954,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 440,
-      "otpVerified": 436,
-      "serviceable": 328,
-      "serviceableWithPct": "328 (74.5%)",
-      "serviceablePct": "74.5%"
+      "signups": 453,
+      "otpVerified": 448,
+      "serviceable": 337,
+      "serviceableWithPct": "337 (74.4%)",
+      "serviceablePct": "74.4%"
     },
     "refundsLast7Days": {
       "total": 70799,
