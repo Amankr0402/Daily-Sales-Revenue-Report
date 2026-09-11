@@ -39907,8 +39907,8 @@
     },
     "missedLeads": {
       "Connected": 529,
-      "Interested": 229,
-      "Paise Dega": 29
+      "Interested": 236,
+      "Paise Dega": 30
     },
     "refundsLast7Days": {
       "total": 74193,
@@ -39933,20 +39933,20 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 32,
       "Orders Placed": 32,
-      "Orders - CONFIRMED": 16,
-      "Orders Confirmed": 16,
-      "Orders - READY_TO_SHIP": 5,
-      "Orders Ready to Ship": 5,
-      "Orders - SHIPPED": 20,
-      "Orders Shipped": 20,
-      "Orders - Not Delivered": 73,
-      "Orders Not Delivered": 73
+      "Orders - CONFIRMED": 15,
+      "Orders Confirmed": 15,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 72,
+      "Orders Not Delivered": 72
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 217,
-      "New Subscribers Orders that have been Delivered": 144,
-      "New Subscribers Orders yet to be Delivered": 73,
-      "New Subscribers Orders yet to be Delivered & Delayed": 23
+      "New Subscribers Orders that have been Delivered": 145,
+      "New Subscribers Orders yet to be Delivered": 72,
+      "New Subscribers Orders yet to be Delivered & Delayed": 22
     }
   },
   {
@@ -40013,11 +40013,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 737,
-      "otpVerified": 728,
-      "serviceable": 541,
-      "serviceableWithPct": "541 (73.4%)",
-      "serviceablePct": "73.4%"
+      "signups": 774,
+      "otpVerified": 762,
+      "serviceable": 566,
+      "serviceableWithPct": "566 (73.1%)",
+      "serviceablePct": "73.1%"
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -40042,20 +40042,20 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 32,
       "Orders Placed": 32,
-      "Orders - CONFIRMED": 16,
-      "Orders Confirmed": 16,
-      "Orders - READY_TO_SHIP": 5,
-      "Orders Ready to Ship": 5,
-      "Orders - SHIPPED": 20,
-      "Orders Shipped": 20,
-      "Orders - Not Delivered": 73,
-      "Orders Not Delivered": 73
+      "Orders - CONFIRMED": 15,
+      "Orders Confirmed": 15,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
+      "Orders - SHIPPED": 19,
+      "Orders Shipped": 19,
+      "Orders - Not Delivered": 72,
+      "Orders Not Delivered": 72
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 217,
-      "New Subscribers Orders that have been Delivered": 144,
-      "New Subscribers Orders yet to be Delivered": 73,
-      "New Subscribers Orders yet to be Delivered & Delayed": 23
+      "New Subscribers Orders that have been Delivered": 145,
+      "New Subscribers Orders yet to be Delivered": 72,
+      "New Subscribers Orders yet to be Delivered & Delayed": 22
     }
   }
 ]
