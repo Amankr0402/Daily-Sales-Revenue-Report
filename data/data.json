@@ -39328,11 +39328,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1256,
-      "otpVerified": 1241,
-      "serviceable": 802,
-      "serviceableWithPct": "802 (63.9%)",
-      "serviceablePct": "63.9%"
+      "signups": 1255,
+      "otpVerified": 1240,
+      "serviceable": 801,
+      "serviceableWithPct": "801 (63.8%)",
+      "serviceablePct": "63.8%"
     },
     "directSaleCSV": {
       "count": 5,
@@ -39906,8 +39906,8 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 480,
-      "Interested": 187,
+      "Connected": 482,
+      "Interested": 186,
       "Paise Dega": 20
     },
     "refundsLast7Days": {
@@ -40103,11 +40103,11 @@
     "plans": {},
     "sources": {},
     "userBreakdown": {
-      "signups": 6,
-      "otpVerified": 6,
-      "serviceable": 4,
-      "serviceableWithPct": "4 (66.7%)",
-      "serviceablePct": "66.7%"
+      "signups": 57,
+      "otpVerified": 56,
+      "serviceable": 43,
+      "serviceableWithPct": "43 (75.4%)",
+      "serviceablePct": "75.4%"
     },
     "refundsLast7Days": {
       "total": 67135,
