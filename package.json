@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "node server/server.js",
+    "build": "node scripts/build_report.js",
     "sync": "node scripts/sync_sheets.js",
     "email": "node scripts/send_report_now.js",
     "test": "node scripts/test_dry_run.js"
