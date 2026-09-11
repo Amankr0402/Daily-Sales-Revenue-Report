@@ -39568,8 +39568,8 @@
     "userBreakdown": {
       "signups": 1153,
       "otpVerified": 1126,
-      "serviceable": 779,
-      "serviceableWithPct": "779 (67.6%)",
+      "serviceable": 780,
+      "serviceableWithPct": "780 (67.6%)",
       "serviceablePct": "67.6%"
     },
     "directSaleCSV": {
@@ -39906,8 +39906,8 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 482,
-      "Interested": 186,
+      "Connected": 480,
+      "Interested": 187,
       "Paise Dega": 20
     },
     "refundsLast7Days": {
@@ -39921,9 +39921,9 @@
     },
     "newUsers7d": 9659,
     "newUsersYesterday": 1162,
-    "activeSubs": 4721,
+    "activeSubs": 4722,
     "newSubs7d": 459,
-    "teleCrmLeads": 1587,
+    "teleCrmLeads": 1586,
     "subsEnding5d": 91,
     "subsExpired7d": 90,
     "subsExpiringToday": 11,
@@ -39931,29 +39931,29 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 22,
-      "Orders Placed": 22,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 32,
+      "Orders Placed": 32,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 16,
-      "Orders Shipped": 16,
-      "Orders - Not Delivered": 60,
-      "Orders Not Delivered": 60
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 73,
+      "Orders Not Delivered": 73
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 217,
-      "New Subscribers Orders that have been Delivered": 157,
-      "New Subscribers Orders yet to be Delivered": 60,
+      "New Subscribers who have Ordered": 234,
+      "New Subscribers Orders that have been Delivered": 161,
+      "New Subscribers Orders yet to be Delivered": 73,
       "New Subscribers Orders yet to be Delivered & Delayed": 24
     }
   },
   {
     "date": "2026-09-11",
-    "totalRevenue": 205038,
-    "salesCount": 19,
-    "transactions": 19,
+    "totalRevenue": 218611,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 13573,
       "agent": "Kausturi Roy Chowdhury"
@@ -40014,8 +40014,8 @@
         "count": 2
       },
       "Annual Max": {
-        "revenue": 181381,
-        "count": 16
+        "revenue": 194954,
+        "count": 17
       },
       "Ultra Annually": {
         "revenue": 13000,
@@ -40038,14 +40038,22 @@
       "Upgrade": {
         "revenue": 13000,
         "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 13573,
+        "count": 1
       }
     },
     "userBreakdown": {
-      "signups": 1067,
-      "otpVerified": 1048,
-      "serviceable": 783,
-      "serviceableWithPct": "783 (73.4%)",
+      "signups": 1226,
+      "otpVerified": 1206,
+      "serviceable": 900,
+      "serviceableWithPct": "900 (73.4%)",
       "serviceablePct": "73.4%"
+    },
+    "directSaleCSV": {
+      "count": 1,
+      "revenue": 13573
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -40058,9 +40066,9 @@
     },
     "newUsers7d": 9659,
     "newUsersYesterday": 1162,
-    "activeSubs": 4721,
+    "activeSubs": 4722,
     "newSubs7d": 459,
-    "teleCrmLeads": 1587,
+    "teleCrmLeads": 1586,
     "subsEnding5d": 91,
     "subsExpired7d": 90,
     "subsExpiringToday": 11,
@@ -40068,22 +40076,47 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 22,
-      "Orders Placed": 22,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 32,
+      "Orders Placed": 32,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 16,
-      "Orders Shipped": 16,
-      "Orders - Not Delivered": 60,
-      "Orders Not Delivered": 60
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 73,
+      "Orders Not Delivered": 73
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 217,
-      "New Subscribers Orders that have been Delivered": 157,
-      "New Subscribers Orders yet to be Delivered": 60,
+      "New Subscribers who have Ordered": 234,
+      "New Subscribers Orders that have been Delivered": 161,
+      "New Subscribers Orders yet to be Delivered": 73,
       "New Subscribers Orders yet to be Delivered & Delayed": 24
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "totalRevenue": 0,
+    "salesCount": 0,
+    "transactions": 0,
+    "agents": {},
+    "plans": {},
+    "sources": {},
+    "userBreakdown": {
+      "signups": 6,
+      "otpVerified": 6,
+      "serviceable": 4,
+      "serviceableWithPct": "4 (66.7%)",
+      "serviceablePct": "66.7%"
+    },
+    "refundsLast7Days": {
+      "total": 67135,
+      "count": 8
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
     }
   }
 ]
