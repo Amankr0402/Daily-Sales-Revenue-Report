@@ -847,19 +847,36 @@
       }
     }
 
+    function formatDateShort(iso) {
+      if (!iso) return '';
+      const parts = iso.split('-');
+      if (parts.length !== 3) return iso;
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]}`;
+    }
+
+    function formatDateLong(iso) {
+      if (!iso) return '—';
+      const parts = iso.split('-');
+      if (parts.length !== 3) return iso;
+      const d = new Date(iso + 'T00:00:00');
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${days[d.getDay()]}, ${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
+    }
+
     function getYesterdayISO() {
       const pDate = urlParams.get('date');
       if (pDate) return pDate;
 
-      const yd = new Date();
-      yd.setDate(yd.getDate() - 1);
-      const ydISO = yd.toISOString().split('T')[0];
-
-      if (allRefunds.some(r => r._isoDate === ydISO)) {
-        return ydISO;
-      }
-      const dates = allRefunds.map(r => r._isoDate).filter(Boolean).sort();
-      return dates.length > 0 ? dates[dates.length - 1] : ydISO;
+      // In Indian Standard Time (UTC+5:30) or local date, calendar yesterday is today - 1
+      const now = new Date();
+      const ist = new Date(now.getTime() + (now.getTimezoneOffset() === 0 ? (5.5 * 60 * 60 * 1000) : 0));
+      ist.setDate(ist.getDate() - 1);
+      const y = ist.getFullYear();
+      const m = String(ist.getMonth() + 1).padStart(2, '0');
+      const d = String(ist.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
     }
 
     function computeKPIs() {
@@ -898,10 +915,10 @@
       const avgRefund = allRefunds.length > 0 ? Math.round(allTotal / allRefunds.length) : 0;
 
       document.getElementById('kpi-yd-total').textContent = '₹' + Math.round(ydTotal).toLocaleString('en-IN');
-      document.getElementById('kpi-yd-count').textContent = `${ydCount} refund${ydCount !== 1 ? 's' : ''} processed yesterday`;
+      document.getElementById('kpi-yd-count').textContent = `${ydCount} refund${ydCount !== 1 ? 's' : ''} on ${formatDateShort(targetYesterday)}`;
 
       document.getElementById('kpi-7d-total').textContent = '₹' + Math.round(r7Total).toLocaleString('en-IN');
-      document.getElementById('kpi-7d-count').textContent = `${r7Count} refunds across rolling 7 days`;
+      document.getElementById('kpi-7d-count').textContent = `${r7Count} refunds (${formatDateShort(sevenDaysISO)} – ${formatDateShort(targetYesterday)})`;
 
       document.getElementById('kpi-avg').textContent = '₹' + avgRefund.toLocaleString('en-IN');
       document.getElementById('kpi-total-cnt').textContent = allRefunds.length.toLocaleString('en-IN');
@@ -911,6 +928,15 @@
       document.getElementById('count-7d').textContent = r7Count;
       const count30El = document.getElementById('count-30d');
       if (count30El) count30El.textContent = r30Count;
+
+      const yesterdayBtn = document.querySelector('[data-filter="yesterday"]');
+      if (yesterdayBtn) {
+        yesterdayBtn.innerHTML = `📅 Processed Yesterday (${formatDateShort(targetYesterday)}) (<span id="count-yesterday">${ydCount}</span>)`;
+      }
+      const sevenDaysBtn = document.querySelector('[data-filter="last7days"]');
+      if (sevenDaysBtn) {
+        sevenDaysBtn.innerHTML = `⏳ Last 7 Days (${formatDateShort(sevenDaysISO)}–${formatDateShort(targetYesterday)}) (<span id="count-7d">${r7Count}</span>)`;
+      }
     }
 
     function filterData() {
@@ -952,6 +978,7 @@
     }
 
     function renderTable() {
+      const targetYesterday = getYesterdayISO();
       const filtered = filterData();
       const total = filtered.length;
 
@@ -961,6 +988,16 @@
         document.getElementById('refunds-table').style.display = 'none';
         document.getElementById('empty-state').style.display = 'block';
         document.getElementById('results-count').textContent = 'Showing 0 records';
+
+        const emptyP1 = document.querySelector('#empty-state p:first-child');
+        const emptyP2 = document.querySelector('#empty-state p:nth-child(2)');
+        if (currentFilter === 'yesterday') {
+          if (emptyP1) emptyP1.textContent = `No refunds processed on yesterday (${formatDateLong(targetYesterday)})`;
+          if (emptyP2) emptyP2.textContent = 'All customer subscriptions for yesterday are intact with 0 refund transactions.';
+        } else {
+          if (emptyP1) emptyP1.textContent = 'No matching refund records found';
+          if (emptyP2) emptyP2.textContent = 'Try adjusting your search or filter pills.';
+        }
         return;
       }
 

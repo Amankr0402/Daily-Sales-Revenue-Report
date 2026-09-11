@@ -905,12 +905,16 @@ async function init() {
     if (refYdEl) {
       refYdEl.textContent = fmt(refYd.total);
       document.getElementById('refund-yesterday-sub').textContent = refYd.count + ' refund' + (refYd.count !== 1 ? 's' : '') + ' processed yesterday';
+      const card = refYdEl.closest('.clickable-card');
+      if (card) card.onclick = function() { window.open('refunds-details.html?filter=yesterday&date=' + yd.date, '_blank'); };
     }
 
     const ref7dEl = document.getElementById('refund-7days');
     if (ref7dEl) {
       ref7dEl.textContent = fmt(ref7d.total);
       document.getElementById('refund-7days-sub').textContent = ref7d.count + ' refund' + (ref7d.count !== 1 ? 's' : '') + ' across rolling 7 days';
+      const card = ref7dEl.closest('.clickable-card');
+      if (card) card.onclick = function() { window.open('refunds-details.html?filter=last7days&date=' + yd.date, '_blank'); };
     }
 
     // 10. Net Financials
@@ -920,6 +924,10 @@ async function init() {
       netSalesEl.textContent = fmt(grandTotal);
       document.getElementById('net-refunds').textContent = (refAmt > 0 ? '− ' : '') + fmt(refAmt);
       document.getElementById('net-total').textContent = fmt(grandTotal - refAmt);
+      const netRefRow = document.getElementById('net-refunds')?.closest('.clickable-row');
+      if (netRefRow) {
+        netRefRow.onclick = function() { window.open('refunds-details.html?filter=yesterday&date=' + yd.date, '_blank'); };
+      }
     }
   } catch(err) {
     document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">⚠ Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';
