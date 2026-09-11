@@ -39800,8 +39800,8 @@
   {
     "date": "2026-09-10",
     "totalRevenue": 174520,
-    "salesCount": 19,
-    "transactions": 19,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah"
@@ -39852,14 +39852,18 @@
         "count": 1
       },
       "Kunal Sharma": {
-        "revenue": 11000,
+        "revenue": 5500,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 5500,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
         "revenue": 144592,
-        "count": 13
+        "count": 14
       },
       "Quarterly Max": {
         "revenue": 26768,
@@ -39873,7 +39877,7 @@
     "sources": {
       "Organic": {
         "revenue": 143092,
-        "count": 14
+        "count": 15
       },
       "Upgrade": {
         "revenue": 11000,
@@ -39902,9 +39906,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 488,
-      "Interested": 155,
-      "Paise Dega": 18
+      "Connected": 507,
+      "Interested": 176,
+      "Paise Dega": 21
     },
     "refundsLast7Days": {
       "total": 74193,
@@ -39917,7 +39921,7 @@
     },
     "newUsers7d": 9659,
     "newUsersYesterday": 1162,
-    "activeSubs": 4713,
+    "activeSubs": 4714,
     "newSubs7d": 459,
     "teleCrmLeads": 1546,
     "subsEnding5d": 91,
@@ -39925,40 +39929,71 @@
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 109,
+    "activeSubNoOrder": 110,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 34,
-      "Orders Placed": 34,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 33,
+      "Orders Placed": 33,
+      "Orders - CONFIRMED": 16,
+      "Orders Confirmed": 16,
       "Orders - READY_TO_SHIP": 7,
       "Orders Ready to Ship": 7,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
-      "Orders - Not Delivered": 82,
-      "Orders Not Delivered": 82
+      "Orders - SHIPPED": 24,
+      "Orders Shipped": 24,
+      "Orders - Not Delivered": 80,
+      "Orders Not Delivered": 80
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 217,
-      "New Subscribers Orders that have been Delivered": 135,
-      "New Subscribers Orders yet to be Delivered": 82,
+      "New Subscribers Orders that have been Delivered": 137,
+      "New Subscribers Orders yet to be Delivered": 80,
       "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   },
   {
     "date": "2026-09-11",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
+    "totalRevenue": 28873,
+    "salesCount": 3,
+    "transactions": 3,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Vivek Shah"
+    },
+    "agents": {
+      "Chhaya Patel": {
+        "revenue": 5657,
+        "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Quarterly Max": {
+        "revenue": 5657,
+        "count": 1
+      },
+      "Annual Max": {
+        "revenue": 23216,
+        "count": 2
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 28873,
+        "count": 3
+      }
+    },
     "userBreakdown": {
-      "signups": 453,
-      "otpVerified": 448,
-      "serviceable": 337,
-      "serviceableWithPct": "337 (74.4%)",
-      "serviceablePct": "74.4%"
+      "signups": 563,
+      "otpVerified": 557,
+      "serviceable": 412,
+      "serviceableWithPct": "412 (73.2%)",
+      "serviceablePct": "73.2%"
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -39968,6 +40003,35 @@
       "count": 0,
       "total": 0,
       "items": []
+    },
+    "newUsers7d": 9659,
+    "newUsersYesterday": 1162,
+    "activeSubs": 4714,
+    "newSubs7d": 459,
+    "teleCrmLeads": 1546,
+    "subsEnding5d": 91,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 11,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 110,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 33,
+      "Orders Placed": 33,
+      "Orders - CONFIRMED": 16,
+      "Orders Confirmed": 16,
+      "Orders - READY_TO_SHIP": 7,
+      "Orders Ready to Ship": 7,
+      "Orders - SHIPPED": 24,
+      "Orders Shipped": 24,
+      "Orders - Not Delivered": 80,
+      "Orders Not Delivered": 80
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 217,
+      "New Subscribers Orders that have been Delivered": 137,
+      "New Subscribers Orders yet to be Delivered": 80,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
 ]
