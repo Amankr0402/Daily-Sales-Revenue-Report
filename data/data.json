@@ -39907,7 +39907,7 @@
     },
     "missedLeads": {
       "Connected": 521,
-      "Interested": 188,
+      "Interested": 189,
       "Paise Dega": 25
     },
     "refundsLast7Days": {
@@ -39951,12 +39951,12 @@
   },
   {
     "date": "2026-09-11",
-    "totalRevenue": 90465,
-    "salesCount": 9,
-    "transactions": 9,
+    "totalRevenue": 104038,
+    "salesCount": 10,
+    "transactions": 10,
     "highestSale": {
-      "amount": 12216,
-      "agent": "Vivek Shah"
+      "amount": 13573,
+      "agent": "Kausturi Roy Chowdhury"
     },
     "agents": {
       "Chhaya Patel": {
@@ -39984,8 +39984,8 @@
         "count": 1
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 12216,
-        "count": 1
+        "revenue": 25789,
+        "count": 2
       }
     },
     "plans": {
@@ -39994,14 +39994,14 @@
         "count": 2
       },
       "Annual Max": {
-        "revenue": 79808,
-        "count": 7
+        "revenue": 93381,
+        "count": 8
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 69089,
-        "count": 7
+        "revenue": 82662,
+        "count": 8
       },
       "Renewals": {
         "revenue": 10376,
@@ -40013,11 +40013,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 680,
-      "otpVerified": 673,
-      "serviceable": 504,
-      "serviceableWithPct": "504 (74.1%)",
-      "serviceablePct": "74.1%"
+      "signups": 686,
+      "otpVerified": 679,
+      "serviceable": 506,
+      "serviceableWithPct": "506 (73.8%)",
+      "serviceablePct": "73.8%"
     },
     "refundsLast7Days": {
       "total": 70799,
