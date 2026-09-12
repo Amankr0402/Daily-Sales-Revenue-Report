@@ -362,8 +362,8 @@ leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6aa27bed5a01e01e43fff7de,Connected,shubham.rai@theelefant.ai,2026-09-10T09:44:13Z,2026-09-11T11:15:14Z,15 hrs ago
 6aa275577ad253ff78f47f5f,Connected,shubham.rai@theelefant.ai,2026-09-10T09:16:07Z,2026-09-11T12:00:55Z,14 hrs ago
 6a9ccf140e7dc33ad5e1de02,Connected,sneha.anand@theelefant.ai,2026-09-06T02:25:24Z,2026-09-06T11:45:47Z,134 hrs ago
-6aa3a998b765ed5d04cbb16b,Connected,sneha.anand@theelefant.ai,2026-09-06T06:23:19Z,2026-09-06T13:48:55Z,132 hrs ago
 6a9d06d721f92b46882940fe,Connected,sneha.anand@theelefant.ai,2026-09-06T06:23:19Z,2026-09-06T13:48:55Z,132 hrs ago
+6aa3a998b765ed5d04cbb16b,Connected,sneha.anand@theelefant.ai,2026-09-06T06:23:19Z,2026-09-06T13:48:55Z,132 hrs ago
 6aa3a92bbce77609fdd4fb43,Connected,sneha.anand@theelefant.ai,2026-09-05T08:37:48Z,2026-09-08T10:59:34Z,87 hrs ago
 6a9bd4dc30239439964bdb3c,Connected,sneha.anand@theelefant.ai,2026-09-05T08:37:48Z,2026-09-08T10:59:34Z,87 hrs ago
 6a9c37f77d9612decbd8fd3b,Connected,sneha.anand@theelefant.ai,2026-09-05T15:40:39Z,2026-09-10T06:24:26Z,44 hrs ago
@@ -646,6 +646,7 @@ leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6a9be475efe05e205143263b,Interested,vivek.sah@theelefant.ai,2026-09-05T09:44:21Z,2026-09-09T14:16:56Z,60 hrs ago
 6aa3a9f4017387f774eee15a,Interested,vivek.sah@theelefant.ai,2026-09-07T04:39:06Z,2026-09-09T14:38:23Z,59 hrs ago
 6a9e3fea772d0dba39b4b623,Interested,vivek.sah@theelefant.ai,2026-09-07T04:39:06Z,2026-09-09T14:38:23Z,59 hrs ago
+6aa3a9f4017387f774eee15a,Interested,vivek.sah@theelefant.ai,2026-09-07T04:39:06Z,2026-09-09T14:38:23Z,59 hrs ago
 6a9ea80de9dca5196e63903d,Interested,vivek.sah@theelefant.ai,2026-09-07T12:03:25Z,2026-09-09T14:41:02Z,59 hrs ago
 6a9f8cb92681ed126d7a0319,Interested,vivek.sah@theelefant.ai,2026-09-08T04:19:05Z,2026-09-09T15:08:31Z,59 hrs ago
 6a9e819d2c6898835c89c33d,Interested,vivek.sah@theelefant.ai,2026-09-07T09:19:25Z,2026-09-10T08:12:46Z,42 hrs ago
@@ -677,7 +678,6 @@ leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6a9f9d2eccde01973a046f95,Paise Dega,shivani.gupta@theelefant.ai,2026-09-08T05:29:18Z,2026-09-10T13:15:07Z,37 hrs ago
 6a9cdbd144f7890709007ff1,Paise Dega,sneha.anand@theelefant.ai,2026-09-06T03:19:45Z,2026-09-10T06:11:11Z,44 hrs ago
 6a9bf1703794be7f940f3169,Paise Dega,tanveer.ahmed@theelefant.ai,2026-09-05T10:39:44Z,2026-09-06T08:45:18Z,137 hrs ago
-6aa3a8fd8683ab0e602cd8a0,Paise Dega,tanveer.ahmed@theelefant.ai,2026-09-05T02:57:10Z,2026-09-09T13:42:42Z,60 hrs ago
 6a9b8506dcf8e86120077661,Paise Dega,tanveer.ahmed@theelefant.ai,2026-09-05T02:57:10Z,2026-09-09T13:42:42Z,60 hrs ago
 6aa10f8afb3a4636df9f542e,Paise Dega,tanveer.ahmed@theelefant.ai,2026-09-09T07:49:30Z,2026-09-10T14:12:46Z,36 hrs ago
 6aa28e78e5eea0e75c74433a,Paise Dega,tashrifa.saikia@theelefant.ai,2026-09-10T11:03:20Z,2026-09-10T13:35:20Z,36 hrs ago
