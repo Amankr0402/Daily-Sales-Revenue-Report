@@ -2424,7 +2424,7 @@
         const dayDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
         const dayDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
         const dayDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dayDelCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
+        const dayDelCnt = (d.deliveryFee && (d.deliveryFee.transactions || d.deliveryFee.count)) || 0;
         const dayTot = dayIns + dayDir + dayDel;
 
         totalInsideRev += dayIns;

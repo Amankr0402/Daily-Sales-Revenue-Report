@@ -1145,10 +1145,37 @@ async function syncSalesData() {
   try {
     console.log(`🚚 Fetching Delivery Fees Detailed List from Metabase...`);
     const delivFeesDetailsCSV = await fetchURLWithRedirect(DELIVERY_FEES_DETAILS_URL);
-    if (delivFeesDetailsCSV && delivFeesDetailsCSV.length > 50 && !delivFeesDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(DELIVERY_FEES_DETAILS_FILE, delivFeesDetailsCSV, 'utf-8');
-      const linesCount = delivFeesDetailsCSV.split('\n').filter(Boolean).length;
-      console.log(`✅ Cached Delivery Fees details (${Math.max(0, linesCount - 1)} records) to ${DELIVERY_FEES_DETAILS_FILE}`);
+    if (delivFeesDetailsCSV && !delivFeesDetailsCSV.includes('HTTP ERROR 500')) {
+      const incomingLines = delivFeesDetailsCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      // Read existing records so we never wipe previous days' delivery records
+      const existingMap = new Map();
+      let header = incomingLines[0] || '';
+      if (fs.existsSync(DELIVERY_FEES_DETAILS_FILE)) {
+        const existingLines = fs.readFileSync(DELIVERY_FEES_DETAILS_FILE, 'utf-8').split('\n').map(l => l.trim()).filter(Boolean);
+        if (existingLines.length > 0) {
+          if (!header) header = existingLines[0];
+          for (let i = 1; i < existingLines.length; i++) {
+            const id = existingLines[i].split(',')[0];
+            if (id) existingMap.set(id, existingLines[i]);
+          }
+        }
+      }
+      // Merge incoming records if any
+      if (incomingLines.length > 1) {
+        for (let i = 1; i < incomingLines.length; i++) {
+          const id = incomingLines[i].split(',')[0];
+          if (id) existingMap.set(id, incomingLines[i]);
+        }
+      }
+      if (existingMap.size > 0 && header) {
+        const mergedCSV = [header, ...Array.from(existingMap.values())].join('\n');
+        fs.writeFileSync(DELIVERY_FEES_DETAILS_FILE, mergedCSV, 'utf-8');
+        const pubDf = path.join(__dirname, '..', 'public', 'data', 'delivery_fees_details.csv');
+        if (fs.existsSync(path.dirname(pubDf))) {
+          fs.writeFileSync(pubDf, mergedCSV, 'utf-8');
+        }
+        console.log(`✅ Cached Delivery Fees details (${existingMap.size} records) to ${DELIVERY_FEES_DETAILS_FILE}`);
+      }
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache Delivery Fees details from Metabase:', err.message);

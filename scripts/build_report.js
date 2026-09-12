@@ -1042,7 +1042,7 @@ function openPeriodModal(type) {
     var dayDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
     var dayDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
     var dayDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-    var dayDelCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
+    var dayDelCnt = (d.deliveryFee && (d.deliveryFee.transactions || d.deliveryFee.count)) || 0;
     var dayTot = dayIns + dayDir + dayDel;
 
     totalInsideRev += dayIns;

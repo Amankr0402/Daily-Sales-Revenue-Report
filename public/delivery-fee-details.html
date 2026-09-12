@@ -794,7 +794,10 @@
       try {
         const parsed = parseCSV(text.trim());
         if (parsed.length < 2) {
-          throw new Error('No delivery fee rows found');
+          allTransactions = [];
+          computeKPIs();
+          renderTable();
+          return;
         }
 
         const headers = parsed[0].map(h => h.trim());
