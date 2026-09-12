@@ -39715,7 +39715,7 @@
     },
     "missedLeads": {
       "Connected": 478,
-      "Interested": 151,
+      "Interested": 146,
       "Paise Dega": 18
     },
     "refundsLast7Days": {
@@ -39729,7 +39729,7 @@
     },
     "newUsers7d": 9237,
     "newUsersYesterday": 1139,
-    "activeSubs": 4735,
+    "activeSubs": 4736,
     "newSubs7d": 450,
     "teleCrmLeads": 1501,
     "subsEnding5d": 87,
@@ -39737,7 +39737,7 @@
     "subsExpiringToday": 13,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 120,
+    "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 23,
       "Orders Placed": 23,
@@ -39754,7 +39754,7 @@
       "New Subscribers who have Ordered": 234,
       "New Subscribers Orders that have been Delivered": 178,
       "New Subscribers Orders yet to be Delivered": 56,
-      "New Subscribers Orders yet to be Delivered & Delayed": 23
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
 ]
