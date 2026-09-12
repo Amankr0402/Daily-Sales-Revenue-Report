@@ -619,7 +619,7 @@
     </div>
     <div class="nav-actions">
       <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
-      <a href="disputed-sales-details.html" class="btn btn-secondary" style="border-color:var(--amber);color:#b45309;background:#fffbeb;">⚠️ Disputed Sales</a>
+      <a href="disputed-sales-details.html" class="btn btn-secondary" style="border-color:var(--amber);color:#b45309;background:#fffbeb;">⚠️ Overlap Sales</a>
       <button class="btn btn-secondary" onclick="exportToPDF()" title="Download as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export Filtered CSV</button>
       <button class="btn btn-secondary" onclick="loadData(true)">↻ Refresh</button>
@@ -658,9 +658,9 @@
         <div class="kpi-sub" id="kpi-net-cnt">Counted in Total Revenue</div>
       </div>
 
-      <div class="kpi-card amber" onclick="window.open('disputed-sales-details.html?filter=yesterday', '_blank')" style="cursor:pointer;" title="Click to view dedicated Disputed Sales Table in a new tab">
+      <div class="kpi-card amber" onclick="window.open('disputed-sales-details.html?filter=yesterday', '_blank')" style="cursor:pointer;" title="Click to view dedicated Overlap Sales Table in a new tab">
         <div class="kpi-label">
-          <span>Disputed Sales (Yesterday)</span>
+          <span>Overlap Sales (Yesterday)</span>
           <span style="font-size:11px;color:var(--primary);font-weight:800;">⚠️ ↗</span>
         </div>
         <div class="kpi-value" id="kpi-overlap-amount" style="color: #d97706;">₹0</div>
