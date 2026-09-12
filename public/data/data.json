@@ -33345,50 +33345,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 42395.8
-    },
-    "collidingDeals": [
-      {
-        "date": "2026-08-02",
-        "rawDate": "02/08/2026 21:18",
-        "customerName": "Mrifula",
-        "phone": "9952099259",
-        "agent": "Honey Talreja",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "HTAMINI5500",
-        "directUserId": "UR421323",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5500 and also completed on Direct Portal for ₹5500"
-      }
-    ],
-    "disputedDeals": [
-      {
-        "date": "2026-08-02",
-        "rawDate": "02/08/2026 21:18",
-        "customerName": "Mrifula",
-        "phone": "9952099259",
-        "agent": "Honey Talreja",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "HTAMINI5500",
-        "directUserId": "UR421323",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5500 and also completed on Direct Portal for ₹5500"
-      }
-    ],
-    "collidingTotal": {
-      "count": 1,
-      "revenue": 5500
-    },
-    "disputedTotal": {
-      "count": 1,
-      "revenue": 5500
+      "count": 5,
+      "revenue": 36895.8
     },
     "refundsLast7Days": {
       "total": 0,
@@ -33729,25 +33687,10 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 9,
-      "revenue": 50105
+      "count": 8,
+      "revenue": 44605
     },
     "collidingDeals": [
-      {
-        "date": "2026-08-04",
-        "rawDate": "04/08/2026 20:24",
-        "customerName": "Sudhir Jadhav",
-        "phone": "8983142467",
-        "agent": "Sneha Anand",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "AKMINIA5500",
-        "directUserId": "UR431904",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5500 and also completed on Direct Portal for ₹5500"
-      },
       {
         "date": "2026-08-04",
         "rawDate": "04/08/2026 20:14",
@@ -33782,21 +33725,6 @@
     "disputedDeals": [
       {
         "date": "2026-08-04",
-        "rawDate": "04/08/2026 20:24",
-        "customerName": "Sudhir Jadhav",
-        "phone": "8983142467",
-        "agent": "Sneha Anand",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "AKMINIA5500",
-        "directUserId": "UR431904",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5500 and also completed on Direct Portal for ₹5500"
-      },
-      {
-        "date": "2026-08-04",
         "rawDate": "04/08/2026 20:14",
         "customerName": "maitri bouddh",
         "phone": "9981807811",
@@ -33827,12 +33755,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 12884
+      "count": 2,
+      "revenue": 7384
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 12884
+      "count": 2,
+      "revenue": 7384
     },
     "refundsLast7Days": {
       "total": 0,
@@ -34023,80 +33951,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 38010.85
-    },
-    "collidingDeals": [
-      {
-        "date": "2026-08-06",
-        "rawDate": "06/08/2026 14:52",
-        "customerName": "rimmi jain",
-        "phone": "8160228089",
-        "agent": "Sneha Anand",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AK10KFLATMAX",
-        "directUserId": "UR127740",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
-      {
-        "date": "2026-08-06",
-        "rawDate": "06/08/2026 14:22",
-        "customerName": "chavda sanjay govind bhai",
-        "phone": "9879735197",
-        "agent": "Sneha Anand",
-        "insideRevenue": 10500,
-        "revenue": 9619.05,
-        "directRevenue": 9619.05,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AK10KFLATMAX",
-        "directUserId": "UR391406",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹10500 and also completed on Direct Portal for ₹9619.05"
-      }
-    ],
-    "disputedDeals": [
-      {
-        "date": "2026-08-06",
-        "rawDate": "06/08/2026 14:52",
-        "customerName": "rimmi jain",
-        "phone": "8160228089",
-        "agent": "Sneha Anand",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AK10KFLATMAX",
-        "directUserId": "UR127740",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
-      {
-        "date": "2026-08-06",
-        "rawDate": "06/08/2026 14:22",
-        "customerName": "chavda sanjay govind bhai",
-        "phone": "9879735197",
-        "agent": "Sneha Anand",
-        "insideRevenue": 10500,
-        "revenue": 9619.05,
-        "directRevenue": 9619.05,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AK10KFLATMAX",
-        "directUserId": "UR391406",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹10500 and also completed on Direct Portal for ₹9619.05"
-      }
-    ],
-    "collidingTotal": {
       "count": 2,
-      "revenue": 20119.05
-    },
-    "disputedTotal": {
-      "count": 2,
-      "revenue": 20119.05
+      "revenue": 17891.8
     },
     "refundsLast7Days": {
       "total": 0,
@@ -34753,8 +34609,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 19737
+      "count": 2,
+      "revenue": 11512
     },
     "collidingDeals": [
       {
@@ -34771,36 +34627,6 @@
         "directOrderId": "FUNDEAL",
         "directUserId": "UR299130",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
-      },
-      {
-        "date": "2026-08-11",
-        "rawDate": "11/08/2026 12:31",
-        "customerName": "Jyoti Khurana",
-        "phone": "8860700935",
-        "agent": "Chhaya Patel",
-        "insideRevenue": 5425,
-        "revenue": 5425,
-        "directRevenue": 5425,
-        "plan": "Quarterly Max",
-        "source": "Organic",
-        "directOrderId": "CPELEFANT2026",
-        "directUserId": "UR270557",
-        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5425 and also completed on Direct Portal for ₹5425"
-      },
-      {
-        "date": "2026-08-11",
-        "rawDate": "11/08/2026 12:29",
-        "customerName": "Archana",
-        "phone": "9604272813",
-        "agent": "Honey Talreja",
-        "insideRevenue": 2800,
-        "revenue": 2800,
-        "directRevenue": 2800,
-        "plan": "Quarterly Plus",
-        "source": "Organic",
-        "directOrderId": "HTQQPLUS2800",
-        "directUserId": "UR444140",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2800 and also completed on Direct Portal for ₹2800"
       }
     ],
     "disputedDeals": [
@@ -34818,45 +34644,15 @@
         "directOrderId": "FUNDEAL",
         "directUserId": "UR299130",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
-      },
-      {
-        "date": "2026-08-11",
-        "rawDate": "11/08/2026 12:31",
-        "customerName": "Jyoti Khurana",
-        "phone": "8860700935",
-        "agent": "Chhaya Patel",
-        "insideRevenue": 5425,
-        "revenue": 5425,
-        "directRevenue": 5425,
-        "plan": "Quarterly Max",
-        "source": "Organic",
-        "directOrderId": "CPELEFANT2026",
-        "directUserId": "UR270557",
-        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5425 and also completed on Direct Portal for ₹5425"
-      },
-      {
-        "date": "2026-08-11",
-        "rawDate": "11/08/2026 12:29",
-        "customerName": "Archana",
-        "phone": "9604272813",
-        "agent": "Honey Talreja",
-        "insideRevenue": 2800,
-        "revenue": 2800,
-        "directRevenue": 2800,
-        "plan": "Quarterly Plus",
-        "source": "Organic",
-        "directOrderId": "HTQQPLUS2800",
-        "directUserId": "UR444140",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2800 and also completed on Direct Portal for ₹2800"
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 13981
+      "count": 1,
+      "revenue": 5756
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 13981
+      "count": 1,
+      "revenue": 5756
     },
     "refundsLast7Days": {
       "total": 0,
@@ -34945,8 +34741,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 10,
-      "revenue": 73245
+      "count": 7,
+      "revenue": 59745
     },
     "collidingDeals": [
       {
@@ -34966,36 +34762,6 @@
       },
       {
         "date": "2026-08-12",
-        "rawDate": "12/08/2026 18:36",
-        "customerName": "Priti",
-        "phone": "7718057058",
-        "agent": "Sneha Anand",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "AKMINIA5500",
-        "directUserId": "UR370990",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5500 and also completed on Direct Portal for ₹5500"
-      },
-      {
-        "date": "2026-08-12",
-        "rawDate": "12/08/2026 18:06",
-        "customerName": "Ridhi",
-        "phone": "9928542735",
-        "agent": "Honey Talreja",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Organic",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR446745",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹4000 and also completed on Direct Portal for ₹4000"
-      },
-      {
-        "date": "2026-08-12",
         "rawDate": "12/08/2026 17:17",
         "customerName": "Deepa",
         "phone": "9999209975",
@@ -35008,21 +34774,6 @@
         "directOrderId": "TOYJOY40",
         "directUserId": "UR445090",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹12216 and also completed on Direct Portal for ₹12216"
-      },
-      {
-        "date": "2026-08-12",
-        "rawDate": "12/08/2026 14:15",
-        "customerName": "Poornima Iyer",
-        "phone": "8879481174",
-        "agent": "Amol Landge",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Renewals",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR273137",
-        "disputeNote": "Logged by Inside Sales agent (Amol Landge) for ₹4000 and also completed on Direct Portal for ₹4000"
       },
       {
         "date": "2026-08-12",
@@ -35073,36 +34824,6 @@
       },
       {
         "date": "2026-08-12",
-        "rawDate": "12/08/2026 18:36",
-        "customerName": "Priti",
-        "phone": "7718057058",
-        "agent": "Sneha Anand",
-        "insideRevenue": 5500,
-        "revenue": 5500,
-        "directRevenue": 5500,
-        "plan": "Annual Mini",
-        "source": "Organic",
-        "directOrderId": "AKMINIA5500",
-        "directUserId": "UR370990",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5500 and also completed on Direct Portal for ₹5500"
-      },
-      {
-        "date": "2026-08-12",
-        "rawDate": "12/08/2026 18:06",
-        "customerName": "Ridhi",
-        "phone": "9928542735",
-        "agent": "Honey Talreja",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Organic",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR446745",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹4000 and also completed on Direct Portal for ₹4000"
-      },
-      {
-        "date": "2026-08-12",
         "rawDate": "12/08/2026 17:17",
         "customerName": "Deepa",
         "phone": "9999209975",
@@ -35115,21 +34836,6 @@
         "directOrderId": "TOYJOY40",
         "directUserId": "UR445090",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹12216 and also completed on Direct Portal for ₹12216"
-      },
-      {
-        "date": "2026-08-12",
-        "rawDate": "12/08/2026 14:15",
-        "customerName": "Poornima Iyer",
-        "phone": "8879481174",
-        "agent": "Amol Landge",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Renewals",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR273137",
-        "disputeNote": "Logged by Inside Sales agent (Amol Landge) for ₹4000 and also completed on Direct Portal for ₹4000"
       },
       {
         "date": "2026-08-12",
@@ -35163,12 +34869,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 7,
-      "revenue": 47934
+      "count": 4,
+      "revenue": 34434
     },
     "disputedTotal": {
-      "count": 7,
-      "revenue": 47934
+      "count": 4,
+      "revenue": 34434
     },
     "refundsLast7Days": {
       "total": 0,
@@ -35549,25 +35255,10 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 63678.99
+      "count": 7,
+      "revenue": 59678.99
     },
     "collidingDeals": [
-      {
-        "date": "2026-08-15",
-        "rawDate": "15/08/2026 20:24",
-        "customerName": "VIHA DODIA",
-        "phone": "8160327504",
-        "agent": "Honey Talreja",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Renewals",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR48023",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹4000 and also completed on Direct Portal for ₹4000"
-      },
       {
         "date": "2026-08-15",
         "rawDate": "15/08/2026 15:23",
@@ -35602,21 +35293,6 @@
     "disputedDeals": [
       {
         "date": "2026-08-15",
-        "rawDate": "15/08/2026 20:24",
-        "customerName": "VIHA DODIA",
-        "phone": "8160327504",
-        "agent": "Honey Talreja",
-        "insideRevenue": 4000,
-        "revenue": 4000,
-        "directRevenue": 4000,
-        "plan": "Quarterly Max",
-        "source": "Renewals",
-        "directOrderId": "MAXFLAT4KA",
-        "directUserId": "UR48023",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹4000 and also completed on Direct Portal for ₹4000"
-      },
-      {
-        "date": "2026-08-15",
         "rawDate": "15/08/2026 15:23",
         "customerName": "neelam verma",
         "phone": "9616638501",
@@ -35647,12 +35323,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 23787.39
+      "count": 2,
+      "revenue": 19787.39
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 23787.39
+      "count": 2,
+      "revenue": 19787.39
     },
     "refundsLast7Days": {
       "total": 0,
@@ -40038,9 +39714,9 @@
       "revenue": 13573
     },
     "missedLeads": {
-      "Connected": 480,
-      "Interested": 182,
-      "Paise Dega": 20
+      "Connected": 478,
+      "Interested": 151,
+      "Paise Dega": 18
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -40053,7 +39729,7 @@
     },
     "newUsers7d": 9237,
     "newUsersYesterday": 1139,
-    "activeSubs": 4734,
+    "activeSubs": 4735,
     "newSubs7d": 450,
     "teleCrmLeads": 1501,
     "subsEnding5d": 87,
@@ -40061,24 +39737,24 @@
     "subsExpiringToday": 13,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 25,
-      "Orders Placed": 25,
-      "Orders - CONFIRMED": 18,
-      "Orders Confirmed": 18,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 58,
-      "Orders Not Delivered": 58
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 20,
+      "Orders Confirmed": 20,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 56,
+      "Orders Not Delivered": 56
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 234,
-      "New Subscribers Orders that have been Delivered": 176,
-      "New Subscribers Orders yet to be Delivered": 58,
-      "New Subscribers Orders yet to be Delivered & Delayed": 21
+      "New Subscribers Orders that have been Delivered": 178,
+      "New Subscribers Orders yet to be Delivered": 56,
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     }
   }
 ]
