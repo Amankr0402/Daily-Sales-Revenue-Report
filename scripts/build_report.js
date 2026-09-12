@@ -692,7 +692,7 @@ async function init() {
     const eDate = new Date(periodEnd + 'T00:00:00');
     const dow = eDate.getDay();
     const sun = new Date(eDate); sun.setDate(eDate.getDate() - dow);
-    const sunStr = sun.toISOString().slice(0, 10);
+    const sunStr = sun.getFullYear() + '-' + String(sun.getMonth() + 1).padStart(2, '0') + '-' + String(sun.getDate()).padStart(2, '0');
     const wData = data.filter(d => d.date >= sunStr && d.date <= periodEnd);
 
     function calcPeriodSums(items) {
@@ -998,6 +998,7 @@ function formatDateLong(iso) {
 
 function openPeriodModal(type) {
   if (!globalReportData || !globalYesterdayData) return;
+  var yd = globalYesterdayData;
   var isWeek = (type === 'week');
 
   var startDate, title, icon;
@@ -1007,7 +1008,7 @@ function openPeriodModal(type) {
     var dow = eDate.getDay();
     var sun = new Date(eDate);
     sun.setDate(eDate.getDate() - dow);
-    startDate = sun.toISOString().slice(0, 10);
+    startDate = sun.getFullYear() + '-' + String(sun.getMonth() + 1).padStart(2, '0') + '-' + String(sun.getDate()).padStart(2, '0');
     title = 'Revenue This Week (Sun–Yesterday)';
     icon = '📅';
   } else {
