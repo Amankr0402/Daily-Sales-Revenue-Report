@@ -39574,7 +39574,7 @@
     },
     "userBreakdown": {
       "signups": 1229,
-      "otpVerified": 1210,
+      "otpVerified": 1211,
       "serviceable": 880,
       "serviceableWithPct": "880 (71.6%)",
       "serviceablePct": "71.6%"
@@ -39716,7 +39716,7 @@
     "missedLeads": {
       "Connected": 480,
       "Interested": 146,
-      "Paise Dega": 18
+      "Paise Dega": 19
     },
     "refundsLast7Days": {
       "total": 70799,
