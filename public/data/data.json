@@ -39714,7 +39714,7 @@
       "revenue": 13573
     },
     "missedLeads": {
-      "Connected": 478,
+      "Connected": 480,
       "Interested": 146,
       "Paise Dega": 18
     },
@@ -39729,7 +39729,7 @@
     },
     "newUsers7d": 9237,
     "newUsersYesterday": 1139,
-    "activeSubs": 4736,
+    "activeSubs": 4733,
     "newSubs7d": 450,
     "teleCrmLeads": 1501,
     "subsEnding5d": 87,
@@ -39737,23 +39737,241 @@
     "subsExpiringToday": 13,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 23,
-      "Orders Placed": 23,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 36,
+      "Orders Placed": 36,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 12,
       "Orders Shipped": 12,
-      "Orders - Not Delivered": 56,
-      "Orders Not Delivered": 56
+      "Orders - Not Delivered": 72,
+      "Orders Not Delivered": 72
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 234,
+      "New Subscribers who have Ordered": 250,
       "New Subscribers Orders that have been Delivered": 178,
-      "New Subscribers Orders yet to be Delivered": 56,
+      "New Subscribers Orders yet to be Delivered": 72,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
+    }
+  },
+  {
+    "date": "2026-09-12",
+    "totalRevenue": 267419,
+    "salesCount": 28,
+    "transactions": 28,
+    "highestSale": {
+      "amount": 13573,
+      "agent": "Fatema Sugra"
+    },
+    "agents": {
+      "Preyashi Roy": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 43376,
+        "count": 4
+      },
+      "Honey Talreja": {
+        "revenue": 16000,
+        "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 30000,
+        "count": 3
+      },
+      "Tanveer Ahmed": {
+        "revenue": 9500,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 10500,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 21000,
+        "count": 2
+      },
+      "Naveen Suwalka": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 20500,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Ishika Gorle": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 213326,
+        "count": 19
+      },
+      "Quarterly Max": {
+        "revenue": 15756,
+        "count": 3
+      },
+      "Annual Plus": {
+        "revenue": 16500,
+        "count": 2
+      },
+      "6 months Max": {
+        "revenue": 9500,
+        "count": 1
+      },
+      "Quarterly Plus": {
+        "revenue": 6320,
+        "count": 2
+      },
+      "Quarterly Ultra": {
+        "revenue": 6017,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 147500,
+        "count": 15
+      },
+      "Events": {
+        "revenue": 55000,
+        "count": 5
+      },
+      "Renewals": {
+        "revenue": 20376,
+        "count": 2
+      },
+      "Direct Sale": {
+        "revenue": 44543,
+        "count": 6
+      }
+    },
+    "userBreakdown": {
+      "signups": 1454,
+      "otpVerified": 1442,
+      "serviceable": 1107,
+      "serviceableWithPct": "1,107 (76.1%)",
+      "serviceablePct": "76.1%"
+    },
+    "directSaleCSV": {
+      "count": 6,
+      "revenue": 44543
+    },
+    "refunds": {
+      "count": 8,
+      "total": 68134,
+      "items": [
+        {
+          "refundId": "rfnd_Tb8AtbpFgAHKOK",
+          "paymentId": "pay_THlU4enwRX64kW",
+          "amount": 11000,
+          "status": "processed",
+          "date": "12/09/2026 18:18:05"
+        },
+        {
+          "refundId": "rfnd_Tb8NnCzX6HT706",
+          "paymentId": "pay_THiEuFEEtHFQ0h",
+          "amount": 10730.5,
+          "status": "processed",
+          "date": "12/09/2026 18:30:18"
+        },
+        {
+          "refundId": "rfnd_Tb8PBo4BPsM1A6",
+          "paymentId": "pay_TOMXl5y6CfOMPD",
+          "amount": 3300,
+          "status": "processed",
+          "date": "12/09/2026 18:31:37"
+        },
+        {
+          "refundId": "rfnd_Tb8Rl7eQMllX6Y",
+          "paymentId": "pay_TCGiatpunNfEzK",
+          "amount": 11000,
+          "status": "processed",
+          "date": "12/09/2026 18:34:03"
+        },
+        {
+          "refundId": "rfnd_Tb8WmunPGQ1XyT",
+          "paymentId": "pay_TK7tZyXq5KYDKL",
+          "amount": 10103.5,
+          "status": "processed",
+          "date": "12/09/2026 18:38:49"
+        },
+        {
+          "refundId": "rfnd_Tb8t4bcdlGVOiX",
+          "paymentId": "pay_TAC87t8dJgauit",
+          "amount": 10500,
+          "status": "processed",
+          "date": "12/09/2026 18:59:54"
+        },
+        {
+          "refundId": "rfnd_Tb8vCSZ5odmYDk",
+          "paymentId": "pay_T77g8oNj4hclwP",
+          "amount": 500,
+          "status": "processed",
+          "date": "12/09/2026 19:01:55"
+        },
+        {
+          "refundId": "rfnd_Tb99fuOArSERaY",
+          "paymentId": "pay_TNCWHqKsjSaRYF",
+          "amount": 11000,
+          "status": "processed",
+          "date": "12/09/2026 19:15:37"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 135269,
+      "count": 16
+    },
+    "newUsers7d": 9237,
+    "newUsersYesterday": 1139,
+    "activeSubs": 4733,
+    "newSubs7d": 450,
+    "teleCrmLeads": 1501,
+    "subsEnding5d": 87,
+    "subsExpired7d": 83,
+    "subsExpiringToday": 13,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 118,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 36,
+      "Orders Placed": 36,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 72,
+      "Orders Not Delivered": 72
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 250,
+      "New Subscribers Orders that have been Delivered": 178,
+      "New Subscribers Orders yet to be Delivered": 72,
       "New Subscribers Orders yet to be Delivered & Delayed": 25
     }
   }
