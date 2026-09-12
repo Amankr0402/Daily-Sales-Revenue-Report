@@ -627,6 +627,14 @@ async function init() {
           ? 'Disputed: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Disputed Sales Table.'
           : '0 Disputed Deals on this date. Click to view full disputed table.';
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Disputed Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+      } else if (src === 'Organic') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Organic&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      } else if (src === 'Renewals') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Renewals&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Renewals deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      } else if (src === 'Upgrade') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Upgrade&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      } else if (src === 'Events') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;events-details.html?filter=yesterday&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Events deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       } else {
         sgHtml += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       }
@@ -1042,6 +1050,9 @@ function openPeriodModal(type) {
   '<div class="pm-actions-bar">' +
     '<a href="inside-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn pm-btn-primary">' +
       '⚡ View Inside Sales Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
+    '</a>' +
+    '<a href="events-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn">' +
+      '🎤 View Events Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
     '</a>' +
     '<a href="direct-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn">' +
       '🛍️ View Direct Sales Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +

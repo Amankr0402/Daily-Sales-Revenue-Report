@@ -501,9 +501,17 @@
       color: #ffffff;
     }
 
-    .pod-rev.b1 { color: #f43f5e; }
-    .pod-rev.b2 { color: #ea580c; }
-    .pod-rev.b3 { color: #9333ea; }
+    .pod-rev.b1 {
+      color: #f43f5e;
+    }
+
+    .pod-rev.b2 {
+      color: #ea580c;
+    }
+
+    .pod-rev.b3 {
+      color: #9333ea;
+    }
 
     .pod-block.b1 {
       background: linear-gradient(180deg, rgba(244, 63, 94, 0.25), rgba(244, 63, 94, 0.06));
@@ -647,14 +655,17 @@
       position: relative;
       transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .clickable-period:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 28px -6px rgba(91, 62, 155, 0.18), 0 8px 10px -6px rgba(91, 62, 155, 0.1);
       border-color: var(--primary) !important;
     }
+
     .clickable-period:active {
       transform: translateY(0);
     }
+
     .period-drill-btn {
       font-size: 11px;
       font-weight: 800;
@@ -668,6 +679,7 @@
       align-items: center;
       gap: 4px;
     }
+
     .clickable-period:hover .period-drill-btn {
       background: var(--primary);
       color: #ffffff;
@@ -691,10 +703,12 @@
       pointer-events: none;
       transition: opacity 0.2s ease;
     }
+
     .modal-overlay.open {
       opacity: 1;
       pointer-events: auto;
     }
+
     .modal-card {
       background: #ffffff;
       border-radius: 16px;
@@ -707,6 +721,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .modal-header {
       padding: 18px 24px;
       border-bottom: 1px solid var(--border);
@@ -718,6 +733,7 @@
       background: #ffffff;
       z-index: 10;
     }
+
     .modal-close-btn {
       background: none;
       border: none;
@@ -733,30 +749,38 @@
       justify-content: center;
       transition: all 0.15s ease;
     }
+
     .modal-close-btn:hover {
       background: #f1f5f9;
       color: var(--text);
     }
+
     .modal-body {
       padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .pm-kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
+
     @media (max-width: 768px) {
-      .pm-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .pm-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     .pm-kpi-card {
       background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px;
     }
+
     .pm-kpi-lbl {
       font-size: 11px;
       font-weight: 700;
@@ -764,23 +788,27 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+
     .pm-kpi-val {
       font-size: 20px;
       font-weight: 900;
       margin-top: 4px;
       color: var(--text);
     }
+
     .pm-kpi-sub {
       font-size: 11.5px;
       color: var(--muted);
       margin-top: 2px;
     }
+
     .pm-actions-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
     }
+
     .pm-btn {
       padding: 8px 16px;
       border-radius: 8px;
@@ -796,29 +824,35 @@
       gap: 6px;
       text-decoration: none;
     }
+
     .pm-btn:hover {
       background: #f1f5f9;
       border-color: #cbd5e1;
     }
+
     .pm-btn-primary {
       background: var(--primary);
       color: #ffffff;
       border-color: var(--primary);
     }
+
     .pm-btn-primary:hover {
       background: #4a2f85;
     }
+
     .pm-table-wrap {
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow-x: auto;
       background: #ffffff;
     }
+
     .pm-tbl {
       width: 100%;
       border-collapse: collapse;
       font-size: 12.5px;
     }
+
     .pm-tbl th {
       background: #f8fafc;
       padding: 10px 14px;
@@ -830,14 +864,17 @@
       letter-spacing: 0.05em;
       border-bottom: 1px solid var(--border);
     }
+
     .pm-tbl td {
       padding: 10px 14px;
       border-bottom: 1px solid #f1f5f9;
       color: var(--text);
     }
+
     .pm-tbl tr:last-child td {
       border-bottom: none;
     }
+
     .pm-tbl tr:hover td {
       background: #f8fafc;
     }
@@ -873,6 +910,7 @@
       cursor: pointer !important;
       transition: background 0.15s ease;
     }
+
     .clickable-row:hover {
       background: rgba(91, 62, 155, 0.08) !important;
     }
@@ -1301,27 +1339,36 @@
 
     <!-- 3. INSIGHTS -->
     <div class="sec-gap">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+      <div
+        style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
         <div class="sec-title" style="margin-bottom: 0;">🎯 Key Insights</div>
-        
+
         <!-- Podium Date Filter Bar -->
         <div class="podium-filter-bar" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
           <button class="pod-filter-btn active" id="btn-pod-1d" onclick="filterPodium('1d')">⚡ Last 1 Day</button>
           <button class="pod-filter-btn" id="btn-pod-7d" onclick="filterPodium('7d')">📅 Last 7 Days</button>
           <button class="pod-filter-btn" id="btn-pod-mtd" onclick="filterPodium('mtd')">🗓️ This Month</button>
-          <button class="pod-filter-btn" id="btn-pod-custom" onclick="togglePodiumCustomRange()">📆 Select Range</button>
-          
-          <div id="podium-custom-range-wrap" style="display: none; align-items: center; gap: 6px; background: #ffffff; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
-            <input type="date" id="pod-start-date" style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;" onchange="onPodiumCustomDateChange()">
+          <button class="pod-filter-btn" id="btn-pod-custom" onclick="togglePodiumCustomRange()">📆 Select
+            Range</button>
+
+          <div id="podium-custom-range-wrap"
+            style="display: none; align-items: center; gap: 6px; background: #ffffff; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
+            <input type="date" id="pod-start-date"
+              style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;"
+              onchange="onPodiumCustomDateChange()">
             <span style="font-size: 11.5px; color: var(--muted); font-weight: 700;">to</span>
-            <input type="date" id="pod-end-date" style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;" onchange="onPodiumCustomDateChange()">
-            <button class="btn btn-primary" style="padding: 3px 8px; font-size: 11px; border-radius: 6px; height: auto;" onclick="onPodiumCustomDateChange()">Apply</button>
+            <input type="date" id="pod-end-date"
+              style="padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; background: #f8fafc; color: var(--text); outline: none; font-weight: 600;"
+              onchange="onPodiumCustomDateChange()">
+            <button class="btn btn-primary" style="padding: 3px 8px; font-size: 11px; border-radius: 6px; height: auto;"
+              onclick="onPodiumCustomDateChange()">Apply</button>
           </div>
         </div>
       </div>
 
       <div style="font-size: 11.5px; color: var(--muted); margin-bottom: 14px; font-weight: 600;">
-        Showing agent sales ranking for: <span id="podium-range-text" style="color: var(--primary); font-weight: 700;">—</span>
+        Showing agent sales ranking for: <span id="podium-range-text"
+          style="color: var(--primary); font-weight: 700;">—</span>
       </div>
 
       <div class="grid g2">
@@ -1346,7 +1393,8 @@
     <div class="sec-gap">
       <div class="sec-title">📆 Period Revenue</div>
       <div class="grid g2">
-        <div class="period-card clickable-period" onclick="openPeriodModal('week')" title="Click to view detailed day-by-day breakdown, sales reps & deals for this week">
+        <div class="period-card clickable-period" onclick="openPeriodModal('week')"
+          title="Click to view detailed day-by-day breakdown, sales reps & deals for this week">
           <div class="period-ico">📅</div>
           <div style="flex: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -1357,7 +1405,8 @@
             <div class="period-sub" id="rev-week-sub">—</div>
           </div>
         </div>
-        <div class="period-card clickable-period" onclick="openPeriodModal('month')" title="Click to view detailed day-by-day breakdown, sales reps & deals for this month">
+        <div class="period-card clickable-period" onclick="openPeriodModal('month')"
+          title="Click to view detailed day-by-day breakdown, sales reps & deals for this month">
           <div class="period-ico">🗓️</div>
           <div style="flex: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -1381,7 +1430,8 @@
             <canvas id="svcChart"></canvas>
           </div>
         </div>
-        <div class="chart-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+        <div class="chart-card"
+          style="padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
           <div>
             <div style="padding:16px 20px 0;font-size:14px;font-weight:800">Daily Funnel Snapshot (Last 4 Days)</div>
             <table class="ftbl" style="margin-top:10px">
@@ -1399,13 +1449,18 @@
           </div>
 
           <!-- Leads Missed (>24 hrs, no activity) directly underneath matching attached image! -->
-          <div style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: all 0.2s ease;">
-            <div style="display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;" onclick="window.open('leads-missed-details.html', '_blank')" title="Click to view all Leads Missed details in a new tab">
+          <div
+            style="margin: 12px 16px 16px; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: all 0.2s ease;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;"
+              onclick="window.open('leads-missed-details.html', '_blank')"
+              title="Click to view all Leads Missed details in a new tab">
               <span style="font-size: 22px; line-height: 1;">⏰</span>
               <span style="font-size: 13.5px; font-weight: 800; color: var(--text);">
                 Leads Missed (&gt;24 hrs, no activity)
               </span>
-              <span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:var(--primary);padding:2px 8px;border-radius:12px;margin-left:4px;">View All ↗</span>
+              <span
+                style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:var(--primary);padding:2px 8px;border-radius:12px;margin-left:4px;">View
+                All ↗</span>
             </div>
             <div id="missed-leads-tag">
               <!-- Populated dynamically via JS -->
@@ -1424,8 +1479,12 @@
             <table class="ftbl">
               <thead>
                 <tr>
-                  <th style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">PARTICULARS</th>
-                  <th style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;" id="journey-date-col">YESTERDAY</th>
+                  <th
+                    style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">
+                    PARTICULARS</th>
+                  <th
+                    style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;"
+                    id="journey-date-col">YESTERDAY</th>
                 </tr>
               </thead>
               <tbody id="journey-tbl-body">
@@ -1441,8 +1500,12 @@
             <table class="ftbl">
               <thead>
                 <tr>
-                  <th style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">PARTICULARS</th>
-                  <th style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">COUNT</th>
+                  <th
+                    style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">
+                    PARTICULARS</th>
+                  <th
+                    style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">
+                    COUNT</th>
                 </tr>
               </thead>
               <tbody id="delivery-status-tbl-body">
@@ -1456,8 +1519,12 @@
             <table class="ftbl">
               <thead>
                 <tr>
-                  <th style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">PARTICULARS</th>
-                  <th style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">COUNT</th>
+                  <th
+                    style="width: 70%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">
+                    PARTICULARS</th>
+                  <th
+                    style="text-align: right; width: 30%; background: #5b3e9b; color: #ffffff; font-weight: 800; text-transform: uppercase; padding: 12px 16px; letter-spacing: 0.06em;">
+                    COUNT</th>
                 </tr>
               </thead>
               <tbody id="all-new-users-status-tbl-body">
@@ -1491,12 +1558,25 @@
         <table class="ftbl" style="width:100%;border-collapse:collapse;">
           <thead>
             <tr>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em">DATE</th>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:center">DEALS CLOSED</th>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">SALES REVENUE</th>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right;cursor:pointer;" onclick="window.open('delivery-fee-details.html', '_blank')" title="Click to view delivery fee transactions in a new tab">DELIVERY FEE ↗</th>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">TOTAL REVENUE</th>
-              <th style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">BLENDED AOV</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em">
+                DATE</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:center">
+                DEALS CLOSED</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">
+                SALES REVENUE</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right;cursor:pointer;"
+                onclick="window.open('delivery-fee-details.html', '_blank')"
+                title="Click to view delivery fee transactions in a new tab">DELIVERY FEE ↗</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">
+                TOTAL REVENUE</th>
+              <th
+                style="background:#5b3e9b;color:#ffffff;font-weight:800;text-transform:uppercase;padding:12px 16px;letter-spacing:0.06em;text-align:right">
+                BLENDED AOV</th>
             </tr>
           </thead>
           <tbody id="trend-tbl-body">
@@ -1512,21 +1592,32 @@
     <div class="sec-gap">
       <div class="sec-title">💸 REFUNDS</div>
       <div class="grid g2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-        <div class="chart-card clickable-card" onclick="window.open('refunds-details.html?filter=yesterday', '_blank')" style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;" title="Click to view yesterday's processed refunds in a new tab">
+        <div class="chart-card clickable-card" onclick="window.open('refunds-details.html?filter=yesterday', '_blank')"
+          style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;"
+          title="Click to view yesterday's processed refunds in a new tab">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
             <div class="kpi-lbl" style="margin-bottom: 0;">REFUND PROCESSED (YESTERDAY)</div>
-            <span style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View List ↗</span>
+            <span
+              style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View
+              List ↗</span>
           </div>
-          <div class="kpi-val" id="refund-yesterday" style="font-size: 28px; font-weight: 800; color: var(--text);">—</div>
-          <div class="kpi-sub" id="refund-yesterday-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">Loading…</div>
+          <div class="kpi-val" id="refund-yesterday" style="font-size: 28px; font-weight: 800; color: var(--text);">—
+          </div>
+          <div class="kpi-sub" id="refund-yesterday-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">
+            Loading…</div>
         </div>
-        <div class="chart-card clickable-card" onclick="window.open('refunds-details.html?filter=last7days', '_blank')" style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;" title="Click to view 7-day processed refunds in a new tab">
+        <div class="chart-card clickable-card" onclick="window.open('refunds-details.html?filter=last7days', '_blank')"
+          style="cursor: pointer; padding: 20px; border-radius: 14px; position: relative;"
+          title="Click to view 7-day processed refunds in a new tab">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
             <div class="kpi-lbl" style="margin-bottom: 0;">REFUND PROCESSED (LAST 7 DAYS)</div>
-            <span style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View List ↗</span>
+            <span
+              style="font-size: 10.5px; font-weight: 700; background: rgba(91,62,155,0.1); color: #5b3e9b; padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center; gap: 3px;">View
+              List ↗</span>
           </div>
           <div class="kpi-val" id="refund-7days" style="font-size: 28px; font-weight: 800; color: var(--text);">—</div>
-          <div class="kpi-sub" id="refund-7days-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">Loading…</div>
+          <div class="kpi-sub" id="refund-7days-sub" style="font-size: 12px; color: var(--muted); margin-top: 6px;">
+            Loading…</div>
         </div>
       </div>
     </div>
@@ -1535,27 +1626,35 @@
     <div class="sec-gap">
       <div class="sec-title">💼 FINANCIALS</div>
       <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px; max-width: 650px;">
-        <div style="padding: 16px 20px 12px; font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+        <div
+          style="padding: 16px 20px 12px; font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 18px;">🧲</span>
           <span>Net Revenue</span>
         </div>
-        <div class="net-row" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);">
+        <div class="net-row"
+          style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);">
           <span style="font-size: 13.5px; font-weight: 600; color: var(--muted);">Total Sales Revenue</span>
           <span style="font-size: 16px; font-weight: 800; color: var(--green);" id="net-sales">—</span>
         </div>
-        <div class="net-row clickable-row" onclick="window.open('refunds-details.html?filter=yesterday', '_blank')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);" title="Click to view processed refunds in a new tab">
+        <div class="net-row clickable-row" onclick="window.open('refunds-details.html?filter=yesterday', '_blank')"
+          style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid var(--border);"
+          title="Click to view processed refunds in a new tab">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 13.5px; font-weight: 600; color: var(--muted);">− Refunds Processed</span>
-            <span style="font-size: 10px; font-weight: 700; background: rgba(225,29,72,0.1); color: var(--red); padding: 2px 6px; border-radius: 10px;">View List ↗</span>
+            <span
+              style="font-size: 10px; font-weight: 700; background: rgba(225,29,72,0.1); color: var(--red); padding: 2px 6px; border-radius: 10px;">View
+              List ↗</span>
           </div>
           <span style="font-size: 15px; font-weight: 700; color: var(--red);" id="net-refunds">₹0</span>
         </div>
-        <div class="net-row" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-top: 1px solid var(--border); background: rgba(16,185,129,0.06);">
+        <div class="net-row"
+          style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-top: 1px solid var(--border); background: rgba(16,185,129,0.06);">
           <span style="font-size: 14px; font-weight: 800; color: var(--text);">= Net Revenue</span>
           <span style="font-size: 17px; font-weight: 900; color: var(--green);" id="net-total">—</span>
         </div>
       </div>
-    </div>    <div
+    </div>
+    <div
       style="text-align:center;padding:20px 0 0;font-size:12px;color:rgba(136,150,179,0.5);border-top:1px solid var(--border);margin-top:8px">
       🐘 The Elefant — Automated Daily Sales Intelligence Report &nbsp;|&nbsp; Generated daily at 10:00 AM IST
     </div>
@@ -1727,7 +1826,7 @@
                 break;
               }
             }
-          } catch (_) {}
+          } catch (_) { }
         }
         if (!data || !Array.isArray(data) || data.length === 0) {
           throw new Error('Unable to retrieve sales records from API or static storage.');
@@ -1798,6 +1897,9 @@
           } else if (src === 'Upgrade') {
             // Upgrades — clickable with source=Upgrade filter
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Upgrade\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+          } else if (src === 'Events') {
+            // Events — clickable with events-details.html
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'events-details.html?filter=yesterday\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Events deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else {
             sgHtml += '<div class="src-pill"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + '</div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           }
@@ -1953,7 +2055,7 @@
               '<td onclick="window.open(\'delivery-fee-details.html\', \'_blank\')" style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;cursor:pointer;" title="Click to view delivery fee transactions in a new tab">' + (dFee > 0 ? fmt(dFee) : '₹0') + '</td>' +
               '<td style="text-align:right;font-weight:900;color:#0f172a;padding:12px 16px;">' + fmt(tot) + '</td>' +
               '<td style="text-align:right;font-weight:700;color:#0f172a;padding:12px 16px;">' + fmt(aov) + '</td>' +
-            '</tr>';
+              '</tr>';
           }).join('');
 
           if (trendFoot) {
@@ -1965,7 +2067,7 @@
               '<td onclick="window.open(\'delivery-fee-details.html\', \'_blank\')" style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;cursor:pointer;" title="Click to view delivery fee transactions in a new tab">' + fmt(sumDeliv) + '</td>' +
               '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;font-size:15px;">' + fmt(sumTotalRev) + '</td>' +
               '<td style="text-align:right;font-weight:900;color:#0f172a;padding:14px 16px;">' + fmt(blendedAov) + '</td>' +
-            '</tr>';
+              '</tr>';
           }
         }
 
@@ -2347,6 +2449,9 @@
           <a href="inside-sales-details.html?from=${startDate}&to=${endDate}" target="_blank" class="pm-btn pm-btn-primary">
             ⚡ View Inside Sales Deals (${sd(startDate)}–${sd(endDate)}) ↗
           </a>
+          <a href="events-details.html?from=${startDate}&to=${endDate}" target="_blank" class="pm-btn">
+            🎤 View Events Deals (${sd(startDate)}–${sd(endDate)}) ↗
+          </a>
           <a href="direct-sales-details.html?from=${startDate}&to=${endDate}" target="_blank" class="pm-btn">
             🛍️ View Direct Sales Deals (${sd(startDate)}–${sd(endDate)}) ↗
           </a>
@@ -2519,7 +2624,7 @@
 
       window.exportTableToPDF({
         title: title,
-        subtitle: `Period: ${startDate} to ${endDate} (${pDays.length} days) • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+        subtitle: `Period: ${startDate} to ${endDate} (${pDays.length} days) • Generated on ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}`,
         filename: `period_revenue_${startDate}_${endDate}.pdf`,
         head: head,
         body: body
@@ -2534,8 +2639,10 @@
         <div style="display:flex;align-items:center;gap:10px;">
           <span style="font-size:24px;" id="modal-period-icon">📆</span>
           <div>
-            <h3 id="modal-period-title" style="margin:0;font-size:18px;font-weight:800;color:var(--text);">Period Revenue Breakdown</h3>
-            <div id="modal-period-subtitle" style="font-size:12.5px;color:var(--muted);margin-top:2px;">Detailed sales & performance breakdown</div>
+            <h3 id="modal-period-title" style="margin:0;font-size:18px;font-weight:800;color:var(--text);">Period
+              Revenue Breakdown</h3>
+            <div id="modal-period-subtitle" style="font-size:12.5px;color:var(--muted);margin-top:2px;">Detailed sales &
+              performance breakdown</div>
           </div>
         </div>
         <button class="modal-close-btn" onclick="closePeriodModal()" title="Close details">✕</button>

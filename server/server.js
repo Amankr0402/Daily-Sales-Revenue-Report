@@ -1652,6 +1652,93 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
   }
 });
 
+/* ---------- Events Details Endpoint ---------- */
+const EVENTS_DETAILS_CACHE_FILE = resolveDataFile('events_details.csv');
+
+app.get('/api/events-details-csv', async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    // Check fresh cache (< 30 min old)
+    if (fs.existsSync(EVENTS_DETAILS_CACHE_FILE) && req.query.refresh !== 'true') {
+      const stats = fs.statSync(EVENTS_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30) {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(EVENTS_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    const buildUrl = (id, sheet) => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheet)}`;
+
+    let csv1 = ''; let csv2 = '';
+    try { csv1 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID,  INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet1 for events:', e.message); }
+    try { csv2 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID2, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet2 for events:', e.message); }
+
+    // Fallback to local secondary sheet if online fetch fails
+    const secFile = resolveDataFile('secondary_sales_sheet.csv');
+    if (!csv2 && fs.existsSync(secFile)) {
+      try { csv2 = fs.readFileSync(secFile, 'utf8'); } catch (_) {}
+    }
+
+    const parseEvents = (raw, sheetLabel) => {
+      if (!raw || raw.length < 10) return [];
+      const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+      const rows = [];
+      for (let i = 2; i < lines.length; i++) {
+        const l = lines[i];
+        if (l.toLowerCase().includes('event')) {
+          rows.push(`${l},"${sheetLabel}"`);
+        }
+      }
+      return rows;
+    };
+
+    const header = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
+    const rows1 = parseEvents(csv1, 'Sheet1');
+    const rows2 = parseEvents(csv2, 'Sheet2');
+    const merged = [header, ...rows1, ...rows2].join('\n');
+
+    if (merged.length > 50) {
+      try {
+        fs.writeFileSync(EVENTS_DETAILS_CACHE_FILE, merged, 'utf8');
+        const pubEvPath = path.join(__dirname, '..', 'public', 'data', 'events_details.csv');
+        if (fs.existsSync(path.dirname(pubEvPath))) {
+          fs.writeFileSync(pubEvPath, merged, 'utf8');
+        }
+      } catch (_) {}
+      res.setHeader('Content-Type', 'text/csv');
+      return res.send(merged);
+    }
+
+    // Fallback to cache
+    if (fs.existsSync(EVENTS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(EVENTS_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Events details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(EVENTS_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(EVENTS_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+});
+
 /* ---------- Leads Missed Details CSV Endpoint ---------- */
 const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a213917a-7722-4459-8c47-d9c0335babec.csv';
 const MISSED_LEADS_DETAILS_CACHE_FILE = resolveDataFile('missed_leads_details.csv');

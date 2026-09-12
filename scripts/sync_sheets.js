@@ -66,6 +66,7 @@ const DELIVERY_FEES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/que
 const DELIVERY_FEES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'delivery_fees_details.csv');
 const DIRECT_SALE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
 const DISPUTED_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'disputed_sales_details.csv');
+const EVENTS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'events_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -318,6 +319,35 @@ async function syncSalesData() {
       if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
       day.sources[cleanSource].revenue += rev;
       day.sources[cleanSource].count += count;
+    }
+
+    // Extract Events deals from both Sheet 1 and Sheet 2
+    try {
+      const evHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
+      const allEvRows = [];
+      if (typeof sheetCSV === 'string') {
+        const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
+        for (let i = 2; i < lines1.length; i++) {
+          if (lines1[i].toLowerCase().includes('event')) allEvRows.push(`${lines1[i]},"Sheet1"`);
+        }
+      }
+      if (typeof sheet2CSV === 'string') {
+        const lines2 = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
+        for (let i = 2; i < lines2.length; i++) {
+          if (lines2[i].toLowerCase().includes('event')) allEvRows.push(`${lines2[i]},"Sheet2"`);
+        }
+      }
+      if (allEvRows.length > 0) {
+        const evCSV = [evHeader, ...allEvRows].join('\n');
+        fs.writeFileSync(EVENTS_DETAILS_FILE, evCSV, 'utf-8');
+        const pubEv = path.join(__dirname, '..', 'public', 'data', 'events_details.csv');
+        if (fs.existsSync(path.dirname(pubEv))) {
+          fs.writeFileSync(pubEv, evCSV, 'utf-8');
+        }
+        console.log(`✅ Cached Events Details (${allEvRows.length} deals) to ${EVENTS_DETAILS_FILE}`);
+      }
+    } catch (evErr) {
+      console.warn('⚠️ Could not cache Events Details:', evErr.message);
     }
   } catch (sheet2Err) {
     console.warn('⚠️ Warning: Could not fetch 2nd sheet:', sheet2Err.message);
