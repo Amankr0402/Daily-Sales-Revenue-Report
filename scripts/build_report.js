@@ -95,9 +95,9 @@ const html = `<!DOCTYPE html>
     .pod-block.b2{background:linear-gradient(180deg,rgba(251,146,60,0.15),rgba(251,146,60,0.04));height:56px;min-width:90px;color:#ea580c}
     .pod-block.b3{background:linear-gradient(180deg,rgba(168,85,247,0.15),rgba(168,85,247,0.04));height:40px;min-width:90px;color:#a855f7}
     /* PODIUM FILTER BUTTONS */
-    .pod-filter-btn { padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #ffffff; color: var(--muted); cursor: pointer; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 5px; }
+    .pod-filter-btn { padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #ffffff; color: #64748b; cursor: pointer; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 5px; }
     .pod-filter-btn:hover { background: #f1f5f9; color: var(--text); border-color: #cbd5e1; }
-    .pod-filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25); }
+    .pod-filter-btn.active { background: #ffffff; color: var(--primary); border: 1.5px solid var(--primary); box-shadow: 0 2px 8px rgba(91, 62, 155, 0.18); }
     /* CHART CARD */
     .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
     .chart-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
@@ -628,14 +628,14 @@ async function init() {
     Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
       if (src === 'Direct Sale') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=net&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
-        // Overlap Sales KPI pill (deals in both Inside Sales & Direct Sales)
+        // Disputed Sales KPI pill (deals in both Inside Sales & Direct Sales)
         const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
         const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
         const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
         const dispTooltip = disp.count > 0
-          ? 'Overlap: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Sales Table.'
-          : '0 Overlap Deals on this date. Click to view full overlap table.';
-        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Overlap Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+          ? 'Disputed: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Disputed Sales Table.'
+          : '0 Disputed Deals on this date. Click to view full disputed table.';
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Disputed Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
       } else if (src === 'Organic') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Organic&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       } else if (src === 'Renewals') {
@@ -1308,7 +1308,7 @@ if (fs.existsSync(dataSrc)) {
   dataFiles.forEach(f => {
     try {
       fs.copyFileSync(path.join(dataSrc, f), path.join(dataDest, f));
-    } catch (_) {}
+    } catch (_) { }
   });
   console.log(`SUCCESS: Copied ${dataFiles.length} data files to public/data/ for static CDN serving.`);
 }

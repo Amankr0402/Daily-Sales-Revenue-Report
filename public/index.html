@@ -544,7 +544,7 @@
       font-weight: 700;
       border: 1px solid var(--border);
       background: #ffffff;
-      color: var(--muted);
+      color: #64748b;
       cursor: pointer;
       transition: all 0.15s ease;
       display: inline-flex;
@@ -559,10 +559,10 @@
     }
 
     .pod-filter-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25);
+      background: #ffffff;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.18);
     }
 
     /* CHART CARD */
@@ -1880,14 +1880,14 @@
           const c = SRC_C[src] || '#8896b3'; const l = SRC_L[src] || src;
           if (src === 'Direct Sale') {
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=net\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
-            // Overlap Sales KPI pill (deals in both Inside Sales & Direct Sales)
+            // Disputed Sales KPI pill (deals in both Inside Sales & Direct Sales)
             const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
             const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
             const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
             const dispTooltip = disp.count > 0
-              ? 'Overlap: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Sales Table.'
-              : '0 Overlap Deals on this date. Click to view full overlap table.';
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Overlap Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+              ? 'Disputed: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Disputed Sales Table.'
+              : '0 Disputed Deals on this date. Click to view full disputed table.';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Disputed Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
           } else if (src === 'Organic') {
             // Inside Sales — clickable with source=Organic filter
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
