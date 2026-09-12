@@ -257,7 +257,7 @@
         <div class="period-ico">📅</div>
         <div style="flex: 1;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+            <div class="period-lbl">Revenue This Week (Sun–Yesterday)</div>
             <span class="period-drill-btn">View Details ↗</span>
           </div>
           <div class="period-val green" id="rev-week">—</div>
@@ -268,7 +268,7 @@
         <div class="period-ico">🗓️</div>
         <div style="flex: 1;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="period-lbl">Revenue This Month (1st–Today)</div>
+            <div class="period-lbl">Revenue This Month (1st–Yesterday)</div>
             <span class="period-drill-btn">View Details ↗</span>
           </div>
           <div class="period-val blue" id="rev-month">—</div>
@@ -676,17 +676,51 @@ async function init() {
     filterPodium('1d');
 
     // Period
-    const yDate = new Date(yd.date+'T00:00:00');
-    const dow = yDate.getDay();
-    const sun = new Date(yDate); sun.setDate(yDate.getDate()-dow);
-    const sunStr = sun.toISOString().slice(0,10);
-    const wData = data.filter(d=>d.date>=sunStr&&d.date<=yd.date);
-    const wRev = wData.reduce((s,d)=>s+(d.totalRevenue||0),0);
-    document.getElementById('rev-week').textContent = fmt(wRev);
-    document.getElementById('rev-week-sub').textContent = sd(sunStr)+' → '+sd(yd.date)+' · '+wData.length+' days · '+wData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
-    const mRev = mData.reduce((s,d)=>s+(d.totalRevenue||0),0);
-    document.getElementById('rev-month').textContent = fmt(mRev);
-    document.getElementById('rev-month-sub').textContent = sd(mStr)+' → '+sd(yd.date)+' · '+mData.length+' days · '+mData.reduce((s,d)=>s+(d.salesCount||0),0)+' deals';
+    const periodEnd = data[data.length - 1]?.date || yd.date;
+    const mStr = yd.date.slice(0, 7) + '-01';
+    const mData = data.filter(d => d.date >= mStr && d.date <= periodEnd);
+
+    const eDate = new Date(periodEnd + 'T00:00:00');
+    const dow = eDate.getDay();
+    const sun = new Date(eDate); sun.setDate(eDate.getDate() - dow);
+    const sunStr = sun.toISOString().slice(0, 10);
+    const wData = data.filter(d => d.date >= sunStr && d.date <= periodEnd);
+
+    function calcPeriodSums(items) {
+      let insideRev = 0, insideCnt = 0;
+      let directRev = 0, directCnt = 0;
+      let delFeeRev = 0, totalRev = 0, totalCnt = 0;
+      items.forEach(d => {
+        let dayIns = 0, dayInsCnt = 0;
+        Object.entries(d.sources || {}).forEach(([s, info]) => {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+            dayIns += (info.revenue || 0);
+            dayInsCnt += (info.count || 0);
+          }
+        });
+        const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+        const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+        const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+        const dTot = dayIns + dDir + dDel;
+
+        insideRev += dayIns;
+        insideCnt += dayInsCnt;
+        directRev += dDir;
+        directCnt += dDirCnt;
+        delFeeRev += dDel;
+        totalRev += dTot;
+        totalCnt += (d.salesCount || 0);
+      });
+      return { insideRev, insideCnt, directRev, directCnt, delFeeRev, totalRev, totalCnt };
+    }
+
+    const wSums = calcPeriodSums(wData);
+    document.getElementById('rev-week').textContent = fmt(wSums.totalRev);
+    document.getElementById('rev-week-sub').textContent = 'Inside: ' + fmt(wSums.insideRev) + ' (' + wSums.insideCnt + 'd) · Direct: ' + fmt(wSums.directRev) + ' · Total: ' + wSums.totalCnt + ' deals';
+
+    const mSums = calcPeriodSums(mData);
+    document.getElementById('rev-month').textContent = fmt(mSums.totalRev);
+    document.getElementById('rev-month-sub').textContent = 'Inside: ' + fmt(mSums.insideRev) + ' (' + mSums.insideCnt + 'd) · Direct: ' + fmt(mSums.directRev) + ' · Total: ' + mSums.totalCnt + ' deals';
 
     // Plan pie
     const plans = yd.plans||{};
@@ -955,24 +989,23 @@ function formatDateLong(iso) {
 
 function openPeriodModal(type) {
   if (!globalReportData || !globalYesterdayData) return;
-  var yd = globalYesterdayData;
-  var yDate = new Date(yd.date + 'T00:00:00');
   var isWeek = (type === 'week');
 
   var startDate, title, icon;
+  var endDate = globalReportData[globalReportData.length - 1]?.date || yd.date;
   if (isWeek) {
-    var dow = yDate.getDay();
-    var sun = new Date(yDate);
-    sun.setDate(yDate.getDate() - dow);
+    var eDate = new Date(endDate + 'T00:00:00');
+    var dow = eDate.getDay();
+    var sun = new Date(eDate);
+    sun.setDate(eDate.getDate() - dow);
     startDate = sun.toISOString().slice(0, 10);
-    title = 'Revenue This Week (Sun–Today)';
+    title = 'Revenue This Week (Sun–Yesterday)';
     icon = '📅';
   } else {
-    startDate = yd.date.slice(0, 7) + '-01';
-    title = 'Revenue This Month (1st–Today)';
+    startDate = endDate.slice(0, 7) + '-01';
+    title = 'Revenue This Month (1st–Yesterday)';
     icon = '🗓️';
   }
-  var endDate = yd.date;
 
   var pDays = globalReportData.filter(function(d) { return d.date >= startDate && d.date <= endDate; }).sort(function(a, b) { return b.date.localeCompare(a.date); });
 
@@ -980,6 +1013,8 @@ function openPeriodModal(type) {
   var totalDeals = 0;
   var totalDirectRev = 0;
   var totalDirectCnt = 0;
+  var totalInsideRev = 0;
+  var totalInsideCnt = 0;
   var totalDelFeeRev = 0;
   var totalDelFeeCnt = 0;
 
@@ -987,19 +1022,28 @@ function openPeriodModal(type) {
   var planMap = {};
 
   pDays.forEach(function(d) {
-    var dayTotRev = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-    totalRevenue += dayTotRev;
+    var dayIns = 0;
+    var dayInsCnt = 0;
+    Object.entries(d.sources || {}).forEach(function([s, info]) {
+      if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+        dayIns += (info.revenue || 0);
+        dayInsCnt += (info.count || 0);
+      }
+    });
+    var dayDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+    var dayDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+    var dayDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+    var dayDelCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
+    var dayTot = dayIns + dayDir + dayDel;
+
+    totalInsideRev += dayIns;
+    totalInsideCnt += dayInsCnt;
+    totalDirectRev += dayDir;
+    totalDirectCnt += dayDirCnt;
+    totalDelFeeRev += dayDel;
+    totalDelFeeCnt += dayDelCnt;
+    totalRevenue += dayTot;
     totalDeals += (d.salesCount || 0);
-
-    var dirRev = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
-    var dirCnt = (d.directSaleCSV && d.directSaleCSV.count) || 0;
-    totalDirectRev += dirRev;
-    totalDirectCnt += dirCnt;
-
-    var delRev = (d.deliveryFee && d.deliveryFee.total) || 0;
-    var delCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
-    totalDelFeeRev += delRev;
-    totalDelFeeCnt += delCnt;
 
     Object.entries(d.agents || {}).forEach(function([agName, agData]) {
       if (!agentMap[agName]) agentMap[agName] = { count: 0, revenue: 0 };
@@ -1013,9 +1057,6 @@ function openPeriodModal(type) {
       planMap[pName].revenue += (pData.revenue || 0);
     });
   });
-
-  var totalInsideRev = totalRevenue - totalDirectRev - totalDelFeeRev;
-  var totalInsideCnt = Math.max(0, totalDeals - totalDirectCnt);
 
   document.getElementById('modal-period-icon').textContent = icon;
   document.getElementById('modal-period-title').textContent = title;
@@ -1085,10 +1126,15 @@ function openPeriodModal(type) {
         '<tbody>';
 
   pDays.forEach(function(d) {
-    var dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-    var dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+    var dayIns = 0;
+    Object.entries(d.sources || {}).forEach(function([s, info]) {
+      if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+        dayIns += (info.revenue || 0);
+      }
+    });
+    var dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
     var dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-    var dIns = dTot - dDir - dDel;
+    var dTot = dayIns + dDir + dDel;
     var dCnt = (d.salesCount || 0);
 
     var ags = Object.entries(d.agents || {}).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
@@ -1096,7 +1142,7 @@ function openPeriodModal(type) {
 
     outHtml += '<tr>' +
       '<td style="font-weight: 700; white-space: nowrap;">' + formatDateLong(d.date) + '</td>' +
-      '<td style="text-align: right; color: var(--green); font-weight: 700;">' + fmt(dIns) + '</td>' +
+      '<td style="text-align: right; color: var(--green); font-weight: 700;">' + fmt(dayIns) + '</td>' +
       '<td style="text-align: right; color: var(--blue); font-weight: 700;">' + fmt(dDir) + '</td>' +
       '<td style="text-align: right; color: var(--orange); font-weight: 600;">' + fmt(dDel) + '</td>' +
       '<td style="text-align: right; font-weight: 900; color: var(--text);">' + fmt(dTot) + '</td>' +
@@ -1183,16 +1229,21 @@ function exportPeriodPDF(title, startDate, endDate) {
   var pDays = globalReportData.filter(function(d) { return d.date >= startDate && d.date <= endDate; }).sort(function(a, b) { return b.date.localeCompare(a.date); });
   var head = [['Date', 'Inside Sales (₹)', 'Direct Sales (₹)', 'Delivery Fees (₹)', 'Total Revenue (₹)', 'Deals', 'Top Rep']];
   var body = pDays.map(function(d) {
-    var dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-    var dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+    var dayIns = 0;
+    Object.entries(d.sources || {}).forEach(function([s, info]) {
+      if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+        dayIns += (info.revenue || 0);
+      }
+    });
+    var dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
     var dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-    var dIns = dTot - dDir - dDel;
+    var dTot = dayIns + dDir + dDel;
     var dCnt = (d.salesCount || 0);
     var ags = Object.entries(d.agents || {}).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
     var topRep = ags.length ? (ags[0][0] + ' (₹' + Math.round(ags[0][1].revenue).toLocaleString('en-IN') + ')') : '—';
     return [
       formatDateLong(d.date),
-      '₹' + Math.round(dIns).toLocaleString('en-IN'),
+      '₹' + Math.round(dayIns).toLocaleString('en-IN'),
       '₹' + Math.round(dDir).toLocaleString('en-IN'),
       '₹' + Math.round(dDel).toLocaleString('en-IN'),
       '₹' + Math.round(dTot).toLocaleString('en-IN'),

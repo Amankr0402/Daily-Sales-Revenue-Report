@@ -1398,7 +1398,7 @@
           <div class="period-ico">📅</div>
           <div style="flex: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
-              <div class="period-lbl">Revenue This Week (Sun–Today)</div>
+              <div class="period-lbl">Revenue This Week (Sun–Yesterday)</div>
               <span class="period-drill-btn">View Details ↗</span>
             </div>
             <div class="period-val green" id="rev-week">—</div>
@@ -1410,7 +1410,7 @@
           <div class="period-ico">🗓️</div>
           <div style="flex: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
-              <div class="period-lbl">Revenue This Month (1st–Today)</div>
+              <div class="period-lbl">Revenue This Month (1st–Yesterday)</div>
               <span class="period-drill-btn">View Details ↗</span>
             </div>
             <div class="period-val blue" id="rev-month">—</div>
@@ -1945,20 +1945,52 @@
 
         filterPodium('1d');
 
-        // Period
+        // Period Revenue (Week & Month to Date)
+        const periodEnd = paramDate ? yd.date : (data[data.length - 1]?.date || yd.date);
         const mStr = yd.date.slice(0, 7) + '-01';
-        const mData = data.filter(d => d.date >= mStr && d.date <= yd.date);
-        const yDate = new Date(yd.date + 'T00:00:00');
-        const dow = yDate.getDay();
-        const sun = new Date(yDate); sun.setDate(yDate.getDate() - dow);
+        const mData = data.filter(d => d.date >= mStr && d.date <= periodEnd);
+
+        const eDate = new Date(periodEnd + 'T00:00:00');
+        const dow = eDate.getDay();
+        const sun = new Date(eDate); sun.setDate(eDate.getDate() - dow);
         const sunStr = sun.toISOString().slice(0, 10);
-        const wData = data.filter(d => d.date >= sunStr && d.date <= yd.date);
-        const wRev = wData.reduce((s, d) => s + (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0), 0);
-        document.getElementById('rev-week').textContent = fmt(wRev);
-        document.getElementById('rev-week-sub').textContent = sd(sunStr) + ' → ' + sd(yd.date) + ' · ' + wData.length + ' days · ' + wData.reduce((s, d) => s + (d.salesCount || 0), 0) + ' deals';
-        const mRev = mData.reduce((s, d) => s + (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0), 0);
-        document.getElementById('rev-month').textContent = fmt(mRev);
-        document.getElementById('rev-month-sub').textContent = sd(mStr) + ' → ' + sd(yd.date) + ' · ' + mData.length + ' days · ' + mData.reduce((s, d) => s + (d.salesCount || 0), 0) + ' deals';
+        const wData = data.filter(d => d.date >= sunStr && d.date <= periodEnd);
+
+        function calcPeriodSums(items) {
+          let insideRev = 0, insideCnt = 0;
+          let directRev = 0, directCnt = 0;
+          let delFeeRev = 0, totalRev = 0, totalCnt = 0;
+          items.forEach(d => {
+            let dayIns = 0, dayInsCnt = 0;
+            Object.entries(d.sources || {}).forEach(([s, info]) => {
+              if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+                dayIns += (info.revenue || 0);
+                dayInsCnt += (info.count || 0);
+              }
+            });
+            const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+            const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+            const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+            const dTot = dayIns + dDir + dDel;
+
+            insideRev += dayIns;
+            insideCnt += dayInsCnt;
+            directRev += dDir;
+            directCnt += dDirCnt;
+            delFeeRev += dDel;
+            totalRev += dTot;
+            totalCnt += (d.salesCount || 0);
+          });
+          return { insideRev, insideCnt, directRev, directCnt, delFeeRev, totalRev, totalCnt };
+        }
+
+        const wSums = calcPeriodSums(wData);
+        document.getElementById('rev-week').textContent = fmt(wSums.totalRev);
+        document.getElementById('rev-week-sub').textContent = `Inside: ${fmt(wSums.insideRev)} (${wSums.insideCnt}d) · Direct: ${fmt(wSums.directRev)} · Total: ${wSums.totalCnt} deals`;
+
+        const mSums = calcPeriodSums(mData);
+        document.getElementById('rev-month').textContent = fmt(mSums.totalRev);
+        document.getElementById('rev-month-sub').textContent = `Inside: ${fmt(mSums.insideRev)} (${mSums.insideCnt}d) · Direct: ${fmt(mSums.directRev)} · Total: ${mSums.totalCnt} deals`;
 
         // Plan pie
         const plans = yd.plans || {};
@@ -2348,23 +2380,23 @@
     function openPeriodModal(type) {
       if (!globalReportData || !globalYesterdayData) return;
       const yd = globalYesterdayData;
-      const yDate = new Date(yd.date + 'T00:00:00');
       const isWeek = (type === 'week');
-
+      const urlParamDate = new URLSearchParams(window.location.search).get('date');
+      const endDate = urlParamDate ? yd.date : (globalReportData[globalReportData.length - 1]?.date || yd.date);
       let startDate, title, icon;
       if (isWeek) {
-        const dow = yDate.getDay();
-        const sun = new Date(yDate);
-        sun.setDate(yDate.getDate() - dow);
+        const eDate = new Date(endDate + 'T00:00:00');
+        const dow = eDate.getDay();
+        const sun = new Date(eDate);
+        sun.setDate(eDate.getDate() - dow);
         startDate = sun.toISOString().slice(0, 10);
-        title = 'Revenue This Week (Sun–Today)';
+        title = 'Revenue This Week (Sun–Yesterday)';
         icon = '📅';
       } else {
-        startDate = yd.date.slice(0, 7) + '-01';
-        title = 'Revenue This Month (1st–Today)';
+        startDate = endDate.slice(0, 7) + '-01';
+        title = 'Revenue This Month (1st–Yesterday)';
         icon = '🗓️';
       }
-      const endDate = yd.date;
 
       const pDays = globalReportData.filter(d => d.date >= startDate && d.date <= endDate).sort((a, b) => b.date.localeCompare(a.date));
 
@@ -2372,6 +2404,8 @@
       let totalDeals = 0;
       let totalDirectRev = 0;
       let totalDirectCnt = 0;
+      let totalInsideRev = 0;
+      let totalInsideCnt = 0;
       let totalDelFeeRev = 0;
       let totalDelFeeCnt = 0;
 
@@ -2379,19 +2413,28 @@
       const planMap = {};
 
       pDays.forEach(d => {
-        const dayTotRev = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-        totalRevenue += dayTotRev;
+        let dayIns = 0;
+        let dayInsCnt = 0;
+        Object.entries(d.sources || {}).forEach(([s, info]) => {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+            dayIns += (info.revenue || 0);
+            dayInsCnt += (info.count || 0);
+          }
+        });
+        const dayDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+        const dayDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+        const dayDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+        const dayDelCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
+        const dayTot = dayIns + dayDir + dayDel;
+
+        totalInsideRev += dayIns;
+        totalInsideCnt += dayInsCnt;
+        totalDirectRev += dayDir;
+        totalDirectCnt += dayDirCnt;
+        totalDelFeeRev += dayDel;
+        totalDelFeeCnt += dayDelCnt;
+        totalRevenue += dayTot;
         totalDeals += (d.salesCount || 0);
-
-        const dirRev = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
-        const dirCnt = (d.directSaleCSV && d.directSaleCSV.count) || 0;
-        totalDirectRev += dirRev;
-        totalDirectCnt += dirCnt;
-
-        const delRev = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const delCnt = (d.deliveryFee && d.deliveryFee.count) || 0;
-        totalDelFeeRev += delRev;
-        totalDelFeeCnt += delCnt;
 
         // Aggregate agents
         Object.entries(d.agents || {}).forEach(([agName, agData]) => {
@@ -2407,9 +2450,6 @@
           planMap[pName].revenue += (pData.revenue || 0);
         });
       });
-
-      const totalInsideRev = totalRevenue - totalDirectRev - totalDelFeeRev;
-      const totalInsideCnt = Math.max(0, totalDeals - totalDirectCnt);
 
       document.getElementById('modal-period-icon').textContent = icon;
       document.getElementById('modal-period-title').textContent = title;
@@ -2485,10 +2525,15 @@
       `;
 
       pDays.forEach(d => {
-        const dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-        const dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+        let dIns = 0;
+        Object.entries(d.sources || {}).forEach(([s, info]) => {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+            dIns += (info.revenue || 0);
+          }
+        });
+        const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
         const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dIns = dTot - dDir - dDel;
+        const dTot = dIns + dDir + dDel;
         const dCnt = (d.salesCount || 0);
 
         const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
@@ -2604,10 +2649,15 @@
       const pDays = globalReportData.filter(d => d.date >= startDate && d.date <= endDate).sort((a, b) => b.date.localeCompare(a.date));
       const head = [['Date', 'Inside Sales (₹)', 'Direct Sales (₹)', 'Delivery Fees (₹)', 'Total Revenue (₹)', 'Deals', 'Top Rep']];
       const body = pDays.map(d => {
-        const dTot = (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total) || 0);
-        const dDir = (d.directSaleCSV && d.directSaleCSV.revenue) || 0;
+        let dIns = 0;
+        Object.entries(d.sources || {}).forEach(([s, info]) => {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+            dIns += (info.revenue || 0);
+          }
+        });
+        const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
         const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dIns = dTot - dDir - dDel;
+        const dTot = dIns + dDir + dDel;
         const dCnt = (d.salesCount || 0);
         const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
         const topRep = ags.length ? `${ags[0][0]} (₹${Math.round(ags[0][1].revenue).toLocaleString('en-IN')})` : '—';

@@ -178,6 +178,12 @@ function formatDirectSalePlan(rawPlan, rawCycle) {
 }
 
 async function syncSalesData() {
+  const now = new Date();
+  const istOffset = 5.5 * 60 * 60 * 1000;
+  const istDate = new Date(now.getTime() + istOffset);
+  const todayIST = `${istDate.getUTCFullYear()}-${String(istDate.getUTCMonth() + 1).padStart(2, '0')}-${String(istDate.getUTCDate()).padStart(2, '0')}`;
+  console.log(`⏳ Strict cutoff: only fetching data till 11:59 PM yesterday (excluding today: ${todayIST})...`);
+
   console.log(`📡 Fetching sales data from Google Sheet: "${SHEET_NAME}"...`);
   const sheetCSV = await fetchSheetCSV(SPREADSHEET_ID, SHEET_NAME);
   const sheetLines = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
@@ -206,7 +212,7 @@ async function syncSalesData() {
     if (rev <= 0) continue;
 
     const isoDate = parseDate(rawDate);
-    if (!isoDate || isoDate.length !== 10) continue;
+    if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
     if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
     if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
@@ -282,7 +288,7 @@ async function syncSalesData() {
       if (rev <= 0) continue;
 
       const isoDate = parseDate(rawDate);
-      if (!isoDate || isoDate.length !== 10) continue;
+      if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
       if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
       if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
@@ -321,20 +327,28 @@ async function syncSalesData() {
       day.sources[cleanSource].count += count;
     }
 
-    // Extract Events deals from both Sheet 1 and Sheet 2
+    // Extract Events deals from both Sheet 1 and Sheet 2 (strictly till 11:59 PM yesterday)
     try {
       const evHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
       const allEvRows = [];
       if (typeof sheetCSV === 'string') {
         const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
         for (let i = 2; i < lines1.length; i++) {
-          if (lines1[i].toLowerCase().includes('event')) allEvRows.push(`${lines1[i]},"Sheet1"`);
+          if (lines1[i].toLowerCase().includes('event')) {
+            const cols = parseCSVLine(lines1[i]).map(c => c.replace(/^"|"$/g, '').trim());
+            const d = parseDate(cols[1]);
+            if (d && d < todayIST) allEvRows.push(`${lines1[i]},"Sheet1"`);
+          }
         }
       }
       if (typeof sheet2CSV === 'string') {
         const lines2 = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
         for (let i = 2; i < lines2.length; i++) {
-          if (lines2[i].toLowerCase().includes('event')) allEvRows.push(`${lines2[i]},"Sheet2"`);
+          if (lines2[i].toLowerCase().includes('event')) {
+            const cols = parseCSVLine(lines2[i]).map(c => c.replace(/^"|"$/g, '').trim());
+            const d = parseDate(cols[1]);
+            if (d && d < todayIST) allEvRows.push(`${lines2[i]},"Sheet2"`);
+          }
         }
       }
       if (allEvRows.length > 0) {
@@ -375,6 +389,7 @@ async function syncSalesData() {
       const dParts = datePart.split('/');
       if (dParts.length !== 3) continue;
       const isoDate = `${dParts[2]}-${dParts[1]}-${dParts[0]}`; // YYYY-MM-DD
+      if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
       const rev = parseFloat(cols[7]) || 0; // Amount Paid
       if (rev <= 0) continue;
 
@@ -480,7 +495,7 @@ async function syncSalesData() {
     for (let i = 1; i < metaLines.length; i++) {
       const cols = parseCSVLine(metaLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       const rawDay = cols[0];
-      if (!rawDay) continue;
+      if (!rawDay || rawDay >= todayIST) continue;
 
       const signups = parseInt(cols[1], 10) || 0;
       const otpVerified = parseInt(cols[2], 10) || 0;
@@ -528,7 +543,7 @@ async function syncSalesData() {
       if (dCols.length < 5) continue;
 
       const dateKey = parseDate(dCols[0]);  // parse transaction_date
-      if (!dateKey || dateKey.length !== 10) continue;
+      if (!dateKey || dateKey.length !== 10 || dateKey >= todayIST) continue;
 
       const deliveryFee = {
         transactions: parseInt(dCols[1], 10) || 0,
@@ -611,7 +626,7 @@ async function syncSalesData() {
         }
       }
 
-      if (!isoDate || isoDate.length !== 10) continue;
+      if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
       const rawAmount = parseFloat((cols[4] || '').replace(/,/g, '')) || 0;
       const status = (cols[6] || 'processed').toLowerCase();
@@ -648,7 +663,7 @@ async function syncSalesData() {
     console.warn('⚠️ Warning: Could not fetch Refunds data:', refErr.message);
   }
 
-  const sortedDays = Object.values(recordsByDate).sort((a, b) => a.date.localeCompare(b.date));
+  const sortedDays = Object.values(recordsByDate).filter(d => d.date < todayIST).sort((a, b) => a.date.localeCompare(b.date));
 
   // Compute rolling 7-day refunds for each day
   for (let i = 0; i < sortedDays.length; i++) {
