@@ -39554,10 +39554,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1153,
-      "otpVerified": 1126,
-      "serviceable": 780,
-      "serviceableWithPct": "780 (67.6%)",
+      "signups": 1152,
+      "otpVerified": 1125,
+      "serviceable": 779,
+      "serviceableWithPct": "779 (67.6%)",
       "serviceablePct": "67.6%"
     },
     "directSaleCSV": {
@@ -39905,9 +39905,9 @@
   },
   {
     "date": "2026-09-11",
-    "totalRevenue": 218611,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 256111,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 13573,
       "agent": "Kausturi Roy Chowdhury"
@@ -39946,8 +39946,8 @@
         "count": 2
       },
       "Yuvraj Singh Dodiya": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 26500,
+        "count": 3
       },
       "Ishika Gorle": {
         "revenue": 11000,
@@ -39960,16 +39960,24 @@
       "Abhijeet Mathur": {
         "revenue": 13000,
         "count": 1
+      },
+      "Soumya Pandey": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 10657,
-        "count": 2
+        "revenue": 15157,
+        "count": 3
       },
       "Annual Max": {
-        "revenue": 194954,
-        "count": 17
+        "revenue": 227954,
+        "count": 20
       },
       "Ultra Annually": {
         "revenue": 13000,
@@ -39978,8 +39986,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 126662,
-        "count": 12
+        "revenue": 164162,
+        "count": 16
       },
       "Renewals": {
         "revenue": 10376,
@@ -40010,9 +40018,9 @@
       "revenue": 13573
     },
     "missedLeads": {
-      "Connected": 411,
-      "Interested": 153,
-      "Paise Dega": 20
+      "Connected": 465,
+      "Interested": 185,
+      "Paise Dega": 25
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -40024,8 +40032,8 @@
       "items": []
     },
     "newUsers7d": 9237,
-    "newUsersYesterday": 1162,
-    "activeSubs": 4722,
+    "newUsersYesterday": 1139,
+    "activeSubs": 4721,
     "newSubs7d": 450,
     "teleCrmLeads": 1523,
     "subsEnding5d": 86,
@@ -40033,40 +40041,71 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 32,
-      "Orders Placed": 32,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
-      "Orders - Not Delivered": 73,
-      "Orders Not Delivered": 73
+      "Orders - PLACED": 30,
+      "Orders Placed": 30,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
+      "Orders - SHIPPED": 17,
+      "Orders Shipped": 17,
+      "Orders - Not Delivered": 71,
+      "Orders Not Delivered": 71
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 234,
-      "New Subscribers Orders that have been Delivered": 161,
-      "New Subscribers Orders yet to be Delivered": 73,
-      "New Subscribers Orders yet to be Delivered & Delayed": 24
+      "New Subscribers Orders that have been Delivered": 163,
+      "New Subscribers Orders yet to be Delivered": 71,
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     }
   },
   {
     "date": "2026-09-12",
-    "totalRevenue": 0,
-    "salesCount": 0,
-    "transactions": 0,
-    "agents": {},
-    "plans": {},
-    "sources": {},
+    "totalRevenue": 29633,
+    "salesCount": 3,
+    "transactions": 3,
+    "highestSale": {
+      "amount": 12877,
+      "agent": "Anant Meghraj Gawande"
+    },
+    "agents": {
+      "Preyashi Roy": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 23877,
+        "count": 2
+      },
+      "Quarterly Max": {
+        "revenue": 5756,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 18633,
+        "count": 2
+      }
+    },
     "userBreakdown": {
-      "signups": 110,
-      "otpVerified": 107,
-      "serviceable": 81,
-      "serviceableWithPct": "81 (73.6%)",
-      "serviceablePct": "73.6%"
+      "signups": 465,
+      "otpVerified": 462,
+      "serviceable": 370,
+      "serviceableWithPct": "370 (79.6%)",
+      "serviceablePct": "79.6%"
+    },
+    "directSaleCSV": {
+      "count": 2,
+      "revenue": 18633
     },
     "refundsLast7Days": {
       "total": 67135,
@@ -40076,6 +40115,35 @@
       "count": 0,
       "total": 0,
       "items": []
+    },
+    "newUsers7d": 9237,
+    "newUsersYesterday": 1139,
+    "activeSubs": 4721,
+    "newSubs7d": 450,
+    "teleCrmLeads": 1523,
+    "subsEnding5d": 86,
+    "subsExpired7d": 83,
+    "subsExpiringToday": 12,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 113,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 30,
+      "Orders Placed": 30,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
+      "Orders - SHIPPED": 17,
+      "Orders Shipped": 17,
+      "Orders - Not Delivered": 71,
+      "Orders Not Delivered": 71
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 234,
+      "New Subscribers Orders that have been Delivered": 163,
+      "New Subscribers Orders yet to be Delivered": 71,
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     }
   }
 ]
