@@ -40038,9 +40038,9 @@
       "revenue": 13573
     },
     "missedLeads": {
-      "Connected": 477,
-      "Interested": 186,
-      "Paise Dega": 25
+      "Connected": 488,
+      "Interested": 197,
+      "Paise Dega": 28
     },
     "refundsLast7Days": {
       "total": 70799,
@@ -40053,7 +40053,7 @@
     },
     "newUsers7d": 9237,
     "newUsersYesterday": 1139,
-    "activeSubs": 4722,
+    "activeSubs": 4720,
     "newSubs7d": 450,
     "teleCrmLeads": 1501,
     "subsEnding5d": 86,
@@ -40067,10 +40067,10 @@
       "Orders Placed": 29,
       "Orders - CONFIRMED": 14,
       "Orders Confirmed": 14,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 18,
+      "Orders Shipped": 18,
       "Orders - Not Delivered": 64,
       "Orders Not Delivered": 64
     },
@@ -40078,7 +40078,7 @@
       "New Subscribers who have Ordered": 234,
       "New Subscribers Orders that have been Delivered": 170,
       "New Subscribers Orders yet to be Delivered": 64,
-      "New Subscribers Orders yet to be Delivered & Delayed": 21
+      "New Subscribers Orders yet to be Delivered & Delayed": 22
     }
   }
 ]

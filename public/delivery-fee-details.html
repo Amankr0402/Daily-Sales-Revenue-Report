@@ -623,6 +623,9 @@
         <button class="pill-btn" data-filter="paid" onclick="setFilter('paid')">
           Paid Deliveries <span class="pill-badge" id="count-paid">0</span>
         </button>
+        <button class="pill-btn" id="pill-custom" style="display:none;" data-filter="custom" onclick="setFilter('custom')">
+          Period Range <span class="pill-badge" id="count-custom">0</span>
+        </button>
       </div>
 
       <div class="search-row">
@@ -644,8 +647,8 @@
 
       <div id="empty-state" class="empty-state" style="display: none;">
         <div class="empty-icon">📭</div>
-        <div class="empty-title">No transactions found</div>
-        <div style="font-size: 13px; color: var(--muted);">Try changing your search term or filter selection</div>
+        <div class="empty-title" id="empty-title">No transactions found</div>
+        <div style="font-size: 13px; color: var(--muted);" id="empty-sub">Try changing your search term or filter selection</div>
       </div>
 
       <table id="delivery-table" style="display: none;">
@@ -694,11 +697,30 @@
     let currentFilter = 'all';
     let searchQuery = '';
 
+    function getYesterdayISO() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlParamDate = urlParams.get('date');
+      if (urlParamDate && /^\d{4}-\d{2}-\d{2}$/.test(urlParamDate)) {
+        return urlParamDate;
+      }
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
     // Check query params for initial filter
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get('filter');
     if (initialFilter) {
       currentFilter = initialFilter;
+    }
+    const fromParam = urlParams.get('from');
+    const toParam = urlParams.get('to');
+    if (fromParam && toParam) {
+      currentFilter = 'custom';
     }
 
     function parseCSV(text) {
@@ -838,23 +860,27 @@
     }
 
     function computeKPIs() {
-      // Determine yesterday date relative to transactions or system
-      const dates = allTransactions.map(t => t._isoDate).filter(Boolean).sort();
-      const latestDate = dates.length ? dates[dates.length - 1] : '';
+      const yesterdayDate = getYesterdayISO();
+      const ydObj = new Date(yesterdayDate + 'T00:00:00');
+      const ydLabel = isNaN(ydObj.getTime()) ? yesterdayDate : ydObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
       let totalAmount = 0;
       let ydAmount = 0;
       let ydCount = 0;
       let paidCount = 0;
+      let customCount = 0;
 
       allTransactions.forEach(t => {
         totalAmount += t._price;
-        if (t._isoDate === latestDate) {
+        if (t._isoDate === yesterdayDate) {
           ydAmount += t._price;
           ydCount++;
         }
         if ((t['status'] || '').toUpperCase() === 'PAID') {
           paidCount++;
+        }
+        if (fromParam && toParam && t._isoDate >= fromParam && t._isoDate <= toParam) {
+          customCount++;
         }
       });
 
@@ -865,7 +891,7 @@
       document.getElementById('kpi-total-cnt').textContent = `${allTransactions.length} delivery transaction${allTransactions.length !== 1 ? 's' : ''}`;
 
       document.getElementById('kpi-yd-amount').textContent = '₹' + Math.round(ydAmount).toLocaleString('en-IN');
-      document.getElementById('kpi-yd-cnt').textContent = `${ydCount} deliveries on ${latestDate || 'yesterday'}`;
+      document.getElementById('kpi-yd-cnt').textContent = `${ydCount} deliveries on ${ydLabel}`;
 
       document.getElementById('kpi-paid-rate').textContent = `${paidRate}%`;
       document.getElementById('kpi-paid-cnt').textContent = `${paidCount} paid out of ${allTransactions.length}`;
@@ -875,16 +901,24 @@
       document.getElementById('count-all').textContent = allTransactions.length;
       document.getElementById('count-yesterday').textContent = ydCount;
       document.getElementById('count-paid').textContent = paidCount;
+
+      const customPill = document.getElementById('pill-custom');
+      if (fromParam && toParam && customPill) {
+        customPill.style.display = 'inline-flex';
+        document.getElementById('count-custom').textContent = customCount;
+      }
     }
 
     function filterData() {
-      const dates = allTransactions.map(t => t._isoDate).filter(Boolean).sort();
-      const latestDate = dates.length ? dates[dates.length - 1] : '';
+      const yesterdayDate = getYesterdayISO();
 
       return allTransactions.filter(item => {
         // Filter by pill
-        if (currentFilter === 'yesterday' && item._isoDate !== latestDate) return false;
+        if (currentFilter === 'yesterday' && item._isoDate !== yesterdayDate) return false;
         if (currentFilter === 'paid' && (item['status'] || '').toUpperCase() !== 'PAID') return false;
+        if (currentFilter === 'custom' && fromParam && toParam) {
+          if (item._isoDate < fromParam || item._isoDate > toParam) return false;
+        }
 
         // Search Query
         if (searchQuery) {
@@ -920,6 +954,15 @@
         table.style.display = 'none';
         emptyState.style.display = 'block';
         countEl.textContent = 'Showing 0 deliveries';
+        if (currentFilter === 'yesterday') {
+          const ydObj = new Date(getYesterdayISO() + 'T00:00:00');
+          const ydStr = ydObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+          document.getElementById('empty-title').textContent = `No delivery fee transactions on ${ydStr}`;
+          document.getElementById('empty-sub').innerHTML = `Zero delivery fees were collected on ${ydStr}. Click <b>All Deliveries</b> to view all completed transactions.`;
+        } else {
+          document.getElementById('empty-title').textContent = 'No transactions found';
+          document.getElementById('empty-sub').textContent = 'Try changing your search term or filter selection';
+        }
         return;
       }
 
