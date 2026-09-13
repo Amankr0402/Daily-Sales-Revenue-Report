@@ -1222,11 +1222,19 @@ async function syncSalesData() {
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');
   try {
-    const pubOut = path.join(__dirname, '..', 'public', 'data', 'data.json');
-    const pubDir = path.dirname(pubOut);
-    if (!fs.existsSync(pubDir)) fs.mkdirSync(pubDir, { recursive: true });
-    fs.writeFileSync(pubOut, JSON.stringify(sortedDays, null, 2), 'utf-8');
-  } catch (_) {}
+    const dataDir = path.join(__dirname, '..', 'data');
+    const pubDataDir = path.join(__dirname, '..', 'public', 'data');
+    if (!fs.existsSync(pubDataDir)) fs.mkdirSync(pubDataDir, { recursive: true });
+    const allFiles = fs.readdirSync(dataDir);
+    allFiles.forEach(f => {
+      try {
+        fs.copyFileSync(path.join(dataDir, f), path.join(pubDataDir, f));
+      } catch (_) {}
+    });
+    console.log(`📁 Synced ${allFiles.length} data files to ${pubDataDir}`);
+  } catch (copyErr) {
+    console.warn('⚠️ Warning: Could not mirror files to public/data:', copyErr.message);
+  }
   console.log(`✅ Successfully synced ${sortedDays.length} days of data with D-o-D User Breakdown & Refunds to ${OUTPUT_FILE}`);
 
   return sortedDays;

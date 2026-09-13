@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Overlap Sales Transactions (Inside vs Direct) — The Elefant</title>
+  <title>Overlap Deals (Inside vs Direct) — The Elefant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -587,7 +587,7 @@
       <img src="elefant-logo.png" alt="The Elefant" />
       <div class="nav-divider"></div>
       <div class="nav-title">
-        <span>⚠️ Overlap Sales Transactions (Inside vs Direct)</span>
+        <span>🔄 Overlap Deals (Inside vs Direct)</span>
       </div>
     </div>
     <div class="nav-actions">
@@ -779,12 +779,24 @@
       return result;
     }
 
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
+    // Default yesterdayDate using local date
+    const _defYd = new Date();
+    _defYd.setDate(_defYd.getDate() - 1);
+    yesterdayDate = formatLocalISO(_defYd);
+
     // Fetch and Load Data
     async function loadData() {
       try {
         // First determine yesterday's date from data.json if available
         try {
-          const djRes = await fetch('data/data.json');
+          const djRes = await fetch('data/data.json?v=' + Date.now(), { cache: 'no-store' });
           if (djRes.ok) {
             const dj = await djRes.json();
             if (Array.isArray(dj) && dj.length > 0) {
@@ -796,7 +808,7 @@
           console.warn('Could not read data.json for yesterday date:', e);
         }
 
-        const res = await fetch('data/disputed_sales_details.csv');
+        const res = await fetch('data/disputed_sales_details.csv?v=' + Date.now(), { cache: 'no-store' });
         if (!res.ok) throw new Error('Could not fetch disputed_sales_details.csv');
         const text = await res.text();
         const lines = text.trim().split('\n');
@@ -911,11 +923,11 @@
         startDate = yesterdayDate;
         endDate = yesterdayDate;
       } else if (activeTimeframe === 'last7days') {
-        const end = new Date(yesterdayDate);
-        const start = new Date(yesterdayDate);
+        const end = new Date(yesterdayDate + 'T00:00:00');
+        const start = new Date(yesterdayDate + 'T00:00:00');
         start.setDate(start.getDate() - 6);
-        startDate = start.toISOString().split('T')[0];
-        endDate = end.toISOString().split('T')[0];
+        startDate = formatLocalISO(start);
+        endDate = formatLocalISO(end);
       } else if (activeTimeframe === 'thismonth') {
         const parts = yesterdayDate.split('-');
         startDate = `${parts[0]}-${parts[1]}-01`;

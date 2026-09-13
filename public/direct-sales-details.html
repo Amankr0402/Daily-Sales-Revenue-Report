@@ -641,7 +641,7 @@
     <div class="nav-actions">
       <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
       <a href="disputed-sales-details.html" class="btn btn-secondary"
-        style="border-color:var(--amber);color:#b45309;background:#fffbeb;">⚠️ Overlap Sales</a>
+        style="border-color:var(--amber);color:#b45309;background:#fffbeb;">🔄 Overlap Deals</a>
       <button class="btn btn-secondary" onclick="exportToPDF()" title="Download as PDF">📄 Download PDF</button>
       <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export Filtered CSV</button>
       <button class="btn btn-secondary" onclick="loadData(true)">↻ Refresh</button>
@@ -681,10 +681,10 @@
       </div>
 
       <div class="kpi-card amber" onclick="window.open('disputed-sales-details.html?filter=yesterday', '_blank')"
-        style="cursor:pointer;" title="Click to view dedicated Overlap Sales Table in a new tab">
+        style="cursor:pointer;" title="Click to view dedicated Overlap Deals Table in a new tab">
         <div class="kpi-label">
-          <span>Overlap Sales (Yesterday)</span>
-          <span style="font-size:11px;color:var(--primary);font-weight:800;">⚠️ ↗</span>
+          <span>Overlap Deals (Yesterday)</span>
+          <span style="font-size:11px;color:var(--primary);font-weight:800;">🔄 ↗</span>
         </div>
         <div class="kpi-value" id="kpi-overlap-amount" style="color: #d97706;">₹0</div>
         <div class="kpi-sub" id="kpi-overlap-cnt">Deals in both Inside &amp; Direct</div>
@@ -1016,18 +1016,25 @@
       }
     }
 
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
     function getYesterdayISO() {
       const pDate = new URLSearchParams(window.location.search).get('date');
       if (pDate) return pDate;
 
       const d = new Date();
       d.setDate(d.getDate() - 1);
-      const yd = d.toISOString().slice(0, 10);
+      const yd = formatLocalISO(d);
       const hasYd = allDeals.some(x => x.isoDate === yd);
       if (hasYd) return yd;
 
-      const todayStr = new Date().toISOString().slice(0, 10);
-      const pastDates = allDeals.map(x => x.isoDate).filter(dt => dt < todayStr).sort();
+      const todayStr = formatLocalISO(new Date());
+      const pastDates = allDeals.map(x => x.isoDate).filter(dt => dt <= todayStr).sort();
       return pastDates.length ? pastDates[pastDates.length - 1] : yd;
     }
 
@@ -1174,7 +1181,7 @@
       if (ydDate) {
         const dObj = new Date(ydDate + 'T00:00:00');
         dObj.setDate(dObj.getDate() - 6);
-        s7 = dObj.toISOString().slice(0, 10);
+        s7 = formatLocalISO(dObj);
         mtd = ydDate.slice(0, 7) + '-01';
       }
 

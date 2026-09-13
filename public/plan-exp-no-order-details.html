@@ -1046,16 +1046,23 @@
       renderTable();
     }
 
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
     function toggleCustomRange() {
       const picker = document.getElementById('custom-range-picker');
       if (!picker) return;
       if (picker.style.display === 'none' || !picker.style.display) {
         picker.style.display = 'flex';
         if (!document.getElementById('date-end').value) {
-          const today = new Date().toISOString().split('T')[0];
+          const today = formatLocalISO(new Date());
           const d7 = new Date(); d7.setDate(d7.getDate() - 7);
           document.getElementById('date-end').value = today;
-          document.getElementById('date-start').value = d7.toISOString().split('T')[0];
+          document.getElementById('date-start').value = formatLocalISO(d7);
         }
       } else {
         picker.style.display = 'none';
@@ -1102,11 +1109,11 @@
 
       const now = new Date();
       const yDate = new Date(); yDate.setDate(now.getDate() - 1);
-      const yesterdayStr = yDate.toISOString().split('T')[0];
+      const yesterdayStr = formatLocalISO(yDate);
 
       const d7 = new Date(); d7.setDate(now.getDate() - 7);
-      const d7Str = d7.toISOString().split('T')[0];
-      const todayStr = now.toISOString().split('T')[0];
+      const d7Str = formatLocalISO(d7);
+      const todayStr = formatLocalISO(now);
 
       return allSubs.filter(sub => {
         const rawDate = sub[filterDateField];

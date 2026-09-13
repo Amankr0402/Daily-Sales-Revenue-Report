@@ -457,23 +457,30 @@
       }
     }
 
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
     // Returns actual calendar yesterday (today - 1). Falls back to latest date in data.
     function getYesterdayISO() {
-      const today = new Date();
-      today.setDate(today.getDate() - 1);
-      const yd = today.toISOString().slice(0, 10);
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      const yd = formatLocalISO(d);
       // Check if any data exists for actual yesterday
       const hasYd = allDeals.some(d => d.isoDate === yd);
       if (hasYd) return yd;
       // Fallback: latest date in data that is NOT in the future
-      const todayStr = new Date().toISOString().slice(0, 10);
+      const todayStr = getTodayISO();
       const pastDates = allDeals.map(d => d.isoDate).filter(d => d <= todayStr).sort();
       return pastDates.length ? pastDates[pastDates.length - 1] : yd;
     }
 
     // Returns the actual calendar today's ISO date string
     function getTodayISO() {
-      return new Date().toISOString().slice(0, 10);
+      return formatLocalISO(new Date());
     }
 
     function computeKPIs() {
@@ -536,7 +543,7 @@
 
       const dObj7 = new Date(ydDate + 'T00:00:00');
       dObj7.setDate(dObj7.getDate() - 6);
-      const s7 = dObj7.toISOString().slice(0, 10);
+      const s7 = formatLocalISO(dObj7);
       setSafeText('count-7d', nonFuture.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate).length);
       const mtd = ydDate.slice(0, 7) + '-01';
       setSafeText('count-mtd', nonFuture.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate).length);
@@ -605,7 +612,7 @@
       if (ydDate) {
         const dObj = new Date(ydDate + 'T00:00:00');
         dObj.setDate(dObj.getDate() - 6);
-        s7  = dObj.toISOString().slice(0, 10);
+        s7  = formatLocalISO(dObj);
         mtd = ydDate.slice(0, 7) + '-01';
       }
 

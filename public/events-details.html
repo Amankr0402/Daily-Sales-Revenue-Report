@@ -370,21 +370,21 @@
 
     function fmt(n) { return '₹' + Math.round(n || 0).toLocaleString('en-IN'); }
 
-    function getYesterdayISO() {
-      const d = new Date();
-      d.setDate(d.getDate() - 1);
+    function formatLocalISO(d) {
       const yr = d.getFullYear();
       const mo = String(d.getMonth() + 1).padStart(2, '0');
       const day = String(d.getDate()).padStart(2, '0');
       return `${yr}-${mo}-${day}`;
     }
 
-    function getTodayISO() {
+    function getYesterdayISO() {
       const d = new Date();
-      const yr = d.getFullYear();
-      const mo = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      return `${yr}-${mo}-${day}`;
+      d.setDate(d.getDate() - 1);
+      return formatLocalISO(d);
+    }
+
+    function getTodayISO() {
+      return formatLocalISO(new Date());
     }
 
     async function loadData(forceRefresh = false) {
@@ -562,7 +562,7 @@
 
       const dObj7 = new Date(ydDate + 'T00:00:00');
       dObj7.setDate(dObj7.getDate() - 6);
-      const s7 = dObj7.toISOString().slice(0, 10);
+      const s7 = formatLocalISO(dObj7);
       setSafeText('count-7d', allDeals.filter(d => d.isoDate >= s7 && d.isoDate <= todayStr).length);
 
       const mtd = ydDate.slice(0, 7) + '-01';
@@ -608,7 +608,7 @@
       if (ydDate) {
         const dObj = new Date(ydDate + 'T00:00:00');
         dObj.setDate(dObj.getDate() - 6);
-        s7  = dObj.toISOString().slice(0, 10);
+        s7  = formatLocalISO(dObj);
         mtd = ydDate.slice(0, 7) + '-01';
       }
 

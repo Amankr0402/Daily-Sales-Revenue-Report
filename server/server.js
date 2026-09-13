@@ -32,9 +32,34 @@ app.use((req, res, next) => {
   next();
 });
 
-/* ---------- Static files ---------- */
+/* ---------- Static files & Data API ---------- */
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use('/data', express.static(path.join(__dirname, '..', 'data')));
+app.use('/data', (req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  next();
+}, express.static(path.join(__dirname, '..', 'data')));
+
+app.get('/api/data', (req, res) => {
+  try {
+    const data = getAllReportData();
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.all('/api/sync-sheets', async (req, res) => {
+  try {
+    const { syncSalesData } = require('../scripts/sync_sheets');
+    const data = await syncSalesData();
+    res.json({ success: true, count: data.length });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 /* ---------- Nodemailer Transporter ---------- */
 const SMTP_USER = process.env.SMTP_USER || 'aman.soni@theelefant.ai';
@@ -1919,24 +1944,31 @@ if (require.main === module) {
     console.error('⚠️ Could not schedule cron job:', cronErr.message);
   }
 
-  /* ---------- Auto-Sync Cron: Refresh data every 30 minutes in background process ---------- */
+  /* ---------- Auto-Sync: Refresh data on startup & every 30 minutes in background process ---------- */
+  function triggerBackgroundSync() {
+    const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+    console.log(`🔄 [${ts} IST] Auto-sync triggered in background process...`);
+    const { fork } = require('child_process');
+    const child = fork(path.join(__dirname, '..', 'scripts', 'sync_sheets.js'));
+    child.on('exit', (code) => {
+      const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+      if (code === 0) {
+        console.log(`✅ [${ts2} IST] Auto-sync complete — data.json refreshed.`);
+      } else {
+        console.warn(`⚠️ [${ts2} IST] Auto-sync background process exited with code ${code}`);
+      }
+    });
+  }
+
+  // Run immediately on boot to guarantee yesterday's data is fresh whenever the project opens
+  triggerBackgroundSync();
+
   try {
     cron.schedule('*/30 * * * *', () => {
-      const ts = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-      console.log(`🔄 [${ts} IST] Auto-sync triggered in background process...`);
-      const { fork } = require('child_process');
-      const child = fork(path.join(__dirname, '..', 'scripts', 'sync_sheets.js'));
-      child.on('exit', (code) => {
-        const ts2 = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-        if (code === 0) {
-          console.log(`✅ [${ts2} IST] Auto-sync complete — data.json refreshed.`);
-        } else {
-          console.warn(`⚠️ [${ts2} IST] Auto-sync background process exited with code ${code}`);
-        }
-      });
+      triggerBackgroundSync();
     }, { timezone: 'Asia/Kolkata' });
 
-    console.log('🔄 Auto-sync scheduled: every 30 minutes (non-blocking background process)');
+    console.log('🔄 Auto-sync scheduled: on startup + every 30 minutes (non-blocking background process)');
   } catch (autoSyncErr) {
     console.error('⚠️ Could not schedule auto-sync:', autoSyncErr.message);
   }

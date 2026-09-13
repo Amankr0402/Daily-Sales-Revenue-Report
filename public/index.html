@@ -1661,6 +1661,12 @@
   </div>
 
   <script>
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
     const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
     const fmtK = n => { n = Math.round(n || 0); if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + 'L'; if (n >= 1000) return '₹' + (n / 1000).toFixed(1) + 'K'; return '₹' + n.toLocaleString('en-IN'); };
     const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
@@ -1766,7 +1772,7 @@
         if (customWrap) customWrap.style.display = 'none';
         const dObj = new Date(ydDate + 'T00:00:00');
         dObj.setDate(dObj.getDate() - 6);
-        start = dObj.toISOString().split('T')[0];
+        start = formatLocalISO(dObj);
         end = ydDate;
         label = 'Last 7 Days';
       } else if (mode === 'mtd') {
@@ -1880,14 +1886,14 @@
           const c = SRC_C[src] || '#8896b3'; const l = SRC_L[src] || src;
           if (src === 'Direct Sale') {
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=net\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
-            // Disputed Sales KPI pill (deals in both Inside Sales & Direct Sales)
+            // Overlap Deals KPI pill (deals in both Inside Sales & Direct Sales)
             const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
             const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
             const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
             const dispTooltip = disp.count > 0
-              ? 'Disputed: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Disputed Sales Table.'
-              : '0 Disputed Deals on this date. Click to view full disputed table.';
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">⚠️ Disputed Sales <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+              ? 'Overlap Deals: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Deals Table.'
+              : '0 Overlap Deals on this date. Click to view full Overlap Deals table.';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
           } else if (src === 'Organic') {
             // Inside Sales — clickable with source=Organic filter
             sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
@@ -1937,7 +1943,7 @@
         if (podStartInput && podEndInput) {
           const dObj = new Date(yd.date + 'T00:00:00');
           dObj.setDate(dObj.getDate() - 6);
-          podStartInput.value = dObj.toISOString().split('T')[0];
+          podStartInput.value = formatLocalISO(dObj);
           podStartInput.max = yd.date;
           podEndInput.value = yd.date;
           podEndInput.max = yd.date;
@@ -1963,7 +1969,7 @@
           items.forEach(d => {
             let dayIns = 0, dayInsCnt = 0;
             Object.entries(d.sources || {}).forEach(([s, info]) => {
-              if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+              if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
                 dayIns += (info.revenue || 0);
                 dayInsCnt += (info.count || 0);
               }
@@ -2039,7 +2045,7 @@
         document.getElementById('plan-tbl').innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px">Plan Breakdown</div>' + pLabels.map((p, i) => '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:10px;height:10px;border-radius:2px;background:' + PC[i % PC.length] + ';flex-shrink:0"></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--text)">' + p + '</div><div style="font-size:11px;color:var(--muted)">' + plans[p].count + ' deals · ' + fmt(plans[p].revenue) + '</div></div><div style="font-size:13px;font-weight:800;color:' + PC[i % PC.length] + '">' + (pTotal > 0 ? ((plans[p].count / pTotal) * 100).toFixed(1) : 0) + '%</div></div>').join('') + '<div style="border-top:1px solid var(--border);padding-top:8px;display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span style="color:var(--muted)">Total</span><span style="color:var(--text)">' + pTotal + ' deals · ' + fmt(pTotalR) + '</span></div>';
 
         // Serviceability — only use COMPLETED days (exclude today's partial data)
-        const todayISO = new Date().toISOString().split('T')[0];
+        const todayISO = formatLocalISO(new Date());
         const completedData = data.filter(function (d) { return d.date < todayISO; });
         const l7 = completedData.slice(-7);
         const sLabels = l7.map(d => sd(d.date));
@@ -2416,7 +2422,7 @@
         let dayIns = 0;
         let dayInsCnt = 0;
         Object.entries(d.sources || {}).forEach(([s, info]) => {
-          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
             dayIns += (info.revenue || 0);
             dayInsCnt += (info.count || 0);
           }
@@ -2527,7 +2533,7 @@
       pDays.forEach(d => {
         let dIns = 0;
         Object.entries(d.sources || {}).forEach(([s, info]) => {
-          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
             dIns += (info.revenue || 0);
           }
         });
@@ -2651,7 +2657,7 @@
       const body = pDays.map(d => {
         let dIns = 0;
         Object.entries(d.sources || {}).forEach(([s, info]) => {
-          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales') {
+          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
             dIns += (info.revenue || 0);
           }
         });

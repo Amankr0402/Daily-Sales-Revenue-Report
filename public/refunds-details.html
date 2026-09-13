@@ -865,30 +865,34 @@
       return `${days[d.getDay()]}, ${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
     }
 
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
     function getYesterdayISO() {
       const pDate = urlParams.get('date');
       if (pDate) return pDate;
 
-      // In Indian Standard Time (UTC+5:30) or local date, calendar yesterday is today - 1
-      const now = new Date();
-      const ist = new Date(now.getTime() + (now.getTimezoneOffset() === 0 ? (5.5 * 60 * 60 * 1000) : 0));
-      ist.setDate(ist.getDate() - 1);
-      const y = ist.getFullYear();
-      const m = String(ist.getMonth() + 1).padStart(2, '0');
-      const d = String(ist.getDate()).padStart(2, '0');
-      return `${y}-${m}-${d}`;
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return formatLocalISO(d);
     }
 
     function computeKPIs() {
       const targetYesterday = getYesterdayISO();
 
       // 7 days rolling range up to targetYesterday
-      const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
-      const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
+      const sevenDaysAgo = new Date(targetYesterday + 'T00:00:00');
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+      const sevenDaysISO = formatLocalISO(sevenDaysAgo);
 
       // 30 days rolling range up to targetYesterday
-      const thirtyDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 29 * 24 * 60 * 60 * 1000);
-      const thirtyDaysISO = thirtyDaysAgo.toISOString().split('T')[0];
+      const thirtyDaysAgo = new Date(targetYesterday + 'T00:00:00');
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 29);
+      const thirtyDaysISO = formatLocalISO(thirtyDaysAgo);
 
       let ydTotal = 0;
       let ydCount = 0;
@@ -941,11 +945,13 @@
 
     function filterData() {
       const targetYesterday = getYesterdayISO();
-      const sevenDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 6 * 24 * 60 * 60 * 1000);
-      const sevenDaysISO = sevenDaysAgo.toISOString().split('T')[0];
+      const sevenDaysAgo = new Date(targetYesterday + 'T00:00:00');
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+      const sevenDaysISO = formatLocalISO(sevenDaysAgo);
 
-      const thirtyDaysAgo = new Date(new Date(targetYesterday + 'T00:00:00').getTime() - 29 * 24 * 60 * 60 * 1000);
-      const thirtyDaysISO = thirtyDaysAgo.toISOString().split('T')[0];
+      const thirtyDaysAgo = new Date(targetYesterday + 'T00:00:00');
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 29);
+      const thirtyDaysISO = formatLocalISO(thirtyDaysAgo);
 
       const q = searchQuery.toLowerCase().trim();
 
