@@ -39563,9 +39563,9 @@
     "userBreakdown": {
       "signups": 1229,
       "otpVerified": 1211,
-      "serviceable": 880,
-      "serviceableWithPct": "880 (71.6%)",
-      "serviceablePct": "71.6%"
+      "serviceable": 881,
+      "serviceableWithPct": "881 (71.7%)",
+      "serviceablePct": "71.7%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -39910,9 +39910,9 @@
       "revenue": 9177
     },
     "missedLeads": {
-      "Connected": 515,
-      "Interested": 197,
-      "Paise Dega": 30
+      "Connected": 507,
+      "Interested": 156,
+      "Paise Dega": 23
     },
     "refunds": {
       "count": 8,
@@ -39982,7 +39982,7 @@
     },
     "newUsers7d": 9164,
     "newUsersYesterday": 1374,
-    "activeSubs": 4729,
+    "activeSubs": 4736,
     "newSubs7d": 459,
     "teleCrmLeads": 2111,
     "subsEnding5d": 82,
@@ -39992,21 +39992,21 @@
     "planExpNoOrder": 2413,
     "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 31,
-      "Orders Placed": 31,
-      "Orders - CONFIRMED": 21,
-      "Orders Confirmed": 21,
+      "Orders - PLACED": 29,
+      "Orders Placed": 29,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 17,
-      "Orders Shipped": 17,
-      "Orders - Not Delivered": 69,
-      "Orders Not Delivered": 69
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 66,
+      "Orders Not Delivered": 66
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 250,
-      "New Subscribers Orders that have been Delivered": 181,
-      "New Subscribers Orders yet to be Delivered": 69,
+      "New Subscribers Orders that have been Delivered": 184,
+      "New Subscribers Orders yet to be Delivered": 66,
       "New Subscribers Orders yet to be Delivered & Delayed": 30
     }
   }
