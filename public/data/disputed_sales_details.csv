@@ -1,4 +1,6 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-12","Rohit Chuchra","9870476444","Abhijeet Mathur",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR471928","Logged by Inside Sales agent (Abhijeet Mathur) for ₹3160 and also completed on Direct Portal for ₹3160"
+"2026-09-12","Ritu Rathi","8930392726","Rohit Jain",6000,6017,"Quarterly Ultra","Organic","MANSI40","UR494650","Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
 "2026-09-08","Parth Panchal","8866602409","Preyashi Roy",12960,12960.86,"Annual Max","Organic","TOYJOY","UR418329","Logged by Inside Sales agent (Preyashi Roy) for ₹12960 and also completed on Direct Portal for ₹12960.86"
 "2026-09-08","priyanka pandey","7010676608","Rani Singh",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR463258","Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
 "2026-09-07","Dolly","8743942205","Kush Shah",4500,5756,"Quarterly Max","Organic","FUNDEAL","UR453886","Logged by Inside Sales agent (Kush Shah) for ₹4500 and also completed on Direct Portal for ₹5756"

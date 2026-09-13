@@ -7486,9 +7486,9 @@
   },
   {
     "date": "2024-08-21",
-    "totalRevenue": 4020,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 4014,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
       "amount": 3999,
       "agent": "Pooja Lakshman Rao"
@@ -7496,8 +7496,8 @@
     "agents": {},
     "plans": {
       "Monthly Trial": {
-        "revenue": 21,
-        "count": 21
+        "revenue": 15,
+        "count": 15
       },
       "Quarterly Estate": {
         "revenue": 3999,
@@ -7506,14 +7506,14 @@
     },
     "sources": {
       "Direct Sale": {
-        "revenue": 4020,
-        "count": 22
+        "revenue": 4014,
+        "count": 16
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 22,
-      "revenue": 4020
+      "count": 16,
+      "revenue": 4014
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39713,7 +39713,7 @@
   },
   {
     "date": "2026-09-12",
-    "totalRevenue": 267419,
+    "totalRevenue": 267402,
     "salesCount": 28,
     "transactions": 28,
     "highestSale": {
@@ -39758,8 +39758,8 @@
         "count": 2
       },
       "Rohit Jain": {
-        "revenue": 5000,
-        "count": 1
+        "revenue": 11000,
+        "count": 2
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 12000,
@@ -39775,6 +39775,10 @@
       },
       "Chhaya Patel": {
         "revenue": 11000,
+        "count": 1
+      },
+      "Abhijeet Mathur": {
+        "revenue": 3160,
         "count": 1
       }
     },
@@ -39799,15 +39803,15 @@
         "revenue": 6320,
         "count": 2
       },
-      "Quarterly Ultra": {
-        "revenue": 6017,
+      "Ultra Quarterly": {
+        "revenue": 6000,
         "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 147500,
-        "count": 15
+        "revenue": 156660,
+        "count": 17
       },
       "Events": {
         "revenue": 55000,
@@ -39818,25 +39822,97 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 44543,
-        "count": 6
+        "revenue": 35366,
+        "count": 4
       }
     },
     "userBreakdown": {
       "signups": 1454,
       "otpVerified": 1442,
-      "serviceable": 1107,
-      "serviceableWithPct": "1,107 (76.1%)",
-      "serviceablePct": "76.1%"
+      "serviceable": 1108,
+      "serviceableWithPct": "1,108 (76.2%)",
+      "serviceablePct": "76.2%"
     },
     "directSaleCSV": {
       "count": 6,
       "revenue": 44543
     },
+    "collidingDeals": [
+      {
+        "date": "2026-09-12",
+        "rawDate": "12/09/2026 22:39",
+        "customerName": "Rohit Chuchra",
+        "phone": "9870476444",
+        "agent": "Abhijeet Mathur",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR471928",
+        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-12",
+        "rawDate": "12/09/2026 19:47",
+        "customerName": "Ritu Rathi",
+        "phone": "8930392726",
+        "agent": "Rohit Jain",
+        "insideRevenue": 6000,
+        "revenue": 6017,
+        "directRevenue": 6017,
+        "plan": "Quarterly Ultra",
+        "source": "Organic",
+        "directOrderId": "MANSI40",
+        "directUserId": "UR494650",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-12",
+        "rawDate": "12/09/2026 22:39",
+        "customerName": "Rohit Chuchra",
+        "phone": "9870476444",
+        "agent": "Abhijeet Mathur",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR471928",
+        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-12",
+        "rawDate": "12/09/2026 19:47",
+        "customerName": "Ritu Rathi",
+        "phone": "8930392726",
+        "agent": "Rohit Jain",
+        "insideRevenue": 6000,
+        "revenue": 6017,
+        "directRevenue": 6017,
+        "plan": "Quarterly Ultra",
+        "source": "Organic",
+        "directOrderId": "MANSI40",
+        "directUserId": "UR494650",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
+      }
+    ],
+    "collidingTotal": {
+      "count": 2,
+      "revenue": 9177
+    },
+    "disputedTotal": {
+      "count": 2,
+      "revenue": 9177
+    },
     "missedLeads": {
-      "Connected": 394,
-      "Interested": 110,
-      "Paise Dega": 15
+      "Connected": 491,
+      "Interested": 167,
+      "Paise Dega": 27
     },
     "refunds": {
       "count": 8,
@@ -39905,25 +39981,25 @@
       "count": 16
     },
     "newUsers7d": 9164,
-    "newUsersYesterday": 1139,
-    "activeSubs": 4733,
+    "newUsersYesterday": 1374,
+    "activeSubs": 4732,
     "newSubs7d": 459,
-    "teleCrmLeads": 2016,
+    "teleCrmLeads": 2111,
     "subsEnding5d": 82,
     "subsExpired7d": 84,
     "subsExpiringToday": 17,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 118,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 36,
-      "Orders Placed": 36,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
+      "Orders - PLACED": 35,
+      "Orders Placed": 35,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
       "Orders - Not Delivered": 72,
       "Orders Not Delivered": 72
     },
@@ -39931,7 +40007,7 @@
       "New Subscribers who have Ordered": 250,
       "New Subscribers Orders that have been Delivered": 178,
       "New Subscribers Orders yet to be Delivered": 72,
-      "New Subscribers Orders yet to be Delivered & Delayed": 25
+      "New Subscribers Orders yet to be Delivered & Delayed": 26
     }
   }
 ]
