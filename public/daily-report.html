@@ -468,13 +468,6 @@ const PC = ['#6366f1','#10b981','#06b6d4','#f59e0b','#f43f5e','#8b5cf6','#fb923c
 let globalReportData = [];
 let globalYesterdayData = null;
 
-function formatLocalISO(d) {
-  const yr = d.getFullYear();
-  const mo = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${yr}-${mo}-${day}`;
-}
-
 function renderPodium(startDate, endDate, label) {
   if (!globalReportData || !globalReportData.length) return;
 
@@ -565,7 +558,7 @@ function filterPodium(mode) {
     if (customWrap) customWrap.style.display = 'none';
     const dObj = new Date(ydDate + 'T00:00:00');
     dObj.setDate(dObj.getDate() - 6);
-    start = formatLocalISO(dObj);
+    start = dObj.toISOString().split('T')[0];
     end = ydDate;
     label = 'Last 7 Days';
   } else if (mode === 'mtd') {
@@ -609,51 +602,9 @@ function onPodiumCustomDateChange() {
 
 async function init() {
   try {
-    let data;
-    const candidates = [
-      '/api/data?v=' + Date.now(),
-      '/data/data.json?v=' + Date.now(),
-      'data/data.json?v=' + Date.now()
-    ];
-    for (const url of candidates) {
-      try {
-        const res = await fetch(url, { cache: 'no-store' });
-        if (res.ok) {
-          data = await res.json();
-          if (Array.isArray(data) && data.length > 0) break;
-        }
-      } catch (_) {}
-    }
-    if (!data || !Array.isArray(data) || data.length === 0) {
-      throw new Error('Unable to retrieve sales records.');
-    }
-    data.sort((a, b) => a.date.localeCompare(b.date));
-
-    // Support ?date=YYYY-MM-DD if requested
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramDate = urlParams.get('date');
-
-    const yesterdayISO = (function () {
-      var d = new Date();
-      d.setDate(d.getDate() - 1);
-      var yr = d.getFullYear();
-      var mo = String(d.getMonth() + 1).padStart(2, '0');
-      var day = String(d.getDate()).padStart(2, '0');
-      return `${yr}-${mo}-${day}`;
-    })();
-
-    let yd = null;
-    if (paramDate) yd = data.find(d => d.date === paramDate);
-    if (!yd) yd = data.find(d => d.date === yesterdayISO);
-    if (!yd) {
-      for (let i = data.length - 1; i >= 0; i--) {
-        if ((data[i].totalRevenue > 0 || data[i].salesCount > 0) && data[i].date <= yesterdayISO) {
-          yd = data[i];
-          break;
-        }
-      }
-    }
-    if (!yd) yd = data[data.length - 1];
+    const data = await fetch('/data/data.json').then(r=>r.json());
+    data.sort((a,b)=>a.date.localeCompare(b.date));
+    const yd = data[data.length-1];
 
     document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date+'T00:00:00').getFullYear();
     document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
@@ -673,8 +624,8 @@ async function init() {
         const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
         const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
         const dispTooltip = disp.count > 0
-          ? 'Overlap Deals: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Deals Table.'
-          : '0 Overlap Deals on this date. Click to view full Overlap Deals table.';
+          ? 'Overlap: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Deals Table.'
+          : '0 Overlap Deals on this date. Click to view full overlap table.';
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
       } else if (src === 'Organic') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Organic&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
@@ -716,7 +667,7 @@ async function init() {
     if (podStartInput && podEndInput) {
       const dObj = new Date(yd.date + 'T00:00:00');
       dObj.setDate(dObj.getDate() - 6);
-      podStartInput.value = formatLocalISO(dObj);
+      podStartInput.value = dObj.toISOString().split('T')[0];
       podStartInput.max = yd.date;
       podEndInput.value = yd.date;
       podEndInput.max = yd.date;
