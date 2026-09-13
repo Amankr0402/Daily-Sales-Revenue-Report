@@ -26282,7 +26282,7 @@
     "transactions": 2,
     "highestSale": {
       "amount": 12877,
-      "agent": "Jhil  Mehta"
+      "agent": "Jhil Mehta"
     },
     "agents": {},
     "plans": {
@@ -39693,9 +39693,9 @@
     "userBreakdown": {
       "signups": 1226,
       "otpVerified": 1206,
-      "serviceable": 900,
-      "serviceableWithPct": "900 (73.4%)",
-      "serviceablePct": "73.4%"
+      "serviceable": 901,
+      "serviceableWithPct": "901 (73.5%)",
+      "serviceablePct": "73.5%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -39910,9 +39910,9 @@
       "revenue": 9177
     },
     "missedLeads": {
-      "Connected": 491,
-      "Interested": 167,
-      "Paise Dega": 27
+      "Connected": 515,
+      "Interested": 197,
+      "Paise Dega": 30
     },
     "refunds": {
       "count": 8,
@@ -39982,7 +39982,7 @@
     },
     "newUsers7d": 9164,
     "newUsersYesterday": 1374,
-    "activeSubs": 4732,
+    "activeSubs": 4729,
     "newSubs7d": 459,
     "teleCrmLeads": 2111,
     "subsEnding5d": 82,
@@ -39990,24 +39990,24 @@
     "subsExpiringToday": 17,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 35,
-      "Orders Placed": 35,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 72,
-      "Orders Not Delivered": 72
+      "Orders - PLACED": 31,
+      "Orders Placed": 31,
+      "Orders - CONFIRMED": 21,
+      "Orders Confirmed": 21,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 17,
+      "Orders Shipped": 17,
+      "Orders - Not Delivered": 69,
+      "Orders Not Delivered": 69
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 250,
-      "New Subscribers Orders that have been Delivered": 178,
-      "New Subscribers Orders yet to be Delivered": 72,
-      "New Subscribers Orders yet to be Delivered & Delayed": 26
+      "New Subscribers Orders that have been Delivered": 181,
+      "New Subscribers Orders yet to be Delivered": 69,
+      "New Subscribers Orders yet to be Delivered & Delayed": 30
     }
   }
 ]
