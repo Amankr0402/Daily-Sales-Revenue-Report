@@ -39829,9 +39829,9 @@
     "userBreakdown": {
       "signups": 1453,
       "otpVerified": 1441,
-      "serviceable": 1107,
-      "serviceableWithPct": "1,107 (76.2%)",
-      "serviceablePct": "76.2%"
+      "serviceable": 1108,
+      "serviceableWithPct": "1,108 (76.3%)",
+      "serviceablePct": "76.3%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -39910,7 +39910,7 @@
       "revenue": 9177
     },
     "missedLeads": {
-      "Connected": 497,
+      "Connected": 507,
       "Interested": 130,
       "Paise Dega": 21
     },
@@ -39982,7 +39982,7 @@
     },
     "newUsers7d": 9164,
     "newUsersYesterday": 1374,
-    "activeSubs": 4736,
+    "activeSubs": 4734,
     "newSubs7d": 459,
     "teleCrmLeads": 2111,
     "subsEnding5d": 82,
@@ -39990,24 +39990,215 @@
     "subsExpiringToday": 17,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
+      "Orders - PLACED": 41,
+      "Orders Placed": 41,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
       "Orders - SHIPPED": 11,
       "Orders Shipped": 11,
-      "Orders - Not Delivered": 62,
-      "Orders Not Delivered": 62
+      "Orders - Not Delivered": 80,
+      "Orders Not Delivered": 80
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 250,
-      "New Subscribers Orders that have been Delivered": 188,
-      "New Subscribers Orders yet to be Delivered": 62,
-      "New Subscribers Orders yet to be Delivered & Delayed": 28
+      "New Subscribers who have Ordered": 269,
+      "New Subscribers Orders that have been Delivered": 189,
+      "New Subscribers Orders yet to be Delivered": 80,
+      "New Subscribers Orders yet to be Delivered & Delayed": 31
+    }
+  },
+  {
+    "date": "2026-09-13",
+    "totalRevenue": 229042,
+    "salesCount": 21,
+    "transactions": 21,
+    "highestSale": {
+      "amount": 14055,
+      "agent": "Nikhilesh israni"
+    },
+    "agents": {
+      "Kush Shah": {
+        "revenue": 7000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 32000,
+        "count": 3
+      },
+      "Preyashi Roy": {
+        "revenue": 10500,
+        "count": 1
+      },
+      "Others": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Soumya Pandey": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Shivaram Nimmala": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shikha Singh": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "6 months Max": {
+        "revenue": 7000,
+        "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Annual Max": {
+        "revenue": 217042,
+        "count": 19
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 135932,
+        "count": 13
+      },
+      "Renewals": {
+        "revenue": 10000,
+        "count": 1
+      },
+      "Events": {
+        "revenue": 55000,
+        "count": 5
+      },
+      "Direct Sale": {
+        "revenue": 28110,
+        "count": 2
+      }
+    },
+    "userBreakdown": {
+      "signups": 2788,
+      "otpVerified": 2768,
+      "serviceable": 1762,
+      "serviceableWithPct": "1,762 (63.2%)",
+      "serviceablePct": "63.2%"
+    },
+    "directSaleCSV": {
+      "count": 3,
+      "revenue": 40326
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-13",
+        "rawDate": "13/09/2026 15:03",
+        "customerName": "Ashish Mukhija",
+        "phone": "9870338017",
+        "agent": "Tanveer Ahmed",
+        "insideRevenue": 12216,
+        "revenue": 12216,
+        "directRevenue": 12216,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "FUN40",
+        "directUserId": "UR484331",
+        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12216 and also completed on Direct Portal for ₹12216"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-13",
+        "rawDate": "13/09/2026 15:03",
+        "customerName": "Ashish Mukhija",
+        "phone": "9870338017",
+        "agent": "Tanveer Ahmed",
+        "insideRevenue": 12216,
+        "revenue": 12216,
+        "directRevenue": 12216,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "FUN40",
+        "directUserId": "UR484331",
+        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12216 and also completed on Direct Portal for ₹12216"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 12216
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 12216
+    },
+    "refundsLast7Days": {
+      "total": 124269,
+      "count": 15
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "newUsers7d": 9164,
+    "newUsersYesterday": 1374,
+    "activeSubs": 4734,
+    "newSubs7d": 459,
+    "teleCrmLeads": 2111,
+    "subsEnding5d": 82,
+    "subsExpired7d": 84,
+    "subsExpiringToday": 17,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 116,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 41,
+      "Orders Placed": 41,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 11,
+      "Orders Shipped": 11,
+      "Orders - Not Delivered": 80,
+      "Orders Not Delivered": 80
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 269,
+      "New Subscribers Orders that have been Delivered": 189,
+      "New Subscribers Orders yet to be Delivered": 80,
+      "New Subscribers Orders yet to be Delivered & Delayed": 31
     }
   }
 ]
