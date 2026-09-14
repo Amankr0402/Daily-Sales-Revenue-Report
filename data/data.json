@@ -39681,9 +39681,9 @@
     "userBreakdown": {
       "signups": 1226,
       "otpVerified": 1206,
-      "serviceable": 902,
-      "serviceableWithPct": "902 (73.6%)",
-      "serviceablePct": "73.6%"
+      "serviceable": 903,
+      "serviceableWithPct": "903 (73.7%)",
+      "serviceablePct": "73.7%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -40064,10 +40064,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 2788,
-      "otpVerified": 2768,
-      "serviceable": 1764,
-      "serviceableWithPct": "1,764 (63.3%)",
+      "signups": 2787,
+      "otpVerified": 2767,
+      "serviceable": 1763,
+      "serviceableWithPct": "1,763 (63.3%)",
       "serviceablePct": "63.3%"
     },
     "directSaleCSV": {
@@ -40117,9 +40117,9 @@
       "revenue": 12216
     },
     "missedLeads": {
-      "Connected": 533,
-      "Interested": 186,
-      "Paise Dega": 38
+      "Connected": 526,
+      "Interested": 188,
+      "Paise Dega": 40
     },
     "refundsLast7Days": {
       "total": 124269,
@@ -40140,24 +40140,24 @@
     "subsExpiringToday": 20,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 41,
-      "Orders Placed": 41,
-      "Orders - CONFIRMED": 19,
-      "Orders Confirmed": 19,
-      "Orders - READY_TO_SHIP": 5,
-      "Orders Ready to Ship": 5,
-      "Orders - SHIPPED": 11,
-      "Orders Shipped": 11,
-      "Orders - Not Delivered": 76,
-      "Orders Not Delivered": 76
+      "Orders - PLACED": 34,
+      "Orders Placed": 34,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 67,
+      "Orders Not Delivered": 67
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 269,
-      "New Subscribers Orders that have been Delivered": 193,
-      "New Subscribers Orders yet to be Delivered": 76,
-      "New Subscribers Orders yet to be Delivered & Delayed": 31
+      "New Subscribers Orders that have been Delivered": 202,
+      "New Subscribers Orders yet to be Delivered": 67,
+      "New Subscribers Orders yet to be Delivered & Delayed": 28
     }
   }
 ]
