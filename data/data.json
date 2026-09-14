@@ -39815,11 +39815,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1453,
-      "otpVerified": 1441,
-      "serviceable": 1108,
-      "serviceableWithPct": "1,108 (76.3%)",
-      "serviceablePct": "76.3%"
+      "signups": 1452,
+      "otpVerified": 1440,
+      "serviceable": 1107,
+      "serviceableWithPct": "1,107 (76.2%)",
+      "serviceablePct": "76.2%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -40066,8 +40066,8 @@
     "userBreakdown": {
       "signups": 2787,
       "otpVerified": 2767,
-      "serviceable": 1764,
-      "serviceableWithPct": "1,764 (63.3%)",
+      "serviceable": 1765,
+      "serviceableWithPct": "1,765 (63.3%)",
       "serviceablePct": "63.3%"
     },
     "directSaleCSV": {
@@ -40144,12 +40144,12 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 40,
       "Orders Placed": 40,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 8,
-      "Orders Shipped": 8,
+      "Orders - SHIPPED": 9,
+      "Orders Shipped": 9,
       "Orders - Not Delivered": 77,
       "Orders Not Delivered": 77
     },
@@ -40277,12 +40277,12 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 40,
       "Orders Placed": 40,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 8,
-      "Orders Shipped": 8,
+      "Orders - SHIPPED": 9,
+      "Orders Shipped": 9,
       "Orders - Not Delivered": 77,
       "Orders Not Delivered": 77
     },
