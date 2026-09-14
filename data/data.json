@@ -40066,8 +40066,8 @@
     "userBreakdown": {
       "signups": 2787,
       "otpVerified": 2767,
-      "serviceable": 1763,
-      "serviceableWithPct": "1,763 (63.3%)",
+      "serviceable": 1764,
+      "serviceableWithPct": "1,764 (63.3%)",
       "serviceablePct": "63.3%"
     },
     "directSaleCSV": {
@@ -40117,9 +40117,9 @@
       "revenue": 12216
     },
     "missedLeads": {
-      "Connected": 526,
-      "Interested": 188,
-      "Paise Dega": 40
+      "Connected": 525,
+      "Interested": 184,
+      "Paise Dega": 34
     },
     "refundsLast7Days": {
       "total": 124269,
@@ -40132,32 +40132,165 @@
     },
     "newUsers7d": 10258,
     "newUsersYesterday": 2472,
-    "activeSubs": 4734,
+    "activeSubs": 4732,
     "newSubs7d": 437,
-    "teleCrmLeads": 3301,
+    "teleCrmLeads": 3362,
     "subsEnding5d": 78,
     "subsExpired7d": 83,
     "subsExpiringToday": 20,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2413,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 34,
-      "Orders Placed": 34,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
+      "Orders - PLACED": 40,
+      "Orders Placed": 40,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 10,
-      "Orders Shipped": 10,
-      "Orders - Not Delivered": 67,
-      "Orders Not Delivered": 67
+      "Orders - SHIPPED": 8,
+      "Orders Shipped": 8,
+      "Orders - Not Delivered": 77,
+      "Orders Not Delivered": 77
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 269,
-      "New Subscribers Orders that have been Delivered": 202,
-      "New Subscribers Orders yet to be Delivered": 67,
-      "New Subscribers Orders yet to be Delivered & Delayed": 28
+      "New Subscribers who have Ordered": 283,
+      "New Subscribers Orders that have been Delivered": 206,
+      "New Subscribers Orders yet to be Delivered": 77,
+      "New Subscribers Orders yet to be Delivered & Delayed": 30
+    }
+  },
+  {
+    "date": "2026-09-14",
+    "totalRevenue": 181058,
+    "salesCount": 17,
+    "transactions": 17,
+    "highestSale": {
+      "amount": 14055,
+      "agent": "Kiranbhai Sonagara"
+    },
+    "agents": {
+      "Yuvraj Singh Dodiya": {
+        "revenue": 9821,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 33000,
+        "count": 3
+      },
+      "Kunal Sharma": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 7000,
+        "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 10500,
+        "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 10376,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 170898,
+        "count": 15
+      },
+      "6 months Max": {
+        "revenue": 7000,
+        "count": 1
+      },
+      "Quarterly Plus": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 136697,
+        "count": 13
+      },
+      "Direct Sale": {
+        "revenue": 44361,
+        "count": 4
+      }
+    },
+    "userBreakdown": {
+      "signups": 2248,
+      "otpVerified": 2243,
+      "serviceable": 1460,
+      "serviceableWithPct": "1,460 (64.9%)",
+      "serviceablePct": "64.9%"
+    },
+    "directSaleCSV": {
+      "count": 4,
+      "revenue": 44361
+    },
+    "refunds": {
+      "count": 1,
+      "total": 15000,
+      "items": [
+        {
+          "refundId": "rfnd_TbuNJ7NNx6zOuj",
+          "paymentId": "pay_TLa8mWuIYeGOoj",
+          "amount": 15000,
+          "status": "processed",
+          "date": "14/09/2026 17:27:08"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 97884,
+      "count": 11
+    },
+    "newUsers7d": 10258,
+    "newUsersYesterday": 2472,
+    "activeSubs": 4732,
+    "newSubs7d": 437,
+    "teleCrmLeads": 3362,
+    "subsEnding5d": 78,
+    "subsExpired7d": 83,
+    "subsExpiringToday": 20,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2413,
+    "activeSubNoOrder": 120,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 40,
+      "Orders Placed": 40,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 8,
+      "Orders Shipped": 8,
+      "Orders - Not Delivered": 77,
+      "Orders Not Delivered": 77
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 283,
+      "New Subscribers Orders that have been Delivered": 206,
+      "New Subscribers Orders yet to be Delivered": 77,
+      "New Subscribers Orders yet to be Delivered & Delayed": 30
     }
   }
 ]
