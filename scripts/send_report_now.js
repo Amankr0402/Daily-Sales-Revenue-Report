@@ -617,6 +617,8 @@ async function sendDailyReport() {
   }
 
   const html = buildEmailHtml(allData);
+  console.log('📄 Generating PDF attachment for daily report email...');
+  const pdfBuffer = await generatePDF(html);
   const recipients = getRecipients();
   const today = allData[allData.length - 1];
   const shortDateStr = new Date(today.date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
