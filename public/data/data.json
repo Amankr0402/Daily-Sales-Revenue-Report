@@ -48111,8 +48111,8 @@
       "revenue": 44361
     },
     "missedLeads": {
-      "Connected": 523,
-      "Interested": 219,
+      "Connected": 526,
+      "Interested": 223,
       "Paise Dega": 42
     },
     "refunds": {
@@ -48144,10 +48144,10 @@
     "planExpNoOrder": 2414,
     "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 34,
-      "Orders Placed": 34,
-      "Orders - CONFIRMED": 24,
-      "Orders Confirmed": 24,
+      "Orders - PLACED": 33,
+      "Orders Placed": 33,
+      "Orders - CONFIRMED": 25,
+      "Orders Confirmed": 25,
       "Orders - READY_TO_SHIP": 3,
       "Orders Ready to Ship": 3,
       "Orders - SHIPPED": 15,
