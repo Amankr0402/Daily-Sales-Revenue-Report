@@ -47528,10 +47528,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1225,
-      "otpVerified": 1205,
-      "serviceable": 902,
-      "serviceableWithPct": "902 (73.6%)",
+      "signups": 1224,
+      "otpVerified": 1204,
+      "serviceable": 901,
+      "serviceableWithPct": "901 (73.6%)",
       "serviceablePct": "73.6%"
     },
     "directSaleCSV": {
@@ -48100,10 +48100,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 2247,
-      "otpVerified": 2242,
-      "serviceable": 1461,
-      "serviceableWithPct": "1,461 (65.0%)",
+      "signups": 2246,
+      "otpVerified": 2241,
+      "serviceable": 1460,
+      "serviceableWithPct": "1,460 (65.0%)",
       "serviceablePct": "65.0%"
     },
     "directSaleCSV": {
@@ -48130,31 +48130,31 @@
     },
     "newUsers7d": 11252,
     "newUsersYesterday": 1880,
-    "activeSubs": 4752,
+    "activeSubs": 4748,
     "newSubs7d": 447,
     "subsEnding5d": 74,
     "subsExpired7d": 90,
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2414,
-    "activeSubNoOrder": 117,
+    "activeSubNoOrder": 115,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - PLACED": 46,
+      "Orders Placed": 46,
+      "Orders - CONFIRMED": 34,
+      "Orders Confirmed": 34,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 8,
       "Orders Shipped": 8,
-      "Orders - Not Delivered": 65,
-      "Orders Not Delivered": 65
+      "Orders - Not Delivered": 89,
+      "Orders Not Delivered": 89
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 282,
-      "New Subscribers Orders that have been Delivered": 217,
-      "New Subscribers Orders yet to be Delivered": 65,
-      "New Subscribers Orders yet to be Delivered & Delayed": 30
+      "New Subscribers who have Ordered": 308,
+      "New Subscribers Orders that have been Delivered": 219,
+      "New Subscribers Orders yet to be Delivered": 89,
+      "New Subscribers Orders yet to be Delivered & Delayed": 31
     },
     "selfUpgrade": {
       "totalCount": 1,
@@ -48178,6 +48178,196 @@
           "inSecondarySheet": false
         }
       ]
+    }
+  },
+  {
+    "date": "2026-09-15",
+    "totalRevenue": 209459.18,
+    "salesCount": 19,
+    "transactions": 19,
+    "highestSale": {
+      "amount": 14055,
+      "agent": "Preyashi Roy"
+    },
+    "agents": {
+      "Jivesh Harde": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Preyashi Roy": {
+        "revenue": 14055,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 198108.91999999998,
+        "count": 17
+      },
+      "Quarterly Max": {
+        "revenue": 11350.26,
+        "count": 2
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 158055,
+        "count": 14
+      },
+      "Direct Sale": {
+        "revenue": 51404.18,
+        "count": 5
+      }
+    },
+    "userBreakdown": {
+      "signups": 2062,
+      "otpVerified": 2041,
+      "serviceable": 1382,
+      "serviceableWithPct": "1,382 (67.0%)",
+      "serviceablePct": "67.0%"
+    },
+    "directSaleCSV": {
+      "count": 6,
+      "revenue": 65459.18
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-15",
+        "rawDate": "15/09/2026 12:03",
+        "customerName": "Anagha bhogale",
+        "phone": "9930120788",
+        "agent": "Preyashi Roy",
+        "insideRevenue": 14055,
+        "revenue": 14055,
+        "directRevenue": 14055,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA30",
+        "directUserId": "UR151735",
+        "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹14055 and also completed on Direct Portal for ₹14055"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-15",
+        "rawDate": "15/09/2026 12:03",
+        "customerName": "Anagha bhogale",
+        "phone": "9930120788",
+        "agent": "Preyashi Roy",
+        "insideRevenue": 14055,
+        "revenue": 14055,
+        "directRevenue": 14055,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA30",
+        "directUserId": "UR151735",
+        "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹14055 and also completed on Direct Portal for ₹14055"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 14055
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 14055
+    },
+    "refunds": {
+      "count": 2,
+      "total": 13479,
+      "items": [
+        {
+          "refundId": "rfnd_TcERFucBmlMXyI",
+          "paymentId": "pay_TBIVcoSMU9t45i",
+          "amount": 3300,
+          "status": "processed",
+          "date": "15/09/2026 13:04:44"
+        },
+        {
+          "refundId": "rfnd_TcJKLgcCOgdoDX",
+          "paymentId": "pay_TQJIUdAJS5LoDa",
+          "amount": 10179,
+          "status": "processed",
+          "date": "15/09/2026 17:51:40"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 111363,
+      "count": 13
+    },
+    "newUsers7d": 11252,
+    "newUsersYesterday": 1880,
+    "activeSubs": 4748,
+    "newSubs7d": 447,
+    "subsEnding5d": 74,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 11,
+    "planExpiringNoOrder": 3,
+    "planExpNoOrder": 2414,
+    "activeSubNoOrder": 115,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 46,
+      "Orders Placed": 46,
+      "Orders - CONFIRMED": 34,
+      "Orders Confirmed": 34,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 8,
+      "Orders Shipped": 8,
+      "Orders - Not Delivered": 89,
+      "Orders Not Delivered": 89
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 308,
+      "New Subscribers Orders that have been Delivered": 219,
+      "New Subscribers Orders yet to be Delivered": 89,
+      "New Subscribers Orders yet to be Delivered & Delayed": 31
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
     }
   }
 ]
