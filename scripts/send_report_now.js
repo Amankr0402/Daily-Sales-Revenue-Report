@@ -232,8 +232,8 @@ function buildEmailHtml(allData) {
       <table style="width:100%;border-collapse:collapse;">
         <tr>
           <td>
-            <div style="font-size:18px;font-weight:900;color:#6d28d9;letter-spacing:-0.02em;">
-              🐘 The Elefant
+            <div style="display:inline-block;vertical-align:middle;margin-bottom:4px;">
+              <img src="cid:elefant_logo" alt="the EleFant" style="height:36px;max-width:180px;object-fit:contain;display:block;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
             </div>
             <div style="font-size:13px;color:#6b7280;margin-top:2px;font-weight:600;">
               Data as of 11:59 PM, ${fd(yd.date)}
@@ -586,13 +586,16 @@ function buildEmailHtml(allData) {
 
     <!-- FOOTER WITH LIVE DASHBOARD BUTTON -->
     <div style="background:#f8fafc;padding:22px 28px;text-align:center;font-size:12px;color:#64748b;border-top:1px solid #e2e8f0;line-height:1.6;">
+      <div style="margin-bottom:12px;">
+        <img src="cid:elefant_logo" alt="the EleFant" style="height:26px;max-width:130px;object-fit:contain;display:inline-block;vertical-align:middle;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
+      </div>
       <div style="margin-bottom:10px;">
         <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;">
           🌐 View Live Interactive Dashboard &amp; Full User Details ↗
         </a>
       </div>
       <div>
-        🐘 <strong>The Elefant Sales Analytics System</strong> • Automated Daily Intelligence Report<br />
+        <strong>The Elefant Sales Analytics System</strong> • Automated Daily Intelligence Report<br />
         📎 <em>Attached PDF copy: Daily_Sales_Report_${yd.date}.pdf</em>
       </div>
     </div>
@@ -620,10 +623,16 @@ async function sendDailyReport() {
   const deliveryTotal = (today.deliveryFee && today.deliveryFee.total > 0) ? today.deliveryFee.total : 0;
   const grandTotal = (today.totalRevenue || 0) + deliveryTotal;
 
-  console.log('📄 Generating PDF attachment from exact report template...');
-  const pdfBuffer = await generatePDF(html);
-
+  const logoPath = path.join(__dirname, '..', 'public', 'elefant-logo.png');
   const attachments = [];
+  if (fs.existsSync(logoPath)) {
+    attachments.push({
+      filename: 'elefant-logo.png',
+      path: logoPath,
+      cid: 'elefant_logo'
+    });
+  }
+
   if (pdfBuffer) {
     attachments.push({
       filename: `Daily_Sales_Report_${today.date}.pdf`,
