@@ -48111,8 +48111,8 @@
       "revenue": 44361
     },
     "missedLeads": {
-      "Connected": 526,
-      "Interested": 224,
+      "Connected": 528,
+      "Interested": 226,
       "Paise Dega": 43
     },
     "refunds": {
@@ -48134,7 +48134,7 @@
     },
     "newUsers7d": 11252,
     "newUsersYesterday": 1880,
-    "activeSubs": 4737,
+    "activeSubs": 4736,
     "newSubs7d": 447,
     "teleCrmLeads": 2640,
     "subsEnding5d": 74,

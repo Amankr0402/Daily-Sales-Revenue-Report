@@ -851,8 +851,11 @@
             const dj = await djRes.json();
             if (Array.isArray(dj) && dj.length > 0) {
               const todayStr = formatLocalISO(new Date());
-              const validDates = dj.map(d => d.date).filter(dt => dt < todayStr).sort();
-              if (validDates.length > 0) {
+              const validDates = dj.map(d => d.date).sort();
+              const pastDates = validDates.filter(dt => dt < todayStr);
+              if (pastDates.length > 0) {
+                yesterdayDate = pastDates[pastDates.length - 1];
+              } else if (validDates.length > 0) {
                 yesterdayDate = validDates[validDates.length - 1];
               }
             }
