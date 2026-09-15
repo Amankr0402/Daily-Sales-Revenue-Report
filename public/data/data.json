@@ -47528,11 +47528,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1226,
-      "otpVerified": 1206,
-      "serviceable": 903,
-      "serviceableWithPct": "903 (73.7%)",
-      "serviceablePct": "73.7%"
+      "signups": 1225,
+      "otpVerified": 1205,
+      "serviceable": 902,
+      "serviceableWithPct": "902 (73.6%)",
+      "serviceablePct": "73.6%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -48111,9 +48111,9 @@
       "revenue": 44361
     },
     "missedLeads": {
-      "Connected": 524,
-      "Interested": 222,
-      "Paise Dega": 43
+      "Connected": 525,
+      "Interested": 224,
+      "Paise Dega": 44
     },
     "refunds": {
       "count": 1,
@@ -48134,7 +48134,7 @@
     },
     "newUsers7d": 11252,
     "newUsersYesterday": 1880,
-    "activeSubs": 4738,
+    "activeSubs": 4737,
     "newSubs7d": 447,
     "teleCrmLeads": 2640,
     "subsEnding5d": 74,
@@ -48142,7 +48142,7 @@
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2414,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 31,
       "Orders Placed": 31,
