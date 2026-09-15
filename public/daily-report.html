@@ -635,6 +635,8 @@ async function init() {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Upgrade&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       } else if (src === 'Events') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;events-details.html?filter=yesterday&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Events deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
+      } else if (src === 'Self Upgrade') {
+        sgHtml += '<div class="src-pill clickable-pill" onclick="openSelfUpgradeModal(&apos;' + yd.date + '&apos;)" style="border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view Self Upgrade deal details"><div class="src-dot" style="background:#8b5cf6;box-shadow:0 0 6px #8b5cf688"></div><div><div class="src-name">🚀 Self Upgrade <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
       } else {
         sgHtml += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       }
@@ -644,6 +646,12 @@ async function init() {
     if (yd.deliveryFee && yd.deliveryFee.total > 0) {
       const df = yd.deliveryFee;
       sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;delivery-fee-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view delivery fee transaction details in a new tab"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(df.total) + '</div><div class="src-cnt">' + df.transactions + ' deliveries</div></div></div>';
+    }
+
+    // 5. Self Upgrade fallback (if not in yd.sources)
+    const su = yd.selfUpgrade || { totalCount: 0, totalRevenue: 0 };
+    if ((!yd.sources || !yd.sources['Self Upgrade']) && su.totalCount > 0) {
+      sgHtml += '<div class="src-pill clickable-pill" onclick="openSelfUpgradeModal(&apos;' + yd.date + '&apos;)" style="border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view Self Upgrade deals in detail"><div class="src-dot" style="background:#8b5cf6;box-shadow:0 0 6px #8b5cf688"></div><div><div class="src-name">🚀 Self Upgrade <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(su.totalRevenue) + '</div><div class="src-cnt">' + su.totalCount + ' deal' + (su.totalCount !== 1 ? 's' : '') + '</div></div></div>';
     }
     sg.innerHTML = sgHtml;
 
@@ -825,6 +833,10 @@ async function init() {
         '<tr class="clickable-row" onclick="window.open(&apos;telecrm-leads-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view TeleCRM leads generated yesterday in a new tab">' +
         '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Total TeleCRM Leads Generated yesterday</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
         '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + (yd.teleCrmLeads ? yd.teleCrmLeads.toLocaleString('en-IN') : '-') + '</td>' +
+        '</tr>' +
+        '<tr class="clickable-row" onclick="openSelfUpgradeModal(&apos;' + yd.date + '&apos;)" style="cursor: pointer;" title="Click to view Self Upgrade deal details">' +
+        '<td><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:600;">Self Upgrades</span><span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span></div></td>' +
+        '<td style="text-align: right; font-weight: 700; color: #0f172a;">' + ((yd.selfUpgrade && yd.selfUpgrade.totalCount !== undefined) ? yd.selfUpgrade.totalCount.toLocaleString('en-IN') : '0') + '</td>' +
         '</tr>' +
         '<tr><td colspan="2" style="background:#5b3e9b;font-weight:800;color:#ffffff;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 14px">Subscription details</td></tr>' +
         '<tr class="clickable-row" onclick="window.open(&apos;subs-ending-5d-details.html&apos;, &apos;_blank&apos;)" style="cursor: pointer;" title="Click to view subscriptions ending in next 5 days in a new tab">' +
@@ -1217,9 +1229,112 @@ function closePeriodModal() {
   document.getElementById('period-modal').classList.remove('open');
 }
 
+function openSelfUpgradeModal(targetDate) {
+  const d = (globalReportData && globalReportData.find(item => item.date === targetDate)) || (globalReportData && globalReportData[globalReportData.length - 1]);
+  if (!d) return;
+
+  const su = d.selfUpgrade || { totalCount: 0, totalRevenue: 0, coupon40Count: 0, coupon40Revenue: 0, deals: [] };
+  const deals = su.deals || [];
+
+  let dealsHtml = '';
+  if (deals.length === 0) {
+    dealsHtml = '<div style="text-align:center;padding:30px;color:var(--muted);background:#f8fafc;border-radius:12px;border:1px dashed var(--border);">' +
+      '<div style="font-size:28px;margin-bottom:8px;">🔍</div>' +
+      '<div style="font-weight:700;font-size:14px;color:var(--text);">No Self Upgrades recorded on ' + formatDateLong(d.date) + '</div>' +
+      '<div style="font-size:12px;margin-top:4px;">No customer self-upgrade transactions occurred on this date.</div>' +
+      '</div>';
+  } else {
+    deals.forEach(function(deal, idx) {
+      const couponBadge = deal.isCoupon40
+        ? '<span style="background:#fffbeb;color:#b45309;font-weight:800;font-size:11.5px;padding:3px 8px;border-radius:6px;border:1px solid #fde68a;">🔥 ' + (deal.coupon || 'Coupon 40') + ' (40% Off)</span>'
+        : (deal.coupon ? '<span style="background:#f1f5f9;color:#334155;font-weight:700;font-size:11.5px;padding:3px 8px;border-radius:6px;">🏷️ ' + deal.coupon + '</span>' : '<span style="color:#94a3b8;font-size:12px;">— (No Coupon)</span>');
+
+      dealsHtml += '<div style="background:#ffffff;border:1.5px solid #e2e8f0;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-bottom:12px;">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #f1f5f9;">' +
+          '<div style="display:flex;align-items:center;gap:10px;">' +
+            '<span style="background:rgba(99,102,241,0.12);color:#4f46e5;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;">#' + (idx + 1) + '</span>' +
+            '<div>' +
+              '<strong style="font-size:15px;color:#0f172a;">' + (deal.parent || 'Customer') + '</strong>' +
+              '<span style="font-family:monospace;font-size:12px;background:#f1f5f9;color:#334155;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700;">' + (deal.userId || '—') + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div>' +
+            '<span style="background:#ecfdf5;color:#059669;font-weight:700;font-size:11px;padding:3px 8px;border-radius:12px;border:1px solid #a7f3d0;">✅ Pure Direct Self Upgrade</span>' +
+          '</div>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:12px;">' +
+          '<div style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:8px;">' +
+            '<div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;">📱 Phone Number</div>' +
+            '<div style="font-weight:700;font-size:13px;color:#0f172a;margin-top:2px;">' + (deal.phone || '—') + '</div>' +
+          '</div>' +
+          '<div style="background:#fef2f2;border:1px solid #fecaca;padding:10px 14px;border-radius:8px;">' +
+            '<div style="font-size:11px;font-weight:700;color:#991b1b;text-transform:uppercase;">📦 Original Plan</div>' +
+            '<div style="font-weight:700;font-size:13px;color:#991b1b;margin-top:2px;">' + (deal.oldPlan || '—') + '</div>' +
+            '<div style="font-size:11px;color:#b91c1c;">Original Paid: ' + fmt(deal.oldPaid) + '</div>' +
+          '</div>' +
+          '<div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:10px 14px;border-radius:8px;">' +
+            '<div style="font-size:11px;font-weight:700;color:#065f46;text-transform:uppercase;">🚀 Upgraded Plan</div>' +
+            '<div style="font-weight:800;font-size:13px;color:#065f46;margin-top:2px;">' + (deal.newPlan || '—') + '</div>' +
+            '<div style="font-size:11px;font-weight:700;color:#047857;">Upgrade Paid: ' + fmt(deal.paid || deal.newPaid) + '</div>' +
+          '</div>' +
+          '<div style="background:#fffbeb;border:1px solid #fde68a;padding:10px 14px;border-radius:8px;">' +
+            '<div style="font-size:11px;font-weight:700;color:#92400e;text-transform:uppercase;">🏷️ Applied Coupon</div>' +
+            '<div style="margin-top:2px;">' + couponBadge + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    });
+  }
+
+  const modalHtml = '<div class="pm-kpi-grid" style="margin-bottom:16px;">' +
+    '<div class="pm-kpi-card">' +
+      '<div class="pm-kpi-lbl">Total Self Upgrades</div>' +
+      '<div class="pm-kpi-val" style="color:var(--primary);">' + (su.totalCount || 0) + '</div>' +
+      '<div class="pm-kpi-sub">Deals on ' + formatDateLong(d.date) + '</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card">' +
+      '<div class="pm-kpi-lbl">Upgrade Revenue</div>' +
+      '<div class="pm-kpi-val" style="color:var(--emerald);">' + fmt(su.totalRevenue || 0) + '</div>' +
+      '<div class="pm-kpi-sub">Total Paid Amount</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card">' +
+      '<div class="pm-kpi-lbl">Coupon 40 Upgrades</div>' +
+      '<div class="pm-kpi-val" style="color:var(--amber);">' + (su.coupon40Count || 0) + '</div>' +
+      '<div class="pm-kpi-sub">' + fmt(su.coupon40Revenue || 0) + ' with DISCOUNT40</div>' +
+    '</div>' +
+    '<div class="pm-kpi-card">' +
+      '<div class="pm-kpi-lbl">Channel Verification</div>' +
+      '<div class="pm-kpi-val" style="font-size:16px;color:#059669;">100% Direct</div>' +
+      '<div class="pm-kpi-sub">Excluded from Secondary Sheet</div>' +
+    '</div>' +
+  '</div>' +
+  '<div>' +
+    '<div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);margin-bottom:10px;">' +
+      '📋 Customer Upgrade Audit Details' +
+    '</div>' +
+    dealsHtml +
+  '</div>' +
+  '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:12px;border-top:1px solid var(--border);margin-top:12px;">' +
+    '<button class="pm-btn" onclick="closeSelfUpgradeModal()">Close</button>' +
+    '<a class="pm-btn pm-btn-primary" href="self-upgrade-details.html?date=' + d.date + '" target="_blank">' +
+      'Open All-Time Self Upgrades Log Page ↗' +
+    '</a>' +
+  '</div>';
+
+  document.getElementById('modal-self-upgrade-title').textContent = '🚀 Self Upgrade Audit Details — ' + formatDateLong(d.date);
+  document.getElementById('modal-self-upgrade-body').innerHTML = modalHtml;
+  document.getElementById('self-upgrade-modal').classList.add('open');
+}
+
+function closeSelfUpgradeModal() {
+  document.getElementById('self-upgrade-modal').classList.remove('open');
+}
+
 window.addEventListener('click', function(e) {
-  var modal = document.getElementById('period-modal');
-  if (e.target === modal) closePeriodModal();
+  var pModal = document.getElementById('period-modal');
+  if (e.target === pModal) closePeriodModal();
+  var suModal = document.getElementById('self-upgrade-modal');
+  if (e.target === suModal) closeSelfUpgradeModal();
 });
 
 function exportPeriodPDF(title, startDate, endDate) {
@@ -1278,6 +1393,26 @@ function exportPeriodPDF(title, startDate, endDate) {
       </div>
 
       <div class="modal-body" id="modal-period-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SELF UPGRADE AUDIT MODAL -->
+  <div class="modal-overlay" id="self-upgrade-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:24px;">🚀</span>
+          <div>
+            <h3 id="modal-self-upgrade-title" style="margin:0;font-size:18px;font-weight:800;color:var(--text);">Self Upgrade Audit Details</h3>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:2px;">Verified customer self-upgrade transactions &amp; Coupon 40 details</div>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeSelfUpgradeModal()" title="Close details">✕</button>
+      </div>
+
+      <div class="modal-body" id="modal-self-upgrade-body">
         <!-- Injected dynamically -->
       </div>
     </div>

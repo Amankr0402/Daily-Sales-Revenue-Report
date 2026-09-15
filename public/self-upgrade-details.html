@@ -1,203 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Self Upgrade &amp; Coupon 40 Details — The Elefant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <script src="/vendor/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --radius: 12px;
+    }
+
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --surface2: #f1f5f9;
-      --border: #e2e8f0;
-      --border-dark: #cbd5e1;
-      --text: #0f172a;
-      --muted: #64748b;
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --primary-light: #e0e7ff;
-      --emerald: #10b981;
-      --emerald-bg: #ecfdf5;
-      --amber: #f59e0b;
-      --amber-bg: #fffbeb;
-      --rose: #ef4444;
-      --rose-bg: #fef2f2;
-      --purple: #8b5cf6;
-      --purple-bg: #f5f3ff;
-      --blue: #3b82f6;
-      --blue-bg: #eff6ff;
-      --radius: 12px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #ede8fb;
-      background-image: url("bg-toys.svg");
-      background-size: 300px;
+      background-color: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 60px;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* HEADER */
-    .header {
-      background: var(--surface);
+    /* Top Navbar */
+    .navbar {
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
       padding: 16px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 50;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
     }
 
-    .brand-section {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
-    .brand-logo {
+    .nav-left img {
       height: 38px;
       object-fit: contain;
     }
 
-    .brand-divider {
+    .nav-divider {
       width: 1px;
       height: 32px;
       background: var(--border);
     }
 
-    .page-title h1 {
-      font-size: 20px;
+    .nav-title {
+      font-size: 18px;
       font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .page-title p {
-      font-size: 12.5px;
-      color: var(--muted);
-      font-weight: 500;
-      margin-top: 2px;
-    }
-
-    .header-actions {
+      color: var(--primary);
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       padding: 8px 16px;
       border-radius: 8px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      border: 1px solid transparent;
-      transition: all 0.15s ease;
       text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
     }
 
     .btn-primary {
       background: var(--primary);
       color: #ffffff;
     }
+
     .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
+      background: var(--primary-hover);
     }
 
-    .btn-secondary {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .btn-secondary:hover {
-      background: var(--surface2);
-      border-color: var(--border-dark);
-    }
-
-    .btn-back {
-      background: rgba(99, 102, 241, 0.08);
-      color: var(--primary);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-    .btn-back:hover {
-      background: rgba(99, 102, 241, 0.15);
-    }
-
-    /* CONTAINER */
+    /* Main Container */
     .container {
-      max-width: 1380px;
-      margin: 24px auto 0;
-      padding: 0 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      width: 100%;
+      flex: 1;
     }
 
-    /* KPI METRICS GRID */
+    /* KPI Summary Cards */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
 
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .kpi-card {
-      background: var(--surface);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 18px 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      cursor: pointer;
       position: relative;
-      overflow: hidden;
     }
 
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
     }
 
-    .kpi-card.purple::before { background: var(--purple); }
-    .kpi-card.emerald::before { background: var(--emerald); }
-    .kpi-card.amber::before { background: var(--amber); }
-    .kpi-card.blue::before { background: var(--blue); }
-
-    .kpi-title {
-      font-size: 11.5px;
+    .kpi-label {
+      font-size: 12px;
       font-weight: 700;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--muted);
       margin-bottom: 6px;
       display: flex;
       align-items: center;
@@ -205,96 +184,120 @@
     }
 
     .kpi-value {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1.2;
+      color: var(--primary);
+      letter-spacing: -0.02em;
     }
 
     .kpi-sub {
       font-size: 12px;
       color: var(--muted);
-      font-weight: 600;
       margin-top: 4px;
     }
 
-    /* CONTROLS CARD */
-    .controls-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .pills-bar {
+    /* Filter Pills Bar */
+    .time-pills-bar {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+      margin-bottom: 16px;
     }
 
-    .pill-btn {
-      padding: 6px 14px;
+    .time-pill {
+      padding: 7px 16px;
       border-radius: 20px;
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--muted);
-      font-size: 12px;
+      background: #ffffff;
+      color: var(--text);
+      font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .pill-btn:hover {
-      background: var(--surface2);
-      color: var(--text);
-      border-color: var(--border-dark);
+    .time-pill:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
     }
 
-    .pill-btn.active {
+    .time-pill.active {
       background: var(--primary);
       color: #ffffff;
       border-color: var(--primary);
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+      box-shadow: 0 2px 8px rgba(91, 62, 155, 0.25);
     }
 
-    .filters-row {
+    .time-pill .pill-badge {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .time-pill.active .pill-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .custom-date-inputs {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .custom-date-inputs input[type="date"] {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+      outline: none;
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
 
-    .search-input-wrap {
+    .search-box {
       flex: 1;
-      min-width: 240px;
+      min-width: 280px;
       position: relative;
     }
 
-    .search-input {
+    .search-box input {
       width: 100%;
-      padding: 9px 12px 9px 36px;
-      border-radius: 8px;
+      padding: 10px 14px 10px 38px;
       border: 1px solid var(--border);
-      font-size: 13px;
+      border-radius: 8px;
+      font-size: 13.5px;
       outline: none;
-      background: var(--bg);
-      transition: border 0.15s ease;
+      transition: border-color 0.2s;
     }
 
-    .search-input:focus {
+    .search-box input:focus {
       border-color: var(--primary);
-      background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 3px rgba(91, 62, 155, 0.1);
     }
 
     .search-icon {
@@ -302,83 +305,92 @@
       left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 14px;
       color: var(--muted);
+      font-size: 15px;
       pointer-events: none;
     }
 
-    .select-filter {
-      padding: 9px 12px;
-      border-radius: 8px;
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .select-input {
+      padding: 10px 12px;
       border: 1px solid var(--border);
-      font-size: 12.5px;
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 600;
-      background: #ffffff;
       color: var(--text);
+      background: #ffffff;
       outline: none;
       cursor: pointer;
     }
 
-    .select-filter:focus {
+    .select-input:focus {
       border-color: var(--primary);
     }
 
-    /* TABLE SECTION */
-    .table-container {
-      background: var(--surface);
+    /* Table Container */
+    .table-card {
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .table-responsive {
+      width: 100%;
       overflow-x: auto;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      text-align: left;
       font-size: 13px;
+      text-align: left;
     }
 
     thead th {
-      background: var(--surface2);
-      color: var(--muted);
-      font-size: 11px;
+      background: #5b3e9b;
+      color: #ffffff;
       font-weight: 800;
+      font-size: 11.5px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.06em;
+      padding: 14px 16px;
       white-space: nowrap;
     }
 
-    tbody td {
-      padding: 13px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
-      vertical-align: middle;
-    }
-
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
     tbody tr {
-      transition: background 0.12s ease;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
       cursor: pointer;
     }
 
     tbody tr:hover {
-      background: #f8faff;
+      background: #f8fafc;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      color: var(--text);
+      vertical-align: middle;
     }
 
     .mono-cell {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 600;
-      color: #334155;
+      font-size: 12.5px;
     }
 
-    /* BADGES */
+    /* Badges */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -391,43 +403,62 @@
     }
 
     .badge-c40 {
-      background: #fef3c7;
+      background: #fffbeb;
       color: #b45309;
       border: 1px solid #fde68a;
     }
 
-    .badge-coupon-other {
+    .badge-pure {
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+    }
+
+    .badge-sec {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .badge-plan-old {
       background: #f1f5f9;
       color: #475569;
       border: 1px solid #e2e8f0;
     }
 
-    .badge-plan-old {
-      background: #fee2e2;
-      color: #b91c1c;
-      border: 1px solid #fca5a5;
-    }
-
     .badge-plan-new {
-      background: #dcfce7;
-      color: #15803d;
-      border: 1px solid #86efac;
+      background: rgba(91, 62, 155, 0.08);
+      color: #5b3e9b;
+      border: 1px solid rgba(91, 62, 155, 0.2);
     }
 
-    .badge-status-active {
-      background: #dbeafe;
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
+    /* Loading & Pagination */
+    .loading-container {
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    /* PAGINATION BAR */
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(91, 62, 155, 0.15);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 14px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .pagination-bar {
-      padding: 14px 20px;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
       flex-wrap: wrap;
       gap: 12px;
       font-size: 12.5px;
@@ -435,25 +466,27 @@
       font-weight: 600;
     }
 
-    .pagination-controls {
+    .page-nav {
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .page-btn {
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: 6px;
       border: 1px solid var(--border);
-      background: var(--surface);
+      background: #ffffff;
       color: var(--text);
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
+      transition: all 0.15s ease;
     }
 
     .page-btn:hover:not(:disabled) {
-      background: var(--surface2);
+      background: #f1f5f9;
+      border-color: #cbd5e1;
     }
 
     .page-btn.active {
@@ -463,18 +496,18 @@
     }
 
     .page-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.5;
       cursor: not-allowed;
     }
 
-    /* MODAL */
+    /* Modal */
     .modal-overlay {
-      display: none;
       position: fixed;
       inset: 0;
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(4px);
-      z-index: 200;
+      z-index: 100;
+      display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -482,91 +515,86 @@
 
     .modal-content {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: var(--radius);
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: var(--shadow-lg);
       padding: 24px;
-      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
 
     .modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 20px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .modal-title {
       font-size: 17px;
       font-weight: 800;
-      color: var(--text);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .close-btn {
       background: none;
       border: none;
-      font-size: 22px;
-      color: var(--muted);
+      font-size: 24px;
+      font-weight: 700;
       cursor: pointer;
+      color: var(--muted);
       line-height: 1;
     }
 
-    .audit-grid {
+    .close-btn:hover {
+      color: var(--text);
+    }
+
+    .modal-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-bottom: 20px;
     }
 
-    .audit-box {
-      background: var(--surface2);
-      border-radius: 10px;
-      padding: 14px;
+    .modal-field {
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
       border: 1px solid var(--border);
     }
 
-    .audit-box-title {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 8px;
+    .modal-field-full {
+      grid-column: 1 / -1;
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
-    .audit-item {
-      font-size: 13px;
-      margin-bottom: 6px;
+    .modal-label {
+      font-size: 11px;
+      font-weight: 700;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
     }
-    .audit-item strong {
+
+    .modal-val {
+      font-size: 13.5px;
+      font-weight: 700;
       color: var(--text);
+      word-break: break-all;
     }
 
-    /* LOADING & TOAST */
-    .loading-container {
-      text-align: center;
-      padding: 48px;
-    }
-
-    .spinner {
-      width: 36px;
-      height: 36px;
-      border: 3px solid var(--primary-light);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 12px;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -577,165 +605,177 @@
       border-radius: 8px;
       font-size: 13px;
       font-weight: 600;
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      z-index: 200;
       display: none;
-      z-index: 300;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="brand-section">
-      <a href="index.html" title="Back to Dashboard">
-        <img src="elefant-logo.png" alt="The Elefant" class="brand-logo" />
-      </a>
-      <div class="brand-divider"></div>
-      <div class="page-title">
-        <h1>🚀 Self Upgrade Deals</h1>
-        <p>Customer-Initiated Plan Upgrades &amp; Audit Log</p>
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div class="nav-title">
+        <span>🚀 Self Upgrade &amp; Coupon 40 Deals Details</span>
       </div>
     </div>
-
-    <div class="header-actions">
-      <a href="index.html" class="btn btn-back">← Back to Dashboard</a>
-      <button class="btn btn-secondary" id="btn-download-csv">📥 Export CSV</button>
-      <button class="btn btn-primary" id="btn-download-pdf">🖨️ Export PDF</button>
-      <button class="btn btn-secondary" id="btn-refresh" title="Reload data">🔄 Refresh</button>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-pdf" title="Download current list as PDF">📄 Download PDF</button>
+      <button class="btn btn-secondary" id="btn-download-csv">⬇️ Download CSV</button>
+      <button class="btn btn-primary" id="btn-refresh">🔄 Refresh Data</button>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- KPI CARDS -->
+    <!-- KPI Summary Row -->
     <section class="kpi-grid">
-      <div class="kpi-card purple">
-        <div class="kpi-title">
-          <span>🚀 Total Self Upgrades</span>
-          <span>⚡</span>
+      <div class="kpi-card" id="card-total" style="border-left: 4px solid #5b3e9b;">
+        <div class="kpi-label">
+          <span>Total Self Upgrades</span>
+          <span style="font-size:9.5px;background:var(--primary-light);color:var(--primary);padding:1px 6px;border-radius:4px;font-weight:800;">DEALS</span>
         </div>
-        <div class="kpi-value" id="stat-total-count">0</div>
-        <div class="kpi-sub" id="stat-total-rev">₹0 Total Revenue</div>
+        <div class="kpi-value" id="stat-total">—</div>
+        <div class="kpi-sub" id="stat-total-sub">Upgrades in selected timeframe</div>
       </div>
 
-      <div class="kpi-card amber">
-        <div class="kpi-title">
-          <span>🏷️ Coupon 40 Upgrades</span>
-          <span>🔥</span>
+      <div class="kpi-card" id="card-revenue" style="border-left: 4px solid #10b981;">
+        <div class="kpi-label">
+          <span>Upgrade Revenue</span>
+          <span style="font-size:9.5px;background:var(--green-light);color:#047857;padding:1px 6px;border-radius:4px;font-weight:800;">COLLECTED</span>
         </div>
-        <div class="kpi-value" id="stat-c40-count" style="color: var(--amber);">0</div>
-        <div class="kpi-sub" id="stat-c40-rev">₹0 via Coupon 40</div>
+        <div class="kpi-value" id="stat-revenue" style="color: #047857;">—</div>
+        <div class="kpi-sub">Total amount paid on upgrades</div>
       </div>
 
-      <div class="kpi-card blue">
-        <div class="kpi-title">
-          <span>🛍️ Other / Standard Upgrades</span>
-          <span>✓</span>
+      <div class="kpi-card" id="card-c40" style="border-left: 4px solid #f59e0b;">
+        <div class="kpi-label">
+          <span>Coupon 40 Deals</span>
+          <span style="font-size:9.5px;background:var(--amber-light);color:#b45309;padding:1px 6px;border-radius:4px;font-weight:800;">DISCOUNT40</span>
         </div>
-        <div class="kpi-value" id="stat-other-count">0</div>
-        <div class="kpi-sub" id="stat-other-rev">₹0 Other Upgrades</div>
+        <div class="kpi-value" id="stat-c40" style="color: #b45309;">—</div>
+        <div class="kpi-sub" id="stat-c40-sub">Used 40% upgrade discount</div>
       </div>
 
-      <div class="kpi-card emerald">
-        <div class="kpi-title">
-          <span>📊 Average Upgrade Value (AOV)</span>
-          <span>📈</span>
+      <div class="kpi-card" id="card-channel" style="border-left: 4px solid #3b82f6;">
+        <div class="kpi-label">
+          <span>Pure Direct Channel</span>
+          <span style="font-size:9.5px;background:var(--blue-light);color:#1d4ed8;padding:1px 6px;border-radius:4px;font-weight:800;">VERIFIED</span>
         </div>
-        <div class="kpi-value" id="stat-aov" style="color: var(--emerald);">₹0</div>
-        <div class="kpi-sub" id="stat-aov-sub">Average per upgraded member</div>
+        <div class="kpi-value" id="stat-channel" style="color: #1d4ed8;">100%</div>
+        <div class="kpi-sub">Filtered from Secondary Sheet</div>
       </div>
     </section>
 
-    <!-- CONTROLS BAR -->
+    <!-- Timeframe Filter Pills -->
+    <div class="time-pills-bar">
+      <span style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:6px;">Timeframe:</span>
+      <button class="time-pill active" id="pill-yesterday" data-timeframe="yesterday">
+        Yesterday <span class="pill-badge" id="badge-yesterday">1</span>
+      </button>
+      <button class="time-pill" id="pill-last7days" data-timeframe="last7days">
+        Last 7 Days <span class="pill-badge" id="badge-7d">0</span>
+      </button>
+      <button class="time-pill" id="pill-thismonth" data-timeframe="thismonth">
+        This Month <span class="pill-badge" id="badge-mtd">0</span>
+      </button>
+      <button class="time-pill" id="pill-all" data-timeframe="all">
+        All Time <span class="pill-badge" id="badge-all">0</span>
+      </button>
+      <button class="time-pill" id="pill-custom" data-timeframe="custom">
+        Custom Range
+      </button>
+
+      <div class="custom-date-inputs" id="custom-date-row">
+        <span>From</span>
+        <input type="date" id="input-start-date" />
+        <span>To</span>
+        <input type="date" id="input-end-date" />
+        <button class="btn btn-primary" id="btn-apply-custom-date" style="padding: 4px 10px; font-size: 11px;">Apply</button>
+      </div>
+    </div>
+
+    <!-- Controls Row -->
     <section class="controls-card">
-      <div class="pills-bar">
-        <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:6px;">Timeframe:</span>
-        <button class="pill-btn active" data-timeframe="yesterday" id="pill-yesterday">Yesterday</button>
-        <button class="pill-btn" data-timeframe="last7days" id="pill-7d">Last 7 Days</button>
-        <button class="pill-btn" data-timeframe="thismonth" id="pill-mtd">This Month (Sep 2026)</button>
-        <button class="pill-btn" data-timeframe="all" id="pill-all">All Time</button>
-        <button class="pill-btn" data-timeframe="custom" id="pill-custom">Custom Range</button>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by User ID, Customer Name, Phone, Old/New Plan, Coupon..." />
       </div>
-
-      <div class="filters-row" id="custom-date-row" style="display:none;">
-        <span style="font-size:12px;font-weight:700;color:var(--muted);">From:</span>
-        <input type="date" id="input-start-date" class="select-filter">
-        <span style="font-size:12px;font-weight:700;color:var(--muted);">To:</span>
-        <input type="date" id="input-end-date" class="select-filter">
-        <button class="btn btn-secondary" id="btn-apply-custom-date" style="padding:6px 14px;font-size:12px;">Apply</button>
-      </div>
-
-      <div class="filters-row">
-        <div class="search-input-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-input" class="search-input" placeholder="Search by User ID, Name, Phone, Old/New Plan, Coupon...">
-        </div>
-
-        <select id="filter-secondary-sheet" class="select-filter" style="border:1.5px solid var(--primary); font-weight: 700; color: #4338ca; background: #eef2ff;">
-          <option value="exclude_sec">⚡ Pure Self Upgrades Only (Exclude Secondary Sheet)</option>
-          <option value="all">Show All Deals (Including Secondary Sheet)</option>
-          <option value="in_sec_only">⚠️ In Secondary Sheet Only (Inside Sales)</option>
+      <div class="filter-group">
+        <select id="filter-secondary-sheet" class="select-input" style="font-weight: 700; color: #4338ca; background: #eef2ff;">
+          <option value="exclude_sec">⚡ Pure Self Upgrades (Exclude Sec Sheet)</option>
+          <option value="all">Show All Deals (Include Sec Sheet)</option>
+          <option value="in_sec_only">⚠️ In Secondary Sheet Only</option>
         </select>
-
-        <select id="filter-coupon-type" class="select-filter">
+        <select id="filter-coupon-type" class="select-input">
           <option value="">All Coupons</option>
-          <option value="c40">Coupon 40 Only (*40* / DISCOUNT40)</option>
+          <option value="c40">Coupon 40 Only (DISCOUNT40)</option>
           <option value="other">Other / No Coupon</option>
         </select>
-
-        <select id="filter-new-plan" class="select-filter">
+        <select id="filter-new-plan" class="select-input">
           <option value="">All Upgraded Plans</option>
         </select>
-
-        <select id="filter-old-plan" class="select-filter">
-          <option value="">All Original Plans</option>
+        <select id="page-size" class="select-input">
+          <option value="25" selected>25 per page</option>
+          <option value="50">50 per page</option>
+          <option value="100">100 per page</option>
         </select>
-
-        <button class="btn btn-secondary" id="btn-reset-filters" style="font-size:12px;padding:6px 12px;">Reset</button>
       </div>
     </section>
 
-    <!-- TABLE SECTION -->
-    <section class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>User ID</th>
-            <th>Parent / Customer</th>
-            <th>Phone</th>
-            <th>Type / Channel</th>
-            <th>Original Plan</th>
-            <th>Upgraded Plan</th>
-            <th>Paid (₹)</th>
-            <th>Coupon Code</th>
-            <th>Old Status / Expiry</th>
-            <th style="text-align:center;">Action</th>
-          </tr>
-        </thead>
-        <tbody id="upgrades-table-body">
-          <tr>
-            <td colspan="11">
-              <div class="loading-container">
-                <div class="spinner"></div>
-                <div style="font-weight:700;color:var(--muted);">Loading Self Upgrades...</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Pagination Bar -->
-      <div class="pagination-bar" id="pagination-bar">
-        <div id="pagination-info">Showing 0 to 0 of 0 records</div>
-        <div class="pagination-controls" id="pagination-controls"></div>
+    <!-- Table Card -->
+    <section class="table-card">
+      <div id="loading-state" class="loading-container">
+        <div class="spinner"></div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text);">Loading Self Upgrades Data...</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Fetching customer subscription upgrade records</div>
       </div>
-    </section>
 
+      <div class="table-responsive" id="table-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 40px;">#</th>
+              <th>Paid Date</th>
+              <th>User ID</th>
+              <th>Customer Name</th>
+              <th>Phone</th>
+              <th>Channel</th>
+              <th>Original Plan</th>
+              <th>Upgraded Plan</th>
+              <th style="text-align: right;">Upgrade Paid</th>
+              <th>Applied Coupon</th>
+              <th>Old Status &amp; Expiry</th>
+              <th style="text-align: center;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="upgrades-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-bar" id="pagination-container" style="display: none;">
+        <div id="pagination-info">Showing 0 to 0 of 0 entries</div>
+        <div class="page-nav" id="pagination-buttons">
+          <!-- Page buttons -->
+        </div>
+      </footer>
+    </section>
   </main>
 
-  <!-- Audit Modal -->
+  <!-- Details Audit Modal -->
   <div class="modal-overlay" id="detail-modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -748,6 +788,7 @@
     </div>
   </div>
 
+  <!-- Toast Notification -->
   <div class="toast" id="toast">Copied to clipboard!</div>
 
   <script>
@@ -755,11 +796,10 @@
     const FALLBACK_URL = '/data/self_upgrade_details.csv';
     const DIRECT_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/4f0ba1fd-aaea-4db9-b172-8f9504cf9940.csv';
 
-    // State
     let allUpgrades = [];
     let filteredUpgrades = [];
     let currentPage = 1;
-    const pageSize = 25;
+    let pageSize = 25;
     let activeTimeframe = 'yesterday';
     let yesterdayDate = '2026-09-14';
 
@@ -773,6 +813,18 @@
       const mo = String(d.getMonth() + 1).padStart(2, '0');
       const day = String(d.getDate()).padStart(2, '0');
       return `${yr}-${mo}-${day}`;
+    }
+
+    function formatDateLong(dateStr) {
+      if (!dateStr) return '—';
+      try {
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+          const d = new Date(parts[0], parts[1] - 1, parts[2]);
+          return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+        }
+      } catch (_) {}
+      return dateStr;
     }
 
     function showToast(msg) {
@@ -844,7 +896,11 @@
 
     async function loadData() {
       try {
-        // 1. First determine yesterday's date from data.json if available
+        document.getElementById('loading-state').style.display = 'block';
+        document.getElementById('table-container').style.display = 'none';
+        document.getElementById('pagination-container').style.display = 'none';
+
+        // 1. Determine yesterday's date from data.json
         try {
           const djRes = await fetch('/data/data.json?v=' + Date.now(), { cache: 'no-store' });
           if (djRes.ok) {
@@ -902,7 +958,6 @@
         if (lines.length <= 1) {
           allUpgrades = [];
         } else {
-          // Header: User ID,Parent,Phone,Old Plan,Old Plan Status,Old Plan Expiry,Old Plan Coupon,Old Plan Paid,New Plan,New Plan Status,New Plan Coupon,New Plan Paid,Paid On,Upgraded On
           allUpgrades = lines.slice(1).map(line => {
             const cols = parseCSVLine(line).map(c => c.replace(/^"|"$/g, '').trim());
             const coupon = cols[10] || '';
@@ -915,7 +970,7 @@
 
             return {
               userId: cols[0] || '—',
-              parent: cols[1] || 'Unknown',
+              parent: cols[1] || 'Customer',
               phone: rawPhone,
               cleanPhone: cleanPhone,
               inSecondarySheet: inSec,
@@ -935,23 +990,18 @@
           });
         }
 
-        // Sort descending by paidOn date
         allUpgrades.sort((a, b) => (b.paidOn || '').localeCompare(a.paidOn || ''));
-
-        // Populate Dropdowns
         populateFilters();
 
-        // Handle URL search params
         const params = new URLSearchParams(window.location.search);
         const queryDate = params.get('date');
         const queryFilter = (params.get('filter') || params.get('timeframe') || '').toLowerCase();
-        const queryCoupon = (params.get('coupon') || '').toLowerCase();
 
         if (queryDate) {
           activeTimeframe = 'custom';
           document.getElementById('input-start-date').value = queryDate;
           document.getElementById('input-end-date').value = queryDate;
-          document.getElementById('custom-date-row').style.display = 'flex';
+          document.getElementById('custom-date-row').style.display = 'inline-flex';
           updateTimeframePills('custom');
         } else if (queryFilter === 'all') {
           activeTimeframe = 'all';
@@ -967,49 +1017,38 @@
           updateTimeframePills('yesterday');
         }
 
-        if (queryCoupon === '40' || queryCoupon === 'c40') {
-          document.getElementById('filter-coupon-type').value = 'c40';
-        }
+        document.getElementById('loading-state').style.display = 'none';
+        document.getElementById('table-container').style.display = 'block';
+        document.getElementById('pagination-container').style.display = 'flex';
 
         applyFilters();
       } catch (err) {
         console.error('Error loading self upgrades:', err);
-        document.getElementById('upgrades-table-body').innerHTML = `
-          <tr>
-            <td colspan="11" style="text-align:center;padding:40px;color:var(--rose);">
-              ⚠️ Failed to load self upgrade data: ${err.message}
-            </td>
-          </tr>`;
+        document.getElementById('loading-state').innerHTML = `
+          <div style="color:var(--rose);font-weight:700;font-size:15px;">⚠️ Failed to load self upgrade data: ${err.message}</div>
+          <button class="btn btn-primary" onclick="loadData()" style="margin-top:14px;">Try Again</button>
+        `;
       }
     }
 
     function populateFilters() {
       const newPlanSet = new Set();
-      const oldPlanSet = new Set();
       allUpgrades.forEach(u => {
         if (u.newPlan) newPlanSet.add(u.newPlan);
-        if (u.oldPlan) oldPlanSet.add(u.oldPlan);
       });
 
       const newPlanSelect = document.getElementById('filter-new-plan');
+      newPlanSelect.innerHTML = '<option value="">All Upgraded Plans</option>';
       Array.from(newPlanSet).sort().forEach(p => {
         const opt = document.createElement('option');
         opt.value = p;
         opt.textContent = p;
         newPlanSelect.appendChild(opt);
       });
-
-      const oldPlanSelect = document.getElementById('filter-old-plan');
-      Array.from(oldPlanSet).sort().forEach(p => {
-        const opt = document.createElement('option');
-        opt.value = p;
-        opt.textContent = p;
-        oldPlanSelect.appendChild(opt);
-      });
     }
 
     function updateTimeframePills(tf) {
-      document.querySelectorAll('.pill-btn').forEach(b => {
+      document.querySelectorAll('.time-pill').forEach(b => {
         b.classList.toggle('active', b.dataset.timeframe === tf);
       });
     }
@@ -1019,7 +1058,6 @@
       const secFilter = document.getElementById('filter-secondary-sheet').value;
       const couponType = document.getElementById('filter-coupon-type').value;
       const newPlan = document.getElementById('filter-new-plan').value;
-      const oldPlan = document.getElementById('filter-old-plan').value;
 
       let startDate = null;
       let endDate = null;
@@ -1047,7 +1085,6 @@
         if (startDate && d < startDate) return false;
         if (endDate && d > endDate) return false;
 
-        // Secondary sheet filter
         if (secFilter === 'exclude_sec' && u.inSecondarySheet) return false;
         if (secFilter === 'in_sec_only' && !u.inSecondarySheet) return false;
 
@@ -1055,7 +1092,6 @@
         if (couponType === 'other' && u.isCoupon40) return false;
 
         if (newPlan && u.newPlan !== newPlan) return false;
-        if (oldPlan && u.oldPlan !== oldPlan) return false;
 
         if (search) {
           const match =
@@ -1079,28 +1115,38 @@
 
     function updateStats() {
       const totalCount = filteredUpgrades.length;
-      const totalRev = filteredUpgrades.reduce((sum, u) => sum + u.newPlanPaid, 0);
+      const totalRev = filteredUpgrades.reduce((sum, u) => sum + (u.newPlanPaid || 0), 0);
+      const c40Count = filteredUpgrades.filter(u => u.isCoupon40).length;
 
-      const c40Items = filteredUpgrades.filter(u => u.isCoupon40);
-      const c40Count = c40Items.length;
-      const c40Rev = c40Items.reduce((sum, u) => sum + u.newPlanPaid, 0);
+      document.getElementById('stat-total').textContent = totalCount.toLocaleString('en-IN');
+      document.getElementById('stat-revenue').textContent = fmt(totalRev);
+      document.getElementById('stat-c40').textContent = c40Count.toLocaleString('en-IN');
+      document.getElementById('stat-total-sub').textContent = `Deals in ${activeTimeframe.toUpperCase()} filter`;
+      document.getElementById('stat-c40-sub').textContent = `${c40Count} with DISCOUNT40`;
 
-      const otherCount = totalCount - c40Count;
-      const otherRev = totalRev - c40Rev;
+      // Badge counts
+      const yCount = allUpgrades.filter(u => (u.paidOn || u.upgradedOn) === yesterdayDate && (!u.inSecondarySheet)).length;
+      document.getElementById('badge-yesterday').textContent = yCount;
 
-      const aov = totalCount > 0 ? Math.round(totalRev / totalCount) : 0;
+      const end7 = new Date(yesterdayDate + 'T00:00:00');
+      const start7 = new Date(yesterdayDate + 'T00:00:00');
+      start7.setDate(start7.getDate() - 6);
+      const s7Str = formatLocalISO(start7);
+      const e7Str = formatLocalISO(end7);
+      const count7d = allUpgrades.filter(u => {
+        const d = u.paidOn || u.upgradedOn;
+        return d >= s7Str && d <= e7Str && (!u.inSecondarySheet);
+      }).length;
+      document.getElementById('badge-7d').textContent = count7d;
 
-      document.getElementById('stat-total-count').textContent = totalCount;
-      document.getElementById('stat-total-rev').textContent = `${fmt(totalRev)} Total Revenue`;
-
-      document.getElementById('stat-c40-count').textContent = c40Count;
-      document.getElementById('stat-c40-rev').textContent = `${fmt(c40Rev)} via Coupon 40`;
-
-      document.getElementById('stat-other-count').textContent = otherCount;
-      document.getElementById('stat-other-rev').textContent = `${fmt(otherRev)} Other Upgrades`;
-
-      document.getElementById('stat-aov').textContent = fmt(aov);
-      document.getElementById('stat-aov-sub').textContent = `Avg ${fmt(aov)} per upgrade`;
+      const parts = yesterdayDate.split('-');
+      const mStartStr = `${parts[0]}-${parts[1]}-01`;
+      const countMtd = allUpgrades.filter(u => {
+        const d = u.paidOn || u.upgradedOn;
+        return d >= mStartStr && d <= yesterdayDate && (!u.inSecondarySheet);
+      }).length;
+      document.getElementById('badge-mtd').textContent = countMtd;
+      document.getElementById('badge-all').textContent = allUpgrades.filter(u => !u.inSecondarySheet).length;
     }
 
     function renderTable() {
@@ -1108,18 +1154,18 @@
       if (filteredUpgrades.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="11" style="text-align:center;padding:48px 20px;color:var(--muted);">
+            <td colspan="12" style="text-align:center;padding:50px;color:var(--muted);">
               <div style="font-size:32px;margin-bottom:8px;">🔍</div>
-              <div style="font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px;">No Self Upgrade Deals Found</div>
-              <div style="font-size:13px;">No deals match your selected timeframe (${activeTimeframe.toUpperCase()}) or filter criteria.</div>
+              <div style="font-weight:700;font-size:15px;color:var(--text);">No Self Upgrade deals found</div>
+              <div style="font-size:12.5px;margin-top:4px;">Try selecting a different date range or resetting your filters.</div>
             </td>
           </tr>`;
         document.getElementById('pagination-info').textContent = 'Showing 0 to 0 of 0 records';
-        document.getElementById('pagination-controls').innerHTML = '';
+        renderPaginationControls(1);
         return;
       }
 
-      const totalPages = Math.ceil(filteredUpgrades.length / pageSize);
+      const totalPages = Math.ceil(filteredUpgrades.length / pageSize) || 1;
       if (currentPage > totalPages) currentPage = totalPages;
 
       const startIndex = (currentPage - 1) * pageSize;
@@ -1131,15 +1177,16 @@
         const couponBadge = u.isCoupon40
           ? `<span class="badge badge-c40">🔥 ${escapeHtml(u.newPlanCoupon)}</span>`
           : u.newPlanCoupon
-            ? `<span class="badge badge-coupon-other">🏷️ ${escapeHtml(u.newPlanCoupon)}</span>`
-            : `<span style="color:var(--muted);font-size:12px;">— (No Coupon)</span>`;
+            ? `<span class="badge" style="background:#f1f5f9;color:#334155;">🏷️ ${escapeHtml(u.newPlanCoupon)}</span>`
+            : `<span style="color:var(--muted);font-size:12px;">—</span>`;
 
         const channelBadge = u.inSecondarySheet
-          ? `<span class="badge" style="background:#fffbeb;color:#b45309;border:1px solid #fde68a;" title="Phone number logged in Secondary Sales Sheet (Inside Sales)">⚠️ In Sec Sheet</span>`
-          : `<span class="badge" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;" title="Verified Customer-Initiated Self Upgrade (Not in Secondary Sheet)">✅ Pure Self Upgrade</span>`;
+          ? `<span class="badge badge-sec" title="Phone logged in Secondary Sales Sheet">⚠️ In Sec Sheet</span>`
+          : `<span class="badge badge-pure" title="Verified Customer Direct Self Upgrade">✅ Pure Self Upgrade</span>`;
 
         html += `
           <tr onclick="openUpgradeModal(${startIndex + idx})">
+            <td style="color:var(--muted);font-weight:700;">${startIndex + idx + 1}</td>
             <td style="font-weight:700;white-space:nowrap;">${u.paidOn || u.upgradedOn}</td>
             <td class="mono-cell">
               <strong>${u.userId}</strong>
@@ -1157,28 +1204,26 @@
             </td>
             <td>
               <span class="badge badge-plan-new">🚀 ${escapeHtml(u.newPlan)}</span>
-              <div style="font-size:11px;font-weight:700;color:var(--emerald);margin-top:2px;">Paid: ${fmt(u.newPlanPaid)}</div>
             </td>
-            <td style="font-weight:800;color:var(--emerald);font-size:14px;white-space:nowrap;">${fmt(u.newPlanPaid)}</td>
+            <td style="text-align:right;font-weight:800;color:#047857;font-size:14px;white-space:nowrap;">${fmt(u.newPlanPaid)}</td>
             <td>${couponBadge}</td>
             <td style="font-size:12px;color:var(--muted);">
-              <div>Status: <span class="badge badge-status-active">${escapeHtml(u.oldPlanStatus)}</span></div>
+              <div>Status: <span style="font-weight:700;color:#059669;">${escapeHtml(u.oldPlanStatus)}</span></div>
               <div style="margin-top:2px;">Expiry: <strong>${u.oldPlanExpiry}</strong></div>
             </td>
             <td style="text-align:center;">
-              <button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="event.stopPropagation();openUpgradeModal(${startIndex + idx})">Audit ↗</button>
+              <button class="btn btn-secondary" style="padding:4px 10px;font-size:11px;" onclick="event.stopPropagation();openUpgradeModal(${startIndex + idx})">Audit ↗</button>
             </td>
           </tr>`;
       });
 
       tbody.innerHTML = html;
-
-      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredUpgrades.length} records`;
+      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredUpgrades.length} entries`;
       renderPaginationControls(totalPages);
     }
 
     function renderPaginationControls(totalPages) {
-      const container = document.getElementById('pagination-controls');
+      const container = document.getElementById('pagination-buttons');
       if (totalPages <= 1) {
         container.innerHTML = '';
         return;
@@ -1191,7 +1236,7 @@
         if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
           html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
         } else if (i === currentPage - 3 || i === currentPage + 3) {
-          html += `<span style="padding:6px;">...</span>`;
+          html += `<span style="padding:6px;color:var(--muted);">...</span>`;
         }
       }
 
@@ -1211,40 +1256,39 @@
 
       const modalBody = document.getElementById('modal-body');
       modalBody.innerHTML = `
-        <div style="margin-bottom:16px;">
-          <h3 style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px;">${escapeHtml(u.parent)} (${u.userId})</h3>
-          <div style="font-size:13px;color:var(--muted);">
+        <div style="margin-bottom:18px;">
+          <h3 style="font-size:18px;font-weight:800;color:var(--text);">${escapeHtml(u.parent)} (${u.userId})</h3>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px;">
             Phone: <strong style="color:var(--text);">${u.phone}</strong> • Upgrade Date: <strong style="color:var(--text);">${u.paidOn || u.upgradedOn}</strong>
           </div>
         </div>
 
-        <div class="audit-grid">
-          <div class="audit-box" style="border-left:4px solid var(--rose);">
-            <div class="audit-box-title" style="color:var(--rose);">
-              <span>📦 Previous Plan Details</span>
-            </div>
-            <div class="audit-item">Plan: <strong>${escapeHtml(u.oldPlan)}</strong></div>
-            <div class="audit-item">Previous Paid: <strong>${fmt(u.oldPlanPaid)}</strong></div>
-            <div class="audit-item">Previous Coupon: <strong>${escapeHtml(u.oldPlanCoupon || 'None')}</strong></div>
-            <div class="audit-item">Old Status: <strong>${escapeHtml(u.oldPlanStatus)}</strong></div>
-            <div class="audit-item">Expiry Date: <strong>${u.oldPlanExpiry}</strong></div>
+        <div class="modal-grid">
+          <div class="modal-field" style="border-left: 4px solid #ef4444;">
+            <div class="modal-label" style="color: #ef4444;">📦 Original Plan</div>
+            <div class="modal-val">${escapeHtml(u.oldPlan)}</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Original Paid: <strong>${fmt(u.oldPlanPaid)}</strong></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px;">Old Coupon: <strong>${escapeHtml(u.oldPlanCoupon || 'None')}</strong></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px;">Expiry: <strong>${u.oldPlanExpiry}</strong></div>
           </div>
 
-          <div class="audit-box" style="border-left:4px solid var(--emerald);">
-            <div class="audit-box-title" style="color:var(--emerald);">
-              <span>🚀 Upgraded New Plan</span>
+          <div class="modal-field" style="border-left: 4px solid #10b981;">
+            <div class="modal-label" style="color: #10b981;">🚀 Upgraded Plan</div>
+            <div class="modal-val" style="color:#047857;">${escapeHtml(u.newPlan)}</div>
+            <div style="font-size:13px;color:#047857;font-weight:800;margin-top:4px;">Upgrade Paid: ${fmt(u.newPlanPaid)}</div>
+            <div style="font-size:12px;color:#b45309;font-weight:700;margin-top:2px;">Coupon: ${escapeHtml(u.newPlanCoupon || 'None')} ${u.isCoupon40 ? '(40% Off)' : ''}</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px;">Status: <strong style="color:#059669;">${escapeHtml(u.newPlanStatus)}</strong></div>
+          </div>
+
+          <div class="modal-field-full">
+            <div class="modal-label">Audit &amp; Channel Status</div>
+            <div class="modal-val" style="font-size: 13px; font-weight: 500;">
+              Customer initiated and completed self-service upgrade from <strong>${escapeHtml(u.oldPlan)}</strong> to <strong>${escapeHtml(u.newPlan)}</strong>, paying <strong>${fmt(u.newPlanPaid)}</strong>.
+              ${u.inSecondarySheet ? '⚠️ <span style="color:#b45309;font-weight:700;">Note: Customer phone number was found in Secondary Sales Sheet.</span>' : '✅ <span style="color:#059669;font-weight:700;">Verified Pure Direct Upgrade (not handled by Inside Sales).</span>'}
             </div>
-            <div class="audit-item">New Plan: <strong>${escapeHtml(u.newPlan)}</strong></div>
-            <div class="audit-item">Upgrade Amount Paid: <strong style="color:var(--emerald);font-size:15px;">${fmt(u.newPlanPaid)}</strong></div>
-            <div class="audit-item">Upgrade Coupon: <strong style="color:var(--amber);">${escapeHtml(u.newPlanCoupon || 'None')} ${u.isCoupon40 ? '(Coupon 40)' : ''}</strong></div>
-            <div class="audit-item">Status: <strong>${escapeHtml(u.newPlanStatus)}</strong></div>
-            <div class="audit-item">Transaction Date: <strong>${u.paidOn || u.upgradedOn}</strong></div>
           </div>
         </div>
-
-        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.2);padding:14px;border-radius:10px;font-size:12.5px;color:#334155;">
-          <strong>💡 Audit Summary:</strong> Customer self-upgraded their subscription from <strong>${escapeHtml(u.oldPlan)}</strong> to <strong>${escapeHtml(u.newPlan)}</strong>, paying <strong>${fmt(u.newPlanPaid)}</strong> ${u.newPlanCoupon ? `using coupon code <strong>${escapeHtml(u.newPlanCoupon)}</strong>` : 'without coupon'}.
-        </div>`;
+      `;
 
       document.getElementById('detail-modal').style.display = 'flex';
     }
@@ -1282,14 +1326,13 @@
       document.body.removeChild(link);
     }
 
-    // Event Listeners
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.pill-btn').forEach(btn => {
+      document.querySelectorAll('.time-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           activeTimeframe = btn.dataset.timeframe;
           updateTimeframePills(activeTimeframe);
           if (activeTimeframe === 'custom') {
-            document.getElementById('custom-date-row').style.display = 'flex';
+            document.getElementById('custom-date-row').style.display = 'inline-flex';
           } else {
             document.getElementById('custom-date-row').style.display = 'none';
             applyFilters();
@@ -1304,18 +1347,10 @@
       document.getElementById('filter-secondary-sheet').addEventListener('change', applyFilters);
       document.getElementById('filter-coupon-type').addEventListener('change', applyFilters);
       document.getElementById('filter-new-plan').addEventListener('change', applyFilters);
-      document.getElementById('filter-old-plan').addEventListener('change', applyFilters);
-
-      document.getElementById('btn-reset-filters').addEventListener('click', () => {
-        document.getElementById('search-input').value = '';
-        document.getElementById('filter-secondary-sheet').value = 'exclude_sec';
-        document.getElementById('filter-coupon-type').value = '';
-        document.getElementById('filter-new-plan').value = '';
-        document.getElementById('filter-old-plan').value = '';
-        activeTimeframe = 'yesterday';
-        updateTimeframePills('yesterday');
-        document.getElementById('custom-date-row').style.display = 'none';
-        applyFilters();
+      document.getElementById('page-size').addEventListener('change', (e) => {
+        pageSize = parseInt(e.target.value, 10) || 25;
+        currentPage = 1;
+        renderTable();
       });
 
       document.getElementById('btn-download-pdf').addEventListener('click', () => {
@@ -1324,8 +1359,9 @@
           return;
         }
 
-        const head = [['Date', 'User ID', 'Customer Name', 'Phone', 'Original Plan', 'Upgraded Plan', 'Paid (₹)', 'Coupon']];
-        const body = filteredUpgrades.map(u => [
+        const head = [['#', 'Date', 'User ID', 'Customer Name', 'Phone', 'Original Plan', 'Upgraded Plan', 'Paid (₹)', 'Coupon']];
+        const body = filteredUpgrades.map((u, i) => [
+          i + 1,
           u.paidOn || u.upgradedOn,
           u.userId,
           u.parent,
@@ -1352,7 +1388,6 @@
       document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
       document.getElementById('btn-refresh').addEventListener('click', loadData);
 
-      // Modal close handlers
       document.getElementById('modal-close').addEventListener('click', () => {
         document.getElementById('detail-modal').style.display = 'none';
       });
