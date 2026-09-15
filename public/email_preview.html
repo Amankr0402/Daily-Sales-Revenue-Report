@@ -1,591 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Sales Report — The Elefant</title>
+</head>
+<body style="margin:0;padding:24px 0;background-color:#ede8fb;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1e1333;">
+  <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
+    
+    <!-- HEADER -->
+    <div style="background:#ffffff;padding:24px 28px;border-bottom:1px solid rgba(109,40,217,0.12);">
+      <table style="width:100%;border-collapse:collapse;">
+        <tr>
+          <td>
+            <div style="display:inline-block;vertical-align:middle;margin-bottom:4px;">
+              <img src="cid:elefant_logo" alt="the EleFant" style="height:36px;max-width:180px;object-fit:contain;display:block;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
+            </div>
+            <div style="font-size:13px;color:#6b7280;margin-top:2px;font-weight:600;">
+              Data as of 11:59 PM, Monday, 14 September 2026
+            </div>
+          </td>
+          <td style="text-align:right;">
+            <div style="display:inline-block;background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.2);color:#6d28d9;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;">
+              📅 14 Sept, 2026
+            </div>
+          </td>
+        </tr>
+      </table>
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Sales & Revenue Report — Monday, 14 September 2026</title>
-  </head>
-  <body style="margin:0;padding:24px 12px;background:#f1f5f9;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;">
-    <div style="max-width:680px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
-      
-      <!-- HEADER BANNER WITH OFFICIAL LOGO & DASHBOARD LINK -->
-      <div style="background:linear-gradient(135deg,#3730a3 0%,#4f46e5 50%,#6366f1 100%);padding:28px 32px;color:#ffffff;">
-        <table style="width:100%;border-collapse:collapse;">
-          <tr>
-            <td style="vertical-align:middle;">
-              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-                <img src="cid:elefant_logo" alt="The Elefant" style="height:36px;vertical-align:middle;background:#ffffff;padding:4px 8px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.15);" />
-              </div>
-              <h1 style="margin:4px 0 0;font-size:22px;font-weight:800;letter-spacing:-0.02em;color:#ffffff;">📈 Daily Sales &amp; Revenue Report</h1>
-              <p style="margin:6px 0 0;color:rgba(255,255,255,0.9);font-size:14px;font-weight:500;">Monday, 14 September 2026</p>
-            </td>
-            <td style="text-align:right;vertical-align:middle;">
-              <a href="https://daily-sales-revenue-report.vercel.app/" target="_blank" style="display:inline-block;background:#ffffff;color:#4338ca;font-weight:800;font-size:12px;padding:9px 16px;border-radius:8px;text-decoration:none;box-shadow:0 3px 8px rgba(0,0,0,0.15);white-space:nowrap;">
-                🚀 Open Dashboard
-              </a>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- 1. KEY PERFORMANCE INDICATORS (YESTERDAY) -->
-      <div style="padding:28px 32px 16px;">
-        <h2 style="margin:0 0 16px;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">📊 Key Performance Indicators (Yesterday)</h2>
-        <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #10b981;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">💰 TOTAL REVENUE YESTERDAY</div>
-              <div style="font-size:22px;font-weight:900;color:#059669;line-height:1.2;">₹1,90,680</div>
-              <div style="font-size:12px;color:#e11d48;font-weight:700;margin-top:6px;">₹-38,362 vs previous day</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #6366f1;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🤝 DEALS CLOSED YESTERDAY</div>
-              <div style="font-size:22px;font-weight:900;color:#1e293b;line-height:1.2;">18 <span style="font-size:14px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:#e11d48;font-weight:700;margin-top:6px;">-3 deals vs previous day</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">📊 AVERAGE DEAL SIZE (AOV)</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">₹10,593</div>
-              <div style="font-size:12px;color:#e11d48;font-weight:700;margin-top:6px;">₹-314 vs previous day</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #f59e0b;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🌱 ORGANIC DEALS</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">13 <span style="font-size:13px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">₹1,36,697 generated</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #8b5cf6;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🔄 RENEWALS &amp; UPGRADES</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">0 <span style="font-size:13px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">₹0 generated</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #f43f5e;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">👑 TOP SALES AGENT (MTD)</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">Honey</div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">₹3,07,522 (30 deals)</div>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- 2. D-o-D USER FUNNEL BREAKDOWN -->
-      
-      <div style="padding:0 32px 24px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-          <h2 style="margin:0;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">👥 D-o-D User Breakdown</h2>
-          <span style="font-size:11px;background:#e0e7ff;color:#4338ca;padding:3px 10px;border-radius:12px;font-weight:700;">Conversion Funnel</span>
+      <!-- DIRECT DASHBOARD LINK BANNER -->
+      <div style="margin-top:16px;background:rgba(109,40,217,0.06);border:1px solid rgba(109,40,217,0.18);border-radius:8px;padding:12px 16px;text-align:center;">
+        <div style="font-size:12px;color:#4c1d95;font-weight:600;margin-bottom:6px;">
+          View full drilldown tables &amp; customer logs on the live website:
         </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Funnel Metric</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Count / %</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Stage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📝 Signups</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#4338ca;">2,247</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">Total Registrations</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📍 Serviceable</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#0284c7;">1,460 <span style="font-size:11px;color:#0284c7;font-weight:600;">(65.0%)</span></td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Signups</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">🧸 Toy Viewed</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#059669;">undefined</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Serviceable</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📋 Plan Page</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#2563eb;">undefined</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Serviceable</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">🛒 Checkout Drop</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#d97706;">undefined</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">Cart Abandonment</td>
-            </tr>
-            <tr>
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">💳 Total Conversions</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#059669;">undefined</td>
-              <td style="padding:9px 12px;text-align:right;color:#059669;font-weight:700;">Subscribed Users</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-
-      <!-- 3. REVENUE TREND CHART -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📈 Revenue Performance Trend</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-align:center;">
-          <img src="https://quickchart.io/chart?c=%7B%22type%22%3A%22line%22%2C%22data%22%3A%7B%22labels%22%3A%5B%221%20Sept%22%2C%222%20Sept%22%2C%223%20Sept%22%2C%224%20Sept%22%2C%225%20Sept%22%2C%226%20Sept%22%2C%227%20Sept%22%2C%228%20Sept%22%2C%229%20Sept%22%2C%2210%20Sept%22%2C%2211%20Sept%22%2C%2212%20Sept%22%2C%2213%20Sept%22%2C%2214%20Sept%22%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Daily%20Revenue%20(INR)%22%2C%22data%22%3A%5B255507%2C119650%2C210379%2C199864.71%2C393100%2C283243.35000000003%2C141889%2C220579%2C238995%2C185014%2C256111%2C267402%2C229042%2C190680%5D%2C%22borderColor%22%3A%22%236366f1%22%2C%22backgroundColor%22%3A%22rgba(99%2C102%2C241%2C0.15)%22%2C%22fill%22%3Atrue%2C%22tension%22%3A0.35%2C%22pointRadius%22%3A4%2C%22pointBackgroundColor%22%3A%22%234f46e5%22%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22legend%22%3A%7B%22display%22%3Afalse%7D%7D%2C%22scales%22%3A%7B%22x%22%3A%7B%22ticks%22%3A%7B%22font%22%3A%7B%22size%22%3A10%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%7D%2C%22grid%22%3A%7B%22color%22%3A%22%23f1f5f9%22%7D%7D%2C%22y%22%3A%7B%22ticks%22%3A%7B%22font%22%3A%7B%22size%22%3A10%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%7D%2C%22grid%22%3A%7B%22color%22%3A%22%23f1f5f9%22%7D%7D%7D%7D%7D&w=560&h=240&bkg=white&f=png" alt="Revenue Trend" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-      </div>
-
-      <!-- 4. SUBSCRIPTION PLAN PERFORMANCE -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📦 Subscription Plan Performance</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-          <img src="https://quickchart.io/chart?c=%7B%22type%22%3A%22doughnut%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Annual%20Max%22%2C%226%20months%20Max%22%2C%22Quarterly%20Plus%22%2C%22play-max-annually%22%5D%2C%22datasets%22%3A%5B%7B%22data%22%3A%5B15%2C1%2C1%2C1%5D%2C%22backgroundColor%22%3A%5B%22%236366f1%22%2C%22%2306b6d4%22%2C%22%2310b981%22%2C%22%23f59e0b%22%5D%2C%22borderWidth%22%3A2%2C%22borderColor%22%3A%22%23ffffff%22%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22legend%22%3A%7B%22position%22%3A%22bottom%22%2C%22labels%22%3A%7B%22font%22%3A%7B%22size%22%3A11%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%2C%22boxWidth%22%3A12%2C%22padding%22%3A12%7D%7D%7D%7D%7D&w=380&h=220&bkg=white&f=png" alt="Plan Distribution" style="width:100%;max-width:380px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Plan Name</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Subscriptions</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Share</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Annual Max</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">15</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,70,898</td>
-                  <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">89.6%</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">6 months Max</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">1</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹7,000</td>
-                  <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">3.7%</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Quarterly Plus</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">1</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹3,160</td>
-                  <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">1.7%</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">play-max-annually</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">1</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹9,622</td>
-                  <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">5.0%</td>
-                </tr>
-              
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 5. ACQUISITION CHANNELS -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📊 Sales by Acquisition Channel</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-          <img src="https://quickchart.io/chart?c=%7B%22type%22%3A%22bar%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Organic%22%2C%22Direct%20Sale%22%2C%22Self%20Upgrade%22%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Revenue%20(%E2%82%B9)%22%2C%22data%22%3A%5B136697%2C44361%2C9622%5D%2C%22backgroundColor%22%3A%5B%22%2310b981%22%2C%22%236366f1%22%2C%22%238b5cf6%22%5D%2C%22borderRadius%22%3A6%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22legend%22%3A%7B%22display%22%3Afalse%7D%7D%2C%22scales%22%3A%7B%22x%22%3A%7B%22ticks%22%3A%7B%22font%22%3A%7B%22size%22%3A10%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%7D%2C%22grid%22%3A%7B%22display%22%3Afalse%7D%7D%2C%22y%22%3A%7B%22ticks%22%3A%7B%22font%22%3A%7B%22size%22%3A10%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%7D%2C%22grid%22%3A%7B%22color%22%3A%22%23f1f5f9%22%7D%7D%7D%7D%7D&w=560&h=240&bkg=white&f=png" alt="Acquisition Channels" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Channel Source</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Deals Count</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Organic</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">13</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,36,697</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Direct Sale</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">4</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹44,361</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Self Upgrade</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">1</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹9,622</td>
-                </tr>
-              
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 6. TOP PERFORMING SALES AGENTS THIS MONTH -->
-      <div style="padding:0 32px 28px;">
-        <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents (This Month)</h2>
-        
-        
-        <!-- Top Performer Spotlight Card -->
-        <div style="background:linear-gradient(135deg,#fef9c3 0%,#fef08a 50%,#fde047 100%);border:2px solid #f59e0b;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 4px 14px rgba(245,158,11,0.18);">
-          <table style="width:100%;border-collapse:collapse;">
-            <tr>
-              <td style="vertical-align:middle;">
-                <div style="display:inline-block;background:#b45309;color:#ffffff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">
-                  👑 TOP PERFORMER OF THE MONTH
-                </div>
-                <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
-                  <div style="width:44px;height:44px;background:#d97706;border-radius:50%;color:#ffffff;font-weight:800;font-size:16px;text-align:center;line-height:44px;border:2px solid #ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-                    HT
-                  </div>
-                  <div>
-                    <h3 style="margin:0;font-size:19px;font-weight:900;color:#78350f;letter-spacing:-0.01em;">Honey Talreja</h3>
-                    <div style="font-size:12px;color:#92400e;font-weight:600;margin-top:2px;">
-                      🎯 30 deals closed • 📈 9.6% of month's revenue
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td style="text-align:right;vertical-align:middle;padding-left:16px;">
-                <div style="font-size:11px;color:#92400e;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Total Revenue</div>
-                <div style="font-size:24px;font-weight:900;color:#065f46;line-height:1.2;">₹3,07,522</div>
-              </td>
-            </tr>
-          </table>
-        </div>
-        
-
-        <table style="width:100%;border-collapse:collapse;font-size:13px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;border-bottom:2px solid #e2e8f0;text-align:left;color:#475569;">
-              <th style="padding:9px 12px;font-weight:700;width:80px;">Rank</th>
-              <th style="padding:9px 12px;font-weight:700;">Agent Name</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Deals</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue Closed</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-                <tr style="border-bottom:1px solid #f1f5f9;background:#fffbeb;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#fef3c7;color:#b45309;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      🏆 #1
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Honey Talreja</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">30</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹3,07,522</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#e2e8f0;color:#475569;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #2
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Amol Landge</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">26</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹2,38,256</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#ffedd5;color:#c2410c;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #3
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Shubham Rai</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">23</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹2,38,216</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #4
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Vikas Poonia</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">19</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,76,272</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #5
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Prerak Bhavsar</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">17</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,42,382</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #6
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Chhaya Patel</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">14</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,34,913</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #7
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Kush Shah</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">15</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,29,000</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #8
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Vivek Shah</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">11</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,21,240</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #9
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Yuvraj Singh Dodiya</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">13</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,12,321</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #10
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Kausturi Roy Chowdhury</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">10</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹1,10,810</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #11
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Neeru Yadav</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">10</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹91,716</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #12
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Preyashi Roy</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">9</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹89,892</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #13
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Shivani Gupta</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">10</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹87,592</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #14
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Shashank Tiwari</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">9</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹86,000</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #15
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Jivesh Harde</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">7</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹84,000</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #16
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Tashrifa Ruhani Saikia</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">7</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹74,636</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #17
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Tanveer Ahmed</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">8</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹72,916</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #18
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Rani Singh</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">7</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹64,004</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #19
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Others</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">5</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹54,376</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #20
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Sneha Anand</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">6</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹49,256</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #21
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Kunal Sharma</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">6</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹47,500</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #22
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Soumya Pandey</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">4</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹44,000</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #23
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Abhijeet Mathur</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">5</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹37,160</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #24
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Shikha Singh</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">3</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹33,000</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #25
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Naveen Suwalka</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">3</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹26,500</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #26
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Ishika Gorle</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">3</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹26,500</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #27
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Rohit Jain</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">3</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹21,500</td>
-                </tr>
-              
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:#f1f5f9;color:#64748b;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      #28
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">Shivaram Nimmala</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">1</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">₹11,000</td>
-                </tr>
-              
-          </tbody>
-        </table>
-      </div>
-
-      <!-- FOOTER -->
-      <div style="background:#f8fafc;padding:24px 32px;text-align:center;font-size:12px;color:#94a3b8;border-top:1px solid #e2e8f0;line-height:1.6;">
-        <div style="margin-bottom:10px;">
-          <a href="https://daily-sales-revenue-report.vercel.app/" target="_blank" style="display:inline-block;background:#4f46e5;color:#ffffff;font-weight:700;font-size:12px;padding:8px 18px;border-radius:6px;text-decoration:none;box-shadow:0 2px 6px rgba(79,70,229,0.25);">
-            📊 View Full Interactive Live Dashboard
-          </a>
-        </div>
-        Automated Daily Sales Intelligence Report • Attached PDF report generated for records<br />
-        <strong>Daily Sales &amp; Revenue Analytics Dashboard System</strong>
+        <a href="https://daily-sales-revenue-report.vercel.app/" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;">
+          🌐 Open Live Dashboard &amp; View User Details ↗
+        </a>
       </div>
     </div>
-  </body>
-  </html>
-  
+
+    <!-- 1. REVENUE (TILL 11:59 PM YESTERDAY) -->
+    <div style="padding:22px 28px 14px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        💰 Revenue — Till 11:59 PM Yesterday
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #059669;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(109,40,217,0.05);">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#6b7280;">Total Revenue Generated</div>
+        <div style="font-size:26px;font-weight:900;color:#059669;line-height:1.2;margin-top:2px;">₹1,90,680</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:4px;font-weight:500;">18 deals across all channels</div>
+
+        <!-- Channel Pills -->
+        <table style="width:100%;border-collapse:separate;border-spacing:6px 6px;margin-top:14px;margin-left:-6px;margin-right:-6px;">
+          <tr>
+            <td style="width:33.33%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;vertical-align:top;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;">🤝 Inside Sales</div>
+                <div style="font-size:13.5px;font-weight:800;color:#1e1333;margin-top:2px;">₹1,36,697</div>
+                <div style="font-size:10.5px;color:#64748b;">13 deals</div>
+              </td><td style="width:33.33%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;vertical-align:top;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;">🛍️ Direct Sale</div>
+                <div style="font-size:13.5px;font-weight:800;color:#1e1333;margin-top:2px;">₹44,361</div>
+                <div style="font-size:10.5px;color:#64748b;">4 deals</div>
+              </td><td style="width:33.33%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;vertical-align:top;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;">🚀 Self Upgrade</div>
+                <div style="font-size:13.5px;font-weight:800;color:#1e1333;margin-top:2px;">₹9,622</div>
+                <div style="font-size:10.5px;color:#64748b;">1 deal</div>
+              </td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+
+    <!-- 2. DEALS & AVERAGES -->
+    <div style="padding:0 28px 16px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🤝 Deals &amp; Averages
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:8px 8px;margin-left:-8px;margin-right:-8px;">
+        <tr>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Total Deals Closed</div>
+            <div style="font-size:22px;font-weight:900;color:#7c3aed;line-height:1.2;margin-top:2px;">18</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Combined Direct &amp; Inside</div>
+          </td>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Blended AOV</div>
+            <div style="font-size:20px;font-weight:900;color:#0891b2;line-height:1.2;margin-top:2px;">₹10,593</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Revenue ÷ Deals</div>
+          </td>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #d97706;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">🏆 Highest Sale</div>
+            <div style="font-size:20px;font-weight:900;color:#d97706;line-height:1.2;margin-top:2px;">₹14,055</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Closed by Kiranbhai Sonagara</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 3. KEY INSIGHTS (TOP & BOTTOM AGENTS PODIUM) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🎯 Key Insights (Top &amp; Bottom Agents — Yesterday)
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <!-- Top 3 -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#d97706;text-transform:uppercase;text-align:center;margin-bottom:10px;">🏆 TOP 3 AGENTS</div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:700;color:#1e1333;">🥇 Shashank Tiwari</span>
+                <span style="font-weight:800;color:#059669;">₹33,000 <span style="font-size:10.5px;color:#64748b;font-weight:500;">(3d)</span></span>
+              </div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:700;color:#1e1333;">🥈 Chhaya Patel</span>
+                <span style="font-weight:800;color:#059669;">₹22,000 <span style="font-size:10.5px;color:#64748b;font-weight:500;">(2d)</span></span>
+              </div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:700;color:#1e1333;">🥉 Kausturi Roy Chowdhury</span>
+                <span style="font-weight:800;color:#059669;">₹11,000 <span style="font-size:10.5px;color:#64748b;font-weight:500;">(1d)</span></span>
+              </div>
+            
+          </td>
+          <!-- Bottom 3 -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#e11d48;text-transform:uppercase;text-align:center;margin-bottom:10px;">🔻 BOTTOM 3 AGENTS</div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:600;color:#1e1333;">🔻 Vivek Shah</span>
+                <span style="font-weight:700;color:#64748b;">₹10,376 <span style="font-size:10.5px;color:#64748b;">(1d)</span></span>
+              </div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:600;color:#1e1333;">🔻 Yuvraj Singh Dodiya</span>
+                <span style="font-weight:700;color:#64748b;">₹9,821 <span style="font-size:10.5px;color:#64748b;">(1d)</span></span>
+              </div>
+            
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:600;color:#1e1333;">🔻 Honey Talreja</span>
+                <span style="font-weight:700;color:#64748b;">₹7,000 <span style="font-size:10.5px;color:#64748b;">(1d)</span></span>
+              </div>
+            
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 4. PERIOD REVENUE -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📆 Period Revenue
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Week (Sun–Yesterday)</div>
+            <div style="font-size:22px;font-weight:900;color:#059669;margin-top:2px;">₹6,87,124</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">67 deals • 3 days</div>
+          </td>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Month (1st–Yesterday)</div>
+            <div style="font-size:22px;font-weight:900;color:#7c3aed;margin-top:2px;">₹31,91,456</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">340 deals • 14 days</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📍 Serviceability — Daily Funnel Snapshot (Last 4 Days)
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+            <th style="padding:7px 10px;font-weight:700;">Date</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Signups</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">OTP Verified</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Serviceable</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 10px;font-weight:600;color:#1e1333;">14 Sept</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">2,247</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">2,242</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">1,460</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">65.0%</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 10px;font-weight:600;color:#1e1333;">13 Sept</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">2,787</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">2,767</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">1,765</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">63.3%</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 10px;font-weight:600;color:#1e1333;">12 Sept</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">1,452</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">1,440</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">1,107</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">76.2%</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 10px;font-weight:600;color:#1e1333;">11 Sept</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">1,225</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">1,205</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">902</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">73.6%</td>
+            </tr>
+          
+        </tbody>
+      </table>
+
+      <!-- Missed Leads -->
+      <div style="margin-top:10px;padding:10px 14px;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:8px;text-align:center;font-size:12px;">
+        <span style="font-weight:800;color:#1e1333;">⏰ Leads Missed (>24 hrs):</span>
+        <span style="margin-left:8px;color:#64748b;">Connected: <strong>554</strong></span> •
+        <span style="margin-left:4px;color:#64748b;">Interested: <strong>238</strong></span> •
+        <span style="margin-left:4px;color:#059669;">Paise Dega: <strong>55</strong></span>
+      </div>
+    </div>
+
+    <!-- 6. SUBSCRIPTIONS & LEAD JOURNEY -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📊 Subscriptions &amp; Lead Journey
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;text-transform:uppercase;">PARTICULARS</th>
+            <th style="padding:8px 12px;font-weight:800;text-transform:uppercase;text-align:right;">YESTERDAY</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Total Active Subscriptions</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">4,743</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">New Subscribers in last 7 days</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">447</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">TeleCRM Leads (yesterday)</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">2,640</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Subscriptions Ending (next 5 days)</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">74</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Subscriptions Expired / Cancelled (last 7 days)</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">90</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Subscriptions Expiring Today</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">11</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Plan Expiring & No Order</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">3</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Plan Expired & No Order</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">2,414</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Active Subscription & No Order</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">118</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 7. NEW USERS DELIVERY STATUS & ORDER STATUS -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🚚 New Users Delivery &amp; Order Status
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;margin-bottom:12px;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;">NEW USERS DELIVERY STATUS</th>
+            <th style="padding:8px 12px;font-weight:800;text-align:right;">COUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Placed</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">29</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Confirmed</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">27</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Ready to Ship</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">2</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Shipped</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">11</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Not Delivered</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">69</td>
+            </tr>
+          
+        </tbody>
+      </table>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;">USER ORDER &amp; DELIVERY STATUS OF ALL NEW USERS</th>
+            <th style="padding:8px 12px;font-weight:800;text-align:right;">COUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers who have Ordered</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">282</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders that have been Delivered</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">213</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders yet to be Delivered</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">69</td>
+            </tr>
+          
+            <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders yet to be Delivered & Delayed</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">27</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. PLAN DISTRIBUTION -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🥧 Plan Distribution — Yesterday
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;text-align:center;margin-bottom:10px;">
+        <img src="https://quickchart.io/chart?c=%7B%22type%22%3A%22doughnut%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Annual%20Max%22%2C%22play-max-annually%22%2C%226%20months%20Max%22%2C%22Quarterly%20Plus%22%5D%2C%22datasets%22%3A%5B%7B%22data%22%3A%5B15%2C1%2C1%2C1%5D%2C%22backgroundColor%22%3A%5B%22%236366f1%22%2C%22%2310b981%22%2C%22%2306b6d4%22%2C%22%23f59e0b%22%5D%2C%22borderWidth%22%3A2%2C%22borderColor%22%3A%22%23ffffff%22%7D%5D%7D%2C%22options%22%3A%7B%22cutoutPercentage%22%3A60%2C%22plugins%22%3A%7B%22legend%22%3A%7B%22position%22%3A%22bottom%22%2C%22labels%22%3A%7B%22font%22%3A%7B%22size%22%3A10%2C%22family%22%3A%22Inter%2C%20sans-serif%22%7D%2C%22boxWidth%22%3A10%2C%22padding%22%3A8%7D%7D%7D%7D%7D&w=480&h=240&bkg=white&f=png" alt="Plan Distribution" style="width:100%;max-width:440px;height:auto;display:block;margin:0 auto;" />
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+            <th style="padding:7px 10px;font-weight:700;">Plan</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Deals</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Revenue</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:7px 10px;font-weight:600;color:#1e1333;">Annual Max</td>
+                <td style="padding:7px 10px;text-align:center;color:#64748b;">15</td>
+                <td style="padding:7px 10px;text-align:right;font-weight:700;color:#059669;">₹1,70,898</td>
+                <td style="padding:7px 10px;text-align:right;color:#64748b;">89.6%</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:7px 10px;font-weight:600;color:#1e1333;">play-max-annually</td>
+                <td style="padding:7px 10px;text-align:center;color:#64748b;">1</td>
+                <td style="padding:7px 10px;text-align:right;font-weight:700;color:#059669;">₹9,622</td>
+                <td style="padding:7px 10px;text-align:right;color:#64748b;">5.0%</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:7px 10px;font-weight:600;color:#1e1333;">6 months Max</td>
+                <td style="padding:7px 10px;text-align:center;color:#64748b;">1</td>
+                <td style="padding:7px 10px;text-align:right;font-weight:700;color:#059669;">₹7,000</td>
+                <td style="padding:7px 10px;text-align:right;color:#64748b;">3.7%</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:7px 10px;font-weight:600;color:#1e1333;">Quarterly Plus</td>
+                <td style="padding:7px 10px;text-align:center;color:#64748b;">1</td>
+                <td style="padding:7px 10px;text-align:right;font-weight:700;color:#059669;">₹3,160</td>
+                <td style="padding:7px 10px;text-align:right;color:#64748b;">1.7%</td>
+              </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9. SALES TREND TABLE (LAST 7 DAYS) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📈 Sales Trend — Last 7 Days
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:7px 8px;font-weight:800;">DATE</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:center;">DEALS</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">SALES</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">DELIVERY</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">TOTAL</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">AOV</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">8 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">25</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹2,20,225</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹354</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹2,20,579</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹8,823</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">9 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">25</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹2,38,759</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹236</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹2,38,995</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹9,560</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">10 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">21</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹1,84,896</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹118</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹1,85,014</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹8,810</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">11 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">24</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹2,56,111</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹0</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹2,56,111</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹10,671</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">12 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">28</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹2,67,402</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹0</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹2,67,402</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹9,550</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">13 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">21</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹2,29,042</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹0</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹2,29,042</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹10,907</td>
+              </tr>
+            
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">14 Sept</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">18</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹1,90,680</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">₹0</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">₹1,90,680</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">₹10,593</td>
+              </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. REFUNDS & FINANCIALS -->
+    <div style="padding:0 28px 24px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        💸 Refunds &amp; Net Financials
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
+        <tr>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">REFUND (YESTERDAY)</div>
+            <div style="font-size:20px;font-weight:800;color:#e11d48;margin-top:2px;">₹15,000</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:2px;">1 processed</div>
+          </td>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">REFUND (LAST 7 DAYS)</div>
+            <div style="font-size:20px;font-weight:800;color:#e11d48;margin-top:2px;">₹97,884</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:2px;">11 processed</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Net Revenue Block -->
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;overflow:hidden;">
+        <div style="padding:10px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:12.5px;font-weight:800;color:#1e1333;">
+          💼 Net Revenue Summary
+        </div>
+        <div style="padding:8px 16px;display:flex;justify-content:space-between;font-size:12px;border-bottom:1px solid #f1f5f9;">
+          <span style="color:#64748b;">Total Sales Revenue:</span>
+          <span style="font-weight:700;color:#059669;">₹1,90,680</span>
+        </div>
+        <div style="padding:8px 16px;display:flex;justify-content:space-between;font-size:12px;border-bottom:1px solid #f1f5f9;">
+          <span style="color:#64748b;">− Refunds Processed:</span>
+          <span style="font-weight:700;color:#e11d48;">₹15,000</span>
+        </div>
+        <div style="padding:10px 16px;display:flex;justify-content:space-between;font-size:13px;background:rgba(5,150,105,0.06);">
+          <span style="font-weight:800;color:#1e1333;">= Net Revenue:</span>
+          <span style="font-weight:900;color:#059669;font-size:15px;">₹1,75,680</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER WITH LIVE DASHBOARD BUTTON -->
+    <div style="background:#f8fafc;padding:22px 28px;text-align:center;font-size:12px;color:#64748b;border-top:1px solid #e2e8f0;line-height:1.6;">
+      <div style="margin-bottom:12px;">
+        <img src="cid:elefant_logo" alt="the EleFant" style="height:26px;max-width:130px;object-fit:contain;display:inline-block;vertical-align:middle;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
+      </div>
+      <div style="margin-bottom:10px;">
+        <a href="https://daily-sales-revenue-report.vercel.app/" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;">
+          🌐 View Live Interactive Dashboard &amp; Full User Details ↗
+        </a>
+      </div>
+      <div>
+        <strong>The Elefant Sales Analytics System</strong> • Automated Daily Intelligence Report<br />
+        📎 <em>Attached PDF copy: Daily_Sales_Report_2026-09-14.pdf</em>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

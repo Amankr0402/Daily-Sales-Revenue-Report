@@ -1,7 +1,7 @@
 /**
  * Immediate & Automated Daily Sales Report Email Delivery
- * Restores the beloved card-based layout with spotlight cards, clean charts,
- * embedded official the EleFant logo, PDF attachment, and live dashboard links.
+ * Renders EXACTLY the metrics, sections, and tables from the website dashboard.
+ * Formatted cleanly with email-safe layout, attached PDF, and live dashboard links.
  */
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -34,16 +34,12 @@ const transporter = nodemailer.createTransport({
   greetingTimeout: 20000,
 });
 
-function fmtINR(num) {
-  return '₹' + Math.round(num || 0).toLocaleString('en-IN');
-}
+const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
+const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
+const fd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+const ini = n => n.split(' ').map(x => x[0]).join('').substring(0, 2).toUpperCase();
 
-function formatShortDate(iso) {
-  const d = new Date(iso + 'T00:00:00');
-  return d.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
-}
-
-function quickChartURL(config, width = 560, height = 260) {
+function quickChartURL(config, width = 600, height = 240) {
   const json = JSON.stringify(config);
   return `https://quickchart.io/chart?c=${encodeURIComponent(json)}&w=${width}&h=${height}&bkg=white&f=png`;
 }
@@ -59,13 +55,7 @@ function getRecipients() {
       console.warn('⚠️ Could not parse employees.json:', e.message);
     }
   }
-  return [
-    '"Govind Parmar" <govind.parmar@theelefant.ai>',
-    '"Aman Soni" <aman.soni@theelefant.ai>',
-    '"Vaaneet Kapoor" <vaaneet.kapoor@theelefant.ai>',
-    '"Karan Chadha" <karan.chadha@theelefant.ai>',
-    '"Sourabh Jain" <sourabh.jain@theelefant.ai>'
-  ];
+  return ['"Aman Soni" <aman.soni@theelefant.ai>'];
 }
 
 async function generatePDF(htmlContent) {
@@ -83,9 +73,8 @@ async function generatePDF(htmlContent) {
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     });
     const page = await browser.newPage();
-    await page.setViewport({ width: 800, height: 1200, deviceScaleFactor: 2 });
+    await page.setViewport({ width: 850, height: 1200, deviceScaleFactor: 2 });
     await page.setContent(pdfHtml, { waitUntil: 'load', timeout: 20000 });
-    // small pause to ensure quickcharts render
     await new Promise(r => setTimeout(r, 1500));
     await page.emulateMediaType('screen');
     const pdfBuffer = await page.pdf({
@@ -104,426 +93,528 @@ async function generatePDF(htmlContent) {
 
 function buildEmailHtml(allData) {
   allData.sort((a, b) => a.date.localeCompare(b.date));
+  const yd = allData[allData.length - 1];
 
-  const today = allData[allData.length - 1];
-  const yesterday = allData.length > 1 ? allData[allData.length - 2] : today;
+  // 1. Revenue
+  const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
+  const grandTotal = (yd.totalRevenue || 0) + deliveryTotal;
+  const salesCount = yd.salesCount || 0;
+  const aov = salesCount > 0 ? Math.round(grandTotal / salesCount) : 0;
 
-  const d = new Date(today.date + 'T00:00:00');
-  const dateStr = d.toLocaleDateString('en-IN', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  // Channels
+  const SRC_C = {
+    Events: '#6366f1',
+    Organic: '#10b981',
+    Renewals: '#f59e0b',
+    Upgrade: '#06b6d4',
+    'Self Subscription': '#8b5cf6',
+    'Direct Sale': '#ec4899',
+    'Self Upgrade': '#8b5cf6'
+  };
+  const SRC_L = {
+    Organic: '🤝 Inside Sales',
+    Events: '🎤 Events',
+    Renewals: '🔄 Renewals',
+    Upgrade: '⬆️ Upgrades',
+    'Self Subscription': '📱 Self Sub',
+    'Direct Sale': '🛍️ Direct Sale',
+    'Self Upgrade': '🚀 Self Upgrade'
+  };
+
+  const sourcesList = Object.entries(yd.sources || {}).sort((a, b) => b[1].revenue - a[1].revenue);
+
+  // Overlap deals
+  const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
+
+  // Highest Sale
+  const hsAmount = yd.highestSale?.amount ? fmt(yd.highestSale.amount) : '—';
+  const hsAgent = yd.highestSale?.agent ? `Closed by ${yd.highestSale.agent}` : '—';
+
+  // 3. Podium Ranking (Last 1 Day / Yesterday)
+  const agentsMap = {};
+  Object.entries(yd.agents || {}).forEach(([name, info]) => {
+    if (!agentsMap[name]) agentsMap[name] = { revenue: 0, count: 0 };
+    agentsMap[name].revenue += (info.revenue || 0);
+    agentsMap[name].count += (info.count || 0);
   });
+  const sortedAgents = Object.entries(agentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
+  const top3 = sortedAgents.slice(0, 3);
+  const bottom3 = sortedAgents.length >= 3 ? sortedAgents.slice(-3) : [];
 
-  const deliveryTotal = (today.deliveryFee && today.deliveryFee.total > 0) ? today.deliveryFee.total : 0;
-  const yesterdayDelivery = (yesterday.deliveryFee && yesterday.deliveryFee.total > 0) ? yesterday.deliveryFee.total : 0;
+  // 5. Period Revenue (Week to Date & Month to Date)
+  const ydDateObj = new Date(yd.date + 'T00:00:00');
+  const dayOfWeek = ydDateObj.getDay(); // 0 = Sun, 1 = Mon ...
+  const weekStartObj = new Date(ydDateObj);
+  weekStartObj.setDate(ydDateObj.getDate() - dayOfWeek);
+  const weekStartStr = weekStartObj.toISOString().split('T')[0];
 
-  const todayRev     = (today.totalRevenue || 0) + deliveryTotal;
-  const yesterdayRev = (yesterday.totalRevenue || 0) + yesterdayDelivery;
-  const diffRev      = todayRev - yesterdayRev;
-  const diffRevStr   = (diffRev >= 0 ? '+' : '') + fmtINR(diffRev);
-  const diffColor    = diffRev >= 0 ? '#059669' : '#e11d48';
+  const monthStartStr = yd.date.slice(0, 7) + '-01';
 
-  const todayCount     = today.salesCount || 0;
-  const yesterdayCount = yesterday.salesCount || 0;
-  const diffCount      = todayCount - yesterdayCount;
-  const diffCountStr   = (diffCount >= 0 ? '+' : '') + diffCount;
-  const diffCountColor = diffCount >= 0 ? '#059669' : '#e11d48';
+  const weekDays = allData.filter(d => d.date >= weekStartStr && d.date <= yd.date);
+  const monthDays = allData.filter(d => d.date >= monthStartStr && d.date <= yd.date);
 
-  const todayAOV     = todayCount > 0 ? Math.round(todayRev / todayCount) : 0;
-  const yesterdayAOV = yesterdayCount > 0 ? Math.round(yesterdayRev / yesterdayCount) : 0;
-  const diffAOV      = todayAOV - yesterdayAOV;
-  const diffAOVStr   = (diffAOV >= 0 ? '+' : '') + fmtINR(diffAOV);
-  const diffAOVColor = diffAOV >= 0 ? '#059669' : '#e11d48';
+  const weekSales = weekDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
+  const weekDelivery = weekDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
+  const weekGrand = weekSales + weekDelivery;
+  const weekDeals = weekDays.reduce((s, d) => s + (d.salesCount || 0), 0);
 
-  const organicCount = today.sources?.Organic?.count || 0;
-  const organicRev   = today.sources?.Organic?.revenue || 0;
+  const monthSales = monthDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
+  const monthDelivery = monthDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
+  const monthGrand = monthSales + monthDelivery;
+  const monthDeals = monthDays.reduce((s, d) => s + (d.salesCount || 0), 0);
 
-  const renewalCount = (today.sources?.Renewals?.count || 0) + (today.sources?.Upgrade?.count || 0);
-  const renewalRev   = (today.sources?.Renewals?.revenue || 0) + (today.sources?.Upgrade?.revenue || 0);
+  // 6. Serviceability (Last 4 Days Funnel Snapshot)
+  const last4Funnel = allData.filter(d => d.userBreakdown && d.date <= yd.date).slice(-4).reverse();
+  const missed = yd.missedLeads || { Connected: 0, Interested: 0, 'Paise Dega': 0 };
 
-  // Monthly Sorted Agents (MTD)
-  const mStr = today.date.slice(0, 7) + '-01';
-  const mData = allData.filter(d => d.date >= mStr && d.date <= today.date);
-  const monthAgentsMap = {};
-  mData.forEach(d => {
-    Object.entries(d.agents || {}).forEach(([name, info]) => {
-      if (!monthAgentsMap[name]) monthAgentsMap[name] = { revenue: 0, count: 0 };
-      monthAgentsMap[name].revenue += (info.revenue || 0);
-      monthAgentsMap[name].count += (info.count || 0);
-    });
-  });
-  const sortedAgents = Object.entries(monthAgentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
-  const monthRev = mData.reduce((s, d) => s + (d.totalRevenue || 0), 0);
-  const topAgent = sortedAgents.length > 0 ? sortedAgents[0] : ['—', { revenue: 0, count: 0 }];
-  const topAgentInitials = topAgent[0].split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-  const topAgentPct = monthRev > 0 ? ((topAgent[1].revenue / monthRev) * 100).toFixed(1) : 0;
+  // 7. Subscriptions & Lead Journey
+  const subsRows = [
+    { label: 'Total Active Subscriptions', val: (yd.activeSubs || 0).toLocaleString('en-IN'), link: 'active-subscriptions.html' },
+    { label: 'New Subscribers in last 7 days', val: (yd.newSubs7d || 0).toLocaleString('en-IN'), link: 'new-subs-7d-details.html' },
+    { label: 'TeleCRM Leads (yesterday)', val: (yd.teleCrmLeads || 0).toLocaleString('en-IN'), link: 'telecrm-leads-details.html' },
+    { label: 'Subscriptions Ending (next 5 days)', val: (yd.subsEnding5d || 0).toLocaleString('en-IN'), link: 'subs-ending-5d-details.html' },
+    { label: 'Subscriptions Expired / Cancelled (last 7 days)', val: (yd.subsExpired7d || 0).toLocaleString('en-IN'), link: 'subs-expired-7d-details.html' },
+    { label: 'Subscriptions Expiring Today', val: (yd.subsExpiringToday || 0).toLocaleString('en-IN'), link: 'subs-expiring-today-details.html' },
+    { label: 'Plan Expiring & No Order', val: (yd.planExpiringNoOrder || 0).toLocaleString('en-IN'), link: 'plan-expiring-no-order-details.html' },
+    { label: 'Plan Expired & No Order', val: (yd.planExpNoOrder || 0).toLocaleString('en-IN'), link: 'plan-exp-no-order-details.html' },
+    { label: 'Active Subscription & No Order', val: (yd.activeSubNoOrder || 0).toLocaleString('en-IN'), link: 'active-sub-no-order-details.html' },
+  ];
 
-  // Trend Chart (last 14 days)
-  const recentData = allData.slice(-14);
-  const trendChartImg = quickChartURL({
-    type: 'line',
-    data: {
-      labels: recentData.map(entry => formatShortDate(entry.date)),
-      datasets: [{
-        label: 'Daily Revenue (INR)',
-        data: recentData.map(entry => entry.totalRevenue + ((entry.deliveryFee && entry.deliveryFee.total > 0) ? entry.deliveryFee.total : 0)),
-        borderColor: '#6366f1',
-        backgroundColor: 'rgba(99,102,241,0.15)',
-        fill: true,
-        tension: 0.35,
-        pointRadius: 4,
-        pointBackgroundColor: '#4f46e5',
-      }],
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { font: { size: 10, family: 'Inter, sans-serif' } }, grid: { color: '#f1f5f9' } },
-        y: { ticks: { font: { size: 10, family: 'Inter, sans-serif' } }, grid: { color: '#f1f5f9' } },
-      },
-    },
-  }, 560, 240);
+  // Delivery Status
+  const newUsersDelivery = yd.newUsersDeliveryStatus || {};
+  const allNewUsersOrder = yd.allNewUsersOrderStatus || {};
 
-  // Plans breakdown
-  const plans = today.plans || {};
-  const planLabels = Object.keys(plans);
-  const planCounts = planLabels.map(p => plans[p].count);
-  const planColors = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#fb7185', '#8b5cf6', '#ec4899'];
+  // 8. Plan Distribution
+  const plans = yd.plans || {};
+  const planEntries = Object.entries(plans).sort((a, b) => b[1].revenue - a[1].revenue);
+  const planLabels = planEntries.map(p => p[0]);
+  const planCounts = planEntries.map(p => p[1].count);
+  const PC = ['#6366f1', '#10b981', '#06b6d4', '#f59e0b', '#f43f5e', '#8b5cf6', '#fb923c'];
+
   const planChartImg = quickChartURL({
     type: 'doughnut',
     data: {
       labels: planLabels,
       datasets: [{
         data: planCounts,
-        backgroundColor: planColors.slice(0, planLabels.length),
+        backgroundColor: PC.slice(0, planLabels.length),
         borderWidth: 2,
         borderColor: '#ffffff',
       }],
     },
     options: {
+      cutoutPercentage: 60,
       plugins: {
-        legend: { position: 'bottom', labels: { font: { size: 11, family: 'Inter, sans-serif' }, boxWidth: 12, padding: 12 } },
+        legend: {
+          position: 'bottom',
+          labels: { font: { size: 10, family: 'Inter, sans-serif' }, boxWidth: 10, padding: 8 },
+        },
       },
     },
-  }, 380, 220);
+  }, 480, 240);
 
-  // Acquisition Channels
-  const sources = today.sources || {};
-  const allSourceLabels = Object.keys(sources).filter(s => (sources[s].count > 0 || sources[s].revenue > 0));
-  if (deliveryTotal > 0 && !allSourceLabels.includes('Delivery Fee')) {
-    allSourceLabels.push('Delivery Fee');
-  }
+  // 8. Sales Trend (Last 7 Days)
+  const last7Days = allData.slice(-7);
 
-  const sourceColors = {
-    'Events': '#6366f1',
-    'Organic': '#10b981',
-    'Renewals': '#f59e0b',
-    'Self Upgrade': '#8b5cf6',
-    'TeleCRM': '#06b6d4',
-    'Disputed Sales': '#f43f5e',
-    'Overlap Sales': '#f43f5e',
-    'Delivery Fee': '#64748b'
-  };
+  // 9. Refunds
+  const refundYd = yd.refunds ? fmt(yd.refunds.total) : '₹0';
+  const refundYdCount = yd.refunds ? yd.refunds.count : 0;
+  const refund7d = yd.refundsLast7Days ? fmt(yd.refundsLast7Days.total) : '₹0';
+  const refund7dCount = yd.refundsLast7Days ? yd.refundsLast7Days.count : 0;
 
-  const channelChartImg = quickChartURL({
-    type: 'bar',
-    data: {
-      labels: allSourceLabels,
-      datasets: [{
-        label: 'Revenue (₹)',
-        data: allSourceLabels.map(s => s === 'Delivery Fee' ? deliveryTotal : (sources[s]?.revenue || 0)),
-        backgroundColor: allSourceLabels.map(s => sourceColors[s] || '#6366f1'),
-        borderRadius: 6,
-      }],
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { font: { size: 10, family: 'Inter, sans-serif' } }, grid: { display: false } },
-        y: { ticks: { font: { size: 10, family: 'Inter, sans-serif' } }, grid: { color: '#f1f5f9' } },
-      },
-    },
-  }, 560, 240);
+  // 10. Financials (Net Revenue)
+  const refundYdTotal = yd.refunds?.total || 0;
+  const netRevenue = grandTotal - refundYdTotal;
 
-  const html = `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Sales & Revenue Report — ${dateStr}</title>
-  </head>
-  <body style="margin:0;padding:24px 12px;background:#f1f5f9;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;">
-    <div style="max-width:680px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
-      
-      <!-- HEADER BANNER WITH OFFICIAL LOGO & DASHBOARD LINK -->
-      <div style="background:linear-gradient(135deg,#3730a3 0%,#4f46e5 50%,#6366f1 100%);padding:28px 32px;color:#ffffff;">
-        <table style="width:100%;border-collapse:collapse;">
-          <tr>
-            <td style="vertical-align:middle;">
-              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-                <img src="cid:elefant_logo" alt="The Elefant" style="height:36px;vertical-align:middle;background:#ffffff;padding:4px 8px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.15);" />
-              </div>
-              <h1 style="margin:4px 0 0;font-size:22px;font-weight:800;letter-spacing:-0.02em;color:#ffffff;">📈 Daily Sales &amp; Revenue Report</h1>
-              <p style="margin:6px 0 0;color:rgba(255,255,255,0.9);font-size:14px;font-weight:500;">${dateStr}</p>
-            </td>
-            <td style="text-align:right;vertical-align:middle;">
-              <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#ffffff;color:#4338ca;font-weight:800;font-size:12px;padding:9px 16px;border-radius:8px;text-decoration:none;box-shadow:0 3px 8px rgba(0,0,0,0.15);white-space:nowrap;">
-                🚀 Open Dashboard
-              </a>
-            </td>
-          </tr>
-        </table>
-      </div>
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Sales Report — The Elefant</title>
+</head>
+<body style="margin:0;padding:24px 0;background-color:#ede8fb;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1e1333;">
+  <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
+    
+    <!-- HEADER -->
+    <div style="background:#ffffff;padding:24px 28px;border-bottom:1px solid rgba(109,40,217,0.12);">
+      <table style="width:100%;border-collapse:collapse;">
+        <tr>
+          <td>
+            <div style="display:inline-block;vertical-align:middle;margin-bottom:4px;">
+              <img src="cid:elefant_logo" alt="the EleFant" style="height:36px;max-width:180px;object-fit:contain;display:block;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
+            </div>
+            <div style="font-size:13px;color:#6b7280;margin-top:2px;font-weight:600;">
+              Data as of 11:59 PM, ${fd(yd.date)}
+            </div>
+          </td>
+          <td style="text-align:right;">
+            <div style="display:inline-block;background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.2);color:#6d28d9;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;">
+              📅 ${sd(yd.date)}, ${ydDateObj.getFullYear()}
+            </div>
+          </td>
+        </tr>
+      </table>
 
-      <!-- 1. KEY PERFORMANCE INDICATORS (YESTERDAY) -->
-      <div style="padding:28px 32px 16px;">
-        <h2 style="margin:0 0 16px;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">📊 Key Performance Indicators (Yesterday)</h2>
-        <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #10b981;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">💰 TOTAL REVENUE YESTERDAY</div>
-              <div style="font-size:22px;font-weight:900;color:#059669;line-height:1.2;">${fmtINR(todayRev)}</div>
-              <div style="font-size:12px;color:${diffColor};font-weight:700;margin-top:6px;">${diffRevStr} vs previous day</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #6366f1;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🤝 DEALS CLOSED YESTERDAY</div>
-              <div style="font-size:22px;font-weight:900;color:#1e293b;line-height:1.2;">${todayCount} <span style="font-size:14px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:${diffCountColor};font-weight:700;margin-top:6px;">${diffCountStr} deals vs previous day</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">📊 AVERAGE DEAL SIZE (AOV)</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">${fmtINR(todayAOV)}</div>
-              <div style="font-size:12px;color:${diffAOVColor};font-weight:700;margin-top:6px;">${diffAOVStr} vs previous day</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #f59e0b;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🌱 ORGANIC DEALS</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">${organicCount} <span style="font-size:13px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">${fmtINR(organicRev)} generated</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #8b5cf6;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🔄 RENEWALS &amp; UPGRADES</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">${renewalCount} <span style="font-size:13px;color:#64748b;font-weight:600;">deals</span></div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">${fmtINR(renewalRev)} generated</div>
-            </td>
-            <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #f43f5e;border-radius:8px;padding:14px 16px;vertical-align:top;">
-              <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">👑 TOP SALES AGENT (MTD)</div>
-              <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">${topAgent[0].split(' ')[0]}</div>
-              <div style="font-size:12px;color:#059669;font-weight:700;margin-top:6px;">${fmtINR(topAgent[1].revenue)} (${topAgent[1].count} deals)</div>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- 2. D-o-D USER FUNNEL BREAKDOWN -->
-      ${today.userBreakdown ? `
-      <div style="padding:0 32px 24px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-          <h2 style="margin:0;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">👥 D-o-D User Breakdown</h2>
-          <span style="font-size:11px;background:#e0e7ff;color:#4338ca;padding:3px 10px;border-radius:12px;font-weight:700;">Conversion Funnel</span>
+      <!-- DIRECT DASHBOARD LINK BANNER -->
+      <div style="margin-top:16px;background:rgba(109,40,217,0.06);border:1px solid rgba(109,40,217,0.18);border-radius:8px;padding:12px 16px;text-align:center;">
+        <div style="font-size:12px;color:#4c1d95;font-weight:600;margin-bottom:6px;">
+          View full drilldown tables &amp; customer logs on the live website:
         </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Funnel Metric</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Count / %</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Stage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📝 Signups</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#4338ca;">${today.userBreakdown.signups.toLocaleString('en-IN')}</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">Total Registrations</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📍 Serviceable</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#0284c7;">${today.userBreakdown.serviceable.toLocaleString('en-IN')} <span style="font-size:11px;color:#0284c7;font-weight:600;">(${today.userBreakdown.serviceablePct})</span></td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Signups</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">🧸 Toy Viewed</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#059669;">${today.userBreakdown.toyViewed}</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Serviceable</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">📋 Plan Page</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#2563eb;">${today.userBreakdown.planPage}</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">% of Serviceable</td>
-            </tr>
-            <tr style="border-bottom:1px solid #f1f5f9;">
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">🛒 Checkout Drop</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#d97706;">${today.userBreakdown.checkoutDrop}</td>
-              <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">Cart Abandonment</td>
-            </tr>
-            <tr>
-              <td style="padding:9px 12px;font-weight:700;color:#1e293b;">💳 Total Conversions</td>
-              <td style="padding:9px 12px;text-align:center;font-weight:800;color:#059669;">${today.userBreakdown.conversions}</td>
-              <td style="padding:9px 12px;text-align:right;color:#059669;font-weight:700;">Subscribed Users</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      ` : ''}
-
-      <!-- 3. REVENUE TREND CHART -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📈 Revenue Performance Trend</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-align:center;">
-          <img src="${trendChartImg}" alt="Revenue Trend" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-      </div>
-
-      <!-- 4. SUBSCRIPTION PLAN PERFORMANCE -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📦 Subscription Plan Performance</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-          <img src="${planChartImg}" alt="Plan Distribution" style="width:100%;max-width:380px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Plan Name</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Subscriptions</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Share</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${planLabels.map((p) => {
-              const pData = plans[p] || { count: 0, revenue: 0 };
-              const pShare = todayRev > 0 ? ((pData.revenue / todayRev) * 100).toFixed(1) : 0;
-              return `
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">${p}</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">${pData.count}</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">${fmtINR(pData.revenue)}</td>
-                  <td style="padding:9px 12px;text-align:right;color:#64748b;font-weight:600;">${pShare}%</td>
-                </tr>
-              `;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 5. ACQUISITION CHANNELS -->
-      <div style="padding:0 32px 24px;">
-        <h2 style="margin:0 0 12px;font-size:16px;color:#0f172a;font-weight:800;">📊 Sales by Acquisition Channel</h2>
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-          <img src="${channelChartImg}" alt="Acquisition Channels" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto;border-radius:6px;" />
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;color:#475569;text-align:left;">
-              <th style="padding:9px 12px;font-weight:700;">Channel Source</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Deals Count</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${allSourceLabels.map((s) => {
-              const sCount = s === 'Delivery Fee' ? (today.deliveryFee?.count || 0) : (sources[s]?.count || 0);
-              const sRev = s === 'Delivery Fee' ? deliveryTotal : (sources[s]?.revenue || 0);
-              return `
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">${s}</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">${sCount}</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">${fmtINR(sRev)}</td>
-                </tr>
-              `;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 6. TOP PERFORMING SALES AGENTS THIS MONTH -->
-      <div style="padding:0 32px 28px;">
-        <h2 style="margin:0 0 14px;font-size:16px;color:#0f172a;font-weight:800;">🏆 Top Performing Sales Agents (This Month)</h2>
-        
-        ${sortedAgents.length > 0 ? `
-        <!-- Top Performer Spotlight Card -->
-        <div style="background:linear-gradient(135deg,#fef9c3 0%,#fef08a 50%,#fde047 100%);border:2px solid #f59e0b;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 4px 14px rgba(245,158,11,0.18);">
-          <table style="width:100%;border-collapse:collapse;">
-            <tr>
-              <td style="vertical-align:middle;">
-                <div style="display:inline-block;background:#b45309;color:#ffffff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">
-                  👑 TOP PERFORMER OF THE MONTH
-                </div>
-                <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
-                  <div style="width:44px;height:44px;background:#d97706;border-radius:50%;color:#ffffff;font-weight:800;font-size:16px;text-align:center;line-height:44px;border:2px solid #ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-                    ${topAgentInitials}
-                  </div>
-                  <div>
-                    <h3 style="margin:0;font-size:19px;font-weight:900;color:#78350f;letter-spacing:-0.01em;">${topAgent[0]}</h3>
-                    <div style="font-size:12px;color:#92400e;font-weight:600;margin-top:2px;">
-                      🎯 ${topAgent[1].count} deal${topAgent[1].count > 1 ? 's' : ''} closed • 📈 ${topAgentPct}% of month's revenue
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td style="text-align:right;vertical-align:middle;padding-left:16px;">
-                <div style="font-size:11px;color:#92400e;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Total Revenue</div>
-                <div style="font-size:24px;font-weight:900;color:#065f46;line-height:1.2;">${fmtINR(topAgent[1].revenue)}</div>
-              </td>
-            </tr>
-          </table>
-        </div>
-        ` : ''}
-
-        <table style="width:100%;border-collapse:collapse;font-size:13px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-          <thead>
-            <tr style="background:#f1f5f9;border-bottom:2px solid #e2e8f0;text-align:left;color:#475569;">
-              <th style="padding:9px 12px;font-weight:700;width:80px;">Rank</th>
-              <th style="padding:9px 12px;font-weight:700;">Agent Name</th>
-              <th style="padding:9px 12px;text-align:center;font-weight:700;">Deals</th>
-              <th style="padding:9px 12px;text-align:right;font-weight:700;">Revenue Closed</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${sortedAgents.map(([agent, val], idx) => {
-              const rank = idx + 1;
-              const badgeBg = rank === 1 ? '#fef3c7' : rank === 2 ? '#e2e8f0' : rank === 3 ? '#ffedd5' : '#f1f5f9';
-              const badgeColor = rank === 1 ? '#b45309' : rank === 2 ? '#475569' : rank === 3 ? '#c2410c' : '#64748b';
-              return `
-                <tr style="border-bottom:1px solid #f1f5f9;${rank === 1 ? 'background:#fffbeb;' : ''}">
-                  <td style="padding:9px 12px;">
-                    <span style="display:inline-block;background:${badgeBg};color:${badgeColor};font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;">
-                      ${rank === 1 ? '🏆 #1' : '#' + rank}
-                    </span>
-                  </td>
-                  <td style="padding:9px 12px;font-weight:600;color:#1e293b;">${agent}</td>
-                  <td style="padding:9px 12px;text-align:center;color:#64748b;font-weight:600;">${val.count}</td>
-                  <td style="padding:9px 12px;text-align:right;font-weight:700;color:#059669;">${fmtINR(val.revenue)}</td>
-                </tr>
-              `;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- FOOTER -->
-      <div style="background:#f8fafc;padding:24px 32px;text-align:center;font-size:12px;color:#94a3b8;border-top:1px solid #e2e8f0;line-height:1.6;">
-        <div style="margin-bottom:10px;">
-          <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#4f46e5;color:#ffffff;font-weight:700;font-size:12px;padding:8px 18px;border-radius:6px;text-decoration:none;box-shadow:0 2px 6px rgba(79,70,229,0.25);">
-            📊 View Full Interactive Live Dashboard
-          </a>
-        </div>
-        Automated Daily Sales Intelligence Report • Attached PDF report generated for records<br />
-        <strong>Daily Sales &amp; Revenue Analytics Dashboard System</strong>
+        <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;">
+          🌐 Open Live Dashboard &amp; View User Details ↗
+        </a>
       </div>
     </div>
-  </body>
-  </html>
-  `;
 
-  return { html, dateStr, todayRev, todayDate: today.date };
+    <!-- 1. REVENUE (TILL 11:59 PM YESTERDAY) -->
+    <div style="padding:22px 28px 14px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        💰 Revenue — Till 11:59 PM Yesterday
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #059669;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(109,40,217,0.05);">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#6b7280;">Total Revenue Generated</div>
+        <div style="font-size:26px;font-weight:900;color:#059669;line-height:1.2;margin-top:2px;">${fmt(grandTotal)}</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:4px;font-weight:500;">${salesCount} deals across all channels</div>
+
+        <!-- Channel Pills -->
+        <table style="width:100%;border-collapse:separate;border-spacing:6px 6px;margin-top:14px;margin-left:-6px;margin-right:-6px;">
+          <tr>
+            ${sourcesList.slice(0, 3).map(([src, d]) => {
+              const c = SRC_C[src] || '#8896b3';
+              const l = SRC_L[src] || src;
+              return `<td style="width:33.33%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;vertical-align:top;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;">${l}</div>
+                <div style="font-size:13.5px;font-weight:800;color:#1e1333;margin-top:2px;">${fmt(d.revenue)}</div>
+                <div style="font-size:10.5px;color:#64748b;">${d.count} deal${d.count !== 1 ? 's' : ''}</div>
+              </td>`;
+            }).join('')}
+          </tr>
+          ${sourcesList.length > 3 ? `
+          <tr>
+            ${sourcesList.slice(3, 6).map(([src, d]) => {
+              const c = SRC_C[src] || '#8896b3';
+              const l = SRC_L[src] || src;
+              return `<td style="width:33.33%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;vertical-align:top;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;">${l}</div>
+                <div style="font-size:13.5px;font-weight:800;color:#1e1333;margin-top:2px;">${fmt(d.revenue)}</div>
+                <div style="font-size:10.5px;color:#64748b;">${d.count} deal${d.count !== 1 ? 's' : ''}</div>
+              </td>`;
+            }).join('')}
+          </tr>` : ''}
+        </table>
+      </div>
+    </div>
+
+    <!-- 2. DEALS & AVERAGES -->
+    <div style="padding:0 28px 16px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🤝 Deals &amp; Averages
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:8px 8px;margin-left:-8px;margin-right:-8px;">
+        <tr>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Total Deals Closed</div>
+            <div style="font-size:22px;font-weight:900;color:#7c3aed;line-height:1.2;margin-top:2px;">${salesCount}</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Combined Direct &amp; Inside</div>
+          </td>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Blended AOV</div>
+            <div style="font-size:20px;font-weight:900;color:#0891b2;line-height:1.2;margin-top:2px;">${fmt(aov)}</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Revenue ÷ Deals</div>
+          </td>
+          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #d97706;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">🏆 Highest Sale</div>
+            <div style="font-size:20px;font-weight:900;color:#d97706;line-height:1.2;margin-top:2px;">${hsAmount}</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${hsAgent}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 3. KEY INSIGHTS (TOP & BOTTOM AGENTS PODIUM) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🎯 Key Insights (Top &amp; Bottom Agents — Yesterday)
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <!-- Top 3 -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#d97706;text-transform:uppercase;text-align:center;margin-bottom:10px;">🏆 TOP 3 AGENTS</div>
+            ${top3.length > 0 ? top3.map(([name, d], i) => `
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:700;color:#1e1333;">${i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉'} ${name}</span>
+                <span style="font-weight:800;color:#059669;">${fmt(d.revenue)} <span style="font-size:10.5px;color:#64748b;font-weight:500;">(${d.count}d)</span></span>
+              </div>
+            `).join('') : '<div style="font-size:11px;color:#8896b3;text-align:center;">No sales recorded</div>'}
+          </td>
+          <!-- Bottom 3 -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#e11d48;text-transform:uppercase;text-align:center;margin-bottom:10px;">🔻 BOTTOM 3 AGENTS</div>
+            ${bottom3.length > 0 ? bottom3.map(([name, d], i) => `
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
+                <span style="font-weight:600;color:#1e1333;">🔻 ${name}</span>
+                <span style="font-weight:700;color:#64748b;">${fmt(d.revenue)} <span style="font-size:10.5px;color:#64748b;">(${d.count}d)</span></span>
+              </div>
+            `).join('') : '<div style="font-size:11px;color:#8896b3;text-align:center;">No sales recorded</div>'}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 4. PERIOD REVENUE -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📆 Period Revenue
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Week (Sun–Yesterday)</div>
+            <div style="font-size:22px;font-weight:900;color:#059669;margin-top:2px;">${fmt(weekGrand)}</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${weekDeals} deals • ${weekDays.length} days</div>
+          </td>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Month (1st–Yesterday)</div>
+            <div style="font-size:22px;font-weight:900;color:#7c3aed;margin-top:2px;">${fmt(monthGrand)}</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${monthDeals} deals • ${monthDays.length} days</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📍 Serviceability — Daily Funnel Snapshot (Last 4 Days)
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+            <th style="padding:7px 10px;font-weight:700;">Date</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Signups</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">OTP Verified</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Serviceable</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${last4Funnel.map(d => `
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:7px 10px;font-weight:600;color:#1e1333;">${sd(d.date)}</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">${(d.userBreakdown.signups || 0).toLocaleString('en-IN')}</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">${(d.userBreakdown.otpVerified || 0).toLocaleString('en-IN')}</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">${(d.userBreakdown.serviceable || 0).toLocaleString('en-IN')}</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">${d.userBreakdown.serviceablePct || '0%'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+
+      <!-- Missed Leads -->
+      <div style="margin-top:10px;padding:10px 14px;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:8px;text-align:center;font-size:12px;">
+        <span style="font-weight:800;color:#1e1333;">⏰ Leads Missed (>24 hrs):</span>
+        <span style="margin-left:8px;color:#64748b;">Connected: <strong>${missed.Connected || 0}</strong></span> •
+        <span style="margin-left:4px;color:#64748b;">Interested: <strong>${missed.Interested || 0}</strong></span> •
+        <span style="margin-left:4px;color:#059669;">Paise Dega: <strong>${missed['Paise Dega'] || 0}</strong></span>
+      </div>
+    </div>
+
+    <!-- 6. SUBSCRIPTIONS & LEAD JOURNEY -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📊 Subscriptions &amp; Lead Journey
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;text-transform:uppercase;">PARTICULARS</th>
+            <th style="padding:8px 12px;font-weight:800;text-transform:uppercase;text-align:right;">YESTERDAY</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${subsRows.map((r, i) => `
+            <tr style="border-bottom:1px solid #f1f5f9;${i % 2 === 1 ? 'background:#f8fafc;' : ''}">
+              <td style="padding:7px 12px;color:#1e1333;font-weight:600;">${r.label}</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">${r.val}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 7. NEW USERS DELIVERY STATUS & ORDER STATUS -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🚚 New Users Delivery &amp; Order Status
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;margin-bottom:12px;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;">NEW USERS DELIVERY STATUS</th>
+            <th style="padding:8px 12px;font-weight:800;text-align:right;">COUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${Object.entries(newUsersDelivery).filter(([k]) => !k.includes('-')).map(([k, v], i) => `
+            <tr style="border-bottom:1px solid #f1f5f9;${i % 2 === 1 ? 'background:#f8fafc;' : ''}">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">${k}</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">${v}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:8px 12px;font-weight:800;">USER ORDER &amp; DELIVERY STATUS OF ALL NEW USERS</th>
+            <th style="padding:8px 12px;font-weight:800;text-align:right;">COUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${Object.entries(allNewUsersOrder).map(([k, v], i) => `
+            <tr style="border-bottom:1px solid #f1f5f9;${i % 2 === 1 ? 'background:#f8fafc;' : ''}">
+              <td style="padding:6px 12px;color:#1e1333;font-weight:600;">${k}</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">${v}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. PLAN DISTRIBUTION -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        🥧 Plan Distribution — Yesterday
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;text-align:center;margin-bottom:10px;">
+        <img src="${planChartImg}" alt="Plan Distribution" style="width:100%;max-width:440px;height:auto;display:block;margin:0 auto;" />
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+            <th style="padding:7px 10px;font-weight:700;">Plan</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:center;">Deals</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Revenue</th>
+            <th style="padding:7px 10px;font-weight:700;text-align:right;">Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${planEntries.map(([p, data]) => {
+            const share = grandTotal > 0 ? ((data.revenue / grandTotal) * 100).toFixed(1) : 0;
+            return `
+              <tr style="border-bottom:1px solid #f1f5f9;">
+                <td style="padding:7px 10px;font-weight:600;color:#1e1333;">${p}</td>
+                <td style="padding:7px 10px;text-align:center;color:#64748b;">${data.count}</td>
+                <td style="padding:7px 10px;text-align:right;font-weight:700;color:#059669;">${fmt(data.revenue)}</td>
+                <td style="padding:7px 10px;text-align:right;color:#64748b;">${share}%</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9. SALES TREND TABLE (LAST 7 DAYS) -->
+    <div style="padding:0 28px 18px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        📈 Sales Trend — Last 7 Days
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#ffffff;">
+        <thead>
+          <tr style="background:#5b3e9b;color:#ffffff;text-align:left;">
+            <th style="padding:7px 8px;font-weight:800;">DATE</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:center;">DEALS</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">SALES</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">DELIVERY</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">TOTAL</th>
+            <th style="padding:7px 8px;font-weight:800;text-align:right;">AOV</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${last7Days.map((d, i) => {
+            const del = (d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0;
+            const tot = (d.totalRevenue || 0) + del;
+            const avg = d.salesCount > 0 ? Math.round(tot / d.salesCount) : 0;
+            return `
+              <tr style="border-bottom:1px solid #f1f5f9;${i % 2 === 1 ? 'background:#f8fafc;' : ''}">
+                <td style="padding:6px 8px;font-weight:600;color:#1e1333;">${sd(d.date)}</td>
+                <td style="padding:6px 8px;text-align:center;color:#64748b;">${d.salesCount || 0}</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">${fmt(d.totalRevenue)}</td>
+                <td style="padding:6px 8px;text-align:right;color:#64748b;">${fmt(del)}</td>
+                <td style="padding:6px 8px;text-align:right;font-weight:700;color:#059669;">${fmt(tot)}</td>
+                <td style="padding:6px 8px;text-align:right;color:#0891b2;font-weight:700;">${fmt(avg)}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. REFUNDS & FINANCIALS -->
+    <div style="padding:0 28px 24px;">
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
+        💸 Refunds &amp; Net Financials
+      </div>
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
+        <tr>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">REFUND (YESTERDAY)</div>
+            <div style="font-size:20px;font-weight:800;color:#e11d48;margin-top:2px;">${refundYd}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:2px;">${refundYdCount} processed</div>
+          </td>
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">REFUND (LAST 7 DAYS)</div>
+            <div style="font-size:20px;font-weight:800;color:#e11d48;margin-top:2px;">${refund7d}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:2px;">${refund7dCount} processed</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Net Revenue Block -->
+      <div style="background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;overflow:hidden;">
+        <div style="padding:10px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:12.5px;font-weight:800;color:#1e1333;">
+          💼 Net Revenue Summary
+        </div>
+        <div style="padding:8px 16px;display:flex;justify-content:space-between;font-size:12px;border-bottom:1px solid #f1f5f9;">
+          <span style="color:#64748b;">Total Sales Revenue:</span>
+          <span style="font-weight:700;color:#059669;">${fmt(grandTotal)}</span>
+        </div>
+        <div style="padding:8px 16px;display:flex;justify-content:space-between;font-size:12px;border-bottom:1px solid #f1f5f9;">
+          <span style="color:#64748b;">− Refunds Processed:</span>
+          <span style="font-weight:700;color:#e11d48;">${fmt(refundYdTotal)}</span>
+        </div>
+        <div style="padding:10px 16px;display:flex;justify-content:space-between;font-size:13px;background:rgba(5,150,105,0.06);">
+          <span style="font-weight:800;color:#1e1333;">= Net Revenue:</span>
+          <span style="font-weight:900;color:#059669;font-size:15px;">${fmt(netRevenue)}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER WITH LIVE DASHBOARD BUTTON -->
+    <div style="background:#f8fafc;padding:22px 28px;text-align:center;font-size:12px;color:#64748b;border-top:1px solid #e2e8f0;line-height:1.6;">
+      <div style="margin-bottom:12px;">
+        <img src="cid:elefant_logo" alt="the EleFant" style="height:26px;max-width:130px;object-fit:contain;display:inline-block;vertical-align:middle;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
+      </div>
+      <div style="margin-bottom:10px;">
+        <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;">
+          🌐 View Live Interactive Dashboard &amp; Full User Details ↗
+        </a>
+      </div>
+      <div>
+        <strong>The Elefant Sales Analytics System</strong> • Automated Daily Intelligence Report<br />
+        📎 <em>Attached PDF copy: Daily_Sales_Report_${yd.date}.pdf</em>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>`;
 }
 
 async function sendDailyReport() {
-  console.log('🔄 Syncing live data from Google Sheets & Metabase before sending report...');
+  console.log('🔄 Syncing live data before building report email...');
   let allData;
   try {
     allData = await syncSalesData();
@@ -533,19 +624,17 @@ async function sendDailyReport() {
     allData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
   }
 
-  const { html, dateStr, todayRev, todayDate } = buildEmailHtml(allData);
-
-  // Write email preview for easy browser debugging
-  const previewPath = path.join(__dirname, '..', 'public', 'email_preview.html');
-  fs.writeFileSync(previewPath, html, 'utf-8');
-  console.log('💾 Saved local email preview to public/email_preview.html');
-
-  // Generate PDF attachment
-  console.log('📄 Generating PDF attachment with Puppeteer...');
+  const html = buildEmailHtml(allData);
+  console.log('📄 Generating PDF attachment for daily report email...');
   const pdfBuffer = await generatePDF(html);
+  const recipients = getRecipients();
+  const today = allData[allData.length - 1];
+  const shortDateStr = new Date(today.date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  const deliveryTotal = (today.deliveryFee && today.deliveryFee.total > 0) ? today.deliveryFee.total : 0;
+  const grandTotal = (today.totalRevenue || 0) + deliveryTotal;
 
-  const attachments = [];
   const logoPath = path.join(__dirname, '..', 'public', 'elefant-logo.png');
+  const attachments = [];
   if (fs.existsSync(logoPath)) {
     attachments.push({
       filename: 'elefant-logo.png',
@@ -556,31 +645,32 @@ async function sendDailyReport() {
 
   if (pdfBuffer) {
     attachments.push({
-      filename: `Daily_Sales_Report_${todayDate}.pdf`,
+      filename: `Daily_Sales_Report_${today.date}.pdf`,
       content: pdfBuffer,
       contentType: 'application/pdf'
     });
-    console.log(`📎 Attached Daily_Sales_Report_${todayDate}.pdf (${Math.round(pdfBuffer.length / 1024)} KB)`);
+    console.log(`✅ PDF successfully generated and attached (${(pdfBuffer.length / 1024).toFixed(1)} KB)`);
   }
 
-  const recipients = getRecipients();
-  const toList = recipients.join(', ');
-
-  console.log(`📤 Sending report email from ${process.env.SMTP_USER} to: ${toList}`);
+  console.log(`📤 Sending report email to: ${recipients.join(', ')}`);
 
   const info = await transporter.sendMail({
     from: SMTP_FROM,
-    to: toList,
-    subject: `📈 Daily Sales & Revenue Report — ${dateStr} [${fmtINR(todayRev)}]`,
-    html,
-    attachments,
+    to: recipients.join(', '),
+    subject: `📈 Daily Sales & Revenue Report — ${shortDateStr} [${fmt(grandTotal)}]`,
+    html: html,
+    attachments: attachments
   });
 
   console.log(`✅ Email Successfully Sent! Message ID: ${info.messageId}`);
   return info;
 }
 
-sendDailyReport().then(() => process.exit(0)).catch(err => {
-  console.error('❌ Failed to send email:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  sendDailyReport().then(() => process.exit(0)).catch(err => {
+    console.error('❌ Failed to send email:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = { sendDailyReport, buildEmailHtml };
