@@ -38975,13 +38975,7 @@
         "count": 3
       }
     },
-    "userBreakdown": {
-      "signups": 1255,
-      "otpVerified": 1240,
-      "serviceable": 801,
-      "serviceableWithPct": "801 (63.8%)",
-      "serviceablePct": "63.8%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 5,
       "revenue": 28309
@@ -39057,12 +39051,6 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 8916
-    },
-    "deliveryFee": {
-      "transactions": 6,
-      "charge": 600,
-      "tax": 108,
-      "total": 708
     },
     "refunds": {
       "count": 5,
@@ -40116,11 +40104,6 @@
       "count": 1,
       "revenue": 12216
     },
-    "missedLeads": {
-      "Connected": 525,
-      "Interested": 184,
-      "Paise Dega": 34
-    },
     "refundsLast7Days": {
       "total": 124269,
       "count": 15
@@ -40129,35 +40112,6 @@
       "count": 0,
       "total": 0,
       "items": []
-    },
-    "newUsers7d": 10258,
-    "newUsersYesterday": 2472,
-    "activeSubs": 4732,
-    "newSubs7d": 437,
-    "teleCrmLeads": 3362,
-    "subsEnding5d": 78,
-    "subsExpired7d": 83,
-    "subsExpiringToday": 20,
-    "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2413,
-    "activeSubNoOrder": 120,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 40,
-      "Orders Placed": 40,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 9,
-      "Orders Shipped": 9,
-      "Orders - Not Delivered": 77,
-      "Orders Not Delivered": 77
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 283,
-      "New Subscribers Orders that have been Delivered": 206,
-      "New Subscribers Orders yet to be Delivered": 77,
-      "New Subscribers Orders yet to be Delivered & Delayed": 30
     }
   },
   {
@@ -40246,6 +40200,11 @@
       "count": 4,
       "revenue": 44361
     },
+    "missedLeads": {
+      "Connected": 445,
+      "Interested": 160,
+      "Paise Dega": 34
+    },
     "refunds": {
       "count": 1,
       "total": 15000,
@@ -40263,17 +40222,17 @@
       "total": 97884,
       "count": 11
     },
-    "newUsers7d": 10258,
+    "newUsers7d": 11252,
     "newUsersYesterday": 2472,
     "activeSubs": 4732,
-    "newSubs7d": 437,
-    "teleCrmLeads": 3362,
-    "subsEnding5d": 78,
-    "subsExpired7d": 83,
-    "subsExpiringToday": 20,
-    "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2413,
-    "activeSubNoOrder": 120,
+    "newSubs7d": 447,
+    "teleCrmLeads": 2600,
+    "subsEnding5d": 74,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 11,
+    "planExpiringNoOrder": 3,
+    "planExpNoOrder": 2414,
+    "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 40,
       "Orders Placed": 40,
