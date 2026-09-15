@@ -296,7 +296,7 @@
     const FALLBACK_INSIDE_URL = '/data/inside_sales_details.csv';
 
     let allDeals = [];
-    let currentFilter = 'all';
+    let currentFilter = 'yesterday';
     let searchQuery = '';
     let selectedAgent = 'ALL';
     let selectedPlan = 'ALL';
@@ -880,7 +880,15 @@
     }
 
     // Initialize
-    loadData();
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date-from')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomRange();
+      });
+      document.getElementById('date-to')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomRange();
+      });
+      loadData();
+    });
   </script>
 </body>
 </html>

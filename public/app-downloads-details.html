@@ -1088,7 +1088,10 @@
     function checkUrlParams() {
       const params = new URLSearchParams(window.location.search);
       const filter = params.get('filter');
-      if (filter) {
+      const queryDate = params.get('date');
+      if (queryDate && availableDates.includes(queryDate)) {
+        currentDateFilter = queryDate;
+      } else if (filter) {
         if (filter === 'yesterday') {
           currentDateFilter = 'yesterday';
         } else if (filter === 'last7days' || filter === 'all') {
@@ -1096,6 +1099,8 @@
         } else if (availableDates.includes(filter)) {
           currentDateFilter = filter;
         }
+      } else {
+        currentDateFilter = 'yesterday';
       }
     }
 
@@ -1546,6 +1551,12 @@
 
     // Init
     window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date-from')?.addEventListener('change', () => {
+        if (currentDateFilter === 'custom') applyCustomRange();
+      });
+      document.getElementById('date-to')?.addEventListener('change', () => {
+        if (currentDateFilter === 'custom') applyCustomRange();
+      });
       loadData();
     });
   </script>

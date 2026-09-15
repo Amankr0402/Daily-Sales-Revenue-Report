@@ -1352,6 +1352,14 @@
     });
 
     // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date-from')?.addEventListener('change', () => {
+        if (currentTimeframe === 'custom') applyCustomRange();
+      });
+      document.getElementById('date-to')?.addEventListener('change', () => {
+        if (currentTimeframe === 'custom') applyCustomRange();
+      });
+    });
     loadData();
   </script>
   <script src="export-pdf.js"></script>

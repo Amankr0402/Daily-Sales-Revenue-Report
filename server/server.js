@@ -302,21 +302,21 @@ function buildEmailHTMLServer(allData) {
 
     <!-- ================= 1. EXECUTIVE KPI SUMMARY CARDS ================= -->
     <div style="padding:28px 32px 16px;">
-      <h2 style="margin:0 0 16px;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">📊 Key Performance Indicators (Today)</h2>
+      <h2 style="margin:0 0 16px;font-size:16px;color:#0f172a;font-weight:800;letter-spacing:-0.01em;">📊 Key Performance Indicators (Yesterday)</h2>
       
       <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
         <tr>
           <!-- KPI 1: Revenue -->
           <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #10b981;border-radius:8px;padding:14px 16px;vertical-align:top;">
-            <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">💰 TOTAL REVENUE TODAY</div>
+            <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">💰 TOTAL REVENUE YESTERDAY</div>
             <div style="font-size:22px;font-weight:900;color:#059669;line-height:1.2;">${fmtINR(todayRev)}</div>
-            <div style="font-size:12px;color:${diffColor};font-weight:700;margin-top:6px;">${diffRevStr} vs yesterday</div>
+            <div style="font-size:12px;color:${diffColor};font-weight:700;margin-top:6px;">${diffRevStr} vs previous day</div>
           </td>
           <!-- KPI 2: Deals Closed -->
           <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #6366f1;border-radius:8px;padding:14px 16px;vertical-align:top;">
-            <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🤝 DEALS CLOSED TODAY</div>
+            <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">🤝 DEALS CLOSED YESTERDAY</div>
             <div style="font-size:22px;font-weight:900;color:#1e293b;line-height:1.2;">${todayCount} <span style="font-size:14px;color:#64748b;font-weight:600;">deals</span></div>
-            <div style="font-size:12px;color:${diffCountColor};font-weight:700;margin-top:6px;">${diffCountStr} deals vs yesterday</div>
+            <div style="font-size:12px;color:${diffCountColor};font-weight:700;margin-top:6px;">${diffCountStr} deals vs previous day</div>
           </td>
         </tr>
         <tr>
@@ -324,7 +324,7 @@ function buildEmailHTMLServer(allData) {
           <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:8px;padding:14px 16px;vertical-align:top;">
             <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:4px;">📊 AVERAGE DEAL SIZE (AOV)</div>
             <div style="font-size:20px;font-weight:800;color:#1e293b;line-height:1.2;">${fmtINR(todayAOV)}</div>
-            <div style="font-size:12px;color:${diffAOVColor};font-weight:700;margin-top:6px;">${diffAOVStr} vs yesterday</div>
+            <div style="font-size:12px;color:${diffAOVColor};font-weight:700;margin-top:6px;">${diffAOVStr} vs previous day</div>
           </td>
           <!-- KPI 4: Organic Deals -->
           <td style="width:50%;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #f59e0b;border-radius:8px;padding:14px 16px;vertical-align:top;">
@@ -1822,6 +1822,63 @@ const handleMissedLeadsDetailsCSV = async (req, res) => {
 
 app.get('/api/missed-leads-details-csv', handleMissedLeadsDetailsCSV);
 app.get('/api/leads-missed-details-csv', handleMissedLeadsDetailsCSV);
+
+/* ---------- Self Upgrade Details Endpoint (Metabase: 4f0ba1fd) ---------- */
+const SELF_UPGRADE_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/4f0ba1fd-aaea-4db9-b172-8f9504cf9940.csv';
+const SELF_UPGRADE_DETAILS_CACHE_FILE = path.join(__dirname, '..', 'data', 'self_upgrade_details.csv');
+
+const handleSelfUpgradeDetailsCSV = async (req, res) => {
+  try {
+    const https = require('https');
+    function fetchRedirect(url) {
+      return new Promise((resolve, reject) => {
+        https.get(url, (resp) => {
+          if (resp.statusCode >= 300 && resp.statusCode < 400 && resp.headers.location) {
+            return fetchRedirect(resp.headers.location).then(resolve).catch(reject);
+          }
+          let data = '';
+          resp.on('data', chunk => data += chunk);
+          resp.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+    }
+
+    if (fs.existsSync(SELF_UPGRADE_DETAILS_CACHE_FILE) && req.query.refresh !== 'true') {
+      const stats = fs.statSync(SELF_UPGRADE_DETAILS_CACHE_FILE);
+      const ageMinutes = (Date.now() - stats.mtimeMs) / (1000 * 60);
+      if (ageMinutes < 30) {
+        res.setHeader('Content-Type', 'text/csv');
+        return fs.createReadStream(SELF_UPGRADE_DETAILS_CACHE_FILE).pipe(res);
+      }
+    }
+
+    try {
+      const csvData = await fetchRedirect(SELF_UPGRADE_DETAILS_URL);
+      if (csvData && csvData.length > 50 && !csvData.includes('HTTP ERROR 500')) {
+        fs.writeFileSync(SELF_UPGRADE_DETAILS_CACHE_FILE, csvData, 'utf8');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.send(csvData);
+      }
+    } catch (fetchErr) {
+      console.warn('⚠️ Could not fetch live Metabase self upgrade details CSV, using local cache:', fetchErr.message);
+    }
+
+    if (fs.existsSync(SELF_UPGRADE_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SELF_UPGRADE_DETAILS_CACHE_FILE).pipe(res);
+    }
+
+    res.status(500).send('Self upgrade details data unavailable');
+  } catch (err) {
+    if (fs.existsSync(SELF_UPGRADE_DETAILS_CACHE_FILE)) {
+      res.setHeader('Content-Type', 'text/csv');
+      return fs.createReadStream(SELF_UPGRADE_DETAILS_CACHE_FILE).pipe(res);
+    }
+    res.status(500).send(err.message);
+  }
+};
+
+app.get('/api/self-upgrade-details-csv', handleSelfUpgradeDetailsCSV);
 
 /* ---------- Trigger Daily Report Endpoint (Sync + Email Send) ---------- */
 const handleTriggerDailyReport = async (req, res) => {

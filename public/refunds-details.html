@@ -725,7 +725,7 @@
   <script>
     const API_URL = '/api/refunds-csv';
     let allRefunds = [];
-    let currentFilter = 'all';
+    let currentFilter = 'yesterday';
     let searchQuery = '';
     let customStartDate = '';
     let customEndDate = '';
@@ -733,7 +733,10 @@
     // Check query params for initial filter
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get('filter');
-    if (initialFilter) {
+    const initialDate = urlParams.get('date');
+    if (initialDate) {
+      currentFilter = 'yesterday';
+    } else if (initialFilter) {
       currentFilter = initialFilter;
     }
 
@@ -1261,6 +1264,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date-from')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomFilter();
+      });
+      document.getElementById('date-to')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomFilter();
+      });
       loadRefundsData();
     });
   </script>

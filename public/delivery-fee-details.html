@@ -614,10 +614,10 @@
     <div class="controls-wrapper">
       <div class="pills-bar">
         <span style="font-size: 12px; font-weight: 700; color: var(--muted); margin-right: 4px;">FILTER:</span>
-        <button class="pill-btn active" data-filter="all" onclick="setFilter('all')">
+        <button class="pill-btn" data-filter="all" onclick="setFilter('all')">
           All Deliveries <span class="pill-badge" id="count-all">0</span>
         </button>
-        <button class="pill-btn" data-filter="yesterday" onclick="setFilter('yesterday')">
+        <button class="pill-btn active" data-filter="yesterday" onclick="setFilter('yesterday')">
           Yesterday <span class="pill-badge" id="count-yesterday">0</span>
         </button>
         <button class="pill-btn" data-filter="paid" onclick="setFilter('paid')">
@@ -694,7 +694,7 @@
     const DIRECT_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
 
     let allTransactions = [];
-    let currentFilter = 'all';
+    let currentFilter = 'yesterday';
     let searchQuery = '';
 
     function getYesterdayISO() {

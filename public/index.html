@@ -1296,7 +1296,11 @@
         <div class="header-meta" id="hdr-sub">Daily Sales &amp; Revenue Report</div>
       </div>
     </div>
-    <div class="header-right">
+    <div class="header-right" style="display:flex;flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;background:rgba(109,40,217,0.08);padding:5px 12px;border-radius:20px;border:1px solid rgba(109,40,217,0.25);">
+        <label for="report-date-picker" style="font-size:12px;font-weight:700;color:#6d28d9;cursor:pointer;">📅 Select Date:</label>
+        <input type="date" id="report-date-picker" style="border:none;background:transparent;font-size:12.5px;font-weight:700;color:var(--text);outline:none;cursor:pointer;" onchange="onReportDateSelect(this.value)">
+      </div>
       <div class="date-badge" id="hdr-date">📅 —</div>
       <button class="print-btn" onclick="window.print()">🖨️ Export as PDF</button>
     </div>
@@ -1672,8 +1676,8 @@
     const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
     const fd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const ini = n => n.split(' ').map(x => x[0]).join('').substring(0, 2).toUpperCase();
-    const SRC_C = { Events: '#6366f1', Organic: '#10b981', Renewals: '#f59e0b', Upgrade: '#06b6d4', 'Self Subscription': '#8b5cf6', 'Direct Sale': '#ec4899' };
-    const SRC_L = { Organic: '🤝 Inside Sales', Events: '🎤 Events', Renewals: '🔄 Renewals', Upgrade: '⬆️ Upgrades', 'Self Subscription': '📱 Self Sub', 'Direct Sale': '🛍️ Direct Sale' };
+    const SRC_C = { Events: '#6366f1', Organic: '#10b981', Renewals: '#f59e0b', Upgrade: '#06b6d4', 'Self Subscription': '#8b5cf6', 'Direct Sale': '#ec4899', 'Self Upgrade': '#8b5cf6' };
+    const SRC_L = { Organic: '🤝 Inside Sales', Events: '🎤 Events', Renewals: '🔄 Renewals', Upgrade: '⬆️ Upgrades', 'Self Subscription': '📱 Self Sub', 'Direct Sale': '🛍️ Direct Sale', 'Self Upgrade': '🚀 Self Upgrade' };
     const PC = ['#6366f1', '#10b981', '#06b6d4', '#f59e0b', '#f43f5e', '#8b5cf6', '#fb923c'];
 
     let globalReportData = [];
@@ -1814,6 +1818,13 @@
       filterPodium('custom');
     }
 
+    function onReportDateSelect(dateVal) {
+      if (!dateVal) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set('date', dateVal);
+      window.location.href = url.toString();
+    }
+
     async function init() {
       try {
         let data;
@@ -1875,6 +1886,13 @@
         document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date + 'T00:00:00').getFullYear();
         document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
 
+        const rdp = document.getElementById('report-date-picker');
+        if (rdp) {
+          rdp.value = yd.date;
+          rdp.max = data[data.length - 1]?.date || yesterdayISO;
+          rdp.min = data[0]?.date || '2024-01-01';
+        }
+
         // Revenue (includes delivery fee)
         const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;
         const grandTotal = (yd.totalRevenue || 0) + deliveryTotal;
@@ -1885,7 +1903,7 @@
         Object.entries(yd.sources || {}).sort((a, b) => b[1].revenue - a[1].revenue).forEach(([src, d]) => {
           const c = SRC_C[src] || '#8896b3'; const l = SRC_L[src] || src;
           if (src === 'Direct Sale') {
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?filter=net\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'direct-sales-details.html?date=' + yd.date + '&filter=net\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
             // Overlap Deals KPI pill (deals in both Inside Sales & Direct Sales)
             const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
             const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
@@ -1893,19 +1911,22 @@
             const dispTooltip = disp.count > 0
               ? 'Overlap Deals: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Deals Table.'
               : '0 Overlap Deals on this date. Click to view full Overlap Deals table.';
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'disputed-sales-details.html?date=' + yd.date + '\', \'_blank\')" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
           } else if (src === 'Organic') {
             // Inside Sales — clickable with source=Organic filter
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?date=' + yd.date + '&source=Organic\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else if (src === 'Renewals') {
             // Renewals — clickable with source=Renewals filter
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Renewals\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Renewals deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?date=' + yd.date + '&source=Renewals\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Renewals deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else if (src === 'Upgrade') {
             // Upgrades — clickable with source=Upgrade filter
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?filter=yesterday&source=Upgrade\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'inside-sales-details.html?date=' + yd.date + '&source=Upgrade\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Upgrades deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else if (src === 'Events') {
             // Events — clickable with events-details.html
-            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'events-details.html?filter=yesterday\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Events deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'events-details.html?date=' + yd.date + '\', \'_blank\')" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Events deal details in a new tab"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + ' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
+          } else if (src === 'Self Upgrade') {
+            // Self Upgrade — clickable with self-upgrade-details.html
+            sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'self-upgrade-details.html?date=' + yd.date + '\', \'_blank\')" style="border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view Self Upgrade deal details in a new tab"><div class="src-dot" style="background:#8b5cf6;box-shadow:0 0 6px #8b5cf688"></div><div><div class="src-name">🚀 Self Upgrade <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           } else {
             sgHtml += '<div class="src-pill"><div class="src-dot" style="background:' + c + ';box-shadow:0 0 6px ' + c + '88"></div><div><div class="src-name">' + l + '</div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div></div></div>';
           }
@@ -1915,7 +1936,13 @@
         // 4. Delivery Fee (if any)
         if (yd.deliveryFee && yd.deliveryFee.total > 0) {
           const df = yd.deliveryFee;
-          sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'delivery-fee-details.html\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view delivery fee transaction details in a new tab"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(df.total) + '</div><div class="src-cnt">' + df.transactions + ' deliveries</div></div></div>';
+          sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'delivery-fee-details.html?date=' + yd.date + '\', \'_blank\')" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view delivery fee transaction details in a new tab"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🚚 Delivery Fee <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(df.total) + '</div><div class="src-cnt">' + df.transactions + ' deliveries</div></div></div>';
+        }
+
+        // 5. Self Upgrade fallback (if not in yd.sources)
+        const su = yd.selfUpgrade || { totalCount: 0, totalRevenue: 0 };
+        if ((!yd.sources || !yd.sources['Self Upgrade']) && su.totalCount > 0) {
+          sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(\'self-upgrade-details.html?date=' + yd.date + '\', \'_blank\')" style="border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Click to view Self Upgrade deals in detail"><div class="src-dot" style="background:#8b5cf6;box-shadow:0 0 6px #8b5cf688"></div><div><div class="src-name">🚀 Self Upgrade <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(su.totalRevenue) + '</div><div class="src-cnt">' + su.totalCount + ' deal' + (su.totalCount !== 1 ? 's' : '') + '</div></div></div>';
         }
         sg.innerHTML = sgHtml;
 
@@ -1965,29 +1992,34 @@
         function calcPeriodSums(items) {
           let insideRev = 0, insideCnt = 0;
           let directRev = 0, directCnt = 0;
+          let selfUpRev = 0, selfUpCnt = 0;
           let delFeeRev = 0, totalRev = 0, totalCnt = 0;
           items.forEach(d => {
             let dayIns = 0, dayInsCnt = 0;
             Object.entries(d.sources || {}).forEach(([s, info]) => {
-              if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
+              if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
                 dayIns += (info.revenue || 0);
                 dayInsCnt += (info.count || 0);
               }
             });
             const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
             const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+            const dSelfUp = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].revenue) || 0;
+            const dSelfUpCnt = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].count) || 0;
             const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-            const dTot = dayIns + dDir + dDel;
+            const dTot = (d.totalRevenue || 0) + dDel;
 
             insideRev += dayIns;
             insideCnt += dayInsCnt;
             directRev += dDir;
             directCnt += dDirCnt;
+            selfUpRev += dSelfUp;
+            selfUpCnt += dSelfUpCnt;
             delFeeRev += dDel;
             totalRev += dTot;
             totalCnt += (d.salesCount || 0);
           });
-          return { insideRev, insideCnt, directRev, directCnt, delFeeRev, totalRev, totalCnt };
+          return { insideRev, insideCnt, directRev, directCnt, selfUpRev, selfUpCnt, delFeeRev, totalRev, totalCnt };
         }
 
         const wSums = calcPeriodSums(wData);
@@ -2175,6 +2207,16 @@
           </div>
         </td>
         <td style="text-align: right; font-weight: 700; color: #0f172a;">${(yd.teleCrmLeads || '-').toLocaleString('en-IN')}</td>
+      </tr>
+
+      <tr class="clickable-row" onclick="window.open('self-upgrade-details.html?date=' + yd.date, '_blank')" style="cursor: pointer;" title="Click to view Self Upgrade deals in a new tab">
+        <td>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-weight:600;">Self Upgrades</span>
+            <span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span>
+          </div>
+        </td>
+        <td style="text-align: right; font-weight: 700; color: #0f172a;">${((yd.selfUpgrade && yd.selfUpgrade.totalCount) !== undefined ? yd.selfUpgrade.totalCount : 0).toLocaleString('en-IN')}</td>
       </tr>
 
       <!-- Subscription details -->
@@ -2533,13 +2575,13 @@
       pDays.forEach(d => {
         let dIns = 0;
         Object.entries(d.sources || {}).forEach(([s, info]) => {
-          if (s !== 'Direct Sale' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
+          if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
             dIns += (info.revenue || 0);
           }
         });
         const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
         const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dTot = dIns + dDir + dDel;
+        const dTot = (d.totalRevenue || 0) + dDel;
         const dCnt = (d.salesCount || 0);
 
         const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);

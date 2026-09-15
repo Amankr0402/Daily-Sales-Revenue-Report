@@ -643,10 +643,10 @@
     <section class="controls-card">
       <div class="pills-bar">
         <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:6px;">Timeframe:</span>
-        <button class="pill-btn" data-timeframe="yesterday" id="pill-yesterday">Yesterday</button>
+        <button class="pill-btn active" data-timeframe="yesterday" id="pill-yesterday">Yesterday</button>
         <button class="pill-btn" data-timeframe="last7days" id="pill-7d">Last 7 Days</button>
         <button class="pill-btn" data-timeframe="thismonth" id="pill-mtd">This Month (Sep 2026)</button>
-        <button class="pill-btn active" data-timeframe="all" id="pill-all">All Time (77 Deals)</button>
+        <button class="pill-btn" data-timeframe="all" id="pill-all">All Time</button>
         <button class="pill-btn" data-timeframe="custom" id="pill-custom">Custom Range</button>
       </div>
 
@@ -739,8 +739,8 @@
     let filteredDeals = [];
     let currentPage = 1;
     const pageSize = 25;
-    let activeTimeframe = 'all';
-    let yesterdayDate = '2026-09-09';
+    let activeTimeframe = 'yesterday';
+    let yesterdayDate = '2026-09-14';
 
     // Format Currency
     function fmt(val) {
@@ -843,7 +843,7 @@
         // Handle URL search params (e.g. ?date=2026-09-08 or ?timeframe=yesterday)
         const params = new URLSearchParams(window.location.search);
         const queryDate = params.get('date');
-        const queryFilter = params.get('filter') || params.get('timeframe');
+        const queryFilter = (params.get('filter') || params.get('timeframe') || '').toLowerCase();
 
         if (queryDate) {
           activeTimeframe = 'custom';
@@ -851,15 +851,18 @@
           document.getElementById('input-end-date').value = queryDate;
           document.getElementById('custom-date-row').style.display = 'flex';
           updateTimeframePills('custom');
-        } else if (queryFilter === 'yesterday') {
-          activeTimeframe = 'yesterday';
-          updateTimeframePills('yesterday');
+        } else if (queryFilter === 'all') {
+          activeTimeframe = 'all';
+          updateTimeframePills('all');
         } else if (queryFilter === '7d' || queryFilter === 'last7days') {
           activeTimeframe = 'last7days';
           updateTimeframePills('last7days');
+        } else if (queryFilter === 'mtd' || queryFilter === 'thismonth') {
+          activeTimeframe = 'thismonth';
+          updateTimeframePills('thismonth');
         } else {
-          activeTimeframe = 'all';
-          updateTimeframePills('all');
+          activeTimeframe = 'yesterday';
+          updateTimeframePills('yesterday');
         }
 
         applyFilters();
@@ -1200,6 +1203,8 @@
       });
 
       document.getElementById('btn-apply-custom-date').addEventListener('click', applyFilters);
+      document.getElementById('input-start-date').addEventListener('change', () => { if (activeTimeframe === 'custom') applyFilters(); });
+      document.getElementById('input-end-date').addEventListener('change', () => { if (activeTimeframe === 'custom') applyFilters(); });
       document.getElementById('search-input').addEventListener('input', applyFilters);
       document.getElementById('filter-agent').addEventListener('change', applyFilters);
       document.getElementById('filter-plan').addEventListener('change', applyFilters);

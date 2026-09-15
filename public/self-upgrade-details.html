@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self Upgrade &amp; Coupon 40 Details — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="/vendor/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface2: #f1f5f9;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #e0e7ff;
+      --emerald: #10b981;
+      --emerald-bg: #ecfdf5;
+      --amber: #f59e0b;
+      --amber-bg: #fffbeb;
+      --rose: #ef4444;
+      --rose-bg: #fef2f2;
+      --purple: #8b5cf6;
+      --purple-bg: #f5f3ff;
+      --blue: #3b82f6;
+      --blue-bg: #eff6ff;
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ede8fb;
+      background-image: url("bg-toys.svg");
+      background-size: 300px;
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    .page-title h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-title p {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      background: var(--surface2);
+      border-color: var(--border-dark);
+    }
+
+    .btn-back {
+      background: rgba(99, 102, 241, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    .btn-back:hover {
+      background: rgba(99, 102, 241, 0.15);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1380px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+
+    /* KPI METRICS GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .kpi-card.purple::before { background: var(--purple); }
+    .kpi-card.emerald::before { background: var(--emerald); }
+    .kpi-card.amber::before { background: var(--amber); }
+    .kpi-card.blue::before { background: var(--blue); }
+
+    .kpi-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* CONTROLS CARD */
+    .controls-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: var(--surface2);
+      color: var(--text);
+      border-color: var(--border-dark);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+    }
+
+    .filters-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 12px 9px 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      outline: none;
+      background: var(--bg);
+      transition: border 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .select-filter {
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 12.5px;
+      font-weight: 600;
+      background: #ffffff;
+      color: var(--text);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-filter:focus {
+      border-color: var(--primary);
+    }
+
+    /* TABLE SECTION */
+    .table-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr {
+      transition: background 0.12s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8faff;
+    }
+
+    .mono-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    /* BADGES */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-c40 {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .badge-coupon-other {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    .badge-plan-old {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fca5a5;
+    }
+
+    .badge-plan-new {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+
+    .badge-status-active {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* PAGINATION BAR */
+    .pagination-bar {
+      padding: 14px 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      padding: 5px 11px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: var(--surface2);
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .audit-box {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .audit-box-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .audit-item {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    .audit-item strong {
+      color: var(--text);
+    }
+
+    /* LOADING & TOAST */
+    .loading-container {
+      text-align: center;
+      padding: 48px;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--primary-light);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      display: none;
+      z-index: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand-section">
+      <a href="index.html" title="Back to Dashboard">
+        <img src="elefant-logo.png" alt="The Elefant" class="brand-logo" />
+      </a>
+      <div class="brand-divider"></div>
+      <div class="page-title">
+        <h1>🚀 Self Upgrade Deals</h1>
+        <p>Customer-Initiated Plan Upgrades &amp; Audit Log</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-back">← Back to Dashboard</a>
+      <button class="btn btn-secondary" id="btn-download-csv">📥 Export CSV</button>
+      <button class="btn btn-primary" id="btn-download-pdf">🖨️ Export PDF</button>
+      <button class="btn btn-secondary" id="btn-refresh" title="Reload data">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI CARDS -->
+    <section class="kpi-grid">
+      <div class="kpi-card purple">
+        <div class="kpi-title">
+          <span>🚀 Total Self Upgrades</span>
+          <span>⚡</span>
+        </div>
+        <div class="kpi-value" id="stat-total-count">0</div>
+        <div class="kpi-sub" id="stat-total-rev">₹0 Total Revenue</div>
+      </div>
+
+      <div class="kpi-card amber">
+        <div class="kpi-title">
+          <span>🏷️ Coupon 40 Upgrades</span>
+          <span>🔥</span>
+        </div>
+        <div class="kpi-value" id="stat-c40-count" style="color: var(--amber);">0</div>
+        <div class="kpi-sub" id="stat-c40-rev">₹0 via Coupon 40</div>
+      </div>
+
+      <div class="kpi-card blue">
+        <div class="kpi-title">
+          <span>🛍️ Other / Standard Upgrades</span>
+          <span>✓</span>
+        </div>
+        <div class="kpi-value" id="stat-other-count">0</div>
+        <div class="kpi-sub" id="stat-other-rev">₹0 Other Upgrades</div>
+      </div>
+
+      <div class="kpi-card emerald">
+        <div class="kpi-title">
+          <span>📊 Average Upgrade Value (AOV)</span>
+          <span>📈</span>
+        </div>
+        <div class="kpi-value" id="stat-aov" style="color: var(--emerald);">₹0</div>
+        <div class="kpi-sub" id="stat-aov-sub">Average per upgraded member</div>
+      </div>
+    </section>
+
+    <!-- CONTROLS BAR -->
+    <section class="controls-card">
+      <div class="pills-bar">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:6px;">Timeframe:</span>
+        <button class="pill-btn active" data-timeframe="yesterday" id="pill-yesterday">Yesterday</button>
+        <button class="pill-btn" data-timeframe="last7days" id="pill-7d">Last 7 Days</button>
+        <button class="pill-btn" data-timeframe="thismonth" id="pill-mtd">This Month (Sep 2026)</button>
+        <button class="pill-btn" data-timeframe="all" id="pill-all">All Time</button>
+        <button class="pill-btn" data-timeframe="custom" id="pill-custom">Custom Range</button>
+      </div>
+
+      <div class="filters-row" id="custom-date-row" style="display:none;">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);">From:</span>
+        <input type="date" id="input-start-date" class="select-filter">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);">To:</span>
+        <input type="date" id="input-end-date" class="select-filter">
+        <button class="btn btn-secondary" id="btn-apply-custom-date" style="padding:6px 14px;font-size:12px;">Apply</button>
+      </div>
+
+      <div class="filters-row">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Search by User ID, Name, Phone, Old/New Plan, Coupon...">
+        </div>
+
+        <select id="filter-secondary-sheet" class="select-filter" style="border:1.5px solid var(--primary); font-weight: 700; color: #4338ca; background: #eef2ff;">
+          <option value="exclude_sec">⚡ Pure Self Upgrades Only (Exclude Secondary Sheet)</option>
+          <option value="all">Show All Deals (Including Secondary Sheet)</option>
+          <option value="in_sec_only">⚠️ In Secondary Sheet Only (Inside Sales)</option>
+        </select>
+
+        <select id="filter-coupon-type" class="select-filter">
+          <option value="">All Coupons</option>
+          <option value="c40">Coupon 40 Only (*40* / DISCOUNT40)</option>
+          <option value="other">Other / No Coupon</option>
+        </select>
+
+        <select id="filter-new-plan" class="select-filter">
+          <option value="">All Upgraded Plans</option>
+        </select>
+
+        <select id="filter-old-plan" class="select-filter">
+          <option value="">All Original Plans</option>
+        </select>
+
+        <button class="btn btn-secondary" id="btn-reset-filters" style="font-size:12px;padding:6px 12px;">Reset</button>
+      </div>
+    </section>
+
+    <!-- TABLE SECTION -->
+    <section class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>User ID</th>
+            <th>Parent / Customer</th>
+            <th>Phone</th>
+            <th>Type / Channel</th>
+            <th>Original Plan</th>
+            <th>Upgraded Plan</th>
+            <th>Paid (₹)</th>
+            <th>Coupon Code</th>
+            <th>Old Status / Expiry</th>
+            <th style="text-align:center;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="upgrades-table-body">
+          <tr>
+            <td colspan="11">
+              <div class="loading-container">
+                <div class="spinner"></div>
+                <div style="font-weight:700;color:var(--muted);">Loading Self Upgrades...</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination Bar -->
+      <div class="pagination-bar" id="pagination-bar">
+        <div id="pagination-info">Showing 0 to 0 of 0 records</div>
+        <div class="pagination-controls" id="pagination-controls"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Audit Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🚀 Self Upgrade Audit Details</span>
+        </div>
+        <button class="close-btn" id="modal-close">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    const API_URL = '/api/self-upgrade-details-csv';
+    const FALLBACK_URL = '/data/self_upgrade_details.csv';
+    const DIRECT_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/4f0ba1fd-aaea-4db9-b172-8f9504cf9940.csv';
+
+    // State
+    let allUpgrades = [];
+    let filteredUpgrades = [];
+    let currentPage = 1;
+    const pageSize = 25;
+    let activeTimeframe = 'yesterday';
+    let yesterdayDate = '2026-09-14';
+
+    function fmt(val) {
+      if (val === undefined || val === null || isNaN(val)) return '₹0';
+      return '₹' + Math.round(val).toLocaleString('en-IN');
+    }
+
+    function formatLocalISO(d) {
+      const yr = d.getFullYear();
+      const mo = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${day}`;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2500);
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied: ' + text);
+      }).catch(() => {
+        showToast('Copied: ' + text);
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') {
+          if (inQuotes && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          result.push(current.trim());
+          current = '';
+        } else {
+          current += c;
+        }
+      }
+      result.push(current.trim());
+      return result;
+    }
+
+    function parseDate(rawDate) {
+      if (!rawDate) return '';
+      const clean = rawDate.replace(/"/g, '').trim();
+      if (clean.includes('-') && clean.length === 10) return clean;
+      if (clean.includes('/')) {
+        const parts = clean.split('/');
+        if (parts.length === 3) {
+          let [p1, p2, yr] = parts.map(Number);
+          if (yr < 100) yr += 2000;
+          let m, d;
+          if (p1 > 12) { d = p1; m = p2; }
+          else { m = p1; d = p2; }
+          return `${yr}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+        }
+      }
+      return clean;
+    }
+
+    async function loadData() {
+      try {
+        // 1. First determine yesterday's date from data.json if available
+        try {
+          const djRes = await fetch('/data/data.json?v=' + Date.now(), { cache: 'no-store' });
+          if (djRes.ok) {
+            const dj = await djRes.json();
+            if (Array.isArray(dj) && dj.length > 0) {
+              const todayStr = formatLocalISO(new Date());
+              const validDates = dj.map(d => d.date).filter(dt => dt < todayStr).sort();
+              if (validDates.length > 0) {
+                yesterdayDate = validDates[validDates.length - 1];
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Could not read data.json for yesterday date:', e);
+        }
+
+        // 2. Fetch Secondary Sales Sheet to identify phone numbers logged in Inside Sales
+        const secondarySheetPhones = new Set();
+        try {
+          const secRes = await fetch('/data/secondary_sales_sheet.csv?v=' + Date.now(), { cache: 'no-store' });
+          if (secRes.ok) {
+            const secText = await secRes.text();
+            const secLines = secText.split('\n').filter(Boolean);
+            for (let i = 2; i < secLines.length; i++) {
+              const parts = parseCSVLine(secLines[i]);
+              const p = (parts[2] || '').replace(/\D/g, '').slice(-10);
+              if (p.length >= 10) secondarySheetPhones.add(p);
+            }
+          }
+        } catch (secErr) {
+          console.warn('Could not read secondary sales sheet for phone filtering:', secErr);
+        }
+
+        // 3. Fetch Self Upgrades CSV
+        let text = '';
+        const candidates = [API_URL, FALLBACK_URL, DIRECT_METABASE_URL];
+        for (const u of candidates) {
+          try {
+            const res = await fetch(u + (u.includes('?') ? '&' : '?') + 'v=' + Date.now(), { cache: 'no-store' });
+            if (res.ok) {
+              text = await res.text();
+              if (text && text.length > 50 && text.includes('User ID')) break;
+            }
+          } catch (_) {}
+        }
+
+        if (!text || text.length < 20) {
+          throw new Error('Unable to retrieve Self Upgrade records from server or Metabase.');
+        }
+
+        const lines = text.trim().split('\n').filter(Boolean);
+        if (lines.length <= 1) {
+          allUpgrades = [];
+        } else {
+          // Header: User ID,Parent,Phone,Old Plan,Old Plan Status,Old Plan Expiry,Old Plan Coupon,Old Plan Paid,New Plan,New Plan Status,New Plan Coupon,New Plan Paid,Paid On,Upgraded On
+          allUpgrades = lines.slice(1).map(line => {
+            const cols = parseCSVLine(line).map(c => c.replace(/^"|"$/g, '').trim());
+            const coupon = cols[10] || '';
+            const isC40 = coupon.toUpperCase().includes('40');
+            const paidOn = parseDate(cols[12]) || cols[12] || '';
+            const upgradedOn = parseDate(cols[13]) || cols[13] || '';
+            const rawPhone = cols[2] || '';
+            const cleanPhone = rawPhone.replace(/\D/g, '').slice(-10);
+            const inSec = cleanPhone.length >= 10 && secondarySheetPhones.has(cleanPhone);
+
+            return {
+              userId: cols[0] || '—',
+              parent: cols[1] || 'Unknown',
+              phone: rawPhone,
+              cleanPhone: cleanPhone,
+              inSecondarySheet: inSec,
+              oldPlan: cols[3] || '—',
+              oldPlanStatus: cols[4] || 'CANCELLED',
+              oldPlanExpiry: cols[5] || '—',
+              oldPlanCoupon: cols[6] || '',
+              oldPlanPaid: parseFloat(cols[7]) || 0,
+              newPlan: cols[8] || '—',
+              newPlanStatus: cols[9] || 'ACTIVE',
+              newPlanCoupon: coupon,
+              newPlanPaid: parseFloat(cols[11]) || 0,
+              paidOn: paidOn,
+              upgradedOn: upgradedOn,
+              isCoupon40: isC40
+            };
+          });
+        }
+
+        // Sort descending by paidOn date
+        allUpgrades.sort((a, b) => (b.paidOn || '').localeCompare(a.paidOn || ''));
+
+        // Populate Dropdowns
+        populateFilters();
+
+        // Handle URL search params
+        const params = new URLSearchParams(window.location.search);
+        const queryDate = params.get('date');
+        const queryFilter = (params.get('filter') || params.get('timeframe') || '').toLowerCase();
+        const queryCoupon = (params.get('coupon') || '').toLowerCase();
+
+        if (queryDate) {
+          activeTimeframe = 'custom';
+          document.getElementById('input-start-date').value = queryDate;
+          document.getElementById('input-end-date').value = queryDate;
+          document.getElementById('custom-date-row').style.display = 'flex';
+          updateTimeframePills('custom');
+        } else if (queryFilter === 'all') {
+          activeTimeframe = 'all';
+          updateTimeframePills('all');
+        } else if (queryFilter === '7d' || queryFilter === 'last7days') {
+          activeTimeframe = 'last7days';
+          updateTimeframePills('last7days');
+        } else if (queryFilter === 'mtd' || queryFilter === 'thismonth') {
+          activeTimeframe = 'thismonth';
+          updateTimeframePills('thismonth');
+        } else {
+          activeTimeframe = 'yesterday';
+          updateTimeframePills('yesterday');
+        }
+
+        if (queryCoupon === '40' || queryCoupon === 'c40') {
+          document.getElementById('filter-coupon-type').value = 'c40';
+        }
+
+        applyFilters();
+      } catch (err) {
+        console.error('Error loading self upgrades:', err);
+        document.getElementById('upgrades-table-body').innerHTML = `
+          <tr>
+            <td colspan="11" style="text-align:center;padding:40px;color:var(--rose);">
+              ⚠️ Failed to load self upgrade data: ${err.message}
+            </td>
+          </tr>`;
+      }
+    }
+
+    function populateFilters() {
+      const newPlanSet = new Set();
+      const oldPlanSet = new Set();
+      allUpgrades.forEach(u => {
+        if (u.newPlan) newPlanSet.add(u.newPlan);
+        if (u.oldPlan) oldPlanSet.add(u.oldPlan);
+      });
+
+      const newPlanSelect = document.getElementById('filter-new-plan');
+      Array.from(newPlanSet).sort().forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        newPlanSelect.appendChild(opt);
+      });
+
+      const oldPlanSelect = document.getElementById('filter-old-plan');
+      Array.from(oldPlanSet).sort().forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        oldPlanSelect.appendChild(opt);
+      });
+    }
+
+    function updateTimeframePills(tf) {
+      document.querySelectorAll('.pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.timeframe === tf);
+      });
+    }
+
+    function applyFilters() {
+      const search = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const secFilter = document.getElementById('filter-secondary-sheet').value;
+      const couponType = document.getElementById('filter-coupon-type').value;
+      const newPlan = document.getElementById('filter-new-plan').value;
+      const oldPlan = document.getElementById('filter-old-plan').value;
+
+      let startDate = null;
+      let endDate = null;
+
+      if (activeTimeframe === 'yesterday') {
+        startDate = yesterdayDate;
+        endDate = yesterdayDate;
+      } else if (activeTimeframe === 'last7days') {
+        const end = new Date(yesterdayDate + 'T00:00:00');
+        const start = new Date(yesterdayDate + 'T00:00:00');
+        start.setDate(start.getDate() - 6);
+        startDate = formatLocalISO(start);
+        endDate = formatLocalISO(end);
+      } else if (activeTimeframe === 'thismonth') {
+        const parts = yesterdayDate.split('-');
+        startDate = `${parts[0]}-${parts[1]}-01`;
+        endDate = yesterdayDate;
+      } else if (activeTimeframe === 'custom') {
+        startDate = document.getElementById('input-start-date').value;
+        endDate = document.getElementById('input-end-date').value;
+      }
+
+      filteredUpgrades = allUpgrades.filter(u => {
+        const d = u.paidOn || u.upgradedOn;
+        if (startDate && d < startDate) return false;
+        if (endDate && d > endDate) return false;
+
+        // Secondary sheet filter
+        if (secFilter === 'exclude_sec' && u.inSecondarySheet) return false;
+        if (secFilter === 'in_sec_only' && !u.inSecondarySheet) return false;
+
+        if (couponType === 'c40' && !u.isCoupon40) return false;
+        if (couponType === 'other' && u.isCoupon40) return false;
+
+        if (newPlan && u.newPlan !== newPlan) return false;
+        if (oldPlan && u.oldPlan !== oldPlan) return false;
+
+        if (search) {
+          const match =
+            u.userId.toLowerCase().includes(search) ||
+            u.parent.toLowerCase().includes(search) ||
+            u.phone.toLowerCase().includes(search) ||
+            u.oldPlan.toLowerCase().includes(search) ||
+            u.newPlan.toLowerCase().includes(search) ||
+            u.newPlanCoupon.toLowerCase().includes(search) ||
+            d.toLowerCase().includes(search);
+          if (!match) return false;
+        }
+
+        return true;
+      });
+
+      currentPage = 1;
+      updateStats();
+      renderTable();
+    }
+
+    function updateStats() {
+      const totalCount = filteredUpgrades.length;
+      const totalRev = filteredUpgrades.reduce((sum, u) => sum + u.newPlanPaid, 0);
+
+      const c40Items = filteredUpgrades.filter(u => u.isCoupon40);
+      const c40Count = c40Items.length;
+      const c40Rev = c40Items.reduce((sum, u) => sum + u.newPlanPaid, 0);
+
+      const otherCount = totalCount - c40Count;
+      const otherRev = totalRev - c40Rev;
+
+      const aov = totalCount > 0 ? Math.round(totalRev / totalCount) : 0;
+
+      document.getElementById('stat-total-count').textContent = totalCount;
+      document.getElementById('stat-total-rev').textContent = `${fmt(totalRev)} Total Revenue`;
+
+      document.getElementById('stat-c40-count').textContent = c40Count;
+      document.getElementById('stat-c40-rev').textContent = `${fmt(c40Rev)} via Coupon 40`;
+
+      document.getElementById('stat-other-count').textContent = otherCount;
+      document.getElementById('stat-other-rev').textContent = `${fmt(otherRev)} Other Upgrades`;
+
+      document.getElementById('stat-aov').textContent = fmt(aov);
+      document.getElementById('stat-aov-sub').textContent = `Avg ${fmt(aov)} per upgrade`;
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('upgrades-table-body');
+      if (filteredUpgrades.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="11" style="text-align:center;padding:48px 20px;color:var(--muted);">
+              <div style="font-size:32px;margin-bottom:8px;">🔍</div>
+              <div style="font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px;">No Self Upgrade Deals Found</div>
+              <div style="font-size:13px;">No deals match your selected timeframe (${activeTimeframe.toUpperCase()}) or filter criteria.</div>
+            </td>
+          </tr>`;
+        document.getElementById('pagination-info').textContent = 'Showing 0 to 0 of 0 records';
+        document.getElementById('pagination-controls').innerHTML = '';
+        return;
+      }
+
+      const totalPages = Math.ceil(filteredUpgrades.length / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, filteredUpgrades.length);
+      const pageItems = filteredUpgrades.slice(startIndex, endIndex);
+
+      let html = '';
+      pageItems.forEach((u, idx) => {
+        const couponBadge = u.isCoupon40
+          ? `<span class="badge badge-c40">🔥 ${escapeHtml(u.newPlanCoupon)}</span>`
+          : u.newPlanCoupon
+            ? `<span class="badge badge-coupon-other">🏷️ ${escapeHtml(u.newPlanCoupon)}</span>`
+            : `<span style="color:var(--muted);font-size:12px;">— (No Coupon)</span>`;
+
+        const channelBadge = u.inSecondarySheet
+          ? `<span class="badge" style="background:#fffbeb;color:#b45309;border:1px solid #fde68a;" title="Phone number logged in Secondary Sales Sheet (Inside Sales)">⚠️ In Sec Sheet</span>`
+          : `<span class="badge" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;" title="Verified Customer-Initiated Self Upgrade (Not in Secondary Sheet)">✅ Pure Self Upgrade</span>`;
+
+        html += `
+          <tr onclick="openUpgradeModal(${startIndex + idx})">
+            <td style="font-weight:700;white-space:nowrap;">${u.paidOn || u.upgradedOn}</td>
+            <td class="mono-cell">
+              <strong>${u.userId}</strong>
+              <button onclick="event.stopPropagation();copyToClipboard('${u.userId}')" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px;" title="Copy User ID">📋</button>
+            </td>
+            <td style="font-weight:700;color:var(--text);">${escapeHtml(u.parent)}</td>
+            <td class="mono-cell" style="white-space:nowrap;">
+              ${u.phone}
+              <button onclick="event.stopPropagation();copyToClipboard('${u.phone}')" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:11px;margin-left:4px;" title="Copy Phone">📋</button>
+            </td>
+            <td>${channelBadge}</td>
+            <td>
+              <span class="badge badge-plan-old">${escapeHtml(u.oldPlan)}</span>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px;">Paid: ${fmt(u.oldPlanPaid)}</div>
+            </td>
+            <td>
+              <span class="badge badge-plan-new">🚀 ${escapeHtml(u.newPlan)}</span>
+              <div style="font-size:11px;font-weight:700;color:var(--emerald);margin-top:2px;">Paid: ${fmt(u.newPlanPaid)}</div>
+            </td>
+            <td style="font-weight:800;color:var(--emerald);font-size:14px;white-space:nowrap;">${fmt(u.newPlanPaid)}</td>
+            <td>${couponBadge}</td>
+            <td style="font-size:12px;color:var(--muted);">
+              <div>Status: <span class="badge badge-status-active">${escapeHtml(u.oldPlanStatus)}</span></div>
+              <div style="margin-top:2px;">Expiry: <strong>${u.oldPlanExpiry}</strong></div>
+            </td>
+            <td style="text-align:center;">
+              <button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="event.stopPropagation();openUpgradeModal(${startIndex + idx})">Audit ↗</button>
+            </td>
+          </tr>`;
+      });
+
+      tbody.innerHTML = html;
+
+      document.getElementById('pagination-info').textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredUpgrades.length} records`;
+      renderPaginationControls(totalPages);
+    }
+
+    function renderPaginationControls(totalPages) {
+      const container = document.getElementById('pagination-controls');
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+      html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">Prev</button>`;
+
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+          html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+          html += `<span style="padding:6px;">...</span>`;
+        }
+      }
+
+      html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">Next</button>`;
+      container.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderTable();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function openUpgradeModal(index) {
+      const u = filteredUpgrades[index];
+      if (!u) return;
+
+      const modalBody = document.getElementById('modal-body');
+      modalBody.innerHTML = `
+        <div style="margin-bottom:16px;">
+          <h3 style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px;">${escapeHtml(u.parent)} (${u.userId})</h3>
+          <div style="font-size:13px;color:var(--muted);">
+            Phone: <strong style="color:var(--text);">${u.phone}</strong> • Upgrade Date: <strong style="color:var(--text);">${u.paidOn || u.upgradedOn}</strong>
+          </div>
+        </div>
+
+        <div class="audit-grid">
+          <div class="audit-box" style="border-left:4px solid var(--rose);">
+            <div class="audit-box-title" style="color:var(--rose);">
+              <span>📦 Previous Plan Details</span>
+            </div>
+            <div class="audit-item">Plan: <strong>${escapeHtml(u.oldPlan)}</strong></div>
+            <div class="audit-item">Previous Paid: <strong>${fmt(u.oldPlanPaid)}</strong></div>
+            <div class="audit-item">Previous Coupon: <strong>${escapeHtml(u.oldPlanCoupon || 'None')}</strong></div>
+            <div class="audit-item">Old Status: <strong>${escapeHtml(u.oldPlanStatus)}</strong></div>
+            <div class="audit-item">Expiry Date: <strong>${u.oldPlanExpiry}</strong></div>
+          </div>
+
+          <div class="audit-box" style="border-left:4px solid var(--emerald);">
+            <div class="audit-box-title" style="color:var(--emerald);">
+              <span>🚀 Upgraded New Plan</span>
+            </div>
+            <div class="audit-item">New Plan: <strong>${escapeHtml(u.newPlan)}</strong></div>
+            <div class="audit-item">Upgrade Amount Paid: <strong style="color:var(--emerald);font-size:15px;">${fmt(u.newPlanPaid)}</strong></div>
+            <div class="audit-item">Upgrade Coupon: <strong style="color:var(--amber);">${escapeHtml(u.newPlanCoupon || 'None')} ${u.isCoupon40 ? '(Coupon 40)' : ''}</strong></div>
+            <div class="audit-item">Status: <strong>${escapeHtml(u.newPlanStatus)}</strong></div>
+            <div class="audit-item">Transaction Date: <strong>${u.paidOn || u.upgradedOn}</strong></div>
+          </div>
+        </div>
+
+        <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.2);padding:14px;border-radius:10px;font-size:12.5px;color:#334155;">
+          <strong>💡 Audit Summary:</strong> Customer self-upgraded their subscription from <strong>${escapeHtml(u.oldPlan)}</strong> to <strong>${escapeHtml(u.newPlan)}</strong>, paying <strong>${fmt(u.newPlanPaid)}</strong> ${u.newPlanCoupon ? `using coupon code <strong>${escapeHtml(u.newPlanCoupon)}</strong>` : 'without coupon'}.
+        </div>`;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function downloadCSV() {
+      if (filteredUpgrades.length === 0) {
+        alert('No data to export.');
+        return;
+      }
+
+      const headers = ['Paid Date', 'User ID', 'Customer Name', 'Phone', 'Old Plan', 'Old Paid', 'Old Coupon', 'New Plan', 'New Paid', 'New Coupon', 'Is Coupon 40', 'Old Expiry', 'Old Status'];
+      const rows = filteredUpgrades.map(u => [
+        `"${u.paidOn || u.upgradedOn}"`,
+        `"${u.userId}"`,
+        `"${u.parent}"`,
+        `"${u.phone}"`,
+        `"${u.oldPlan}"`,
+        u.oldPlanPaid,
+        `"${u.oldPlanCoupon}"`,
+        `"${u.newPlan}"`,
+        u.newPlanPaid,
+        `"${u.newPlanCoupon}"`,
+        u.isCoupon40 ? 'YES' : 'NO',
+        `"${u.oldPlanExpiry}"`,
+        `"${u.oldPlanStatus}"`
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `self_upgrades_${activeTimeframe}_${new Date().toISOString().split('T')[0]}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeTimeframe = btn.dataset.timeframe;
+          updateTimeframePills(activeTimeframe);
+          if (activeTimeframe === 'custom') {
+            document.getElementById('custom-date-row').style.display = 'flex';
+          } else {
+            document.getElementById('custom-date-row').style.display = 'none';
+            applyFilters();
+          }
+        });
+      });
+
+      document.getElementById('btn-apply-custom-date').addEventListener('click', applyFilters);
+      document.getElementById('input-start-date').addEventListener('change', () => { if (activeTimeframe === 'custom') applyFilters(); });
+      document.getElementById('input-end-date').addEventListener('change', () => { if (activeTimeframe === 'custom') applyFilters(); });
+      document.getElementById('search-input').addEventListener('input', applyFilters);
+      document.getElementById('filter-secondary-sheet').addEventListener('change', applyFilters);
+      document.getElementById('filter-coupon-type').addEventListener('change', applyFilters);
+      document.getElementById('filter-new-plan').addEventListener('change', applyFilters);
+      document.getElementById('filter-old-plan').addEventListener('change', applyFilters);
+
+      document.getElementById('btn-reset-filters').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('filter-secondary-sheet').value = 'exclude_sec';
+        document.getElementById('filter-coupon-type').value = '';
+        document.getElementById('filter-new-plan').value = '';
+        document.getElementById('filter-old-plan').value = '';
+        activeTimeframe = 'yesterday';
+        updateTimeframePills('yesterday');
+        document.getElementById('custom-date-row').style.display = 'none';
+        applyFilters();
+      });
+
+      document.getElementById('btn-download-pdf').addEventListener('click', () => {
+        if (filteredUpgrades.length === 0) {
+          alert('No records to download.');
+          return;
+        }
+
+        const head = [['Date', 'User ID', 'Customer Name', 'Phone', 'Original Plan', 'Upgraded Plan', 'Paid (₹)', 'Coupon']];
+        const body = filteredUpgrades.map(u => [
+          u.paidOn || u.upgradedOn,
+          u.userId,
+          u.parent,
+          u.phone,
+          u.oldPlan,
+          u.newPlan,
+          '₹' + Math.round(u.newPlanPaid).toLocaleString('en-IN'),
+          u.newPlanCoupon || '—'
+        ]);
+
+        if (window.exportTableToPDF) {
+          exportTableToPDF({
+            title: 'Self Upgrades & Coupon 40 Transactions Log',
+            subtitle: `Timeframe: ${activeTimeframe.toUpperCase()} • ${filteredUpgrades.length} deals • Generated on ${new Date().toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'})}`,
+            filename: `self_upgrades_${activeTimeframe}_${new Date().toISOString().slice(0, 10)}.pdf`,
+            head: head,
+            body: body
+          });
+        } else {
+          window.print();
+        }
+      });
+
+      document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
+      document.getElementById('btn-refresh').addEventListener('click', loadData);
+
+      // Modal close handlers
+      document.getElementById('modal-close').addEventListener('click', () => {
+        document.getElementById('detail-modal').style.display = 'none';
+      });
+
+      document.getElementById('detail-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'detail-modal') {
+          document.getElementById('detail-modal').style.display = 'none';
+        }
+      });
+
+      loadData();
+    });
+  </script>
+  <script src="export-pdf.js"></script>
+</body>
+</html>

@@ -64,6 +64,8 @@ const ACTIVE_SUB_NO_ORDERS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/pub
 const ACTIVE_SUB_NO_ORDERS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'active_sub_no_orders_details.csv');
 const DELIVERY_FEES_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/69801b76-ec6c-403d-bde2-0592f7463715.csv';
 const DELIVERY_FEES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'delivery_fees_details.csv');
+const SELF_UPGRADE_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/4f0ba1fd-aaea-4db9-b172-8f9504cf9940.csv';
+const SELF_UPGRADE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'self_upgrade_details.csv');
 const DIRECT_SALE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
 const DISPUTED_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'disputed_sales_details.csv');
 const EVENTS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'events_details.csv');
@@ -261,6 +263,7 @@ async function syncSalesData() {
     day.sources[cleanSource].count += count;
   }
 
+  const secondarySheetPhones = new Set();
   // Fetch second Google Sheet (same format as Sheet 1)
   try {
     console.log(`📡 Fetching 2nd sales sheet data...`);
@@ -282,6 +285,10 @@ async function syncSalesData() {
       const plan = cols[6];
       const count = parseInt(cols[7], 10) || 1;
       const source = cols[8] || 'Organic';
+
+      if (phone && phone.length >= 10) {
+        secondarySheetPhones.add(phone);
+      }
 
       if (!agent || !rawRev || !rawDate) continue;
       const rev = parseFloat(rawRev.replace(/,/g, '')) || 0;
@@ -1218,6 +1225,119 @@ async function syncSalesData() {
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache Active Subscriptions details from Metabase:', err.message);
+  }
+
+  // Fetch and cache Self Upgrades Detailed Records (4f0ba1fd)
+  try {
+    console.log(`🚀 Fetching Self Upgrades Detailed List from Metabase...`);
+    const selfUpgradeCSV = await fetchURLWithRedirect(SELF_UPGRADE_DETAILS_URL);
+    if (selfUpgradeCSV && selfUpgradeCSV.length > 50 && !selfUpgradeCSV.includes('HTTP ERROR 500')) {
+      fs.writeFileSync(SELF_UPGRADE_DETAILS_FILE, selfUpgradeCSV, 'utf-8');
+      const lines = selfUpgradeCSV.split('\n').filter(Boolean);
+      console.log(`✅ Cached Self Upgrades details (${Math.max(0, lines.length - 1)} records) to ${SELF_UPGRADE_DETAILS_FILE}`);
+
+      if (lines.length > 1) {
+        // Map of date -> { totalCount, totalRevenue, coupon40Count, coupon40Revenue, otherCount, otherRevenue, deals }
+        const upgradesByDate = {};
+        for (let i = 1; i < lines.length; i++) {
+          const cols = parseCSVLine(lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
+          const paidOn = parseDate(cols[12]) || cols[12];
+          const newCoupon = (cols[10] || '').toUpperCase();
+          const newPaid = parseFloat(cols[11]) || 0;
+          const isCoupon40 = newCoupon.includes('40');
+          const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+          const inSecondarySheet = phone.length >= 10 && secondarySheetPhones.has(phone);
+
+          if (paidOn) {
+            if (!upgradesByDate[paidOn]) {
+              upgradesByDate[paidOn] = {
+                totalCount: 0,
+                totalRevenue: 0,
+                coupon40Count: 0,
+                coupon40Revenue: 0,
+                otherCount: 0,
+                otherRevenue: 0,
+                deals: []
+              };
+            }
+            const u = upgradesByDate[paidOn];
+
+            // Only count deals that are NOT in the secondary sales sheet
+            if (!inSecondarySheet) {
+              u.totalCount++;
+              u.totalRevenue += newPaid;
+              if (isCoupon40) {
+                u.coupon40Count++;
+                u.coupon40Revenue += newPaid;
+              } else {
+                u.otherCount++;
+                u.otherRevenue += newPaid;
+              }
+            }
+
+            u.deals.push({
+              userId: cols[0],
+              parent: cols[1],
+              phone: cols[2],
+              oldPlan: cols[3],
+              oldPaid: parseFloat(cols[7]) || 0,
+              newPlan: cols[8],
+              newPaid: newPaid,
+              coupon: cols[10],
+              paid: newPaid,
+              isCoupon40: isCoupon40,
+              inSecondarySheet: inSecondarySheet
+            });
+          }
+        }
+
+        // Attach to sortedDays and include pure self upgrades in total revenue and deal counts
+        sortedDays.forEach(day => {
+          const su = upgradesByDate[day.date];
+          if (su) {
+            day.selfUpgrade = su;
+            if (su.totalCount > 0) {
+              day.totalRevenue += su.totalRevenue;
+              day.salesCount += su.totalCount;
+              day.transactions += su.totalCount;
+
+              if (!day.sources) day.sources = {};
+              if (!day.sources['Self Upgrade']) day.sources['Self Upgrade'] = { revenue: 0, count: 0 };
+              day.sources['Self Upgrade'].revenue += su.totalRevenue;
+              day.sources['Self Upgrade'].count += su.totalCount;
+
+              su.deals.forEach(dl => {
+                if (!dl.inSecondarySheet) {
+                  const pName = dl.newPlan || 'Annual Max';
+                  if (!day.plans[pName]) day.plans[pName] = { revenue: 0, count: 0 };
+                  day.plans[pName].revenue += dl.paid;
+                  day.plans[pName].count += 1;
+
+                  if (dl.paid > (day.highestSale?.amount || 0)) {
+                    day.highestSale = {
+                      amount: dl.paid,
+                      agent: dl.parent || 'Self Upgrade'
+                    };
+                  }
+                }
+              });
+            }
+          } else {
+            day.selfUpgrade = {
+              totalCount: 0,
+              totalRevenue: 0,
+              coupon40Count: 0,
+              coupon40Revenue: 0,
+              otherCount: 0,
+              otherRevenue: 0,
+              deals: []
+            };
+          }
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Warning: Could not cache Self Upgrades details from Metabase:', err.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

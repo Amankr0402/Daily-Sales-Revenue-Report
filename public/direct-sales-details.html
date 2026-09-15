@@ -1136,8 +1136,12 @@
       const tf = (p.get('timeframe') || p.get('filter') || '').toLowerCase();
       const from = p.get('from') || p.get('start');
       const to = p.get('to') || p.get('end');
+      const dateParam = p.get('date');
 
-      if (from && to) {
+      if (dateParam) {
+        currentFilter = 'yesterday';
+        updatePillUI();
+      } else if (from && to) {
         currentFilter = 'custom';
         customStartDate = from;
         customEndDate = to;
@@ -1152,6 +1156,18 @@
         updatePillUI();
       } else if (tf === '7d' || tf === 'week') {
         currentFilter = '7d';
+        updatePillUI();
+      } else if (tf === 'all') {
+        currentFilter = 'all';
+        updatePillUI();
+      } else if (tf === 'net') {
+        currentFilter = 'net';
+        updatePillUI();
+      } else if (tf === 'collision') {
+        currentFilter = 'collision';
+        updatePillUI();
+      } else {
+        currentFilter = 'yesterday';
         updatePillUI();
       }
     }
@@ -1513,6 +1529,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date-from')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomRange();
+      });
+      document.getElementById('date-to')?.addEventListener('change', () => {
+        if (currentFilter === 'custom') applyCustomRange();
+      });
       loadData();
     });
   </script>
