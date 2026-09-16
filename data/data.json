@@ -48294,31 +48294,344 @@
     },
     "newUsers7d": 12167,
     "newUsersYesterday": 1750,
-    "activeSubs": 4755,
+    "activeSubs": 4748,
     "newSubs7d": 470,
     "subsEnding5d": 75,
     "subsExpired7d": 98,
     "subsExpiringToday": 14,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2416,
-    "activeSubNoOrder": 114,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 31,
-      "Orders Placed": 31,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - PLACED": 43,
+      "Orders Placed": 43,
+      "Orders - CONFIRMED": 36,
+      "Orders Confirmed": 36,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
       "Orders - SHIPPED": 15,
       "Orders Shipped": 15,
-      "Orders - Not Delivered": 74,
-      "Orders Not Delivered": 74
+      "Orders - Not Delivered": 94,
+      "Orders Not Delivered": 94
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 308,
+      "New Subscribers who have Ordered": 328,
       "New Subscribers Orders that have been Delivered": 234,
-      "New Subscribers Orders yet to be Delivered": 74,
-      "New Subscribers Orders yet to be Delivered & Delayed": 33
+      "New Subscribers Orders yet to be Delivered": 94,
+      "New Subscribers Orders yet to be Delivered & Delayed": 35
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "totalRevenue": 173694.86,
+    "salesCount": 20,
+    "transactions": 20,
+    "highestSale": {
+      "amount": 13573,
+      "agent": "Shubham Rai"
+    },
+    "agents": {
+      "Chhaya Patel": {
+        "revenue": 5756,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 17756,
+        "count": 2
+      },
+      "Jivesh Harde": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Neeru Yadav": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 3160,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 13376,
+        "count": 2
+      },
+      "Tanveer Ahmed": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Naveen Suwalka": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 17000,
+        "count": 2
+      },
+      "Shashank Tiwari": {
+        "revenue": 13000,
+        "count": 1
+      },
+      "Others": {
+        "revenue": 20376,
+        "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 13573,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Quarterly Max": {
+        "revenue": 26089,
+        "count": 5
+      },
+      "Annual Max": {
+        "revenue": 138285.86,
+        "count": 12
+      },
+      "Quarterly Plus": {
+        "revenue": 9320,
+        "count": 3
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 132245,
+        "count": 15
+      },
+      "Renewals": {
+        "revenue": 20752,
+        "count": 2
+      },
+      "Direct Sale": {
+        "revenue": 20697.86,
+        "count": 3
+      }
+    },
+    "userBreakdown": {
+      "signups": 2019,
+      "otpVerified": 1993,
+      "serviceable": 1327,
+      "serviceableWithPct": "1,327 (65.7%)",
+      "serviceablePct": "65.7%"
+    },
+    "directSaleCSV": {
+      "count": 7,
+      "revenue": 48942.86
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 20:54",
+        "customerName": "Himanshu Pundir",
+        "phone": "8802109142",
+        "agent": "Shubham Rai",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "TOYJOY",
+        "directUserId": "UR469153",
+        "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 16:40",
+        "customerName": "Prachi Shah",
+        "phone": "7801920502",
+        "agent": "Shivani Gupta",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR490230",
+        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 13:53",
+        "customerName": "JUNEDKHAN USMANGANI PATHAN",
+        "phone": "8141122753",
+        "agent": "Chhaya Patel",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR499769",
+        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 10:23",
+        "customerName": "mohini kushwah",
+        "phone": "8849837453",
+        "agent": "Honey Talreja",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR460988",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 20:54",
+        "customerName": "Himanshu Pundir",
+        "phone": "8802109142",
+        "agent": "Shubham Rai",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "TOYJOY",
+        "directUserId": "UR469153",
+        "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 16:40",
+        "customerName": "Prachi Shah",
+        "phone": "7801920502",
+        "agent": "Shivani Gupta",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR490230",
+        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 13:53",
+        "customerName": "JUNEDKHAN USMANGANI PATHAN",
+        "phone": "8141122753",
+        "agent": "Chhaya Patel",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR499769",
+        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-16",
+        "rawDate": "16/09/2026 10:23",
+        "customerName": "mohini kushwah",
+        "phone": "8849837453",
+        "agent": "Honey Talreja",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR460988",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
+      }
+    ],
+    "collidingTotal": {
+      "count": 4,
+      "revenue": 28245
+    },
+    "disputedTotal": {
+      "count": 4,
+      "revenue": 28245
+    },
+    "refunds": {
+      "count": 5,
+      "total": 62264,
+      "items": [
+        {
+          "refundId": "rfnd_TcbzIaZAmDWNdC",
+          "paymentId": "pay_TGCJMr43peJ8lf",
+          "amount": 10500,
+          "status": "processed",
+          "date": "16/09/2026 12:06:55"
+        },
+        {
+          "refundId": "rfnd_Tch1Zr3vOnIRRi",
+          "paymentId": "pay_TWj7gdLAKSUnjx",
+          "amount": 12216,
+          "status": "processed",
+          "date": "16/09/2026 17:02:32"
+        },
+        {
+          "refundId": "rfnd_Tchk6Rd6WE4A5s",
+          "paymentId": "pay_TR88EKdl9SvVyi",
+          "amount": 13573,
+          "status": "processed",
+          "date": "16/09/2026 17:44:42"
+        },
+        {
+          "refundId": "rfnd_TcjqFs4zzSczvh",
+          "paymentId": "pay_T9u5xPdy9agSXr",
+          "amount": 14975,
+          "status": "processed",
+          "date": "16/09/2026 19:47:54"
+        },
+        {
+          "refundId": "rfnd_TcjrG7ry3yXTDj",
+          "paymentId": "pay_TEzoI7jTlP3Rcl",
+          "amount": 11000,
+          "status": "processed",
+          "date": "16/09/2026 19:48:51"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 158877,
+      "count": 16
+    },
+    "newUsers7d": 12167,
+    "newUsersYesterday": 1750,
+    "activeSubs": 4748,
+    "newSubs7d": 470,
+    "subsEnding5d": 75,
+    "subsExpired7d": 98,
+    "subsExpiringToday": 14,
+    "planExpiringNoOrder": 1,
+    "planExpNoOrder": 2416,
+    "activeSubNoOrder": 113,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 43,
+      "Orders Placed": 43,
+      "Orders - CONFIRMED": 36,
+      "Orders Confirmed": 36,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 94,
+      "Orders Not Delivered": 94
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 328,
+      "New Subscribers Orders that have been Delivered": 234,
+      "New Subscribers Orders yet to be Delivered": 94,
+      "New Subscribers Orders yet to be Delivered & Delayed": 35
     },
     "selfUpgrade": {
       "totalCount": 0,
