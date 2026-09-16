@@ -47365,9 +47365,9 @@
     "userBreakdown": {
       "signups": 1228,
       "otpVerified": 1210,
-      "serviceable": 881,
-      "serviceableWithPct": "881 (71.7%)",
-      "serviceablePct": "71.7%"
+      "serviceable": 882,
+      "serviceableWithPct": "882 (71.8%)",
+      "serviceablePct": "71.8%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -48215,8 +48215,8 @@
       }
     },
     "userBreakdown": {
-      "signups": 2061,
-      "otpVerified": 2040,
+      "signups": 2060,
+      "otpVerified": 2039,
       "serviceable": 1383,
       "serviceableWithPct": "1,383 (67.1%)",
       "serviceablePct": "67.1%"
@@ -48294,31 +48294,31 @@
     },
     "newUsers7d": 12167,
     "newUsersYesterday": 1750,
-    "activeSubs": 4752,
+    "activeSubs": 4755,
     "newSubs7d": 470,
-    "subsEnding5d": 74,
+    "subsEnding5d": 75,
     "subsExpired7d": 98,
-    "subsExpiringToday": 13,
+    "subsExpiringToday": 14,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2416,
-    "activeSubNoOrder": 113,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 34,
-      "Orders Placed": 34,
-      "Orders - CONFIRMED": 26,
-      "Orders Confirmed": 26,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 19,
-      "Orders Shipped": 19,
-      "Orders - Not Delivered": 80,
-      "Orders Not Delivered": 80
+      "Orders - PLACED": 31,
+      "Orders Placed": 31,
+      "Orders - CONFIRMED": 28,
+      "Orders Confirmed": 28,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 74,
+      "Orders Not Delivered": 74
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 308,
-      "New Subscribers Orders that have been Delivered": 228,
-      "New Subscribers Orders yet to be Delivered": 80,
-      "New Subscribers Orders yet to be Delivered & Delayed": 35
+      "New Subscribers Orders that have been Delivered": 234,
+      "New Subscribers Orders yet to be Delivered": 74,
+      "New Subscribers Orders yet to be Delivered & Delayed": 33
     },
     "selfUpgrade": {
       "totalCount": 0,
