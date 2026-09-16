@@ -48294,7 +48294,7 @@
     },
     "newUsers7d": 12167,
     "newUsersYesterday": 1750,
-    "activeSubs": 4748,
+    "activeSubs": 4749,
     "newSubs7d": 470,
     "subsEnding5d": 75,
     "subsExpired7d": 98,
@@ -48420,9 +48420,9 @@
     "userBreakdown": {
       "signups": 2019,
       "otpVerified": 1993,
-      "serviceable": 1327,
-      "serviceableWithPct": "1,327 (65.7%)",
-      "serviceablePct": "65.7%"
+      "serviceable": 1328,
+      "serviceableWithPct": "1,328 (65.8%)",
+      "serviceablePct": "65.8%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -48607,7 +48607,7 @@
     },
     "newUsers7d": 12167,
     "newUsersYesterday": 1750,
-    "activeSubs": 4748,
+    "activeSubs": 4749,
     "newSubs7d": 470,
     "subsEnding5d": 75,
     "subsExpired7d": 98,
