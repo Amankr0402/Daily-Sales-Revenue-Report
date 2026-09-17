@@ -216,8 +216,14 @@ async function syncSalesData() {
     const isoDate = parseDate(rawDate);
     if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
+    const cleanPlan = plan || 'Annual Max';
+    const cleanSource = source || 'Organic';
+
     if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
-    if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
+    if (phone && phone.length >= 10) {
+      if (!sheetPhonesByDate[isoDate][phone]) sheetPhonesByDate[isoDate][phone] = [];
+      sheetPhonesByDate[isoDate][phone].push({ agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan: cleanPlan, source: cleanSource, count });
+    }
 
     if (!recordsByDate[isoDate]) {
       recordsByDate[isoDate] = {
@@ -251,13 +257,11 @@ async function syncSalesData() {
     day.agents[agent].count += count;
 
     // Plans
-    const cleanPlan = plan || 'Annual Max';
     if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
     day.plans[cleanPlan].revenue += rev;
     day.plans[cleanPlan].count += count;
 
     // Sources
-    const cleanSource = source || 'Organic';
     if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
     day.sources[cleanSource].revenue += rev;
     day.sources[cleanSource].count += count;
@@ -297,8 +301,14 @@ async function syncSalesData() {
       const isoDate = parseDate(rawDate);
       if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
+      const cleanPlan = plan || 'Annual Max';
+      const cleanSource = source || 'Organic';
+
       if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
-      if (phone && phone.length >= 10) sheetPhonesByDate[isoDate][phone] = { agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan, source };
+      if (phone && phone.length >= 10) {
+        if (!sheetPhonesByDate[isoDate][phone]) sheetPhonesByDate[isoDate][phone] = [];
+        sheetPhonesByDate[isoDate][phone].push({ agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan: cleanPlan, source: cleanSource, count });
+      }
 
       if (!recordsByDate[isoDate]) {
         recordsByDate[isoDate] = {
@@ -323,12 +333,10 @@ async function syncSalesData() {
       day.agents[agent].revenue += rev;
       day.agents[agent].count += count;
 
-      const cleanPlan = plan || 'Annual Max';
       if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
       day.plans[cleanPlan].revenue += rev;
       day.plans[cleanPlan].count += count;
 
-      const cleanSource = source || 'Organic';
       if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
       day.sources[cleanSource].revenue += rev;
       day.sources[cleanSource].count += count;
@@ -416,10 +424,12 @@ async function syncSalesData() {
       day.directSaleCSV.revenue += rev;
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
 
-      // Deduplicate & Dispute detection: If this customer's deal was already logged by an agent in Google Sheets on this date, record as Disputed Deal and skip from direct sale to avoid double counting!
-      if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate][phone]) {
-        const inside = sheetPhonesByDate[isoDate][phone];
+      // Deduplicate & Dispute detection: If this customer's deal was already logged by an agent in Google Sheets on this date:
+      // Exclude from Inside Sales (agent, source, plan), exclude from Direct Sales, and add to standalone Overlap Deals category!
+      if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate][phone] && sheetPhonesByDate[isoDate][phone].length > 0) {
+        const inside = sheetPhonesByDate[isoDate][phone].shift();
         const cleanPlan = formatDirectSalePlan(cols[4] || '', cols[5] || '') || inside.plan || 'Annual Max';
+        const insideCount = inside.count || 1;
         const disputedItem = {
           date: isoDate,
           rawDate: rawDate,
@@ -448,6 +458,38 @@ async function syncSalesData() {
         if (!day.disputedTotal) day.disputedTotal = { count: 0, revenue: 0 };
         day.disputedTotal.count += 1;
         day.disputedTotal.revenue += rev;
+
+        // 1. Deduct from Inside Sales Agent
+        if (inside.agent && day.agents[inside.agent]) {
+          day.agents[inside.agent].revenue = Math.max(0, day.agents[inside.agent].revenue - inside.revenue);
+          day.agents[inside.agent].count = Math.max(0, day.agents[inside.agent].count - insideCount);
+        }
+
+        // 2. Deduct from Inside Sales Source (e.g. Organic, Renewals, Upgrade)
+        const insideSrc = inside.source || 'Organic';
+        if (day.sources[insideSrc]) {
+          day.sources[insideSrc].revenue = Math.max(0, day.sources[insideSrc].revenue - inside.revenue);
+          day.sources[insideSrc].count = Math.max(0, day.sources[insideSrc].count - insideCount);
+        }
+
+        // 3. Deduct from Inside Sales Plan
+        const insidePlan = inside.plan || 'Annual Max';
+        if (day.plans[insidePlan]) {
+          day.plans[insidePlan].revenue = Math.max(0, day.plans[insidePlan].revenue - inside.revenue);
+          day.plans[insidePlan].count = Math.max(0, day.plans[insidePlan].count - insideCount);
+        }
+
+        // 4. Add to standalone Overlap Deals Source
+        if (!day.sources['Overlap Deals']) {
+          day.sources['Overlap Deals'] = { revenue: 0, count: 0 };
+        }
+        day.sources['Overlap Deals'].revenue += rev;
+        day.sources['Overlap Deals'].count += 1;
+
+        // 5. Total Revenue & Sales Count adjustment
+        // Replace inside.revenue with verified portal overlap revenue 'rev'
+        day.totalRevenue = (day.totalRevenue - inside.revenue) + rev;
+        day.salesCount = (day.salesCount - insideCount) + 1;
 
         allDisputedDeals.push(disputedItem);
         continue;

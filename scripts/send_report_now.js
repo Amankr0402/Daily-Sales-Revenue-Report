@@ -109,7 +109,8 @@ function buildEmailHtml(allData) {
     Upgrade: '#06b6d4',
     'Self Subscription': '#8b5cf6',
     'Direct Sale': '#ec4899',
-    'Self Upgrade': '#8b5cf6'
+    'Self Upgrade': '#8b5cf6',
+    'Overlap Deals': '#f59e0b'
   };
   const SRC_L = {
     Organic: '🤝 Inside Sales',
@@ -118,7 +119,8 @@ function buildEmailHtml(allData) {
     Upgrade: '⬆️ Upgrades',
     'Self Subscription': '📱 Self Sub',
     'Direct Sale': '🛍️ Direct Sale',
-    'Self Upgrade': '🚀 Self Upgrade'
+    'Self Upgrade': '🚀 Self Upgrade',
+    'Overlap Deals': '🔄 Overlap Deals'
   };
 
   const sourcesList = Object.entries(yd.sources || {}).sort((a, b) => b[1].revenue - a[1].revenue);

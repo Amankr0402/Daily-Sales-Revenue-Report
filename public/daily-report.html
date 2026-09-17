@@ -616,17 +616,19 @@ async function init() {
     document.getElementById('total-rev-sub').textContent = (yd.salesCount||0) + ' deals across all channels';
     const sg = document.getElementById('src-grid');
     let sgHtml = '';
+    let overlapPillRendered = false;
+
     Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
       if (src === 'Direct Sale') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=net&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
-        // Overlap Deals KPI pill (deals in both Inside Sales & Direct Sales)
-        const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
+      } else if (src === 'Overlap Deals') {
+        overlapPillRendered = true;
         const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
         const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
-        const dispTooltip = disp.count > 0
-          ? 'Overlap: ' + disp.count + ' deals logged by inside agents & completed online. Click to open Overlap Deals Table.'
+        const dispTooltip = d.count > 0
+          ? 'Overlap: ' + d.count + ' deals logged by inside agents & completed online. Excluded from Net Inside & Net Direct. Click to open Overlap Deals Table.'
           : '0 Overlap Deals on this date. Click to view full overlap table.';
-        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (disp.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + (disp.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html' + (d.count > 0 ? '?date=' + yd.date : '') + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="' + dispTooltip + '"><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(d.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + (d.count > 0 ? ': ' + dispNames : '') + '</div></div></div>';
       } else if (src === 'Organic') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;inside-sales-details.html?filter=yesterday&source=Organic&apos;, &apos;_blank&apos;)" style="cursor:pointer;transition:all 0.2s ease;" title="Click to view Inside Sales deal details in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       } else if (src === 'Renewals') {
@@ -639,6 +641,16 @@ async function init() {
         sgHtml += '<div class="src-pill"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+'</div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       }
     });
+
+    // Fallback if Overlap Deals was not in sources array
+    if (!overlapPillRendered) {
+      const disp = yd.disputedTotal || yd.collidingTotal || { count: 0, revenue: 0 };
+      if (disp.count > 0 || disp.revenue > 0) {
+        const dispDeals = yd.disputedDeals || yd.collidingDeals || [];
+        const dispNames = dispDeals.map(cd => (cd.customerName || 'Customer') + ' (' + fmt(cd.insideRevenue || cd.revenue) + ')').join(', ');
+        sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;disputed-sales-details.html?date=' + yd.date + '&apos;, &apos;_blank&apos;)" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); cursor: pointer; transition: all 0.2s ease;" title="Overlap: ' + disp.count + ' deals. Click to open Overlap Deals Table."><div class="src-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b88"></div><div><div class="src-name">🔄 Overlap Deals <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">' + fmt(disp.revenue) + '</div><div class="src-cnt" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px" title="' + (dispNames || '0 deals') + '">' + disp.count + ' deal' + (disp.count !== 1 ? 's' : '') + ': ' + dispNames + '</div></div></div>';
+      }
+    }
 
     // 4. Delivery Fee (if any)
     if (yd.deliveryFee && yd.deliveryFee.total > 0) {
@@ -689,6 +701,7 @@ async function init() {
     function calcPeriodSums(items) {
       let insideRev = 0, insideCnt = 0;
       let directRev = 0, directCnt = 0;
+      let overlapRev = 0, overlapCnt = 0;
       let delFeeRev = 0, totalRev = 0, totalCnt = 0;
       items.forEach(d => {
         let dayIns = 0, dayInsCnt = 0;
@@ -700,18 +713,22 @@ async function init() {
         });
         const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
         const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+        const dOverlap = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].revenue) || (d.disputedTotal && d.disputedTotal.revenue) || 0;
+        const dOverlapCnt = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].count) || (d.disputedTotal && d.disputedTotal.count) || 0;
         const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dTot = dayIns + dDir + dDel;
+        const dTot = dayIns + dDir + dOverlap + dDel;
 
         insideRev += dayIns;
         insideCnt += dayInsCnt;
         directRev += dDir;
         directCnt += dDirCnt;
+        overlapRev += dOverlap;
+        overlapCnt += dOverlapCnt;
         delFeeRev += dDel;
         totalRev += dTot;
         totalCnt += (d.salesCount || 0);
       });
-      return { insideRev, insideCnt, directRev, directCnt, delFeeRev, totalRev, totalCnt };
+      return { insideRev, insideCnt, directRev, directCnt, overlapRev, overlapCnt, delFeeRev, totalRev, totalCnt };
     }
 
     const wSums = calcPeriodSums(wData);
@@ -971,6 +988,9 @@ async function init() {
         netRefRow.onclick = function() { window.open('refunds-details.html?filter=yesterday&date=' + yd.date, '_blank'); };
       }
     }
+
+    const loadEl = document.getElementById('loading');
+    if (loadEl) loadEl.style.display = 'none';
   } catch(err) {
     document.getElementById('loading').innerHTML = '<div style="color:#f43f5e;font-size:14px;font-weight:700">⚠ Could not load data</div><div style="color:#8896b3;font-size:12px;margin-top:8px">'+err.message+'</div><div style="color:#8896b3;font-size:12px;margin-top:4px">Make sure server is running: npm start</div>';
   }
@@ -1016,6 +1036,8 @@ function openPeriodModal(type) {
   var totalDirectCnt = 0;
   var totalInsideRev = 0;
   var totalInsideCnt = 0;
+  var totalOverlapRev = 0;
+  var totalOverlapCnt = 0;
   var totalDelFeeRev = 0;
   var totalDelFeeCnt = 0;
 
@@ -1033,14 +1055,18 @@ function openPeriodModal(type) {
     });
     var dayDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
     var dayDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+    var dayOverlap = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].revenue) || (d.disputedTotal && d.disputedTotal.revenue) || 0;
+    var dayOverlapCnt = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].count) || (d.disputedTotal && d.disputedTotal.count) || 0;
     var dayDel = (d.deliveryFee && d.deliveryFee.total) || 0;
     var dayDelCnt = (d.deliveryFee && (d.deliveryFee.transactions || d.deliveryFee.count)) || 0;
-    var dayTot = dayIns + dayDir + dayDel;
+    var dayTot = dayIns + dayDir + dayOverlap + dayDel;
 
     totalInsideRev += dayIns;
     totalInsideCnt += dayInsCnt;
     totalDirectRev += dayDir;
     totalDirectCnt += dayDirCnt;
+    totalOverlapRev += dayOverlap;
+    totalOverlapCnt += dayOverlapCnt;
     totalDelFeeRev += dayDel;
     totalDelFeeCnt += dayDelCnt;
     totalRevenue += dayTot;
@@ -1082,6 +1108,11 @@ function openPeriodModal(type) {
       '<div class="pm-kpi-val" style="color: var(--blue);">' + fmt(totalDirectRev) + '</div>' +
       '<div class="pm-kpi-sub">' + totalDirectCnt + ' deals (' + (totalRevenue > 0 ? ((totalDirectRev / totalRevenue) * 100).toFixed(1) : 0) + '%)</div>' +
     '</div>' +
+    '<div class="pm-kpi-card" style="border-left: 4px solid #f59e0b;">' +
+      '<div class="pm-kpi-lbl">🔄 Overlap Deals</div>' +
+      '<div class="pm-kpi-val" style="color: #b45309;">' + fmt(totalOverlapRev) + '</div>' +
+      '<div class="pm-kpi-sub">' + totalOverlapCnt + ' deals (' + (totalRevenue > 0 ? ((totalOverlapRev / totalRevenue) * 100).toFixed(1) : 0) + '%)</div>' +
+    '</div>' +
     '<div class="pm-kpi-card" style="border-left: 4px solid var(--orange);">' +
       '<div class="pm-kpi-lbl">🚚 Delivery Fees</div>' +
       '<div class="pm-kpi-val" style="color: var(--orange);">' + fmt(totalDelFeeRev) + '</div>' +
@@ -1098,6 +1129,9 @@ function openPeriodModal(type) {
     '</a>' +
     '<a href="direct-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn">' +
       '🛍️ View Direct Sales Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
+    '</a>' +
+    '<a href="disputed-sales-details.html?from=' + startDate + '&to=' + endDate + '" target="_blank" class="pm-btn" style="border-color:#f59e0b;color:#b45309;background:#fffbeb;">' +
+      '🔄 View Overlap Deals (' + sd(startDate) + '–' + sd(endDate) + ') ↗' +
     '</a>' +
     '<a href="delivery-fee-details.html" target="_blank" class="pm-btn">' +
       '🚚 Delivery Fee Details ↗' +

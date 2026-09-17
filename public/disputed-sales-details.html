@@ -606,7 +606,7 @@
       <div class="alert-icon">⚠️</div>
       <div class="alert-content">
         <strong>Collision &amp; Overlap Accounting Rule:</strong> These transactions were recorded in <strong>both</strong> Inside Sales (Google Sheets by an agent) and completed online via Direct Sales (Metabase) on the same date for the same phone number.<br>
-        To prevent double-counting, each deal's revenue is <strong>included in Total Revenue exactly once</strong> via Inside Sales. Direct Sales skips adding it again, guaranteeing zero revenue collision.
+        To maintain strict attribution, each overlapping transaction is <strong>excluded from Net Inside Sales and Net Direct Sales</strong>, and tracked as a distinct <strong>Overlap Deals</strong> category in Total Revenue.
       </div>
     </section>
 
