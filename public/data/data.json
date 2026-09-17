@@ -47923,9 +47923,9 @@
     "userBreakdown": {
       "signups": 2783,
       "otpVerified": 2763,
-      "serviceable": 1763,
-      "serviceableWithPct": "1,763 (63.3%)",
-      "serviceablePct": "63.3%"
+      "serviceable": 1764,
+      "serviceableWithPct": "1,764 (63.4%)",
+      "serviceablePct": "63.4%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -48205,9 +48205,9 @@
     "userBreakdown": {
       "signups": 2060,
       "otpVerified": 2039,
-      "serviceable": 1383,
-      "serviceableWithPct": "1,383 (67.1%)",
-      "serviceablePct": "67.1%"
+      "serviceable": 1384,
+      "serviceableWithPct": "1,384 (67.2%)",
+      "serviceablePct": "67.2%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -48291,9 +48291,9 @@
   },
   {
     "date": "2026-09-16",
-    "totalRevenue": 173694.86,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 196910.86,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 13573,
       "agent": "Shubham Rai"
@@ -48304,8 +48304,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 17756,
-        "count": 2
+        "revenue": 28756,
+        "count": 3
       },
       "Jivesh Harde": {
         "revenue": 22000,
@@ -48346,6 +48346,10 @@
       "Shubham Rai": {
         "revenue": 13573,
         "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 12216,
+        "count": 1
       }
     },
     "plans": {
@@ -48354,8 +48358,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 138285.86,
-        "count": 12
+        "revenue": 161501.86,
+        "count": 14
       },
       "Quarterly Plus": {
         "revenue": 9320,
@@ -48364,8 +48368,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 132245,
-        "count": 15
+        "revenue": 155461,
+        "count": 17
       },
       "Renewals": {
         "revenue": 20752,
@@ -48566,8 +48570,8 @@
       "count": 16
     },
     "newUsers7d": 13105,
-    "newUsersYesterday": 1750,
-    "activeSubs": 4749,
+    "newUsersYesterday": 1759,
+    "activeSubs": 4748,
     "newSubs7d": 483,
     "subsEnding5d": 70,
     "subsExpired7d": 104,
@@ -48576,21 +48580,21 @@
     "planExpNoOrder": 2417,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 43,
-      "Orders Placed": 43,
-      "Orders - CONFIRMED": 36,
-      "Orders Confirmed": 36,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
-      "Orders - Not Delivered": 94,
-      "Orders Not Delivered": 94
+      "Orders - PLACED": 42,
+      "Orders Placed": 42,
+      "Orders - CONFIRMED": 30,
+      "Orders Confirmed": 30,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 18,
+      "Orders Shipped": 18,
+      "Orders - Not Delivered": 91,
+      "Orders Not Delivered": 91
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 328,
-      "New Subscribers Orders that have been Delivered": 234,
-      "New Subscribers Orders yet to be Delivered": 94,
+      "New Subscribers Orders that have been Delivered": 237,
+      "New Subscribers Orders yet to be Delivered": 91,
       "New Subscribers Orders yet to be Delivered & Delayed": 35
     },
     "selfUpgrade": {
