@@ -47212,22 +47212,10 @@
         "count": 3
       }
     },
-    "userBreakdown": {
-      "signups": 1077,
-      "otpVerified": 1041,
-      "serviceable": 749,
-      "serviceableWithPct": "749 (69.5%)",
-      "serviceablePct": "69.5%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 3,
       "revenue": 25085
-    },
-    "deliveryFee": {
-      "transactions": 2,
-      "charge": 200,
-      "tax": 36,
-      "total": 236
     },
     "refunds": {
       "count": 2,
@@ -48267,7 +48255,6 @@
       "count": 1,
       "revenue": 14055
     },
-    "missedLeads": {},
     "refunds": {
       "count": 2,
       "total": 13479,
@@ -48291,34 +48278,6 @@
     "refundsLast7Days": {
       "total": 111363,
       "count": 13
-    },
-    "newUsers7d": 12167,
-    "newUsersYesterday": 1750,
-    "activeSubs": 4749,
-    "newSubs7d": 470,
-    "subsEnding5d": 75,
-    "subsExpired7d": 98,
-    "subsExpiringToday": 14,
-    "planExpiringNoOrder": 1,
-    "planExpNoOrder": 2416,
-    "activeSubNoOrder": 113,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 43,
-      "Orders Placed": 43,
-      "Orders - CONFIRMED": 36,
-      "Orders Confirmed": 36,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
-      "Orders - Not Delivered": 94,
-      "Orders Not Delivered": 94
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 328,
-      "New Subscribers Orders that have been Delivered": 234,
-      "New Subscribers Orders yet to be Delivered": 94,
-      "New Subscribers Orders yet to be Delivered & Delayed": 35
     },
     "selfUpgrade": {
       "totalCount": 0,
@@ -48560,6 +48519,7 @@
       "count": 4,
       "revenue": 28245
     },
+    "missedLeads": {},
     "refunds": {
       "count": 5,
       "total": 62264,
@@ -48605,16 +48565,16 @@
       "total": 158877,
       "count": 16
     },
-    "newUsers7d": 12167,
+    "newUsers7d": 13105,
     "newUsersYesterday": 1750,
     "activeSubs": 4749,
-    "newSubs7d": 470,
-    "subsEnding5d": 75,
-    "subsExpired7d": 98,
-    "subsExpiringToday": 14,
+    "newSubs7d": 483,
+    "subsEnding5d": 70,
+    "subsExpired7d": 104,
+    "subsExpiringToday": 5,
     "planExpiringNoOrder": 1,
-    "planExpNoOrder": 2416,
-    "activeSubNoOrder": 113,
+    "planExpNoOrder": 2417,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 43,
       "Orders Placed": 43,
