@@ -625,10 +625,10 @@ async function syncSalesData() {
       }
     }
 
-    // Attach to yesterday
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yyyymmdd = yesterday.toISOString().split('T')[0];
+    // Attach to yesterday (IST-based, not UTC)
+    const _istNowMs = Date.now() + (5.5 * 60 * 60 * 1000);
+    const _istYest = new Date(_istNowMs - (24 * 60 * 60 * 1000));
+    const yyyymmdd = `${_istYest.getUTCFullYear()}-${String(_istYest.getUTCMonth() + 1).padStart(2, '0')}-${String(_istYest.getUTCDate()).padStart(2, '0')}`;
     const targetKey = recordsByDate[yyyymmdd] ? yyyymmdd : Object.keys(recordsByDate).sort().slice(-1)[0];
     if (targetKey) {
       recordsByDate[targetKey].missedLeads = missedLeads;
@@ -733,17 +733,11 @@ async function syncSalesData() {
 
   function getTargetDays(days) {
     const dates = new Set();
-    const d1 = new Date();
-    d1.setDate(d1.getDate() - 1);
-    dates.add(d1.toISOString().split('T')[0]);
-
-    const now = Date.now();
-    const ist = new Date(now + (5.5 * 60 * 60 * 1000));
-    ist.setDate(ist.getDate() - 1);
-    const y = ist.getUTCFullYear();
-    const m = String(ist.getUTCMonth() + 1).padStart(2, '0');
-    const d = String(ist.getUTCDate()).padStart(2, '0');
-    dates.add(`${y}-${m}-${d}`);
+    // Always use IST for "yesterday" so GitHub Actions (UTC) picks the right date
+    const istNowMs = Date.now() + (5.5 * 60 * 60 * 1000);
+    const istYest = new Date(istNowMs - (24 * 60 * 60 * 1000));
+    const istYestStr = `${istYest.getUTCFullYear()}-${String(istYest.getUTCMonth() + 1).padStart(2, '0')}-${String(istYest.getUTCDate()).padStart(2, '0')}`;
+    dates.add(istYestStr);
 
     const withSales = days.filter(x => (x.salesCount || 0) > 0 || (x.totalRevenue || 0) > 0);
     if (withSales.length > 0) {
