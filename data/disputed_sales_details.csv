@@ -1,4 +1,7 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-18","Umesh Sharma","8866829987","Kausturi Roy Chowdhury",13573,12960.86,"Annual Max","Organic","GANESHA","UR467379","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹13573 and also completed on Direct Portal for ₹12960.86"
+"2026-09-18","Mrinmayee Marathe","9920480616","Vikas Poonia",3160,3160,"Quarterly Plus","Renewals","FUNDEAL","UR50358","Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
+"2026-09-18","viraj rawat","8390982584","Kush Shah",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR281244","Logged by Inside Sales agent (Kush Shah) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-09-17","varun adlakha","9718702544","Shubham Rai",13573,13573,"Annual Max","Organic","GANESHA","UR450668","Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-16","Himanshu Pundir","8802109142","Shubham Rai",13573,13573,"Annual Max","Organic","TOYJOY","UR469153","Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-16","Prachi Shah","7801920502","Shivani Gupta",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR490230","Logged by Inside Sales agent (Shivani Gupta) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -10,7 +13,7 @@ date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_
 "2026-09-12","Ritu Rathi","8930392726","Rohit Jain",6000,6017,"Quarterly Ultra","Organic","MANSI40","UR494650","Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
 "2026-09-08","Parth Panchal","8866602409","Preyashi Roy",12960,12960.86,"Annual Max","Organic","TOYJOY","UR418329","Logged by Inside Sales agent (Preyashi Roy) for ₹12960 and also completed on Direct Portal for ₹12960.86"
 "2026-09-08","priyanka pandey","7010676608","Rani Singh",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR463258","Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
-"2026-09-07","Dolly","8743942205","Kush Shah",4500,5756,"Quarterly Max","Organic","FUNDEAL","UR453886","Logged by Inside Sales agent (Kush Shah) for ₹4500 and also completed on Direct Portal for ₹5756"
+"2026-09-07","Dolly","8743942205","Kush Shah",5657,5756,"Quarterly Max","Organic","FUNDEAL","UR453886","Logged by Inside Sales agent (Kush Shah) for ₹5657 and also completed on Direct Portal for ₹5756"
 "2026-09-07","priyanka sharma","9940362320","Rani Singh",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR457830","Logged by Inside Sales agent (Rani Singh) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-09-06","Arun Kumar","9899439001","Sneha Anand",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR487555","Logged by Inside Sales agent (Sneha Anand) for ₹5756 and also completed on Direct Portal for ₹5756"
 "2026-09-05","Savy Garg","9463762850","Neeru Yadav",12216,12216,"Annual Max","Organic","KRISHNA40","UR487725","Logged by Inside Sales agent (Neeru Yadav) for ₹12216 and also completed on Direct Portal for ₹12216"
