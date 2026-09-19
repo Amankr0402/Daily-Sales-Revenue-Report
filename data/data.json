@@ -49419,22 +49419,22 @@
     "planExpNoOrder": 2417,
     "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 51,
-      "Orders Placed": 51,
+      "Orders - PLACED": 50,
+      "Orders Placed": 50,
       "Orders - CONFIRMED": 36,
       "Orders Confirmed": 36,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
       "Orders - SHIPPED": 10,
       "Orders Shipped": 10,
-      "Orders - Not Delivered": 97,
-      "Orders Not Delivered": 97
+      "Orders - Not Delivered": 96,
+      "Orders Not Delivered": 96
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 391,
-      "New Subscribers Orders that have been Delivered": 294,
-      "New Subscribers Orders yet to be Delivered": 97,
-      "New Subscribers Orders yet to be Delivered & Delayed": 38
+      "New Subscribers Orders that have been Delivered": 295,
+      "New Subscribers Orders yet to be Delivered": 96,
+      "New Subscribers Orders yet to be Delivered & Delayed": 37
     },
     "selfUpgrade": {
       "totalCount": 0,
