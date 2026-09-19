@@ -1,4 +1,8 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-19","Priti","9999779590","Rohit Jain",10500,10500,"Annual Max","Organic","AKMAXSPECIAL2026","UR496863","Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+"2026-09-19","Amit Varma","9971161141","Rohit Jain",10500,10500,"Annual Max","Organic","AKMAXSPECIAL2026","UR508118","Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+"2026-09-19","vatsal rastogi","7032809002","Yuvraj Singh Dodiya",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR457863","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
+"2026-09-19","mohi seth","8959969999","Vikas Poonia",4477,4477,"Quarterly Max","Renewals","FUNDEAL","UR220852","Logged by Inside Sales agent (Vikas Poonia) for ₹4477 and also completed on Direct Portal for ₹4477"
 "2026-09-18","Umesh Sharma","8866829987","Kausturi Roy Chowdhury",13573,12960.86,"Annual Max","Organic","GANESHA","UR467379","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹13573 and also completed on Direct Portal for ₹12960.86"
 "2026-09-18","Mrinmayee Marathe","9920480616","Vikas Poonia",3160,3160,"Quarterly Plus","Renewals","FUNDEAL","UR50358","Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-09-18","viraj rawat","8390982584","Kush Shah",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR281244","Logged by Inside Sales agent (Kush Shah) for ₹3160 and also completed on Direct Portal for ₹3160"

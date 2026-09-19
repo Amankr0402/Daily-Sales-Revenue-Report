@@ -49108,11 +49108,6 @@
       "count": 3,
       "revenue": 19280.86
     },
-    "missedLeads": {
-      "Connected": 386,
-      "Interested": 139,
-      "Paise Dega": 27
-    },
     "refundsLast7Days": {
       "total": 183753,
       "count": 18
@@ -49122,9 +49117,299 @@
       "total": 0,
       "items": []
     },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-09-19",
+    "totalRevenue": 294406.54,
+    "salesCount": 31,
+    "transactions": 31,
+    "highestSale": {
+      "amount": 22441.54,
+      "agent": "Rahul goyal"
+    },
+    "agents": {
+      "Kush Shah": {
+        "revenue": 37500,
+        "count": 4
+      },
+      "Shubham Rai": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Abhijeet Mathur": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 33100,
+        "count": 4
+      },
+      "Vikas Poonia": {
+        "revenue": 45128,
+        "count": 4
+      },
+      "Honey Talreja": {
+        "revenue": 4577,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 17000,
+        "count": 2
+      },
+      "Shashank Tiwari": {
+        "revenue": 7200,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Rohit Jain": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Vivek Shah": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Ishika Gorle": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Sneha Anand": {
+        "revenue": 5500,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 201901,
+        "count": 18
+      },
+      "Quarterly Max": {
+        "revenue": 33331,
+        "count": 7
+      },
+      "Ultra Quarterly": {
+        "revenue": 5500,
+        "count": 1
+      },
+      "Ultra Annually": {
+        "revenue": 22441.54,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 148177,
+        "count": 16
+      },
+      "Renewals": {
+        "revenue": 45128,
+        "count": 4
+      },
+      "Upgrade": {
+        "revenue": 12700,
+        "count": 2
+      },
+      "Events": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 45168.54,
+        "count": 4
+      },
+      "Overlap Deals": {
+        "revenue": 31233,
+        "count": 4
+      }
+    },
+    "userBreakdown": {
+      "signups": 1790,
+      "otpVerified": 1781,
+      "serviceable": 1484,
+      "serviceableWithPct": "1,484 (82.9%)",
+      "serviceablePct": "82.9%"
+    },
+    "directSaleCSV": {
+      "count": 8,
+      "revenue": 76401.54000000001
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 19:15",
+        "customerName": "Priti",
+        "phone": "9999779590",
+        "agent": "Rohit Jain",
+        "insideRevenue": 10500,
+        "revenue": 10500,
+        "directRevenue": 10500,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKMAXSPECIAL2026",
+        "directUserId": "UR496863",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 16:55",
+        "customerName": "Amit Varma",
+        "phone": "9971161141",
+        "agent": "Rohit Jain",
+        "insideRevenue": 10500,
+        "revenue": 10500,
+        "directRevenue": 10500,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKMAXSPECIAL2026",
+        "directUserId": "UR508118",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 16:23",
+        "customerName": "vatsal rastogi",
+        "phone": "7032809002",
+        "agent": "Yuvraj Singh Dodiya",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR457863",
+        "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 14:14",
+        "customerName": "mohi seth",
+        "phone": "8959969999",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 4477,
+        "revenue": 4477,
+        "directRevenue": 4477,
+        "plan": "Quarterly Max",
+        "source": "Renewals",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR220852",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹4477 and also completed on Direct Portal for ₹4477"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 19:15",
+        "customerName": "Priti",
+        "phone": "9999779590",
+        "agent": "Rohit Jain",
+        "insideRevenue": 10500,
+        "revenue": 10500,
+        "directRevenue": 10500,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKMAXSPECIAL2026",
+        "directUserId": "UR496863",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 16:55",
+        "customerName": "Amit Varma",
+        "phone": "9971161141",
+        "agent": "Rohit Jain",
+        "insideRevenue": 10500,
+        "revenue": 10500,
+        "directRevenue": 10500,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKMAXSPECIAL2026",
+        "directUserId": "UR508118",
+        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 16:23",
+        "customerName": "vatsal rastogi",
+        "phone": "7032809002",
+        "agent": "Yuvraj Singh Dodiya",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR457863",
+        "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 14:14",
+        "customerName": "mohi seth",
+        "phone": "8959969999",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 4477,
+        "revenue": 4477,
+        "directRevenue": 4477,
+        "plan": "Quarterly Max",
+        "source": "Renewals",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR220852",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹4477 and also completed on Direct Portal for ₹4477"
+      }
+    ],
+    "collidingTotal": {
+      "count": 4,
+      "revenue": 31233
+    },
+    "disputedTotal": {
+      "count": 4,
+      "revenue": 31233
+    },
+    "missedLeads": {
+      "Connected": 396,
+      "Interested": 139,
+      "Paise Dega": 27
+    },
+    "refunds": {
+      "count": 1,
+      "total": 10103.5,
+      "items": [
+        {
+          "refundId": "rfnd_Tdn8RqhTfsNzec",
+          "paymentId": "pay_TK6vOqR7WlJVoS",
+          "amount": 10103.5,
+          "status": "processed",
+          "date": "19/09/2026 11:40:13"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 125722.5,
+      "count": 11
+    },
     "newUsers7d": 11586,
     "newUsersYesterday": 237,
-    "activeSubs": 4808,
+    "activeSubs": 4806,
     "newSubs7d": 482,
     "teleCrmLeads": 446,
     "subsEnding5d": 75,
@@ -49132,23 +49417,23 @@
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2417,
-    "activeSubNoOrder": 114,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 37,
-      "Orders Placed": 37,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - PLACED": 51,
+      "Orders Placed": 51,
+      "Orders - CONFIRMED": 36,
+      "Orders Confirmed": 36,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 11,
-      "Orders Shipped": 11,
-      "Orders - Not Delivered": 76,
-      "Orders Not Delivered": 76
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 97,
+      "Orders Not Delivered": 97
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 369,
-      "New Subscribers Orders that have been Delivered": 293,
-      "New Subscribers Orders yet to be Delivered": 76,
+      "New Subscribers who have Ordered": 391,
+      "New Subscribers Orders that have been Delivered": 294,
+      "New Subscribers Orders yet to be Delivered": 97,
       "New Subscribers Orders yet to be Delivered & Delayed": 38
     },
     "selfUpgrade": {
@@ -49158,7 +49443,34 @@
       "coupon40Revenue": 0,
       "otherCount": 0,
       "otherRevenue": 0,
-      "deals": []
+      "deals": [
+        {
+          "userId": "UR250290",
+          "parent": "bhagawan",
+          "phone": "9650036324",
+          "oldPlan": "play-max-quarterly",
+          "oldPaid": 5756,
+          "newPlan": "play-max-annually",
+          "newPaid": 7200,
+          "coupon": "DISCOUNT40",
+          "paid": 7200,
+          "isCoupon40": true,
+          "inSecondarySheet": true
+        },
+        {
+          "userId": "UR14283",
+          "parent": "Siddharth",
+          "phone": "9913424324",
+          "oldPlan": "garden-monthly",
+          "oldPaid": 0,
+          "newPlan": "play-max-quarterly",
+          "newPaid": 5100,
+          "coupon": "",
+          "paid": 5100,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
     }
   }
 ]
