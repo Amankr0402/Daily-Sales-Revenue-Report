@@ -49591,7 +49591,7 @@
     },
     "missedLeads": {
       "Connected": 437,
-      "Interested": 117,
+      "Interested": 118,
       "Paise Dega": 25
     },
     "refundsLast7Days": {
@@ -49630,7 +49630,7 @@
       "New Subscribers who have Ordered": 418,
       "New Subscribers Orders that have been Delivered": 307,
       "New Subscribers Orders yet to be Delivered": 111,
-      "New Subscribers Orders yet to be Delivered & Delayed": 45
+      "New Subscribers Orders yet to be Delivered & Delayed": 46
     },
     "selfUpgrade": {
       "totalCount": 0,
