@@ -49239,8 +49239,8 @@
     "userBreakdown": {
       "signups": 1789,
       "otpVerified": 1780,
-      "serviceable": 1486,
-      "serviceableWithPct": "1,486 (83.1%)",
+      "serviceable": 1487,
+      "serviceableWithPct": "1,487 (83.1%)",
       "serviceablePct": "83.1%"
     },
     "directSaleCSV": {
@@ -49380,9 +49380,9 @@
       "revenue": 31233
     },
     "missedLeads": {
-      "Connected": 445,
-      "Interested": 199,
-      "Paise Dega": 40
+      "Connected": 436,
+      "Interested": 116,
+      "Paise Dega": 27
     },
     "refunds": {
       "count": 1,
@@ -49403,15 +49403,15 @@
     },
     "newUsers7d": 11923,
     "newUsersYesterday": 1775,
-    "activeSubs": 4811,
+    "activeSubs": 4818,
     "newSubs7d": 481,
     "teleCrmLeads": 2536,
     "subsEnding5d": 79,
     "subsExpired7d": 110,
-    "subsExpiringToday": 17,
+    "subsExpiringToday": 16,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2417,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 117,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 43,
       "Orders Placed": 43,
@@ -49428,7 +49428,7 @@
       "New Subscribers who have Ordered": 391,
       "New Subscribers Orders that have been Delivered": 305,
       "New Subscribers Orders yet to be Delivered": 86,
-      "New Subscribers Orders yet to be Delivered & Delayed": 37
+      "New Subscribers Orders yet to be Delivered & Delayed": 42
     },
     "selfUpgrade": {
       "totalCount": 0,
