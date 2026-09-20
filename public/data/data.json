@@ -49379,11 +49379,6 @@
       "count": 4,
       "revenue": 31233
     },
-    "missedLeads": {
-      "Connected": 437,
-      "Interested": 117,
-      "Paise Dega": 25
-    },
     "refunds": {
       "count": 1,
       "total": 10103.5,
@@ -49400,35 +49395,6 @@
     "refundsLast7Days": {
       "total": 125722.5,
       "count": 11
-    },
-    "newUsers7d": 11923,
-    "newUsersYesterday": 1775,
-    "activeSubs": 4819,
-    "newSubs7d": 481,
-    "teleCrmLeads": 2536,
-    "subsEnding5d": 79,
-    "subsExpired7d": 110,
-    "subsExpiringToday": 16,
-    "planExpiringNoOrder": 3,
-    "planExpNoOrder": 2417,
-    "activeSubNoOrder": 116,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 43,
-      "Orders Placed": 43,
-      "Orders - CONFIRMED": 30,
-      "Orders Confirmed": 30,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
-      "Orders - Not Delivered": 86,
-      "Orders Not Delivered": 85
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 391,
-      "New Subscribers Orders that have been Delivered": 305,
-      "New Subscribers Orders yet to be Delivered": 86,
-      "New Subscribers Orders yet to be Delivered & Delayed": 45
     },
     "selfUpgrade": {
       "totalCount": 0,
@@ -49461,6 +49427,229 @@
           "newPaid": 5100,
           "coupon": "",
           "paid": 5100,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-20",
+    "totalRevenue": 237292,
+    "salesCount": 27,
+    "transactions": 27,
+    "highestSale": {
+      "amount": 12000,
+      "agent": "Prerak Bhavsar"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 39000,
+        "count": 4
+      },
+      "Sneha Anand": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 10256,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 18000,
+        "count": 2
+      },
+      "Vivek Shah": {
+        "revenue": 33000,
+        "count": 3
+      },
+      "Shubham Rai": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Naveen Suwalka": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Abhijeet Mathur": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shashank Tiwari": {
+        "revenue": 15500,
+        "count": 2
+      },
+      "Shivani Gupta": {
+        "revenue": 15376,
+        "count": 2
+      },
+      "Chhaya Patel": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 199376,
+        "count": 19
+      },
+      "Quarterly Max": {
+        "revenue": 34756,
+        "count": 7
+      },
+      "Quarterly Plus": {
+        "revenue": 0,
+        "count": 0
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 194376,
+        "count": 21
+      },
+      "Events": {
+        "revenue": 34000,
+        "count": 4
+      },
+      "Renewals": {
+        "revenue": 5756,
+        "count": 1
+      },
+      "Overlap Deals": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 1364,
+      "otpVerified": 1355,
+      "serviceable": 1100,
+      "serviceableWithPct": "1,100 (80.6%)",
+      "serviceablePct": "80.6%"
+    },
+    "directSaleCSV": {
+      "count": 1,
+      "revenue": 3160
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-20",
+        "rawDate": "20/09/2026 14:25",
+        "customerName": "Rumana",
+        "phone": "9019573003",
+        "agent": "Honey Talreja",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR499750",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-20",
+        "rawDate": "20/09/2026 14:25",
+        "customerName": "Rumana",
+        "phone": "9019573003",
+        "agent": "Honey Talreja",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR499750",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 3160
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 3160
+    },
+    "missedLeads": {
+      "Connected": 437,
+      "Interested": 117,
+      "Paise Dega": 25
+    },
+    "refundsLast7Days": {
+      "total": 125722.5,
+      "count": 11
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "newUsers7d": 11923,
+    "newUsersYesterday": 1775,
+    "activeSubs": 4815,
+    "newSubs7d": 481,
+    "teleCrmLeads": 2536,
+    "subsEnding5d": 79,
+    "subsExpired7d": 110,
+    "subsExpiringToday": 16,
+    "planExpiringNoOrder": 3,
+    "planExpNoOrder": 2417,
+    "activeSubNoOrder": 114,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 63,
+      "Orders Placed": 63,
+      "Orders - CONFIRMED": 37,
+      "Orders Confirmed": 37,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 111,
+      "Orders Not Delivered": 110
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 418,
+      "New Subscribers Orders that have been Delivered": 307,
+      "New Subscribers Orders yet to be Delivered": 111,
+      "New Subscribers Orders yet to be Delivered & Delayed": 45
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": [
+        {
+          "userId": "UR212746",
+          "parent": "Tejal",
+          "phone": "9987900494",
+          "oldPlan": "play-max-quarterly",
+          "oldPaid": 5756,
+          "newPlan": "play-max-quarterly",
+          "newPaid": 5756,
+          "coupon": "",
+          "paid": 5756,
           "isCoupon40": false,
           "inSecondarySheet": true
         }
