@@ -49380,9 +49380,9 @@
       "revenue": 31233
     },
     "missedLeads": {
-      "Connected": 436,
-      "Interested": 116,
-      "Paise Dega": 27
+      "Connected": 437,
+      "Interested": 117,
+      "Paise Dega": 25
     },
     "refunds": {
       "count": 1,
@@ -49403,7 +49403,7 @@
     },
     "newUsers7d": 11923,
     "newUsersYesterday": 1775,
-    "activeSubs": 4818,
+    "activeSubs": 4819,
     "newSubs7d": 481,
     "teleCrmLeads": 2536,
     "subsEnding5d": 79,
@@ -49411,7 +49411,7 @@
     "subsExpiringToday": 16,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2417,
-    "activeSubNoOrder": 117,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 43,
       "Orders Placed": 43,
@@ -49428,7 +49428,7 @@
       "New Subscribers who have Ordered": 391,
       "New Subscribers Orders that have been Delivered": 305,
       "New Subscribers Orders yet to be Delivered": 86,
-      "New Subscribers Orders yet to be Delivered & Delayed": 42
+      "New Subscribers Orders yet to be Delivered & Delayed": 45
     },
     "selfUpgrade": {
       "totalCount": 0,
