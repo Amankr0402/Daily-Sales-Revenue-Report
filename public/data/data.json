@@ -49751,7 +49751,7 @@
           "phone": "9573574126",
           "oldPlan": "play-plus-annually",
           "oldPaid": 12825,
-          "newPlan": "play-ultra-weekly",
+          "newPlan": "play-max-annually",
           "newPaid": 6876,
           "coupon": "DISCOUNT40",
           "paid": 6876,
@@ -50460,9 +50460,9 @@
       "revenue": 3160
     },
     "missedLeads": {
-      "Connected": 456,
-      "Interested": 181,
-      "Paise Dega": 30
+      "Connected": 435,
+      "Interested": 175,
+      "Paise Dega": 20
     },
     "refundsLast7Days": {
       "total": 125722.5,
@@ -50475,31 +50475,31 @@
     },
     "newUsers7d": 10493,
     "newUsersYesterday": 1210,
-    "activeSubs": 4817,
-    "newSubs7d": 182,
+    "activeSubs": 4815,
+    "newSubs7d": 180,
     "teleCrmLeads": 1536,
     "subsEnding5d": 75,
     "subsExpired7d": 109,
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2416,
-    "activeSubNoOrder": 110,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 47,
-      "Orders Placed": 47,
-      "Orders - CONFIRMED": 32,
-      "Orders Confirmed": 32,
+      "Orders - PLACED": 43,
+      "Orders Placed": 43,
+      "Orders - CONFIRMED": 35,
+      "Orders Confirmed": 35,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
-      "Orders - Not Delivered": 101,
-      "Orders Not Delivered": 101
+      "Orders - SHIPPED": 18,
+      "Orders Shipped": 18,
+      "Orders - Not Delivered": 97,
+      "Orders Not Delivered": 97
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 418,
-      "New Subscribers Orders that have been Delivered": 317,
-      "New Subscribers Orders yet to be Delivered": 101,
+      "New Subscribers who have Ordered": 417,
+      "New Subscribers Orders that have been Delivered": 320,
+      "New Subscribers Orders yet to be Delivered": 97,
       "New Subscribers Orders yet to be Delivered & Delayed": 48
     },
     "selfUpgrade": {
