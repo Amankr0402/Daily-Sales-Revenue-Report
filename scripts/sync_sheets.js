@@ -249,6 +249,7 @@ async function syncSalesData() {
     if (dealValue > day.highestSale.amount) {
       day.highestSale.amount = dealValue;
       day.highestSale.agent = agent || 'Unknown';
+      day.highestSale.source = 'Inside Sales';
     }
 
     // Agents
@@ -327,6 +328,7 @@ async function syncSalesData() {
       if (dealValue > day.highestSale.amount) {
         day.highestSale.amount = dealValue;
         day.highestSale.agent = agent;
+        day.highestSale.source = 'Inside Sales';
       }
 
       if (!day.agents[agent]) day.agents[agent] = { revenue: 0, count: 0 };
@@ -501,7 +503,8 @@ async function syncSalesData() {
 
       if (rev > day.highestSale.amount) {
         day.highestSale.amount = rev;
-        day.highestSale.agent = cols[1] || 'Unknown'; // User Name as agent for direct sale
+        day.highestSale.agent = 'Self Serve';
+        day.highestSale.source = 'Direct Sale';
       }
 
       const cleanSource = 'Direct Sale';
@@ -1352,7 +1355,8 @@ async function syncSalesData() {
                   if (dl.paid > (day.highestSale?.amount || 0)) {
                     day.highestSale = {
                       amount: dl.paid,
-                      agent: dl.parent || 'Self Upgrade'
+                      agent: 'Self Serve',
+                      source: 'Self Upgrade'
                     };
                   }
                 }

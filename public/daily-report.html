@@ -653,10 +653,15 @@ async function init() {
     document.getElementById('deals-closed').textContent = cnt + ' deals';
     document.getElementById('blended-aov').textContent = fmt(cnt>0?Math.round(rev/cnt):0);
     const dailyAg = Object.entries(yd.agents||{}).sort((a,b)=>b[1].revenue-a[1].revenue);
-    const ags = dailyAg.map(([n,d])=>({n,d,avg:d.count>0?d.revenue/d.count:0})).sort((a,b)=>b.avg-a.avg);
-    if(ags.length){
-      document.getElementById('highest-sale').textContent = fmt(ags[0].avg);
-      document.getElementById('highest-sale-sub').textContent = ags[0].n + ' · avg per deal';
+    if (yd.highestSale && yd.highestSale.amount > 0) {
+      const isAgent = yd.agents && yd.agents[yd.highestSale.agent];
+      const isDirect = yd.highestSale.agent === 'Self Serve' || yd.highestSale.source === 'Direct Sale' || yd.highestSale.source === 'Self Upgrade' || !isAgent;
+      const displayAgent = isDirect ? 'Self Serve' : yd.highestSale.agent;
+      document.getElementById('highest-sale').textContent = fmt(yd.highestSale.amount);
+      document.getElementById('highest-sale-sub').textContent = displayAgent + ' · single deal';
+    } else if (dailyAg.length) {
+      document.getElementById('highest-sale').textContent = fmt(dailyAg[0][1].revenue);
+      document.getElementById('highest-sale-sub').textContent = dailyAg[0][0] + ' · single deal';
     }
 
     // Initialize Podium with Last 1 Day

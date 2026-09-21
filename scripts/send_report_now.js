@@ -130,7 +130,11 @@ function buildEmailHtml(allData) {
 
   // Highest Sale
   const hsAmount = yd.highestSale?.amount ? fmt(yd.highestSale.amount) : '—';
-  const hsAgent = yd.highestSale?.agent ? `Closed by ${yd.highestSale.agent}` : '—';
+  const hsIsAgent = yd.agents && yd.agents[yd.highestSale?.agent];
+  const hsDisplay = (hsIsAgent || yd.highestSale?.source === 'Inside Sales')
+    ? `Closed by ${yd.highestSale.agent}`
+    : 'Self Serve';
+  const hsAgent = yd.highestSale?.agent ? hsDisplay : '—';
 
   // 3. Podium Ranking (Last 1 Day / Yesterday)
   const agentsMap = {};

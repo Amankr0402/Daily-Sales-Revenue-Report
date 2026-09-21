@@ -1959,11 +1959,14 @@
         // Highest sale yesterday
         const dailyAg = Object.entries(yd.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
         if (yd.highestSale && yd.highestSale.amount > 0) {
+          const isAgent = yd.agents && yd.agents[yd.highestSale.agent];
+          const isDirect = yd.highestSale.agent === 'Self Serve' || yd.highestSale.source === 'Direct Sale' || yd.highestSale.source === 'Self Upgrade' || !isAgent;
+          const displayAgent = isDirect ? 'Self Serve' : yd.highestSale.agent;
           document.getElementById('highest-sale').textContent = fmt(yd.highestSale.amount);
-          document.getElementById('highest-sale-sub').textContent = yd.highestSale.agent + ' · single deal';
+          document.getElementById('highest-sale-sub').textContent = displayAgent + ' · single deal';
         } else if (dailyAg.length) {
           document.getElementById('highest-sale').textContent = fmt(dailyAg[0][1].revenue);
-          document.getElementById('highest-sale-sub').textContent = dailyAg[0][0] + ' · yesterday';
+          document.getElementById('highest-sale-sub').textContent = dailyAg[0][0] + ' · single deal';
         }
 
         // Initialize Podium with Last 1 Day
