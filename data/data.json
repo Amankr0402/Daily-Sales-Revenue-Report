@@ -50459,11 +50459,6 @@
       "count": 1,
       "revenue": 3160
     },
-    "missedLeads": {
-      "Connected": 435,
-      "Interested": 175,
-      "Paise Dega": 20
-    },
     "refundsLast7Days": {
       "total": 125722.5,
       "count": 11
@@ -50472,35 +50467,6 @@
       "count": 0,
       "total": 0,
       "items": []
-    },
-    "newUsers7d": 10493,
-    "newUsersYesterday": 1210,
-    "activeSubs": 4815,
-    "newSubs7d": 180,
-    "teleCrmLeads": 1536,
-    "subsEnding5d": 75,
-    "subsExpired7d": 109,
-    "subsExpiringToday": 12,
-    "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2416,
-    "activeSubNoOrder": 112,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 43,
-      "Orders Placed": 43,
-      "Orders - CONFIRMED": 35,
-      "Orders Confirmed": 35,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
-      "Orders - Not Delivered": 97,
-      "Orders Not Delivered": 97
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 417,
-      "New Subscribers Orders that have been Delivered": 320,
-      "New Subscribers Orders yet to be Delivered": 97,
-      "New Subscribers Orders yet to be Delivered & Delayed": 48
     },
     "selfUpgrade": {
       "totalCount": 0,
@@ -50520,6 +50486,248 @@
           "newPaid": 5756,
           "coupon": "",
           "paid": 5756,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-21",
+    "totalRevenue": 234096,
+    "salesCount": 25,
+    "transactions": 25,
+    "highestSale": {
+      "amount": 13573,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 27198,
+        "count": 3
+      },
+      "Vivek Shah": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 16500,
+        "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 10500,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 5500,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 16000,
+        "count": 2
+      },
+      "Tanveer Ahmed": {
+        "revenue": 5500,
+        "count": 1
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shikha Singh": {
+        "revenue": 22000,
+        "count": 2
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 195573,
+        "count": 19
+      },
+      "Annual Plus": {
+        "revenue": 8146,
+        "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 20710,
+        "count": 4
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 165000,
+        "count": 17
+      },
+      "Renewals": {
+        "revenue": 15198,
+        "count": 2
+      },
+      "Upgrade": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 33231,
+        "count": 4
+      },
+      "Overlap Deals": {
+        "revenue": 9667,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 1139,
+      "otpVerified": 1130,
+      "serviceable": 872,
+      "serviceableWithPct": "872 (76.6%)",
+      "serviceablePct": "76.6%"
+    },
+    "directSaleCSV": {
+      "count": 5,
+      "revenue": 42898
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-21",
+        "rawDate": "21/09/2026 12:56",
+        "customerName": "Jinal Nandu",
+        "phone": "9833177702",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 9667,
+        "revenue": 9667,
+        "directRevenue": 9667,
+        "plan": "Annual Plus",
+        "source": "Organic",
+        "directOrderId": "TOYJOY40",
+        "directUserId": "UR383450",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹9667 and also completed on Direct Portal for ₹9667"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-21",
+        "rawDate": "21/09/2026 12:56",
+        "customerName": "Jinal Nandu",
+        "phone": "9833177702",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 9667,
+        "revenue": 9667,
+        "directRevenue": 9667,
+        "plan": "Annual Plus",
+        "source": "Organic",
+        "directOrderId": "TOYJOY40",
+        "directUserId": "UR383450",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹9667 and also completed on Direct Portal for ₹9667"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 9667
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 9667
+    },
+    "missedLeads": {
+      "Connected": 436,
+      "Interested": 174,
+      "Paise Dega": 20
+    },
+    "refunds": {
+      "count": 3,
+      "total": 35573,
+      "items": [
+        {
+          "refundId": "rfnd_Tegd97lATLYpLP",
+          "paymentId": "pay_TcM6LQmrzp2GZh",
+          "amount": 11000,
+          "status": "processed",
+          "date": "21/09/2026 17:57:25"
+        },
+        {
+          "refundId": "rfnd_TegeZIiHKmu8RG",
+          "paymentId": "pay_TaoGJVAG0dDvyL",
+          "amount": 11000,
+          "status": "processed",
+          "date": "21/09/2026 17:58:46"
+        },
+        {
+          "refundId": "rfnd_TegjniiuxEVqOj",
+          "paymentId": "pay_TckyTyOz3dmOV8",
+          "amount": 13573,
+          "status": "processed",
+          "date": "21/09/2026 18:03:43"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 146295.5,
+      "count": 13
+    },
+    "newUsers7d": 10493,
+    "newUsersYesterday": 1210,
+    "activeSubs": 4816,
+    "newSubs7d": 180,
+    "teleCrmLeads": 1600,
+    "subsEnding5d": 75,
+    "subsExpired7d": 109,
+    "subsExpiringToday": 12,
+    "planExpiringNoOrder": 4,
+    "planExpNoOrder": 2416,
+    "activeSubNoOrder": 112,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 58,
+      "Orders Placed": 58,
+      "Orders - CONFIRMED": 39,
+      "Orders Confirmed": 39,
+      "Orders - READY_TO_SHIP": 2,
+      "Orders Ready to Ship": 2,
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 112,
+      "Orders Not Delivered": 111
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 437,
+      "New Subscribers Orders that have been Delivered": 325,
+      "New Subscribers Orders yet to be Delivered": 112,
+      "New Subscribers Orders yet to be Delivered & Delayed": 47
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": [
+        {
+          "userId": "UR23326",
+          "parent": "Tammana",
+          "phone": "9493051105",
+          "oldPlan": "play-plus-annually",
+          "oldPaid": 7000,
+          "newPlan": "play-max-annually",
+          "newPaid": 3000,
+          "coupon": "",
+          "paid": 3000,
           "isCoupon40": false,
           "inSecondarySheet": true
         }
