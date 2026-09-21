@@ -49592,9 +49592,9 @@
       "revenue": 3160
     },
     "missedLeads": {
-      "Connected": 472,
-      "Interested": 187,
-      "Paise Dega": 34
+      "Connected": 456,
+      "Interested": 181,
+      "Paise Dega": 30
     },
     "refundsLast7Days": {
       "total": 125722.5,
@@ -49607,8 +49607,8 @@
     },
     "newUsers7d": 10493,
     "newUsersYesterday": 1210,
-    "activeSubs": 4819,
-    "newSubs7d": 486,
+    "activeSubs": 4817,
+    "newSubs7d": 182,
     "teleCrmLeads": 1536,
     "subsEnding5d": 75,
     "subsExpired7d": 109,
@@ -49617,22 +49617,22 @@
     "planExpNoOrder": 2416,
     "activeSubNoOrder": 111,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 52,
-      "Orders Placed": 52,
-      "Orders - CONFIRMED": 28,
-      "Orders Confirmed": 28,
+      "Orders - PLACED": 50,
+      "Orders Placed": 50,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 21,
       "Orders Shipped": 21,
-      "Orders - Not Delivered": 102,
-      "Orders Not Delivered": 102
+      "Orders - Not Delivered": 101,
+      "Orders Not Delivered": 101
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 418,
-      "New Subscribers Orders that have been Delivered": 316,
-      "New Subscribers Orders yet to be Delivered": 102,
-      "New Subscribers Orders yet to be Delivered & Delayed": 47
+      "New Subscribers Orders that have been Delivered": 317,
+      "New Subscribers Orders yet to be Delivered": 101,
+      "New Subscribers Orders yet to be Delivered & Delayed": 48
     },
     "selfUpgrade": {
       "totalCount": 0,
