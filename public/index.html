@@ -1540,20 +1540,6 @@
       </div>
     </div>
 
-    <!-- 8. PLAN DISTRIBUTION -->
-    <div class="sec-gap">
-      <div class="sec-title">🥧 Plan Distribution — Yesterday</div>
-      <div class="chart-card">
-        <div class="chart-title">Plan Mix by Deals</div>
-        <div class="plan-grid"
-          style="display:grid;grid-template-columns: 35% 65%; gap:40px; align-items:center; padding-left: 30px;">
-          <div style="position: relative; width: 100%; max-width: 240px; margin: 0 auto;">
-            <canvas id="planChart"></canvas>
-          </div>
-          <div id="plan-tbl" style="padding-right: 20px;"></div>
-        </div>
-      </div>
-    </div>
 
     <!-- 8. SALES TREND TABLE -->
     <div class="sec-gap">
@@ -2053,52 +2039,6 @@
         const mSums = calcPeriodSums(mData);
         document.getElementById('rev-month').textContent = fmt(mSums.totalRev);
         document.getElementById('rev-month-sub').textContent = `Inside: ${fmt(mSums.insideRev)} (${mSums.insideCnt}d) · Direct: ${fmt(mSums.directRev)} · Total: ${mSums.totalCnt} deals`;
-
-        // Plan pie
-        const plans = yd.plans || {};
-        const pLabels = Object.keys(plans);
-        const pCounts = pLabels.map(p => plans[p].count);
-        const pRevs = pLabels.map(p => plans[p].revenue);
-        const pTotal = pCounts.reduce((a, b) => a + b, 0);
-        const pTotalR = pRevs.reduce((a, b) => a + b, 0);
-        const centerTextPlugin = {
-          id: 'centerText',
-          beforeDraw: function (chart) {
-            if (chart.config.type !== 'doughnut') return;
-            var width = chart.width, height = chart.height, ctx = chart.ctx;
-            ctx.restore();
-            var fontSize = (height / 140).toFixed(2);
-            ctx.font = '900 ' + fontSize + 'em Inter';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = '#1e293b';
-            var text = pTotal + ' Deals',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 - 10;
-            ctx.fillText(text, textX, textY);
-
-            ctx.font = '700 ' + (fontSize * 0.55).toFixed(2) + 'em Inter';
-            ctx.fillStyle = '#64748b';
-            var text2 = fmt(pTotalR),
-              text2X = Math.round((width - ctx.measureText(text2).width) / 2),
-              text2Y = height / 2 + 12;
-            ctx.fillText(text2, text2X, text2Y);
-            ctx.save();
-          }
-        };
-
-        new Chart(document.getElementById('planChart'), {
-          type: 'doughnut',
-          data: { labels: pLabels, datasets: [{ data: pCounts, backgroundColor: pLabels.map((p, i) => PC[i % PC.length]), borderWidth: 2, borderColor: '#0f1630', hoverOffset: 6 }] },
-          options: {
-            responsive: true, cutout: '65%',
-            plugins: {
-              legend: { display: false },
-              tooltip: { callbacks: { label: function (ctx) { return ' ' + ctx.label + ': ' + ctx.parsed + ' (' + (pTotal > 0 ? ((ctx.parsed / pTotal) * 100).toFixed(1) : 0) + '%)'; } } }
-            }
-          },
-          plugins: [centerTextPlugin]
-        });
-        document.getElementById('plan-tbl').innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px">Plan Breakdown</div>' + pLabels.map((p, i) => '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:10px;height:10px;border-radius:2px;background:' + PC[i % PC.length] + ';flex-shrink:0"></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--text)">' + p + '</div><div style="font-size:11px;color:var(--muted)">' + plans[p].count + ' deals · ' + fmt(plans[p].revenue) + '</div></div><div style="font-size:13px;font-weight:800;color:' + PC[i % PC.length] + '">' + (pTotal > 0 ? ((plans[p].count / pTotal) * 100).toFixed(1) : 0) + '%</div></div>').join('') + '<div style="border-top:1px solid var(--border);padding-top:8px;display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span style="color:var(--muted)">Total</span><span style="color:var(--text)">' + pTotal + ' deals · ' + fmt(pTotalR) + '</span></div>';
 
         // Serviceability — only use COMPLETED days (exclude today's partial data)
         const todayISO = formatLocalISO(new Date());
