@@ -692,11 +692,11 @@
 
       <div class="kpi-card blue">
         <div class="kpi-label">
-          <span>Blended AOV</span>
+          <span id="kpi-aov-label">Net Direct Sales AOV</span>
           <span>💳</span>
         </div>
         <div class="kpi-value" id="kpi-aov">₹0</div>
-        <div class="kpi-sub" id="kpi-aov-sub">Average deal size</div>
+        <div class="kpi-sub" id="kpi-aov-sub">Average per net deal</div>
       </div>
     </section>
 
@@ -1064,7 +1064,8 @@
         }
       });
 
-      const aov = allDeals.length > 0 ? Math.round(totalRev / allDeals.length) : 0;
+      // Net Direct Sales AOV strictly (excluding overlaps and total gross CSV)
+      const netAov = ydNetCount > 0 ? Math.round(ydNetRev / ydNetCount) : 0;
 
       document.getElementById('kpi-total-amount').textContent = '₹' + Math.round(totalRev).toLocaleString('en-IN');
       document.getElementById('kpi-total-cnt').textContent = `${allDeals.length.toLocaleString('en-IN')} deals across all dates`;
@@ -1078,8 +1079,8 @@
       document.getElementById('kpi-overlap-amount').textContent = '₹' + Math.round(ydOverlapRev).toLocaleString('en-IN');
       document.getElementById('kpi-overlap-cnt').textContent = `${ydOverlapCount} overlap deals`;
 
-      document.getElementById('kpi-aov').textContent = '₹' + aov.toLocaleString('en-IN');
-      document.getElementById('kpi-aov-sub').textContent = `Average per transaction`;
+      document.getElementById('kpi-aov').textContent = '₹' + netAov.toLocaleString('en-IN');
+      document.getElementById('kpi-aov-sub').textContent = `Avg over ${ydNetCount} net deals (excl. overlaps)`;
 
       // Badge counts
       document.getElementById('count-all').textContent = allDeals.length.toLocaleString('en-IN');
@@ -1138,10 +1139,7 @@
       const to = p.get('to') || p.get('end');
       const dateParam = p.get('date');
 
-      if (dateParam) {
-        currentFilter = 'yesterday';
-        updatePillUI();
-      } else if (from && to) {
+      if (from && to) {
         currentFilter = 'custom';
         customStartDate = from;
         customEndDate = to;
@@ -1151,6 +1149,12 @@
         if (dTo) dTo.value = to;
         document.getElementById('custom-range-box')?.classList.add('show');
         updatePillUI();
+      } else if (tf === 'net') {
+        currentFilter = 'net';
+        updatePillUI();
+      } else if (tf === 'collision') {
+        currentFilter = 'collision';
+        updatePillUI();
       } else if (tf === 'mtd' || tf === 'month' || tf === 'thismonth') {
         currentFilter = 'mtd';
         updatePillUI();
@@ -1159,12 +1163,6 @@
         updatePillUI();
       } else if (tf === 'all') {
         currentFilter = 'all';
-        updatePillUI();
-      } else if (tf === 'net') {
-        currentFilter = 'net';
-        updatePillUI();
-      } else if (tf === 'collision') {
-        currentFilter = 'collision';
         updatePillUI();
       } else {
         currentFilter = 'yesterday';
@@ -1251,6 +1249,37 @@
       const tbody = document.getElementById('table-body');
       const resultsCount = document.getElementById('results-count');
       const paginationBar = document.getElementById('pagination-bar');
+
+      // Dynamic AOV strictly considering Net Direct Sales (NOT total CSV or overlap deals)
+      const aovEl = document.getElementById('kpi-aov');
+      const aovSubEl = document.getElementById('kpi-aov-sub');
+      const aovLblEl = document.getElementById('kpi-aov-label');
+      if (aovEl) {
+        if (currentFilter === 'collision') {
+          const colDeals = filtered;
+          const colRev = colDeals.reduce((sum, d) => sum + d.amount, 0);
+          const colCnt = colDeals.length;
+          const colAov = colCnt > 0 ? Math.round(colRev / colCnt) : 0;
+          if (aovLblEl) aovLblEl.textContent = 'Overlap Deals AOV';
+          aovEl.textContent = '₹' + colAov.toLocaleString('en-IN');
+          if (aovSubEl) aovSubEl.textContent = `Avg over ${colCnt} overlap deal${colCnt !== 1 ? 's' : ''}`;
+        } else {
+          // Strictly Net Direct Sales (excluding overlaps)
+          const netDeals = filtered.filter(d => !d.collision);
+          const netRev = netDeals.reduce((sum, d) => sum + d.amount, 0);
+          const netCnt = netDeals.length;
+          const netAov = netCnt > 0 ? Math.round(netRev / netCnt) : 0;
+          if (aovLblEl) aovLblEl.textContent = 'Net Direct Sales AOV';
+          aovEl.textContent = '₹' + netAov.toLocaleString('en-IN');
+          if (aovSubEl) {
+            if (currentFilter === 'net' || currentFilter === 'yesterday') {
+              aovSubEl.textContent = `Avg over ${netCnt} net deal${netCnt !== 1 ? 's' : ''} (excl. overlaps)`;
+            } else {
+              aovSubEl.textContent = `Avg over ${netCnt} net deal${netCnt !== 1 ? 's' : ''} in view (excl. overlaps)`;
+            }
+          }
+        }
+      }
 
       loadingState.style.display = 'none';
 
