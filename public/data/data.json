@@ -9855,9 +9855,9 @@
   },
   {
     "date": "2024-08-30",
-    "totalRevenue": 15,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 13,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 1,
       "agent": "Self Serve",
@@ -9866,20 +9866,20 @@
     "agents": {},
     "plans": {
       "Monthly Trial": {
-        "revenue": 15,
-        "count": 15
+        "revenue": 13,
+        "count": 13
       }
     },
     "sources": {
       "Direct Sale": {
-        "revenue": 15,
-        "count": 15
+        "revenue": 13,
+        "count": 13
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 15,
-      "revenue": 15
+      "count": 13,
+      "revenue": 13
     },
     "refundsLast7Days": {
       "total": 0,
@@ -49345,10 +49345,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 2019,
-      "otpVerified": 1993,
-      "serviceable": 1331,
-      "serviceableWithPct": "1,331 (65.9%)",
+      "signups": 2018,
+      "otpVerified": 1992,
+      "serviceable": 1330,
+      "serviceableWithPct": "1,330 (65.9%)",
       "serviceablePct": "65.9%"
     },
     "directSaleCSV": {
@@ -50403,8 +50403,8 @@
     "userBreakdown": {
       "signups": 1362,
       "otpVerified": 1354,
-      "serviceable": 1100,
-      "serviceableWithPct": "1,100 (80.8%)",
+      "serviceable": 1101,
+      "serviceableWithPct": "1,101 (80.8%)",
       "serviceablePct": "80.8%"
     },
     "directSaleCSV": {
@@ -50676,9 +50676,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 464,
-      "Interested": 227,
-      "Paise Dega": 43
+      "Connected": 427,
+      "Interested": 193,
+      "Paise Dega": 49
     },
     "refunds": {
       "count": 3,
@@ -50713,31 +50713,31 @@
     },
     "newUsers7d": 9380,
     "newUsersYesterday": 1067,
-    "activeSubs": 4821,
+    "activeSubs": 4822,
     "newSubs7d": 181,
     "teleCrmLeads": 1548,
-    "subsEnding5d": 75,
+    "subsEnding5d": 74,
     "subsExpired7d": 117,
-    "subsExpiringToday": 7,
+    "subsExpiringToday": 6,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2416,
-    "activeSubNoOrder": 114,
+    "activeSubNoOrder": 115,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 54,
-      "Orders Placed": 54,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 29,
-      "Orders Shipped": 29,
-      "Orders - Not Delivered": 106,
-      "Orders Not Delivered": 106
+      "Orders - PLACED": 49,
+      "Orders Placed": 49,
+      "Orders - CONFIRMED": 26,
+      "Orders Confirmed": 26,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 24,
+      "Orders Shipped": 24,
+      "Orders - Not Delivered": 99,
+      "Orders Not Delivered": 99
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 437,
-      "New Subscribers Orders that have been Delivered": 331,
-      "New Subscribers Orders yet to be Delivered": 106,
+      "New Subscribers Orders that have been Delivered": 338,
+      "New Subscribers Orders yet to be Delivered": 99,
       "New Subscribers Orders yet to be Delivered & Delayed": 45
     },
     "selfUpgrade": {

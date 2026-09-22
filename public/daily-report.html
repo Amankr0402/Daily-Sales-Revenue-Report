@@ -1054,19 +1054,24 @@ function renderGrowthVelocity(targetDate) {
   if (!targetDate && globalYesterdayData) targetDate = globalYesterdayData.date;
   if (!targetDate || !globalReportData || !globalReportData.length) return;
 
-  // 1. W-o-W Date Windows (7 Days up to targetDate vs Prior 7 Days)
-  const wowCurEnd = targetDate;
-  const wowCurEndDateObj = new Date(wowCurEnd + 'T00:00:00');
-  const wowCurStartDateObj = new Date(wowCurEndDateObj);
-  wowCurStartDateObj.setDate(wowCurStartDateObj.getDate() - 6);
-  const wowCurStart = formatLocalISO(wowCurStartDateObj);
+  // 1. W-o-W Date Windows: Sunday-anchored Like-for-Like (WTD)
+  // Current Week: Sunday up to targetDate (e.g. Sunday to Wednesday)
+  // Prior Week: Prior Sunday up to same day (e.g. Prior Sunday to Prior Wednesday)
+  const targetDateObj = new Date(targetDate + 'T00:00:00');
+  const dayOfWeek = targetDateObj.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-  const wowPrevEndDateObj = new Date(wowCurStartDateObj);
-  wowPrevEndDateObj.setDate(wowPrevEndDateObj.getDate() - 1);
-  const wowPrevEnd = formatLocalISO(wowPrevEndDateObj);
-  const wowPrevStartDateObj = new Date(wowPrevEndDateObj);
-  wowPrevStartDateObj.setDate(wowPrevStartDateObj.getDate() - 6);
-  const wowPrevStart = formatLocalISO(wowPrevStartDateObj);
+  const curWeekStartObj = new Date(targetDateObj);
+  curWeekStartObj.setDate(targetDateObj.getDate() - dayOfWeek);
+  const wowCurStart = formatLocalISO(curWeekStartObj);
+  const wowCurEnd = targetDate;
+
+  const prevWeekStartObj = new Date(curWeekStartObj);
+  prevWeekStartObj.setDate(curWeekStartObj.getDate() - 7);
+  const wowPrevStart = formatLocalISO(prevWeekStartObj);
+
+  const prevWeekEndObj = new Date(targetDateObj);
+  prevWeekEndObj.setDate(targetDateObj.getDate() - 7);
+  const wowPrevEnd = formatLocalISO(prevWeekEndObj);
 
   const wowCurDays = globalReportData.filter(d => d.date >= wowCurStart && d.date <= wowCurEnd);
   const wowPrevDays = globalReportData.filter(d => d.date >= wowPrevStart && d.date <= wowPrevEnd);
@@ -1120,20 +1125,22 @@ function renderGrowthVelocity(targetDate) {
   window.momPrevEnd = momPrevEnd;
 
   // Populate W-o-W Card
+  const wowDayCount = Math.round((new Date(wowCurEnd + 'T00:00:00') - new Date(wowCurStart + 'T00:00:00')) / 86400000) + 1;
+  const wowSuffix = wowDayCount === 1 ? '1 Day' : `${wowDayCount} Days Like-for-Like`;
   const wowDateRangeEl = document.getElementById('wow-date-range');
-  if (wowDateRangeEl) wowDateRangeEl.textContent = `${sd(wowCurStart)}–${sd(wowCurEnd)} vs ${sd(wowPrevStart)}–${sd(wowPrevEnd)}`;
+  if (wowDateRangeEl) wowDateRangeEl.textContent = `${sd(wowCurStart)}–${sd(wowCurEnd)} vs ${sd(wowPrevStart)}–${sd(wowPrevEnd)} (${wowSuffix})`;
 
   const wowCurRevEl = document.getElementById('wow-cur-rev');
   if (wowCurRevEl) wowCurRevEl.textContent = fmt(wowCur.totalRev);
   updateDeltaPill('wow-rev-pill', wowCur.totalRev, wowPrev.totalRev, true);
   const wowPrevRevSubEl = document.getElementById('wow-prev-rev-sub');
-  if (wowPrevRevSubEl) wowPrevRevSubEl.textContent = `Prior 7D: ${fmt(wowPrev.totalRev)}`;
+  if (wowPrevRevSubEl) wowPrevRevSubEl.textContent = `Prior WTD: ${fmt(wowPrev.totalRev)}`;
 
   const wowCurDealsEl = document.getElementById('wow-cur-deals');
   if (wowCurDealsEl) wowCurDealsEl.textContent = `${wowCur.totalCnt} deals`;
   updateDeltaPill('wow-deals-pill', wowCur.totalCnt, wowPrev.totalCnt, false);
   const wowPrevDealsSubEl = document.getElementById('wow-prev-deals-sub');
-  if (wowPrevDealsSubEl) wowPrevDealsSubEl.textContent = `Prior 7D: ${wowPrev.totalCnt} deals`;
+  if (wowPrevDealsSubEl) wowPrevDealsSubEl.textContent = `Prior WTD: ${wowPrev.totalCnt} deals`;
 
   const wowInsideVal = document.getElementById('wow-inside-val');
   if (wowInsideVal) wowInsideVal.textContent = `${fmt(wowCur.insideRev)} (${wowCur.insideCnt}d)`;
@@ -1177,9 +1184,9 @@ function renderGrowthVelocity(targetDate) {
 
   // Populate Matrix Table Headers
   const thWowCur = document.getElementById('th-wow-cur');
-  if (thWowCur) thWowCur.textContent = `CURRENT 7D (${sd(wowCurStart)}–${sd(wowCurEnd)})`;
+  if (thWowCur) thWowCur.textContent = `CURRENT WTD (${sd(wowCurStart)}–${sd(wowCurEnd)})`;
   const thWowPrev = document.getElementById('th-wow-prev');
-  if (thWowPrev) thWowPrev.textContent = `PRIOR 7D (${sd(wowPrevStart)}–${sd(wowPrevEnd)})`;
+  if (thWowPrev) thWowPrev.textContent = `PRIOR WTD (${sd(wowPrevStart)}–${sd(wowPrevEnd)})`;
   const thMomCur = document.getElementById('th-mom-cur');
   if (thMomCur) thMomCur.textContent = `CURRENT MTD (${sd(momCurStart)}–${sd(momCurEnd)})`;
   const thMomPrev = document.getElementById('th-mom-prev');
@@ -1625,7 +1632,7 @@ function openPeriodModal(type) {
     priorEndDate = window.wowPrevEnd || '';
     compCurSums = window.wowCur || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
     compPrevSums = window.wowPrev || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
-    title = 'Week-over-Week (W-o-W) Executive Growth & Performance';
+    title = 'Week-over-Week (Sunday–Target WTD) Executive Growth & Performance';
     icon = '📅';
   } else if (type === 'mom') {
     isComparison = true;
