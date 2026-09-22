@@ -152,158 +152,6 @@
     @keyframes spin{to{transform:rotate(360deg)}}
     @media print{body{background:#fff!important}.print-btn{display:none!important}#loading{display:none!important}}
     @media(max-width:768px){.g4,.g3{grid-template-columns:repeat(2,1fr)}.src-grid{grid-template-columns:repeat(2,1fr)}.wrap{padding:20px 16px 0}.rpt-header{padding:24px 20px}}
-    /* EXECUTIVE GROWTH CARDS (W-o-W & M-o-M) */
-    .growth-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      box-shadow: 0 2px 12px rgba(109, 40, 217, 0.08);
-      position: relative;
-    }
-
-    .growth-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .growth-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 11.5px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .growth-badge.wow {
-      background: rgba(99, 102, 241, 0.1);
-      color: #6366f1;
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-
-    .growth-badge.mom {
-      background: rgba(14, 165, 233, 0.1);
-      color: #0284c7;
-      border: 1px solid rgba(14, 165, 233, 0.2);
-    }
-
-    .growth-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      padding-bottom: 4px;
-    }
-
-    .growth-hero-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .growth-hero-lbl {
-      font-size: 11.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .growth-hero-val {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .growth-pill {
-      font-size: 11.5px;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      letter-spacing: 0;
-    }
-
-    .growth-pill.positive {
-      background: rgba(16, 185, 129, 0.12);
-      color: #059669;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-    }
-
-    .growth-pill.negative {
-      background: rgba(244, 63, 94, 0.12);
-      color: #e11d48;
-      border: 1px solid rgba(244, 63, 94, 0.25);
-    }
-
-    .growth-pill.neutral {
-      background: rgba(100, 116, 139, 0.1);
-      color: #64748b;
-      border: 1px solid rgba(100, 116, 139, 0.2);
-    }
-
-    .growth-baseline {
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .growth-tile-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-
-    .growth-tile {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .growth-tile-lbl {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .growth-tile-val {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .growth-tile-sub {
-      font-size: 10.5px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
   </style>
 </head>
 <body>
@@ -405,7 +253,7 @@
     </div>
   </div>
 
-  <!-- 5. EXECUTIVE GROWTH & VELOCITY: W-o-W & M-o-M -->
+  <!-- 5. PERIOD REVENUE -->
   <div class="sec-gap">
     <div class="sec-title" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div style="display:flex;align-items:center;gap:8px;">
@@ -480,89 +328,20 @@
             <div class="growth-tile-val" id="wow-aov-val">—</div>
             <div class="growth-tile-sub" id="wow-aov-sub">—</div>
           </div>
+          <div class="period-val green" id="rev-week">—</div>
+          <div class="period-sub" id="rev-week-sub">—</div>
         </div>
       </div>
-
-      <!-- M-o-M Card -->
-      <div class="growth-card clickable-period" onclick="openPeriodModal('mom')"
-        title="Click to view detailed day-by-day M-o-M comparison, channel split & sales reps">
-        <div class="growth-header">
-          <div>
-            <span class="growth-badge mom">🗓️ Month-over-Month (M-o-M MTD)</span>
-            <div style="font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 4px;" id="mom-date-range">
-              Month-to-Date vs Prior Month Same Days
-            </div>
+      <div class="period-card clickable-period" onclick="openPeriodModal('month')" title="Click to view detailed day-by-day breakdown, sales reps & deals for this month">
+        <div class="period-ico">🗓️</div>
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="period-lbl">Revenue This Month (1st–Yesterday)</div>
+            <span class="period-drill-btn">View Details ↗</span>
           </div>
-          <span class="period-drill-btn">View M-o-M Drilldown ↗</span>
+          <div class="period-val blue" id="rev-month">—</div>
+          <div class="period-sub" id="rev-month-sub">—</div>
         </div>
-
-        <div class="growth-hero-grid">
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">💰 MTD Revenue</div>
-            <div class="growth-hero-val">
-              <span id="mom-cur-rev">—</span>
-              <span class="growth-pill" id="mom-rev-pill">—</span>
-            </div>
-            <div class="growth-baseline" id="mom-prev-rev-sub">Prior MTD: —</div>
-          </div>
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">🤝 Deals Closed (Sales)</div>
-            <div class="growth-hero-val">
-              <span id="mom-cur-deals">—</span>
-              <span class="growth-pill" id="mom-deals-pill">—</span>
-            </div>
-            <div class="growth-baseline" id="mom-prev-deals-sub">Prior MTD: —</div>
-          </div>
-        </div>
-
-        <div class="growth-tile-strip">
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">⚡ Inside Sales</div>
-            <div class="growth-tile-val" id="mom-inside-val">—</div>
-            <div class="growth-tile-sub" id="mom-inside-sub">—</div>
-          </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🛍️ Direct / Self Serve</div>
-            <div class="growth-tile-val" id="mom-direct-val">—</div>
-            <div class="growth-tile-sub" id="mom-direct-sub">—</div>
-          </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🎯 Blended AOV</div>
-            <div class="growth-tile-val" id="mom-aov-val">—</div>
-            <div class="growth-tile-sub" id="mom-aov-sub">—</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Executive Sales & Revenue Comparison Matrix Table -->
-    <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px;">
-      <div style="padding: 14px 20px; background: #faf5ff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 8px;">
-          <span>⚡</span>
-          <span>Sales &amp; Revenue Comparison Matrix</span>
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--muted);" id="matrix-period-sub">
-          W-o-W (Last 7D vs Prior 7D) &bull; M-o-M (MTD Like-for-Like)
-        </div>
-      </div>
-      <div style="overflow-x: auto;">
-        <table class="ftbl" style="width: 100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 800; text-transform: uppercase; padding: 10px 16px; font-size: 11px; letter-spacing: 0.05em;">METRIC</th>
-              <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-wow-cur">CURRENT 7D</th>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-wow-prev">PRIOR 7D</th>
-              <th style="background: #f8fafc; color: var(--primary); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;">W-O-W GROWTH</th>
-              <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-mom-cur">CURRENT MTD</th>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-mom-prev">PRIOR MTD</th>
-              <th style="background: #f8fafc; color: var(--blue); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;">M-O-M GROWTH</th>
-            </tr>
-          </thead>
-          <tbody id="matrix-tbl-body">
-            <!-- Rendered via JS -->
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -747,30 +526,6 @@
 <script>
 const fmt = n => '₹' + Math.round(n||0).toLocaleString('en-IN');
 const fmtK = n => { n=Math.round(n||0); if(n>=100000) return '₹'+(n/100000).toFixed(1)+'L'; if(n>=1000) return '₹'+(n/1000).toFixed(1)+'K'; return '₹'+n.toLocaleString('en-IN'); };
-function formatDeltaPill(cur, prev, isCurrency = true) {
-  if (prev === undefined || prev === null || prev === 0) {
-    return '<span class="growth-pill neutral">N/A</span>';
-  }
-  const diff = cur - prev;
-  const pct = ((diff / Math.abs(prev)) * 100).toFixed(1);
-  const isPos = diff >= 0;
-  const cls = isPos ? 'positive' : 'negative';
-  const arrow = isPos ? '▲ +' : '▼ ';
-  const diffStr = isCurrency ? (isPos ? '+' : '') + fmt(diff) : (isPos ? '+' : '') + diff;
-  return `<span class="growth-pill ${cls}">${arrow}${Math.abs(pct)}% (${diffStr})</span>`;
-}
-function formatDeltaText(cur, prev, isCurrency = true) {
-  if (prev === undefined || prev === null || prev === 0) {
-    return '<span style="color:var(--muted)">—</span>';
-  }
-  const diff = cur - prev;
-  const pct = ((diff / Math.abs(prev)) * 100).toFixed(1);
-  const isPos = diff >= 0;
-  const color = isPos ? 'var(--green)' : 'var(--red)';
-  const arrow = isPos ? '▲ +' : '▼ ';
-  const diffStr = isCurrency ? (isPos ? '+' : '') + fmt(diff) : (isPos ? '+' : '') + diff;
-  return `<span style="color:${color};font-weight:800;">${arrow}${Math.abs(pct)}% (${diffStr})</span>`;
-}
 const sd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{month:'short',day:'numeric'});
 const fd = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 const ini = n => n.split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
@@ -1365,10 +1120,10 @@ async function init() {
       const mlTarget = document.getElementById('missed-leads-tag');
       if (mlTarget) {
         mlTarget.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:14px; padding-top:14px; border-top:1px solid #f1f5f9; table-layout:fixed;"><tr>' +
-          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Connected&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View ' + (ml['Connected'] || 0) + ' Connected Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#3b82f6;font-weight:700">CONNECTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Connected'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Interested&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View ' + (ml['Interested'] || 0) + ' Interested Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#f59e0b;font-weight:700">INTERESTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Interested'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Paise%20Dega&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View ' + (ml['Paise Dega'] || 0) + ' Paise Dega Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#10b981;font-weight:700">PAISE DEGA ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Paise Dega'] || 0).toLocaleString('en-IN') + '</div></td>' +
-          '<td valign="top" align="right" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background=\'#f1f5f9\'" onmouseout="this.style.background=\'transparent\'" title="View All Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">TOTAL ↗</div><div style="font-size:22px;font-weight:900;color:#f43f5e;margin-top:5px">' + mlTotal.toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Connected&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'" title="View ' + (ml['Connected'] || 0) + ' Connected Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#3b82f6;font-weight:700">CONNECTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Connected'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Interested&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'" title="View ' + (ml['Interested'] || 0) + ' Interested Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#f59e0b;font-weight:700">INTERESTED ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Interested'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="left" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html?status=Paise%20Dega&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'" title="View ' + (ml['Paise Dega'] || 0) + ' Paise Dega Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#10b981;font-weight:700">PAISE DEGA ↗</div><div style="font-size:20px;font-weight:900;color:#0f172a;margin-top:5px">' + (ml['Paise Dega'] || 0).toLocaleString('en-IN') + '</div></td>' +
+          '<td valign="top" align="right" onclick="event.stopPropagation();window.open(&apos;leads-missed-details.html&apos;, &apos;_blank&apos;)" style="padding:4px 6px;cursor:pointer;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'" title="View All Missed Leads ↗"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700">TOTAL ↗</div><div style="font-size:22px;font-weight:900;color:#f43f5e;margin-top:5px">' + mlTotal.toLocaleString('en-IN') + '</div></td>' +
           '</tr></table>';
       }
     }
@@ -1613,31 +1368,7 @@ function openPeriodModal(type) {
 
   var startDate, title, icon;
   var endDate = globalReportData[globalReportData.length - 1]?.date || yd.date;
-  var isComparison = false;
-  var priorStartDate = '', priorEndDate = '';
-  var compCurSums = null, compPrevSums = null;
-
-  if (type === 'wow') {
-    isComparison = true;
-    startDate = window.wowCurStart || yd.date;
-    endDate = window.wowCurEnd || yd.date;
-    priorStartDate = window.wowPrevStart || '';
-    priorEndDate = window.wowPrevEnd || '';
-    compCurSums = window.wowCur || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
-    compPrevSums = window.wowPrev || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
-    title = 'Week-over-Week (W-o-W) Executive Growth & Performance';
-    icon = '📅';
-  } else if (type === 'mom') {
-    isComparison = true;
-    startDate = window.momCurStart || yd.date;
-    endDate = window.momCurEnd || yd.date;
-    priorStartDate = window.momPrevStart || '';
-    priorEndDate = window.momPrevEnd || '';
-    compCurSums = window.momCur || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
-    compPrevSums = window.momPrev || { totalRev: 0, totalCnt: 0, aov: 0, insideRev: 0, directRev: 0 };
-    title = 'Month-over-Month (M-o-M MTD) Executive Growth & Performance';
-    icon = '🗓️';
-  } else if (isWeek) {
+  if (isWeek) {
     var eDate = new Date(endDate + 'T00:00:00');
     var dow = eDate.getDay();
     var sun = new Date(eDate);
@@ -1710,51 +1441,12 @@ function openPeriodModal(type) {
 
   document.getElementById('modal-period-icon').textContent = icon;
   document.getElementById('modal-period-title').textContent = title;
-  document.getElementById('modal-period-subtitle').textContent = isComparison
-    ? 'Current: ' + sd(startDate) + ' → ' + sd(endDate) + ' (' + pDays.length + ' days) vs Prior: ' + sd(priorStartDate) + ' → ' + sd(priorEndDate)
-    : sd(startDate) + ' → ' + sd(endDate) + ' (' + pDays.length + ' days recorded) · Total ' + totalDeals + ' deals across all channels';
+  document.getElementById('modal-period-subtitle').textContent = sd(startDate) + ' → ' + sd(endDate) + ' (' + pDays.length + ' days recorded) · Total ' + totalDeals + ' deals across all channels';
 
   var sortedAgents = Object.entries(agentMap).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
   var sortedPlans = Object.entries(planMap).sort(function(a, b) { return b[1].revenue - a[1].revenue; });
 
-  var outHtml = '';
-  if (isComparison && compCurSums && compPrevSums) {
-    outHtml += '<div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 1.5px solid #d8b4fe; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">' +
-      '<div style="font-size: 13px; font-weight: 800; color: #581c87; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">' +
-        '<span>🚀 Period Comparison Summary</span>' +
-        '<span style="font-size: 11.5px; font-weight: 700; color: #7e22ce;">' + sd(startDate) + '–' + sd(endDate) + ' vs ' + sd(priorStartDate) + '–' + sd(priorEndDate) + '</span>' +
-      '</div>' +
-      '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">' +
-        '<div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e9d5ff;">' +
-          '<div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Total Revenue</div>' +
-          '<div style="font-size: 18px; font-weight: 900; color: var(--text); margin-top: 2px;">' + fmt(compCurSums.totalRev) + '</div>' +
-          '<div style="margin-top: 4px;">' + formatDeltaPill(compCurSums.totalRev, compPrevSums.totalRev, true) + '</div>' +
-        '</div>' +
-        '<div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e9d5ff;">' +
-          '<div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Deals Closed</div>' +
-          '<div style="font-size: 18px; font-weight: 900; color: var(--text); margin-top: 2px;">' + compCurSums.totalCnt + ' deals</div>' +
-          '<div style="margin-top: 4px;">' + formatDeltaPill(compCurSums.totalCnt, compPrevSums.totalCnt, false) + '</div>' +
-        '</div>' +
-        '<div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e9d5ff;">' +
-          '<div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Blended AOV</div>' +
-          '<div style="font-size: 18px; font-weight: 900; color: var(--text); margin-top: 2px;">' + fmt(compCurSums.aov) + '</div>' +
-          '<div style="margin-top: 4px;">' + formatDeltaPill(compCurSums.aov, compPrevSums.aov, true) + '</div>' +
-        '</div>' +
-        '<div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e9d5ff;">' +
-          '<div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Inside Sales</div>' +
-          '<div style="font-size: 18px; font-weight: 900; color: var(--text); margin-top: 2px;">' + fmt(compCurSums.insideRev) + '</div>' +
-          '<div style="margin-top: 4px;">' + formatDeltaPill(compCurSums.insideRev, compPrevSums.insideRev, true) + '</div>' +
-        '</div>' +
-        '<div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e9d5ff;">' +
-          '<div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Direct / Self Serve</div>' +
-          '<div style="font-size: 18px; font-weight: 900; color: var(--text); margin-top: 2px;">' + fmt(compCurSums.directRev) + '</div>' +
-          '<div style="margin-top: 4px;">' + formatDeltaPill(compCurSums.directRev, compPrevSums.directRev, true) + '</div>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
-  }
-
-  outHtml += '<div class="pm-kpi-grid">' +
+  var outHtml = '<div class="pm-kpi-grid">' +
     '<div class="pm-kpi-card" style="border-left: 4px solid var(--primary);">' +
       '<div class="pm-kpi-lbl">Total Period Revenue</div>' +
       '<div class="pm-kpi-val" style="color: var(--primary);">' + fmt(totalRevenue) + '</div>' +
