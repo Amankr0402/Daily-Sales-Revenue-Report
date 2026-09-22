@@ -50723,21 +50723,21 @@
     "planExpNoOrder": 2416,
     "activeSubNoOrder": 115,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 49,
-      "Orders Placed": 49,
-      "Orders - CONFIRMED": 26,
-      "Orders Confirmed": 26,
+      "Orders - PLACED": 46,
+      "Orders Placed": 46,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 24,
-      "Orders Shipped": 24,
-      "Orders - Not Delivered": 99,
-      "Orders Not Delivered": 99
+      "Orders - SHIPPED": 22,
+      "Orders Shipped": 22,
+      "Orders - Not Delivered": 97,
+      "Orders Not Delivered": 97
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 437,
-      "New Subscribers Orders that have been Delivered": 338,
-      "New Subscribers Orders yet to be Delivered": 99,
+      "New Subscribers Orders that have been Delivered": 340,
+      "New Subscribers Orders yet to be Delivered": 97,
       "New Subscribers Orders yet to be Delivered & Delayed": 45
     },
     "selfUpgrade": {
