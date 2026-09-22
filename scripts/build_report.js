@@ -1330,8 +1330,12 @@ function exportPeriodPDF(title, startDate, endDate) {
 </body>
 </html>`;
 
-fs.writeFileSync(OUT, html, 'utf8');
-console.log('SUCCESS: daily-report.html written to', OUT);
+if (!fs.existsSync(OUT) || !fs.readFileSync(OUT, 'utf8').includes('growth-card')) {
+  fs.writeFileSync(OUT, html, 'utf8');
+  console.log('SUCCESS: daily-report.html written to', OUT);
+} else {
+  console.log('SUCCESS: Preserving modern daily-report.html with executive growth section at', OUT);
+}
 
 // Ensure public/data is populated with all data files for static serving on Vercel
 const dataSrc = path.join(__dirname, '..', 'data');

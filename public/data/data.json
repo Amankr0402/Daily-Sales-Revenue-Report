@@ -49655,10 +49655,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 688,
-      "otpVerified": 679,
-      "serviceable": 532,
-      "serviceableWithPct": "532 (77.3%)",
+      "signups": 687,
+      "otpVerified": 678,
+      "serviceable": 531,
+      "serviceableWithPct": "531 (77.3%)",
       "serviceablePct": "77.3%"
     },
     "directSaleCSV": {
@@ -50100,11 +50100,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1789,
-      "otpVerified": 1780,
+      "signups": 1788,
+      "otpVerified": 1779,
       "serviceable": 1489,
-      "serviceableWithPct": "1,489 (83.2%)",
-      "serviceablePct": "83.2%"
+      "serviceableWithPct": "1,489 (83.3%)",
+      "serviceablePct": "83.3%"
     },
     "directSaleCSV": {
       "count": 8,
@@ -50403,9 +50403,9 @@
     "userBreakdown": {
       "signups": 1362,
       "otpVerified": 1354,
-      "serviceable": 1099,
-      "serviceableWithPct": "1,099 (80.7%)",
-      "serviceablePct": "80.7%"
+      "serviceable": 1100,
+      "serviceableWithPct": "1,100 (80.8%)",
+      "serviceablePct": "80.8%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -50560,8 +50560,8 @@
         "count": 1
       },
       "Quarterly Max": {
-        "revenue": 20710,
-        "count": 4
+        "revenue": 14954,
+        "count": 3
       }
     },
     "sources": {
@@ -50577,13 +50577,13 @@
         "revenue": 11000,
         "count": 1
       },
-      "Direct Sale": {
-        "revenue": 33231,
-        "count": 4
-      },
       "Overlap Deals": {
-        "revenue": 9667,
-        "count": 1
+        "revenue": 15423,
+        "count": 2
+      },
+      "Direct Sale": {
+        "revenue": 27475,
+        "count": 3
       }
     },
     "userBreakdown": {
@@ -50598,6 +50598,21 @@
       "revenue": 42898
     },
     "collidingDeals": [
+      {
+        "date": "2026-09-21",
+        "rawDate": "21/09/2026 23:36",
+        "customerName": "Mohini",
+        "phone": "8700492944",
+        "agent": "Honey Talreja",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR511846",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
       {
         "date": "2026-09-21",
         "rawDate": "21/09/2026 12:56",
@@ -50617,6 +50632,21 @@
     "disputedDeals": [
       {
         "date": "2026-09-21",
+        "rawDate": "21/09/2026 23:36",
+        "customerName": "Mohini",
+        "phone": "8700492944",
+        "agent": "Honey Talreja",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR511846",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-21",
         "rawDate": "21/09/2026 12:56",
         "customerName": "Jinal Nandu",
         "phone": "9833177702",
@@ -50632,12 +50662,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 9667
+      "count": 2,
+      "revenue": 15423
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 9667
+      "count": 2,
+      "revenue": 15423
     },
     "deliveryFee": {
       "transactions": 3,
@@ -50646,9 +50676,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 414,
-      "Interested": 196,
-      "Paise Dega": 30
+      "Connected": 464,
+      "Interested": 227,
+      "Paise Dega": 43
     },
     "refunds": {
       "count": 3,
@@ -50683,7 +50713,7 @@
     },
     "newUsers7d": 9380,
     "newUsersYesterday": 1067,
-    "activeSubs": 4817,
+    "activeSubs": 4821,
     "newSubs7d": 181,
     "teleCrmLeads": 1548,
     "subsEnding5d": 75,
@@ -50691,24 +50721,24 @@
     "subsExpiringToday": 7,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2416,
-    "activeSubNoOrder": 113,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 58,
-      "Orders Placed": 58,
-      "Orders - CONFIRMED": 35,
-      "Orders Confirmed": 35,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 112,
-      "Orders Not Delivered": 112
+      "Orders - PLACED": 54,
+      "Orders Placed": 54,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 29,
+      "Orders Shipped": 29,
+      "Orders - Not Delivered": 106,
+      "Orders Not Delivered": 106
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 437,
-      "New Subscribers Orders that have been Delivered": 325,
-      "New Subscribers Orders yet to be Delivered": 112,
-      "New Subscribers Orders yet to be Delivered & Delayed": 48
+      "New Subscribers Orders that have been Delivered": 331,
+      "New Subscribers Orders yet to be Delivered": 106,
+      "New Subscribers Orders yet to be Delivered & Delayed": 45
     },
     "selfUpgrade": {
       "totalCount": 0,
