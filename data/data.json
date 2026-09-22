@@ -50646,7 +50646,7 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 411,
+      "Connected": 414,
       "Interested": 196,
       "Paise Dega": 30
     },
@@ -50682,7 +50682,7 @@
       "count": 13
     },
     "newUsers7d": 9380,
-    "newUsersYesterday": 1210,
+    "newUsersYesterday": 1067,
     "activeSubs": 4817,
     "newSubs7d": 181,
     "teleCrmLeads": 1548,
@@ -50695,10 +50695,10 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 58,
       "Orders Placed": 58,
-      "Orders - CONFIRMED": 36,
-      "Orders Confirmed": 36,
-      "Orders - READY_TO_SHIP": 5,
-      "Orders Ready to Ship": 5,
+      "Orders - CONFIRMED": 35,
+      "Orders Confirmed": 35,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
       "Orders - SHIPPED": 13,
       "Orders Shipped": 13,
       "Orders - Not Delivered": 112,
