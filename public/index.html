@@ -2960,6 +2960,19 @@
       return `${days[d.getDay()]}, ${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
     }
 
+    window.toggleWowWeek = function(idx) {
+      const body = document.getElementById('wow-week-body-' + idx);
+      const arrow = document.getElementById('wow-week-arrow-' + idx);
+      if (!body) return;
+      if (body.style.display === 'none') {
+        body.style.display = 'block';
+        if (arrow) arrow.textContent = '▼';
+      } else {
+        body.style.display = 'none';
+        if (arrow) arrow.textContent = '▶';
+      }
+    };
+
     function openPeriodModal(type) {
       if (!globalReportData || !globalYesterdayData) return;
       const yd = globalYesterdayData;
@@ -3168,59 +3181,321 @@
         </div>
 
         <!-- Day-by-day table -->
-        <div>
-          <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px;">
-            📅 Day-by-Day Revenue Breakdown
-          </div>
-          <div class="pm-table-wrap">
-            <table class="pm-tbl">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th style="text-align: right;">Inside Sales</th>
-                  <th style="text-align: right;">Direct Sales</th>
-                  <th style="text-align: right;">Delivery Fee</th>
-                  <th style="text-align: right;">Total Day Revenue</th>
-                  <th style="text-align: center;">Deals</th>
-                  <th>Top Sales Rep</th>
-                </tr>
-              </thead>
-              <tbody>
-      `;
+        ${type === 'wow' ? (function() {
+          let wHtml = '';
+          // 1. LIKE-FOR-LIKE WEEKDAY COMPARISON TABLE (Current Sun–target vs Prior Sun–sameDay)
+          wHtml += `
+            <div style="margin-bottom: 24px;">
+              <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #581c87; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                <span>⚖️ Like-for-Like Weekday Match (${sd(startDate)}–${sd(endDate)} vs ${sd(priorStartDate)}–${sd(priorEndDate)})</span>
+                <span style="font-size: 11px; color: var(--muted); font-weight: 600;">Direct weekday comparison against 7 days prior</span>
+              </div>
+              <div class="pm-table-wrap">
+                <table class="pm-tbl">
+                  <thead>
+                    <tr style="background: #fdf4ff;">
+                      <th>Weekday</th>
+                      <th>Current Day (${sd(startDate)}–${sd(endDate)})</th>
+                      <th style="text-align: right;">Current Rev</th>
+                      <th style="text-align: center;">Current Deals</th>
+                      <th>Prior Day (${sd(priorStartDate)}–${sd(priorEndDate)})</th>
+                      <th style="text-align: right;">Prior Rev</th>
+                      <th style="text-align: center;">Prior Deals</th>
+                      <th style="text-align: right;">Revenue Variance</th>
+                      <th style="text-align: right;">Growth %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+          `;
 
-      pDays.forEach(d => {
-        let dIns = 0;
-        Object.entries(d.sources || {}).forEach(([s, info]) => {
-          if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
-            dIns += (info.revenue || 0);
+          const curWeekAsc = globalReportData.filter(d => d.date >= startDate && d.date <= endDate).sort((a, b) => a.date.localeCompare(b.date));
+          let sumCurRev = 0, sumCurDeals = 0, sumPriorRev = 0, sumPriorDeals = 0;
+
+          curWeekAsc.forEach(cd => {
+            const cdObj = new Date(cd.date + 'T00:00:00');
+            const weekdayName = cdObj.toLocaleDateString('en-US', { weekday: 'long' });
+            const pdObj = new Date(cdObj);
+            pdObj.setDate(cdObj.getDate() - 7);
+            const pdStr = formatLocalISO(pdObj);
+            const pd = globalReportData.find(x => x.date === pdStr);
+
+            const cDel = (cd.deliveryFee && cd.deliveryFee.total) || 0;
+            const cTot = (cd.totalRevenue || 0) + cDel;
+            const cDeals = (cd.salesCount || 0);
+
+            const pDel = pd ? ((pd.deliveryFee && pd.deliveryFee.total) || 0) : 0;
+            const pTot = pd ? ((pd.totalRevenue || 0) + pDel) : 0;
+            const pDeals = pd ? (pd.salesCount || 0) : 0;
+
+            sumCurRev += cTot;
+            sumCurDeals += cDeals;
+            sumPriorRev += pTot;
+            sumPriorDeals += pDeals;
+
+            const diff = cTot - pTot;
+
+            wHtml += `
+              <tr>
+                <td style="font-weight: 800; color: #581c87;">${weekdayName}</td>
+                <td style="font-weight: 700; color: var(--text);">${formatDateLong(cd.date)}</td>
+                <td style="text-align: right; font-weight: 800; color: var(--text);">${fmt(cTot)}</td>
+                <td style="text-align: center; font-weight: 700;">${cDeals}</td>
+                <td style="color: var(--muted);">${pd ? formatDateLong(pd.date) : pdStr}</td>
+                <td style="text-align: right; color: var(--muted);">${pd ? fmt(pTot) : '₹0'}</td>
+                <td style="text-align: center; color: var(--muted);">${pDeals}</td>
+                <td style="text-align: right; font-weight: 800; color: ${diff >= 0 ? '#059669' : '#dc2626'};">${(diff >= 0 ? '+' : '') + fmt(diff)}</td>
+                <td style="text-align: right;">${formatDeltaPill(cTot, pTot, true)}</td>
+              </tr>
+            `;
+          });
+
+          const totalDiff = sumCurRev - sumPriorRev;
+          wHtml += `
+                  <tr style="background: #faf5ff; font-weight: 900; border-top: 2px solid #d8b4fe;">
+                    <td colspan="2" style="padding: 12px 16px; color: #581c87; text-transform: uppercase; font-size: 11.5px; letter-spacing: 0.05em;">Total WTD Like-for-Like</td>
+                    <td style="text-align: right; font-size: 14px; color: var(--text);">${fmt(sumCurRev)}</td>
+                    <td style="text-align: center; font-size: 14px;">${sumCurDeals}</td>
+                    <td>—</td>
+                    <td style="text-align: right; color: var(--muted);">${fmt(sumPriorRev)}</td>
+                    <td style="text-align: center; color: var(--muted);">${sumPriorDeals}</td>
+                    <td style="text-align: right; font-size: 14px; color: ${totalDiff >= 0 ? '#059669' : '#dc2626'};">${(totalDiff >= 0 ? '+' : '') + fmt(totalDiff)}</td>
+                    <td style="text-align: right;">${formatDeltaPill(sumCurRev, sumPriorRev, true)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          `;
+
+          // 2. COMPLETE SUNDAY-TO-SUNDAY WEEKS HIERARCHY (ALL WEEKS, DRILL DOWN TO DAY-BY-DAY)
+          const tObj = new Date(endDate + 'T00:00:00');
+          const dow = tObj.getDay();
+          const curSunObj = new Date(tObj);
+          curSunObj.setDate(tObj.getDate() - dow);
+
+          const wowWeeks = [];
+          for (let wi = 0; wi < 8; wi++) {
+            const wSun = new Date(curSunObj);
+            wSun.setDate(curSunObj.getDate() - (wi * 7));
+            const wSat = new Date(wSun);
+            wSat.setDate(wSun.getDate() + 6);
+            const sStr = formatLocalISO(wSun);
+            const eStr = formatLocalISO(wSat);
+            const actualEnd = (wi === 0 && endDate < eStr) ? endDate : eStr;
+
+            const wDays = globalReportData.filter(d => d.date >= sStr && d.date <= actualEnd).sort((a, b) => b.date.localeCompare(a.date));
+            if (!wDays.length) continue;
+
+            let wRev = 0, wDeals = 0, wIns = 0, wDir = 0, wDel = 0;
+            const dayList = wDays.map(d => {
+              let dIns = 0;
+              Object.entries(d.sources || {}).forEach(([s, info]) => {
+                if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
+                  dIns += (info.revenue || 0);
+                }
+              });
+              const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+              const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+              const dTot = (d.totalRevenue || 0) + dDel;
+              const dCnt = (d.salesCount || 0);
+              const dDayAov = dCnt > 0 ? Math.round(dTot / dCnt) : 0;
+              const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
+              const topRep = ags.length ? `${ags[0][0]} (${fmt(ags[0][1].revenue)})` : '—';
+
+              wIns += dIns;
+              wDir += dDir;
+              wDel += dDel;
+              wRev += dTot;
+              wDeals += dCnt;
+              return { date: d.date, dIns, dDir, dDel, dTot, dCnt, dDayAov, topRep };
+            });
+
+            const wAov = wDeals > 0 ? Math.round(wRev / wDeals) : 0;
+            const isCurrentWeek = (wi === 0);
+            const isPriorWeek = (wi === 1);
+            let weekTitle = '';
+            if (isCurrentWeek) {
+              weekTitle = `Current Week (Sun, ${sd(sStr)} – ${sd(actualEnd)} · ${wDays.length} Days WTD)`;
+            } else if (isPriorWeek) {
+              weekTitle = `Prior Week (Sun, ${sd(sStr)} – ${sd(actualEnd)} · ${wDays.length} Days)`;
+            } else {
+              weekTitle = `Week of Sun, ${sd(sStr)} – ${sd(actualEnd)} (${wDays.length} Days)`;
+            }
+
+            wowWeeks.push({
+              idx: wi,
+              start: sStr,
+              end: actualEnd,
+              weekTitle,
+              isCurrentWeek,
+              isPriorWeek,
+              rev: wRev,
+              deals: wDeals,
+              aov: wAov,
+              insRev: wIns,
+              dirRev: wDir,
+              delFee: wDel,
+              dayCount: wDays.length,
+              dayList
+            });
           }
-        });
-        const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
-        const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
-        const dTot = (d.totalRevenue || 0) + dDel;
-        const dCnt = (d.salesCount || 0);
 
-        const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
-        const topRep = ags.length ? `${ags[0][0]} (${fmt(ags[0][1].revenue)})` : '—';
+          wHtml += `
+            <div style="margin-top: 24px; margin-bottom: 24px;">
+              <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #581c87; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                <span>📅 All Sunday-to-Sunday Weeks Performance (Click any week to drill down Day-by-Day)</span>
+                <span style="font-size: 11px; color: var(--muted); font-weight: 600;">Showing last ${wowWeeks.length} Sunday-started weeks</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+          `;
 
-        html += `
-          <tr>
-            <td style="font-weight: 700; white-space: nowrap;">${formatDateLong(d.date)}</td>
-            <td style="text-align: right; color: var(--green); font-weight: 700;">${fmt(dIns)}</td>
-            <td style="text-align: right; color: var(--blue); font-weight: 700;">${fmt(dDir)}</td>
-            <td style="text-align: right; color: var(--orange); font-weight: 600;">${fmt(dDel)}</td>
-            <td style="text-align: right; font-weight: 900; color: var(--text);">${fmt(dTot)}</td>
-            <td style="text-align: center; font-weight: 700;">${dCnt}</td>
-            <td style="color: var(--muted); font-size: 12px;">${topRep}</td>
-          </tr>
-        `;
-      });
+          wowWeeks.forEach((w, wi) => {
+            const prevW = wowWeeks[wi + 1];
+            const hasGrowth = !!prevW;
+            const growthPill = hasGrowth ? formatDeltaPill(w.rev, prevW.rev, true) : '';
+            const isOpen = w.isCurrentWeek || w.isPriorWeek;
 
-      html += `
-              </tbody>
-            </table>
+            wHtml += `
+              <div style="background: #ffffff; border: 1.5px solid ${w.isCurrentWeek ? '#c084fc' : '#e2e8f0'}; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                <div onclick="toggleWowWeek(${w.idx})" style="padding: 14px 18px; background: ${w.isCurrentWeek ? '#faf5ff' : '#f8fafc'}; cursor: pointer; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-left: 5px solid ${w.isCurrentWeek ? 'var(--primary)' : '#94a3b8'}; transition: background 0.15s;" onmouseover="this.style.background='${w.isCurrentWeek ? '#f3e8ff' : '#f1f5f9'}'" onmouseout="this.style.background='${w.isCurrentWeek ? '#faf5ff' : '#f8fafc'}'">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span id="wow-week-arrow-${w.idx}" style="font-size: 12px; font-weight: 900; color: #7c3aed; width: 14px;">${isOpen ? '▼' : '▶'}</span>
+                    <div>
+                      <div style="font-size: 13.5px; font-weight: 800; color: var(--text);">
+                        ${w.weekTitle}
+                        ${w.isCurrentWeek ? '<span style="font-size:10px;font-weight:800;background:#e9d5ff;color:#6b21a8;padding:2px 8px;border-radius:12px;margin-left:6px;">ACTIVE WTD</span>' : ''}
+                      </div>
+                      <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                        ${w.dayCount} days recorded · <span style="color:#7c3aed;font-weight:700;">Click to ${isOpen ? 'collapse' : 'open'} day-by-day ▾</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <div style="text-align: right;">
+                      <div style="font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase;">Total Rev</div>
+                      <div style="font-size: 14px; font-weight: 900; color: var(--text);">${fmt(w.rev)}</div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase;">Deals</div>
+                      <div style="font-size: 14px; font-weight: 800; color: var(--text);">${w.deals}</div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase;">Blended AOV</div>
+                      <div style="font-size: 14px; font-weight: 800; color: var(--text);">${fmt(w.aov)}</div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase;">Inside Sales</div>
+                      <div style="font-size: 13.5px; font-weight: 800; color: var(--green);">${fmt(w.insRev)}</div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase;">Direct Sales</div>
+                      <div style="font-size: 13.5px; font-weight: 800; color: var(--blue);">${fmt(w.dirRev)}</div>
+                    </div>
+                    ${growthPill ? `<div style="text-align: right;">${growthPill}</div>` : ''}
+                  </div>
+                </div>
+
+                <!-- Day-by-Day breakdown table for this week -->
+                <div id="wow-week-body-${w.idx}" style="display: ${isOpen ? 'block' : 'none'}; padding: 14px 18px; border-top: 1px solid #e2e8f0; background: #ffffff;">
+                  <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #6b21a8; margin-bottom: 8px;">
+                    🗓️ Day-by-Day Breakdown for ${w.weekTitle}
+                  </div>
+                  <div class="pm-table-wrap">
+                    <table class="pm-tbl">
+                      <thead>
+                        <tr style="background: #f8fafc;">
+                          <th>Day / Date</th>
+                          <th style="text-align: right;">Inside Sales</th>
+                          <th style="text-align: right;">Net Direct Sales</th>
+                          <th style="text-align: right;">Delivery Fee</th>
+                          <th style="text-align: right;">Total Day Rev</th>
+                          <th style="text-align: center;">Deals</th>
+                          <th style="text-align: right;">Day AOV</th>
+                          <th>Top Sales Rep</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${w.dayList.map(d => {
+                          const dObj = new Date(d.date + 'T00:00:00');
+                          const dayName = dObj.toLocaleDateString('en-US', { weekday: 'short' });
+                          return `
+                            <tr>
+                              <td style="font-weight: 700; white-space: nowrap;">
+                                <span style="display:inline-block;width:34px;font-weight:800;color:#581c87;">${dayName}</span>
+                                ${formatDateLong(d.date)}
+                              </td>
+                              <td style="text-align: right; color: var(--green); font-weight: 700;">${fmt(d.dIns)}</td>
+                              <td style="text-align: right; color: var(--blue); font-weight: 700;">${fmt(d.dDir)}</td>
+                              <td style="text-align: right; color: var(--orange); font-weight: 600;">${fmt(d.dDel)}</td>
+                              <td style="text-align: right; font-weight: 900; color: var(--text); font-size: 13.5px;">${fmt(d.dTot)}</td>
+                              <td style="text-align: center; font-weight: 800;">${d.dCnt}</td>
+                              <td style="text-align: right; font-weight: 700; color: var(--text);">${fmt(d.dDayAov)}</td>
+                              <td style="color: var(--muted); font-size: 12px;">${d.topRep}</td>
+                            </tr>
+                          `;
+                        }).join('')}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          wHtml += `
+              </div>
+            </div>
+          `;
+          return wHtml;
+        })() : `
+          <div>
+            <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px;">
+              📅 Day-by-Day Revenue Breakdown
+            </div>
+            <div class="pm-table-wrap">
+              <table class="pm-tbl">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th style="text-align: right;">Inside Sales</th>
+                    <th style="text-align: right;">Direct Sales</th>
+                    <th style="text-align: right;">Delivery Fee</th>
+                    <th style="text-align: right;">Total Day Revenue</th>
+                    <th style="text-align: center;">Deals</th>
+                    <th>Top Sales Rep</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${pDays.map(d => {
+                    let dIns = 0;
+                    Object.entries(d.sources || {}).forEach(([s, info]) => {
+                      if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
+                        dIns += (info.revenue || 0);
+                      }
+                    });
+                    const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+                    const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+                    const dTot = (d.totalRevenue || 0) + dDel;
+                    const dCnt = (d.salesCount || 0);
+                    const ags = Object.entries(d.agents || {}).sort((a, b) => b[1].revenue - a[1].revenue);
+                    const topRep = ags.length ? `${ags[0][0]} (${fmt(ags[0][1].revenue)})` : '—';
+                    return `
+                      <tr>
+                        <td style="font-weight: 700; white-space: nowrap;">${formatDateLong(d.date)}</td>
+                        <td style="text-align: right; color: var(--green); font-weight: 700;">${fmt(dIns)}</td>
+                        <td style="text-align: right; color: var(--blue); font-weight: 700;">${fmt(dDir)}</td>
+                        <td style="text-align: right; color: var(--orange); font-weight: 600;">${fmt(dDel)}</td>
+                        <td style="text-align: right; font-weight: 900; color: var(--text);">${fmt(dTot)}</td>
+                        <td style="text-align: center; font-weight: 700;">${dCnt}</td>
+                        <td style="color: var(--muted); font-size: 12px;">${topRep}</td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        `}
 
         <!-- Grid with Top Reps & Plans for this period -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
