@@ -37,6 +37,12 @@ const transporter = nodemailer.createTransport({
 const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
 const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
 const fd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+const formatLocalISO = d => {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + day;
+};
 const ini = n => n.split(' ').map(x => x[0]).join('').substring(0, 2).toUpperCase();
 
 function quickChartURL(config, width = 600, height = 240) {
@@ -147,27 +153,73 @@ function buildEmailHtml(allData) {
   const top3 = sortedAgents.slice(0, 3);
   const bottom3 = sortedAgents.length >= 3 ? sortedAgents.slice(-3) : [];
 
-  // 5. Period Revenue (Week to Date & Month to Date)
+  // Direct Sales Net AOV
+  const directSaleInfo = (yd.sources && yd.sources['Direct Sale']) || { revenue: 0, count: 0 };
+  const directSaleRev = directSaleInfo.revenue || 0;
+  const directSaleCnt = directSaleInfo.count || 0;
+  const directSaleAOV = directSaleCnt > 0 ? Math.round(directSaleRev / directSaleCnt) : 0;
+
+  // 5. Period Revenue & Executive Growth (Sunday-anchored W-o-W & M-o-M)
   const ydDateObj = new Date(yd.date + 'T00:00:00');
   const dayOfWeek = ydDateObj.getDay(); // 0 = Sun, 1 = Mon ...
   const weekStartObj = new Date(ydDateObj);
   weekStartObj.setDate(ydDateObj.getDate() - dayOfWeek);
-  const weekStartStr = weekStartObj.toISOString().split('T')[0];
+  const weekStartStr = formatLocalISO(weekStartObj);
 
-  const monthStartStr = yd.date.slice(0, 7) + '-01';
+  // Prior week matching like-for-like (Sun to prior same weekday)
+  const priorWeekStartObj = new Date(weekStartObj);
+  priorWeekStartObj.setDate(weekStartObj.getDate() - 7);
+  const priorWeekEndObj = new Date(ydDateObj);
+  priorWeekEndObj.setDate(ydDateObj.getDate() - 7);
+  const priorWeekStartStr = formatLocalISO(priorWeekStartObj);
+  const priorWeekEndStr = formatLocalISO(priorWeekEndObj);
 
-  const weekDays = allData.filter(d => d.date >= weekStartStr && d.date <= yd.date);
-  const monthDays = allData.filter(d => d.date >= monthStartStr && d.date <= yd.date);
+  // Full prior week (Sun to Sat)
+  const priorWeekSatObj = new Date(priorWeekStartObj);
+  priorWeekSatObj.setDate(priorWeekStartObj.getDate() + 6);
+  const priorWeekSatStr = formatLocalISO(priorWeekSatObj);
+
+  const weekDays = allData.filter(d => d.date >= weekStartStr && d.date <= yd.date).sort((a, b) => a.date.localeCompare(b.date));
+  const priorWeekDays = allData.filter(d => d.date >= priorWeekStartStr && d.date <= priorWeekEndStr);
+  const fullPriorWeekDays = allData.filter(d => d.date >= priorWeekStartStr && d.date <= priorWeekSatStr);
 
   const weekSales = weekDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
   const weekDelivery = weekDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
   const weekGrand = weekSales + weekDelivery;
   const weekDeals = weekDays.reduce((s, d) => s + (d.salesCount || 0), 0);
 
+  const priorWeekSales = priorWeekDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
+  const priorWeekDelivery = priorWeekDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
+  const priorWeekGrand = priorWeekSales + priorWeekDelivery;
+  const priorWeekDeals = priorWeekDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+
+  const fullPriorWeekSales = fullPriorWeekDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
+  const fullPriorWeekDelivery = fullPriorWeekDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
+  const fullPriorWeekGrand = fullPriorWeekSales + fullPriorWeekDelivery;
+  const fullPriorWeekDeals = fullPriorWeekDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+
+  const wowDiff = weekGrand - priorWeekGrand;
+  const wowGrowthPct = priorWeekGrand > 0 ? ((wowDiff / priorWeekGrand) * 100).toFixed(1) : (weekGrand > 0 ? '100' : '0');
+
+  // Month-to-Date (MTD)
+  const monthStartStr = yd.date.slice(0, 7) + '-01';
+  const monthDays = allData.filter(d => d.date >= monthStartStr && d.date <= yd.date);
   const monthSales = monthDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
   const monthDelivery = monthDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
   const monthGrand = monthSales + monthDelivery;
   const monthDeals = monthDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+
+  // Prior month MTD like-for-like
+  const priorMonthEndObj = new Date(ydDateObj);
+  priorMonthEndObj.setMonth(ydDateObj.getMonth() - 1);
+  const priorMonthStartStr = formatLocalISO(new Date(priorMonthEndObj.getFullYear(), priorMonthEndObj.getMonth(), 1));
+  const priorMonthEndStr = formatLocalISO(priorMonthEndObj);
+
+  const priorMonthDays = allData.filter(d => d.date >= priorMonthStartStr && d.date <= priorMonthEndStr);
+  const priorMonthGrand = priorMonthDays.reduce((s, d) => s + (d.totalRevenue || 0) + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
+  const priorMonthDeals = priorMonthDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+  const momDiff = monthGrand - priorMonthGrand;
+  const momGrowthPct = priorMonthGrand > 0 ? ((momDiff / priorMonthGrand) * 100).toFixed(1) : (monthGrand > 0 ? '100' : '0');
 
   // 6. Serviceability (Last 4 Days Funnel Snapshot)
   const last4Funnel = allData.filter(d => d.userBreakdown && d.date <= yd.date).slice(-4).reverse();
@@ -318,20 +370,25 @@ function buildEmailHtml(allData) {
       </div>
       <table style="width:100%;border-collapse:separate;border-spacing:8px 8px;margin-left:-8px;margin-right:-8px;">
         <tr>
-          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Total Deals Closed</div>
-            <div style="font-size:22px;font-weight:900;color:#7c3aed;line-height:1.2;margin-top:2px;">${salesCount}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Combined Direct &amp; Inside</div>
+          <td style="width:25%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #7c3aed;border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10px;font-weight:700;color:#6b7280;text-transform:uppercase;">Total Deals</div>
+            <div style="font-size:20px;font-weight:900;color:#7c3aed;line-height:1.2;margin-top:2px;">${salesCount}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:3px;">Direct &amp; Inside</div>
           </td>
-          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">Blended AOV</div>
-            <div style="font-size:20px;font-weight:900;color:#0891b2;line-height:1.2;margin-top:2px;">${fmt(aov)}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">Revenue ÷ Deals</div>
+          <td style="width:25%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #0891b2;border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10px;font-weight:700;color:#6b7280;text-transform:uppercase;">Blended AOV</div>
+            <div style="font-size:18px;font-weight:900;color:#0891b2;line-height:1.2;margin-top:2px;">${fmt(aov)}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:3px;">All Channels</div>
           </td>
-          <td style="width:33.33%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #d97706;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;">🏆 Highest Sale</div>
-            <div style="font-size:20px;font-weight:900;color:#d97706;line-height:1.2;margin-top:2px;">${hsAmount}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${hsAgent}</div>
+          <td style="width:25%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #0284c7;border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10px;font-weight:700;color:#6b7280;text-transform:uppercase;">Direct Sales AOV</div>
+            <div style="font-size:18px;font-weight:900;color:#0284c7;line-height:1.2;margin-top:2px;">${fmt(directSaleAOV)}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:3px;">${directSaleCnt} online deal${directSaleCnt !== 1 ? 's' : ''}</div>
+          </td>
+          <td style="width:25%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #d97706;border-radius:10px;padding:12px;vertical-align:top;">
+            <div style="font-size:10px;font-weight:700;color:#6b7280;text-transform:uppercase;">🏆 Highest Sale</div>
+            <div style="font-size:18px;font-weight:900;color:#d97706;line-height:1.2;margin-top:2px;">${hsAmount}</div>
+            <div style="font-size:10.5px;color:#6b7280;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${hsAgent}</div>
           </td>
         </tr>
       </table>
@@ -368,25 +425,132 @@ function buildEmailHtml(allData) {
       </table>
     </div>
 
-    <!-- 4. PERIOD REVENUE -->
+    <!-- 4. PERIOD REVENUE & EXECUTIVE GROWTH (SUNDAY-ANCHORED W-O-W & M-O-M) -->
     <div style="padding:0 28px 18px;">
-      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
-        📆 Period Revenue
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
+        <span>📆 Executive Growth &amp; Period Comparisons</span>
+        <span style="font-size:10.5px;color:#7c3aed;font-weight:700;text-transform:none;">Sunday-to-Sunday Anchored</span>
       </div>
-      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
         <tr>
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Week (Sun–Yesterday)</div>
-            <div style="font-size:22px;font-weight:900;color:#059669;margin-top:2px;">${fmt(weekGrand)}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${weekDeals} deals • ${weekDays.length} days</div>
+          <!-- W-o-W Card -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#6b21a8;text-transform:uppercase;">
+              Week-to-Date (Sun, ${sd(weekStartStr)} – ${sd(yd.date)})
+            </div>
+            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:2px;">
+              ${fmt(weekGrand)}
+            </div>
+            <div style="font-size:11px;color:#64748b;margin-top:2px;">
+              ${weekDeals} deals • ${weekDays.length} days WTD
+            </div>
+
+            <!-- Comparison badge -->
+            <div style="margin-top:10px;padding:8px 10px;background:${wowDiff >= 0 ? '#f0fdf4' : '#fef2f2'};border:1px solid ${wowDiff >= 0 ? '#bbf7d0' : '#fecaca'};border-radius:8px;">
+              <div style="font-size:10px;font-weight:800;color:#7c3aed;margin-bottom:2px;">
+                vs Prior WTD: Sun, ${sd(priorWeekStartStr)} – ${sd(priorWeekEndStr)} (${priorWeekDays.length}d LfL)
+              </div>
+              <div style="font-size:12.5px;font-weight:800;color:${wowDiff >= 0 ? '#059669' : '#dc2626'};">
+                ${wowDiff >= 0 ? '▲ +' : '▼ '}${wowGrowthPct}% (${wowDiff >= 0 ? '+' : ''}${fmt(wowDiff)})
+              </div>
+              <div style="font-size:10px;color:#64748b;margin-top:2px;">
+                Prior WTD: ${fmt(priorWeekGrand)} (${priorWeekDeals} deals)
+              </div>
+            </div>
           </td>
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Month (1st–Yesterday)</div>
-            <div style="font-size:22px;font-weight:900;color:#7c3aed;margin-top:2px;">${fmt(monthGrand)}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${monthDeals} deals • ${monthDays.length} days</div>
+
+          <!-- M-o-M Card -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#0e7490;text-transform:uppercase;">
+              Month-to-Date (1st – ${sd(yd.date)})
+            </div>
+            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:2px;">
+              ${fmt(monthGrand)}
+            </div>
+            <div style="font-size:11px;color:#64748b;margin-top:2px;">
+              ${monthDeals} deals • ${monthDays.length} days MTD
+            </div>
+
+            <!-- Comparison badge -->
+            <div style="margin-top:10px;padding:8px 10px;background:${momDiff >= 0 ? '#f0fdf4' : '#fef2f2'};border:1px solid ${momDiff >= 0 ? '#bbf7d0' : '#fecaca'};border-radius:8px;">
+              <div style="font-size:10px;font-weight:800;color:#0e7490;margin-bottom:2px;">
+                vs Prior Month MTD: 1st – ${sd(priorMonthEndStr)} (${priorMonthDays.length}d LfL)
+              </div>
+              <div style="font-size:12.5px;font-weight:800;color:${momDiff >= 0 ? '#059669' : '#dc2626'};">
+                ${momDiff >= 0 ? '▲ +' : '▼ '}${momGrowthPct}% (${momDiff >= 0 ? '+' : ''}${fmt(momDiff)})
+              </div>
+              <div style="font-size:10px;color:#64748b;margin-top:2px;">
+                Prior MTD: ${fmt(priorMonthGrand)} (${priorMonthDeals} deals)
+              </div>
+            </div>
           </td>
         </tr>
       </table>
+
+      <!-- Day-by-Day Matching Table (W-o-W Weekday Comparison) -->
+      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
+        <div style="padding:10px 14px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11.5px;font-weight:800;color:#581c87;text-transform:uppercase;letter-spacing:0.04em;">
+            ⚖️ WTD Day-by-Day (Sun, ${sd(weekStartStr)} – ${sd(yd.date)} vs Prior Sun, ${sd(priorWeekStartStr)} – ${sd(priorWeekEndStr)})
+          </span>
+          <span style="font-size:10.5px;color:#7c3aed;font-weight:700;">Matching Weekday Comparison</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
+          <thead>
+            <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+              <th style="padding:7px 10px;font-weight:700;">Day / Date</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:right;">Current Rev</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:center;">Deals</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:right;">Prior Same Day</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:right;">Variance</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:right;">Growth %</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${weekDays.map(cd => {
+              const cdObj = new Date(cd.date + 'T00:00:00');
+              const weekday = cdObj.toLocaleDateString('en-US', { weekday: 'short' });
+              const pdObj = new Date(cdObj);
+              pdObj.setDate(cdObj.getDate() - 7);
+              const pDateStr = formatLocalISO(pdObj);
+              const pd = allData.find(x => x.date === pDateStr);
+
+              const cDel = (cd.deliveryFee && cd.deliveryFee.total > 0) ? cd.deliveryFee.total : 0;
+              const cTot = (cd.totalRevenue || 0) + cDel;
+              const cDeals = cd.salesCount || 0;
+
+              const pDel = pd ? ((pd.deliveryFee && pd.deliveryFee.total > 0) ? pd.deliveryFee.total : 0) : 0;
+              const pTot = pd ? ((pd.totalRevenue || 0) + pDel) : 0;
+              const pDeals = pd ? (pd.salesCount || 0) : 0;
+
+              const diff = cTot - pTot;
+              const pct = pTot > 0 ? ((diff / pTot) * 100).toFixed(1) : (cTot > 0 ? '100' : '0');
+
+              return `
+                <tr style="border-bottom:1px solid #f1f5f9;">
+                  <td style="padding:7px 10px;font-weight:700;color:#1e1333;white-space:nowrap;">
+                    <span style="color:#581c87;font-weight:800;display:inline-block;width:30px;">${weekday}</span> ${sd(cd.date)}
+                    <span style="font-size:10px;color:#7c3aed;font-weight:600;margin-left:4px;">(vs ${sd(pDateStr)})</span>
+                  </td>
+                  <td style="padding:7px 10px;text-align:right;font-weight:800;color:#1e1333;">${fmt(cTot)}</td>
+                  <td style="padding:7px 10px;text-align:center;font-weight:600;color:#64748b;">${cDeals}</td>
+                  <td style="padding:7px 10px;text-align:right;color:#64748b;">${pd ? `${fmt(pTot)} (${pDeals}d)` : '₹0'}</td>
+                  <td style="padding:7px 10px;text-align:right;font-weight:700;color:${diff >= 0 ? '#059669' : '#dc2626'};">${(diff >= 0 ? '+' : '') + fmt(diff)}</td>
+                  <td style="padding:7px 10px;text-align:right;font-weight:800;color:${diff >= 0 ? '#059669' : '#dc2626'};">${diff >= 0 ? '+' : ''}${pct}%</td>
+                </tr>
+              `;
+            }).join('')}
+            <tr style="background:#faf5ff;border-top:2px solid #d8b4fe;font-weight:800;">
+              <td style="padding:8px 10px;color:#581c87;text-transform:uppercase;font-size:11px;">Total WTD Like-for-Like</td>
+              <td style="padding:8px 10px;text-align:right;color:#1e1333;font-size:12.5px;">${fmt(weekGrand)}</td>
+              <td style="padding:8px 10px;text-align:center;color:#1e1333;">${weekDeals}</td>
+              <td style="padding:8px 10px;text-align:right;color:#64748b;">${fmt(priorWeekGrand)} (${priorWeekDeals}d)</td>
+              <td style="padding:8px 10px;text-align:right;color:${wowDiff >= 0 ? '#059669' : '#dc2626'};font-size:12px;">${(wowDiff >= 0 ? '+' : '') + fmt(wowDiff)}</td>
+              <td style="padding:8px 10px;text-align:right;color:${wowDiff >= 0 ? '#059669' : '#dc2626'};font-size:12px;">${wowDiff >= 0 ? '+' : ''}${wowGrowthPct}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->

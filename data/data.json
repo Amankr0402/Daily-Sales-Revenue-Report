@@ -50726,9 +50726,9 @@
   },
   {
     "date": "2026-09-22",
-    "totalRevenue": 187396,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 194396,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 17073,
       "agent": "Kush Shah",
@@ -50770,6 +50770,10 @@
       "Rohit Jain": {
         "revenue": 12000,
         "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 7000,
+        "count": 1
       }
     },
     "plans": {
@@ -50785,6 +50789,10 @@
         "revenue": 5000,
         "count": 1
       },
+      "Ultra Quarterly": {
+        "revenue": 7000,
+        "count": 1
+      },
       "Quarterly Ultra": {
         "revenue": 7293,
         "count": 1
@@ -50792,8 +50800,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 83000,
-        "count": 8
+        "revenue": 90000,
+        "count": 9
       },
       "Renewals": {
         "revenue": 36128,
@@ -50926,9 +50934,9 @@
       "revenue": 36402
     },
     "missedLeads": {
-      "Connected": 417,
-      "Interested": 153,
-      "Paise Dega": 33
+      "Connected": 427,
+      "Interested": 170,
+      "Paise Dega": 37
     },
     "refunds": {
       "count": 1,
@@ -50957,23 +50965,23 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2417,
-    "activeSubNoOrder": 112,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 48,
-      "Orders Placed": 48,
-      "Orders - CONFIRMED": 19,
-      "Orders Confirmed": 19,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
+      "Orders - PLACED": 47,
+      "Orders Placed": 47,
+      "Orders - CONFIRMED": 16,
+      "Orders Confirmed": 16,
+      "Orders - READY_TO_SHIP": 8,
+      "Orders Ready to Ship": 8,
       "Orders - SHIPPED": 26,
       "Orders Shipped": 26,
-      "Orders - Not Delivered": 99,
-      "Orders Not Delivered": 99
+      "Orders - Not Delivered": 97,
+      "Orders Not Delivered": 97
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 448,
-      "New Subscribers Orders that have been Delivered": 349,
-      "New Subscribers Orders yet to be Delivered": 99,
+      "New Subscribers Orders that have been Delivered": 351,
+      "New Subscribers Orders yet to be Delivered": 97,
       "New Subscribers Orders yet to be Delivered & Delayed": 44
     },
     "selfUpgrade": {
