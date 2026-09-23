@@ -49651,9 +49651,9 @@
     "userBreakdown": {
       "signups": 687,
       "otpVerified": 678,
-      "serviceable": 531,
-      "serviceableWithPct": "531 (77.3%)",
-      "serviceablePct": "77.3%"
+      "serviceable": 530,
+      "serviceableWithPct": "530 (77.1%)",
+      "serviceablePct": "77.1%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -50929,11 +50929,6 @@
       "count": 3,
       "revenue": 36402
     },
-    "missedLeads": {
-      "Connected": 327,
-      "Interested": 124,
-      "Paise Dega": 27
-    },
     "refunds": {
       "count": 1,
       "total": 12466.8,
@@ -50950,35 +50945,6 @@
     "refundsLast7Days": {
       "total": 145283.3,
       "count": 12
-    },
-    "newUsers7d": 8352,
-    "newUsersYesterday": 960,
-    "activeSubs": 4829,
-    "newSubs7d": 174,
-    "teleCrmLeads": 1322,
-    "subsEnding5d": 82,
-    "subsExpired7d": 110,
-    "subsExpiringToday": 12,
-    "planExpiringNoOrder": 3,
-    "planExpNoOrder": 2417,
-    "activeSubNoOrder": 114,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 35,
-      "Orders Placed": 35,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
-      "Orders - Not Delivered": 68,
-      "Orders Not Delivered": 68
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 446,
-      "New Subscribers Orders that have been Delivered": 378,
-      "New Subscribers Orders yet to be Delivered": 68,
-      "New Subscribers Orders yet to be Delivered & Delayed": 36
     },
     "selfUpgrade": {
       "totalCount": 0,
@@ -50998,6 +50964,249 @@
           "newPaid": 0,
           "coupon": "",
           "paid": 0,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-23",
+    "totalRevenue": 171543.21,
+    "salesCount": 19,
+    "transactions": 19,
+    "highestSale": {
+      "amount": 17073,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Amol Landge": {
+        "revenue": 20752,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 18000,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 20376,
+        "count": 2
+      },
+      "Shivani Gupta": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 5379,
+        "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 128736.20999999999,
+        "count": 11
+      },
+      "Ultra Quarterly": {
+        "revenue": 7000,
+        "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 26891,
+        "count": 5
+      },
+      "Quarterly Plus": {
+        "revenue": 3160,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Renewals": {
+        "revenue": 26131,
+        "count": 3
+      },
+      "Organic": {
+        "revenue": 81376,
+        "count": 9
+      },
+      "Direct Sale": {
+        "revenue": 58280.21,
+        "count": 6
+      },
+      "Overlap Deals": {
+        "revenue": 5756,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 1008,
+      "otpVerified": 995,
+      "serviceable": 756,
+      "serviceableWithPct": "756 (75.0%)",
+      "serviceablePct": "75.0%"
+    },
+    "directSaleCSV": {
+      "count": 7,
+      "revenue": 64036.21
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-23",
+        "rawDate": "23/09/2026 16:00",
+        "customerName": "M FARID QURAISHI",
+        "phone": "8097963696",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR513856",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5756 and also completed on Direct Portal for ₹5756"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-23",
+        "rawDate": "23/09/2026 16:00",
+        "customerName": "M FARID QURAISHI",
+        "phone": "8097963696",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 5756,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR513856",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5756 and also completed on Direct Portal for ₹5756"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 5756
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 5756
+    },
+    "missedLeads": {
+      "Connected": 332,
+      "Interested": 127,
+      "Paise Dega": 25
+    },
+    "refunds": {
+      "count": 6,
+      "total": 61766.5,
+      "items": [
+        {
+          "refundId": "rfnd_TfMhoid85YwiD6",
+          "paymentId": "pay_TK53eVfVCynSBb",
+          "amount": 10376,
+          "status": "processed",
+          "date": "23/09/2026 11:06:58"
+        },
+        {
+          "refundId": "rfnd_TfQGXUbgfclVqL",
+          "paymentId": "pay_T4MRuOmzMcCLsF",
+          "amount": 11000,
+          "status": "processed",
+          "date": "23/09/2026 14:35:55"
+        },
+        {
+          "refundId": "rfnd_TfQLbg4AP2kTO4",
+          "paymentId": "pay_ScCHfBthbG630S",
+          "amount": 8250,
+          "status": "processed",
+          "date": "23/09/2026 14:40:43"
+        },
+        {
+          "refundId": "rfnd_TfQSDgsBvzOhfZ",
+          "paymentId": "pay_TXCWaebbVpFJiw",
+          "amount": 11037,
+          "status": "processed",
+          "date": "23/09/2026 14:46:59"
+        },
+        {
+          "refundId": "rfnd_TfQVPxbqHa3L6H",
+          "paymentId": "pay_TZEGDe7FsKoPem",
+          "amount": 11000,
+          "status": "processed",
+          "date": "23/09/2026 14:50:00"
+        },
+        {
+          "refundId": "rfnd_TfVKNcRQ0YnGm0",
+          "paymentId": "pay_TJJZhI6BeAFQjz",
+          "amount": 10103.5,
+          "status": "processed",
+          "date": "23/09/2026 19:33:01"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 144785.8,
+      "count": 13
+    },
+    "newUsers7d": 8352,
+    "newUsersYesterday": 960,
+    "activeSubs": 4827,
+    "newSubs7d": 174,
+    "teleCrmLeads": 1322,
+    "subsEnding5d": 82,
+    "subsExpired7d": 110,
+    "subsExpiringToday": 12,
+    "planExpiringNoOrder": 3,
+    "planExpNoOrder": 2417,
+    "activeSubNoOrder": 113,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 48,
+      "Orders Placed": 48,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 81,
+      "Orders Not Delivered": 81
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 463,
+      "New Subscribers Orders that have been Delivered": 382,
+      "New Subscribers Orders yet to be Delivered": 81,
+      "New Subscribers Orders yet to be Delivered & Delayed": 39
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": [
+        {
+          "userId": "UR371704",
+          "parent": "Ipsita",
+          "phone": "9971143444",
+          "oldPlan": "play-plus-quarterly",
+          "oldPaid": 2800,
+          "newPlan": "play-ultra-12-week",
+          "newPaid": 5500,
+          "coupon": "",
+          "paid": 5500,
           "isCoupon40": false,
           "inSecondarySheet": true
         }
