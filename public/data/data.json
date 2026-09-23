@@ -50096,9 +50096,9 @@
     "userBreakdown": {
       "signups": 1788,
       "otpVerified": 1779,
-      "serviceable": 1489,
-      "serviceableWithPct": "1,489 (83.3%)",
-      "serviceablePct": "83.3%"
+      "serviceable": 1488,
+      "serviceableWithPct": "1,488 (83.2%)",
+      "serviceablePct": "83.2%"
     },
     "directSaleCSV": {
       "count": 8,
@@ -50726,9 +50726,9 @@
   },
   {
     "date": "2026-09-22",
-    "totalRevenue": 194396,
-    "salesCount": 19,
-    "transactions": 19,
+    "totalRevenue": 187396,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 17073,
       "agent": "Kush Shah",
@@ -50770,10 +50770,6 @@
       "Rohit Jain": {
         "revenue": 12000,
         "count": 1
-      },
-      "Prerak Bhavsar": {
-        "revenue": 7000,
-        "count": 1
       }
     },
     "plans": {
@@ -50789,10 +50785,6 @@
         "revenue": 5000,
         "count": 1
       },
-      "Ultra Quarterly": {
-        "revenue": 7000,
-        "count": 1
-      },
       "Quarterly Ultra": {
         "revenue": 7293,
         "count": 1
@@ -50800,8 +50792,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 90000,
-        "count": 9
+        "revenue": 83000,
+        "count": 8
       },
       "Renewals": {
         "revenue": 36128,
@@ -50821,11 +50813,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1040,
-      "otpVerified": 1032,
-      "serviceable": 798,
-      "serviceableWithPct": "798 (76.7%)",
-      "serviceablePct": "76.7%"
+      "signups": 1038,
+      "otpVerified": 1030,
+      "serviceable": 797,
+      "serviceableWithPct": "797 (76.8%)",
+      "serviceablePct": "76.8%"
     },
     "directSaleCSV": {
       "count": 5,
@@ -50934,9 +50926,9 @@
       "revenue": 36402
     },
     "missedLeads": {
-      "Connected": 427,
-      "Interested": 170,
-      "Paise Dega": 37
+      "Connected": 410,
+      "Interested": 194,
+      "Paise Dega": 45
     },
     "refunds": {
       "count": 1,
@@ -50957,7 +50949,7 @@
     },
     "newUsers7d": 8352,
     "newUsersYesterday": 960,
-    "activeSubs": 4826,
+    "activeSubs": 4827,
     "newSubs7d": 174,
     "teleCrmLeads": 1322,
     "subsEnding5d": 82,
@@ -50967,22 +50959,22 @@
     "planExpNoOrder": 2417,
     "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 47,
-      "Orders Placed": 47,
+      "Orders - PLACED": 42,
+      "Orders Placed": 42,
       "Orders - CONFIRMED": 16,
       "Orders Confirmed": 16,
-      "Orders - READY_TO_SHIP": 8,
-      "Orders Ready to Ship": 8,
-      "Orders - SHIPPED": 26,
-      "Orders Shipped": 26,
-      "Orders - Not Delivered": 97,
-      "Orders Not Delivered": 97
+      "Orders - READY_TO_SHIP": 5,
+      "Orders Ready to Ship": 5,
+      "Orders - SHIPPED": 22,
+      "Orders Shipped": 22,
+      "Orders - Not Delivered": 85,
+      "Orders Not Delivered": 85
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 448,
-      "New Subscribers Orders that have been Delivered": 351,
-      "New Subscribers Orders yet to be Delivered": 97,
-      "New Subscribers Orders yet to be Delivered & Delayed": 44
+      "New Subscribers Orders that have been Delivered": 363,
+      "New Subscribers Orders yet to be Delivered": 85,
+      "New Subscribers Orders yet to be Delivered & Delayed": 39
     },
     "selfUpgrade": {
       "totalCount": 0,
