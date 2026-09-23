@@ -50395,10 +50395,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1362,
-      "otpVerified": 1355,
-      "serviceable": 1101,
-      "serviceableWithPct": "1,101 (80.8%)",
+      "signups": 1361,
+      "otpVerified": 1354,
+      "serviceable": 1100,
+      "serviceableWithPct": "1,100 (80.8%)",
       "serviceablePct": "80.8%"
     },
     "directSaleCSV": {
@@ -50482,9 +50482,9 @@
   },
   {
     "date": "2026-09-21",
-    "totalRevenue": 234096,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 245096,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -50542,12 +50542,16 @@
       "Shikha Singh": {
         "revenue": 22000,
         "count": 2
+      },
+      "Others": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 195573,
-        "count": 19
+        "revenue": 206573,
+        "count": 20
       },
       "Annual Plus": {
         "revenue": 8146,
@@ -50560,8 +50564,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 165000,
-        "count": 17
+        "revenue": 176000,
+        "count": 18
       },
       "Renewals": {
         "revenue": 15198,
@@ -50926,9 +50930,9 @@
       "revenue": 36402
     },
     "missedLeads": {
-      "Connected": 410,
-      "Interested": 194,
-      "Paise Dega": 45
+      "Connected": 327,
+      "Interested": 124,
+      "Paise Dega": 27
     },
     "refunds": {
       "count": 1,
@@ -50949,7 +50953,7 @@
     },
     "newUsers7d": 8352,
     "newUsersYesterday": 960,
-    "activeSubs": 4827,
+    "activeSubs": 4829,
     "newSubs7d": 174,
     "teleCrmLeads": 1322,
     "subsEnding5d": 82,
@@ -50957,24 +50961,24 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2417,
-    "activeSubNoOrder": 113,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 42,
-      "Orders Placed": 42,
-      "Orders - CONFIRMED": 16,
-      "Orders Confirmed": 16,
-      "Orders - READY_TO_SHIP": 5,
-      "Orders Ready to Ship": 5,
-      "Orders - SHIPPED": 22,
-      "Orders Shipped": 22,
-      "Orders - Not Delivered": 85,
-      "Orders Not Delivered": 85
+      "Orders - PLACED": 35,
+      "Orders Placed": 35,
+      "Orders - CONFIRMED": 20,
+      "Orders Confirmed": 20,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 68
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 448,
-      "New Subscribers Orders that have been Delivered": 363,
-      "New Subscribers Orders yet to be Delivered": 85,
-      "New Subscribers Orders yet to be Delivered & Delayed": 39
+      "New Subscribers who have Ordered": 446,
+      "New Subscribers Orders that have been Delivered": 378,
+      "New Subscribers Orders yet to be Delivered": 68,
+      "New Subscribers Orders yet to be Delivered & Delayed": 36
     },
     "selfUpgrade": {
       "totalCount": 0,
