@@ -50669,11 +50669,6 @@
       "tax": 54,
       "total": 354
     },
-    "missedLeads": {
-      "Connected": 420,
-      "Interested": 174,
-      "Paise Dega": 42
-    },
     "refunds": {
       "count": 3,
       "total": 35573,
@@ -50705,35 +50700,6 @@
       "total": 146295.5,
       "count": 13
     },
-    "newUsers7d": 9380,
-    "newUsersYesterday": 1067,
-    "activeSubs": 4822,
-    "newSubs7d": 181,
-    "teleCrmLeads": 1548,
-    "subsEnding5d": 74,
-    "subsExpired7d": 117,
-    "subsExpiringToday": 6,
-    "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2416,
-    "activeSubNoOrder": 113,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 44,
-      "Orders Placed": 44,
-      "Orders - CONFIRMED": 30,
-      "Orders Confirmed": 30,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
-      "Orders - Not Delivered": 92,
-      "Orders Not Delivered": 92
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 437,
-      "New Subscribers Orders that have been Delivered": 345,
-      "New Subscribers Orders yet to be Delivered": 92,
-      "New Subscribers Orders yet to be Delivered & Delayed": 43
-    },
     "selfUpgrade": {
       "totalCount": 0,
       "totalRevenue": 0,
@@ -50760,9 +50726,9 @@
   },
   {
     "date": "2026-09-22",
-    "totalRevenue": 143020,
-    "salesCount": 14,
-    "transactions": 14,
+    "totalRevenue": 187396,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 17073,
       "agent": "Kush Shah",
@@ -50778,8 +50744,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Vikas Poonia": {
         "revenue": 15376,
@@ -50790,26 +50756,30 @@
         "count": 1
       },
       "Shashank Tiwari": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 11000,
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 10376,
+        "revenue": 20752,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 12000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 89325,
-        "count": 8
+        "revenue": 133701,
+        "count": 12
       },
       "Quarterly Max": {
-        "revenue": 10756,
-        "count": 2
+        "revenue": 5000,
+        "count": 1
       },
       "Annual Mini": {
         "revenue": 5000,
@@ -50822,23 +50792,23 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 49000,
-        "count": 5
+        "revenue": 83000,
+        "count": 8
       },
       "Renewals": {
-        "revenue": 25752,
-        "count": 3
+        "revenue": 36128,
+        "count": 4
       },
       "Upgrade": {
         "revenue": 11000,
         "count": 1
       },
-      "Direct Sale": {
-        "revenue": 26622,
+      "Overlap Deals": {
+        "revenue": 36402,
         "count": 3
       },
-      "Overlap Deals": {
-        "revenue": 30646,
+      "Direct Sale": {
+        "revenue": 20866,
         "count": 2
       }
     },
@@ -50854,6 +50824,21 @@
       "revenue": 57268
     },
     "collidingDeals": [
+      {
+        "date": "2026-09-22",
+        "rawDate": "22/09/2026 21:41",
+        "customerName": "Krishna Prasad S",
+        "phone": "8056208171",
+        "agent": "Tanveer Ahmed",
+        "insideRevenue": 5767,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR481165",
+        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹5767 and also completed on Direct Portal for ₹5756"
+      },
       {
         "date": "2026-09-22",
         "rawDate": "22/09/2026 15:51",
@@ -50888,6 +50873,21 @@
     "disputedDeals": [
       {
         "date": "2026-09-22",
+        "rawDate": "22/09/2026 21:41",
+        "customerName": "Krishna Prasad S",
+        "phone": "8056208171",
+        "agent": "Tanveer Ahmed",
+        "insideRevenue": 5767,
+        "revenue": 5756,
+        "directRevenue": 5756,
+        "plan": "Quarterly Max",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR481165",
+        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹5767 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-22",
         "rawDate": "22/09/2026 15:51",
         "customerName": "Dolly Zaveri",
         "phone": "9664135167",
@@ -50918,17 +50918,17 @@
       }
     ],
     "collidingTotal": {
-      "count": 2,
-      "revenue": 30646
+      "count": 3,
+      "revenue": 36402
     },
     "disputedTotal": {
-      "count": 2,
-      "revenue": 30646
+      "count": 3,
+      "revenue": 36402
     },
     "missedLeads": {
-      "Connected": 340,
-      "Interested": 111,
-      "Paise Dega": 23
+      "Connected": 417,
+      "Interested": 153,
+      "Paise Dega": 33
     },
     "refunds": {
       "count": 1,
@@ -50948,8 +50948,8 @@
       "count": 12
     },
     "newUsers7d": 8352,
-    "newUsersYesterday": 1067,
-    "activeSubs": 4824,
+    "newUsersYesterday": 960,
+    "activeSubs": 4826,
     "newSubs7d": 174,
     "teleCrmLeads": 1322,
     "subsEnding5d": 82,
@@ -50959,21 +50959,21 @@
     "planExpNoOrder": 2417,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 49,
-      "Orders Placed": 49,
-      "Orders - CONFIRMED": 34,
-      "Orders Confirmed": 34,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 15,
-      "Orders Shipped": 15,
-      "Orders - Not Delivered": 100,
-      "Orders Not Delivered": 100
+      "Orders - PLACED": 48,
+      "Orders Placed": 48,
+      "Orders - CONFIRMED": 19,
+      "Orders Confirmed": 19,
+      "Orders - READY_TO_SHIP": 6,
+      "Orders Ready to Ship": 6,
+      "Orders - SHIPPED": 26,
+      "Orders Shipped": 26,
+      "Orders - Not Delivered": 99,
+      "Orders Not Delivered": 99
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 448,
-      "New Subscribers Orders that have been Delivered": 348,
-      "New Subscribers Orders yet to be Delivered": 100,
+      "New Subscribers Orders that have been Delivered": 349,
+      "New Subscribers Orders yet to be Delivered": 99,
       "New Subscribers Orders yet to be Delivered & Delayed": 44
     },
     "selfUpgrade": {
