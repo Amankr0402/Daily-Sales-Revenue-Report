@@ -46961,8 +46961,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 154772.71,
-        "count": 14
+        "revenue": 142556.71,
+        "count": 13
       },
       "Quarterly Max": {
         "revenue": 17500,
@@ -46987,12 +46987,12 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 49921.71,
-        "count": 4
+        "revenue": 37705.71,
+        "count": 3
       },
       "Overlap Deals": {
-        "revenue": 27592,
-        "count": 3
+        "revenue": 39808,
+        "count": 4
       }
     },
     "userBreakdown": null,
@@ -47045,6 +47045,21 @@
         "directOrderId": "FUNDEAL",
         "directUserId": "UR227061",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-04",
+        "rawDate": "04/09/2026 13:26",
+        "customerName": "Akshay Kumar",
+        "phone": "9915368535",
+        "agent": "Honey Talreja",
+        "insideRevenue": 12000,
+        "revenue": 12216,
+        "directRevenue": 12216,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "KRISHNA40",
+        "directUserId": "UR449262",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
       }
     ],
     "disputedDeals": [
@@ -47092,15 +47107,30 @@
         "directOrderId": "FUNDEAL",
         "directUserId": "UR227061",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-09-04",
+        "rawDate": "04/09/2026 13:26",
+        "customerName": "Akshay Kumar",
+        "phone": "9915368535",
+        "agent": "Honey Talreja",
+        "insideRevenue": 12000,
+        "revenue": 12216,
+        "directRevenue": 12216,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "KRISHNA40",
+        "directUserId": "UR449262",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 27592
+      "count": 4,
+      "revenue": 39808
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 27592
+      "count": 4,
+      "revenue": 39808
     },
     "refunds": {
       "count": 1,
@@ -50090,9 +50120,9 @@
     "userBreakdown": {
       "signups": 1788,
       "otpVerified": 1779,
-      "serviceable": 1488,
-      "serviceableWithPct": "1,488 (83.2%)",
-      "serviceablePct": "83.2%"
+      "serviceable": 1489,
+      "serviceableWithPct": "1,489 (83.3%)",
+      "serviceablePct": "83.3%"
     },
     "directSaleCSV": {
       "count": 8,
@@ -51047,9 +51077,9 @@
     "userBreakdown": {
       "signups": 1008,
       "otpVerified": 995,
-      "serviceable": 756,
-      "serviceableWithPct": "756 (75.0%)",
-      "serviceablePct": "75.0%"
+      "serviceable": 757,
+      "serviceableWithPct": "757 (75.1%)",
+      "serviceablePct": "75.1%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -51098,9 +51128,9 @@
       "revenue": 5756
     },
     "missedLeads": {
-      "Connected": 350,
-      "Interested": 150,
-      "Paise Dega": 41
+      "Connected": 381,
+      "Interested": 190,
+      "Paise Dega": 48
     },
     "refunds": {
       "count": 6,
@@ -51156,7 +51186,7 @@
     },
     "newUsers7d": 7333,
     "newUsersYesterday": 944,
-    "activeSubs": 4830,
+    "activeSubs": 4832,
     "newSubs7d": 172,
     "teleCrmLeads": 1323,
     "subsEnding5d": 79,
@@ -51166,22 +51196,22 @@
     "planExpNoOrder": 2418,
     "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 44,
-      "Orders Placed": 44,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 38,
+      "Orders Placed": 38,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 15,
       "Orders Shipped": 15,
-      "Orders - Not Delivered": 80,
-      "Orders Not Delivered": 80
+      "Orders - Not Delivered": 72,
+      "Orders Not Delivered": 72
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 463,
-      "New Subscribers Orders that have been Delivered": 383,
-      "New Subscribers Orders yet to be Delivered": 80,
-      "New Subscribers Orders yet to be Delivered & Delayed": 39
+      "New Subscribers Orders that have been Delivered": 391,
+      "New Subscribers Orders yet to be Delivered": 72,
+      "New Subscribers Orders yet to be Delivered & Delayed": 38
     },
     "selfUpgrade": {
       "totalCount": 0,
