@@ -47689,7 +47689,7 @@
   },
   {
     "date": "2026-09-07",
-    "totalRevenue": 153521,
+    "totalRevenue": 151521,
     "salesCount": 19,
     "transactions": 19,
     "highestSale": {
@@ -47719,7 +47719,7 @@
         "count": 2
       },
       "Sneha Anand": {
-        "revenue": 4000,
+        "revenue": 2000,
         "count": 1
       },
       "Rani Singh": {
@@ -47757,7 +47757,7 @@
         "count": 11
       },
       "Quarterly Max": {
-        "revenue": 13000,
+        "revenue": 11000,
         "count": 3
       },
       "Quarterly Plus": {
@@ -47767,7 +47767,7 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 27620,
+        "revenue": 25620,
         "count": 4
       },
       "Organic": {
@@ -47917,9 +47917,9 @@
   },
   {
     "date": "2026-09-08",
-    "totalRevenue": 220225.86,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 209225.86,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -47955,8 +47955,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 15000,
-        "count": 2
+        "revenue": 4000,
+        "count": 1
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 12215,
@@ -47993,8 +47993,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 159380,
-        "count": 14
+        "revenue": 148380,
+        "count": 13
       },
       "Quarterly Max": {
         "revenue": 31652,
@@ -48011,8 +48011,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 139899,
-        "count": 15
+        "revenue": 128899,
+        "count": 14
       },
       "Renewals": {
         "revenue": 22772,
@@ -51199,12 +51199,12 @@
   },
   {
     "date": "2026-09-24",
-    "totalRevenue": 169128,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 208128,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
-      "amount": 11000,
-      "agent": "Prerak Bhavsar",
+      "amount": 12000,
+      "agent": "Vivek Shah",
       "source": "Inside Sales"
     },
     "agents": {
@@ -51213,16 +51213,16 @@
         "count": 2
       },
       "Jivesh Harde": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 33000,
+        "count": 3
       },
       "Vikas Poonia": {
         "revenue": 20752,
         "count": 2
       },
       "Honey Talreja": {
-        "revenue": 16000,
-        "count": 2
+        "revenue": 21000,
+        "count": 3
       },
       "Preyashi Roy": {
         "revenue": 20000,
@@ -51241,18 +51241,22 @@
         "count": 3
       },
       "Vivek Shah": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 34000,
+        "count": 3
+      },
+      "Naveen Suwalka": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 138128,
-        "count": 14
+        "revenue": 172128,
+        "count": 17
       },
       "Quarterly Max": {
-        "revenue": 24000,
-        "count": 5
+        "revenue": 29000,
+        "count": 6
       },
       "6 months Max": {
         "revenue": 7000,
@@ -51261,12 +51265,12 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 125000,
-        "count": 14
+        "revenue": 169000,
+        "count": 19
       },
       "Renewals": {
-        "revenue": 44128,
-        "count": 6
+        "revenue": 39128,
+        "count": 5
       }
     },
     "userBreakdown": {
@@ -51283,9 +51287,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 300,
-      "Interested": 98,
-      "Paise Dega": 20
+      "Connected": 399,
+      "Interested": 165,
+      "Paise Dega": 32
     },
     "refunds": {
       "count": 3,
@@ -51319,10 +51323,10 @@
       "count": 14
     },
     "newUsers7d": 7670,
-    "newUsersYesterday": 944,
+    "newUsersYesterday": 951,
     "activeSubs": 4839,
     "newSubs7d": 160,
-    "teleCrmLeads": 1158,
+    "teleCrmLeads": 1170,
     "subsEnding5d": 77,
     "subsExpired7d": 94,
     "subsExpiringToday": 14,
@@ -51330,14 +51334,14 @@
     "planExpNoOrder": 2419,
     "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 48,
-      "Orders Placed": 48,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 10,
-      "Orders Shipped": 10,
+      "Orders - PLACED": 47,
+      "Orders Placed": 47,
+      "Orders - CONFIRMED": 20,
+      "Orders Confirmed": 20,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 13,
+      "Orders Shipped": 13,
       "Orders - Not Delivered": 81,
       "Orders Not Delivered": 81
     },
