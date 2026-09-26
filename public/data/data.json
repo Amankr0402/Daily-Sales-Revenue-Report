@@ -51526,11 +51526,6 @@
       "tax": 18,
       "total": 118
     },
-    "missedLeads": {
-      "Connected": 440,
-      "Interested": 149,
-      "Paise Dega": 23
-    },
     "refundsLast7Days": {
       "total": 134776.8,
       "count": 14
@@ -51540,9 +51535,284 @@
       "total": 0,
       "items": []
     },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-09-26",
+    "totalRevenue": 321576.85000000003,
+    "salesCount": 28,
+    "transactions": 28,
+    "highestSale": {
+      "amount": 17000,
+      "agent": "Chhaya Patel",
+      "source": "Inside Sales"
+    },
+    "agents": {
+      "Kush Shah": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 16000,
+        "count": 2
+      },
+      "Abhijeet Mathur": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 34000,
+        "count": 3
+      },
+      "Kunal Sharma": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 28000,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Vikas Poonia": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Naveen Suwalka": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Amol Landge": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 248506.64,
+        "count": 22
+      },
+      "Ultra Annually": {
+        "revenue": 17000,
+        "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 5000,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 133000,
+        "count": 12
+      },
+      "Events": {
+        "revenue": 22000,
+        "count": 2
+      },
+      "Upgrade": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 110506.64,
+        "count": 9
+      },
+      "Overlap Deals": {
+        "revenue": 51070.21,
+        "count": 4
+      }
+    },
+    "userBreakdown": {
+      "signups": 1025,
+      "otpVerified": 996,
+      "serviceable": 738,
+      "serviceableWithPct": "738 (72.0%)",
+      "serviceablePct": "72.0%"
+    },
+    "directSaleCSV": {
+      "count": 13,
+      "revenue": 161576.85
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 17:45",
+        "customerName": "Chetan Shyamsundar Maru",
+        "phone": "9561499481",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR517086",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 17:24",
+        "customerName": "khushboo Bhimani",
+        "phone": "9664195669",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 11000,
+        "revenue": 11000,
+        "directRevenue": 11000,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKFLAT11K",
+        "directUserId": "UR202911",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹11000 and also completed on Direct Portal for ₹11000"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 13:09",
+        "customerName": "Balaji Thiyagarajan",
+        "phone": "7708654115",
+        "agent": "Naveen Suwalka",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR441662",
+        "disputeNote": "Logged by Inside Sales agent (Naveen Suwalka) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 07:01",
+        "customerName": "Ritwik",
+        "phone": "9738217434",
+        "agent": "Abhijeet Mathur",
+        "insideRevenue": 13573,
+        "revenue": 12924.21,
+        "directRevenue": 12924.21,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR181617",
+        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹13573 and also completed on Direct Portal for ₹12924.21"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 17:45",
+        "customerName": "Chetan Shyamsundar Maru",
+        "phone": "9561499481",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR517086",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 17:24",
+        "customerName": "khushboo Bhimani",
+        "phone": "9664195669",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 11000,
+        "revenue": 11000,
+        "directRevenue": 11000,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "AKFLAT11K",
+        "directUserId": "UR202911",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹11000 and also completed on Direct Portal for ₹11000"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 13:09",
+        "customerName": "Balaji Thiyagarajan",
+        "phone": "7708654115",
+        "agent": "Naveen Suwalka",
+        "insideRevenue": 13573,
+        "revenue": 13573,
+        "directRevenue": 13573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR441662",
+        "disputeNote": "Logged by Inside Sales agent (Naveen Suwalka) for ₹13573 and also completed on Direct Portal for ₹13573"
+      },
+      {
+        "date": "2026-09-26",
+        "rawDate": "26/09/2026 07:01",
+        "customerName": "Ritwik",
+        "phone": "9738217434",
+        "agent": "Abhijeet Mathur",
+        "insideRevenue": 13573,
+        "revenue": 12924.21,
+        "directRevenue": 12924.21,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "GANESHA",
+        "directUserId": "UR181617",
+        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹13573 and also completed on Direct Portal for ₹12924.21"
+      }
+    ],
+    "collidingTotal": {
+      "count": 4,
+      "revenue": 51070.21
+    },
+    "disputedTotal": {
+      "count": 4,
+      "revenue": 51070.21
+    },
+    "missedLeads": {
+      "Connected": 442,
+      "Interested": 149,
+      "Paise Dega": 23
+    },
+    "refunds": {
+      "count": 1,
+      "total": 11000,
+      "items": [
+        {
+          "refundId": "rfnd_TgdCmtp0SLJAmZ",
+          "paymentId": "pay_THgBy4Xs08owEX",
+          "amount": 11000,
+          "status": "processed",
+          "date": "26/09/2026 15:54:23"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 135673.3,
+      "count": 14
+    },
     "newUsers7d": 8482,
     "newUsersYesterday": 994,
-    "activeSubs": 4851,
+    "activeSubs": 4850,
     "newSubs7d": 164,
     "teleCrmLeads": 1054,
     "subsEnding5d": 70,
@@ -51550,23 +51820,23 @@
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2419,
-    "activeSubNoOrder": 117,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 38,
-      "Orders Placed": 38,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
+      "Orders - PLACED": 58,
+      "Orders Placed": 58,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 8,
       "Orders Shipped": 8,
-      "Orders - Not Delivered": 69,
-      "Orders Not Delivered": 69
+      "Orders - Not Delivered": 96,
+      "Orders Not Delivered": 96
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 501,
+      "New Subscribers who have Ordered": 528,
       "New Subscribers Orders that have been Delivered": 432,
-      "New Subscribers Orders yet to be Delivered": 69,
+      "New Subscribers Orders yet to be Delivered": 96,
       "New Subscribers Orders yet to be Delivered & Delayed": 36
     },
     "selfUpgrade": {
@@ -51576,7 +51846,21 @@
       "coupon40Revenue": 0,
       "otherCount": 0,
       "otherRevenue": 0,
-      "deals": []
+      "deals": [
+        {
+          "userId": "UR225650",
+          "parent": "Ankita",
+          "phone": "6363624860",
+          "oldPlan": "play-mini-annually",
+          "oldPaid": 5500,
+          "newPlan": "play-max-annually",
+          "newPaid": 0,
+          "coupon": "",
+          "paid": 0,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
     }
   }
 ]
