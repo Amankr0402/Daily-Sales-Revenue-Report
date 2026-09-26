@@ -51789,7 +51789,7 @@
       "revenue": 51070.21
     },
     "missedLeads": {
-      "Connected": 442,
+      "Connected": 443,
       "Interested": 149,
       "Paise Dega": 23
     },
@@ -51812,7 +51812,7 @@
     },
     "newUsers7d": 8482,
     "newUsersYesterday": 994,
-    "activeSubs": 4850,
+    "activeSubs": 4851,
     "newSubs7d": 164,
     "teleCrmLeads": 1054,
     "subsEnding5d": 70,
@@ -51822,10 +51822,10 @@
     "planExpNoOrder": 2419,
     "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 58,
-      "Orders Placed": 58,
-      "Orders - CONFIRMED": 29,
-      "Orders Confirmed": 29,
+      "Orders - PLACED": 57,
+      "Orders Placed": 57,
+      "Orders - CONFIRMED": 30,
+      "Orders Confirmed": 30,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
       "Orders - SHIPPED": 8,
