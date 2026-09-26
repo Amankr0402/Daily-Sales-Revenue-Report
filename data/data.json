@@ -50106,10 +50106,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1787,
-      "otpVerified": 1778,
-      "serviceable": 1489,
-      "serviceableWithPct": "1,489 (83.3%)",
+      "signups": 1786,
+      "otpVerified": 1777,
+      "serviceable": 1488,
+      "serviceableWithPct": "1,488 (83.3%)",
       "serviceablePct": "83.3%"
     },
     "directSaleCSV": {
@@ -51331,9 +51331,9 @@
   },
   {
     "date": "2026-09-25",
-    "totalRevenue": 205703.1,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 243703.1,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 13573,
       "agent": "Rani Singh",
@@ -51369,8 +51369,8 @@
         "count": 1
       },
       "Rani Singh": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 11000,
+        "count": 1
       },
       "Tashrifa Ruhani Saikia": {
         "revenue": 11000,
@@ -51381,16 +51381,16 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Kush Shah": {
         "revenue": 11000,
         "count": 1
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -51403,22 +51403,26 @@
       "Vivek Shah": {
         "revenue": 11000,
         "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 5000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 166376,
-        "count": 15
+        "revenue": 199376,
+        "count": 18
       },
       "Quarterly Max": {
-        "revenue": 15756,
-        "count": 3
+        "revenue": 20756,
+        "count": 4
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 161000,
-        "count": 15
+        "revenue": 199000,
+        "count": 19
       },
       "Renewals": {
         "revenue": 15376,
@@ -51434,10 +51438,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1066,
-      "otpVerified": 1050,
-      "serviceable": 819,
-      "serviceableWithPct": "819 (76.8%)",
+      "signups": 1065,
+      "otpVerified": 1049,
+      "serviceable": 818,
+      "serviceableWithPct": "818 (76.8%)",
       "serviceablePct": "76.8%"
     },
     "directSaleCSV": {
@@ -51523,9 +51527,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 407,
-      "Interested": 143,
-      "Paise Dega": 31
+      "Connected": 472,
+      "Interested": 204,
+      "Paise Dega": 47
     },
     "refundsLast7Days": {
       "total": 134776.8,
@@ -51537,33 +51541,33 @@
       "items": []
     },
     "newUsers7d": 8482,
-    "newUsersYesterday": 951,
-    "activeSubs": 4851,
+    "newUsersYesterday": 994,
+    "activeSubs": 4853,
     "newSubs7d": 164,
-    "teleCrmLeads": 1043,
+    "teleCrmLeads": 1054,
     "subsEnding5d": 69,
     "subsExpired7d": 96,
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2419,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 113,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 48,
-      "Orders Placed": 48,
-      "Orders - CONFIRMED": 35,
-      "Orders Confirmed": 35,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 6,
-      "Orders Shipped": 6,
-      "Orders - Not Delivered": 90,
-      "Orders Not Delivered": 90
+      "Orders - PLACED": 46,
+      "Orders Placed": 46,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 10,
+      "Orders Ready to Ship": 10,
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 88,
+      "Orders Not Delivered": 88
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 501,
-      "New Subscribers Orders that have been Delivered": 411,
-      "New Subscribers Orders yet to be Delivered": 90,
-      "New Subscribers Orders yet to be Delivered & Delayed": 40
+      "New Subscribers Orders that have been Delivered": 413,
+      "New Subscribers Orders yet to be Delivered": 88,
+      "New Subscribers Orders yet to be Delivered & Delayed": 41
     },
     "selfUpgrade": {
       "totalCount": 0,
