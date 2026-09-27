@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-27","Pawan Kumar","8860489954","Prerak Bhavsar",2500,13573,"Annual Max","Upgrade","GANESHA","UR481809","Logged by Inside Sales agent (Prerak Bhavsar) for ₹2500 and also completed on Direct Portal for ₹13573"
 "2026-09-26","Sumit Sharma","8950029185","Kausturi Roy Chowdhury",11000,11000,"Annual Max","Organic","AKFLAT11K","UR355919","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹11000 and also completed on Direct Portal for ₹11000"
 "2026-09-26","Ashvini Badake","9970916070","Honey Talreja",11000,11000,"Annual Max","Organic","AKFLAT11K","UR511669","Logged by Inside Sales agent (Honey Talreja) for ₹11000 and also completed on Direct Portal for ₹11000"
 "2026-09-26","Hemant singh chouhan","7211100023","Kush Shah",11000,11000,"Annual Max","Organic","AKFLAT11K","UR517207","Logged by Inside Sales agent (Kush Shah) for ₹11000 and also completed on Direct Portal for ₹11000"
