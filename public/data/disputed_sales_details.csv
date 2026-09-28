@@ -1,4 +1,7 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-28","lerin chawla","7874298308","Honey Talreja",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR517255","Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
+"2026-09-28","priti pidugu","7507734007","Abhijeet Mathur",12215,12216,"Annual Max","Organic","AMELEFANT2026","UR243786","Logged by Inside Sales agent (Abhijeet Mathur) for ₹12215 and also completed on Direct Portal for ₹12216"
+"2026-09-28","Manish Kumar","9718323302","Kush Shah",13573,13573,"Annual Max","Organic","GANESHA","UR518840","Logged by Inside Sales agent (Kush Shah) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-27","Pawan Kumar","8860489954","Prerak Bhavsar",2500,13573,"Annual Max","Upgrade","GANESHA","UR481809","Logged by Inside Sales agent (Prerak Bhavsar) for ₹2500 and also completed on Direct Portal for ₹13573"
 "2026-09-26","Chetan Shyamsundar Maru","9561499481","Prerak Bhavsar",13573,13573,"Annual Max","Organic","GANESHA","UR517086","Logged by Inside Sales agent (Prerak Bhavsar) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-26","Balaji Thiyagarajan","7708654115","Naveen Suwalka",13573,13573,"Annual Max","Organic","GANESHA","UR441662","Logged by Inside Sales agent (Naveen Suwalka) for ₹13573 and also completed on Direct Portal for ₹13573"
