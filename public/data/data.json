@@ -50823,9 +50823,9 @@
     "userBreakdown": {
       "signups": 1037,
       "otpVerified": 1029,
-      "serviceable": 799,
-      "serviceableWithPct": "799 (77.0%)",
-      "serviceablePct": "77.0%"
+      "serviceable": 800,
+      "serviceableWithPct": "800 (77.1%)",
+      "serviceablePct": "77.1%"
     },
     "directSaleCSV": {
       "count": 5,
@@ -51057,9 +51057,9 @@
     "userBreakdown": {
       "signups": 1008,
       "otpVerified": 995,
-      "serviceable": 761,
-      "serviceableWithPct": "761 (75.5%)",
-      "serviceablePct": "75.5%"
+      "serviceable": 762,
+      "serviceableWithPct": "762 (75.6%)",
+      "serviceablePct": "75.6%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -51647,10 +51647,10 @@
     },
     "userBreakdown": {
       "signups": 1023,
-      "otpVerified": 997,
-      "serviceable": 742,
-      "serviceableWithPct": "742 (72.5%)",
-      "serviceablePct": "72.5%"
+      "otpVerified": 998,
+      "serviceable": 743,
+      "serviceableWithPct": "743 (72.6%)",
+      "serviceablePct": "72.6%"
     },
     "directSaleCSV": {
       "count": 8,
@@ -51910,9 +51910,9 @@
     "userBreakdown": {
       "signups": 1018,
       "otpVerified": 996,
-      "serviceable": 758,
-      "serviceableWithPct": "758 (74.5%)",
-      "serviceablePct": "74.5%"
+      "serviceable": 759,
+      "serviceableWithPct": "759 (74.6%)",
+      "serviceablePct": "74.6%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -51967,9 +51967,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 382,
-      "Interested": 240,
-      "Paise Dega": 30
+      "Connected": 356,
+      "Interested": 196,
+      "Paise Dega": 24
     },
     "refunds": {
       "count": 3,
@@ -52004,32 +52004,32 @@
     },
     "newUsers7d": 7373,
     "newUsersYesterday": 934,
-    "activeSubs": 4870,
+    "activeSubs": 4879,
     "newSubs7d": 165,
-    "teleCrmLeads": 1178,
+    "teleCrmLeads": 1179,
     "subsEnding5d": 65,
     "subsExpired7d": 119,
     "subsExpiringToday": 14,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 50,
-      "Orders Placed": 50,
-      "Orders - CONFIRMED": 21,
-      "Orders Confirmed": 21,
+      "Orders - PLACED": 37,
+      "Orders Placed": 37,
+      "Orders - CONFIRMED": 31,
+      "Orders Confirmed": 31,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
-      "Orders - Not Delivered": 94,
-      "Orders Not Delivered": 94
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 80,
+      "Orders Not Delivered": 80
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 551,
-      "New Subscribers Orders that have been Delivered": 457,
-      "New Subscribers Orders yet to be Delivered": 94,
-      "New Subscribers Orders yet to be Delivered & Delayed": 37
+      "New Subscribers Orders that have been Delivered": 471,
+      "New Subscribers Orders yet to be Delivered": 80,
+      "New Subscribers Orders yet to be Delivered & Delayed": 38
     },
     "selfUpgrade": {
       "totalCount": 0,
