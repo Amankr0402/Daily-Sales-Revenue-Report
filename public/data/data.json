@@ -52156,11 +52156,6 @@
       "count": 2,
       "revenue": 16733
     },
-    "missedLeads": {
-      "Connected": 299,
-      "Interested": 119,
-      "Paise Dega": 10
-    },
     "refundsLast7Days": {
       "total": 102462.3,
       "count": 14
@@ -52170,9 +52165,240 @@
       "total": 0,
       "items": []
     },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-09-29",
+    "totalRevenue": 302287,
+    "salesCount": 27,
+    "transactions": 27,
+    "highestSale": {
+      "amount": 22000,
+      "agent": "Prerak Bhavsar",
+      "source": "Inside Sales"
+    },
+    "agents": {
+      "Sneha Anand": {
+        "revenue": 29216,
+        "count": 2
+      },
+      "Tanveer Ahmed": {
+        "revenue": 28000,
+        "count": 3
+      },
+      "Naveen Suwalka": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 17000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 34000,
+        "count": 2
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 10376,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 19200,
+        "count": 2
+      },
+      "Kush Shah": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Vivek Shah": {
+        "revenue": 17216,
+        "count": 2
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 21376,
+        "count": 2
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Others": {
+        "revenue": 11000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Ultra Annually": {
+        "revenue": 56000,
+        "count": 3
+      },
+      "Annual Max": {
+        "revenue": 225531,
+        "count": 20
+      },
+      "Quarterly Max": {
+        "revenue": 20756,
+        "count": 4
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 213432,
+        "count": 18
+      },
+      "Renewals": {
+        "revenue": 42752,
+        "count": 4
+      },
+      "Upgrade": {
+        "revenue": 7200,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 38903,
+        "count": 4
+      }
+    },
+    "userBreakdown": {
+      "signups": 1472,
+      "otpVerified": 1425,
+      "serviceable": 1009,
+      "serviceableWithPct": "1,009 (68.5%)",
+      "serviceablePct": "68.5%"
+    },
+    "directSaleCSV": {
+      "count": 4,
+      "revenue": 38903
+    },
+    "missedLeads": {
+      "Connected": 299,
+      "Interested": 119,
+      "Paise Dega": 10
+    },
+    "refunds": {
+      "count": 13,
+      "total": 130758.5,
+      "items": [
+        {
+          "refundId": "rfnd_ThoJmS8VLoQjaq",
+          "paymentId": "pay_THOj5zaCqoqwg2",
+          "amount": 11000,
+          "status": "processed",
+          "date": "29/09/2026 15:25:38"
+        },
+        {
+          "refundId": "rfnd_ThoP2j7ExttwJY",
+          "paymentId": "pay_SxSeeLe1UgIm1i",
+          "amount": 7782,
+          "status": "processed",
+          "date": "29/09/2026 15:30:37"
+        },
+        {
+          "refundId": "rfnd_ThoQqgOJQX5GkA",
+          "paymentId": "pay_TJBSMtPYLExYSe",
+          "amount": 13573,
+          "status": "processed",
+          "date": "29/09/2026 15:32:20"
+        },
+        {
+          "refundId": "rfnd_ThoRpLz8mJNL57",
+          "paymentId": "pay_TQ12uf0ArAyv9R",
+          "amount": 11000,
+          "status": "processed",
+          "date": "29/09/2026 15:33:15"
+        },
+        {
+          "refundId": "rfnd_ThobB2L0uVtj8S",
+          "paymentId": "pay_T9SZA3iLZOdLJD",
+          "amount": 10000,
+          "status": "processed",
+          "date": "29/09/2026 15:42:06"
+        },
+        {
+          "refundId": "rfnd_ThoiyRTKEskN6R",
+          "paymentId": "pay_TFoYvwZm6qDq2a",
+          "amount": 11000,
+          "status": "processed",
+          "date": "29/09/2026 15:49:29"
+        },
+        {
+          "refundId": "rfnd_Thp281RVPYbn79",
+          "paymentId": "pay_TLjVSlbd2tTTDh",
+          "amount": 5500,
+          "status": "processed",
+          "date": "29/09/2026 16:07:37"
+        },
+        {
+          "refundId": "rfnd_ThpDT5HwkkWOTP",
+          "paymentId": "pay_TacLqCBen8r71n",
+          "amount": 11000,
+          "status": "processed",
+          "date": "29/09/2026 16:18:21"
+        },
+        {
+          "refundId": "rfnd_ThpMiTQO6tXJiV",
+          "paymentId": "pay_TNjFze4gNFLEj0",
+          "amount": 11000,
+          "status": "processed",
+          "date": "29/09/2026 16:27:07"
+        },
+        {
+          "refundId": "rfnd_ThpOJ1f2cRuJh2",
+          "paymentId": "pay_TE504B9a1nKdbk",
+          "amount": 10500,
+          "status": "processed",
+          "date": "29/09/2026 16:28:37"
+        },
+        {
+          "refundId": "rfnd_ThpSaTqLbZtItQ",
+          "paymentId": "pay_TOmp5tUH0afU3I",
+          "amount": 15000,
+          "status": "processed",
+          "date": "29/09/2026 16:32:40"
+        },
+        {
+          "refundId": "rfnd_ThpX7P99ZCnEwx",
+          "paymentId": "pay_TKsBO1fzWJ8mtE",
+          "amount": 10103.5,
+          "status": "processed",
+          "date": "29/09/2026 16:36:57"
+        },
+        {
+          "refundId": "rfnd_ThqMnGIw5GOsjn",
+          "paymentId": "pay_TVaUCr5Fz0xTYC",
+          "amount": 3300,
+          "status": "processed",
+          "date": "29/09/2026 17:25:53"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 220754,
+      "count": 26
+    },
     "newUsers7d": 7228,
     "newUsersYesterday": 934,
-    "activeSubs": 4888,
+    "activeSubs": 4886,
     "newSubs7d": 168,
     "teleCrmLeads": 1122,
     "subsEnding5d": 63,
@@ -52182,21 +52408,21 @@
     "planExpNoOrder": 2420,
     "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 32,
-      "Orders Placed": 32,
-      "Orders - CONFIRMED": 31,
-      "Orders Confirmed": 31,
+      "Orders - PLACED": 44,
+      "Orders Placed": 44,
+      "Orders - CONFIRMED": 38,
+      "Orders Confirmed": 38,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
-      "Orders - Not Delivered": 76,
-      "Orders Not Delivered": 75
+      "Orders - SHIPPED": 11,
+      "Orders Shipped": 11,
+      "Orders - Not Delivered": 94,
+      "Orders Not Delivered": 93
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 575,
-      "New Subscribers Orders that have been Delivered": 499,
-      "New Subscribers Orders yet to be Delivered": 76,
+      "New Subscribers who have Ordered": 594,
+      "New Subscribers Orders that have been Delivered": 500,
+      "New Subscribers Orders yet to be Delivered": 94,
       "New Subscribers Orders yet to be Delivered & Delayed": 34
     },
     "selfUpgrade": {
@@ -52206,7 +52432,21 @@
       "coupon40Revenue": 0,
       "otherCount": 0,
       "otherRevenue": 0,
-      "deals": []
+      "deals": [
+        {
+          "userId": "UR381439",
+          "parent": "renu",
+          "phone": "8438384901",
+          "oldPlan": "play-mini-annually",
+          "oldPaid": 2360,
+          "newPlan": "play-max-annually",
+          "newPaid": 7200,
+          "coupon": "DISCOUNT40",
+          "paid": 7200,
+          "isCoupon40": true,
+          "inSecondarySheet": true
+        }
+      ]
     }
   }
 ]
