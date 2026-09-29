@@ -51311,7 +51311,7 @@
   },
   {
     "date": "2026-09-25",
-    "totalRevenue": 243703.1,
+    "totalRevenue": 244205,
     "salesCount": 24,
     "transactions": 24,
     "highestSale": {
@@ -51329,8 +51329,8 @@
         "count": 2
       },
       "Soumya Pandey": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 10500,
+        "count": 1
       },
       "Prerak Bhavsar": {
         "revenue": 16000,
@@ -51391,8 +51391,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 199376,
-        "count": 18
+        "revenue": 209876,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 20756,
@@ -51401,16 +51401,16 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 199000,
-        "count": 19
+        "revenue": 209500,
+        "count": 20
       },
       "Renewals": {
         "revenue": 15376,
         "count": 2
       },
       "Overlap Deals": {
-        "revenue": 23571.1,
-        "count": 2
+        "revenue": 13573,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 5756,
@@ -51419,14 +51419,14 @@
     },
     "userBreakdown": {
       "signups": 1065,
-      "otpVerified": 1049,
-      "serviceable": 818,
-      "serviceableWithPct": "818 (76.8%)",
-      "serviceablePct": "76.8%"
+      "otpVerified": 1050,
+      "serviceable": 819,
+      "serviceableWithPct": "819 (76.9%)",
+      "serviceablePct": "76.9%"
     },
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 29327.1
+      "count": 2,
+      "revenue": 19329
     },
     "collidingDeals": [
       {
@@ -51443,21 +51443,6 @@
         "directOrderId": "GANESHA",
         "directUserId": "UR515669",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹13573 and also completed on Direct Portal for ₹13573"
-      },
-      {
-        "date": "2026-09-25",
-        "rawDate": "25/09/2026 12:36",
-        "customerName": "surbhi Goyal",
-        "phone": "8827357863",
-        "agent": "Soumya Pandey",
-        "insideRevenue": 10500,
-        "revenue": 9998.1,
-        "directRevenue": 9998.1,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "HTMAXSPECIAL2026",
-        "directUserId": "UR127574",
-        "disputeNote": "Logged by Inside Sales agent (Soumya Pandey) for ₹10500 and also completed on Direct Portal for ₹9998.1"
       }
     ],
     "disputedDeals": [
@@ -51475,30 +51460,15 @@
         "directOrderId": "GANESHA",
         "directUserId": "UR515669",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹13573 and also completed on Direct Portal for ₹13573"
-      },
-      {
-        "date": "2026-09-25",
-        "rawDate": "25/09/2026 12:36",
-        "customerName": "surbhi Goyal",
-        "phone": "8827357863",
-        "agent": "Soumya Pandey",
-        "insideRevenue": 10500,
-        "revenue": 9998.1,
-        "directRevenue": 9998.1,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "HTMAXSPECIAL2026",
-        "directUserId": "UR127574",
-        "disputeNote": "Logged by Inside Sales agent (Soumya Pandey) for ₹10500 and also completed on Direct Portal for ₹9998.1"
       }
     ],
     "collidingTotal": {
-      "count": 2,
-      "revenue": 23571.1
+      "count": 1,
+      "revenue": 13573
     },
     "disputedTotal": {
-      "count": 2,
-      "revenue": 23571.1
+      "count": 1,
+      "revenue": 13573
     },
     "deliveryFee": {
       "transactions": 1,
@@ -51642,10 +51612,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1023,
-      "otpVerified": 998,
-      "serviceable": 743,
-      "serviceableWithPct": "743 (72.6%)",
+      "signups": 1022,
+      "otpVerified": 997,
+      "serviceable": 742,
+      "serviceableWithPct": "742 (72.6%)",
       "serviceablePct": "72.6%"
     },
     "directSaleCSV": {
@@ -51908,8 +51878,8 @@
       }
     },
     "userBreakdown": {
-      "signups": 1018,
-      "otpVerified": 996,
+      "signups": 1017,
+      "otpVerified": 995,
       "serviceable": 759,
       "serviceableWithPct": "759 (74.6%)",
       "serviceablePct": "74.6%"
@@ -52009,7 +51979,7 @@
   },
   {
     "date": "2026-09-28",
-    "totalRevenue": 276781,
+    "totalRevenue": 276780,
     "salesCount": 29,
     "transactions": 29,
     "highestSale": {
@@ -52055,22 +52025,22 @@
         "count": 1
       },
       "Abhijeet Mathur": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 24215,
+        "count": 2
       },
       "Sneha Anand": {
         "revenue": 22000,
         "count": 2
       },
-      "Chhaya Patel": {
+      "Kausturi Roy Chowdhury": {
         "revenue": 11000,
         "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 208509,
-        "count": 18
+        "revenue": 220724,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 25710,
@@ -52087,16 +52057,16 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 151432,
-        "count": 14
+        "revenue": 163647,
+        "count": 15
       },
       "Renewals": {
         "revenue": 60862,
         "count": 7
       },
       "Overlap Deals": {
-        "revenue": 28949,
-        "count": 3
+        "revenue": 16733,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 35538,
@@ -52111,8 +52081,8 @@
       "serviceablePct": "73.6%"
     },
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 64487
+      "count": 7,
+      "revenue": 52271
     },
     "collidingDeals": [
       {
@@ -52129,21 +52099,6 @@
         "directOrderId": "FUNDEAL",
         "directUserId": "UR517255",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
-      },
-      {
-        "date": "2026-09-28",
-        "rawDate": "28/09/2026 18:31",
-        "customerName": "priti pidugu",
-        "phone": "7507734007",
-        "agent": "Abhijeet Mathur",
-        "insideRevenue": 12215,
-        "revenue": 12216,
-        "directRevenue": 12216,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AMELEFANT2026",
-        "directUserId": "UR243786",
-        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹12215 and also completed on Direct Portal for ₹12216"
       },
       {
         "date": "2026-09-28",
@@ -52179,21 +52134,6 @@
       },
       {
         "date": "2026-09-28",
-        "rawDate": "28/09/2026 18:31",
-        "customerName": "priti pidugu",
-        "phone": "7507734007",
-        "agent": "Abhijeet Mathur",
-        "insideRevenue": 12215,
-        "revenue": 12216,
-        "directRevenue": 12216,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AMELEFANT2026",
-        "directUserId": "UR243786",
-        "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹12215 and also completed on Direct Portal for ₹12216"
-      },
-      {
-        "date": "2026-09-28",
         "rawDate": "28/09/2026 16:53",
         "customerName": "Manish Kumar",
         "phone": "9718323302",
@@ -52209,17 +52149,17 @@
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 28949
+      "count": 2,
+      "revenue": 16733
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 28949
+      "count": 2,
+      "revenue": 16733
     },
     "missedLeads": {
-      "Connected": 296,
-      "Interested": 110,
-      "Paise Dega": 7
+      "Connected": 369,
+      "Interested": 175,
+      "Paise Dega": 15
     },
     "refundsLast7Days": {
       "total": 102462.3,
@@ -52232,7 +52172,7 @@
     },
     "newUsers7d": 7228,
     "newUsersYesterday": 934,
-    "activeSubs": 4880,
+    "activeSubs": 4882,
     "newSubs7d": 170,
     "teleCrmLeads": 1123,
     "subsEnding5d": 63,
@@ -52240,24 +52180,24 @@
     "subsExpiringToday": 5,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 47,
-      "Orders Placed": 47,
-      "Orders - CONFIRMED": 45,
-      "Orders Confirmed": 45,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 9,
-      "Orders Shipped": 9,
-      "Orders - Not Delivered": 103,
-      "Orders Not Delivered": 102
+      "Orders - PLACED": 38,
+      "Orders Placed": 38,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 31,
+      "Orders Shipped": 31,
+      "Orders - Not Delivered": 101,
+      "Orders Not Delivered": 101
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 575,
-      "New Subscribers Orders that have been Delivered": 472,
-      "New Subscribers Orders yet to be Delivered": 103,
-      "New Subscribers Orders yet to be Delivered & Delayed": 39
+      "New Subscribers Orders that have been Delivered": 474,
+      "New Subscribers Orders yet to be Delivered": 101,
+      "New Subscribers Orders yet to be Delivered & Delayed": 40
     },
     "selfUpgrade": {
       "totalCount": 0,
