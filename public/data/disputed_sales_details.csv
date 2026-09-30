@@ -1,4 +1,7 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-30","Kanisha Dev Patel","9727552558","Yuvraj Singh Dodiya",13573,13573,"Annual Max","Organic","LASTCALL","UR487033","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹13573"
+"2026-09-30","Aarini Jain Rajput","8800776759","Chhaya Patel",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR521688","Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
+"2026-09-30","Nidhi ketan kachhadiya","9726964808","Yuvraj Singh Dodiya",6787,13573,"Annual Max","Organic","LASTCALL","UR118760","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹6787 and also completed on Direct Portal for ₹13573"
 "2026-09-28","lerin chawla","7874298308","Honey Talreja",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR517255","Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-09-28","Manish Kumar","9718323302","Kush Shah",13573,13573,"Annual Max","Organic","GANESHA","UR518840","Logged by Inside Sales agent (Kush Shah) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-27","Pawan Kumar","8860489954","Prerak Bhavsar",2500,13573,"Annual Max","Upgrade","GANESHA","UR481809","Logged by Inside Sales agent (Prerak Bhavsar) for ₹2500 and also completed on Direct Portal for ₹13573"
