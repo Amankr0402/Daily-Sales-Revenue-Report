@@ -51872,11 +51872,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1017,
-      "otpVerified": 995,
-      "serviceable": 759,
-      "serviceableWithPct": "759 (74.6%)",
-      "serviceablePct": "74.6%"
+      "signups": 1016,
+      "otpVerified": 996,
+      "serviceable": 760,
+      "serviceableWithPct": "760 (74.8%)",
+      "serviceablePct": "74.8%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -52068,11 +52068,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 996,
+      "signups": 995,
       "otpVerified": 952,
       "serviceable": 733,
-      "serviceableWithPct": "733 (73.6%)",
-      "serviceablePct": "73.6%"
+      "serviceableWithPct": "733 (73.7%)",
+      "serviceablePct": "73.7%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -52241,8 +52241,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 19574,
+        "count": 2
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -52255,8 +52255,8 @@
         "count": 3
       },
       "Annual Max": {
-        "revenue": 252957,
-        "count": 22
+        "revenue": 272531,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 20756,
@@ -52265,8 +52265,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 260432,
-        "count": 22
+        "revenue": 280006,
+        "count": 24
       },
       "Renewals": {
         "revenue": 42752,
@@ -52276,10 +52276,6 @@
         "revenue": 7200,
         "count": 1
       },
-      "Overlap Deals": {
-        "revenue": 19574,
-        "count": 2
-      },
       "Direct Sale": {
         "revenue": 19329,
         "count": 2
@@ -52288,90 +52284,18 @@
     "userBreakdown": {
       "signups": 1472,
       "otpVerified": 1425,
-      "serviceable": 1009,
-      "serviceableWithPct": "1,009 (68.5%)",
-      "serviceablePct": "68.5%"
+      "serviceable": 1010,
+      "serviceableWithPct": "1,010 (68.6%)",
+      "serviceablePct": "68.6%"
     },
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 38903
-    },
-    "collidingDeals": [
-      {
-        "date": "2026-09-29",
-        "rawDate": "29/09/2026 22:13",
-        "customerName": "Niyati Varaiya",
-        "phone": "9769850390",
-        "agent": "Honey Talreja",
-        "insideRevenue": 9787,
-        "revenue": 9787,
-        "directRevenue": 9787,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "BOGOAKA",
-        "directUserId": "UR520540",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹9787 and also completed on Direct Portal for ₹9787"
-      },
-      {
-        "date": "2026-09-29",
-        "rawDate": "29/09/2026 22:05",
-        "customerName": "Dr vidhi shah",
-        "phone": "9820961259",
-        "agent": "Honey Talreja",
-        "insideRevenue": 9787,
-        "revenue": 9787,
-        "directRevenue": 9787,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "BOGOAKA",
-        "directUserId": "UR283261",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹9787 and also completed on Direct Portal for ₹9787"
-      }
-    ],
-    "disputedDeals": [
-      {
-        "date": "2026-09-29",
-        "rawDate": "29/09/2026 22:13",
-        "customerName": "Niyati Varaiya",
-        "phone": "9769850390",
-        "agent": "Honey Talreja",
-        "insideRevenue": 9787,
-        "revenue": 9787,
-        "directRevenue": 9787,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "BOGOAKA",
-        "directUserId": "UR520540",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹9787 and also completed on Direct Portal for ₹9787"
-      },
-      {
-        "date": "2026-09-29",
-        "rawDate": "29/09/2026 22:05",
-        "customerName": "Dr vidhi shah",
-        "phone": "9820961259",
-        "agent": "Honey Talreja",
-        "insideRevenue": 9787,
-        "revenue": 9787,
-        "directRevenue": 9787,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "BOGOAKA",
-        "directUserId": "UR283261",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹9787 and also completed on Direct Portal for ₹9787"
-      }
-    ],
-    "collidingTotal": {
       "count": 2,
-      "revenue": 19574
-    },
-    "disputedTotal": {
-      "count": 2,
-      "revenue": 19574
+      "revenue": 19329
     },
     "missedLeads": {
-      "Connected": 343,
-      "Interested": 204,
-      "Paise Dega": 18
+      "Connected": 324,
+      "Interested": 134,
+      "Paise Dega": 10
     },
     "refunds": {
       "count": 13,
@@ -52476,7 +52400,7 @@
     },
     "newUsers7d": 7664,
     "newUsersYesterday": 1426,
-    "activeSubs": 4887,
+    "activeSubs": 4898,
     "newSubs7d": 173,
     "teleCrmLeads": 1867,
     "subsEnding5d": 64,
@@ -52484,24 +52408,24 @@
     "subsExpiringToday": 6,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 126,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 41,
-      "Orders Placed": 41,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 27,
-      "Orders Shipped": 27,
-      "Orders - Not Delivered": 91,
-      "Orders Not Delivered": 91
+      "Orders - PLACED": 37,
+      "Orders Placed": 37,
+      "Orders - CONFIRMED": 20,
+      "Orders Confirmed": 20,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 17,
+      "Orders Shipped": 17,
+      "Orders - Not Delivered": 74,
+      "Orders Not Delivered": 74
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 594,
-      "New Subscribers Orders that have been Delivered": 503,
-      "New Subscribers Orders yet to be Delivered": 91,
-      "New Subscribers Orders yet to be Delivered & Delayed": 34
+      "New Subscribers Orders that have been Delivered": 520,
+      "New Subscribers Orders yet to be Delivered": 74,
+      "New Subscribers Orders yet to be Delivered & Delayed": 26
     },
     "selfUpgrade": {
       "totalCount": 0,
