@@ -1,4 +1,6 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-09-30","Ankur Shrivastava","9650352466","Vivek Shah",12215,11916.71,"Annual Max","Organic","TOYJOY40","UR279819","Logged by Inside Sales agent (Vivek Shah) for ₹12215 and also completed on Direct Portal for ₹11916.71"
+"2026-09-30","Divya Jani","6354413117","Rani Singh",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR519755","Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
 "2026-09-30","Kanisha Dev Patel","9727552558","Yuvraj Singh Dodiya",13573,13573,"Annual Max","Organic","LASTCALL","UR487033","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹13573"
 "2026-09-30","Aarini Jain Rajput","8800776759","Chhaya Patel",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR521688","Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
 "2026-09-30","Nidhi ketan kachhadiya","9726964808","Yuvraj Singh Dodiya",6787,13573,"Annual Max","Organic","LASTCALL","UR118760","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹6787 and also completed on Direct Portal for ₹13573"
