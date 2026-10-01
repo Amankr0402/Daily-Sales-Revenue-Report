@@ -6,13 +6,14 @@
  * ============================================================
  */
 
+require('dotenv').config();
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const SPREADSHEET_ID = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c';
+const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID || '1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM';
 const SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
-const SHEET_NAME = 'Sales/Rev (Auto)';
+const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || 'Sales Numbers';
 const SECONDARY_SHEET_CACHE_FILE = path.join(__dirname, '..', 'data', 'secondary_sales_sheet.csv');
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
 const REFUNDS_SHEET_NAME = 'Refunds';
@@ -85,9 +86,25 @@ function fetchURLWithRedirect(url) {
   });
 }
 
-function fetchSheetCSV(spreadsheetId, sheetName) {
-  const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
-  return fetchURLWithRedirect(url);
+async function fetchSheetCSV(spreadsheetId, sheetName) {
+  const exportUrls = [
+    `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&sheet=${encodeURIComponent(sheetName)}`,
+    `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv`,
+    `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`
+  ];
+  for (const url of exportUrls) {
+    try {
+      const data = await fetchURLWithRedirect(url);
+      if (data && data.length > 50 && !data.includes('<!DOCTYPE html>')) {
+        const lineCount = data.split('\n').length;
+        if (lineCount >= 10) {
+          return data;
+        }
+      }
+    } catch (_) {}
+  }
+  const fallbackUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
+  return fetchURLWithRedirect(fallbackUrl);
 }
 
 function fetchMetabaseCSV() {
@@ -127,25 +144,30 @@ function parseDate(rawDate) {
       if (y.length === 2) y = '20' + y;
 
       let m, d;
-      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/08/2026)
+      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/07/2026)
       if (p1 > 12) {
         d = p1;
         m = p2;
       }
-      // If second part has leading zero and 2 digits like '08' or '09' (e.g. 12/08/2026)
+      // If parts[0] has 2 digits and parts[1] has 2 digits (standard DD/MM/YYYY)
+      else if (parts[0].length === 2 && parts[1].length === 2) {
+        d = p1;
+        m = p2;
+      }
+      // If second part has leading zero like '08' or '09' (e.g. 12/08/2026)
       else if (parts[1].startsWith('0') && parts[1].length === 2) {
         d = p1;
         m = p2;
       }
-      // If p1 is 8 or 9 (August or September in M/D/YYYY format like 8/1/2026 or 9/8/2026)
-      else if (p1 === 8 || p1 === 9) {
+      // If first part is single digit like 8/1/2026 or 9/5/2026 in M/D/YYYY format
+      else if ((p1 === 8 || p1 === 9) && parts[0].length === 1) {
         m = p1;
         d = p2;
       }
-      // Fallback
+      // Fallback: DD/MM/YYYY
       else {
-        m = p1;
-        d = p2;
+        d = p1;
+        m = p2;
       }
       return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
     }
@@ -210,7 +232,7 @@ async function syncSalesData() {
     const source = cols[8] || 'Organic';
 
     if (!agent || !rawRev || !rawDate) continue;
-    const rev = parseFloat(rawRev.replace(/,/g, '')) || 0;
+    const rev = parseFloat(rawRev.replace(/[₹,\s]/g, '')) || 0;
     if (rev <= 0) continue;
 
     const isoDate = parseDate(rawDate);
@@ -296,7 +318,7 @@ async function syncSalesData() {
       }
 
       if (!agent || !rawRev || !rawDate) continue;
-      const rev = parseFloat(rawRev.replace(/,/g, '')) || 0;
+      const rev = parseFloat(rawRev.replace(/[₹,\s]/g, '')) || 0;
       if (rev <= 0) continue;
 
       const isoDate = parseDate(rawDate);
@@ -680,7 +702,7 @@ async function syncSalesData() {
 
       if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
-      const rawAmount = parseFloat((cols[4] || '').replace(/,/g, '')) || 0;
+      const rawAmount = parseFloat((cols[4] || '').replace(/[₹,\s]/g, '')) || 0;
       const status = (cols[6] || 'processed').toLowerCase();
 
       if (!recordsByDate[isoDate]) {

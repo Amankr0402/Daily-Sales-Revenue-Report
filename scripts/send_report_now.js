@@ -784,17 +784,42 @@ function buildEmailHtml(allData) {
 }
 
 async function sendDailyReport() {
-  console.log('🔄 Syncing live data before building report email...');
-  let allData;
-  try {
-    allData = await syncSalesData();
-  } catch (err) {
-    console.warn('⚠️ Could not sync live data, using local data.json:', err.message);
-    const dataPath = path.join(__dirname, '..', 'data', 'data.json');
-    allData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+  console.log('🔄 MANDATORY: Fetching fresh live data from Google Sheets & Metabase before building report email...');
+  let allData = null;
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      console.log(`📡 Fetching live data (attempt ${attempt}/2)...`);
+      allData = await syncSalesData();
+      if (allData && allData.length > 0) {
+        console.log(`✅ Live data fetch verified: ${allData.length} days synced.`);
+        break;
+      }
+    } catch (err) {
+      lastError = err;
+      console.warn(`⚠️ Fetch attempt ${attempt} failed: ${err.message}`);
+      if (attempt < 2) {
+        await new Promise(r => setTimeout(r, 2000));
+      }
+    }
+  }
+
+  if (!allData || allData.length === 0) {
+    throw new Error(`CRITICAL ERROR: Failed to fetch live data before sending report! Aborting send to prevent sending wrong or stale data. Error: ${lastError?.message || 'Empty data returned'}`);
   }
 
   const html = buildEmailHtml(allData);
+
+  // Keep public email preview in sync
+  try {
+    const previewPath = path.join(__dirname, '..', 'public', 'email_preview.html');
+    fs.writeFileSync(previewPath, html, 'utf-8');
+    console.log('📄 Synchronized public/email_preview.html with live report.');
+  } catch (pvErr) {
+    console.warn('⚠️ Could not update email_preview.html:', pvErr.message);
+  }
+
   console.log('📄 Generating PDF attachment for daily report email...');
   const pdfBuffer = await generatePDF(html);
   const recipients = getRecipients();
@@ -822,7 +847,7 @@ async function sendDailyReport() {
     console.log(`✅ PDF successfully generated and attached (${(pdfBuffer.length / 1024).toFixed(1)} KB)`);
   }
 
-  console.log(`📤 Sending report email to: ${recipients.join(', ')}`);
+  console.log(`📤 Sending report email for ${today.date} (${shortDateStr}) [Grand Total: ${fmt(grandTotal)}] to: ${recipients.join(', ')}`);
 
   const info = await transporter.sendMail({
     from: SMTP_FROM,

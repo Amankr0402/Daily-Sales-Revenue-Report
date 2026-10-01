@@ -8,9 +8,10 @@ This file contains every Google Sheets link, CSV export endpoint, Metabase query
 
 | Source / Purpose | Spreadsheet ID | Direct Google Sheets View / Edit Link | Direct CSV Export URL |
 | :--- | :--- | :--- | :--- |
-| **Primary Sales / Revenue Sheet** (`Sales/Rev (Auto)`) | `1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c/gviz/tq?tqx=out:csv&sheet=Sales%2FRev%20(Auto)) |
+| **Primary Sales / Revenue Sheet** (`Sales Numbers`) | `1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM/export?format=csv) |
+| **Previous Primary Sales Sheet** (`Sales/Rev (Auto)`) | `1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c/gviz/tq?tqx=out:csv&sheet=Sales%2FRev%20(Auto)) |
 | **Secondary Sales Sheet** | `10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8/gviz/tq?tqx=out:csv&sheet=Sales%2FRev%20(Auto)) |
-| **Refunds Sheet** (`Refunds`) | `1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE/gviz/tq?tqx=out:csv&sheet=Refunds) |
+| **Refunds Sheet** (`Refunds`) | `1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE` | [Open Google Sheet](https://docs.google.com/spreadsheets/d/1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE/edit) | [Download CSV](https://docs.google.com/spreadsheets/d/1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE/export?format=csv) |
 
 ---
 

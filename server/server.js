@@ -630,24 +630,33 @@ function buildEmailHTMLServer(allData) {
 /* ---------- API Routes ---------- */
 app.post('/api/send-report', async (req, res) => {
   try {
-    const { subject, html } = req.body;
+    const { subject, html } = req.body || {};
 
-    if (!subject || !html) {
-      return res.status(400).json({ error: 'Missing subject or html in request body.' });
+    if (subject && html) {
+      // First ensure live data is synced before sending custom report
+      console.log('🔄 Fetching live data before sending report...');
+      const { syncSalesData } = require('../scripts/sync_sheets');
+      await syncSalesData();
+
+      const recipients = getRecipients();
+      const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
+
+      const info = await transporter.sendMail({
+        from: SMTP_FROM,
+        to: toList,
+        subject,
+        html,
+      });
+
+      console.log(`✅ Custom report sent — Message ID: ${info.messageId}`);
+      return res.json({ success: true, messageId: info.messageId, recipientCount: recipients.length });
     }
 
-    const recipients = getRecipients();
-    const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
-
-    const info = await transporter.sendMail({
-      from: SMTP_FROM,
-      to: toList,
-      subject,
-      html,
-    });
-
-    console.log(`✅ Report sent — Message ID: ${info.messageId}`);
-    res.json({ success: true, messageId: info.messageId, recipientCount: recipients.length });
+    // Default: fetch fresh live report & send authoritative email with PDF
+    console.log('🚀 Triggering live daily report fetch & send...');
+    const { sendDailyReport } = require('../scripts/send_report_now');
+    const info = await sendDailyReport();
+    res.json({ success: true, messageId: info.messageId });
   } catch (err) {
     console.error('❌ Email send error:', err);
     res.status(500).json({ error: err.message });
@@ -1889,40 +1898,11 @@ const handleTriggerDailyReport = async (req, res) => {
     }
 
     console.log(`🚀 Trigger received — fetching latest live data & sending daily sales report...`);
-    
-    let allData;
-    try {
-      const { syncSalesData } = require('../scripts/sync_sheets');
-      allData = await syncSalesData();
-      console.log(`📡 Successfully synced ${allData.length} days of data before email trigger.`);
-    } catch (syncErr) {
-      console.warn('⚠️ Could not sync live data, using existing data.json:', syncErr.message);
-      allData = getAllReportData();
-    }
-
-    if (!allData || allData.length === 0) {
-      return res.status(500).json({ error: 'No data available to send report.' });
-    }
-
-    const today = allData[allData.length - 1];
-    const d = new Date(today.date + 'T00:00:00');
-    const dateStr = d.toLocaleDateString('en-IN', {
-      month: 'short', day: 'numeric', year: 'numeric',
-    });
-
-    const html = buildEmailHTMLServer(allData);
-    const recipients = getRecipients();
-    const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
-
-    const info = await transporter.sendMail({
-      from: SMTP_FROM,
-      to: toList,
-      subject: `📈 Daily Sales Report — ${dateStr} [${fmtINR(today.totalRevenue)}]`,
-      html,
-    });
+    const { sendDailyReport } = require('../scripts/send_report_now');
+    const info = await sendDailyReport();
 
     console.log(`✅ Daily Sales Report sent — Message ID: ${info.messageId}`);
-    res.json({ success: true, messageId: info.messageId, recipientCount: recipients.length, date: dateStr });
+    res.json({ success: true, messageId: info.messageId });
   } catch (err) {
     console.error('❌ Trigger email error:', err);
     res.status(500).json({ error: err.message });
@@ -1954,42 +1934,11 @@ if (require.main === module) {
         return;
       }
 
-      console.log(`⏰ Cron triggered at ${new Date().toISOString()} — fetching latest data & sending daily sales report...`);
+      console.log(`⏰ Cron triggered at ${new Date().toISOString()} — fetching latest live data & sending daily sales report...`);
 
       try {
-        // 1. Always sync latest live Google Sheets & Metabase data first
-        let allData;
-        try {
-          const { syncSalesData } = require('../scripts/sync_sheets');
-          allData = await syncSalesData();
-          console.log(`📡 Successfully synced ${allData.length} days of data before email trigger.`);
-        } catch (syncErr) {
-          console.warn('⚠️ Could not sync live data during cron, using existing data.json:', syncErr.message);
-          allData = getAllReportData();
-        }
-
-        if (!allData || allData.length === 0) {
-          console.error('❌ No data available to send report.');
-          return;
-        }
-
-        const today = allData[allData.length - 1];
-        const d = new Date(today.date + 'T00:00:00');
-        const dateStr = d.toLocaleDateString('en-IN', {
-          month: 'short', day: 'numeric', year: 'numeric',
-        });
-
-        const html = buildEmailHTMLServer(allData);
-        const recipients = getRecipients();
-        const toList = recipients.map(r => `"${r.name}" <${r.email}>`).join(', ');
-
-        const info = await transporter.sendMail({
-          from: SMTP_FROM,
-          to: toList,
-          subject: `📈 Daily Sales Report — ${dateStr} [${fmtINR(today.totalRevenue)}]`,
-          html,
-        });
-
+        const { sendDailyReport } = require('../scripts/send_report_now');
+        const info = await sendDailyReport();
         console.log(`✅ Automated 10:00 AM Sales Report sent — Message ID: ${info.messageId}`);
       } catch (err) {
         console.error('❌ Cron email error:', err);

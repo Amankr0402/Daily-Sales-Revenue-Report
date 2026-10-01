@@ -1351,3 +1351,18 @@ if (fs.existsSync(dataSrc)) {
   console.log(`SUCCESS: Copied ${dataFiles.length} data files to public/data/ for static CDN serving.`);
 }
 
+// Ensure email_preview.html is updated with latest data
+try {
+  const { buildEmailHtml } = require('./send_report_now');
+  const dataFile = path.join(__dirname, '..', 'data', 'data.json');
+  if (fs.existsSync(dataFile)) {
+    const allData = JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
+    allData.sort((a, b) => a.date.localeCompare(b.date));
+    const emailHtml = buildEmailHtml(allData);
+    fs.writeFileSync(path.join(__dirname, '..', 'public', 'email_preview.html'), emailHtml, 'utf-8');
+    console.log('SUCCESS: public/email_preview.html refreshed with latest synced data.');
+  }
+} catch (previewErr) {
+  console.warn('⚠️ Could not refresh email_preview.html:', previewErr.message);
+}
+
