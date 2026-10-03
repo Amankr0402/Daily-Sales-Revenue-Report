@@ -46913,9 +46913,9 @@
   },
   {
     "date": "2026-07-08",
-    "totalRevenue": 117220.9,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 118620.9,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
       "amount": 14055,
       "agent": "Self Serve",
@@ -46925,6 +46925,10 @@
       "Prerak Bhavsar": {
         "revenue": 1400,
         "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 5900,
+        "count": 2
       },
       "Vikas Poonia": {
         "revenue": 13000,
@@ -46942,10 +46946,6 @@
         "revenue": 11000,
         "count": 1
       },
-      "Kush Shah": {
-        "revenue": 4500,
-        "count": 1
-      },
       "Shikha Singh": {
         "revenue": 10500,
         "count": 1
@@ -46961,8 +46961,8 @@
     },
     "plans": {
       "Quarterly Plus": {
-        "revenue": 4100,
-        "count": 2
+        "revenue": 5500,
+        "count": 3
       },
       "Annual Max": {
         "revenue": 91555,
@@ -46975,8 +46975,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 78100,
-        "count": 10
+        "revenue": 79500,
+        "count": 11
       },
       "Upgrade": {
         "revenue": 3000,
@@ -51493,9 +51493,9 @@
   },
   {
     "date": "2026-08-11",
-    "totalRevenue": 130337,
-    "salesCount": 19,
-    "transactions": 19,
+    "totalRevenue": 141337,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 12100,
       "agent": "Vivek Shah",
@@ -51516,6 +51516,10 @@
       },
       "Vivek Shah": {
         "revenue": 16600,
+        "count": 2
+      },
+      "Jivesh Harde": {
+        "revenue": 22000,
         "count": 2
       },
       "Honey Talreja": {
@@ -51542,10 +51546,6 @@
         "revenue": 4500,
         "count": 1
       },
-      "Jivesh Harde": {
-        "revenue": 11000,
-        "count": 1
-      },
       "Shivani Gupta": {
         "revenue": 4000,
         "count": 1
@@ -51553,8 +51553,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 80100,
-        "count": 8
+        "revenue": 91100,
+        "count": 9
       },
       "Quarterly Max": {
         "revenue": 41681,
@@ -51567,8 +51567,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 114825,
-        "count": 16
+        "revenue": 125825,
+        "count": 17
       },
       "Renewals": {
         "revenue": 4000,
@@ -53278,9 +53278,9 @@
   },
   {
     "date": "2026-08-22",
-    "totalRevenue": 262470,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 273470,
+    "salesCount": 28,
+    "transactions": 28,
     "highestSale": {
       "amount": 13573,
       "agent": "Honey Talreja",
@@ -53296,8 +53296,8 @@
         "count": 1
       },
       "Kush Shah": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 33000,
+        "count": 3
       },
       "Prerak Bhavsar": {
         "revenue": 24000,
@@ -53346,8 +53346,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 224505,
-        "count": 20
+        "revenue": 235505,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 15425,
@@ -53364,8 +53364,8 @@
         "count": 2
       },
       "Organic": {
-        "revenue": 182537,
-        "count": 18
+        "revenue": 193537,
+        "count": 19
       },
       "Events": {
         "revenue": 22000,
@@ -60887,8 +60887,8 @@
       "revenue": 11512
     },
     "missedLeads": {
-      "Connected": 402,
-      "Interested": 215,
+      "Connected": 403,
+      "Interested": 219,
       "Paise Dega": 27
     },
     "refunds": {
@@ -60910,7 +60910,7 @@
     },
     "newUsers7d": 9814,
     "newUsersYesterday": 1840,
-    "activeSubs": 4924,
+    "activeSubs": 4925,
     "newSubs7d": 179,
     "teleCrmLeads": 2108,
     "subsEnding5d": 65,
@@ -60918,7 +60918,7 @@
     "subsExpiringToday": 8,
     "planExpiringNoOrder": 3,
     "planExpNoOrder": 2421,
-    "activeSubNoOrder": 127,
+    "activeSubNoOrder": 128,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 26,
       "Orders Placed": 26,
