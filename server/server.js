@@ -1616,8 +1616,9 @@ app.get('/api/direct-sales-details-csv', async (req, res) => {
 
 /* ---------- Inside Sales Details (Google Sheets) Endpoint ---------- */
 const INSIDE_SALES_DETAILS_CACHE_FILE = resolveDataFile('inside_sales_details.csv');
-const INSIDE_SALES_SPREADSHEET_ID  = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c';
-const INSIDE_SALES_SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
+const INSIDE_SALES_SPREADSHEET_ID  = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c'; // August
+const INSIDE_SALES_SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8'; // September
+const INSIDE_SALES_SPREADSHEET_ID3 = '1AX5q7H8Umh__14_P-Ugs_8fVmYeyKN1uIlreSvTNvM4'; // October
 const INSIDE_SALES_SHEET_NAME      = 'Sales/Rev (Auto)';
 
 app.get('/api/inside-sales-details-csv', async (req, res) => {
@@ -1648,11 +1649,12 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
 
     const buildUrl = (id, sheet) => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheet)}`;
 
-    let csv1 = ''; let csv2 = '';
+    let csv1 = ''; let csv2 = ''; let csv3 = '';
     try { csv1 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID,  INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet1:', e.message); }
     try { csv2 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID2, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet2:', e.message); }
+    try { csv3 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID3, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet3:', e.message); }
 
-    // Both sheets share the same header. Row 0 = header, Row 1 = summary total, Row 2+ = data.
+    // Sheets share the same header. Row 0 = header, Row 1 = summary total, Row 2+ = data.
     const parse = (raw) => {
       if (!raw || raw.length < 10) return [];
       const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
@@ -1662,7 +1664,8 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
     let header = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
     const rows1 = parse(csv1).map((l, i) => `${l},"Sheet1"`);
     const rows2 = parse(csv2).map((l, i) => `${l},"Sheet2"`);
-    const merged = [header, ...rows1, ...rows2].join('\n');
+    const rows3 = parse(csv3).map((l, i) => `${l},"Sheet3"`);
+    const merged = [header, ...rows1, ...rows2, ...rows3].join('\n');
 
     if (merged.length > 50) {
       try { fs.writeFileSync(INSIDE_SALES_DETAILS_CACHE_FILE, merged, 'utf8'); } catch (_) {}
@@ -1717,9 +1720,10 @@ app.get('/api/events-details-csv', async (req, res) => {
 
     const buildUrl = (id, sheet) => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheet)}`;
 
-    let csv1 = ''; let csv2 = '';
+    let csv1 = ''; let csv2 = ''; let csv3 = '';
     try { csv1 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID,  INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet1 for events:', e.message); }
     try { csv2 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID2, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet2 for events:', e.message); }
+    try { csv3 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID3, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet3 for events:', e.message); }
 
     // Fallback to local secondary sheet if online fetch fails
     const secFile = resolveDataFile('secondary_sales_sheet.csv');
@@ -1743,7 +1747,8 @@ app.get('/api/events-details-csv', async (req, res) => {
     const header = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
     const rows1 = parseEvents(csv1, 'Sheet1');
     const rows2 = parseEvents(csv2, 'Sheet2');
-    const merged = [header, ...rows1, ...rows2].join('\n');
+    const rows3 = parseEvents(csv3, 'Sheet3');
+    const merged = [header, ...rows1, ...rows2, ...rows3].join('\n');
 
     if (merged.length > 50) {
       try {

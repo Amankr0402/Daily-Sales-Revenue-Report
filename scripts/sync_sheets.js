@@ -12,7 +12,8 @@ const fs = require('fs');
 const path = require('path');
 
 const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID || '1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM';
-const SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
+const SPREADSHEET_ID2 = process.env.SECONDARY_SPREADSHEET_ID || '1AX5q7H8Umh__14_P-Ugs_8fVmYeyKN1uIlreSvTNvM4';
+const SPREADSHEET_ID_SEP = process.env.SEPTEMBER_SPREADSHEET_ID || '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || 'Sales Numbers';
 const SECONDARY_SHEET_CACHE_FILE = path.join(__dirname, '..', 'data', 'secondary_sales_sheet.csv');
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
@@ -88,20 +89,30 @@ function fetchURLWithRedirect(url) {
 
 async function fetchSheetCSV(spreadsheetId, sheetName) {
   const exportUrls = [
+    `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=1347888101`,
+    `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=Sales%2FRev%20(Auto)`,
     `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&sheet=${encodeURIComponent(sheetName)}`,
     `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv`,
     `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`
   ];
+  let bestData = null;
+  let maxLines = 0;
   for (const url of exportUrls) {
     try {
       const data = await fetchURLWithRedirect(url);
-      if (data && data.length > 50 && !data.includes('<!DOCTYPE html>')) {
+      if (data && data.length > 50 && !data.includes('<!DOCTYPE html>') && !data.includes('Projection & Forecasting')) {
         const lineCount = data.split('\n').length;
-        if (lineCount >= 10) {
-          return data;
+        if (lineCount >= 10 && (data.includes('Organic') || data.includes('Renewal') || data.includes('Agent') || data.includes('Sale (Revenue)'))) {
+          if (lineCount > maxLines) {
+            maxLines = lineCount;
+            bestData = data;
+          }
         }
       }
     } catch (_) {}
+  }
+  if (bestData) {
+    return bestData;
   }
   const fallbackUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
   return fetchURLWithRedirect(fallbackUrl);
@@ -144,12 +155,22 @@ function parseDate(rawDate) {
       if (y.length === 2) y = '20' + y;
 
       let m, d;
-      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/07/2026)
+      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/07/2026, 30/09/2026)
       if (p1 > 12) {
         d = p1;
         m = p2;
       }
-      // If parts[0] has 2 digits and parts[1] has 2 digits (standard DD/MM/YYYY)
+      // If p2 > 12, it's definitely M/D/YYYY (e.g. 10/25/2026)
+      else if (p2 > 12) {
+        m = p1;
+        d = p2;
+      }
+      // If first part is month 8, 9, 10, 11, 12 with single digit day (e.g. 10/1/2026, 10/2/2026, 9/5/2026)
+      else if ((p1 === 8 || p1 === 9 || p1 === 10 || p1 === 11 || p1 === 12) && parts[1].length === 1) {
+        m = p1;
+        d = p2;
+      }
+      // If parts[0] has 2 digits and parts[1] has 2 digits (standard DD/MM/YYYY, e.g. 01/10/2026)
       else if (parts[0].length === 2 && parts[1].length === 2) {
         d = p1;
         m = p2;
@@ -208,103 +229,18 @@ async function syncSalesData() {
   const todayIST = `${istDate.getUTCFullYear()}-${String(istDate.getUTCMonth() + 1).padStart(2, '0')}-${String(istDate.getUTCDate()).padStart(2, '0')}`;
   console.log(`⏳ Strict cutoff: only fetching data till 11:59 PM yesterday (excluding today: ${todayIST})...`);
 
-  console.log(`📡 Fetching sales data from Google Sheet: "${SHEET_NAME}"...`);
-  const sheetCSV = await fetchSheetCSV(SPREADSHEET_ID, SHEET_NAME);
-  const sheetLines = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
-
-  if (sheetLines.length <= 1) {
-    throw new Error('No records returned from sheet.');
-  }
-
-  console.log(`📊 Processing ${sheetLines.length} Google Sheet rows...`);
   const recordsByDate = {};
   const sheetPhonesByDate = {};
 
-  // Skip header (row 0) and summary total row (row 1)
-  for (let i = 2; i < sheetLines.length; i++) {
-    const cols = parseCSVLine(sheetLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
-    const rawDate = cols[1];
-    const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
-    const agent = cols[3];
-    const rawRev = cols[4];
-    const plan = cols[6];
-    const count = parseInt(cols[7], 10) || 1;
-    const source = cols[8] || 'Organic';
-
-    if (!agent || !rawRev || !rawDate) continue;
-    const rev = parseFloat(rawRev.replace(/[₹,\s]/g, '')) || 0;
-    if (rev <= 0) continue;
-
-    const isoDate = parseDate(rawDate);
-    if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
-
-    const cleanPlan = plan || 'Annual Max';
-    const cleanSource = source || 'Organic';
-
-    if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
-    if (phone && phone.length >= 10) {
-      if (!sheetPhonesByDate[isoDate][phone]) sheetPhonesByDate[isoDate][phone] = [];
-      sheetPhonesByDate[isoDate][phone].push({ agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan: cleanPlan, source: cleanSource, count });
-    }
-
-    if (!recordsByDate[isoDate]) {
-      recordsByDate[isoDate] = {
-        date: isoDate,
-        totalRevenue: 0,
-        salesCount: 0,
-        transactions: 0,
-        highestSale: { amount: 0, agent: null },
-        agents: {},
-        plans: {},
-        sources: {},
-        userBreakdown: null
-      };
-    }
-
-    const day = recordsByDate[isoDate];
-    day.totalRevenue += rev;
-    day.salesCount += count;
-    day.transactions += 1;
-
-    // Track highest single sale
-    const dealValue = count > 0 ? (rev / count) : rev;
-    if (dealValue > day.highestSale.amount) {
-      day.highestSale.amount = dealValue;
-      day.highestSale.agent = agent || 'Unknown';
-      day.highestSale.source = 'Inside Sales';
-    }
-
-    // Agents
-    if (!day.agents[agent]) day.agents[agent] = { revenue: 0, count: 0 };
-    day.agents[agent].revenue += rev;
-    day.agents[agent].count += count;
-
-    // Plans
-    if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
-    day.plans[cleanPlan].revenue += rev;
-    day.plans[cleanPlan].count += count;
-
-    // Sources
-    if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
-    day.sources[cleanSource].revenue += rev;
-    day.sources[cleanSource].count += count;
-  }
-
+  const seenSheetDeals = new Set();
   const secondarySheetPhones = new Set();
-  // Fetch second Google Sheet (same format as Sheet 1)
-  try {
-    console.log(`📡 Fetching 2nd sales sheet data...`);
-    const sheet2CSV = await fetchSheetCSV(SPREADSHEET_ID2, SHEET_NAME);
-    if (sheet2CSV && sheet2CSV.length > 50) {
-      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, sheet2CSV, 'utf-8');
-      console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
-    }
-    const sheet2Lines = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
-    console.log(`📊 Processing ${sheet2Lines.length} rows from 2nd sheet...`);
 
-    // Same format: row 0 = header, row 1 = summary total, row 2+ = data
-    for (let i = 2; i < sheet2Lines.length; i++) {
-      const cols = parseCSVLine(sheet2Lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
+  function processSheetRows(lines, label) {
+    if (!lines || lines.length <= 2) return;
+    let addedCount = 0;
+    let skippedCount = 0;
+    for (let i = 2; i < lines.length; i++) {
+      const cols = parseCSVLine(lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       const rawDate = cols[1];
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
       const agent = cols[3];
@@ -324,6 +260,15 @@ async function syncSalesData() {
       const isoDate = parseDate(rawDate);
       if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
 
+      // Unique deal signature across sheets to prevent duplicate records
+      const dealKey = `${isoDate}|${phone || cols[0] || 'nophone'}|${agent.toLowerCase().trim()}|${Math.round(rev)}`;
+      if (seenSheetDeals.has(dealKey)) {
+        skippedCount++;
+        continue;
+      }
+      seenSheetDeals.add(dealKey);
+      addedCount++;
+
       const cleanPlan = plan || 'Annual Max';
       const cleanSource = source || 'Organic';
 
@@ -335,9 +280,15 @@ async function syncSalesData() {
 
       if (!recordsByDate[isoDate]) {
         recordsByDate[isoDate] = {
-          date: isoDate, totalRevenue: 0, salesCount: 0, transactions: 0,
+          date: isoDate,
+          totalRevenue: 0,
+          salesCount: 0,
+          transactions: 0,
           highestSale: { amount: 0, agent: null },
-          agents: {}, plans: {}, sources: {}, userBreakdown: null
+          agents: {},
+          plans: {},
+          sources: {},
+          userBreakdown: null
         };
       }
 
@@ -346,64 +297,126 @@ async function syncSalesData() {
       day.salesCount += count;
       day.transactions += 1;
 
+      // Track highest single sale
       const dealValue = count > 0 ? (rev / count) : rev;
       if (dealValue > day.highestSale.amount) {
         day.highestSale.amount = dealValue;
-        day.highestSale.agent = agent;
+        day.highestSale.agent = agent || 'Unknown';
         day.highestSale.source = 'Inside Sales';
       }
 
+      // Agents
       if (!day.agents[agent]) day.agents[agent] = { revenue: 0, count: 0 };
       day.agents[agent].revenue += rev;
       day.agents[agent].count += count;
 
+      // Plans
       if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
       day.plans[cleanPlan].revenue += rev;
       day.plans[cleanPlan].count += count;
 
+      // Sources
       if (!day.sources[cleanSource]) day.sources[cleanSource] = { revenue: 0, count: 0 };
       day.sources[cleanSource].revenue += rev;
       day.sources[cleanSource].count += count;
     }
+    console.log(`📊 [${label}] Processed ${lines.length - 2} rows: ${addedCount} deals added, ${skippedCount} duplicates skipped.`);
+  }
 
-    // Extract Events deals from both Sheet 1 and Sheet 2 (strictly till 11:59 PM yesterday)
-    try {
-      const evHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
-      const allEvRows = [];
-      if (typeof sheetCSV === 'string') {
-        const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
-        for (let i = 2; i < lines1.length; i++) {
-          if (lines1[i].toLowerCase().includes('event')) {
-            const cols = parseCSVLine(lines1[i]).map(c => c.replace(/^"|"$/g, '').trim());
-            const d = parseDate(cols[1]);
-            if (d && d < todayIST) allEvRows.push(`${lines1[i]},"Sheet1"`);
-          }
-        }
-      }
-      if (typeof sheet2CSV === 'string') {
-        const lines2 = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
-        for (let i = 2; i < lines2.length; i++) {
-          if (lines2[i].toLowerCase().includes('event')) {
-            const cols = parseCSVLine(lines2[i]).map(c => c.replace(/^"|"$/g, '').trim());
-            const d = parseDate(cols[1]);
-            if (d && d < todayIST) allEvRows.push(`${lines2[i]},"Sheet2"`);
-          }
-        }
-      }
-      if (allEvRows.length > 0) {
-        const evCSV = [evHeader, ...allEvRows].join('\n');
-        fs.writeFileSync(EVENTS_DETAILS_FILE, evCSV, 'utf-8');
-        const pubEv = path.join(__dirname, '..', 'public', 'data', 'events_details.csv');
-        if (fs.existsSync(path.dirname(pubEv))) {
-          fs.writeFileSync(pubEv, evCSV, 'utf-8');
-        }
-        console.log(`✅ Cached Events Details (${allEvRows.length} deals) to ${EVENTS_DETAILS_FILE}`);
-      }
-    } catch (evErr) {
-      console.warn('⚠️ Could not cache Events Details:', evErr.message);
+  // 1. Fetch October Go Getters sheet (Active live month)
+  let sheet2CSV = '';
+  try {
+    console.log(`📡 Fetching October Go Getters sheet (${SPREADSHEET_ID2})...`);
+    sheet2CSV = await fetchSheetCSV(SPREADSHEET_ID2, 'Sales/Rev (Auto)');
+    if (sheet2CSV && sheet2CSV.length > 50) {
+      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, sheet2CSV, 'utf-8');
+      console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
     }
+    const sheet2Lines = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
+    processSheetRows(sheet2Lines, 'October Go Getters');
   } catch (sheet2Err) {
-    console.warn('⚠️ Warning: Could not fetch 2nd sheet:', sheet2Err.message);
+    console.warn('⚠️ Warning: Could not fetch October Go Getters sheet:', sheet2Err.message);
+  }
+
+  // 2. Fetch September Go Getters sheet (Previous month)
+  let sheetSepCSV = '';
+  if (SPREADSHEET_ID_SEP && SPREADSHEET_ID_SEP !== SPREADSHEET_ID2) {
+    try {
+      console.log(`📡 Fetching September Go Getters sheet (${SPREADSHEET_ID_SEP})...`);
+      sheetSepCSV = await fetchSheetCSV(SPREADSHEET_ID_SEP, 'Sales/Rev (Auto)');
+      const sepLines = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      processSheetRows(sepLines, 'September Go Getters');
+    } catch (sepErr) {
+      console.warn('⚠️ Warning: Could not fetch September sheet:', sepErr.message);
+    }
+  }
+
+  // 3. Fetch Primary Google Sheet (Master archive & historical fallback)
+  let sheetCSV = '';
+  try {
+    console.log(`📡 Fetching Primary Google Sheet: "${SHEET_NAME}" (${SPREADSHEET_ID})...`);
+    sheetCSV = await fetchSheetCSV(SPREADSHEET_ID, SHEET_NAME);
+    const sheetLines = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    processSheetRows(sheetLines, 'Primary Master Sheet');
+  } catch (primErr) {
+    console.warn('⚠️ Warning: Could not fetch Primary Master sheet:', primErr.message);
+  }
+
+  // Extract Events deals from all sheets (strictly till 11:59 PM yesterday)
+  try {
+    const evHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
+    const allEvRows = [];
+    const seenEv = new Set();
+
+    const addEventRow = (line, sheetTag) => {
+      const cols = parseCSVLine(line).map(c => c.replace(/^"|"$/g, '').trim());
+      const d = parseDate(cols[1]);
+      if (!d || d >= todayIST) return;
+      const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+      const agent = (cols[3] || '').trim().toLowerCase();
+      const rev = parseFloat((cols[4] || '').replace(/[₹,\s]/g, '')) || 0;
+      const key = `${d}|${phone || cols[0]}|${agent}|${Math.round(rev)}`;
+      if (seenEv.has(key)) return;
+      seenEv.add(key);
+      allEvRows.push(`${line},"${sheetTag}"`);
+    };
+
+    if (typeof sheet2CSV === 'string') {
+      const lines2 = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
+      for (let i = 2; i < lines2.length; i++) {
+        if (lines2[i].toLowerCase().includes('event')) {
+          addEventRow(lines2[i], 'OctoberSheet');
+        }
+      }
+    }
+    if (typeof sheetSepCSV === 'string' && sheetSepCSV) {
+      const linesSep = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      for (let i = 2; i < linesSep.length; i++) {
+        if (linesSep[i].toLowerCase().includes('event')) {
+          addEventRow(linesSep[i], 'SeptemberSheet');
+        }
+      }
+    }
+    if (typeof sheetCSV === 'string') {
+      const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      for (let i = 2; i < lines1.length; i++) {
+        if (lines1[i].toLowerCase().includes('event')) {
+          addEventRow(lines1[i], 'MasterSheet');
+        }
+      }
+    }
+
+    if (allEvRows.length > 0) {
+      const evCSV = [evHeader, ...allEvRows].join('\n');
+      fs.writeFileSync(EVENTS_DETAILS_FILE, evCSV, 'utf-8');
+      const pubEv = path.join(__dirname, '..', 'public', 'data', 'events_details.csv');
+      if (fs.existsSync(path.dirname(pubEv))) {
+        fs.writeFileSync(pubEv, evCSV, 'utf-8');
+      }
+      console.log(`✅ Cached Events Details (${allEvRows.length} deals) to ${EVENTS_DETAILS_FILE}`);
+    }
+  } catch (evErr) {
+    console.warn('⚠️ Could not cache Events Details:', evErr.message);
   }
 
   // Fetch Direct Sale Data
