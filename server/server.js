@@ -33,13 +33,16 @@ app.use((req, res, next) => {
 });
 
 /* ---------- Static files & Data API ---------- */
-app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use('/data', (req, res, next) => {
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.setHeader('Pragma', 'no-cache');
-  res.setHeader('Expires', '0');
+app.use((req, res, next) => {
+  if (req.path.startsWith('/data') || req.path.endsWith('.json') || req.path.endsWith('.csv')) {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
   next();
-}, express.static(path.join(__dirname, '..', 'data')));
+});
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/data', express.static(path.join(__dirname, '..', 'data')));
 
 app.get('/api/data', (req, res) => {
   try {

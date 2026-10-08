@@ -13,26 +13,31 @@ const { syncSalesData } = require('./sync_sheets');
 
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const SMTP_FROM = process.env.SMTP_FROM || `"Aman Soni" <${SMTP_USER}>`;
+const SMTP_FROM = process.env.SMTP_FROM || `"Aman Soni" <${SMTP_USER || 'aman.soni@theelefant.ai'}>`;
 const DASHBOARD_URL = 'https://daily-sales-revenue-report.vercel.app/';
 
-if (!SMTP_USER || !SMTP_PASS) {
-  console.error('❌ Missing SMTP credentials! Set SMTP_USER and SMTP_PASS environment variables.');
-  process.exit(1);
+let transporter = null;
+function getTransporter() {
+  if (transporter) return transporter;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!user || !pass) {
+    throw new Error('❌ Missing SMTP credentials! Set SMTP_USER and SMTP_PASS environment variables.');
+  }
+  transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: user,
+      pass: pass,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+    connectionTimeout: 20000,
+    greetingTimeout: 20000,
+  });
+  return transporter;
 }
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: SMTP_USER,
-    pass: SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-});
 
 const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
 const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
@@ -849,7 +854,8 @@ async function sendDailyReport() {
 
   console.log(`📤 Sending report email for ${today.date} (${shortDateStr}) [Grand Total: ${fmt(grandTotal)}] to: ${recipients.join(', ')}`);
 
-  const info = await transporter.sendMail({
+  const emailTransporter = getTransporter();
+  const info = await emailTransporter.sendMail({
     from: SMTP_FROM,
     to: recipients.join(', '),
     subject: `📈 Daily Sales & Revenue Report — ${shortDateStr} [${fmt(grandTotal)}]`,

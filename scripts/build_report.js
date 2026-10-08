@@ -611,7 +611,7 @@ function onPodiumCustomDateChange() {
 
 async function init() {
   try {
-    const data = await fetch('/data/data.json').then(r=>r.json());
+    const data = await fetch('/data/data.json?v=' + Date.now(), { cache: 'no-store' }).then(r=>r.json());
     data.sort((a,b)=>a.date.localeCompare(b.date));
     const yd = data[data.length-1];
 
@@ -628,6 +628,8 @@ async function init() {
     let overlapPillRendered = false;
 
     Object.entries(yd.sources||{}).sort((a,b)=>b[1].revenue-a[1].revenue).forEach(([src,d])=>{
+      const c = SRC_C[src] || '#6366f1';
+      const l = SRC_L[src] || src;
       if (src === 'Direct Sale') {
         sgHtml += '<div class="src-pill clickable-pill" onclick="window.open(&apos;direct-sales-details.html?filter=net&apos;, &apos;_blank&apos;)" style="cursor: pointer; transition: all 0.2s ease;" title="Click to view Net Direct Sales deals in a new tab"><div class="src-dot" style="background:'+c+';box-shadow:0 0 6px '+c+'88"></div><div><div class="src-name">'+l+' <span style="font-size:11px;color:var(--primary);font-weight:800;">↗</span></div><div class="src-val">'+fmt(d.revenue)+'</div><div class="src-cnt">'+d.count+' deal'+(d.count!==1?'s':'')+'</div></div></div>';
       } else if (src === 'Overlap Deals') {

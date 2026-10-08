@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"277,339",,,27,
+,,,,"1,586,043",,,147,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -27,142 +27,142 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 25,10/2/2026,7506558987,Prerak Bhavsar,"19,573",No,Annual Max,2,Organic
 26,10/2/2026,7874305743,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
 27,10/2/2026,9916307330,Jivesh Harde,"19,573",No,Annual Max,2,Organic
-28,10/2/2026,,,,,,,
-29,10/2/2026,,,,,,,
-30,10/2/2026,,,,,,,
-31,10/2/2026,,,,,,,
-32,10/2/2026,,,,,,,
-33,10/2/2026,,,,,,,
-34,10/2/2026,,,,,,,
-35,10/2/2026,,,,,,,
-36,10/2/2026,,,,,,,
-37,10/2/2026,,,,,,,
-38,10/2/2026,,,,,,,
-39,10/2/2026,,,,,,,
-40,10/2/2026,,,,,,,
-41,10/2/2026,,,,,,,
-42,10/2/2026,,,,,,,
-43,10/2/2026,,,,,,,
-44,10/2/2026,,,,,,,
-45,10/2/2026,,,,,,,
-46,10/2/2026,,,,,,,
-47,10/2/2026,,,,,,,
-48,10/2/2026,,,,,,,
-49,10/2/2026,,,,,,,
-50,10/2/2026,,,,,,,
-51,10/2/2026,,,,,,,
-52,10/2/2026,,,,,,,
-53,10/2/2026,,,,,,,
-54,10/2/2026,,,,,,,
-55,10/2/2026,,,,,,,
-56,10/2/2026,,,,,,,
-57,10/2/2026,,,,,,,
-58,10/2/2026,,,,,,,
-59,10/2/2026,,,,,,,
-60,10/2/2026,,,,,,,
-61,10/2/2026,,,,,,,
-62,10/2/2026,,,,,,,
-63,10/2/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+28,10/3/2026,9674889195,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+29,10/3/2026,9913455586,Shivani Gupta,"6,108",Yes,Annual Max,0.5,Organic
+30,10/3/2026,7498022356,Amol Landge,"12,000",No,Annual Max,1,Events
+31,10/3/2026,9913455586,Honey Talreja,"6,108",Yes,Annual Max,0.5,Organic
+32,10/3/2026,8128353881,Rohit Jain,"19,573",No,Annual Max,2,Organic
+33,10/3/2026,7290934021,Kush Shah,"12,000",No,Annual Max,1,Events
+34,10/3/2026,8169557475,Amol Landge,"12,000",No,Annual Max,1,Events
+35,10/3/2026,9686855522,Amol Landge,"12,000",No,Annual Max,1,Events
+36,10/3/2026,9657109718,Amol Landge,"12,000",No,Annual Max,1,Events
+37,10/3/2026,9898982988,Amol Landge,"12,000",No,Annual Max,1,Events
+38,10/3/2026,7676565623,Sneha Anand,"12,000",No,Annual Max,1,Organic
+39,10/3/2026,9810326771,Amol Landge,"12,000",No,Annual Max,1,Events
+40,10/3/2026,9323732186,Chhaya Patel,"19,573",No,Annual Max,2,Organic
+41,10/3/2026,8544726115,Darshan KS,"12,216",No,Annual Max,1,Events
+42,10/3/2026,7982543021,Sneha Anand,"3,160",No,Quarterly Plus,1,Organic
+43,10/3/2026,9981145175,Kush Shah,"1,000",No,Annual Max,1,Events
+44,10/3/2026,7986081960,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+45,10/3/2026,9426358934,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+46,10/3/2026,9664294459,Amol Landge,"12,000",No,Annual Max,1,Events
+47,10/3/2026,9958109397,Kausturi Roy Chowdhury,"2,400",No,Quarterly Max,1,Upgrade
+48,10/3/2026,9022909803,Preyashi Roy,"12,000",No,Annual Max,1,Organic
+49,10/3/2026,8943745610,Amol Landge,"12,000",No,Annual Max,1,Events
+50,10/1/2026,9619367215,Rani Singh,"12,000",No,Annual Max,1,Organic
+51,10/3/2026,8956652852,Amol Landge,"10,000",No,Annual Max,1,Organic
+52,10/3/2026,7977073657,Honey Talreja,"12,000",No,Annual Max,1,Organic
+53,10/3/2026,9311691788,Rani Singh,"12,000",No,Annual Max,1,Organic
+54,10/3/2026,8074077244,Chandana Hari,"12,214",No,Annual Max,1,Events
+55,10/3/2026,9619948486,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+56,10/4/2026,9996201141,Honey Talreja,"9,787",No,Annual Max,1,Organic
+57,10/4/2026,8586810461,Honey Talreja,"9,787",No,Annual Max,1,Organic
+58,10/4/2026,9873869144,Sneha Anand,"4,198",No,Quarterly Max,1,Renewals
+59,10/4/2026,7203846162,Jivesh Harde,"5,000",No,Quarterly Max,1,Organic
+60,10/4/2026,9687261010,Neeru Yadav,"9,787",No,Annual Max,1,Organic
+61,10/4/2026,9824793785,Neeru Yadav,"9,787",No,Annual Max,1,Organic
+62,10/4/2026,9890277001,Kush Shah,"12,000",No,Annual Max,1,Events
+63,10/4/2026,9717672249,Shivani Gupta,"12,573",No,Annual Max,1,Organic
+64,10/4/2026,9819194010,Amol Landge,"12,000",No,Annual Max,1,Events
+65,10/4/2026,9172805939,Amol Landge,"12,000",No,Annual Max,1,Events
+66,10/4/2026,6355228660,Chhaya Patel,"12,215",No,Annual Max,1,Organic
+67,10/4/2026,9920362049,Kush Shah,"12,000",No,Annual Max,1,Events
+68,10/4/2026,9810947767,Amol Landge,"12,000",No,Annual Max,1,Events
+69,10/4/2026,9819895991,Amol Landge,"12,000",No,Annual Max,1,Events
+70,10/4/2026,9767085274,Rani Singh,"12,000",No,Annual Max,1,Organic
+71,10/4/2026,7276663053,Amol Landge,"12,000",No,Annual Max,1,Events
+72,10/4/2026,8700324066,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+73,10/4/2026,9515463572,Tashrifa Ruhani Saikia,"12,000",No,Annual Max,1,Organic
+74,10/4/2026,9849432836,Honey Talreja,"12,216",No,Annual Max,1,Organic
+75,10/4/2026,9987007396,Kush Shah,"12,000",No,Annual Max,1,Events
+76,10/4/2026,9870578199,Amol Landge,"12,000",No,Annual Max,1,Events
+77,10/4/2026,8527480645,Soumya Pandey,"19,573",No,Annual Max,2,Organic
+78,10/4/2026,9022221110,Amol Landge,"19,573",No,Annual Max,2,Events
+79,10/4/2026,9421068712,Honey Talreja,"12,000",No,Annual Max,1,Organic
+80,10/4/2026,7218751210,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+81,10/4/2026,9407449014,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+82,10/4/2026,9819425756,Amol Landge,"12,000",No,Annual Max,1,Events
+83,10/4/2026,9873259020,Tashrifa Ruhani Saikia,"7,000",No,6 months Max,1,Organic
+84,10/4/2026,9920853777,Amol Landge,"12,000",No,Annual Max,1,Events
+85,10/4/2026,7976890545,Honey Talreja,"12,215",No,Annual Max,1,Organic
+86,10/4/2026,9892125671,Amol Landge,"10,000",No,Annual Max,1,Events
+87,10/4/2026,8712284567,Kunal Sharma,"5,000",No,Quarterly Max,1,Organic
+88,10/4/2026,9991249131,Neeru Yadav,"9,325",No,Annual Plus,1,Organic
+89,10/4/2026,9158036702,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
+90,10/4/2026,9595424901,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+91,10/4/2026,7875034568,Honey Talreja,"6,000",Yes,Annual Max,0.5,Organic
+92,10/4/2026,7875034568,Yuvraj Singh Dodiya,"6,000",Yes,Annual Max,0.5,Organic
+93,10/4/2026,7875034568,Preyashi Roy,"6,000",Yes,Annual Max,0.5,Organic
+94,10/4/2026,8208119145,Honey Talreja,"12,000",No,Annual Max,1,Organic
+95,10/4/2026,9307783556,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+96,10/4/2026,6304385163,Kausturi Roy Chowdhury,"19,573",No,Annual Max,2,Organic
+97,10/4/2026,9999111689,Honey Talreja,"19,573",No,Annual Max,2,Organic
+98,10/4/2026,9711244942,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+99,10/5/2026,9901590200,Rani Singh,"12,000",No,Annual Max,1,Organic
+100,10/5/2026,9999137915,Sneha Anand,"12,215",No,Annual Max,1,Organic
+101,10/5/2026,7709321390,Amol Landge,"10,376",No,Annual Max,1,Renewals
+102,10/5/2026,9307099816,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+103,10/5/2026,7017756176,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+104,10/5/2026,9425379755,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+105,10/5/2026,9429628757,Rani Singh,"12,000",No,Annual Max,1,Organic
+106,10/5/2026,9819525463,Rani Singh,"12,215",No,Annual Max,1,Organic
+107,10/5/2026,8799025571,Kausturi Roy Chowdhury,"3,160",No,Quarterly Plus,1,Organic
+108,10/5/2026,7611019106,Shivani Gupta,"12,215",No,Annual Max,1,Organic
+109,10/5/2026,9891075359,Honey Talreja,"12,215",No,Annual Max,1,Organic
+110,10/5/2026,8976080783,Rani Singh,"12,000",No,Annual Max,1,Organic
+111,10/5/2026,8800113903,Amol Landge,"10,376",No,Annual Max,1,Renewals
+112,10/5/2026,9974038316,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+113,10/6/2026,8693801112,Amol Landge,"12,000",No,Annual Max,1,Renewals
+114,10/6/2026,7814891789,Prerak Bhavsar,"5,000",No,Quarterly Max,1,Organic
+115,10/6/2026,9160585777,Amol Landge,"10,376",No,Annual Max,1,Renewals
+116,10/6/2026,8238866331,Chhaya Patel,"19,573",No,Annual Max,2,Organic
+117,10/6/2026,9180458175,Chandana Hari,"3,160",No,Quarterly Plus,1,Organic
+118,10/6/2026,8860213309,Amol Landge,"12,000",No,Annual Max,1,Organic
+119,10/6/2026,9311560769,Honey Talreja,"12,000",No,Annual Max,1,Organic
+120,10/6/2026,9810863708,Vivek Shah,"12,000",No,Annual Max,1,Organic
+121,10/6/2026,9810863708,Kausturi Roy Chowdhury,"6,000",Yes,Annual Max,0.5,Organic
+122,10/6/2026,9769755958,Honey Talreja,"10,000",Yes,Annual Max,0.5,Organic
+123,10/6/2026,9769755958,Shubham Rai,"2,000",Yes,Annual Max,0.5,Organic
+124,10/6/2026,9911446611,Vivek Shah,"12,216",No,Annual Max,1,Organic
+125,10/6/2026,9720588990,Amol Landge,"10,376",No,Annual Max,1,Renewals
+126,10/6/2026,7600280493,Honey Talreja,"19,573",No,Annual Max,2,Organic
+127,10/6/2026,8197967950,Preyashi Roy,"12,215",No,Annual Max,1,Organic
+128,10/6/2026,8446992096,Kausturi Roy Chowdhury,"12,215",No,Annual Max,1,Organic
+129,10/6/2026,8693801112,Honey Talreja,"6,000",Yes,Annual Max,0.5,Renewals
+130,10/7/2026,9868992777,Kunal Sharma,"5,000",No,Quarterly Max,1,Organic
+131,10/7/2026,9560376662,Rohit Jain,"5,000",No,Quarterly Max,1,Organic
+132,10/7/2026,8292113255,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+133,10/7/2026,7760151078,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+134,10/7/2026,9004371677,Kush Shah,"10,376",No,Annual Max,1,Renewals
+135,10/7/2026,8238395935,Honey Talreja,"18,171",No,Ultra Annually,1,Organic
+136,10/7/2026,9962013991,Amol Landge,"10,000",No,Annual Max,1,Renewals
+137,10/7/2026,9009251361,Kush Shah,"9,787",No,Annual Max,1,Organic
+138,10/7/2026,9300404505,Kush Shah,"9,787",No,Annual Max,1,Organic
+139,10/7/2026,8082447804,Shubham Rai,"9,787",No,Annual Max,1,Organic
+140,10/7/2026,9819651123,Shubham Rai,"9,787",No,Annual Max,1,Organic
+141,10/7/2026,9403775278,Honey Talreja,"9,787",No,Annual Max,1,Organic
+142,10/7/2026,9849983070,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+143,10/7/2026,8879073584,Amol Landge,"5,000",No,Quarterly Max,1,Renewals
+144,10/7/2026,9403578880,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+145,10/8/2026,9414779750,Amol Landge,"5,000",No,Quarterly Max,1,Renewals
+146,10/8/2026,9654885500,Honey Talreja,"12,000",No,Annual Max,1,Organic
+147,10/8/2026,9080618843,Honey Talreja,"12,000",No,Annual Max,1,Organic
+148,10/8/2026,,,,,,,
+149,10/8/2026,,,,,,,
+150,10/8/2026,,,,,,,
+151,10/8/2026,,,,,,,
+152,10/8/2026,,,,,,,
+153,10/8/2026,,,,,,,
+154,10/8/2026,,,,,,,
+155,10/8/2026,,,,,,,
+156,10/8/2026,,,,,,,
+157,10/8/2026,,,,,,,
+158,10/8/2026,,,,,,,
+159,10/8/2026,,,,,,,
+160,10/8/2026,,,,,,,
+161,10/8/2026,,,,,,,
+162,10/8/2026,,,,,,,
+163,10/8/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
