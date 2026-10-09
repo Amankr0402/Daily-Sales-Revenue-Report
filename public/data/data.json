@@ -54756,9 +54756,9 @@
   },
   {
     "date": "2026-07-11",
-    "totalRevenue": 195549,
-    "salesCount": 19,
-    "transactions": 19,
+    "totalRevenue": 206049,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 12000,
       "agent": "Preyashi Roy",
@@ -54786,8 +54786,8 @@
         "count": 1
       },
       "Jivesh Harde": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 21500,
+        "count": 2
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -54800,8 +54800,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 182632,
-        "count": 17
+        "revenue": 193132,
+        "count": 18
       },
       "Annual Mini": {
         "revenue": 7161,
@@ -54814,8 +54814,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 100000,
-        "count": 9
+        "revenue": 110500,
+        "count": 10
       },
       "Events": {
         "revenue": 82632,
@@ -65982,8 +65982,8 @@
         "count": 0
       },
       "Rohit Jain": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 21000,
+        "count": 2
       },
       "Vivek Shah": {
         "revenue": 11000,
@@ -66008,8 +66008,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 212901,
-        "count": 19
+        "revenue": 233901,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 33331,
@@ -66026,8 +66026,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 159177,
-        "count": 17
+        "revenue": 180177,
+        "count": 19
       },
       "Renewals": {
         "revenue": 45128,
@@ -66046,46 +66046,16 @@
         "count": 4
       },
       "Overlap Deals": {
-        "revenue": 31233,
-        "count": 4
+        "revenue": 10233,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 76401.54000000001
+      "count": 6,
+      "revenue": 55401.54
     },
     "collidingDeals": [
-      {
-        "date": "2026-09-19",
-        "rawDate": "19/09/2026 19:15",
-        "customerName": "Priti",
-        "phone": "9999779590",
-        "agent": "Rohit Jain",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AKMAXSPECIAL2026",
-        "directUserId": "UR496863",
-        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
-      {
-        "date": "2026-09-19",
-        "rawDate": "19/09/2026 16:55",
-        "customerName": "Amit Varma",
-        "phone": "9971161141",
-        "agent": "Rohit Jain",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AKMAXSPECIAL2026",
-        "directUserId": "UR508118",
-        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
       {
         "date": "2026-09-19",
         "rawDate": "19/09/2026 16:23",
@@ -66120,36 +66090,6 @@
     "disputedDeals": [
       {
         "date": "2026-09-19",
-        "rawDate": "19/09/2026 19:15",
-        "customerName": "Priti",
-        "phone": "9999779590",
-        "agent": "Rohit Jain",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AKMAXSPECIAL2026",
-        "directUserId": "UR496863",
-        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
-      {
-        "date": "2026-09-19",
-        "rawDate": "19/09/2026 16:55",
-        "customerName": "Amit Varma",
-        "phone": "9971161141",
-        "agent": "Rohit Jain",
-        "insideRevenue": 10500,
-        "revenue": 10500,
-        "directRevenue": 10500,
-        "plan": "Annual Max",
-        "source": "Organic",
-        "directOrderId": "AKMAXSPECIAL2026",
-        "directUserId": "UR508118",
-        "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹10500 and also completed on Direct Portal for ₹10500"
-      },
-      {
-        "date": "2026-09-19",
         "rawDate": "19/09/2026 16:23",
         "customerName": "vatsal rastogi",
         "phone": "7032809002",
@@ -66180,12 +66120,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 4,
-      "revenue": 31233
+      "count": 2,
+      "revenue": 10233
     },
     "disputedTotal": {
-      "count": 4,
-      "revenue": 31233
+      "count": 2,
+      "revenue": 10233
     },
     "refunds": {
       "count": 1,
@@ -68905,8 +68845,8 @@
     "userBreakdown": {
       "signups": 1811,
       "otpVerified": 1760,
-      "serviceable": 1307,
-      "serviceableWithPct": "1,307 (72.2%)",
+      "serviceable": 1308,
+      "serviceableWithPct": "1,308 (72.2%)",
       "serviceablePct": "72.2%"
     },
     "directSaleCSV": {
@@ -69375,10 +69315,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 1821,
-      "otpVerified": 1763,
-      "serviceable": 1331,
-      "serviceableWithPct": "1,331 (73.1%)",
+      "signups": 1820,
+      "otpVerified": 1762,
+      "serviceable": 1330,
+      "serviceableWithPct": "1,330 (73.1%)",
       "serviceablePct": "73.1%"
     },
     "directSaleCSV": {
@@ -69713,10 +69653,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 2162,
-      "otpVerified": 2092,
-      "serviceable": 1550,
-      "serviceableWithPct": "1,550 (71.7%)",
+      "signups": 2161,
+      "otpVerified": 2091,
+      "serviceable": 1549,
+      "serviceableWithPct": "1,549 (71.7%)",
       "serviceablePct": "71.7%"
     },
     "directSaleCSV": {
@@ -69808,8 +69748,8 @@
         "count": 3
       },
       "Honey Talreja": {
-        "revenue": 29000,
-        "count": 3
+        "revenue": 41000,
+        "count": 4
       },
       "Rohit Jain": {
         "revenue": 5000,
@@ -69844,8 +69784,8 @@
         "count": 1
       },
       "Others": {
-        "revenue": 24215,
-        "count": 2
+        "revenue": 12215,
+        "count": 1
       },
       "Shivendra Singh Tomar": {
         "revenue": 5000,
@@ -69954,9 +69894,9 @@
       "revenue": 3160
     },
     "missedLeads": {
-      "Connected": 417,
-      "Interested": 248,
-      "Paise Dega": 23
+      "Connected": 393,
+      "Interested": 199,
+      "Paise Dega": 11
     },
     "refundsLast7Days": {
       "total": 130476.6,
@@ -69969,7 +69909,7 @@
     },
     "newUsers7d": 13634,
     "newUsersYesterday": 1632,
-    "activeSubs": 5015,
+    "activeSubs": 5018,
     "newSubs7d": 175,
     "teleCrmLeads": 1880,
     "subsEnding5d": 84,
@@ -69977,24 +69917,24 @@
     "subsExpiringToday": 9,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2419,
-    "activeSubNoOrder": 128,
+    "activeSubNoOrder": 122,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 32,
-      "Orders Placed": 32,
-      "Orders - CONFIRMED": 17,
-      "Orders Confirmed": 17,
-      "Orders - READY_TO_SHIP": 9,
-      "Orders Ready to Ship": 9,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 73,
-      "Orders Not Delivered": 72
+      "Orders - PLACED": 18,
+      "Orders Placed": 18,
+      "Orders - CONFIRMED": 24,
+      "Orders Confirmed": 24,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 17,
+      "Orders Shipped": 17,
+      "Orders - Not Delivered": 61,
+      "Orders Not Delivered": 60
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 286,
-      "New Subscribers Orders that have been Delivered": 213,
-      "New Subscribers Orders yet to be Delivered": 73,
-      "New Subscribers Orders yet to be Delivered & Delayed": 14
+      "New Subscribers Orders that have been Delivered": 225,
+      "New Subscribers Orders yet to be Delivered": 61,
+      "New Subscribers Orders yet to be Delivered & Delayed": 16
     },
     "selfUpgrade": {
       "totalCount": 0,
