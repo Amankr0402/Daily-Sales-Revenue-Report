@@ -55558,9 +55558,9 @@
   },
   {
     "date": "2026-07-17",
-    "totalRevenue": 103236,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 98736,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 14500,
       "agent": "Sneha Anand",
@@ -55583,10 +55583,6 @@
         "revenue": 14500,
         "count": 1
       },
-      "Chhaya Patel": {
-        "revenue": 4500,
-        "count": 1
-      },
       "Amol Landge": {
         "revenue": 21000,
         "count": 2
@@ -55602,8 +55598,8 @@
         "count": 8
       },
       "Quarterly Max": {
-        "revenue": 18756,
-        "count": 4
+        "revenue": 14256,
+        "count": 3
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -55612,8 +55608,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 56000,
-        "count": 6
+        "revenue": 51500,
+        "count": 5
       },
       "Upgrade": {
         "revenue": 2000,
@@ -57508,9 +57504,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 471273,
-    "salesCount": 48,
-    "transactions": 48,
+    "totalRevenue": 460273,
+    "salesCount": 47,
+    "transactions": 47,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -57534,8 +57530,8 @@
         "count": 10
       },
       "Vikas Poonia": {
-        "revenue": 86752,
-        "count": 8
+        "revenue": 75752,
+        "count": 7
       },
       "Prerak Bhavsar": {
         "revenue": 5032,
@@ -57568,8 +57564,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 399282,
-        "count": 34
+        "revenue": 388282,
+        "count": 33
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -57590,8 +57586,8 @@
         "count": 10
       },
       "Events": {
-        "revenue": 206752,
-        "count": 19
+        "revenue": 195752,
+        "count": 18
       },
       "Renewals": {
         "revenue": 10376,
@@ -59510,9 +59506,9 @@
   },
   {
     "date": "2026-08-13",
-    "totalRevenue": 302608,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 290608,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
@@ -59547,10 +59543,6 @@
         "revenue": 12000,
         "count": 1
       },
-      "Vikas Poonia": {
-        "revenue": 36000,
-        "count": 3
-      },
       "Kush Shah": {
         "revenue": 36000,
         "count": 3
@@ -59562,12 +59554,16 @@
       "Rohit Jain": {
         "revenue": 12000,
         "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 24000,
+        "count": 2
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 269073,
-        "count": 22
+        "revenue": 257073,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 4246,
@@ -59576,8 +59572,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 252000,
-        "count": 21
+        "revenue": 240000,
+        "count": 20
       },
       "Direct Sale": {
         "revenue": 21319,
@@ -61170,9 +61166,9 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 369056,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 380056,
+    "salesCount": 40,
+    "transactions": 40,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah",
@@ -61184,8 +61180,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 109376,
-        "count": 10
+        "revenue": 120376,
+        "count": 11
       },
       "Honey Talreja": {
         "revenue": 47000,
@@ -61254,8 +61250,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 332344,
-        "count": 31
+        "revenue": 343344,
+        "count": 32
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -61272,8 +61268,8 @@
         "count": 22
       },
       "Events": {
-        "revenue": 142376,
-        "count": 13
+        "revenue": 153376,
+        "count": 14
       },
       "Renewals": {
         "revenue": 20752,
@@ -62374,9 +62370,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 282474,
-    "salesCount": 29,
-    "transactions": 29,
+    "totalRevenue": 293474,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -62408,8 +62404,8 @@
         "count": 2
       },
       "Jivesh Harde": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 10000,
@@ -62434,8 +62430,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 240425,
-        "count": 23
+        "revenue": 251425,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -62452,8 +62448,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 143500,
-        "count": 14
+        "revenue": 154500,
+        "count": 15
       },
       "Renewals": {
         "revenue": 103636,
@@ -70334,7 +70330,7 @@
       "revenue": 34572
     },
     "missedLeads": {
-      "Connected": 378,
+      "Connected": 379,
       "Interested": 175,
       "Paise Dega": 12
     },
@@ -70349,7 +70345,7 @@
     },
     "newUsers7d": 12616,
     "newUsersYesterday": 943,
-    "activeSubs": 5040,
+    "activeSubs": 5041,
     "newSubs7d": 171,
     "teleCrmLeads": 1130,
     "subsEnding5d": 83,
