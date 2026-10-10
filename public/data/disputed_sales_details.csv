@@ -1,4 +1,7 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-10","Jasmine Shah","8800466376","Honey Talreja",5756,5755,"Quarterly Max","Organic","FUNDEAL","UR539124","Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5755"
+"2026-10-10","Abhilash Reddy Maddi","9347243941","Naveen Suwalka",12000,11744,"Annual Max","Organic","TOYJOY40","UR467386","Logged by Inside Sales agent (Naveen Suwalka) for ₹12000 and also completed on Direct Portal for ₹11744"
+"2026-10-10","Ashwini reddy","9100093936","Honey Talreja",17073,17073,"Annual Max","Organic","FUNDEAL","UR373494","Logged by Inside Sales agent (Honey Talreja) for ₹17073 and also completed on Direct Portal for ₹17073"
 "2026-10-09","vaishnavi","9985426282","Kausturi Roy Chowdhury",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR532767","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-10-09","warni","8448597981","Honey Talreja",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR538076","Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
 "2026-10-08","Snehal Chipate","8767153996","Honey Talreja",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR179426","Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
