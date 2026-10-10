@@ -57064,9 +57064,9 @@
   },
   {
     "date": "2026-07-28",
-    "totalRevenue": 276134,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 271634,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivani Gupta",
@@ -57106,8 +57106,8 @@
         "count": 4
       },
       "Shubham Rai": {
-        "revenue": 26500,
-        "count": 4
+        "revenue": 22000,
+        "count": 3
       },
       "Jivesh Harde": {
         "revenue": 27000,
@@ -57132,8 +57132,8 @@
         "count": 3
       },
       "Quarterly Max": {
-        "revenue": 33756,
-        "count": 6
+        "revenue": 29256,
+        "count": 5
       },
       "Quarterly Plus": {
         "revenue": 2800,
@@ -57146,8 +57146,8 @@
         "count": 10
       },
       "Organic": {
-        "revenue": 152800,
-        "count": 18
+        "revenue": 148300,
+        "count": 17
       },
       "Direct Sale": {
         "revenue": 20078,
@@ -68624,13 +68624,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 2019,
-      "otpVerified": 1965,
-      "serviceable": 1432,
-      "serviceableWithPct": "1,432 (70.9%)",
-      "serviceablePct": "70.9%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 9,
       "revenue": 66081
@@ -70083,10 +70077,16 @@
       "count": 2,
       "revenue": 8916
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "missedLeads": {
-      "Connected": 385,
-      "Interested": 199,
-      "Paise Dega": 13
+      "Connected": 356,
+      "Interested": 187,
+      "Paise Dega": 18
     },
     "refundsLast7Days": {
       "total": 128476.6,
@@ -70097,17 +70097,17 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 13634,
+    "newUsers7d": 12616,
     "newUsersYesterday": 1632,
-    "activeSubs": 5020,
-    "newSubs7d": 175,
-    "teleCrmLeads": 1880,
-    "subsEnding5d": 84,
+    "activeSubs": 5022,
+    "newSubs7d": 171,
+    "teleCrmLeads": 1130,
+    "subsEnding5d": 83,
     "subsExpired7d": 73,
-    "subsExpiringToday": 9,
+    "subsExpiringToday": 8,
     "planExpiringNoOrder": 2,
-    "planExpNoOrder": 2419,
-    "activeSubNoOrder": 123,
+    "planExpNoOrder": 2420,
+    "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 38,
       "Orders Placed": 38,
