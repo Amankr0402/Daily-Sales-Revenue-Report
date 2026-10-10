@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,006,412",,,193,
+,,,,"2,140,173",,,204,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -189,21 +189,21 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 187,10/10/2026,9867778558,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 188,10/10/2026,7838234242,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 189,10/10/2026,9730724967,Amol Landge,"12,000",No,Annual Max,1,Events
-190,10/10/2026,9672566566,Kunal Sharma,"11,000",No,Annual Max,1,Renewals
+190,10/10/2026,8875755666,Kunal Sharma,"11,000",No,Annual Max,1,Renewals
 191,10/10/2026,9100093936,Honey Talreja,"17,073",No,Annual Max,1,Organic
 192,10/10/2026,9491887670,Prerak Bhavsar,"5,000",No,Annual Max,1,Upgrade
-193,10/10/2026,7276441229,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
-194,10/10/2026,,,,,,,
-195,10/10/2026,,,,,,,
-196,10/10/2026,,,,,,,
-197,10/10/2026,,,,,,,
-198,10/10/2026,,,,,,,
-199,10/10/2026,,,,,,,
-200,10/10/2026,,,,,,,
-201,10/10/2026,,,,,,,
-202,10/10/2026,,,,,,,
-203,10/10/2026,,,,,,,
-204,10/10/2026,,,,,,,
+193,10/10/2026,7276441229,Kausturi Roy Chowdhury,"12,216",No,Annual Max,1,Organic
+194,10/10/2026,9766182216,Amol Landge,"12,000",No,Annual Max,1,Events
+195,10/10/2026,9479762264,Shubham Rai,"12,000",No,Annual Max,1,Events
+196,10/10/2026,8087131666,Amol Landge,"12,000",No,Annual Max,1,Events
+197,10/10/2026,9145616421,Shubham Rai,"12,000",No,Annual Max,1,Events
+198,10/10/2026,9347243941,Naveen Suwalka,"12,000",No,Annual Max,1,Organic
+199,10/10/2026,9953625965,Preyashi Roy,"12,216",No,Annual Max,1,Organic
+200,10/10/2026,7040795468,Amol Landge,"12,000",No,Annual Max,1,Events
+201,10/10/2026,9768837293,Naveen Suwalka,"12,000",No,Annual Max,1,Organic
+202,10/10/2026,9827794437,Shubham Rai,"12,000",No,Annual Max,1,Events
+203,10/10/2026,9582562865,Rani Singh,"19,573",No,Annual Max,2,Organic
+204,10/10/2026,8800466376,Honey Talreja,"5,756",No,Quarterly Max,1,Organic
 205,10/10/2026,,,,,,,
 206,10/10/2026,,,,,,,
 207,10/10/2026,,,,,,,
