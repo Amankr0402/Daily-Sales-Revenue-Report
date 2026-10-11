@@ -1,4 +1,7 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-11","VEDANTI GANWIR","8104358823","Chhaya Patel",12325,12325,"Annual Plus","Organic","FLAT3000","UR538000","Logged by Inside Sales agent (Chhaya Patel) for ₹12325 and also completed on Direct Portal for ₹12325"
+"2026-10-11","Rakesh Jogaram","9441569836","Prerak Bhavsar",6787,12962.21,"Annual Max","Organic","DANDIYA","UR521454","Logged by Inside Sales agent (Prerak Bhavsar) for ₹6787 and also completed on Direct Portal for ₹12962.21"
+"2026-10-11","suman mahajan","7999514994","Kausturi Roy Chowdhury",11744,11744,"Annual Max","Organic","PLAYTIME","UR105645","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹11744 and also completed on Direct Portal for ₹11744"
 "2026-10-10","Amit Singh","9821550065","Honey Talreja",23499,23499,"Ultra Annually","Organic","DANDIYA","UR536299","Logged by Inside Sales agent (Honey Talreja) for ₹23499 and also completed on Direct Portal for ₹23499"
 "2026-10-10","Jasmine Shah","8800466376","Honey Talreja",5756,5755,"Quarterly Max","Organic","FUNDEAL","UR539124","Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5755"
 "2026-10-10","Abhilash Reddy Maddi","9347243941","Naveen Suwalka",12000,11744,"Annual Max","Organic","TOYJOY40","UR467386","Logged by Inside Sales agent (Naveen Suwalka) for ₹12000 and also completed on Direct Portal for ₹11744"
