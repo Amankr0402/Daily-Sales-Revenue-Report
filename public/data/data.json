@@ -55412,9 +55412,9 @@
   },
   {
     "date": "2026-07-16",
-    "totalRevenue": 206266.55,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 217266.55,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 15681.55,
       "agent": "Self Serve",
@@ -55446,8 +55446,8 @@
         "count": 3
       },
       "Prerak Bhavsar": {
-        "revenue": 32500,
-        "count": 3
+        "revenue": 43500,
+        "count": 4
       },
       "Kush Shah": {
         "revenue": 4500,
@@ -55460,8 +55460,8 @@
         "count": 0
       },
       "Annual Max": {
-        "revenue": 190997.55,
-        "count": 18
+        "revenue": 201997.55,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 9000,
@@ -55470,8 +55470,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 135716,
-        "count": 14
+        "revenue": 146716,
+        "count": 15
       },
       "Renewals": {
         "revenue": 45000,
@@ -55816,9 +55816,9 @@
   },
   {
     "date": "2026-07-19",
-    "totalRevenue": 327435,
-    "salesCount": 34,
-    "transactions": 34,
+    "totalRevenue": 337435,
+    "salesCount": 35,
+    "transactions": 35,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -55830,8 +55830,8 @@
         "count": 1
       },
       "Vikas Poonia": {
-        "revenue": 31743,
-        "count": 4
+        "revenue": 41743,
+        "count": 5
       },
       "Shivani Gupta": {
         "revenue": 10320,
@@ -55884,8 +55884,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 276160,
-        "count": 26
+        "revenue": 286160,
+        "count": 27
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -55906,8 +55906,8 @@
         "count": 21
       },
       "Renewals": {
-        "revenue": 47500,
-        "count": 5
+        "revenue": 57500,
+        "count": 6
       },
       "Upgrade": {
         "revenue": 1367,
@@ -57508,9 +57508,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 460273,
-    "salesCount": 47,
-    "transactions": 47,
+    "totalRevenue": 471273,
+    "salesCount": 48,
+    "transactions": 48,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -57534,8 +57534,8 @@
         "count": 10
       },
       "Vikas Poonia": {
-        "revenue": 75752,
-        "count": 7
+        "revenue": 86752,
+        "count": 8
       },
       "Prerak Bhavsar": {
         "revenue": 5032,
@@ -57568,8 +57568,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 388282,
-        "count": 33
+        "revenue": 399282,
+        "count": 34
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -57590,8 +57590,8 @@
         "count": 10
       },
       "Events": {
-        "revenue": 195752,
-        "count": 18
+        "revenue": 206752,
+        "count": 19
       },
       "Renewals": {
         "revenue": 10376,
@@ -60792,9 +60792,9 @@
   },
   {
     "date": "2026-08-21",
-    "totalRevenue": 314082,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 295582,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 25500,
       "agent": "Kausturi Roy Chowdhury",
@@ -60802,12 +60802,12 @@
     },
     "agents": {
       "Honey Talreja": {
-        "revenue": 45800,
-        "count": 5
+        "revenue": 34800,
+        "count": 4
       },
       "Tanveer Ahmed": {
-        "revenue": 36000,
-        "count": 4
+        "revenue": 28500,
+        "count": 3
       },
       "Sneha Anand": {
         "revenue": 11000,
@@ -60868,8 +60868,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 216803,
-        "count": 21
+        "revenue": 198303,
+        "count": 19
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -60882,8 +60882,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 250227,
-        "count": 24
+        "revenue": 231727,
+        "count": 22
       },
       "Renewals": {
         "revenue": 17376,
@@ -62575,13 +62575,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 184000,
-        "count": 18
+      "No": {
+        "revenue": 181000,
+        "count": 19
       },
-      "Renewals": {
-        "revenue": 15000,
-        "count": 2
+      "Yes": {
+        "revenue": 18000,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 21132,
@@ -62608,7 +62608,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUN40",
         "directUserId": "UR69030",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹12215 and also completed on Direct Portal for ₹12216"
@@ -62623,7 +62623,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR230762",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -62640,7 +62640,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUN40",
         "directUserId": "UR69030",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹12215 and also completed on Direct Portal for ₹12216"
@@ -62655,7 +62655,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR230762",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -62747,13 +62747,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 80500,
-        "count": 10
-      },
-      "Renewals": {
-        "revenue": 20376,
-        "count": 2
+      "No": {
+        "revenue": 100876,
+        "count": 12
       },
       "Direct Sale": {
         "revenue": 18774,
@@ -62871,13 +62867,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 132500,
-        "count": 14
-      },
-      "Renewals": {
-        "revenue": 15376,
-        "count": 2
+      "No": {
+        "revenue": 147876,
+        "count": 16
       },
       "Direct Sale": {
         "revenue": 51503,
@@ -62904,7 +62896,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR484537",
         "disputeNote": "Logged by Inside Sales agent (Tashrifa Ruhani Saikia) for ₹11000 and also completed on Direct Portal for ₹5756"
@@ -62921,7 +62913,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR484537",
         "disputeNote": "Logged by Inside Sales agent (Tashrifa Ruhani Saikia) for ₹11000 and also completed on Direct Portal for ₹5756"
@@ -63033,17 +63025,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 101715,
-        "count": 11
-      },
-      "Upgrade": {
-        "revenue": 8636,
-        "count": 1
-      },
-      "Renewals": {
-        "revenue": 12000,
-        "count": 2
+      "No": {
+        "revenue": 122351,
+        "count": 14
       },
       "Direct Sale": {
         "revenue": 37705.71,
@@ -63070,7 +63054,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR446170",
         "disputeNote": "Logged by Inside Sales agent (Vivek Shah) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63085,7 +63069,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR479951",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63100,7 +63084,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR227061",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -63115,7 +63099,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR449262",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
@@ -63132,7 +63116,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR446170",
         "disputeNote": "Logged by Inside Sales agent (Vivek Shah) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63147,7 +63131,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR479951",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63162,7 +63146,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR227061",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -63177,7 +63161,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR449262",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
@@ -63317,13 +63301,13 @@
       }
     },
     "sources": {
-      "Renewals": {
-        "revenue": 66004,
-        "count": 7
+      "No": {
+        "revenue": 269719,
+        "count": 28
       },
-      "Organic": {
-        "revenue": 237303,
-        "count": 23
+      "Yes": {
+        "revenue": 33588,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 40190,
@@ -63350,7 +63334,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR487725",
         "disputeNote": "Logged by Inside Sales agent (Neeru Yadav) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63365,7 +63349,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR229368",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63380,7 +63364,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR487809",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12215 and also completed on Direct Portal for ₹12216"
@@ -63395,7 +63379,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR464600",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -63412,7 +63396,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR487725",
         "disputeNote": "Logged by Inside Sales agent (Neeru Yadav) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63427,7 +63411,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR229368",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -63442,7 +63426,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "KRISHNA40",
         "directUserId": "UR487809",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12215 and also completed on Direct Portal for ₹12216"
@@ -63457,7 +63441,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR464600",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -63601,17 +63585,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 189216,
-        "count": 21
-      },
-      "Renewals": {
-        "revenue": 5000,
-        "count": 1
-      },
-      "Events": {
-        "revenue": 48500,
-        "count": 5
+      "No": {
+        "revenue": 242716,
+        "count": 27
       },
       "Direct Sale": {
         "revenue": 34771.35,
@@ -63638,7 +63614,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR487555",
         "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -63655,7 +63631,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR487555",
         "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -63775,13 +63751,9 @@
       }
     },
     "sources": {
-      "Renewals": {
-        "revenue": 25620,
-        "count": 4
-      },
-      "Organic": {
-        "revenue": 97592,
-        "count": 10
+      "No": {
+        "revenue": 123212,
+        "count": 14
       },
       "Direct Sale": {
         "revenue": 19393,
@@ -63808,7 +63780,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR453886",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹5657 and also completed on Direct Portal for ₹5756"
@@ -63823,7 +63795,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR457830",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -63840,7 +63812,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR453886",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹5657 and also completed on Direct Portal for ₹5756"
@@ -63855,7 +63827,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR457830",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -64019,13 +63991,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 128899,
-        "count": 14
+      "No": {
+        "revenue": 149671,
+        "count": 18
       },
-      "Renewals": {
-        "revenue": 20772,
-        "count": 4
+      "Yes": {
+        "revenue": 0,
+        "count": 0
       },
       "Direct Sale": {
         "revenue": 38838,
@@ -64052,7 +64024,7 @@
         "revenue": 12960.86,
         "directRevenue": 12960.86,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "TOYJOY",
         "directUserId": "UR418329",
         "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹12960 and also completed on Direct Portal for ₹12960.86"
@@ -64067,7 +64039,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR463258",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -64084,7 +64056,7 @@
         "revenue": 12960.86,
         "directRevenue": 12960.86,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "TOYJOY",
         "directUserId": "UR418329",
         "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹12960 and also completed on Direct Portal for ₹12960.86"
@@ -64099,7 +64071,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR463258",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -64207,17 +64179,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 171348,
-        "count": 17
-      },
-      "Renewals": {
-        "revenue": 35326,
-        "count": 4
-      },
-      "Upgrade": {
-        "revenue": 7000,
-        "count": 1
+      "No": {
+        "revenue": 213674,
+        "count": 22
       },
       "Direct Sale": {
         "revenue": 25085,
@@ -64346,17 +64310,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 143092,
-        "count": 15
-      },
-      "Upgrade": {
-        "revenue": 11000,
-        "count": 1
-      },
-      "Renewals": {
-        "revenue": 10376,
-        "count": 1
+      "No": {
+        "revenue": 164468,
+        "count": 17
       },
       "Direct Sale": {
         "revenue": 20428,
@@ -64470,21 +64426,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 164162,
-        "count": 16
+      "No": {
+        "revenue": 215965,
+        "count": 21
       },
-      "Renewals": {
-        "revenue": 10376,
-        "count": 1
-      },
-      "Events": {
-        "revenue": 55000,
-        "count": 5
-      },
-      "Upgrade": {
-        "revenue": 13000,
-        "count": 1
+      "Yes": {
+        "revenue": 26573,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 13573,
@@ -64614,17 +64562,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 147500,
-        "count": 15
-      },
-      "Events": {
-        "revenue": 55000,
-        "count": 5
-      },
-      "Renewals": {
-        "revenue": 20376,
-        "count": 2
+      "No": {
+        "revenue": 222876,
+        "count": 22
       },
       "Direct Sale": {
         "revenue": 35366,
@@ -64651,7 +64591,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR471928",
         "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -64666,7 +64606,7 @@
         "revenue": 6017,
         "directRevenue": 6017,
         "plan": "Quarterly Ultra",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "MANSI40",
         "directUserId": "UR494650",
         "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
@@ -64683,7 +64623,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR471928",
         "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -64698,7 +64638,7 @@
         "revenue": 6017,
         "directRevenue": 6017,
         "plan": "Quarterly Ultra",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "MANSI40",
         "directUserId": "UR494650",
         "disputeNote": "Logged by Inside Sales agent (Rohit Jain) for ₹6000 and also completed on Direct Portal for ₹6017"
@@ -64871,17 +64811,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 123716,
-        "count": 12
-      },
-      "Renewals": {
-        "revenue": 10000,
-        "count": 1
-      },
-      "Events": {
-        "revenue": 55000,
-        "count": 5
+      "No": {
+        "revenue": 188716,
+        "count": 18
       },
       "Overlap Deals": {
         "revenue": 12216,
@@ -64908,7 +64840,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUN40",
         "directUserId": "UR484331",
         "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -64925,7 +64857,7 @@
         "revenue": 12216,
         "directRevenue": 12216,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUN40",
         "directUserId": "UR484331",
         "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12216 and also completed on Direct Portal for ₹12216"
@@ -65025,7 +64957,7 @@
       }
     },
     "sources": {
-      "Organic": {
+      "No": {
         "revenue": 136697,
         "count": 13
       },
@@ -65133,9 +65065,13 @@
       }
     },
     "sources": {
-      "Organic": {
+      "No": {
         "revenue": 176000,
         "count": 16
+      },
+      "Yes": {
+        "revenue": 0,
+        "count": 0
       },
       "Direct Sale": {
         "revenue": 51404.18,
@@ -65162,7 +65098,7 @@
         "revenue": 14055,
         "directRevenue": 14055,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA30",
         "directUserId": "UR151735",
         "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹14055 and also completed on Direct Portal for ₹14055"
@@ -65179,7 +65115,7 @@
         "revenue": 14055,
         "directRevenue": 14055,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA30",
         "directUserId": "UR151735",
         "disputeNote": "Logged by Inside Sales agent (Preyashi Roy) for ₹14055 and also completed on Direct Portal for ₹14055"
@@ -65310,13 +65246,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 127216,
-        "count": 13
+      "No": {
+        "revenue": 134968,
+        "count": 14
       },
-      "Renewals": {
-        "revenue": 20752,
-        "count": 2
+      "Yes": {
+        "revenue": 13000,
+        "count": 1
       },
       "Overlap Deals": {
         "revenue": 28245,
@@ -65343,7 +65279,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "TOYJOY",
         "directUserId": "UR469153",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -65358,7 +65294,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR490230",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -65373,7 +65309,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR499769",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -65388,7 +65324,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR460988",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -65405,7 +65341,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "TOYJOY",
         "directUserId": "UR469153",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -65420,7 +65356,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR490230",
         "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -65435,7 +65371,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR499769",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -65450,7 +65386,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR460988",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -65614,13 +65550,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 224541,
-        "count": 25
+      "No": {
+        "revenue": 238468,
+        "count": 27
       },
-      "Renewals": {
-        "revenue": 66752,
-        "count": 5
+      "Yes": {
+        "revenue": 52825,
+        "count": 3
       },
       "Direct Sale": {
         "revenue": 60048,
@@ -65647,7 +65583,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR450668",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -65664,7 +65600,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR450668",
         "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -65791,13 +65727,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 148733,
-        "count": 14
+      "No": {
+        "revenue": 155536,
+        "count": 16
       },
-      "Renewals": {
-        "revenue": 20376,
-        "count": 3
+      "Yes": {
+        "revenue": 13573,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 38045.86,
@@ -65824,7 +65760,7 @@
         "revenue": 12960.86,
         "directRevenue": 12960.86,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR467379",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹13573 and also completed on Direct Portal for ₹12960.86"
@@ -65839,7 +65775,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR50358",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -65854,7 +65790,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR281244",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -65871,7 +65807,7 @@
         "revenue": 12960.86,
         "directRevenue": 12960.86,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR467379",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹13573 and also completed on Direct Portal for ₹12960.86"
@@ -65886,7 +65822,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR50358",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -65901,7 +65837,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR281244",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -66025,20 +65961,12 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 180177,
-        "count": 19
+      "No": {
+        "revenue": 236005,
+        "count": 25
       },
-      "Renewals": {
-        "revenue": 45128,
-        "count": 4
-      },
-      "Upgrade": {
-        "revenue": 12700,
-        "count": 2
-      },
-      "Events": {
-        "revenue": 12000,
+      "Yes": {
+        "revenue": 14000,
         "count": 1
       },
       "Direct Sale": {
@@ -66066,7 +65994,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR457863",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -66081,7 +66009,7 @@
         "revenue": 4477,
         "directRevenue": 4477,
         "plan": "Quarterly Max",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR220852",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹4477 and also completed on Direct Portal for ₹4477"
@@ -66098,7 +66026,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR457863",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -66113,7 +66041,7 @@
         "revenue": 4477,
         "directRevenue": 4477,
         "plan": "Quarterly Max",
-        "source": "Renewals",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR220852",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹4477 and also completed on Direct Portal for ₹4477"
@@ -66241,17 +66169,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 216376,
-        "count": 23
-      },
-      "Events": {
-        "revenue": 34000,
-        "count": 4
-      },
-      "Renewals": {
-        "revenue": 5756,
-        "count": 1
+      "No": {
+        "revenue": 256132,
+        "count": 28
       },
       "Overlap Deals": {
         "revenue": 3160,
@@ -66274,7 +66194,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR499750",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -66291,7 +66211,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR499750",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -66411,17 +66331,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 187000,
-        "count": 19
-      },
-      "Renewals": {
-        "revenue": 11000,
-        "count": 1
-      },
-      "Upgrade": {
-        "revenue": 11000,
-        "count": 1
+      "No": {
+        "revenue": 209000,
+        "count": 21
       },
       "Overlap Deals": {
         "revenue": 15423,
@@ -66448,7 +66360,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR511846",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -66463,7 +66375,7 @@
         "revenue": 9667,
         "directRevenue": 9667,
         "plan": "Annual Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR383450",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹9667 and also completed on Direct Portal for ₹9667"
@@ -66480,7 +66392,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR511846",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -66495,7 +66407,7 @@
         "revenue": 9667,
         "directRevenue": 9667,
         "plan": "Annual Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR383450",
         "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹9667 and also completed on Direct Portal for ₹9667"
@@ -66617,17 +66529,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 83000,
-        "count": 8
+      "Yes": {
+        "revenue": 0,
+        "count": 0
       },
-      "Renewals": {
-        "revenue": 36128,
-        "count": 4
-      },
-      "Upgrade": {
-        "revenue": 11000,
-        "count": 1
+      "No": {
+        "revenue": 130128,
+        "count": 13
       },
       "Overlap Deals": {
         "revenue": 36402,
@@ -66654,7 +66562,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR481165",
         "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹5767 and also completed on Direct Portal for ₹5756"
@@ -66669,7 +66577,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Renewals",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR152308",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -66684,7 +66592,7 @@
         "revenue": 17073,
         "directRevenue": 17073,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR510999",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹17073 and also completed on Direct Portal for ₹17073"
@@ -66701,7 +66609,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR481165",
         "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹5767 and also completed on Direct Portal for ₹5756"
@@ -66716,7 +66624,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Renewals",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR152308",
         "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -66731,7 +66639,7 @@
         "revenue": 17073,
         "directRevenue": 17073,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR510999",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹17073 and also completed on Direct Portal for ₹17073"
@@ -66835,13 +66743,9 @@
       }
     },
     "sources": {
-      "Renewals": {
-        "revenue": 26131,
-        "count": 3
-      },
-      "Organic": {
-        "revenue": 81376,
-        "count": 9
+      "No": {
+        "revenue": 107507,
+        "count": 12
       },
       "Direct Sale": {
         "revenue": 58280.21,
@@ -66868,7 +66772,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR513856",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -66885,7 +66789,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR513856",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -67036,13 +66940,9 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 169000,
-        "count": 19
-      },
-      "Renewals": {
-        "revenue": 43128,
-        "count": 6
+      "No": {
+        "revenue": 212128,
+        "count": 25
       }
     },
     "userBreakdown": null,
@@ -67178,13 +67078,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 209500,
-        "count": 20
+      "No": {
+        "revenue": 224876,
+        "count": 22
       },
-      "Renewals": {
-        "revenue": 15376,
-        "count": 2
+      "Yes": {
+        "revenue": 0,
+        "count": 0
       },
       "Overlap Deals": {
         "revenue": 13573,
@@ -67211,7 +67111,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR515669",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67228,7 +67128,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR515669",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67352,20 +67252,12 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 217215,
-        "count": 20
+      "No": {
+        "revenue": 237591,
+        "count": 23
       },
-      "Events": {
-        "revenue": 22000,
-        "count": 2
-      },
-      "Upgrade": {
-        "revenue": 5000,
-        "count": 1
-      },
-      "Renewals": {
-        "revenue": 10376,
+      "Yes": {
+        "revenue": 17000,
         "count": 1
       },
       "Direct Sale": {
@@ -67393,7 +67285,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR517086",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67408,7 +67300,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR441662",
         "disputeNote": "Logged by Inside Sales agent (Naveen Suwalka) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67423,7 +67315,7 @@
         "revenue": 12924.21,
         "directRevenue": 12924.21,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR181617",
         "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹13573 and also completed on Direct Portal for ₹12924.21"
@@ -67440,7 +67332,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR517086",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67455,7 +67347,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR441662",
         "disputeNote": "Logged by Inside Sales agent (Naveen Suwalka) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67470,7 +67362,7 @@
         "revenue": 12924.21,
         "directRevenue": 12924.21,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR181617",
         "disputeNote": "Logged by Inside Sales agent (Abhijeet Mathur) for ₹13573 and also completed on Direct Portal for ₹12924.21"
@@ -67602,17 +67494,9 @@
       }
     },
     "sources": {
-      "Events": {
-        "revenue": 133470,
-        "count": 18
-      },
-      "Organic": {
-        "revenue": 102931,
-        "count": 11
-      },
-      "Upgrade": {
-        "revenue": 0,
-        "count": 0
+      "No": {
+        "revenue": 236401,
+        "count": 29
       },
       "Direct Sale": {
         "revenue": 62597.21,
@@ -67639,7 +67523,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Upgrade",
+        "source": "No",
         "directOrderId": "GANESHA",
         "directUserId": "UR481809",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹2500 and also completed on Direct Portal for ₹13573"
@@ -67656,7 +67540,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Upgrade",
+        "source": "No",
         "directOrderId": "GANESHA",
         "directUserId": "UR481809",
         "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹2500 and also completed on Direct Portal for ₹13573"
@@ -67790,13 +67674,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 163647,
-        "count": 15
+      "No": {
+        "revenue": 224509,
+        "count": 22
       },
-      "Renewals": {
-        "revenue": 60862,
-        "count": 7
+      "Yes": {
+        "revenue": 0,
+        "count": 0
       },
       "Overlap Deals": {
         "revenue": 16733,
@@ -67823,7 +67707,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR517255",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -67838,7 +67722,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR518840",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67855,7 +67739,7 @@
         "revenue": 3160,
         "directRevenue": 3160,
         "plan": "Quarterly Plus",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR517255",
         "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹3160 and also completed on Direct Portal for ₹3160"
@@ -67870,7 +67754,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "GANESHA",
         "directUserId": "UR518840",
         "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -67998,17 +67882,13 @@
       }
     },
     "sources": {
-      "Organic": {
-        "revenue": 280006,
-        "count": 24
+      "Yes": {
+        "revenue": 56000,
+        "count": 3
       },
-      "Renewals": {
-        "revenue": 42752,
-        "count": 4
-      },
-      "Upgrade": {
-        "revenue": 7200,
-        "count": 1
+      "No": {
+        "revenue": 273958,
+        "count": 26
       },
       "Direct Sale": {
         "revenue": 19329,
@@ -68234,13 +68114,13 @@
       }
     },
     "sources": {
-      "Renewals": {
-        "revenue": 24752,
-        "count": 3
+      "No": {
+        "revenue": 310006,
+        "count": 31
       },
-      "Organic": {
-        "revenue": 311827,
-        "count": 30
+      "Yes": {
+        "revenue": 26573,
+        "count": 2
       },
       "Overlap Deals": {
         "revenue": 50574.71,
@@ -68267,7 +68147,7 @@
         "revenue": 11916.71,
         "directRevenue": 11916.71,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR279819",
         "disputeNote": "Logged by Inside Sales agent (Vivek Shah) for ₹12215 and also completed on Direct Portal for ₹11916.71"
@@ -68282,7 +68162,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR519755",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -68297,7 +68177,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "LASTCALL",
         "directUserId": "UR487033",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -68312,7 +68192,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR521688",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -68327,7 +68207,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "LASTCALL",
         "directUserId": "UR118760",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹6787 and also completed on Direct Portal for ₹13573"
@@ -68344,7 +68224,7 @@
         "revenue": 11916.71,
         "directRevenue": 11916.71,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR279819",
         "disputeNote": "Logged by Inside Sales agent (Vivek Shah) for ₹12215 and also completed on Direct Portal for ₹11916.71"
@@ -68359,7 +68239,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR519755",
         "disputeNote": "Logged by Inside Sales agent (Rani Singh) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -68374,7 +68254,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "Yes",
         "directOrderId": "LASTCALL",
         "directUserId": "UR487033",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹13573"
@@ -68389,7 +68269,7 @@
         "revenue": 5756,
         "directRevenue": 5756,
         "plan": "Quarterly Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR521688",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹5756 and also completed on Direct Portal for ₹5756"
@@ -68404,7 +68284,7 @@
         "revenue": 13573,
         "directRevenue": 13573,
         "plan": "Annual Max",
-        "source": "Organic",
+        "source": "No",
         "directOrderId": "LASTCALL",
         "directUserId": "UR118760",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹6787 and also completed on Direct Portal for ₹13573"
@@ -68579,7 +68459,7 @@
         "revenue": 31573,
         "count": 3
       },
-      "Sneha Anand": {
+      "Others": {
         "revenue": 4198,
         "count": 1
       },
@@ -68730,9 +68610,9 @@
   },
   {
     "date": "2026-10-03",
-    "totalRevenue": 326193,
-    "salesCount": 33,
-    "transactions": 31,
+    "totalRevenue": 337193,
+    "salesCount": 34,
+    "transactions": 32,
     "highestSale": {
       "amount": 12573,
       "agent": "Self Serve",
@@ -68760,10 +68640,10 @@
         "count": 2
       },
       "Kush Shah": {
-        "revenue": 13000,
+        "revenue": 18000,
         "count": 2
       },
-      "Sneha Anand": {
+      "Others": {
         "revenue": 12000,
         "count": 1
       },
@@ -68775,13 +68655,13 @@
         "revenue": 12216,
         "count": 1
       },
+      "Prerak Bhavsar": {
+        "revenue": 30000,
+        "count": 3
+      },
       "Jivesh Harde": {
         "revenue": 12000,
         "count": 1
-      },
-      "Prerak Bhavsar": {
-        "revenue": 24000,
-        "count": 2
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 2400,
@@ -68802,8 +68682,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 303365,
-        "count": 28
+        "revenue": 314365,
+        "count": 29
       },
       "Quarterly Plus": {
         "revenue": 0,
@@ -68816,11 +68696,11 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 157362,
-        "count": 15
+        "revenue": 163362,
+        "count": 16
       },
       "Events": {
-        "revenue": 133430,
+        "revenue": 138430,
         "count": 12
       },
       "Upgrade": {
@@ -68847,7 +68727,7 @@
         "rawDate": "03/10/2026 16:38",
         "customerName": "jagjeet singh",
         "phone": "7982543021",
-        "agent": "Sneha Anand",
+        "agent": "Others",
         "insideRevenue": 3160,
         "revenue": 3160,
         "directRevenue": 3160,
@@ -68855,7 +68735,7 @@
         "source": "Organic",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR68103",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹3160 and also completed on Direct Portal for ₹3160"
+        "disputeNote": "Logged by Inside Sales agent (Others) for ₹3160 and also completed on Direct Portal for ₹3160"
       }
     ],
     "disputedDeals": [
@@ -68864,7 +68744,7 @@
         "rawDate": "03/10/2026 16:38",
         "customerName": "jagjeet singh",
         "phone": "7982543021",
-        "agent": "Sneha Anand",
+        "agent": "Others",
         "insideRevenue": 3160,
         "revenue": 3160,
         "directRevenue": 3160,
@@ -68872,7 +68752,7 @@
         "source": "Organic",
         "directOrderId": "FUNDEAL",
         "directUserId": "UR68103",
-        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹3160 and also completed on Direct Portal for ₹3160"
+        "disputeNote": "Logged by Inside Sales agent (Others) for ₹3160 and also completed on Direct Portal for ₹3160"
       }
     ],
     "collidingTotal": {
@@ -68995,9 +68875,9 @@
         "revenue": 93578,
         "count": 9
       },
-      "Sneha Anand": {
-        "revenue": 4198,
-        "count": 1
+      "Others": {
+        "revenue": 23771,
+        "count": 3
       },
       "Jivesh Harde": {
         "revenue": 17000,
@@ -69033,10 +68913,6 @@
       },
       "Tashrifa Ruhani Saikia": {
         "revenue": 19000,
-        "count": 2
-      },
-      "Soumya Pandey": {
-        "revenue": 19573,
         "count": 2
       },
       "Tanveer Ahmed": {
@@ -69241,7 +69117,7 @@
         "revenue": 48215,
         "count": 4
       },
-      "Sneha Anand": {
+      "Others": {
         "revenue": 12215,
         "count": 1
       },
@@ -70112,13 +69988,13 @@
   },
   {
     "date": "2026-10-10",
-    "totalRevenue": 324705,
-    "salesCount": 29,
-    "transactions": 28,
+    "totalRevenue": 360705,
+    "salesCount": 32,
+    "transactions": 31,
     "highestSale": {
       "amount": 23499,
-      "agent": "Self Serve",
-      "source": "Direct Sale"
+      "agent": "Honey Talreja",
+      "source": "Inside Sales"
     },
     "agents": {
       "Abhijeet Mathur": {
@@ -70138,8 +70014,8 @@
         "count": 4
       },
       "Kunal Sharma": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 23000,
+        "count": 2
       },
       "Honey Talreja": {
         "revenue": 0,
@@ -70168,6 +70044,14 @@
       "Rani Singh": {
         "revenue": 19573,
         "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 12000,
+        "count": 1
       }
     },
     "plans": {
@@ -70176,12 +70060,12 @@
         "count": 3
       },
       "Annual Max": {
-        "revenue": 243583,
-        "count": 21
+        "revenue": 279583,
+        "count": 24
       },
       "Ultra Annually": {
-        "revenue": 23499,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       },
       "Quarterly Ultra": {
         "revenue": 7293,
@@ -70190,12 +70074,12 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 109647,
-        "count": 10
+        "revenue": 133647,
+        "count": 12
       },
       "Events": {
-        "revenue": 84000,
-        "count": 7
+        "revenue": 96000,
+        "count": 8
       },
       "Renewals": {
         "revenue": 11000,
@@ -70205,27 +70089,42 @@
         "revenue": 5000,
         "count": 1
       },
-      "Direct Sale": {
-        "revenue": 80486,
-        "count": 7
-      },
       "Overlap Deals": {
-        "revenue": 34572,
-        "count": 3
+        "revenue": 58071,
+        "count": 4
+      },
+      "Direct Sale": {
+        "revenue": 56987,
+        "count": 6
       }
     },
     "userBreakdown": {
       "signups": 1050,
       "otpVerified": 966,
-      "serviceable": 627,
-      "serviceableWithPct": "627 (59.7%)",
-      "serviceablePct": "59.7%"
+      "serviceable": 628,
+      "serviceableWithPct": "628 (59.8%)",
+      "serviceablePct": "59.8%"
     },
     "directSaleCSV": {
       "count": 10,
       "revenue": 115058
     },
     "collidingDeals": [
+      {
+        "date": "2026-10-10",
+        "rawDate": "10/10/2026 19:34",
+        "customerName": "Amit Singh",
+        "phone": "9821550065",
+        "agent": "Honey Talreja",
+        "insideRevenue": 23499,
+        "revenue": 23499,
+        "directRevenue": 23499,
+        "plan": "Ultra Annually",
+        "source": "Organic",
+        "directOrderId": "DANDIYA",
+        "directUserId": "UR536299",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹23499 and also completed on Direct Portal for ₹23499"
+      },
       {
         "date": "2026-10-10",
         "rawDate": "10/10/2026 17:30",
@@ -70275,6 +70174,21 @@
     "disputedDeals": [
       {
         "date": "2026-10-10",
+        "rawDate": "10/10/2026 19:34",
+        "customerName": "Amit Singh",
+        "phone": "9821550065",
+        "agent": "Honey Talreja",
+        "insideRevenue": 23499,
+        "revenue": 23499,
+        "directRevenue": 23499,
+        "plan": "Ultra Annually",
+        "source": "Organic",
+        "directOrderId": "DANDIYA",
+        "directUserId": "UR536299",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹23499 and also completed on Direct Portal for ₹23499"
+      },
+      {
+        "date": "2026-10-10",
         "rawDate": "10/10/2026 17:30",
         "customerName": "Jasmine Shah",
         "phone": "8800466376",
@@ -70320,12 +70234,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 3,
-      "revenue": 34572
+      "count": 4,
+      "revenue": 58071
     },
     "disputedTotal": {
-      "count": 3,
-      "revenue": 34572
+      "count": 4,
+      "revenue": 58071
     },
     "deliveryFee": {
       "transactions": 2,
@@ -70334,9 +70248,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 331,
-      "Interested": 161,
-      "Paise Dega": 13
+      "Connected": 373,
+      "Interested": 190,
+      "Paise Dega": 28
     },
     "refundsLast7Days": {
       "total": 3151,
@@ -70348,8 +70262,8 @@
       "items": []
     },
     "newUsers7d": 11850,
-    "newUsersYesterday": 943,
-    "activeSubs": 5041,
+    "newUsersYesterday": 1008,
+    "activeSubs": 5044,
     "newSubs7d": 172,
     "teleCrmLeads": 198,
     "subsEnding5d": 86,
@@ -70357,24 +70271,24 @@
     "subsExpiringToday": 16,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 122,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 61,
-      "Orders Confirmed": 61,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 10,
-      "Orders Shipped": 10,
-      "Orders - Not Delivered": 103,
-      "Orders Not Delivered": 101
+      "Orders - PLACED": 27,
+      "Orders Placed": 27,
+      "Orders - CONFIRMED": 41,
+      "Orders Confirmed": 41,
+      "Orders - READY_TO_SHIP": 7,
+      "Orders Ready to Ship": 7,
+      "Orders - SHIPPED": 23,
+      "Orders Shipped": 23,
+      "Orders - Not Delivered": 100,
+      "Orders Not Delivered": 98
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 359,
-      "New Subscribers Orders that have been Delivered": 256,
-      "New Subscribers Orders yet to be Delivered": 103,
-      "New Subscribers Orders yet to be Delivered & Delayed": 11
+      "New Subscribers Orders that have been Delivered": 259,
+      "New Subscribers Orders yet to be Delivered": 100,
+      "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
       "totalCount": 0,
