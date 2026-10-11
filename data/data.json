@@ -60792,9 +60792,9 @@
   },
   {
     "date": "2026-08-21",
-    "totalRevenue": 295582,
-    "salesCount": 29,
-    "transactions": 29,
+    "totalRevenue": 314082,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 25500,
       "agent": "Kausturi Roy Chowdhury",
@@ -60802,12 +60802,12 @@
     },
     "agents": {
       "Honey Talreja": {
-        "revenue": 34800,
-        "count": 4
+        "revenue": 45800,
+        "count": 5
       },
       "Tanveer Ahmed": {
-        "revenue": 28500,
-        "count": 3
+        "revenue": 36000,
+        "count": 4
       },
       "Sneha Anand": {
         "revenue": 11000,
@@ -60868,8 +60868,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 198303,
-        "count": 19
+        "revenue": 216803,
+        "count": 21
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -60882,8 +60882,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 231727,
-        "count": 22
+        "revenue": 250227,
+        "count": 24
       },
       "Renewals": {
         "revenue": 17376,
@@ -68876,8 +68876,8 @@
         "count": 9
       },
       "Others": {
-        "revenue": 23771,
-        "count": 3
+        "revenue": 28771,
+        "count": 4
       },
       "Jivesh Harde": {
         "revenue": 17000,
@@ -68917,10 +68917,6 @@
       },
       "Tanveer Ahmed": {
         "revenue": 12000,
-        "count": 1
-      },
-      "Kunal Sharma": {
-        "revenue": 5000,
         "count": 1
       },
       "Shivaram Nimmala": {
@@ -69403,11 +69399,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 1972,
-      "otpVerified": 1892,
-      "serviceable": 1340,
-      "serviceableWithPct": "1,340 (68.0%)",
-      "serviceablePct": "68.0%"
+      "signups": 1971,
+      "otpVerified": 1891,
+      "serviceable": 1339,
+      "serviceableWithPct": "1,339 (67.9%)",
+      "serviceablePct": "67.9%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -69443,7 +69439,7 @@
       "source": "Inside Sales"
     },
     "agents": {
-      "Kunal Sharma": {
+      "Others": {
         "revenue": 5000,
         "count": 1
       },
@@ -69517,10 +69513,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 2161,
-      "otpVerified": 2092,
-      "serviceable": 1550,
-      "serviceableWithPct": "1,550 (71.7%)",
+      "signups": 2160,
+      "otpVerified": 2091,
+      "serviceable": 1549,
+      "serviceableWithPct": "1,549 (71.7%)",
       "serviceablePct": "71.7%"
     },
     "directSaleCSV": {
@@ -69866,10 +69862,10 @@
     },
     "userBreakdown": {
       "signups": 1008,
-      "otpVerified": 936,
-      "serviceable": 640,
-      "serviceableWithPct": "640 (63.5%)",
-      "serviceablePct": "63.5%"
+      "otpVerified": 937,
+      "serviceable": 641,
+      "serviceableWithPct": "641 (63.6%)",
+      "serviceablePct": "63.6%"
     },
     "directSaleCSV": {
       "count": 6,
@@ -70013,7 +70009,7 @@
         "revenue": 48000,
         "count": 4
       },
-      "Kunal Sharma": {
+      "Others": {
         "revenue": 23000,
         "count": 2
       },
@@ -70101,9 +70097,9 @@
     "userBreakdown": {
       "signups": 1050,
       "otpVerified": 966,
-      "serviceable": 628,
-      "serviceableWithPct": "628 (59.8%)",
-      "serviceablePct": "59.8%"
+      "serviceable": 629,
+      "serviceableWithPct": "629 (59.9%)",
+      "serviceablePct": "59.9%"
     },
     "directSaleCSV": {
       "count": 10,
@@ -70248,9 +70244,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 373,
-      "Interested": 190,
-      "Paise Dega": 28
+      "Connected": 338,
+      "Interested": 166,
+      "Paise Dega": 18
     },
     "refundsLast7Days": {
       "total": 3151,
@@ -70263,7 +70259,7 @@
     },
     "newUsers7d": 11850,
     "newUsersYesterday": 1008,
-    "activeSubs": 5044,
+    "activeSubs": 5049,
     "newSubs7d": 172,
     "teleCrmLeads": 198,
     "subsEnding5d": 86,
@@ -70271,24 +70267,24 @@
     "subsExpiringToday": 16,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 122,
+    "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 27,
-      "Orders Placed": 27,
-      "Orders - CONFIRMED": 41,
-      "Orders Confirmed": 41,
-      "Orders - READY_TO_SHIP": 7,
-      "Orders Ready to Ship": 7,
-      "Orders - SHIPPED": 23,
-      "Orders Shipped": 23,
-      "Orders - Not Delivered": 100,
-      "Orders Not Delivered": 98
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 35,
+      "Orders Confirmed": 35,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 75,
+      "Orders Not Delivered": 73
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 359,
-      "New Subscribers Orders that have been Delivered": 259,
-      "New Subscribers Orders yet to be Delivered": 100,
-      "New Subscribers Orders yet to be Delivered & Delayed": 12
+      "New Subscribers Orders that have been Delivered": 284,
+      "New Subscribers Orders yet to be Delivered": 75,
+      "New Subscribers Orders yet to be Delivered & Delayed": 13
     },
     "selfUpgrade": {
       "totalCount": 0,

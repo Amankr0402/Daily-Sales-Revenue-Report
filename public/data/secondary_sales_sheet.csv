@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,246,416",,,212,
+,,,,"2,385,373",,,226,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -87,7 +87,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 85,10/4/2026,9920853777,Amol Landge,"12,000",No,Annual Max,1,Events
 86,10/4/2026,7976890545,Honey Talreja,"12,215",No,Annual Max,1,Organic
 87,10/4/2026,9892125671,Amol Landge,"10,000",No,Annual Max,1,Events
-88,10/4/2026,8712284567,Kunal Sharma,"5,000",No,Quarterly Max,1,Organic
+88,10/4/2026,8712284567,Others,"5,000",No,Quarterly Max,1,Organic
 89,10/4/2026,9991249131,Neeru Yadav,"9,325",No,Annual Plus,1,Organic
 90,10/4/2026,9158036702,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
 91,10/4/2026,9595424901,Jivesh Harde,"12,000",No,Annual Max,1,Organic
@@ -130,7 +130,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 128,10/6/2026,8197967950,Preyashi Roy,"12,215",No,Annual Max,1,Organic
 129,10/6/2026,8446992096,Kausturi Roy Chowdhury,"12,215",No,Annual Max,1,Organic
 130,10/6/2026,8693801112,Honey Talreja,"6,000",Yes,Annual Max,0.5,Renewals
-131,10/7/2026,9868992777,Kunal Sharma,"5,000",No,Quarterly Max,1,Organic
+131,10/7/2026,9868992777,Others,"5,000",No,Quarterly Max,1,Organic
 132,10/7/2026,9560376662,Rohit Jain,"5,000",No,Quarterly Max,1,Organic
 133,10/7/2026,8292113255,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 134,10/7/2026,7760151078,Neeru Yadav,"12,000",No,Annual Max,1,Organic
@@ -190,7 +190,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 188,10/10/2026,9867778558,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 189,10/10/2026,7838234242,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 190,10/10/2026,9730724967,Amol Landge,"12,000",No,Annual Max,1,Events
-191,10/10/2026,8875755666,Kunal Sharma,"11,000",No,Annual Max,1,Renewals
+191,10/10/2026,8875755666,Others,"11,000",No,Annual Max,1,Renewals
 192,10/10/2026,9100093936,Honey Talreja,"17,073",No,Annual Max,1,Organic
 193,10/10/2026,9491887670,Prerak Bhavsar,"5,000",No,Annual Max,1,Upgrade
 194,10/10/2026,7276441229,Kausturi Roy Chowdhury,"12,216",No,Annual Max,1,Organic
@@ -207,25 +207,25 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 205,10/10/2026,8800466376,Honey Talreja,"5,756",No,Quarterly Max,1,Organic
 206,10/10/2026,9821550065,Honey Talreja,"23,499",No,Ultra Annually,1,Organic
 207,10/10/2026,9664665931,Rohit Jain,"12,000",No,Annual Max,1,Organic
-208,10/10/2026,9467811114,Kunal Sharma,"12,000",No,Annual Max,1,Organic
+208,10/10/2026,9467811114,Others,"12,000",No,Annual Max,1,Organic
 209,10/10/2026,8799681987,Kush Shah,"12,000",No,Annual Max,1,Events
 210,10/11/2026,8742963761,Honey Talreja,"12,000",No,Annual Max,1,Organic
 211,10/11/2026,9875009874,Tashrifa Ruhani Saikia,"12,000",No,Annual Max,1,Organic
 212,10/11/2026,7999514994,Kausturi Roy Chowdhury,"11,744",No,Annual Max,1,Organic
-213,10/11/2026,,,,,,,
-214,10/11/2026,,,,,,,
-215,10/11/2026,,,,,,,
-216,10/11/2026,,,,,,,
-217,10/11/2026,,,,,,,
-218,10/11/2026,,,,,,,
-219,10/11/2026,,,,,,,
-220,10/11/2026,,,,,,,
-221,10/11/2026,,,,,,,
-222,10/11/2026,,,,,,,
-223,10/11/2026,,,,,,,
-224,10/11/2026,,,,,,,
-225,10/11/2026,,,,,,,
-226,10/11/2026,,,,,,,
+213,10/11/2026,7204101068,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+214,10/11/2026,9441569836,Prerak Bhavsar,"6,787",Yes,Annual Max,0.5,Organic
+215,10/11/2026,9441569836,Shubham Rai,"6,787",Yes,Annual Max,0.5,Organic
+216,10/11/2026,7043301910,Shubham Rai,"13,000",No,Annual Max,1,Organic
+217,10/11/2026,8104358823,Chhaya Patel,"12,325",No,Annual Max,1,Organic
+218,10/11/2026,8130379489,Abhijeet Mathur,"12,000",No,Annual Max,1,Organic
+219,10/11/2026,8488826959,Others,"11,000",No,Annual Max,1,Organic
+220,10/11/2026,9763074350,Preyashi Roy,"12,000",No,Annual Max,1,Organic
+221,10/11/2026,8073066557,Honey Talreja,"5,843",No,Quarterly Max,1,Organic
+222,10/11/2026,8692906099,Kush Shah,"12,000",No,Annual Max,1,Organic
+223,10/11/2026,9982036669,Honey Talreja,"4,400",Yes,Annual Max,0.5,Organic
+224,10/11/2026,9982036669,Kush Shah,"6,600",Yes,Annual Max,0.5,Organic
+225,10/11/2026,9573536885,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+226,10/11/2026,8980106462,Preyashi Roy,"12,000",No,Annual Max,1,Organic
 227,10/11/2026,,,,,,,
 228,10/11/2026,,,,,,,
 229,10/11/2026,,,,,,,
