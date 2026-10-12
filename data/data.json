@@ -56348,9 +56348,9 @@
   },
   {
     "date": "2026-07-23",
-    "totalRevenue": 107945.8,
-    "salesCount": 14,
-    "transactions": 14,
+    "totalRevenue": 118945.8,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
       "amount": 12466.8,
       "agent": "Self Serve",
@@ -56380,12 +56380,16 @@
       "Kausturi Roy Chowdhury": {
         "revenue": 11000,
         "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 80966.8,
-        "count": 8
+        "revenue": 91966.8,
+        "count": 9
       },
       "Quarterly Max": {
         "revenue": 21012,
@@ -56398,8 +56402,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 81256,
-        "count": 9
+        "revenue": 92256,
+        "count": 10
       },
       "Upgrade": {
         "revenue": 2500,
@@ -60788,9 +60792,9 @@
   },
   {
     "date": "2026-08-21",
-    "totalRevenue": 314082,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 303082,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 25500,
       "agent": "Kausturi Roy Chowdhury",
@@ -60798,8 +60802,8 @@
     },
     "agents": {
       "Honey Talreja": {
-        "revenue": 45800,
-        "count": 5
+        "revenue": 34800,
+        "count": 4
       },
       "Tanveer Ahmed": {
         "revenue": 36000,
@@ -60864,8 +60868,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 216803,
-        "count": 21
+        "revenue": 205803,
+        "count": 20
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -60878,8 +60882,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 250227,
-        "count": 24
+        "revenue": 239227,
+        "count": 23
       },
       "Renewals": {
         "revenue": 17376,
@@ -68972,13 +68976,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 2032,
-      "otpVerified": 1968,
-      "serviceable": 1477,
-      "serviceableWithPct": "1,477 (72.7%)",
-      "serviceablePct": "72.7%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 4,
       "revenue": 45884.26
@@ -69054,12 +69052,6 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 21452.260000000002
-    },
-    "deliveryFee": {
-      "transactions": 5,
-      "charge": 500,
-      "tax": 90,
-      "total": 590
     },
     "refundsLast7Days": {
       "total": 279573.7,
@@ -70466,9 +70458,9 @@
       "revenue": 37031.21
     },
     "missedLeads": {
-      "Connected": 319,
-      "Interested": 151,
-      "Paise Dega": 18
+      "Connected": 256,
+      "Interested": 130,
+      "Paise Dega": 17
     },
     "refundsLast7Days": {
       "total": 3151,
@@ -70479,14 +70471,14 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 11850,
+    "newUsers7d": 10932,
     "newUsersYesterday": 1008,
     "activeSubs": 5048,
-    "newSubs7d": 172,
-    "teleCrmLeads": 198,
-    "subsEnding5d": 85,
-    "subsExpired7d": 70,
-    "subsExpiringToday": 15,
+    "newSubs7d": 154,
+    "teleCrmLeads": 0,
+    "subsEnding5d": 83,
+    "subsExpired7d": 69,
+    "subsExpiringToday": 27,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2420,
     "activeSubNoOrder": 119,
@@ -70506,7 +70498,7 @@
       "New Subscribers who have Ordered": 379,
       "New Subscribers Orders that have been Delivered": 286,
       "New Subscribers Orders yet to be Delivered": 93,
-      "New Subscribers Orders yet to be Delivered & Delayed": 21
+      "New Subscribers Orders yet to be Delivered & Delayed": 23
     },
     "selfUpgrade": {
       "totalCount": 0,
