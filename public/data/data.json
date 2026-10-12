@@ -59873,13 +59873,13 @@
         "revenue": 47512,
         "count": 10
       },
+      "Quarterly Plus": {
+        "revenue": 6320,
+        "count": 2
+      },
       "Annual Plus": {
         "revenue": 14000,
         "count": 2
-      },
-      "Quarterly Plus": {
-        "revenue": 9480,
-        "count": 3
       }
     },
     "sources": {
@@ -59896,12 +59896,12 @@
         "count": 4
       },
       "Direct Sale": {
-        "revenue": 43051.6,
-        "count": 6
+        "revenue": 39891.6,
+        "count": 5
       },
       "Overlap Deals": {
-        "revenue": 16627.39,
-        "count": 1
+        "revenue": 19787.39,
+        "count": 2
       }
     },
     "userBreakdown": null,
@@ -59910,6 +59910,21 @@
       "revenue": 59678.99
     },
     "collidingDeals": [
+      {
+        "date": "2026-08-15",
+        "rawDate": "15/08/2026 15:23",
+        "customerName": "neelam verma",
+        "phone": "9616638501",
+        "agent": "Sneha Anand",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR402408",
+        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
       {
         "date": "2026-08-15",
         "rawDate": "15/08/2026 06:50",
@@ -59929,6 +59944,21 @@
     "disputedDeals": [
       {
         "date": "2026-08-15",
+        "rawDate": "15/08/2026 15:23",
+        "customerName": "neelam verma",
+        "phone": "9616638501",
+        "agent": "Sneha Anand",
+        "insideRevenue": 3160,
+        "revenue": 3160,
+        "directRevenue": 3160,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "FUNDEAL",
+        "directUserId": "UR402408",
+        "disputeNote": "Logged by Inside Sales agent (Sneha Anand) for ₹3160 and also completed on Direct Portal for ₹3160"
+      },
+      {
+        "date": "2026-08-15",
         "rawDate": "15/08/2026 06:50",
         "customerName": "Pooja Tripathi",
         "phone": "7202018036",
@@ -59944,12 +59974,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 16627.39
+      "count": 2,
+      "revenue": 19787.39
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 16627.39
+      "count": 2,
+      "revenue": 19787.39
     },
     "refundsLast7Days": {
       "total": 0,
@@ -59972,9 +60002,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 456135.4,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 467135.4,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -60022,8 +60052,8 @@
         "count": 3
       },
       "Tanveer Ahmed": {
-        "revenue": 24000,
-        "count": 2
+        "revenue": 35000,
+        "count": 3
       },
       "Rani Singh": {
         "revenue": 12000,
@@ -60052,8 +60082,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 406538.4,
-        "count": 35
+        "revenue": 417538.4,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 30012,
@@ -60074,8 +60104,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 285969,
-        "count": 27
+        "revenue": 296969,
+        "count": 28
       },
       "Renewals": {
         "revenue": 22376,
@@ -61326,9 +61356,9 @@
   },
   {
     "date": "2026-08-24",
-    "totalRevenue": 254191.17,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 261191.17,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 18171,
       "agent": "Self Serve",
@@ -61363,6 +61393,10 @@
         "revenue": 4500,
         "count": 1
       },
+      "Preyashi Roy": {
+        "revenue": 19216,
+        "count": 2
+      },
       "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
@@ -61378,10 +61412,6 @@
       "Tanveer Ahmed": {
         "revenue": 22000,
         "count": 2
-      },
-      "Preyashi Roy": {
-        "revenue": 12216,
-        "count": 1
       },
       "Ishika Gorle": {
         "revenue": 11000,
@@ -61401,6 +61431,10 @@
         "revenue": 7000,
         "count": 1
       },
+      "6 months Max": {
+        "revenue": 7000,
+        "count": 1
+      },
       "Ultra Annually": {
         "revenue": 18171,
         "count": 1
@@ -61412,8 +61446,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 182932,
-        "count": 19
+        "revenue": 189932,
+        "count": 20
       },
       "Renewals": {
         "revenue": 17376,
@@ -68594,8 +68628,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 106000,
-        "count": 9
+        "revenue": 96000,
+        "count": 8
       },
       "Honey Talreja": {
         "revenue": 18108,
@@ -68635,6 +68669,10 @@
       },
       "Preyashi Roy": {
         "revenue": 12000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 10000,
         "count": 1
       },
       "Rani Singh": {
@@ -69067,13 +69105,9 @@
         "revenue": 48215,
         "count": 4
       },
-      "Others": {
-        "revenue": 12215,
-        "count": 1
-      },
       "Amol Landge": {
-        "revenue": 20752,
-        "count": 2
+        "revenue": 32967,
+        "count": 3
       },
       "Prerak Bhavsar": {
         "revenue": 24000,
@@ -70236,9 +70270,9 @@
   },
   {
     "date": "2026-10-11",
-    "totalRevenue": 247534.62999999998,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 242534.62999999998,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -70296,8 +70330,8 @@
         "count": 17
       },
       "Quarterly Max": {
-        "revenue": 22259.21,
-        "count": 4
+        "revenue": 17259.21,
+        "count": 3
       }
     },
     "sources": {
@@ -70306,8 +70340,8 @@
         "count": 16
       },
       "Direct Sale": {
-        "revenue": 49657.42,
-        "count": 5
+        "revenue": 44657.42,
+        "count": 4
       },
       "Overlap Deals": {
         "revenue": 37031.21,
@@ -70317,13 +70351,13 @@
     "userBreakdown": {
       "signups": 1121,
       "otpVerified": 1048,
-      "serviceable": 689,
-      "serviceableWithPct": "689 (61.5%)",
-      "serviceablePct": "61.5%"
+      "serviceable": 690,
+      "serviceableWithPct": "690 (61.6%)",
+      "serviceablePct": "61.6%"
     },
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 86688.63
+      "count": 7,
+      "revenue": 81688.63
     },
     "collidingDeals": [
       {
@@ -70428,9 +70462,9 @@
       "revenue": 37031.21
     },
     "missedLeads": {
-      "Connected": 265,
-      "Interested": 158,
-      "Paise Dega": 24
+      "Connected": 306,
+      "Interested": 156,
+      "Paise Dega": 22
     },
     "refundsLast7Days": {
       "total": 3151,
@@ -70443,32 +70477,32 @@
     },
     "newUsers7d": 10932,
     "newUsersYesterday": 1062,
-    "activeSubs": 5056,
+    "activeSubs": 5042,
     "newSubs7d": 153,
-    "teleCrmLeads": 0,
+    "teleCrmLeads": 541,
     "subsEnding5d": 83,
     "subsExpired7d": 69,
     "subsExpiringToday": 27,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2420,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 30,
-      "Orders Placed": 30,
-      "Orders - CONFIRMED": 25,
-      "Orders Confirmed": 25,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 25,
-      "Orders Shipped": 25,
-      "Orders - Not Delivered": 86,
-      "Orders Not Delivered": 84
+      "Orders - PLACED": 13,
+      "Orders Placed": 13,
+      "Orders - CONFIRMED": 42,
+      "Orders Confirmed": 42,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 9,
+      "Orders Shipped": 9,
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 64
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 379,
-      "New Subscribers Orders that have been Delivered": 293,
-      "New Subscribers Orders yet to be Delivered": 86,
-      "New Subscribers Orders yet to be Delivered & Delayed": 27
+      "New Subscribers Orders that have been Delivered": 311,
+      "New Subscribers Orders yet to be Delivered": 68,
+      "New Subscribers Orders yet to be Delivered & Delayed": 25
     },
     "selfUpgrade": {
       "totalCount": 0,
