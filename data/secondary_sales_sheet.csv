@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,794,737",,,263,
+,,,,"2,828,737",,,266,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -37,7 +37,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 35,10/3/2026,9686855522,Amol Landge,"12,000",No,Annual Max,1,Events
 36,10/3/2026,9657109718,Amol Landge,"12,000",No,Annual Max,1,Events
 37,10/3/2026,9898982988,Amol Landge,"12,000",No,Annual Max,1,Events
-38,10/3/2026,7676565623,Others,"12,000",No,Annual Max,1,Organic
+38,10/3/2026,7676565623,Honey Talreja,"12,000",No,Annual Max,1,Organic
 39,10/3/2026,9810326771,Amol Landge,"12,000",No,Annual Max,1,Events
 40,10/3/2026,9323732186,Chhaya Patel,"19,573",No,Annual Max,2,Organic
 41,10/3/2026,8544726115,Darshan KS,"12,216",No,Annual Max,1,Events
@@ -166,7 +166,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 164,10/8/2026,8448367196,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 165,10/8/2026,9873571435,Amol Landge,"3,000",No,Quarterly Plus,1,Renewals
 166,10/8/2026,8500193514,Kausturi Roy Chowdhury,"10,376",No,Annual Max,1,Renewals
-167,10/8/2026,7405468450,Others,"12,215",No,Annual Max,1,Organic
+167,10/8/2026,7405468450,Shubham Rai,"12,215",No,Annual Max,1,Organic
 168,10/8/2026,9008763580,Honey Talreja,"12,000",No,Annual Max,1,Organic
 169,10/8/2026,8287426113,Tanveer Ahmed,"11,000",No,Annual Max,1,Organic
 170,10/8/2026,9582973001,Shivendra Singh Tomar,"5,000",No,Quarterly Max,1,Organic
@@ -185,7 +185,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 183,10/9/2026,9985426282,Kausturi Roy Chowdhury,"3,160",No,Quarterly Plus,1,Organic
 184,10/9/2026,8448597981,Honey Talreja,"5,756",No,Quarterly Max,1,Organic
 185,10/9/2026,7303861889,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
-186,10/10/2026,8806719983,Abhijeet Mathur,"5,426",No,Quarterly Max,1,Organic
+186,10/10/2026,8806719983,Others,"5,426",No,Quarterly Max,1,Organic
 187,10/10/2026,9714720003,Neeru Yadav,"12,216",No,Annual Max,1,Organic
 188,10/10/2026,8121412340,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 189,10/10/2026,9867778558,Neeru Yadav,"12,000",No,Annual Max,1,Organic
@@ -218,7 +218,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 216,10/11/2026,9441569836,Shubham Rai,"6,787",Yes,Annual Max,0.5,Organic
 217,10/11/2026,7043301910,Shubham Rai,"13,000",No,Annual Max,1,Organic
 218,10/11/2026,8104358823,Chhaya Patel,"12,325",No,Annual Max,1,Organic
-219,10/11/2026,8130379489,Abhijeet Mathur,"12,000",No,Annual Max,1,Organic
+219,10/11/2026,8130379489,Others,"12,000",No,Annual Max,1,Organic
 220,10/11/2026,8488826959,Others,"11,000",No,Annual Max,1,Organic
 221,10/11/2026,9763074350,Preyashi Roy,"12,000",No,Annual Max,1,Organic
 222,10/11/2026,8073066557,Honey Talreja,"5,843",No,Quarterly Max,1,Organic
@@ -263,6 +263,66 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 261,13/10/2026,8005701710,Preyashi Roy,"12,216",No,Annual Max,1,Organic
 262,13/10/2026,9624180247,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 263,13/10/2026,9880206249,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
-264,13/10/2026,,,,,,,
-265,13/10/2026,,,,,,,
-266,13/10/2026,,,,,,,
+264,13/10/2026,7400011131,Honey Talreja,"9,000",No,Annual Plus,1,Organic
+265,13/10/2026,8980034754,Rohit Jain,"12,000",No,Annual Max,1,Organic
+266,14/10/2026,9987023751,Amol Landge,"13,000",No,Annual Max,1,Organic
+267,14/10/2026,,,,,,,
+268,14/10/2026,,,,,,,
+269,14/10/2026,,,,,,,
+270,14/10/2026,,,,,,,
+271,14/10/2026,,,,,,,
+272,14/10/2026,,,,,,,
+273,14/10/2026,,,,,,,
+274,14/10/2026,,,,,,,
+275,14/10/2026,,,,,,,
+276,14/10/2026,,,,,,,
+277,14/10/2026,,,,,,,
+278,14/10/2026,,,,,,,
+279,14/10/2026,,,,,,,
+280,14/10/2026,,,,,,,
+281,14/10/2026,,,,,,,
+282,14/10/2026,,,,,,,
+283,14/10/2026,,,,,,,
+284,14/10/2026,,,,,,,
+285,14/10/2026,,,,,,,
+286,14/10/2026,,,,,,,
+287,14/10/2026,,,,,,,
+288,14/10/2026,,,,,,,
+289,14/10/2026,,,,,,,
+290,14/10/2026,,,,,,,
+291,14/10/2026,,,,,,,
+292,14/10/2026,,,,,,,
+293,14/10/2026,,,,,,,
+294,14/10/2026,,,,,,,
+295,14/10/2026,,,,,,,
+296,14/10/2026,,,,,,,
+297,14/10/2026,,,,,,,
+298,14/10/2026,,,,,,,
+299,14/10/2026,,,,,,,
+300,14/10/2026,,,,,,,
+301,14/10/2026,,,,,,,
+302,14/10/2026,,,,,,,
+303,14/10/2026,,,,,,,
+304,14/10/2026,,,,,,,
+305,14/10/2026,,,,,,,
+306,14/10/2026,,,,,,,
+307,14/10/2026,,,,,,,
+308,14/10/2026,,,,,,,
+309,14/10/2026,,,,,,,
+310,14/10/2026,,,,,,,
+311,14/10/2026,,,,,,,
+312,14/10/2026,,,,,,,
+313,14/10/2026,,,,,,,
+314,14/10/2026,,,,,,,
+315,14/10/2026,,,,,,,
+316,14/10/2026,,,,,,,
+317,14/10/2026,,,,,,,
+318,14/10/2026,,,,,,,
+319,14/10/2026,,,,,,,
+320,14/10/2026,,,,,,,
+321,14/10/2026,,,,,,,
+322,14/10/2026,,,,,,,
+323,14/10/2026,,,,,,,
+324,14/10/2026,,,,,,,
+325,14/10/2026,,,,,,,
+326,14/10/2026,,,,,,,
