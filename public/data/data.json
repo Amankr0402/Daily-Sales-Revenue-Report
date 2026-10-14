@@ -70309,9 +70309,9 @@
     "userBreakdown": {
       "signups": 1120,
       "otpVerified": 1047,
-      "serviceable": 689,
-      "serviceableWithPct": "689 (61.5%)",
-      "serviceablePct": "61.5%"
+      "serviceable": 690,
+      "serviceableWithPct": "690 (61.6%)",
+      "serviceablePct": "61.6%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -70775,18 +70775,13 @@
     "userBreakdown": {
       "signups": 981,
       "otpVerified": 925,
-      "serviceable": 622,
-      "serviceableWithPct": "622 (63.4%)",
-      "serviceablePct": "63.4%"
+      "serviceable": 623,
+      "serviceableWithPct": "623 (63.5%)",
+      "serviceablePct": "63.5%"
     },
     "directSaleCSV": {
       "count": 4,
       "revenue": 45669.21
-    },
-    "missedLeads": {
-      "Connected": 280,
-      "Interested": 94,
-      "Paise Dega": 13
     },
     "refunds": {
       "count": 12,
@@ -70882,9 +70877,136 @@
       "total": 120750.1,
       "count": 14
     },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-10-14",
+    "totalRevenue": 194643,
+    "salesCount": 18,
+    "transactions": 18,
+    "highestSale": {
+      "amount": 13573,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Amol Landge": {
+        "revenue": 13000,
+        "count": 1
+      },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Others": {
+        "revenue": 17000,
+        "count": 2
+      },
+      "Shivani Gupta": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Kush Shah": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 10000,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 12000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 168719,
+        "count": 14
+      },
+      "Quarterly Max": {
+        "revenue": 11599,
+        "count": 2
+      },
+      "B2B School": {
+        "revenue": 5000,
+        "count": 1
+      },
+      "Annual Plus": {
+        "revenue": 9325,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 129000,
+        "count": 12
+      },
+      "Renewals": {
+        "revenue": 10000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 55643,
+        "count": 5
+      }
+    },
+    "userBreakdown": {
+      "signups": 965,
+      "otpVerified": 895,
+      "serviceable": 603,
+      "serviceableWithPct": "603 (62.5%)",
+      "serviceablePct": "62.5%"
+    },
+    "directSaleCSV": {
+      "count": 5,
+      "revenue": 55643
+    },
+    "missedLeads": {
+      "Connected": 282,
+      "Interested": 95,
+      "Paise Dega": 13
+    },
+    "refundsLast7Days": {
+      "total": 117599.1,
+      "count": 13
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
     "newUsers7d": 9211,
     "newUsersYesterday": 940,
-    "activeSubs": 5066,
+    "activeSubs": 5064,
     "newSubs7d": 157,
     "teleCrmLeads": 5142,
     "subsEnding5d": 70,
@@ -70894,21 +71016,21 @@
     "planExpNoOrder": 2421,
     "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 10,
-      "Orders Placed": 10,
-      "Orders - CONFIRMED": 24,
-      "Orders Confirmed": 24,
+      "Orders - PLACED": 20,
+      "Orders Placed": 20,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 14,
-      "Orders Shipped": 14,
-      "Orders - Not Delivered": 50,
-      "Orders Not Delivered": 48
+      "Orders - SHIPPED": 13,
+      "Orders Shipped": 13,
+      "Orders - Not Delivered": 64,
+      "Orders Not Delivered": 62
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 416,
-      "New Subscribers Orders that have been Delivered": 366,
-      "New Subscribers Orders yet to be Delivered": 50,
+      "New Subscribers who have Ordered": 431,
+      "New Subscribers Orders that have been Delivered": 367,
+      "New Subscribers Orders yet to be Delivered": 64,
       "New Subscribers Orders yet to be Delivered & Delayed": 17
     },
     "selfUpgrade": {
