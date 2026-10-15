@@ -55254,9 +55254,9 @@
   },
   {
     "date": "2026-07-15",
-    "totalRevenue": 211236,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 221612,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -55264,8 +55264,8 @@
     },
     "agents": {
       "Vikas Poonia": {
-        "revenue": 39327,
-        "count": 4
+        "revenue": 49703,
+        "count": 5
       },
       "Tanveer Ahmed": {
         "revenue": 21000,
@@ -55306,8 +55306,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 177417,
-        "count": 16
+        "revenue": 187793,
+        "count": 17
       },
       "Annual Plus": {
         "revenue": 8199,
@@ -55328,8 +55328,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 50327,
-        "count": 5
+        "revenue": 60703,
+        "count": 6
       },
       "Organic": {
         "revenue": 137516,
@@ -61942,9 +61942,9 @@
   },
   {
     "date": "2026-08-28",
-    "totalRevenue": 121998.28,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 132998.28,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 12000,
       "agent": "Kausturi Roy Chowdhury",
@@ -61956,8 +61956,8 @@
         "count": 1
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 23000,
-        "count": 2
+        "revenue": 34000,
+        "count": 3
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 11000,
@@ -61986,8 +61986,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 112042.28,
-        "count": 10
+        "revenue": 123042.28,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 9956,
@@ -61996,8 +61996,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 89000,
-        "count": 8
+        "revenue": 100000,
+        "count": 9
       },
       "Renewals": {
         "revenue": 15576,
@@ -71112,9 +71112,9 @@
     "userBreakdown": {
       "signups": 755,
       "otpVerified": 680,
-      "serviceable": 473,
-      "serviceableWithPct": "473 (62.6%)",
-      "serviceablePct": "62.6%"
+      "serviceable": 474,
+      "serviceableWithPct": "474 (62.8%)",
+      "serviceablePct": "62.8%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -71193,7 +71193,7 @@
       "revenue": 20201
     },
     "missedLeads": {
-      "Connected": 227,
+      "Connected": 228,
       "Interested": 73,
       "Paise Dega": 10
     },
@@ -71205,7 +71205,7 @@
           "refundId": "rfnd_ToDjiVfx6piYAc",
           "paymentId": "pay_TOMXl5y6CfOMPD",
           "amount": 7700,
-          "status": "pending",
+          "status": "processed",
           "date": "15/10/2026 20:11:32"
         },
         {
@@ -71223,7 +71223,7 @@
     },
     "newUsers7d": 8005,
     "newUsersYesterday": 909,
-    "activeSubs": 5082,
+    "activeSubs": 5081,
     "newSubs7d": 155,
     "teleCrmLeads": 1059,
     "subsEnding5d": 64,
@@ -71231,14 +71231,14 @@
     "subsExpiringToday": 7,
     "planExpiringNoOrder": 5,
     "planExpNoOrder": 2421,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 31,
-      "Orders Placed": 31,
+      "Orders - PLACED": 30,
+      "Orders Placed": 30,
       "Orders - CONFIRMED": 22,
       "Orders Confirmed": 22,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
+      "Orders - READY_TO_SHIP": 2,
+      "Orders Ready to Ship": 2,
       "Orders - SHIPPED": 11,
       "Orders Shipped": 11,
       "Orders - Not Delivered": 69,
