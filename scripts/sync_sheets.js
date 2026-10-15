@@ -7,6 +7,10 @@
  */
 
 require('dotenv').config();
+const dns = require('dns');
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
+} catch (_) {}
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
@@ -1413,6 +1417,11 @@ async function syncSalesData() {
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache Self Upgrades details from Metabase:', err.message);
+  }
+
+  if (!sortedDays || sortedDays.length === 0) {
+    console.warn('⚠️ Warning: No days parsed or all remote sources failed. Keeping existing data/data.json intact.');
+    return [];
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

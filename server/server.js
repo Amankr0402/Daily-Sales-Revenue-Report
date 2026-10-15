@@ -10,6 +10,10 @@
  */
 
 require('dotenv').config();
+const dns = require('dns');
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
+} catch (_) {}
 const express    = require('express');
 const path       = require('path');
 const fs          = require('fs');
