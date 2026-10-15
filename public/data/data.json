@@ -54852,9 +54852,9 @@
   },
   {
     "date": "2026-07-12",
-    "totalRevenue": 296982,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 284982,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -54862,8 +54862,8 @@
     },
     "agents": {
       "Preyashi Roy": {
-        "revenue": 34500,
-        "count": 3
+        "revenue": 22500,
+        "count": 2
       },
       "Vivek Shah": {
         "revenue": 23000,
@@ -54908,8 +54908,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 278322,
-        "count": 23
+        "revenue": 266322,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 4500,
@@ -54926,8 +54926,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 186500,
-        "count": 18
+        "revenue": 174500,
+        "count": 17
       },
       "Events": {
         "revenue": 41128,
@@ -60192,9 +60192,9 @@
   },
   {
     "date": "2026-08-17",
-    "totalRevenue": 197611.81,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 209611.81,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 19573,
       "agent": "Vivek Shah",
@@ -60206,8 +60206,8 @@
         "count": 1
       },
       "Jivesh Harde": {
-        "revenue": 32500,
-        "count": 4
+        "revenue": 44500,
+        "count": 5
       },
       "Honey Talreja": {
         "revenue": 5500,
@@ -60248,8 +60248,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 166005,
-        "count": 15
+        "revenue": 178005,
+        "count": 16
       },
       "Quarterly Max": {
         "revenue": 25869,
@@ -60258,8 +60258,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 191874,
-        "count": 21
+        "revenue": 203874,
+        "count": 22
       },
       "Overlap Deals": {
         "revenue": 5737.81,
@@ -71003,8 +71003,8 @@
       "total": 708
     },
     "missedLeads": {
-      "Connected": 308,
-      "Interested": 163,
+      "Connected": 309,
+      "Interested": 167,
       "Paise Dega": 32
     },
     "refundsLast7Days": {
@@ -71017,8 +71017,8 @@
       "items": []
     },
     "newUsers7d": 8005,
-    "newUsersYesterday": 1062,
-    "activeSubs": 5066,
+    "newUsersYesterday": 909,
+    "activeSubs": 5067,
     "newSubs7d": 155,
     "teleCrmLeads": 1058,
     "subsEnding5d": 64,
@@ -71030,12 +71030,12 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 17,
       "Orders Placed": 17,
-      "Orders - CONFIRMED": 16,
-      "Orders Confirmed": 16,
+      "Orders - CONFIRMED": 15,
+      "Orders Confirmed": 15,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
+      "Orders - SHIPPED": 22,
+      "Orders Shipped": 22,
       "Orders - Not Delivered": 56,
       "Orders Not Delivered": 54
     },
