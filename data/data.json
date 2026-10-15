@@ -59682,9 +59682,9 @@
   },
   {
     "date": "2026-08-14",
-    "totalRevenue": 242925,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 253925,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -59704,8 +59704,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 27500,
-        "count": 3
+        "revenue": 38500,
+        "count": 4
       },
       "Sneha Anand": {
         "revenue": 4500,
@@ -59734,8 +59734,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 218009,
-        "count": 19
+        "revenue": 229009,
+        "count": 20
       },
       "Quarterly Max": {
         "revenue": 14756,
@@ -59752,8 +59752,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 135216,
-        "count": 13
+        "revenue": 146216,
+        "count": 14
       },
       "Renewals": {
         "revenue": 69504,
@@ -60330,9 +60330,9 @@
   },
   {
     "date": "2026-08-18",
-    "totalRevenue": 217675,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 203675,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -60363,10 +60363,6 @@
         "revenue": 11000,
         "count": 1
       },
-      "Vivek Shah": {
-        "revenue": 14000,
-        "count": 1
-      },
       "Shashank Tiwari": {
         "revenue": 11000,
         "count": 1
@@ -60382,8 +60378,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 184651,
-        "count": 15
+        "revenue": 170651,
+        "count": 14
       },
       "Quarterly Max": {
         "revenue": 21768,
@@ -60392,8 +60388,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 126000,
-        "count": 12
+        "revenue": 112000,
+        "count": 11
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -69478,13 +69474,7 @@
         "count": 1
       }
     },
-    "userBreakdown": {
-      "signups": 2160,
-      "otpVerified": 2091,
-      "serviceable": 1549,
-      "serviceableWithPct": "1,549 (71.7%)",
-      "serviceablePct": "71.7%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 6,
       "revenue": 70212
@@ -70994,10 +70984,16 @@
       "count": 5,
       "revenue": 55643
     },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
     "missedLeads": {
-      "Connected": 284,
-      "Interested": 98,
-      "Paise Dega": 13
+      "Connected": 232,
+      "Interested": 91,
+      "Paise Dega": 18
     },
     "refundsLast7Days": {
       "total": 117599.1,
@@ -71008,13 +71004,13 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 9211,
+    "newUsers7d": 8005,
     "newUsersYesterday": 940,
     "activeSubs": 5064,
-    "newSubs7d": 157,
-    "teleCrmLeads": 5142,
-    "subsEnding5d": 70,
-    "subsExpired7d": 92,
+    "newSubs7d": 155,
+    "teleCrmLeads": 1063,
+    "subsEnding5d": 64,
+    "subsExpired7d": 91,
     "subsExpiringToday": 7,
     "planExpiringNoOrder": 5,
     "planExpNoOrder": 2421,
