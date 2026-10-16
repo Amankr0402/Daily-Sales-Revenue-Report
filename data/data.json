@@ -70041,8 +70041,8 @@
       }
     },
     "userBreakdown": {
-      "signups": 1049,
-      "otpVerified": 966,
+      "signups": 1048,
+      "otpVerified": 965,
       "serviceable": 630,
       "serviceableWithPct": "630 (60.1%)",
       "serviceablePct": "60.1%"
@@ -71014,8 +71014,8 @@
   {
     "date": "2026-10-15",
     "totalRevenue": 219185.68,
-    "salesCount": 19,
-    "transactions": 19,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -71044,7 +71044,7 @@
       },
       "Shubham Rai": {
         "revenue": 35000,
-        "count": 3
+        "count": 4
       },
       "Supratim Dutta": {
         "revenue": 12000,
@@ -71074,7 +71074,7 @@
       },
       "Annual Max": {
         "revenue": 171289,
-        "count": 14
+        "count": 15
       },
       "Annual Plus": {
         "revenue": 0,
@@ -71084,7 +71084,7 @@
     "sources": {
       "Organic": {
         "revenue": 136000,
-        "count": 12
+        "count": 13
       },
       "Renewals": {
         "revenue": 17216,
@@ -71124,7 +71124,7 @@
         "insideRevenue": 9787,
         "revenue": 17695.68,
         "directRevenue": 17695.68,
-        "plan": "Ultra Annually",
+        "plan": "Annual Max",
         "source": "Organic",
         "directOrderId": "PLAYTIME",
         "directUserId": "UR461055",
@@ -71171,7 +71171,7 @@
         "insideRevenue": 9787,
         "revenue": 17695.68,
         "directRevenue": 17695.68,
-        "plan": "Ultra Annually",
+        "plan": "Annual Max",
         "source": "Organic",
         "directOrderId": "PLAYTIME",
         "directUserId": "UR461055",
@@ -71217,9 +71217,9 @@
       "revenue": 37896.68
     },
     "missedLeads": {
-      "Connected": 242,
-      "Interested": 110,
-      "Paise Dega": 19
+      "Connected": 229,
+      "Interested": 94,
+      "Paise Dega": 26
     },
     "refunds": {
       "count": 2,
@@ -71247,7 +71247,7 @@
     },
     "newUsers7d": 7031,
     "newUsersYesterday": 697,
-    "activeSubs": 5087,
+    "activeSubs": 5089,
     "newSubs7d": 156,
     "teleCrmLeads": 823,
     "subsEnding5d": 68,
@@ -71257,22 +71257,22 @@
     "planExpNoOrder": 2422,
     "activeSubNoOrder": 123,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 25,
-      "Orders Placed": 25,
-      "Orders - CONFIRMED": 14,
-      "Orders Confirmed": 14,
+      "Orders - PLACED": 15,
+      "Orders Placed": 15,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
-      "Orders - Not Delivered": 62,
-      "Orders Not Delivered": 61
+      "Orders - SHIPPED": 13,
+      "Orders Shipped": 13,
+      "Orders - Not Delivered": 53,
+      "Orders Not Delivered": 51
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 453,
-      "New Subscribers Orders that have been Delivered": 391,
-      "New Subscribers Orders yet to be Delivered": 62,
-      "New Subscribers Orders yet to be Delivered & Delayed": 16
+      "New Subscribers who have Ordered": 452,
+      "New Subscribers Orders that have been Delivered": 399,
+      "New Subscribers Orders yet to be Delivered": 53,
+      "New Subscribers Orders yet to be Delivered & Delayed": 13
     },
     "selfUpgrade": {
       "totalCount": 0,
