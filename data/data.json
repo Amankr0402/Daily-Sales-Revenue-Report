@@ -59116,9 +59116,9 @@
   },
   {
     "date": "2026-08-11",
-    "totalRevenue": 141337,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 136937,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 12100,
       "agent": "Vivek Shah",
@@ -59146,8 +59146,8 @@
         "count": 2
       },
       "Honey Talreja": {
-        "revenue": 7200,
-        "count": 2
+        "revenue": 2800,
+        "count": 1
       },
       "Chhaya Patel": {
         "revenue": 5425,
@@ -59176,8 +59176,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 91100,
-        "count": 9
+        "revenue": 86700,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 41681,
@@ -59190,8 +59190,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 125825,
-        "count": 17
+        "revenue": 121425,
+        "count": 16
       },
       "Renewals": {
         "revenue": 4000,
@@ -59686,9 +59686,9 @@
   },
   {
     "date": "2026-08-14",
-    "totalRevenue": 253925,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 249425,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -59708,8 +59708,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 38500,
-        "count": 4
+        "revenue": 34000,
+        "count": 3
       },
       "Sneha Anand": {
         "revenue": 4500,
@@ -59742,8 +59742,8 @@
         "count": 20
       },
       "Quarterly Max": {
-        "revenue": 14756,
-        "count": 3
+        "revenue": 10256,
+        "count": 2
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -59756,8 +59756,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 146216,
-        "count": 14
+        "revenue": 141716,
+        "count": 13
       },
       "Renewals": {
         "revenue": 69504,
@@ -71039,12 +71039,12 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 4800,
+        "count": 1
       },
       "Shubham Rai": {
-        "revenue": 35000,
-        "count": 4
+        "revenue": 30200,
+        "count": 3
       },
       "Supratim Dutta": {
         "revenue": 12000,
@@ -71217,9 +71217,9 @@
       "revenue": 37896.68
     },
     "missedLeads": {
-      "Connected": 229,
-      "Interested": 94,
-      "Paise Dega": 26
+      "Connected": 219,
+      "Interested": 84,
+      "Paise Dega": 20
     },
     "refunds": {
       "count": 2,
@@ -71247,7 +71247,7 @@
     },
     "newUsers7d": 7031,
     "newUsersYesterday": 697,
-    "activeSubs": 5089,
+    "activeSubs": 5088,
     "newSubs7d": 156,
     "teleCrmLeads": 823,
     "subsEnding5d": 68,
@@ -71255,24 +71255,24 @@
     "subsExpiringToday": 10,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2422,
-    "activeSubNoOrder": 123,
+    "activeSubNoOrder": 124,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 15,
-      "Orders Placed": 15,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
+      "Orders - PLACED": 14,
+      "Orders Placed": 14,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 53,
-      "Orders Not Delivered": 51
+      "Orders - SHIPPED": 11,
+      "Orders Shipped": 11,
+      "Orders - Not Delivered": 51,
+      "Orders Not Delivered": 49
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 452,
-      "New Subscribers Orders that have been Delivered": 399,
-      "New Subscribers Orders yet to be Delivered": 53,
-      "New Subscribers Orders yet to be Delivered & Delayed": 13
+      "New Subscribers Orders that have been Delivered": 401,
+      "New Subscribers Orders yet to be Delivered": 51,
+      "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
       "totalCount": 0,

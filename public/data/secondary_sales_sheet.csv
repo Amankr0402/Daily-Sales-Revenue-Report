@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,269,155",,,308,
+,,,,"3,289,031",,,311,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -288,7 +288,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 286,15/10/2026,7359994005,Amol Landge,"12,000",No,Annual Max,1,Organic
 287,15/10/2026,9029222102,Shubham Rai,"12,000",No,Annual Max,1,Organic
 288,15/10/2026,9428611410,Shubham Rai,"7,200",Yes,Annual Max,0.5,Organic
-289,15/10/2026,9428611410,Shubham Rai,"4,800",Yes,Annual Max,0.5,Organic
+289,15/10/2026,9428611410,Honey Talreja,"4,800",Yes,Annual Max,0.5,Organic
 290,15/10/2026,8401255031,Supratim Dutta,"12,000",No,Annual Max,1,Organic
 291,15/10/2026,9666765182,Rohit Jain,"12,000",No,Annual Max,1,Organic
 292,15/10/2026,7898112235,Shubham Rai,"11,000",No,Annual Max,1,Organic
@@ -308,9 +308,9 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 306,16/10/2026,9845452916,Shivaram Nimmala,"6,599",No,Quarterly Max,1,Organic
 307,16/10/2026,8586852797,Shivani Gupta,"8,000",No,6 months Max,1,Organic
 308,16/10/2026,9971444261,Tanveer Ahmed,"9,325",No,Annual Plus,1,Organic
-309,16/10/2026,,,,,,,
-310,16/10/2026,,,,,,,
-311,16/10/2026,,,,,,,
+309,16/10/2026,8860009171,Amol Landge,"11,376",No,Annual Max,1,Renewals
+310,16/10/2026,9930655925,Shivendra Singh Tomar,"3,500",No,Quarterly Plus,1,Organic
+311,16/10/2026,9772888847,Honey Talreja,"5,000",No,Quarterly Max,1,Organic
 312,16/10/2026,,,,,,,
 313,16/10/2026,,,,,,,
 314,16/10/2026,,,,,,,
