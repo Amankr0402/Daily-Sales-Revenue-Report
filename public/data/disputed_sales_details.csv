@@ -1,4 +1,6 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-16","Pankaj Ranjan","8860009171","Amol Landge",11376,11376,"Annual Max","Renewals","AL240724","UR185039","Logged by Inside Sales agent (Amol Landge) for ₹11376 and also completed on Direct Portal for ₹11376"
+"2026-10-16","meenal","9971444261","Tanveer Ahmed",9325,9325,"Annual Plus","Organic","TOYJOY","UR433550","Logged by Inside Sales agent (Tanveer Ahmed) for ₹9325 and also completed on Direct Portal for ₹9325"
 "2026-10-15","sameer brid","9320378287","Vikas Poonia",9787,17695.68,"Annual Max","Organic","PLAYTIME","UR461055","Logged by Inside Sales agent (Vikas Poonia) for ₹9787 and also completed on Direct Portal for ₹17695.68"
 "2026-10-15","Chirag Bagaria","9819439449","Amol Landge",11376,11376,"Annual Max","Organic","AL240724","UR328616","Logged by Inside Sales agent (Amol Landge) for ₹11376 and also completed on Direct Portal for ₹11376"
 "2026-10-15","Tanaya devi Choudhury","9791380822","Honey Talreja",8825,8825,"Annual Plus","Organic","GARBA","UR544487","Logged by Inside Sales agent (Honey Talreja) for ₹8825 and also completed on Direct Portal for ₹8825"
