@@ -175,8 +175,11 @@ const html = `<!DOCTYPE html>
     <div class="header-meta" id="hdr-sub">Daily Sales &amp; Revenue Report</div>
   </div>
   <div class="header-right">
-    <div class="date-badge" id="hdr-date">\ud83d\udcc5 \u2014</div>
-    <button class="print-btn" onclick="window.print()">\ud83d\udda8\ufe0f Export as PDF</button>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+      <a href="overall-deals-details.html?filter=yesterday" id="hdr-overall-btn" class="print-btn" style="text-decoration:none;background:linear-gradient(135deg,#6366f1,#4f46e5);box-shadow:0 4px 16px rgba(99,102,241,0.35);">\ud83d\udcca Overall Deals &amp; Export \u2197</a>
+      <div class="date-badge" id="hdr-date">\ud83d\udcc5 \u2014</div>
+      <button class="print-btn" onclick="window.print()">\ud83d\udda8\ufe0f Export as PDF</button>
+    </div>
   </div>
 </div>
 
@@ -184,7 +187,12 @@ const html = `<!DOCTYPE html>
 
   <!-- 1. REVENUE -->
   <div class="sec-gap" style="margin-top:32px">
-    <div class="sec-title">\ud83d\udcb0 Revenue \u2014 Till 11:59 PM Yesterday</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+      <div class="sec-title" style="margin-bottom:0;">\ud83d\udcb0 Revenue \u2014 Till 11:59 PM Yesterday</div>
+      <a href="overall-deals-details.html?filter=yesterday" id="sec-overall-btn" style="font-size:12px;font-weight:700;color:#c7d2fe;text-decoration:none;display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.18);padding:6px 14px;border-radius:20px;border:1px solid rgba(99,102,241,0.35);transition:all .15s ease;">
+        <span>\ud83d\udce5 Export All Deals &amp; Reconcile</span> \u2197
+      </a>
+    </div>
     <div class="card green">
       <div class="kpi-lbl">Total Revenue Generated</div>
       <div class="kpi-val green" id="total-rev">\u2014</div>
@@ -617,6 +625,10 @@ async function init() {
 
     document.getElementById('hdr-date').textContent = '📅 ' + sd(yd.date) + ', ' + new Date(yd.date+'T00:00:00').getFullYear();
     document.getElementById('hdr-sub').textContent = 'Data as of 11:59 PM, ' + fd(yd.date);
+    const hdrOverall = document.getElementById('hdr-overall-btn');
+    if (hdrOverall) hdrOverall.href = 'overall-deals-details.html?date=' + yd.date;
+    const secOverall = document.getElementById('sec-overall-btn');
+    if (secOverall) secOverall.href = 'overall-deals-details.html?date=' + yd.date;
 
     // Revenue
     const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;

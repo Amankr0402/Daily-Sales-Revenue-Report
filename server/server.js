@@ -1696,6 +1696,18 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
   }
 });
 
+/* ---------- Overall Deals Details Endpoint ---------- */
+const OVERALL_DEALS_DETAILS_CACHE_FILE = resolveDataFile('overall_deals_details.csv');
+
+app.get('/api/overall-deals-details-csv', (req, res) => {
+  if (fs.existsSync(OVERALL_DEALS_DETAILS_CACHE_FILE)) {
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    return fs.createReadStream(OVERALL_DEALS_DETAILS_CACHE_FILE).pipe(res);
+  }
+  res.status(404).send('Overall deals details data unavailable');
+});
+
 /* ---------- Events Details Endpoint ---------- */
 const EVENTS_DETAILS_CACHE_FILE = resolveDataFile('events_details.csv');
 

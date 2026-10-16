@@ -75,6 +75,8 @@ const SELF_UPGRADE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'self_upgra
 const DIRECT_SALE_DETAILS_FILE = path.join(__dirname, '..', 'data', 'direct_sales_details.csv');
 const DISPUTED_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'disputed_sales_details.csv');
 const EVENTS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'events_details.csv');
+const OVERALL_DEALS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'overall_deals_details.csv');
+const INSIDE_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'inside_sales_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
 
 function fetchURLWithRedirect(url) {
@@ -238,6 +240,9 @@ async function syncSalesData() {
 
   const seenSheetDeals = new Set();
   const secondarySheetPhones = new Set();
+  const allRawSheetDeals = [];
+  const allPureDirectDeals = [];
+  const allSelfUpgradeDeals = [];
 
   function processSheetRows(lines, label) {
     if (!lines || lines.length <= 2) return;
@@ -275,11 +280,29 @@ async function syncSalesData() {
 
       const cleanPlan = plan || 'Annual Max';
       const cleanSource = source || 'Organic';
+      const rawCustomer = (cols[5] && cols[5].toLowerCase() !== 'no' && cols[5].toLowerCase() !== 'yes') ? cols[5] : (cols[9] || '');
+      const cleanCustomer = rawCustomer || (phone ? `Customer (${phone.slice(-4)})` : 'Customer');
+
+      const dealRecord = {
+        dealKey,
+        isoDate,
+        rawDate,
+        phone,
+        agent,
+        revenue: rev,
+        customer: cleanCustomer,
+        plan: cleanPlan,
+        source: cleanSource,
+        count,
+        sheet: label,
+        matchedAsOverlap: false
+      };
+      allRawSheetDeals.push(dealRecord);
 
       if (!sheetPhonesByDate[isoDate]) sheetPhonesByDate[isoDate] = {};
       if (phone && phone.length >= 10) {
         if (!sheetPhonesByDate[isoDate][phone]) sheetPhonesByDate[isoDate][phone] = [];
-        sheetPhonesByDate[isoDate][phone].push({ agent, revenue: rev, customer: cols[5] || cols[0] || agent, plan: cleanPlan, source: cleanSource, count });
+        sheetPhonesByDate[isoDate][phone].push(dealRecord);
       }
 
       if (!recordsByDate[isoDate]) {
@@ -469,6 +492,13 @@ async function syncSalesData() {
       // Exclude from Inside Sales (agent, source, plan), exclude from Direct Sales, and add to standalone Overlap Deals category!
       if (phone && sheetPhonesByDate[isoDate] && sheetPhonesByDate[isoDate][phone] && sheetPhonesByDate[isoDate][phone].length > 0) {
         const inside = sheetPhonesByDate[isoDate][phone].shift();
+        inside.matchedAsOverlap = true;
+        inside.overlapPortalRevenue = rev;
+        inside.overlapCustomerName = cols[1] || '';
+        inside.overlapDirectOrderId = cols[6] || '';
+        inside.overlapDirectUserId = cols[0] || '';
+        inside.overlapDisputeNote = `Logged by Inside Sales agent (${inside.agent}) for ₹${inside.revenue} and also completed on Direct Portal for ₹${rev}`;
+
         const cleanPlan = formatDirectSalePlan(cols[4] || '', cols[5] || '') || inside.plan || 'Annual Max';
         const insideCount = inside.count || 1;
         const disputedItem = {
@@ -558,6 +588,23 @@ async function syncSalesData() {
       if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
       day.plans[cleanPlan].revenue += rev;
       day.plans[cleanPlan].count += 1;
+
+      allPureDirectDeals.push({
+        dealType: 'Direct Sale',
+        isoDate,
+        rawDate,
+        customerName: cols[1] || 'Direct Customer',
+        phone,
+        agent: 'Self Serve',
+        revenue: rev,
+        plan: cleanPlan,
+        count: 1,
+        source: 'Direct Portal',
+        sheet: 'Metabase Direct Portal',
+        orderId: cols[6] || '',
+        userId: cols[0] || '',
+        note: 'Online Direct Portal Purchase'
+      });
     }
 
     // Cache all disputed deals across dates to data/disputed_sales_details.csv
@@ -1351,6 +1398,23 @@ async function syncSalesData() {
                 u.otherCount++;
                 u.otherRevenue += newPaid;
               }
+
+              allSelfUpgradeDeals.push({
+                dealType: 'Self Upgrade',
+                isoDate: paidOn,
+                rawDate: cols[12] || paidOn,
+                customerName: cols[1] || 'Self Upgrade Customer',
+                phone: phone,
+                agent: 'Self Serve',
+                revenue: newPaid,
+                plan: cols[8] || 'Annual Max',
+                count: 1,
+                source: 'Self Upgrade',
+                sheet: 'Metabase Self Upgrades',
+                orderId: cols[10] ? `Coupon: ${cols[10]}` : '',
+                userId: cols[0] || '',
+                note: isCoupon40 ? 'Self Upgrade (Coupon 40)' : 'Self Upgrade Deal'
+              });
             }
 
             u.deals.push({
@@ -1422,6 +1486,100 @@ async function syncSalesData() {
   if (!sortedDays || sortedDays.length === 0) {
     console.warn('⚠️ Warning: No days parsed or all remote sources failed. Keeping existing data/data.json intact.');
     return [];
+  }
+
+  // -------------------------------------------------------------
+  // Generate & Cache Overall Deals Details CSV (All Channels)
+  // -------------------------------------------------------------
+  try {
+    const allOverallDeals = [];
+
+    // 1. Inside Sales & Overlap Deals
+    allRawSheetDeals.forEach(d => {
+      if (d.matchedAsOverlap) {
+        allOverallDeals.push({
+          dealType: 'Overlap Deal',
+          isoDate: d.isoDate,
+          rawDate: d.rawDate || d.isoDate,
+          customerName: d.overlapCustomerName || d.customer || 'Customer',
+          phone: d.phone,
+          agent: d.agent,
+          revenue: d.overlapPortalRevenue || d.revenue,
+          plan: d.plan,
+          count: 1,
+          source: 'Overlap Deals',
+          sheet: `${d.sheet} & Direct Portal`,
+          orderId: d.overlapDirectOrderId || '',
+          userId: d.overlapDirectUserId || '',
+          note: d.overlapDisputeNote || `Logged by ${d.agent} (₹${d.revenue}) & completed online (₹${d.overlapPortalRevenue})`
+        });
+      } else {
+        const isEvent = (d.source || '').toLowerCase().includes('event');
+        allOverallDeals.push({
+          dealType: isEvent ? 'Events' : 'Inside Sales',
+          isoDate: d.isoDate,
+          rawDate: d.rawDate || d.isoDate,
+          customerName: d.customer || 'Customer',
+          phone: d.phone,
+          agent: d.agent,
+          revenue: d.revenue,
+          plan: d.plan,
+          count: d.count || 1,
+          source: d.source || 'Organic',
+          sheet: d.sheet,
+          orderId: '',
+          userId: '',
+          note: `${d.source || 'Inside'} Deal from ${d.sheet}`
+        });
+      }
+    });
+
+    // 2. Pure Direct Sales
+    allPureDirectDeals.forEach(d => {
+      allOverallDeals.push(d);
+    });
+
+    // 3. Pure Self Upgrades
+    allSelfUpgradeDeals.forEach(d => {
+      allOverallDeals.push(d);
+    });
+
+    // Sort by Date DESC, then Revenue DESC
+    allOverallDeals.sort((a, b) => {
+      if (b.isoDate !== a.isoDate) return b.isoDate.localeCompare(a.isoDate);
+      return b.revenue - a.revenue;
+    });
+
+    const overallHeader = '"Sno","Date","Deal Type","Customer Name","Phone Number","Agent","Plan","Count","Revenue (₹)","Source / Channel","Sheet / Reference","Order ID","User ID","Notes"\n';
+    const overallRows = allOverallDeals.map((d, idx) => {
+      const cName = (d.customerName || '').replace(/"/g, '""');
+      const ag = (d.agent || '').replace(/"/g, '""');
+      const pl = (d.plan || '').replace(/"/g, '""');
+      const src = (d.source || '').replace(/"/g, '""');
+      const sh = (d.sheet || '').replace(/"/g, '""');
+      const ord = (d.orderId || '').replace(/"/g, '""');
+      const usr = (d.userId || '').replace(/"/g, '""');
+      const nt = (d.note || '').replace(/"/g, '""');
+      return `"${idx + 1}","${d.isoDate}","${d.dealType}","${cName}","${d.phone}","${ag}","${pl}",${d.count || 1},${d.revenue},"${src}","${sh}","${ord}","${usr}","${nt}"`;
+    }).join('\n');
+
+    fs.writeFileSync(OVERALL_DEALS_DETAILS_FILE, overallHeader + overallRows, 'utf8');
+    console.log(`✅ Cached Complete Overall Deals (${allOverallDeals.length} deals) to ${OVERALL_DEALS_DETAILS_FILE}`);
+
+    // Also cache clean inside_sales_details.csv
+    const nonOverlapSheetDeals = allRawSheetDeals.filter(d => !d.matchedAsOverlap);
+    const insideHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"\n';
+    const insideRows = nonOverlapSheetDeals.map((d, idx) => {
+      const ag = (d.agent || '').replace(/"/g, '""');
+      const pl = (d.plan || '').replace(/"/g, '""');
+      const src = (d.source || '').replace(/"/g, '""');
+      const sh = (d.sheet || '').replace(/"/g, '""');
+      return `"${idx + 1}","${d.rawDate || d.isoDate}","${d.phone}","${ag}","${d.revenue}","No","${pl}","${d.count || 1}","${src}","${sh}"`;
+    }).join('\n');
+    fs.writeFileSync(INSIDE_SALES_DETAILS_FILE, insideHeader + insideRows, 'utf8');
+    console.log(`✅ Cached Clean Inside Sales (${nonOverlapSheetDeals.length} deals) to ${INSIDE_SALES_DETAILS_FILE}`);
+  } catch (dealErr) {
+    console.warn('⚠️ Could not cache overall deals / inside sales CSV:', dealErr.message);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(sortedDays, null, 2), 'utf-8');

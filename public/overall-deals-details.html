@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Overall Deals & Revenue — The Elefant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5b3e9b;
+      --primary-hover: #4a2f85;
+      --primary-light: rgba(91, 62, 155, 0.08);
+      --green: #10b981;
+      --green-light: rgba(16, 185, 129, 0.12);
+      --amber: #f59e0b;
+      --amber-light: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.35);
+      --blue: #3b82f6;
+      --blue-light: rgba(59, 130, 246, 0.12);
+      --purple: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --pink: #ec4899;
+      --pink-light: rgba(236, 72, 153, 0.12);
+      --cyan: #06b6d4;
+      --cyan-light: rgba(6, 182, 212, 0.12);
+      --rose: #ef4444;
+      --rose-light: rgba(239, 68, 68, 0.12);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* Navbar */
+    .navbar { background: #ffffff; border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 4px rgba(0,0,0,0.03); flex-wrap: wrap; gap: 12px; }
+    .nav-left { display: flex; align-items: center; gap: 18px; }
+    .nav-left img { height: 38px; object-fit: contain; }
+    .nav-divider { width: 1px; height: 32px; background: var(--border); }
+    .nav-title { font-size: 18px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+    .nav-subtitle { font-size: 11.5px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s ease; border: none; white-space: nowrap; }
+    .btn-secondary { background: #ffffff; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-primary { background: var(--primary); color: #ffffff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-green { background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; box-shadow: 0 2px 8px rgba(16,185,129,0.3); }
+    .btn-green:hover { background: #059669; }
+
+    /* Container */
+    .container { max-width: 1560px; margin: 0 auto; padding: 20px 28px 48px; width: 100%; flex: 1; }
+
+    /* Reconciliation Notice */
+    .recon-banner { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius); padding: 12px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .recon-left { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #166534; font-weight: 600; }
+    .recon-badge { background: #22c55e; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 12px; text-transform: uppercase; }
+
+    /* KPI Grid */
+    .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 1300px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+    .kpi-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); position: relative; overflow: hidden; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+    .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); }
+    .kpi-card.green::before { background: var(--green); }
+    .kpi-card.blue::before { background: var(--blue); }
+    .kpi-card.pink::before { background: var(--pink); }
+    .kpi-card.amber::before { background: var(--amber); }
+    .kpi-card.purple::before { background: var(--purple); }
+    .kpi-card.cyan::before { background: var(--cyan); }
+    .kpi-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 5px; }
+    .kpi-value { font-size: 22px; font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 3px; }
+    .kpi-sub { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+
+    /* Controls */
+    .controls-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .pills-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .pill-btn { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid var(--border); background: #ffffff; color: var(--muted); cursor: pointer; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 6px; }
+    .pill-btn:hover { background: #f1f5f9; color: var(--text); }
+    .pill-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .pill-badge { background: rgba(0,0,0,0.06); padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 800; }
+    .pill-btn.active .pill-badge { background: rgba(255,255,255,0.25); color: #ffffff; }
+
+    .custom-range-box { display: none; align-items: center; gap: 8px; background: #f1f5f9; padding: 4px 10px; border-radius: 8px; }
+    .custom-range-box.show { display: inline-flex; }
+    .custom-range-box input[type="date"] { padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; outline: none; font-weight: 600; background: #ffffff; }
+
+    .search-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .search-box { flex: 2; min-width: 250px; position: relative; }
+    .search-box input { width: 100%; padding: 9px 14px 9px 38px; border-radius: 8px; border: 1px solid var(--border); font-size: 13px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: #fff; }
+    .search-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; }
+    .select-filter { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); font-size: 12px; background: #ffffff; color: var(--text); outline: none; font-weight: 600; }
+    .results-count { font-size: 12.5px; color: var(--muted); font-weight: 700; white-space: nowrap; margin-left: auto; }
+
+    /* Table */
+    .table-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow-x: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+    th { background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; padding: 13px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr { cursor: pointer; transition: background 0.15s; }
+    tbody tr:hover { background-color: #f8fafc; }
+    .mono-cell { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #334155; }
+
+    /* Badges */
+    .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 12px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .badge-inside { background: var(--green-light); color: #059669; }
+    .badge-direct { background: var(--pink-light); color: #db2777; }
+    .badge-overlap { background: var(--amber-light); color: #d97706; border: 1px solid var(--amber-border); }
+    .badge-upgrade { background: var(--purple-light); color: #7c3aed; }
+    .badge-events { background: var(--cyan-light); color: #0891b2; }
+    .badge-plan { background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 2px 7px; }
+    .copy-btn { background: none; border: none; cursor: pointer; font-size: 12px; padding: 2px 4px; border-radius: 4px; margin-left: 4px; color: var(--muted); }
+    .copy-btn:hover { background: #e2e8f0; color: var(--text); }
+
+    /* Avatars */
+    .agent-avatar { width: 26px; height: 26px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 800; flex-shrink: 0; }
+
+    /* Pagination */
+    .pagination-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: #ffffff; border-top: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); flex-wrap: wrap; gap: 10px; }
+    .page-btn { padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; border: 1px solid var(--border); background: #ffffff; color: var(--text); cursor: pointer; }
+    .page-btn:hover:not(:disabled) { background: #f1f5f9; }
+    .page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* Modal */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(2px); z-index: 100; align-items: center; justify-content: center; }
+    .modal-content { background: #ffffff; border-radius: 16px; width: 92%; max-width: 680px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border); }
+    .modal-header { padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-size: 16px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .modal-close { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--muted); padding: 4px; border-radius: 6px; }
+    .modal-close:hover { background: #f1f5f9; color: var(--text); }
+    .modal-body { padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .modal-field { display: flex; flex-direction: column; gap: 3px; }
+    .modal-lbl { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .modal-val { font-size: 13.5px; font-weight: 700; color: var(--text); word-break: break-all; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: #0f172a; color: #ffffff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .toast.show { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="elefant-logo.png" alt="The Elefant" />
+      <div class="nav-divider"></div>
+      <div>
+        <div class="nav-title">
+          <span>📊 Overall Deals & Revenue Master Export</span>
+        </div>
+        <div class="nav-subtitle">Comprehensive, deal-by-deal audit data across Inside Sales, Direct Portal, Overlap Deals, and Self Upgrades</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn btn-secondary">← Back to Dashboard</a>
+      <button class="btn btn-secondary" onclick="copyTableForClipboard()" title="Copy entire table to clipboard formatted for Google Sheets or Excel">📋 Copy for Excel / Sheets</button>
+      <button class="btn btn-green" onclick="exportFilteredCSV()" title="Download current filtered view as CSV">⬇️ Export Filtered CSV</button>
+      <a href="/data/overall_deals_details.csv" download="overall_deals_details.csv" class="btn btn-secondary" title="Download the full raw master CSV">📥 Download Full Master CSV</a>
+      <button class="btn btn-primary" onclick="loadData(true)">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Reconciliation Banner -->
+    <div class="recon-banner">
+      <div class="recon-left">
+        <span class="recon-badge">✓ Reconciled</span>
+        <span>Every row represents an individual transaction contributing to the verified Daily Sales & Revenue Dashboard total.</span>
+      </div>
+      <div style="font-size:12px; color:#166534; font-weight:700;">
+        Cutoff Rule: Strictly till 11:59 PM yesterday
+      </div>
+    </div>
+
+    <!-- KPI Summary Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card green" onclick="setDealTypeFilter('ALL')">
+        <div class="kpi-label">Total Revenue</div>
+        <div class="kpi-value" id="kpi-total-rev">—</div>
+        <div class="kpi-sub" id="kpi-total-cnt">— deals</div>
+      </div>
+      <div class="kpi-card green" onclick="setDealTypeFilter('Inside Sales')">
+        <div class="kpi-label">Inside Sales</div>
+        <div class="kpi-value" id="kpi-inside-rev">—</div>
+        <div class="kpi-sub" id="kpi-inside-cnt">— deals (Clean)</div>
+      </div>
+      <div class="kpi-card pink" onclick="setDealTypeFilter('Direct Sale')">
+        <div class="kpi-label">Direct Portal Sales</div>
+        <div class="kpi-value" id="kpi-direct-rev">—</div>
+        <div class="kpi-sub" id="kpi-direct-cnt">— deals (Online)</div>
+      </div>
+      <div class="kpi-card amber" onclick="setDealTypeFilter('Overlap Deal')">
+        <div class="kpi-label">Overlap Deals</div>
+        <div class="kpi-value" id="kpi-overlap-rev">—</div>
+        <div class="kpi-sub" id="kpi-overlap-cnt">— deals (Resolved)</div>
+      </div>
+      <div class="kpi-card purple" onclick="setDealTypeFilter('Self Upgrade')">
+        <div class="kpi-label">Self Upgrades</div>
+        <div class="kpi-value" id="kpi-upgrade-rev">—</div>
+        <div class="kpi-sub" id="kpi-upgrade-cnt">— deals</div>
+      </div>
+      <div class="kpi-card cyan" onclick="setDealTypeFilter('ALL')">
+        <div class="kpi-label">Blended AOV</div>
+        <div class="kpi-value" id="kpi-aov">—</div>
+        <div class="kpi-sub">Avg revenue / deal</div>
+      </div>
+    </section>
+
+    <!-- Controls Card -->
+    <div class="controls-card">
+      <div class="pills-bar">
+        <button class="pill-btn active" data-filter="yesterday" onclick="setTimeframe('yesterday')">
+          ⚡ Yesterday <span class="pill-badge" id="badge-yesterday">0</span>
+        </button>
+        <button class="pill-btn" data-filter="7d" onclick="setTimeframe('7d')">
+          📅 Last 7 Days <span class="pill-badge" id="badge-7d">0</span>
+        </button>
+        <button class="pill-btn" data-filter="mtd" onclick="setTimeframe('mtd')">
+          🗓️ This Month (MTD) <span class="pill-badge" id="badge-mtd">0</span>
+        </button>
+        <button class="pill-btn" data-filter="all" onclick="setTimeframe('all')">
+          🌐 All Time <span class="pill-badge" id="badge-all">0</span>
+        </button>
+        <button class="pill-btn" data-filter="custom" onclick="setTimeframe('custom')">
+          📆 Custom Range
+        </button>
+
+        <div class="custom-range-box" id="custom-range-box">
+          <input type="date" id="date-from" onchange="applyCustomRange()">
+          <span style="font-size:12px;font-weight:700;color:var(--muted)">to</span>
+          <input type="date" id="date-to" onchange="applyCustomRange()">
+        </div>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by customer name, phone, agent, plan, order ID, or notes..." oninput="handleSearch(this.value)">
+        </div>
+
+        <select class="select-filter" id="filter-type" onchange="handleTypeFilter(this.value)">
+          <option value="ALL">All Deal Types</option>
+          <option value="Inside Sales">Inside Sales</option>
+          <option value="Direct Sale">Direct Portal Sale</option>
+          <option value="Overlap Deal">Overlap Deals</option>
+          <option value="Self Upgrade">Self Upgrade</option>
+          <option value="Events">Events</option>
+        </select>
+
+        <select class="select-filter" id="filter-channel" onchange="handleChannelFilter(this.value)">
+          <option value="ALL">All Channels / Sources</option>
+        </select>
+
+        <select class="select-filter" id="filter-agent" onchange="handleAgentFilter(this.value)">
+          <option value="ALL">All Agents</option>
+        </select>
+
+        <select class="select-filter" id="filter-plan" onchange="handlePlanFilter(this.value)">
+          <option value="ALL">All Plans</option>
+        </select>
+
+        <select class="select-filter" id="filter-pagesize" onchange="handlePageSize(this.value)">
+          <option value="50">50 per page</option>
+          <option value="100">100 per page</option>
+          <option value="250">250 per page</option>
+          <option value="ALL">Show All</option>
+        </select>
+
+        <div class="results-count" id="results-count">Loading deals...</div>
+      </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container" id="table-container">
+      <div id="loading-state" style="padding:60px 20px;text-align:center;">
+        <div style="font-size:24px;margin-bottom:8px;">⏳</div>
+        <div style="font-weight:700;color:var(--primary);font-size:14px;">Loading Complete Deals Database...</div>
+      </div>
+
+      <div id="empty-state" style="display:none;padding:60px 20px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">🔍</div>
+        <div style="font-weight:700;color:var(--text);font-size:15px;">No Deals Found</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:4px;">Try adjusting your date range or filters.</div>
+      </div>
+
+      <div id="table-wrapper" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px;">#</th>
+              <th>Date</th>
+              <th>Deal Type & Channel</th>
+              <th>Customer Name</th>
+              <th>Phone Number</th>
+              <th>Agent / Source</th>
+              <th>Plan</th>
+              <th style="text-align:center;">Count</th>
+              <th style="text-align:right;">Revenue (₹)</th>
+              <th>Order / Sheet Reference</th>
+              <th>Resolution / Notes</th>
+              <th style="text-align:center;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+
+        <div class="pagination-bar" id="pagination-bar">
+          <div style="font-size:12.5px;color:var(--muted);font-weight:600;" id="pagination-info">Showing 1–50 of 0 deals</div>
+          <div style="display:flex;gap:6px;align-items:center;" id="page-controls"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Deal Modal -->
+  <div class="modal-overlay" id="detail-modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Deal Audit Inspection</div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">📋 Copied to clipboard!</div>
+
+  <script>
+    const API_URL = '/api/overall-deals-details-csv';
+    const FALLBACK_URL = '/data/overall_deals_details.csv';
+
+    let allDeals = [];
+    let currentFilter = 'yesterday';
+    let searchQuery = '';
+    let selectedType = 'ALL';
+    let selectedChannel = 'ALL';
+    let selectedAgent = 'ALL';
+    let selectedPlan = 'ALL';
+    let customStart = '';
+    let customEnd = '';
+    let currentPage = 1;
+    let pageSize = 50;
+
+    const AGENT_COLOURS = ['#6366f1','#10b981','#f59e0b','#3b82f6','#ec4899','#14b8a6','#8b5cf6','#f97316','#06b6d4','#84cc16'];
+    function agentColour(name) {
+      let h = 0;
+      for (let i = 0; i < (name||'').length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
+      return AGENT_COLOURS[Math.abs(h) % AGENT_COLOURS.length];
+    }
+    function initials(name) {
+      return (name || '?').split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    }
+
+    function parseCSVLine(line) {
+      const result = []; let cur = ''; let inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQ = !inQ; }
+        else if (c === ',' && !inQ) { result.push(cur.trim()); cur = ''; }
+        else { cur += c; }
+      }
+      result.push(cur.trim());
+      return result;
+    }
+
+    function fmt(n) { return '₹' + Math.round(n || 0).toLocaleString('en-IN'); }
+    function formatDate(iso) {
+      if (!iso) return '-';
+      const parts = iso.split('-');
+      if (parts.length === 3) {
+        const d = new Date(iso + 'T00:00:00');
+        return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+      return iso;
+    }
+
+    function getYesterdayISO() {
+      if (!allDeals.length) return '';
+      // Find the latest isoDate in allDeals
+      let maxDate = '';
+      for (let i = 0; i < allDeals.length; i++) {
+        if (allDeals[i].isoDate > maxDate) maxDate = allDeals[i].isoDate;
+      }
+      return maxDate;
+    }
+
+    async function loadData(force = false) {
+      document.getElementById('loading-state').style.display = 'block';
+      document.getElementById('table-wrapper').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'none';
+
+      let text = '';
+      try {
+        const res = await fetch(`${API_URL}?t=${Date.now()}`);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        text = await res.text();
+      } catch (_) {
+        try {
+          const res = await fetch(`${FALLBACK_URL}?t=${Date.now()}`);
+          if (!res.ok) throw new Error('Fallback HTTP ' + res.status);
+          text = await res.text();
+        } catch (fbErr) {
+          document.getElementById('loading-state').innerHTML = `
+            <div style="color:#ef4444;font-size:15px;font-weight:700;">⚠️ Could not load Overall Deals CSV</div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:6px;">${fbErr.message}</div>
+            <button class="btn btn-secondary" onclick="loadData(true)" style="margin-top:14px;">Retry</button>
+          `;
+          return;
+        }
+      }
+
+      const lines = text.trim().split('\n').filter(Boolean);
+      if (lines.length < 2) {
+        document.getElementById('loading-state').innerHTML = '<div>No deal records found in database.</div>';
+        return;
+      }
+
+      // Header: "Sno","Date","Deal Type","Customer Name","Phone Number","Agent","Plan","Count","Revenue (₹)","Source / Channel","Sheet / Reference","Order ID","User ID","Notes"
+      const parsed = [];
+      const typesSet = new Set();
+      const channelsSet = new Set();
+      const agentsSet = new Set();
+      const plansSet = new Set();
+
+      for (let i = 1; i < lines.length; i++) {
+        const cols = parseCSVLine(lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
+        const isoDate = cols[1];
+        if (!isoDate) continue;
+        const dealType = cols[2] || 'Inside Sales';
+        const customerName = cols[3] || 'Customer';
+        const phone = (cols[4] || '').replace(/\D/g, '').slice(-10);
+        const agent = cols[5] || 'Self Serve';
+        const plan = cols[6] || 'Annual Max';
+        const count = parseInt(cols[7], 10) || 1;
+        const revenue = parseFloat(cols[8]) || 0;
+        const source = cols[9] || 'Organic';
+        const sheet = cols[10] || '';
+        const orderId = cols[11] || '';
+        const userId = cols[12] || '';
+        const notes = cols[13] || '';
+
+        typesSet.add(dealType);
+        channelsSet.add(source);
+        if (agent) agentsSet.add(agent);
+        if (plan) plansSet.add(plan);
+
+        parsed.push({
+          _id: i,
+          isoDate,
+          dealType,
+          customerName,
+          phone,
+          agent,
+          plan,
+          count,
+          revenue,
+          source,
+          sheet,
+          orderId,
+          userId,
+          notes
+        });
+      }
+
+      allDeals = parsed;
+
+      // Populate filters
+      const chanSel = document.getElementById('filter-channel');
+      chanSel.innerHTML = '<option value="ALL">All Channels / Sources</option>' + Array.from(channelsSet).sort().map(c => `<option value="${c}">${c}</option>`).join('');
+
+      const agSel = document.getElementById('filter-agent');
+      agSel.innerHTML = '<option value="ALL">All Agents</option>' + Array.from(agentsSet).sort().map(a => `<option value="${a}">${a}</option>`).join('');
+
+      const plSel = document.getElementById('filter-plan');
+      plSel.innerHTML = '<option value="ALL">All Plans</option>' + Array.from(plansSet).sort().map(p => `<option value="${p}">${p}</option>`).join('');
+
+      checkUrlParams();
+      computeBadgesAndKPIs();
+      render();
+    }
+
+    function checkUrlParams() {
+      const p = new URLSearchParams(window.location.search);
+      const tf = (p.get('timeframe') || p.get('filter') || '').toLowerCase();
+      const dateParam = p.get('date');
+      const typeParam = p.get('type');
+      const srcParam = p.get('source') || p.get('channel');
+      const fromParam = p.get('from');
+      const toParam = p.get('to');
+
+      if (dateParam) {
+        currentFilter = 'custom';
+        customStart = dateParam;
+        customEnd = dateParam;
+        document.getElementById('date-from').value = dateParam;
+        document.getElementById('date-to').value = dateParam;
+        document.getElementById('custom-range-box').classList.add('show');
+      } else if (fromParam && toParam) {
+        currentFilter = 'custom';
+        customStart = fromParam;
+        customEnd = toParam;
+        document.getElementById('date-from').value = fromParam;
+        document.getElementById('date-to').value = toParam;
+        document.getElementById('custom-range-box').classList.add('show');
+      } else if (tf === '7d' || tf === 'mtd' || tf === 'all') {
+        currentFilter = tf;
+      } else {
+        currentFilter = 'yesterday';
+      }
+
+      if (typeParam) {
+        selectedType = typeParam;
+        document.getElementById('filter-type').value = typeParam;
+      }
+      if (srcParam) {
+        selectedChannel = srcParam;
+        document.getElementById('filter-channel').value = srcParam;
+      }
+
+      updatePillUI();
+    }
+
+    function setTimeframe(tf) {
+      currentFilter = tf;
+      currentPage = 1;
+      updatePillUI();
+      document.getElementById('custom-range-box').classList.toggle('show', tf === 'custom');
+      computeBadgesAndKPIs();
+      render();
+    }
+
+    function updatePillUI() {
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === currentFilter);
+      });
+    }
+
+    function applyCustomRange() {
+      customStart = document.getElementById('date-from').value;
+      customEnd = document.getElementById('date-to').value;
+      if (customStart && customEnd && customStart > customEnd) {
+        [customStart, customEnd] = [customEnd, customStart];
+        document.getElementById('date-from').value = customStart;
+        document.getElementById('date-to').value = customEnd;
+      }
+      currentPage = 1;
+      computeBadgesAndKPIs();
+      render();
+    }
+
+    function handleSearch(val) { searchQuery = (val || '').trim().toLowerCase(); currentPage = 1; render(); }
+    function handleTypeFilter(val) { selectedType = val; currentPage = 1; computeBadgesAndKPIs(); render(); }
+    function handleChannelFilter(val) { selectedChannel = val; currentPage = 1; render(); }
+    function handleAgentFilter(val) { selectedAgent = val; currentPage = 1; render(); }
+    function handlePlanFilter(val) { selectedPlan = val; currentPage = 1; render(); }
+    function handlePageSize(val) {
+      pageSize = val === 'ALL' ? 999999 : parseInt(val, 10);
+      currentPage = 1;
+      render();
+    }
+    function setDealTypeFilter(type) {
+      selectedType = type;
+      document.getElementById('filter-type').value = type;
+      currentPage = 1;
+      render();
+    }
+
+    function filterData() {
+      const ydDate = getYesterdayISO();
+      let s7 = '', mtd = '';
+      if (ydDate) {
+        const dObj = new Date(ydDate + 'T00:00:00');
+        dObj.setDate(dObj.getDate() - 6);
+        s7 = dObj.toISOString().slice(0, 10);
+        mtd = ydDate.slice(0, 7) + '-01';
+      }
+
+      return allDeals.filter(d => {
+        // Timeframe filter
+        if (currentFilter === 'yesterday' && d.isoDate !== ydDate) return false;
+        if (currentFilter === '7d' && (d.isoDate < s7 || d.isoDate > ydDate)) return false;
+        if (currentFilter === 'mtd' && (d.isoDate < mtd || d.isoDate > ydDate)) return false;
+        if (currentFilter === 'custom') {
+          if (customStart && d.isoDate < customStart) return false;
+          if (customEnd && d.isoDate > customEnd) return false;
+        }
+
+        // Dropdown filters
+        if (selectedType !== 'ALL' && d.dealType !== selectedType) return false;
+        if (selectedChannel !== 'ALL' && d.source !== selectedChannel) return false;
+        if (selectedAgent !== 'ALL' && d.agent !== selectedAgent) return false;
+        if (selectedPlan !== 'ALL' && d.plan !== selectedPlan) return false;
+
+        // Search box
+        if (searchQuery) {
+          const q = searchQuery;
+          if (!(
+            d.customerName.toLowerCase().includes(q) ||
+            d.phone.includes(q) ||
+            d.agent.toLowerCase().includes(q) ||
+            d.plan.toLowerCase().includes(q) ||
+            d.source.toLowerCase().includes(q) ||
+            d.orderId.toLowerCase().includes(q) ||
+            d.userId.toLowerCase().includes(q) ||
+            d.notes.toLowerCase().includes(q)
+          )) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function computeBadgesAndKPIs() {
+      const ydDate = getYesterdayISO();
+      let s7 = '', mtd = '';
+      if (ydDate) {
+        const dObj = new Date(ydDate + 'T00:00:00');
+        dObj.setDate(dObj.getDate() - 6);
+        s7 = dObj.toISOString().slice(0, 10);
+        mtd = ydDate.slice(0, 7) + '-01';
+      }
+
+      // Compute badge counts on timeframe pills
+      document.getElementById('badge-yesterday').textContent = allDeals.filter(d => d.isoDate === ydDate).length.toLocaleString('en-IN');
+      document.getElementById('badge-7d').textContent = allDeals.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate).length.toLocaleString('en-IN');
+      document.getElementById('badge-mtd').textContent = allDeals.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate).length.toLocaleString('en-IN');
+      document.getElementById('badge-all').textContent = allDeals.length.toLocaleString('en-IN');
+
+      // KPIs based on current timeframe selection
+      const inScope = allDeals.filter(d => {
+        if (currentFilter === 'yesterday' && d.isoDate !== ydDate) return false;
+        if (currentFilter === '7d' && (d.isoDate < s7 || d.isoDate > ydDate)) return false;
+        if (currentFilter === 'mtd' && (d.isoDate < mtd || d.isoDate > ydDate)) return false;
+        if (currentFilter === 'custom') {
+          if (customStart && d.isoDate < customStart) return false;
+          if (customEnd && d.isoDate > customEnd) return false;
+        }
+        return true;
+      });
+
+      let totalRev = 0, totalCnt = 0;
+      let insideRev = 0, insideCnt = 0;
+      let directRev = 0, directCnt = 0;
+      let overlapRev = 0, overlapCnt = 0;
+      let upgradeRev = 0, upgradeCnt = 0;
+
+      inScope.forEach(d => {
+        totalRev += d.revenue;
+        totalCnt += d.count;
+        if (d.dealType === 'Inside Sales') { insideRev += d.revenue; insideCnt += d.count; }
+        else if (d.dealType === 'Direct Sale') { directRev += d.revenue; directCnt += d.count; }
+        else if (d.dealType === 'Overlap Deal') { overlapRev += d.revenue; overlapCnt += d.count; }
+        else if (d.dealType === 'Self Upgrade') { upgradeRev += d.revenue; upgradeCnt += d.count; }
+        else if (d.dealType === 'Events') { insideRev += d.revenue; insideCnt += d.count; }
+      });
+
+      const aov = totalCnt > 0 ? Math.round(totalRev / totalCnt) : 0;
+
+      document.getElementById('kpi-total-rev').textContent = fmt(totalRev);
+      document.getElementById('kpi-total-cnt').textContent = `${totalCnt.toLocaleString('en-IN')} deals across all channels`;
+
+      document.getElementById('kpi-inside-rev').textContent = fmt(insideRev);
+      document.getElementById('kpi-inside-cnt').textContent = `${insideCnt} deals (${((insideRev/(totalRev||1))*100).toFixed(1)}%)`;
+
+      document.getElementById('kpi-direct-rev').textContent = fmt(directRev);
+      document.getElementById('kpi-direct-cnt').textContent = `${directCnt} deals (${((directRev/(totalRev||1))*100).toFixed(1)}%)`;
+
+      document.getElementById('kpi-overlap-rev').textContent = fmt(overlapRev);
+      document.getElementById('kpi-overlap-cnt').textContent = `${overlapCnt} deals (${((overlapRev/(totalRev||1))*100).toFixed(1)}%)`;
+
+      document.getElementById('kpi-upgrade-rev').textContent = fmt(upgradeRev);
+      document.getElementById('kpi-upgrade-cnt').textContent = `${upgradeCnt} deals (${((upgradeRev/(totalRev||1))*100).toFixed(1)}%)`;
+
+      document.getElementById('kpi-aov').textContent = fmt(aov);
+    }
+
+    function dealTypeBadge(type, source) {
+      if (type === 'Inside Sales') return `<span class="badge badge-inside">🤝 Inside Sales</span>`;
+      if (type === 'Direct Sale') return `<span class="badge badge-direct">🛍️ Direct Sale</span>`;
+      if (type === 'Overlap Deal') return `<span class="badge badge-overlap">🔄 Overlap Deal</span>`;
+      if (type === 'Self Upgrade') return `<span class="badge badge-upgrade">🚀 Self Upgrade</span>`;
+      if (type === 'Events') return `<span class="badge badge-events">🎤 Events</span>`;
+      return `<span class="badge">${type}</span>`;
+    }
+
+    function render() {
+      const filtered = filterData();
+      const loadingState = document.getElementById('loading-state');
+      const emptyState = document.getElementById('empty-state');
+      const tableWrapper = document.getElementById('table-wrapper');
+      const tbody = document.getElementById('table-body');
+      const resultsCount = document.getElementById('results-count');
+      const paginationBar = document.getElementById('pagination-bar');
+
+      loadingState.style.display = 'none';
+
+      if (!filtered.length) {
+        tableWrapper.style.display = 'none';
+        emptyState.style.display = 'block';
+        resultsCount.textContent = 'Showing 0 deals';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      tableWrapper.style.display = 'block';
+
+      const totalRev = filtered.reduce((acc, d) => acc + d.revenue, 0);
+      resultsCount.textContent = `Showing ${filtered.length.toLocaleString('en-IN')} deals · Total: ${fmt(totalRev)}`;
+
+      const totalPages = Math.ceil(filtered.length / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = (currentPage - 1) * pageSize;
+      const endIdx = Math.min(startIdx + pageSize, filtered.length);
+      const page = filtered.slice(startIdx, endIdx);
+
+      tbody.innerHTML = page.map((d, idx) => {
+        const clr = agentColour(d.agent);
+        const ini = initials(d.agent);
+
+        return `
+          <tr onclick="openModal(${d._id})">
+            <td style="color:var(--muted);font-weight:600;">${startIdx + idx + 1}</td>
+            <td style="font-weight:700;font-size:12.5px;white-space:nowrap;">${formatDate(d.isoDate)}</td>
+            <td>
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div>${dealTypeBadge(d.dealType, d.source)}</div>
+                <div style="font-size:11px;color:var(--muted);font-weight:600;">${d.source}</div>
+              </div>
+            </td>
+            <td>
+              <div style="font-weight:800;font-size:13px;">${d.customerName}</div>
+              ${d.userId ? `<div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">${d.userId}</div>` : ''}
+            </td>
+            <td>
+              <span class="mono-cell" style="font-weight:700;">${d.phone || '—'}</span>
+              ${d.phone ? `<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('${d.phone}')" title="Copy Phone">📋</button>` : ''}
+            </td>
+            <td>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="agent-avatar" style="background:${clr};">${ini}</div>
+                <div>
+                  <div style="font-weight:700;font-size:12.5px;">${d.agent}</div>
+                  <div style="font-size:11px;color:var(--muted);">${d.sheet || 'Portal'}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-plan">${d.plan}</span></td>
+            <td style="text-align:center;font-weight:700;font-size:13px;">${d.count}</td>
+            <td style="text-align:right;">
+              <div style="font-size:15px;font-weight:900;color:#059669;">${fmt(d.revenue)}</div>
+            </td>
+            <td>
+              <span class="mono-cell" style="font-size:11.5px;color:#475569;">${d.orderId || d.sheet || '—'}</span>
+            </td>
+            <td>
+              <div style="font-size:11.5px;color:var(--muted);max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${d.notes || ''}">
+                ${d.notes || '—'}
+              </div>
+            </td>
+            <td style="text-align:center;">
+              <button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="event.stopPropagation();openModal(${d._id})">👁️ View</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // Pagination
+      if (totalPages > 1 && pageSize !== 999999) {
+        paginationBar.style.display = 'flex';
+        document.getElementById('pagination-info').textContent = `Showing ${startIdx + 1}–${endIdx} of ${filtered.length.toLocaleString('en-IN')} deals`;
+
+        let btns = `<button class="page-btn" ${currentPage===1?'disabled':''} onclick="goToPage(${currentPage-1})">‹ Prev</button>`;
+        let sP = Math.max(1, currentPage - 2), eP = Math.min(totalPages, currentPage + 2);
+        if (sP > 1) { btns += `<button class="page-btn" onclick="goToPage(1)">1</button>`; if (sP > 2) btns += `<span style="padding:0 4px;color:var(--muted);">...</span>`; }
+        for (let p = sP; p <= eP; p++) btns += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goToPage(${p})">${p}</button>`;
+        if (eP < totalPages) { if (eP < totalPages - 1) btns += `<span style="padding:0 4px;color:var(--muted);">...</span>`; btns += `<button class="page-btn" onclick="goToPage(${totalPages})">${totalPages}</button>`; }
+        btns += `<button class="page-btn" ${currentPage===totalPages?'disabled':''} onclick="goToPage(${currentPage+1})">Next ›</button>`;
+        document.getElementById('page-controls').innerHTML = btns;
+      } else {
+        paginationBar.style.display = 'none';
+      }
+    }
+
+    function goToPage(p) { currentPage = p; render(); window.scrollTo({ top: 380, behavior: 'smooth' }); }
+
+    function openModal(id) {
+      const d = allDeals.find(x => x._id === id);
+      if (!d) return;
+
+      document.getElementById('modal-title').textContent = `${d.dealType} — ${d.customerName}`;
+      document.getElementById('modal-body').innerHTML = `
+        <div class="modal-grid">
+          <div class="modal-field">
+            <span class="modal-lbl">Deal Date</span>
+            <span class="modal-val">${formatDate(d.isoDate)} (${d.isoDate})</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Recognized Revenue</span>
+            <span class="modal-val" style="color:#059669;font-size:18px;font-weight:900;">${fmt(d.revenue)}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Customer Name</span>
+            <span class="modal-val">${d.customerName}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Phone Number</span>
+            <span class="modal-val mono-cell">${d.phone || '—'} <button class="copy-btn" onclick="copyToClipboard('${d.phone}')">📋 Copy</button></span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Deal Type</span>
+            <span class="modal-val">${dealTypeBadge(d.dealType, d.source)}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Channel / Source</span>
+            <span class="modal-val">${d.source}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Assigned Agent</span>
+            <span class="modal-val">${d.agent}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Plan / Tier</span>
+            <span class="modal-val">${d.plan}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Order / Coupon ID</span>
+            <span class="modal-val mono-cell">${d.orderId || '—'}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">User ID</span>
+            <span class="modal-val mono-cell">${d.userId || '—'}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Sheet / Data Origin</span>
+            <span class="modal-val">${d.sheet || '—'}</span>
+          </div>
+          <div class="modal-field">
+            <span class="modal-lbl">Deal Quantity</span>
+            <span class="modal-val">${d.count} unit(s)</span>
+          </div>
+        </div>
+
+        <div style="background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:14px;margin-top:6px;">
+          <div class="modal-lbl" style="margin-bottom:4px;">Audit & Resolution Notes</div>
+          <div style="font-size:13px;color:#334155;font-weight:600;line-height:1.5;">${d.notes || 'Clean deal record.'}</div>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function closeModal() { document.getElementById('detail-modal').style.display = 'none'; }
+
+    function exportFilteredCSV() {
+      const filtered = filterData();
+      if (!filtered.length) {
+        showToast('No deals to export');
+        return;
+      }
+
+      const header = ['Sno','Date','Deal Type','Customer Name','Phone Number','Agent','Plan','Count','Revenue (INR)','Source / Channel','Sheet / Reference','Order ID','User ID','Notes'];
+      const rows = filtered.map((d, i) => [
+        i + 1,
+        d.isoDate,
+        d.dealType,
+        d.customerName,
+        d.phone,
+        d.agent,
+        d.plan,
+        d.count,
+        d.revenue,
+        d.source,
+        d.sheet,
+        d.orderId,
+        d.userId,
+        d.notes
+      ]);
+
+      const csvContent = [header, ...rows].map(r => r.map(c => `"${String(c || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `overall_deals_export_${currentFilter}_${new Date().toISOString().slice(0,10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast(`Exported ${filtered.length} deals as CSV!`);
+    }
+
+    function copyTableForClipboard() {
+      const filtered = filterData();
+      if (!filtered.length) {
+        showToast('No deals to copy');
+        return;
+      }
+
+      // Tab-separated values for easy pasting into Google Sheets / Excel
+      const header = ['Sno','Date','Deal Type','Customer Name','Phone Number','Agent','Plan','Count','Revenue (INR)','Source / Channel','Sheet / Reference','Order ID','User ID','Notes'];
+      const tsvRows = filtered.map((d, i) => [
+        i + 1,
+        d.isoDate,
+        d.dealType,
+        d.customerName,
+        d.phone,
+        d.agent,
+        d.plan,
+        d.count,
+        d.revenue,
+        d.source,
+        d.sheet,
+        d.orderId,
+        d.userId,
+        d.notes
+      ].join('\t')).join('\n');
+
+      const fullTSV = header.join('\t') + '\n' + tsvRows;
+      navigator.clipboard.writeText(fullTSV).then(() => {
+        showToast(`Copied ${filtered.length} deals! Ready to paste into Sheets/Excel.`);
+      }).catch(err => {
+        showToast('Could not copy to clipboard: ' + err.message);
+      });
+    }
+
+    function copyToClipboard(text) {
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`Copied "${text}"!`);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData();
+    });
+  </script>
+</body>
+</html>

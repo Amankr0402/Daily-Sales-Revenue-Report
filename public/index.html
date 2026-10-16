@@ -1455,6 +1455,7 @@
         <input type="date" id="report-date-picker" style="border:none;background:transparent;font-size:12.5px;font-weight:700;color:var(--text);outline:none;cursor:pointer;" onchange="onReportDateSelect(this.value)">
       </div>
       <div class="date-badge" id="hdr-date">📅 —</div>
+      <a href="overall-deals-details.html?filter=yesterday" id="hdr-overall-btn" target="_blank" style="background:linear-gradient(135deg, #10b981, #059669); color:#fff; text-decoration:none; padding:7px 15px; border-radius:10px; font-size:12.5px; font-weight:800; display:inline-flex; align-items:center; gap:6px; box-shadow:0 3px 10px rgba(16,185,129,0.25); transition:all .2s ease;" title="Click to view and export complete deal-by-deal breakdown across all channels">📊 Export Overall Deals</a>
       <button class="print-btn" onclick="window.print()">🖨️ Export as PDF</button>
     </div>
   </div>
@@ -1465,9 +1466,18 @@
     <div class="sec-gap" style="margin-top:32px">
       <div class="sec-title">💰 Revenue — Till 11:59 PM Yesterday</div>
       <div class="card green">
-        <div class="kpi-lbl">Total Revenue Generated</div>
-        <div class="kpi-val green" id="total-rev">—</div>
-        <div class="kpi-sub" id="total-rev-sub">—</div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+          <div>
+            <div class="kpi-lbl">Total Revenue Generated</div>
+            <div class="kpi-val green" id="total-rev">—</div>
+            <div class="kpi-sub" id="total-rev-sub">—</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px;">
+            <a href="overall-deals-details.html?filter=yesterday" id="btn-revenue-overall-deals" target="_blank" style="background:#ffffff; color:#059669; border:1.5px solid #10b981; text-decoration:none; padding:8px 16px; border-radius:10px; font-size:12.5px; font-weight:800; display:inline-flex; align-items:center; gap:7px; box-shadow:0 2px 6px rgba(16,185,129,0.15); transition:all .2s ease;" title="Export and inspect complete deal-by-deal revenue records">
+              📥 View &amp; Export All Deal Details (Inside + Direct + Overlap) ↗
+            </a>
+          </div>
+        </div>
         <div class="src-grid" id="src-grid"></div>
       </div>
     </div>
@@ -2503,6 +2513,11 @@
           rdp.max = data[data.length - 1]?.date || yesterdayISO;
           rdp.min = data[0]?.date || '2024-01-01';
         }
+
+        const hdrOverallBtn = document.getElementById('hdr-overall-btn');
+        if (hdrOverallBtn) hdrOverallBtn.href = 'overall-deals-details.html?date=' + yd.date;
+        const revOverallBtn = document.getElementById('btn-revenue-overall-deals');
+        if (revOverallBtn) revOverallBtn.href = 'overall-deals-details.html?date=' + yd.date;
 
         // Revenue (includes delivery fee)
         const deliveryTotal = (yd.deliveryFee && yd.deliveryFee.total > 0) ? yd.deliveryFee.total : 0;

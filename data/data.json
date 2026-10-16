@@ -70766,10 +70766,10 @@
     },
     "userBreakdown": {
       "signups": 981,
-      "otpVerified": 925,
-      "serviceable": 623,
-      "serviceableWithPct": "623 (63.5%)",
-      "serviceablePct": "63.5%"
+      "otpVerified": 926,
+      "serviceable": 624,
+      "serviceableWithPct": "624 (63.6%)",
+      "serviceablePct": "63.6%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -71217,8 +71217,8 @@
       "revenue": 37896.68
     },
     "missedLeads": {
-      "Connected": 220,
-      "Interested": 102,
+      "Connected": 230,
+      "Interested": 104,
       "Paise Dega": 19
     },
     "refunds": {
@@ -71247,7 +71247,7 @@
     },
     "newUsers7d": 7031,
     "newUsersYesterday": 697,
-    "activeSubs": 5082,
+    "activeSubs": 5087,
     "newSubs7d": 156,
     "teleCrmLeads": 823,
     "subsEnding5d": 68,
@@ -71255,24 +71255,24 @@
     "subsExpiringToday": 10,
     "planExpiringNoOrder": 4,
     "planExpNoOrder": 2422,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 124,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 13,
-      "Orders Confirmed": 13,
+      "Orders - PLACED": 27,
+      "Orders Placed": 27,
+      "Orders - CONFIRMED": 12,
+      "Orders Confirmed": 12,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 24,
-      "Orders Shipped": 24,
-      "Orders - Not Delivered": 68,
-      "Orders Not Delivered": 66
+      "Orders - SHIPPED": 23,
+      "Orders Shipped": 23,
+      "Orders - Not Delivered": 65,
+      "Orders Not Delivered": 63
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 453,
-      "New Subscribers Orders that have been Delivered": 385,
-      "New Subscribers Orders yet to be Delivered": 68,
-      "New Subscribers Orders yet to be Delivered & Delayed": 19
+      "New Subscribers Orders that have been Delivered": 388,
+      "New Subscribers Orders yet to be Delivered": 65,
+      "New Subscribers Orders yet to be Delivered & Delayed": 18
     },
     "selfUpgrade": {
       "totalCount": 0,
