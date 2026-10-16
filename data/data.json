@@ -68443,9 +68443,9 @@
         "revenue": 24000,
         "count": 2
       },
-      "Others": {
-        "revenue": 16198,
-        "count": 2
+      "Vikas Poonia": {
+        "revenue": 12000,
+        "count": 1
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 12000,
@@ -68458,6 +68458,10 @@
       "Jivesh Harde": {
         "revenue": 31573,
         "count": 3
+      },
+      "Others": {
+        "revenue": 4198,
+        "count": 1
       },
       "Honey Talreja": {
         "revenue": 12000,
@@ -69405,13 +69409,9 @@
       "source": "Inside Sales"
     },
     "agents": {
-      "Others": {
-        "revenue": 5000,
-        "count": 1
-      },
       "Rohit Jain": {
-        "revenue": 5000,
-        "count": 1
+        "revenue": 10000,
+        "count": 2
       },
       "Neeru Yadav": {
         "revenue": 24000,
@@ -69568,8 +69568,8 @@
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 18376,
-        "count": 3
+        "revenue": 30376,
+        "count": 4
       },
       "Honey Talreja": {
         "revenue": 41000,
@@ -69602,10 +69602,6 @@
       "Tanveer Ahmed": {
         "revenue": 53574,
         "count": 5
-      },
-      "Others": {
-        "revenue": 12000,
-        "count": 1
       },
       "Shubham Rai": {
         "revenue": 12215,
@@ -70091,7 +70087,7 @@
         "rawDate": "10/10/2026 16:25",
         "customerName": "Abhilash Reddy Maddi",
         "phone": "9347243941",
-        "agent": "Others",
+        "agent": "Shubham Rai",
         "insideRevenue": 12000,
         "revenue": 11744,
         "directRevenue": 11744,
@@ -70099,7 +70095,7 @@
         "source": "Organic",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR467386",
-        "disputeNote": "Logged by Inside Sales agent (Others) for ₹12000 and also completed on Direct Portal for ₹11744"
+        "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹12000 and also completed on Direct Portal for ₹11744"
       },
       {
         "date": "2026-10-10",
@@ -70153,7 +70149,7 @@
         "rawDate": "10/10/2026 16:25",
         "customerName": "Abhilash Reddy Maddi",
         "phone": "9347243941",
-        "agent": "Others",
+        "agent": "Shubham Rai",
         "insideRevenue": 12000,
         "revenue": 11744,
         "directRevenue": 11744,
@@ -70161,7 +70157,7 @@
         "source": "Organic",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR467386",
-        "disputeNote": "Logged by Inside Sales agent (Others) for ₹12000 and also completed on Direct Portal for ₹11744"
+        "disputeNote": "Logged by Inside Sales agent (Shubham Rai) for ₹12000 and also completed on Direct Portal for ₹11744"
       },
       {
         "date": "2026-10-10",
@@ -70304,10 +70300,10 @@
     },
     "userBreakdown": {
       "signups": 1120,
-      "otpVerified": 1047,
-      "serviceable": 690,
-      "serviceableWithPct": "690 (61.6%)",
-      "serviceablePct": "61.6%"
+      "otpVerified": 1048,
+      "serviceable": 691,
+      "serviceableWithPct": "691 (61.7%)",
+      "serviceablePct": "61.7%"
     },
     "directSaleCSV": {
       "count": 7,
@@ -71021,9 +71017,9 @@
     "salesCount": 19,
     "transactions": 19,
     "highestSale": {
-      "amount": 18584,
-      "agent": "Vikas Poonia",
-      "source": "Inside Sales"
+      "amount": 17073,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
     },
     "agents": {
       "Shivendra Singh Tomar": {
@@ -71083,10 +71079,6 @@
       "Annual Plus": {
         "revenue": 0,
         "count": 0
-      },
-      "Ultra Annually": {
-        "revenue": 0,
-        "count": 0
       }
     },
     "sources": {
@@ -71129,14 +71121,14 @@
         "customerName": "sameer brid",
         "phone": "9320378287",
         "agent": "Vikas Poonia",
-        "insideRevenue": 18584,
+        "insideRevenue": 9787,
         "revenue": 17695.68,
         "directRevenue": 17695.68,
         "plan": "Ultra Annually",
         "source": "Organic",
         "directOrderId": "PLAYTIME",
         "directUserId": "UR461055",
-        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹18584 and also completed on Direct Portal for ₹17695.68"
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹9787 and also completed on Direct Portal for ₹17695.68"
       },
       {
         "date": "2026-10-15",
@@ -71176,14 +71168,14 @@
         "customerName": "sameer brid",
         "phone": "9320378287",
         "agent": "Vikas Poonia",
-        "insideRevenue": 18584,
+        "insideRevenue": 9787,
         "revenue": 17695.68,
         "directRevenue": 17695.68,
         "plan": "Ultra Annually",
         "source": "Organic",
         "directOrderId": "PLAYTIME",
         "directUserId": "UR461055",
-        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹18584 and also completed on Direct Portal for ₹17695.68"
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹9787 and also completed on Direct Portal for ₹17695.68"
       },
       {
         "date": "2026-10-15",
@@ -71225,9 +71217,9 @@
       "revenue": 37896.68
     },
     "missedLeads": {
-      "Connected": 211,
-      "Interested": 97,
-      "Paise Dega": 18
+      "Connected": 220,
+      "Interested": 102,
+      "Paise Dega": 19
     },
     "refunds": {
       "count": 2,
@@ -71255,7 +71247,7 @@
     },
     "newUsers7d": 7031,
     "newUsersYesterday": 697,
-    "activeSubs": 5083,
+    "activeSubs": 5082,
     "newSubs7d": 156,
     "teleCrmLeads": 823,
     "subsEnding5d": 68,
@@ -71267,19 +71259,19 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 28,
       "Orders Placed": 28,
-      "Orders - CONFIRMED": 14,
-      "Orders Confirmed": 14,
-      "Orders - READY_TO_SHIP": 4,
-      "Orders Ready to Ship": 4,
-      "Orders - SHIPPED": 21,
-      "Orders Shipped": 21,
-      "Orders - Not Delivered": 69,
-      "Orders Not Delivered": 67
+      "Orders - CONFIRMED": 13,
+      "Orders Confirmed": 13,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 24,
+      "Orders Shipped": 24,
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 66
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 453,
-      "New Subscribers Orders that have been Delivered": 384,
-      "New Subscribers Orders yet to be Delivered": 69,
+      "New Subscribers Orders that have been Delivered": 385,
+      "New Subscribers Orders yet to be Delivered": 68,
       "New Subscribers Orders yet to be Delivered & Delayed": 19
     },
     "selfUpgrade": {

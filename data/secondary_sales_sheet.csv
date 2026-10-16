@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,196,669",,,299,
+,,,,"3,201,658",,,301,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -15,7 +15,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 13,10/2/2026,7666287821,Rani Singh,"5,756",No,Quarterly Max,1,Organic
 14,10/1/2026,9033925104,Honey Talreja,"5,000",Yes,Annual Max,0.5,Organic
 15,10/2/2026,9110582913,Shivani Gupta,"12,000",No,Annual Max,1,Organic
-16,10/2/2026,9625014510,Others,"12,000",No,Annual Max,1,Organic
+16,10/2/2026,9625014510,Vikas Poonia,"12,000",No,Annual Max,1,Organic
 17,10/2/2026,9510011225,Shivani Gupta,"12,000",No,Annual Max,1,Organic
 18,10/2/2026,9350066050,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 19,10/2/2026,8779646274,Rohit Jain,"12,000",No,Annual Max,1,Organic
@@ -130,7 +130,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 128,10/6/2026,8197967950,Preyashi Roy,"12,215",No,Annual Max,1,Organic
 129,10/6/2026,8446992096,Kausturi Roy Chowdhury,"12,215",No,Annual Max,1,Organic
 130,10/6/2026,8693801112,Honey Talreja,"6,000",Yes,Annual Max,0.5,Renewals
-131,10/7/2026,9868992777,Others,"5,000",No,Quarterly Max,1,Organic
+131,10/7/2026,9868992777,Rohit Jain,"5,000",No,Quarterly Max,1,Organic
 132,10/7/2026,9560376662,Rohit Jain,"5,000",No,Quarterly Max,1,Organic
 133,10/7/2026,8292113255,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 134,10/7/2026,7760151078,Neeru Yadav,"12,000",No,Annual Max,1,Organic
@@ -162,7 +162,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 160,10/8/2026,9962151638,Tanveer Ahmed,"9,787",No,Annual Max,1,Organic
 161,10/8/2026,9880426005,Tanveer Ahmed,"9,787",No,Annual Max,1,Organic
 162,10/8/2026,9950155744,Preyashi Roy,"5,000",No,Quarterly Max,1,Organic
-163,10/8/2026,8160542799,Others,"12,000",No,Annual Max,1,Organic
+163,10/8/2026,8160542799,Amol Landge,"12,000",No,Annual Max,1,Organic
 164,10/8/2026,8448367196,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 165,10/8/2026,9873571435,Amol Landge,"3,000",No,Quarterly Plus,1,Renewals
 166,10/8/2026,8500193514,Kausturi Roy Chowdhury,"10,376",No,Annual Max,1,Renewals
@@ -199,7 +199,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 197,10/10/2026,9479762264,Shubham Rai,"12,000",No,Annual Max,1,Events
 198,10/10/2026,8087131666,Amol Landge,"12,000",No,Annual Max,1,Events
 199,10/10/2026,9145616421,Shubham Rai,"12,000",No,Annual Max,1,Events
-200,10/10/2026,9347243941,Others,"12,000",No,Annual Max,1,Organic
+200,10/10/2026,9347243941,Shubham Rai,"12,000",No,Annual Max,1,Organic
 201,10/10/2026,9953625965,Preyashi Roy,"12,216",No,Annual Max,1,Organic
 202,10/10/2026,7040795468,Amol Landge,"12,000",No,Annual Max,1,Events
 203,10/10/2026,9768837293,Others,"12,000",No,Annual Max,1,Organic
@@ -296,11 +296,11 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 294,15/10/2026,7899958961,Rohit Jain,"12,000",No,Annual Max,1,Organic
 295,15/10/2026,8435559390,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
 296,15/10/2026,8160493491,Jivesh Harde,"12,000",No,Annual Max,1,Organic
-297,15/10/2026,9320378287,Vikas Poonia,"18,584",No,Ultra Annually,1,Organic
-298,16/10/2026,9391909300,Preyashi Roy,"12,000",No,Annual Max,1,Organic
-299,16/10/2026,9819525463,Rani Singh,"9,787",No,Annual Max,1,Organic
-300,16/10/2026,,,,,,,
-301,16/10/2026,,,,,,,
+297,15/10/2026,9320378287,Vikas Poonia,"9,787",No,Annual Max,1,Organic
+298,15/10/2026,9320378287,Vikas Poonia,"9,787",No,Annual Max,1,Organic
+299,16/10/2026,9391909300,Preyashi Roy,"12,000",No,Annual Max,1,Organic
+300,16/10/2026,9819525463,Rani Singh,"9,787",No,Annual Max,1,Organic
+301,16/10/2026,9335801410,Amol Landge,"4,000",No,Quarterly Max,1,Organic
 302,16/10/2026,,,,,,,
 303,16/10/2026,,,,,,,
 304,16/10/2026,,,,,,,
@@ -326,3 +326,4 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 324,16/10/2026,,,,,,,
 325,16/10/2026,,,,,,,
 326,16/10/2026,,,,,,,
+327,16/10/2026,,,,,,,
