@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,289,031",,,311,
+,,,,"3,383,447",,,319,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -311,14 +311,14 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 309,16/10/2026,8860009171,Amol Landge,"11,376",No,Annual Max,1,Renewals
 310,16/10/2026,9930655925,Shivendra Singh Tomar,"3,500",No,Quarterly Plus,1,Organic
 311,16/10/2026,9772888847,Honey Talreja,"5,000",No,Quarterly Max,1,Organic
-312,16/10/2026,,,,,,,
-313,16/10/2026,,,,,,,
-314,16/10/2026,,,,,,,
-315,16/10/2026,,,,,,,
-316,16/10/2026,,,,,,,
-317,16/10/2026,,,,,,,
-318,16/10/2026,,,,,,,
-319,16/10/2026,,,,,,,
+312,15/10/2026,8949277981,Others,"12,000",No,Annual Max,1,Organic
+313,16/10/2026,9892389153,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
+314,16/10/2026,9886580810,Others,"11,000",No,Annual Max,1,Organic
+315,16/10/2026,9619121213,Others,"12,216",No,Annual Max,1,Organic
+316,16/10/2026,8369481913,Jivesh Harde,"11,000",No,Annual Max,1,Organic
+317,16/10/2026,8107441810,Others,"13,200",No,Annual Max,1,Organic
+318,16/10/2026,9987045228,Honey Talreja,"12,000",No,Annual Max,1,Organic
+319,16/10/2026,9324061763,Tashrifa Ruhani Saikia,"12,000",No,Annual Max,1,Organic
 320,16/10/2026,,,,,,,
 321,16/10/2026,,,,,,,
 322,16/10/2026,,,,,,,
