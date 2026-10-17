@@ -53684,9 +53684,9 @@
   },
   {
     "date": "2026-07-04",
-    "totalRevenue": 364072.4,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 359572.4,
+    "salesCount": 37,
+    "transactions": 37,
     "highestSale": {
       "amount": 14055,
       "agent": "Kausturi Roy Chowdhury",
@@ -53726,8 +53726,8 @@
         "count": 4
       },
       "Shubham Rai": {
-        "revenue": 19000,
-        "count": 3
+        "revenue": 14500,
+        "count": 2
       },
       "Shikha Singh": {
         "revenue": 12000,
@@ -53752,8 +53752,8 @@
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 20300,
-        "count": 5
+        "revenue": 15800,
+        "count": 4
       },
       "Annual Max": {
         "revenue": 287513.4,
@@ -53770,8 +53770,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180892,
-        "count": 20
+        "revenue": 176392,
+        "count": 19
       },
       "Events": {
         "revenue": 106795,
@@ -70521,8 +70521,8 @@
     "userBreakdown": {
       "signups": 1100,
       "otpVerified": 1037,
-      "serviceable": 731,
-      "serviceableWithPct": "731 (66.5%)",
+      "serviceable": 732,
+      "serviceableWithPct": "732 (66.5%)",
       "serviceablePct": "66.5%"
     },
     "directSaleCSV": {
@@ -70750,10 +70750,10 @@
     },
     "userBreakdown": {
       "signups": 980,
-      "otpVerified": 925,
-      "serviceable": 623,
-      "serviceableWithPct": "623 (63.6%)",
-      "serviceablePct": "63.6%"
+      "otpVerified": 926,
+      "serviceable": 624,
+      "serviceableWithPct": "624 (63.7%)",
+      "serviceablePct": "63.7%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -71094,9 +71094,9 @@
     "userBreakdown": {
       "signups": 755,
       "otpVerified": 681,
-      "serviceable": 475,
-      "serviceableWithPct": "475 (62.9%)",
-      "serviceablePct": "62.9%"
+      "serviceable": 476,
+      "serviceableWithPct": "476 (63.0%)",
+      "serviceablePct": "63.0%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -71240,8 +71240,8 @@
         "count": 2
       },
       "Vikas Poonia": {
-        "revenue": 43165,
-        "count": 4
+        "revenue": 56365,
+        "count": 5
       },
       "Shivaram Nimmala": {
         "revenue": 6599,
@@ -71260,8 +71260,8 @@
         "count": 2
       },
       "Others": {
-        "revenue": 48416,
-        "count": 4
+        "revenue": 23216,
+        "count": 2
       },
       "Jivesh Harde": {
         "revenue": 11000,
@@ -71272,6 +71272,10 @@
         "count": 1
       },
       "Prerak Bhavsar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
         "revenue": 12000,
         "count": 1
       }
@@ -71382,9 +71386,9 @@
       "revenue": 9325
     },
     "missedLeads": {
-      "Connected": 225,
-      "Interested": 108,
-      "Paise Dega": 25
+      "Connected": 238,
+      "Interested": 111,
+      "Paise Dega": 17
     },
     "refunds": {
       "count": 3,
@@ -71419,7 +71423,7 @@
     },
     "newUsers7d": 7020,
     "newUsersYesterday": 951,
-    "activeSubs": 5098,
+    "activeSubs": 5095,
     "newSubs7d": 163,
     "teleCrmLeads": 1099,
     "subsEnding5d": 65,
@@ -71429,22 +71433,22 @@
     "planExpNoOrder": 2422,
     "activeSubNoOrder": 124,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 23,
-      "Orders Placed": 23,
+      "Orders - PLACED": 21,
+      "Orders Placed": 21,
       "Orders - CONFIRMED": 16,
       "Orders Confirmed": 16,
-      "Orders - READY_TO_SHIP": 6,
-      "Orders Ready to Ship": 6,
-      "Orders - SHIPPED": 17,
-      "Orders Shipped": 17,
-      "Orders - Not Delivered": 64,
-      "Orders Not Delivered": 62
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 53,
+      "Orders Not Delivered": 51
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 472,
-      "New Subscribers Orders that have been Delivered": 408,
-      "New Subscribers Orders yet to be Delivered": 64,
-      "New Subscribers Orders yet to be Delivered & Delayed": 14
+      "New Subscribers Orders that have been Delivered": 419,
+      "New Subscribers Orders yet to be Delivered": 53,
+      "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
       "totalCount": 1,
