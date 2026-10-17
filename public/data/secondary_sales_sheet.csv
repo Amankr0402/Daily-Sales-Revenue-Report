@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,541,185",,,332,
+,,,,"3,572,758",,,334,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -218,7 +218,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 216,10/11/2026,9441569836,Shubham Rai,"6,787",Yes,Annual Max,0.5,Organic
 217,10/11/2026,7043301910,Shubham Rai,"13,000",No,Annual Max,1,Organic
 218,10/11/2026,8104358823,Chhaya Patel,"12,325",No,Annual Max,1,Organic
-219,10/11/2026,8130379489,Others,"12,000",No,Annual Max,1,Organic
+219,10/11/2026,8130379489,Honey Talreja,"12,000",No,Annual Max,1,Organic
 220,10/11/2026,8488826959,Others,"11,000",No,Annual Max,1,Organic
 221,10/11/2026,9763074350,Preyashi Roy,"12,000",No,Annual Max,1,Organic
 222,10/11/2026,8073066557,Honey Talreja,"5,843",No,Quarterly Max,1,Organic
@@ -332,8 +332,8 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 330,17/10/2026,8671872547,Vikas Poonia,"9,787",No,Annual Max,1,Organic
 331,17/10/2026,9924323639,Neeru Yadav,"9,787",No,Annual Max,1,Organic
 332,17/10/2026,9654777936,Vikas Poonia,"10,000",No,Annual Max,1,Events
-333,17/10/2026,,,,,,,
-334,17/10/2026,,,,,,,
+333,17/10/2026,9068828787,Honey Talreja,"12,000",No,Annual Max,1,Organic
+334,17/10/2026,9016088595,Kush Shah,"19,573",No,Annual Max,2,Organic
 335,17/10/2026,,,,,,,
 336,17/10/2026,,,,,,,
 337,17/10/2026,,,,,,,
