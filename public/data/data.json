@@ -55092,9 +55092,9 @@
   },
   {
     "date": "2026-07-14",
-    "totalRevenue": 272393,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 283393,
+    "salesCount": 28,
+    "transactions": 28,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -55112,6 +55112,10 @@
       "Honey Talreja": {
         "revenue": 47500,
         "count": 5
+      },
+      "Jivesh Harde": {
+        "revenue": 11000,
+        "count": 1
       },
       "Yash Sharma": {
         "revenue": 3000,
@@ -55148,8 +55152,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 263637,
-        "count": 25
+        "revenue": 274637,
+        "count": 26
       },
       "Quarterly Plus": {
         "revenue": 3000,
@@ -55162,8 +55166,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 156592,
-        "count": 15
+        "revenue": 167592,
+        "count": 16
       },
       "Renewals": {
         "revenue": 62256,
@@ -58608,9 +58612,9 @@
   },
   {
     "date": "2026-08-08",
-    "totalRevenue": 190124.95,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 201124.95,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 12531.95,
       "agent": "Self Serve",
@@ -58622,8 +58626,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 20500,
-        "count": 3
+        "revenue": 31500,
+        "count": 4
       },
       "Amol Landge": {
         "revenue": 31752,
@@ -58660,8 +58664,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 150875.95,
-        "count": 14
+        "revenue": 161875.95,
+        "count": 15
       },
       "6 months Max": {
         "revenue": 7000,
@@ -58682,8 +58686,8 @@
         "count": 0
       },
       "Organic": {
-        "revenue": 111592,
-        "count": 12
+        "revenue": 122592,
+        "count": 13
       },
       "Renewals": {
         "revenue": 24752,
@@ -60188,9 +60192,9 @@
   },
   {
     "date": "2026-08-17",
-    "totalRevenue": 206742.81,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 209611.81,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 19573,
       "agent": "Vivek Shah",
@@ -60238,8 +60242,8 @@
         "count": 1
       },
       "Shivani Gupta": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 2869,
+        "count": 1
       }
     },
     "plans": {
@@ -60248,14 +60252,14 @@
         "count": 16
       },
       "Quarterly Max": {
-        "revenue": 23000,
-        "count": 5
+        "revenue": 25869,
+        "count": 6
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 201005,
-        "count": 21
+        "revenue": 203874,
+        "count": 22
       },
       "Overlap Deals": {
         "revenue": 5737.81,
@@ -60273,7 +60277,7 @@
         "rawDate": "17/08/2026 21:37",
         "customerName": "AMIT MAKWANA",
         "phone": "7000653812",
-        "agent": "Shivani Gupta",
+        "agent": "Honey Talreja",
         "insideRevenue": 2869,
         "revenue": 5737.81,
         "directRevenue": 5737.81,
@@ -60281,7 +60285,7 @@
         "source": "Organic",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR443152",
-        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹2869 and also completed on Direct Portal for ₹5737.81"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2869 and also completed on Direct Portal for ₹5737.81"
       }
     ],
     "disputedDeals": [
@@ -60290,7 +60294,7 @@
         "rawDate": "17/08/2026 21:37",
         "customerName": "AMIT MAKWANA",
         "phone": "7000653812",
-        "agent": "Shivani Gupta",
+        "agent": "Honey Talreja",
         "insideRevenue": 2869,
         "revenue": 5737.81,
         "directRevenue": 5737.81,
@@ -60298,7 +60302,7 @@
         "source": "Organic",
         "directOrderId": "TOYJOY40",
         "directUserId": "UR443152",
-        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹2869 and also completed on Direct Portal for ₹5737.81"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2869 and also completed on Direct Portal for ₹5737.81"
       }
     ],
     "collidingTotal": {
@@ -61596,9 +61600,9 @@
   },
   {
     "date": "2026-08-26",
-    "totalRevenue": 272429,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 283429,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 12825,
       "agent": "Self Serve",
@@ -61612,6 +61616,10 @@
       "Amol Landge": {
         "revenue": 25752,
         "count": 3
+      },
+      "Shubham Rai": {
+        "revenue": 11000,
+        "count": 1
       },
       "Jivesh Harde": {
         "revenue": 22000,
@@ -61660,8 +61668,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 228848,
-        "count": 21
+        "revenue": 239848,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 20756,
@@ -61678,8 +61686,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 171092,
-        "count": 16
+        "revenue": 182092,
+        "count": 17
       },
       "Renewals": {
         "revenue": 82756,
@@ -71698,10 +71706,10 @@
     "planExpNoOrder": 2422,
     "activeSubNoOrder": 123,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 32,
-      "Orders Placed": 32,
-      "Orders - CONFIRMED": 20,
-      "Orders Confirmed": 20,
+      "Orders - PLACED": 30,
+      "Orders Placed": 30,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 2,
       "Orders Ready to Ship": 2,
       "Orders - SHIPPED": 2,
