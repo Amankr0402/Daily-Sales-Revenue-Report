@@ -53684,9 +53684,9 @@
   },
   {
     "date": "2026-07-04",
-    "totalRevenue": 359572.4,
-    "salesCount": 37,
-    "transactions": 37,
+    "totalRevenue": 364072.4,
+    "salesCount": 38,
+    "transactions": 38,
     "highestSale": {
       "amount": 14055,
       "agent": "Kausturi Roy Chowdhury",
@@ -53726,8 +53726,8 @@
         "count": 4
       },
       "Shubham Rai": {
-        "revenue": 14500,
-        "count": 2
+        "revenue": 19000,
+        "count": 3
       },
       "Shikha Singh": {
         "revenue": 12000,
@@ -53752,8 +53752,8 @@
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 15800,
-        "count": 4
+        "revenue": 20300,
+        "count": 5
       },
       "Annual Max": {
         "revenue": 287513.4,
@@ -53770,8 +53770,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 176392,
-        "count": 19
+        "revenue": 180892,
+        "count": 20
       },
       "Events": {
         "revenue": 106795,
@@ -55816,9 +55816,9 @@
   },
   {
     "date": "2026-07-19",
-    "totalRevenue": 337435,
-    "salesCount": 35,
-    "transactions": 35,
+    "totalRevenue": 325935,
+    "salesCount": 34,
+    "transactions": 34,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -55869,10 +55869,6 @@
         "revenue": 21000,
         "count": 2
       },
-      "Kausturi Roy Chowdhury": {
-        "revenue": 11500,
-        "count": 1
-      },
       "Preyashi Roy": {
         "revenue": 10500,
         "count": 1
@@ -55884,8 +55880,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 286160,
-        "count": 27
+        "revenue": 274660,
+        "count": 26
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -55902,8 +55898,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 199105,
-        "count": 21
+        "revenue": 187605,
+        "count": 20
       },
       "Renewals": {
         "revenue": 57500,
@@ -56618,9 +56614,9 @@
   },
   {
     "date": "2026-07-25",
-    "totalRevenue": 280874,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 270498,
+    "salesCount": 32,
+    "transactions": 32,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -56640,8 +56636,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 69128,
-        "count": 7
+        "revenue": 58752,
+        "count": 6
       },
       "Chhaya Patel": {
         "revenue": 27500,
@@ -56682,8 +56678,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 240354,
-        "count": 23
+        "revenue": 229978,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 26500,
@@ -56708,8 +56704,8 @@
         "count": 20
       },
       "Events": {
-        "revenue": 68504,
-        "count": 7
+        "revenue": 58128,
+        "count": 6
       },
       "Direct Sale": {
         "revenue": 35787,
@@ -59510,9 +59506,9 @@
   },
   {
     "date": "2026-08-13",
-    "totalRevenue": 302608,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 290608,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
@@ -59555,19 +59551,19 @@
         "revenue": 36000,
         "count": 3
       },
-      "Shivani Gupta": {
-        "revenue": 36000,
-        "count": 3
-      },
       "Rohit Jain": {
         "revenue": 12000,
         "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 24000,
+        "count": 2
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 269073,
-        "count": 22
+        "revenue": 257073,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 4246,
@@ -59576,8 +59572,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 252000,
-        "count": 21
+        "revenue": 240000,
+        "count": 20
       },
       "Direct Sale": {
         "revenue": 21319,
@@ -62374,9 +62370,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 293474,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 282474,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -62426,16 +62422,12 @@
       "Vivek Shah": {
         "revenue": 10000,
         "count": 1
-      },
-      "Sneha Anand": {
-        "revenue": 11000,
-        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251425,
-        "count": 24
+        "revenue": 240425,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -62452,8 +62444,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 154500,
-        "count": 15
+        "revenue": 143500,
+        "count": 14
       },
       "Renewals": {
         "revenue": 103636,
@@ -68880,8 +68872,8 @@
         "count": 9
       },
       "Others": {
-        "revenue": 28771,
-        "count": 4
+        "revenue": 47771,
+        "count": 6
       },
       "Jivesh Harde": {
         "revenue": 17000,
@@ -68914,10 +68906,6 @@
       "Kausturi Roy Chowdhury": {
         "revenue": 41573,
         "count": 4
-      },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 19000,
-        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 12000,
@@ -69749,7 +69737,7 @@
         "revenue": 5000,
         "count": 1
       },
-      "Tashrifa Ruhani Saikia": {
+      "Others": {
         "revenue": 5000,
         "count": 1
       },
@@ -70213,9 +70201,9 @@
         "revenue": 34243,
         "count": 4
       },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 12000,
-        "count": 1
+      "Others": {
+        "revenue": 23000,
+        "count": 2
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 0,
@@ -70232,10 +70220,6 @@
       "Shubham Rai": {
         "revenue": 36787,
         "count": 4
-      },
-      "Others": {
-        "revenue": 11000,
-        "count": 1
       },
       "Preyashi Roy": {
         "revenue": 24000,
@@ -70417,7 +70401,7 @@
       "source": "Inside Sales"
     },
     "agents": {
-      "Tashrifa Ruhani Saikia": {
+      "Others": {
         "revenue": 5000,
         "count": 1
       },
@@ -70671,7 +70655,7 @@
         "revenue": 2046,
         "count": 1
       },
-      "Tashrifa Ruhani Saikia": {
+      "Others": {
         "revenue": 12000,
         "count": 1
       },
@@ -70870,13 +70854,9 @@
         "revenue": 13000,
         "count": 1
       },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 12000,
-        "count": 1
-      },
       "Others": {
-        "revenue": 5000,
-        "count": 1
+        "revenue": 17000,
+        "count": 2
       },
       "Shivani Gupta": {
         "revenue": 12000,
@@ -71248,15 +71228,11 @@
         "count": 2
       },
       "Others": {
-        "revenue": 23216,
-        "count": 2
+        "revenue": 35216,
+        "count": 3
       },
       "Jivesh Harde": {
         "revenue": 11000,
-        "count": 1
-      },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 12000,
         "count": 1
       },
       "Prerak Bhavsar": {
@@ -71508,9 +71484,9 @@
       "revenue": 6599
     },
     "missedLeads": {
-      "Connected": 164,
-      "Interested": 79,
-      "Paise Dega": 18
+      "Connected": 212,
+      "Interested": 97,
+      "Paise Dega": 29
     },
     "refunds": {
       "count": 3,
@@ -71544,8 +71520,8 @@
       "count": 21
     },
     "newUsers7d": 7030,
-    "newUsersYesterday": 951,
-    "activeSubs": 5092,
+    "newUsersYesterday": 1012,
+    "activeSubs": 5089,
     "newSubs7d": 143,
     "teleCrmLeads": 1249,
     "subsEnding5d": 62,
@@ -71557,14 +71533,14 @@
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 24,
       "Orders Placed": 24,
-      "Orders - CONFIRMED": 23,
-      "Orders Confirmed": 23,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 5,
-      "Orders Shipped": 5,
+      "Orders - CONFIRMED": 19,
+      "Orders Confirmed": 19,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 8,
+      "Orders Shipped": 8,
       "Orders - Not Delivered": 55,
-      "Orders Not Delivered": 52
+      "Orders Not Delivered": 54
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 483,
