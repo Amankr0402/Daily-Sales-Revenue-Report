@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-18","Ritika Puri","9811719074","Shivani Gupta",6000,6000,"Quarterly Max","Organic","FLAT6AK","UR547159","Logged by Inside Sales agent (Shivani Gupta) for ₹6000 and also completed on Direct Portal for ₹6000"
 "2026-10-16","meenal","9971444261","Tanveer Ahmed",9325,9325,"Annual Plus","Organic","TOYJOY","UR433550","Logged by Inside Sales agent (Tanveer Ahmed) for ₹9325 and also completed on Direct Portal for ₹9325"
 "2026-10-15","sameer brid","9320378287","Vikas Poonia",9787,17695.68,"Annual Max","Organic","PLAYTIME","UR461055","Logged by Inside Sales agent (Vikas Poonia) for ₹9787 and also completed on Direct Portal for ₹17695.68"
 "2026-10-15","Tanaya devi Choudhury","9791380822","Honey Talreja",8825,8825,"Annual Plus","Organic","GARBA","UR544487","Logged by Inside Sales agent (Honey Talreja) for ₹8825 and also completed on Direct Portal for ₹8825"
@@ -83,7 +84,7 @@ date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_
 "2026-08-20","surbhi srivastava","8527296747","Vikas Poonia",4577,4577,"Quarterly Max","Renewals","FUNDEAL","UR289045","Logged by Inside Sales agent (Vikas Poonia) for ₹4577 and also completed on Direct Portal for ₹4577"
 "2026-08-19","dhanalakshmi","9952020400","Kush Shah",11000,5756,"Quarterly Max","Organic","FUNDEAL","UR425570","Logged by Inside Sales agent (Kush Shah) for ₹11000 and also completed on Direct Portal for ₹5756"
 "2026-08-18","Harsh Doshi","6351121188","Honey Talreja",5756,5756,"Quarterly Max","Organic","FUNDEAL","UR448674","Logged by Inside Sales agent (Honey Talreja) for ₹5756 and also completed on Direct Portal for ₹5756"
-"2026-08-17","AMIT MAKWANA","7000653812","Honey Talreja",2869,5737.81,"Quarterly Ultra","Organic","TOYJOY40","UR443152","Logged by Inside Sales agent (Honey Talreja) for ₹2869 and also completed on Direct Portal for ₹5737.81"
+"2026-08-17","AMIT MAKWANA","7000653812","Shivani Gupta",2869,5737.81,"Quarterly Ultra","Organic","TOYJOY40","UR443152","Logged by Inside Sales agent (Shivani Gupta) for ₹2869 and also completed on Direct Portal for ₹5737.81"
 "2026-08-16","Vrushali Sanjay kolse","7218844905","Vivek Shah",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR428681","Logged by Inside Sales agent (Vivek Shah) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-08-15","neelam verma","9616638501","Sneha Anand",3160,3160,"Quarterly Plus","Organic","FUNDEAL","UR402408","Logged by Inside Sales agent (Sneha Anand) for ₹3160 and also completed on Direct Portal for ₹3160"
 "2026-08-15","Pooja Tripathi","7202018036","Amol Landge",17073,16627.39,"Annual Max","Organic","FUNDEAL","UR242580","Logged by Inside Sales agent (Amol Landge) for ₹17073 and also completed on Direct Portal for ₹16627.39"
