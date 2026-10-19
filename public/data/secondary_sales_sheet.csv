@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,720,350",,,347,
+,,,,"3,779,726",,,352,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -219,7 +219,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 217,10/11/2026,7043301910,Shubham Rai,"13,000",No,Annual Max,1,Organic
 218,10/11/2026,8104358823,Chhaya Patel,"12,325",No,Annual Max,1,Organic
 219,10/11/2026,8130379489,Honey Talreja,"12,000",No,Annual Max,1,Organic
-220,10/11/2026,8488826959,Others,"11,000",No,Annual Max,1,Organic
+220,10/11/2026,8488826959,Kush Shah,"11,000",No,Annual Max,1,Organic
 221,10/11/2026,9763074350,Preyashi Roy,"12,000",No,Annual Max,1,Organic
 222,10/11/2026,8073066557,Honey Talreja,"5,843",No,Quarterly Max,1,Organic
 223,10/11/2026,8692906099,Shubham Rai,"12,000",Yes,Annual Max,0.5,Organic
@@ -347,24 +347,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 345,18/10/2026,8600128327,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 346,18/10/2026,9820835574,Jivesh Harde,"10,376",No,Annual Max,1,Renewals
 347,18/10/2026,9560824566,Chhaya Patel,"12,216",No,Annual Max,1,Organic
-348,18/10/2026,,,,,,,
-349,18/10/2026,,,,,,,
-350,18/10/2026,,,,,,,
-351,18/10/2026,,,,,,,
-352,18/10/2026,,,,,,,
-353,18/10/2026,,,,,,,
-354,18/10/2026,,,,,,,
-355,18/10/2026,,,,,,,
-356,18/10/2026,,,,,,,
-357,18/10/2026,,,,,,,
-358,18/10/2026,,,,,,,
-359,18/10/2026,,,,,,,
-360,18/10/2026,,,,,,,
-361,18/10/2026,,,,,,,
-362,18/10/2026,,,,,,,
-363,18/10/2026,,,,,,,
-364,18/10/2026,,,,,,,
-365,18/10/2026,,,,,,,
-366,18/10/2026,,,,,,,
-367,18/10/2026,,,,,,,
-368,18/10/2026,,,,,,,
+348,19/10/2026,8700816152,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
+349,19/10/2026,9110886884,Kush Shah,"12,000",No,Annual Max,1,Organic
+350,19/10/2026,9582208861,Amol Landge,"11,376",No,Annual Max,1,Renewals
+351,19/10/2026,9930329858,Honey Talreja,"12,000",No,Annual Max,1,Organic
+352,19/10/2026,9326061267,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+353,19/10/2026,,,,,,,
+354,19/10/2026,,,,,,,
+355,19/10/2026,,,,,,,
+356,19/10/2026,,,,,,,
+357,19/10/2026,,,,,,,
+358,19/10/2026,,,,,,,
+359,19/10/2026,,,,,,,
+360,19/10/2026,,,,,,,
+361,19/10/2026,,,,,,,
+362,19/10/2026,,,,,,,
+363,19/10/2026,,,,,,,
+364,19/10/2026,,,,,,,
+365,19/10/2026,,,,,,,
+366,19/10/2026,,,,,,,
+367,19/10/2026,,,,,,,
+368,19/10/2026,,,,,,,
