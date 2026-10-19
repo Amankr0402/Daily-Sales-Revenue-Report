@@ -53922,9 +53922,9 @@
   },
   {
     "date": "2026-07-05",
-    "totalRevenue": 389224,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 378224,
+    "salesCount": 38,
+    "transactions": 38,
     "highestSale": {
       "amount": 17500,
       "agent": "Jivesh Harde",
@@ -53936,8 +53936,8 @@
         "count": 4
       },
       "Amol Landge": {
-        "revenue": 69452,
-        "count": 7
+        "revenue": 58452,
+        "count": 6
       },
       "Vikas Poonia": {
         "revenue": 63000,
@@ -53986,8 +53986,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 347727,
-        "count": 32
+        "revenue": 336727,
+        "count": 31
       },
       "Quarterly Max": {
         "revenue": 24956,
@@ -54008,8 +54008,8 @@
         "count": 19
       },
       "Events": {
-        "revenue": 107752,
-        "count": 10
+        "revenue": 96752,
+        "count": 9
       },
       "Upgrade": {
         "revenue": 6500,
@@ -58774,9 +58774,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 303658,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 314034,
+    "salesCount": 33,
+    "transactions": 33,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta",
@@ -58784,8 +58784,8 @@
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 30752,
-        "count": 3
+        "revenue": 41128,
+        "count": 4
       },
       "Honey Talreja": {
         "revenue": 28000,
@@ -58842,8 +58842,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 262921,
-        "count": 23
+        "revenue": 273297,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 24256,
@@ -58868,8 +58868,8 @@
         "count": 0
       },
       "Renewals": {
-        "revenue": 20376,
-        "count": 2
+        "revenue": 30752,
+        "count": 3
       },
       "Direct Sale": {
         "revenue": 48278,
@@ -70266,13 +70266,7 @@
         "count": 3
       }
     },
-    "userBreakdown": {
-      "signups": 1120,
-      "otpVerified": 1048,
-      "serviceable": 691,
-      "serviceableWithPct": "691 (61.7%)",
-      "serviceablePct": "61.7%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 7,
       "revenue": 81688.63
@@ -71666,9 +71660,9 @@
       "revenue": 6000
     },
     "missedLeads": {
-      "Connected": 210,
+      "Connected": 187,
       "Interested": 94,
-      "Paise Dega": 9
+      "Paise Dega": 8
     },
     "refunds": {
       "count": 2,
@@ -71694,17 +71688,17 @@
       "total": 197750.1,
       "count": 23
     },
-    "newUsers7d": 7030,
+    "newUsers7d": 7122,
     "newUsersYesterday": 1012,
     "activeSubs": 5097,
-    "newSubs7d": 143,
-    "teleCrmLeads": 1249,
-    "subsEnding5d": 62,
-    "subsExpired7d": 92,
-    "subsExpiringToday": 10,
+    "newSubs7d": 140,
+    "teleCrmLeads": 1396,
+    "subsEnding5d": 67,
+    "subsExpired7d": 98,
+    "subsExpiringToday": 15,
     "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2422,
-    "activeSubNoOrder": 123,
+    "planExpNoOrder": 2423,
+    "activeSubNoOrder": 122,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 30,
       "Orders Placed": 30,
