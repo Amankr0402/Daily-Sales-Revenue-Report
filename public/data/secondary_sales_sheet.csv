@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,960,464",,,366,
+,,,,"4,040,826",,,372,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -366,15 +366,25 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 364,20/10/2026,9949494780,Others,"12,216",No,Annual Max,1,Organic
 365,20/10/2026,8095323510,Kush Shah,"19,573",No,Annual Max,2,Organic
 366,20/10/2026,9377005222,Amol Landge,"12,000",No,Annual Max,1,Renewals
-367,20/10/2026,,,,,,,
-368,20/10/2026,,,,,,,
-369,20/10/2026,,,,,,,
-370,20/10/2026,,,,,,,
-371,20/10/2026,,,,,,,
-372,20/10/2026,,,,,,,
+367,20/10/2026,7009314447,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+368,20/10/2026,9146142192,Vikas Poonia,"5,000",No,Annual Mini,1,Renewals
+369,20/10/2026,9030366045,Tanveer Ahmed,"19,573",No,Annual Max,2,Organic
+370,20/10/2026,9011323219,Others,"12,000",No,Annual Max,1,Organic
+371,20/10/2026,8306058537,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+372,20/10/2026,7738227441,Rohit Jain,"19,573",No,Annual Max,2,Organic
 373,20/10/2026,,,,,,,
 374,20/10/2026,,,,,,,
 375,20/10/2026,,,,,,,
 376,20/10/2026,,,,,,,
 377,20/10/2026,,,,,,,
 378,20/10/2026,,,,,,,
+379,20/10/2026,,,,,,,
+380,20/10/2026,,,,,,,
+381,20/10/2026,,,,,,,
+382,20/10/2026,,,,,,,
+383,20/10/2026,,,,,,,
+384,20/10/2026,,,,,,,
+385,20/10/2026,,,,,,,
+386,20/10/2026,,,,,,,
+387,20/10/2026,,,,,,,
+388,20/10/2026,,,,,,,
