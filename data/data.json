@@ -54230,9 +54230,9 @@
   },
   {
     "date": "2026-07-08",
-    "totalRevenue": 118620.9,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 113620.9,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
       "amount": 14055,
       "agent": "Self Serve",
@@ -54250,10 +54250,6 @@
       "Vikas Poonia": {
         "revenue": 13000,
         "count": 2
-      },
-      "Preyashi Roy": {
-        "revenue": 5000,
-        "count": 1
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 21500,
@@ -54286,14 +54282,14 @@
         "count": 9
       },
       "Quarterly Max": {
-        "revenue": 9500,
-        "count": 2
+        "revenue": 4500,
+        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 79500,
-        "count": 11
+        "revenue": 74500,
+        "count": 10
       },
       "Upgrade": {
         "revenue": 3000,
@@ -58774,9 +58770,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 314034,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 301818,
+    "salesCount": 32,
+    "transactions": 32,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta",
@@ -58823,10 +58819,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Kausturi Roy Chowdhury": {
-        "revenue": 24431,
-        "count": 2
-      },
       "Others": {
         "revenue": 3160,
         "count": 1
@@ -58838,12 +58830,16 @@
       "Prerak Bhavsar": {
         "revenue": 11000,
         "count": 1
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12215,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 273297,
-        "count": 24
+        "revenue": 261081,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 24256,
@@ -58856,8 +58852,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180467,
-        "count": 19
+        "revenue": 168251,
+        "count": 18
       },
       "Events": {
         "revenue": 47376,
@@ -59686,9 +59682,9 @@
   },
   {
     "date": "2026-08-14",
-    "totalRevenue": 242925,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 253925,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -59732,14 +59728,14 @@
         "count": 2
       },
       "Tanveer Ahmed": {
-        "revenue": 23000,
-        "count": 2
+        "revenue": 34000,
+        "count": 3
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 218009,
-        "count": 19
+        "revenue": 229009,
+        "count": 20
       },
       "Quarterly Max": {
         "revenue": 14756,
@@ -59756,8 +59752,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 135216,
-        "count": 13
+        "revenue": 146216,
+        "count": 14
       },
       "Renewals": {
         "revenue": 69504,
@@ -70496,13 +70492,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 1100,
-      "otpVerified": 1037,
-      "serviceable": 732,
-      "serviceableWithPct": "732 (66.5%)",
-      "serviceablePct": "66.5%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 6,
       "revenue": 68914.68
@@ -70578,12 +70568,6 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 24138.559999999998
-    },
-    "deliveryFee": {
-      "transactions": 2,
-      "charge": 200,
-      "tax": 36,
-      "total": 236
     },
     "refunds": {
       "count": 1,
@@ -71761,9 +71745,9 @@
       "revenue": 47988
     },
     "missedLeads": {
-      "Connected": 224,
+      "Connected": 171,
       "Interested": 92,
-      "Paise Dega": 8
+      "Paise Dega": 14
     },
     "refundsLast7Days": {
       "total": 186750.1,
@@ -71774,17 +71758,17 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 7122,
+    "newUsers7d": 6730,
     "newUsersYesterday": 1151,
     "activeSubs": 5093,
-    "newSubs7d": 139,
-    "teleCrmLeads": 1391,
-    "subsEnding5d": 67,
-    "subsExpired7d": 98,
-    "subsExpiringToday": 15,
-    "planExpiringNoOrder": 4,
-    "planExpNoOrder": 2423,
-    "activeSubNoOrder": 117,
+    "newSubs7d": 132,
+    "teleCrmLeads": 799,
+    "subsEnding5d": 63,
+    "subsExpired7d": 95,
+    "subsExpiringToday": 4,
+    "planExpiringNoOrder": 1,
+    "planExpNoOrder": 2425,
+    "activeSubNoOrder": 115,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 28,
       "Orders Placed": 28,
