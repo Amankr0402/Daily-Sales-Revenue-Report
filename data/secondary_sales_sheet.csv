@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,847,299",,,357,
+,,,,"3,960,464",,,366,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -357,14 +357,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 355,19/10/2026,8920285878,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 356,19/10/2026,8407974751,Honey Talreja,"19,573",No,Annual Max,1,Organic
 357,20/10/2026,9717149068,Kush Shah,"12,000",No,Annual Max,1,Organic
-358,20/10/2026,,,,,,,
-359,20/10/2026,,,,,,,
-360,20/10/2026,,,,,,,
-361,20/10/2026,,,,,,,
-362,20/10/2026,,,,,,,
-363,20/10/2026,,,,,,,
-364,20/10/2026,,,,,,,
-365,20/10/2026,,,,,,,
-366,20/10/2026,,,,,,,
+358,20/10/2026,9727244094,Honey Talreja,"12,000",No,Annual Max,1,Organic
+359,20/10/2026,9033319717,Darshan KS,"12,000",No,Annual Max,1,Organic
+360,20/10/2026,7358662895,Chhaya Patel,"12,000",No,Annual Max,1,Organic
+361,20/10/2026,9039065103,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+362,20/10/2026,8123024352,Amol Landge,"10,376",No,Annual Max,1,Renewals
+363,20/10/2026,9649613676,Amol Landge,"12,000",No,Annual Max,1,Organic
+364,20/10/2026,9949494780,Others,"12,216",No,Annual Max,1,Organic
+365,20/10/2026,8095323510,Kush Shah,"19,573",No,Annual Max,2,Organic
+366,20/10/2026,9377005222,Amol Landge,"12,000",No,Annual Max,1,Renewals
 367,20/10/2026,,,,,,,
 368,20/10/2026,,,,,,,
+369,20/10/2026,,,,,,,
+370,20/10/2026,,,,,,,
+371,20/10/2026,,,,,,,
+372,20/10/2026,,,,,,,
+373,20/10/2026,,,,,,,
+374,20/10/2026,,,,,,,
+375,20/10/2026,,,,,,,
+376,20/10/2026,,,,,,,
+377,20/10/2026,,,,,,,
+378,20/10/2026,,,,,,,

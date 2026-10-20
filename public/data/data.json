@@ -61170,9 +61170,9 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 369056,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 380056,
+    "salesCount": 40,
+    "transactions": 40,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah",
@@ -61246,12 +61246,16 @@
       "Shashank Tiwari": {
         "revenue": 4500,
         "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 332344,
-        "count": 31
+        "revenue": 343344,
+        "count": 32
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -61264,8 +61268,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 183416,
-        "count": 21
+        "revenue": 194416,
+        "count": 22
       },
       "Events": {
         "revenue": 153376,
@@ -71745,9 +71749,9 @@
       "revenue": 47988
     },
     "missedLeads": {
-      "Connected": 193,
-      "Interested": 92,
-      "Paise Dega": 16
+      "Connected": 182,
+      "Interested": 86,
+      "Paise Dega": 10
     },
     "refundsLast7Days": {
       "total": 186750.1,
@@ -71760,7 +71764,7 @@
     },
     "newUsers7d": 6730,
     "newUsersYesterday": 646,
-    "activeSubs": 5095,
+    "activeSubs": 5101,
     "newSubs7d": 132,
     "teleCrmLeads": 799,
     "subsEnding5d": 63,
@@ -71768,24 +71772,24 @@
     "subsExpiringToday": 4,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2425,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 25,
-      "Orders Placed": 25,
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
       "Orders - CONFIRMED": 20,
       "Orders Confirmed": 20,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 17,
-      "Orders Shipped": 17,
-      "Orders - Not Delivered": 65,
-      "Orders Not Delivered": 64
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 7,
+      "Orders Shipped": 7,
+      "Orders - Not Delivered": 54,
+      "Orders Not Delivered": 51
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 511,
-      "New Subscribers Orders that have been Delivered": 446,
-      "New Subscribers Orders yet to be Delivered": 65,
-      "New Subscribers Orders yet to be Delivered & Delayed": 20
+      "New Subscribers Orders that have been Delivered": 457,
+      "New Subscribers Orders yet to be Delivered": 54,
+      "New Subscribers Orders yet to be Delivered & Delayed": 17
     },
     "selfUpgrade": {
       "totalCount": 0,
