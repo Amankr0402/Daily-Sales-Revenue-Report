@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,060,498",,,374,
+,,,,"4,126,256",,,381,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -374,13 +374,13 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 372,20/10/2026,7738227441,Rohit Jain,"19,573",No,Annual Max,2,Organic
 373,20/10/2026,9429292393,Honey Talreja,"13,073",No,Annual Max,1,Organic
 374,21/10/2026,8451898252,Kush Shah,"6,599",No,Quarterly Max,1,Organic
-375,21/10/2026,,,,,,,
-376,21/10/2026,,,,,,,
-377,21/10/2026,,,,,,,
-378,21/10/2026,,,,,,,
-379,21/10/2026,,,,,,,
-380,21/10/2026,,,,,,,
-381,21/10/2026,,,,,,,
+375,21/10/2026,9949949026,Vivek Shah,"9,325",No,Annual Plus,1,Organic
+376,21/10/2026,9166705999,Shubham Rai,"6,000",No,Annual Max,1,Upgrade
+377,21/10/2026,9916973308,Prerak Bhavsar,"7,433",No,Ultra Quarterly,1,Organic
+378,21/10/2026,9323745529,Yuvraj Singh Dodiya,"10,500",No,Annual Max,1,Organic
+379,21/10/2026,6351077738,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+380,21/10/2026,9158776958,Shubham Rai,"4,500",No,Annual Max,1,Upgrade
+381,21/10/2026,9974592852,Shubham Rai,"16,000",No,Annual Max,1,Organic
 382,21/10/2026,,,,,,,
 383,21/10/2026,,,,,,,
 384,21/10/2026,,,,,,,
