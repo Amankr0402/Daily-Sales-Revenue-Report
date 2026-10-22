@@ -54050,9 +54050,9 @@
   },
   {
     "date": "2026-07-06",
-    "totalRevenue": 113005.86,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 103005.86,
+    "salesCount": 12,
+    "transactions": 12,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
@@ -54067,16 +54067,16 @@
         "revenue": 22000,
         "count": 2
       },
-      "Honey Talreja": {
-        "revenue": 21000,
-        "count": 2
-      },
       "Sneha Anand": {
         "revenue": 4500,
         "count": 1
       },
       "Kush Shah": {
         "revenue": 10500,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
         "count": 1
       },
       "Shikha Singh": {
@@ -54086,8 +54086,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 86592,
-        "count": 8
+        "revenue": 76592,
+        "count": 7
       },
       "Quarterly Max": {
         "revenue": 20431.86,
@@ -54100,8 +54100,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 20376,
-        "count": 2
+        "revenue": 10376,
+        "count": 1
       },
       "Organic": {
         "revenue": 58500,
@@ -55412,9 +55412,9 @@
   },
   {
     "date": "2026-07-16",
-    "totalRevenue": 205766.55,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 217266.55,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 15681.55,
       "agent": "Self Serve",
@@ -55446,8 +55446,8 @@
         "count": 3
       },
       "Prerak Bhavsar": {
-        "revenue": 32000,
-        "count": 3
+        "revenue": 43500,
+        "count": 4
       },
       "Kush Shah": {
         "revenue": 4500,
@@ -55460,8 +55460,8 @@
         "count": 0
       },
       "Annual Max": {
-        "revenue": 190497.55,
-        "count": 18
+        "revenue": 201997.55,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 9000,
@@ -55470,8 +55470,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 135216,
-        "count": 14
+        "revenue": 146716,
+        "count": 15
       },
       "Renewals": {
         "revenue": 45000,
@@ -72218,8 +72218,8 @@
       "serviceablePct": "51.1%"
     },
     "missedLeads": {
-      "Connected": 143,
-      "Interested": 48,
+      "Connected": 146,
+      "Interested": 49,
       "Paise Dega": 19
     },
     "refunds": {
@@ -72277,7 +72277,7 @@
     "subsExpiringToday": 7,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2425,
-    "activeSubNoOrder": 117,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 23,
       "Orders Placed": 23,
