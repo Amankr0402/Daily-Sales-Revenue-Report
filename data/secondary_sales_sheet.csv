@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,322,260",,,399,
+,,,,"4,417,308",,,407,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -399,12 +399,22 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 397,22/10/2026,9711777423,Shubham Rai,"12,000",No,Annual Max,1,Organic
 398,22/10/2026,9773468326,Others,"12,000",No,Annual Max,1,Organic
 399,22/10/2026,9743470492,Others,"11,000",No,Annual Max,1,Organic
-400,22/10/2026,,,,,,,
-401,22/10/2026,,,,,,,
-402,22/10/2026,,,,,,,
-403,22/10/2026,,,,,,,
-404,22/10/2026,,,,,,,
-405,22/10/2026,,,,,,,
-406,22/10/2026,,,,,,,
-407,22/10/2026,,,,,,,
+400,22/10/2026,8884274368,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+401,22/10/2026,7500054990,Shubham Rai,"12,000",No,Annual Max,1,Organic
+402,22/10/2026,9540128318,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+403,22/10/2026,9571234559,Rohit Jain,"12,000",No,Annual Max,1,Organic
+404,22/10/2026,9266451701,Vivek Shah,"19,573",No,Annual Max,2,Organic
+405,22/10/2026,7022686796,Shivani Gupta,"5,259",No,Quarterly Plus,1,Organic
+406,22/10/2026,8411976848,Preyashi Roy,"10,000",No,Annual Max,1,Organic
+407,22/10/2026,9892805310,Kush Shah,"12,216",No,Annual Max,1,Organic
 408,22/10/2026,,,,,,,
+409,22/10/2026,,,,,,,
+410,22/10/2026,,,,,,,
+411,22/10/2026,,,,,,,
+412,22/10/2026,,,,,,,
+413,22/10/2026,,,,,,,
+414,22/10/2026,,,,,,,
+415,22/10/2026,,,,,,,
+416,22/10/2026,,,,,,,
+417,22/10/2026,,,,,,,
+418,22/10/2026,,,,,,,
