@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,193,632",,,387,
+,,,,"4,322,260",,,399,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -363,7 +363,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 361,20/10/2026,9039065103,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
 362,20/10/2026,8123024352,Amol Landge,"10,376",No,Annual Max,1,Renewals
 363,20/10/2026,9649613676,Amol Landge,"12,000",No,Annual Max,1,Organic
-364,20/10/2026,9949494780,Others,"12,216",No,Annual Max,1,Organic
+364,20/10/2026,9949494780,Shubham Rai,"12,216",No,Annual Max,1,Organic
 365,20/10/2026,8095323510,Kush Shah,"19,573",No,Annual Max,2,Organic
 366,20/10/2026,9377005222,Amol Landge,"12,000",No,Annual Max,1,Renewals
 367,20/10/2026,7009314447,Shivani Gupta,"12,000",No,Annual Max,1,Organic
@@ -387,14 +387,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 385,21/10/2026,9986019501,Amol Landge,"11,376",No,Annual Max,1,Renewals
 386,22/10/2026,7041707533,Kush Shah,"1,000",No,Annual Max,1,Organic
 387,22/10/2026,8866118182,Neeru Yadav,"12,000",No,Annual Max,1,Organic
-388,22/10/2026,,,,,,,
-389,22/10/2026,,,,,,,
-390,22/10/2026,,,,,,,
-391,22/10/2026,,,,,,,
-392,22/10/2026,,,,,,,
-393,22/10/2026,,,,,,,
-394,22/10/2026,,,,,,,
-395,22/10/2026,,,,,,,
-396,22/10/2026,,,,,,,
-397,22/10/2026,,,,,,,
-398,22/10/2026,,,,,,,
+388,22/10/2026,9632994821,Shivani Gupta,"7,500",No,Ultra Quarterly,1,Organic
+389,22/10/2026,9971143444,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+390,22/10/2026,9664317846,Amol Landge,"11,376",No,Annual Max,1,Renewals
+391,22/10/2026,9632133446,Amol Landge,"10,376",No,Annual Max,1,Renewals
+392,22/10/2026,8095627722,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+393,22/10/2026,9910158109,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+394,22/10/2026,8146336743,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+395,22/10/2026,8279873422,Supratim Dutta,"6,000",No,Quarterly Max,1,Organic
+396,22/10/2026,9717310111,Honey Talreja,"12,000",No,Annual Max,1,Organic
+397,22/10/2026,9711777423,Shubham Rai,"12,000",No,Annual Max,1,Organic
+398,22/10/2026,9773468326,Others,"12,000",No,Annual Max,1,Organic
+399,22/10/2026,9743470492,Others,"11,000",No,Annual Max,1,Organic
+400,22/10/2026,,,,,,,
+401,22/10/2026,,,,,,,
+402,22/10/2026,,,,,,,
+403,22/10/2026,,,,,,,
+404,22/10/2026,,,,,,,
+405,22/10/2026,,,,,,,
+406,22/10/2026,,,,,,,
+407,22/10/2026,,,,,,,
+408,22/10/2026,,,,,,,
