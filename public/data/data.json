@@ -53684,9 +53684,9 @@
   },
   {
     "date": "2026-07-04",
-    "totalRevenue": 353072.4,
-    "salesCount": 37,
-    "transactions": 37,
+    "totalRevenue": 364072.4,
+    "salesCount": 38,
+    "transactions": 38,
     "highestSale": {
       "amount": 14055,
       "agent": "Kausturi Roy Chowdhury",
@@ -53706,8 +53706,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 42043,
-        "count": 4
+        "revenue": 53043,
+        "count": 5
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 12216,
@@ -53756,8 +53756,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 276513.4,
-        "count": 26
+        "revenue": 287513.4,
+        "count": 27
       },
       "Annual Plus": {
         "revenue": 19667,
@@ -53774,8 +53774,8 @@
         "count": 20
       },
       "Events": {
-        "revenue": 95795,
-        "count": 9
+        "revenue": 106795,
+        "count": 10
       },
       "Upgrade": {
         "revenue": 3000,
@@ -55412,9 +55412,9 @@
   },
   {
     "date": "2026-07-16",
-    "totalRevenue": 217266.55,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 205766.55,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 15681.55,
       "agent": "Self Serve",
@@ -55446,8 +55446,8 @@
         "count": 3
       },
       "Prerak Bhavsar": {
-        "revenue": 43500,
-        "count": 4
+        "revenue": 32000,
+        "count": 3
       },
       "Kush Shah": {
         "revenue": 4500,
@@ -55460,8 +55460,8 @@
         "count": 0
       },
       "Annual Max": {
-        "revenue": 201997.55,
-        "count": 19
+        "revenue": 190497.55,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 9000,
@@ -55470,8 +55470,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 146716,
-        "count": 15
+        "revenue": 135216,
+        "count": 14
       },
       "Renewals": {
         "revenue": 45000,
@@ -59794,9 +59794,9 @@
   },
   {
     "date": "2026-08-15",
-    "totalRevenue": 412678.99,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 417178.99,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Amol Landge",
@@ -59858,6 +59858,10 @@
       "Naveen Suwalka": {
         "revenue": 11000,
         "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 4500,
+        "count": 1
       }
     },
     "plans": {
@@ -59866,8 +59870,8 @@
         "count": 29
       },
       "Quarterly Max": {
-        "revenue": 43012,
-        "count": 9
+        "revenue": 47512,
+        "count": 10
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -59884,8 +59888,8 @@
         "count": 8
       },
       "Organic": {
-        "revenue": 239120,
-        "count": 25
+        "revenue": 243620,
+        "count": 26
       },
       "Events": {
         "revenue": 44000,
@@ -61480,9 +61484,9 @@
   },
   {
     "date": "2026-08-25",
-    "totalRevenue": 225936,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 230436,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 13000,
       "agent": "Honey Talreja",
@@ -61518,8 +61522,8 @@
         "count": 1
       },
       "Abhijeet Mathur": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 16500,
+        "count": 2
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -61544,8 +61548,8 @@
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 9000,
-        "count": 2
+        "revenue": 13500,
+        "count": 3
       },
       "Annual Max": {
         "revenue": 213776,
@@ -61558,8 +61562,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 174932,
-        "count": 16
+        "revenue": 179432,
+        "count": 17
       },
       "Renewals": {
         "revenue": 47844,
@@ -72047,11 +72051,6 @@
       "tax": 18,
       "total": 118
     },
-    "missedLeads": {
-      "Connected": 141,
-      "Interested": 48,
-      "Paise Dega": 19
-    },
     "refundsLast7Days": {
       "total": 101151,
       "count": 12
@@ -72060,35 +72059,6 @@
       "count": 0,
       "total": 0,
       "items": []
-    },
-    "newUsers7d": 5589,
-    "newUsersYesterday": 283,
-    "activeSubs": 5111,
-    "newSubs7d": 123,
-    "teleCrmLeads": 483,
-    "subsEnding5d": 70,
-    "subsExpired7d": 81,
-    "subsExpiringToday": 7,
-    "planExpiringNoOrder": 2,
-    "planExpNoOrder": 2425,
-    "activeSubNoOrder": 118,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 13,
-      "Orders Placed": 13,
-      "Orders - CONFIRMED": 17,
-      "Orders Confirmed": 17,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 3,
-      "Orders Shipped": 3,
-      "Orders - Not Delivered": 36,
-      "Orders Not Delivered": 34
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 537,
-      "New Subscribers Orders that have been Delivered": 501,
-      "New Subscribers Orders yet to be Delivered": 36,
-      "New Subscribers Orders yet to be Delivered & Delayed": 10
     },
     "selfUpgrade": {
       "totalCount": 0,
@@ -72138,6 +72108,202 @@
           "inSecondarySheet": true
         }
       ]
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "totalRevenue": 236676,
+    "salesCount": 23,
+    "transactions": 22,
+    "highestSale": {
+      "amount": 12216,
+      "agent": "Kush Shah",
+      "source": "Inside Sales"
+    },
+    "agents": {
+      "Kush Shah": {
+        "revenue": 13216,
+        "count": 2
+      },
+      "Neeru Yadav": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 36759,
+        "count": 4
+      },
+      "Vikas Poonia": {
+        "revenue": 10376,
+        "count": 1
+      },
+      "Amol Landge": {
+        "revenue": 21752,
+        "count": 2
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivaram Nimmala": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Supratim Dutta": {
+        "revenue": 6000,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 24000,
+        "count": 2
+      },
+      "Others": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Vivek Shah": {
+        "revenue": 19573,
+        "count": 2
+      },
+      "Preyashi Roy": {
+        "revenue": 10000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 217917,
+        "count": 20
+      },
+      "Ultra Quarterly": {
+        "revenue": 7500,
+        "count": 1
+      },
+      "Quarterly Max": {
+        "revenue": 6000,
+        "count": 1
+      },
+      "Quarterly Plus": {
+        "revenue": 5259,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 204548,
+        "count": 20
+      },
+      "Renewals": {
+        "revenue": 32128,
+        "count": 3
+      }
+    },
+    "userBreakdown": {
+      "signups": 421,
+      "otpVerified": 333,
+      "serviceable": 215,
+      "serviceableWithPct": "215 (51.1%)",
+      "serviceablePct": "51.1%"
+    },
+    "missedLeads": {
+      "Connected": 143,
+      "Interested": 48,
+      "Paise Dega": 19
+    },
+    "refunds": {
+      "count": 5,
+      "total": 45599.06,
+      "items": [
+        {
+          "refundId": "rfnd_TqrHR0vWtPOow3",
+          "paymentId": "pay_TK5GFEQFiYsJUP",
+          "amount": 2525,
+          "status": "processed",
+          "date": "22/10/2026 12:10:31"
+        },
+        {
+          "refundId": "rfnd_TqvBRx40jAQvn7",
+          "paymentId": "pay_SxR28FVhWUSbQc",
+          "amount": 12493,
+          "status": "processed",
+          "date": "22/10/2026 15:59:37"
+        },
+        {
+          "refundId": "rfnd_TqvCZ9uuZmglEs",
+          "paymentId": "pay_TIrvAiKsHHNnmh",
+          "amount": 9530.36,
+          "status": "processed",
+          "date": "22/10/2026 16:00:41"
+        },
+        {
+          "refundId": "rfnd_TqvDeFgELHPE8Y",
+          "paymentId": "pay_TPHTrRoCP5f3dx",
+          "amount": 10050.7,
+          "status": "processed",
+          "date": "22/10/2026 16:01:42"
+        },
+        {
+          "refundId": "rfnd_TqvFS1T06TlRDA",
+          "paymentId": "pay_TYIX53MtgGtmuf",
+          "amount": 11000,
+          "status": "processed",
+          "date": "22/10/2026 16:03:25"
+        }
+      ]
+    },
+    "refundsLast7Days": {
+      "total": 128050.06,
+      "count": 15
+    },
+    "newUsers7d": 5589,
+    "newUsersYesterday": 283,
+    "activeSubs": 5109,
+    "newSubs7d": 123,
+    "teleCrmLeads": 483,
+    "subsEnding5d": 70,
+    "subsExpired7d": 81,
+    "subsExpiringToday": 7,
+    "planExpiringNoOrder": 2,
+    "planExpNoOrder": 2425,
+    "activeSubNoOrder": 117,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 19,
+      "Orders Confirmed": 19,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 3,
+      "Orders Shipped": 3,
+      "Orders - Not Delivered": 48,
+      "Orders Not Delivered": 46
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 549,
+      "New Subscribers Orders that have been Delivered": 501,
+      "New Subscribers Orders yet to be Delivered": 48,
+      "New Subscribers Orders yet to be Delivered & Delayed": 11
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
     }
   }
 ]
