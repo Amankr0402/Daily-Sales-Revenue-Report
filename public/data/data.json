@@ -54050,9 +54050,9 @@
   },
   {
     "date": "2026-07-06",
-    "totalRevenue": 113005.86,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 103005.86,
+    "salesCount": 12,
+    "transactions": 12,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
@@ -54067,16 +54067,16 @@
         "revenue": 22000,
         "count": 2
       },
-      "Honey Talreja": {
-        "revenue": 21000,
-        "count": 2
-      },
       "Sneha Anand": {
         "revenue": 4500,
         "count": 1
       },
       "Kush Shah": {
         "revenue": 10500,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 11000,
         "count": 1
       },
       "Shikha Singh": {
@@ -54086,8 +54086,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 86592,
-        "count": 8
+        "revenue": 76592,
+        "count": 7
       },
       "Quarterly Max": {
         "revenue": 20431.86,
@@ -54100,8 +54100,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 20376,
-        "count": 2
+        "revenue": 10376,
+        "count": 1
       },
       "Organic": {
         "revenue": 58500,
@@ -56440,9 +56440,9 @@
   },
   {
     "date": "2026-07-24",
-    "totalRevenue": 266203,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 276579,
+    "salesCount": 28,
+    "transactions": 28,
     "highestSale": {
       "amount": 17000,
       "agent": "Shivani Gupta",
@@ -56470,8 +56470,8 @@
         "count": 3
       },
       "Amol Landge": {
-        "revenue": 27723,
-        "count": 3
+        "revenue": 38099,
+        "count": 4
       },
       "Jivesh Harde": {
         "revenue": 11000,
@@ -56512,8 +56512,8 @@
         "count": 2
       },
       "Annual Max": {
-        "revenue": 234691,
-        "count": 21
+        "revenue": 245067,
+        "count": 22
       },
       "Annual Plus": {
         "revenue": 15000,
@@ -56529,13 +56529,13 @@
         "revenue": 174972,
         "count": 16
       },
+      "Events": {
+        "revenue": 73851,
+        "count": 7
+      },
       "Renewals": {
         "revenue": 17000,
         "count": 2
-      },
-      "Events": {
-        "revenue": 63475,
-        "count": 6
       },
       "Upgrade": {
         "revenue": 1840,
@@ -60476,9 +60476,9 @@
   },
   {
     "date": "2026-08-19",
-    "totalRevenue": 220700.4,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 231700.4,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 15000,
       "agent": "Tanveer Ahmed",
@@ -60496,6 +60496,10 @@
       "Honey Talreja": {
         "revenue": 38500,
         "count": 4
+      },
+      "Rohit Jain": {
+        "revenue": 11000,
+        "count": 1
       },
       "Kunal Sharma": {
         "revenue": 15500,
@@ -60528,8 +60532,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 197688.4,
-        "count": 18
+        "revenue": 208688.4,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 10256,
@@ -60542,8 +60546,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 165000,
-        "count": 16
+        "revenue": 176000,
+        "count": 17
       },
       "Renewals": {
         "revenue": 20752,
@@ -61166,9 +61170,9 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 369056,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 380056,
+    "salesCount": 40,
+    "transactions": 40,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah",
@@ -61184,8 +61188,8 @@
         "count": 11
       },
       "Honey Talreja": {
-        "revenue": 36000,
-        "count": 4
+        "revenue": 47000,
+        "count": 5
       },
       "Vivek Shah": {
         "revenue": 24216,
@@ -61250,8 +61254,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 332344,
-        "count": 31
+        "revenue": 343344,
+        "count": 32
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -61264,8 +61268,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 183416,
-        "count": 21
+        "revenue": 194416,
+        "count": 22
       },
       "Events": {
         "revenue": 153376,
@@ -72468,9 +72472,9 @@
       "revenue": 21797.870000000003
     },
     "missedLeads": {
-      "Connected": 126,
-      "Interested": 52,
-      "Paise Dega": 9
+      "Connected": 127,
+      "Interested": 53,
+      "Paise Dega": 10
     },
     "refunds": {
       "count": 7,
