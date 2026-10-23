@@ -1,4 +1,6 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-23","lakshmi","9867032693","Shubham Rai",12000,9550,"Annual Max","Organic","SRAMAX2026","UR533294","Logged by Inside Sales agent (Shubham Rai) for ₹12000 and also completed on Direct Portal for ₹9550"
+"2026-10-23","Atharv","7406499980","Preyashi Roy",12825,12247.87,"Annual Plus","Organic","FUNDEAL","UR550350","Logged by Inside Sales agent (Preyashi Roy) for ₹12825 and also completed on Direct Portal for ₹12247.87"
 "2026-10-21","Sunny R Patel","9974592852","Shubham Rai",16000,12282.5,"Annual Plus","Organic","FUNDEAL","UR441471","Logged by Inside Sales agent (Shubham Rai) for ₹16000 and also completed on Direct Portal for ₹12282.5"
 "2026-10-21","Customer (8252)","8451898252","Kush Shah",6599,6599,"Quarterly Max","Organic","FUNDEAL","UR204429","Logged by Inside Sales agent (Kush Shah) for ₹6599 and also completed on Direct Portal for ₹6599"
 "2026-10-20","anant","9429292393","Honey Talreja",13073,13073,"Annual Max","Organic","GARBA","UR385528","Logged by Inside Sales agent (Honey Talreja) for ₹13073 and also completed on Direct Portal for ₹13073"
