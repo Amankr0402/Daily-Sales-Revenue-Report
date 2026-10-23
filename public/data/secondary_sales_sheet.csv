@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,624,609",,,425,
+,,,,"4,693,906",,,432,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -369,7 +369,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 367,20/10/2026,7009314447,Shivani Gupta,"12,000",No,Annual Max,1,Organic
 368,20/10/2026,9146142192,Vikas Poonia,"5,000",No,Annual Mini,1,Renewals
 369,20/10/2026,9030366045,Tanveer Ahmed,"19,573",No,Annual Max,2,Organic
-370,20/10/2026,9011323219,Others,"12,000",No,Annual Max,1,Organic
+370,20/10/2026,9011323219,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 371,20/10/2026,8306058537,Chhaya Patel,"12,216",No,Annual Max,1,Organic
 372,20/10/2026,7738227441,Rohit Jain,"19,573",No,Annual Max,2,Organic
 373,20/10/2026,9429292393,Honey Talreja,"13,073",No,Annual Max,1,Organic
@@ -425,13 +425,13 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 423,23/10/2026,9970391223,Vikas Poonia,"12,216",No,Annual Max,1,Renewals
 424,23/10/2026,8866231935,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 425,23/10/2026,9421617993,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
-426,23/10/2026,,,,,,,
-427,23/10/2026,,,,,,,
-428,23/10/2026,,,,,,,
-429,23/10/2026,,,,,,,
-430,23/10/2026,,,,,,,
-431,23/10/2026,,,,,,,
-432,23/10/2026,,,,,,,
+426,23/10/2026,9845123417,Darshan KS,"6,000",No,Quarterly Max,1,Organic
+427,23/10/2026,9867032693,Shubham Rai,"12,000",No,Annual Max,1,Organic
+428,23/10/2026,8197447332,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+429,23/10/2026,9711041849,Kush Shah,"11,000",No,Annual Max,1,Renewals
+430,23/10/2026,8285838640,Others,"12,000",No,Annual Max,1,Renewals
+431,23/10/2026,8320428676,Others,"4,081",No,Quarterly Plus,1,Organic
+432,23/10/2026,9428276275,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 433,23/10/2026,,,,,,,
 434,23/10/2026,,,,,,,
 435,23/10/2026,,,,,,,
