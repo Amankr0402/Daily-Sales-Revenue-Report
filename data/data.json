@@ -20717,9 +20717,9 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 363300,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 374300,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah",
@@ -20770,13 +20770,13 @@
         "revenue": 11000,
         "count": 1
       },
+      "Rohit Jain": {
+        "revenue": 33000,
+        "count": 3
+      },
       "Abhijeet Mathur": {
         "revenue": 4500,
         "count": 1
-      },
-      "Rohit Jain": {
-        "revenue": 22000,
-        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 3500,
@@ -20801,8 +20801,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 332344,
-        "count": 31
+        "revenue": 343344,
+        "count": 32
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -20815,8 +20815,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 189172,
-        "count": 22
+        "revenue": 200172,
+        "count": 23
       },
       "Events": {
         "revenue": 153376,
@@ -25536,13 +25536,9 @@
         "revenue": 31573,
         "count": 3
       },
-      "Others": {
-        "revenue": 4198,
-        "count": 1
-      },
       "Honey Talreja": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 16198,
+        "count": 2
       },
       "Prerak Bhavsar": {
         "revenue": 19573,
@@ -27900,11 +27896,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 312,
-      "otpVerified": 293,
+      "signups": 311,
+      "otpVerified": 292,
       "serviceable": 200,
-      "serviceableWithPct": "200 (64.1%)",
-      "serviceablePct": "64.1%"
+      "serviceableWithPct": "200 (64.3%)",
+      "serviceablePct": "64.3%"
     },
     "deliveryFee": {
       "transactions": 1,
@@ -28074,9 +28070,9 @@
     "userBreakdown": {
       "signups": 421,
       "otpVerified": 334,
-      "serviceable": 217,
-      "serviceableWithPct": "217 (51.5%)",
-      "serviceablePct": "51.5%"
+      "serviceable": 218,
+      "serviceableWithPct": "218 (51.8%)",
+      "serviceablePct": "51.8%"
     },
     "deliveryFee": {
       "transactions": 3,
@@ -28255,9 +28251,9 @@
       "serviceablePct": "47.7%"
     },
     "missedLeads": {
-      "Connected": 121,
-      "Interested": 60,
-      "Paise Dega": 8
+      "Connected": 149,
+      "Interested": 89,
+      "Paise Dega": 16
     },
     "refunds": {
       "count": 7,
@@ -28319,32 +28315,32 @@
       "count": 19
     },
     "newUsers7d": 5065,
-    "newUsersYesterday": 402,
-    "activeSubs": 5118,
-    "newSubs7d": 112,
+    "newUsersYesterday": 740,
+    "activeSubs": 5115,
+    "newSubs7d": 111,
     "teleCrmLeads": 904,
     "subsEnding5d": 79,
     "subsExpired7d": 92,
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2425,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 30,
-      "Orders Placed": 30,
-      "Orders - CONFIRMED": 18,
-      "Orders Confirmed": 18,
+      "Orders - PLACED": 29,
+      "Orders Placed": 29,
+      "Orders - CONFIRMED": 10,
+      "Orders Confirmed": 10,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 7,
-      "Orders Shipped": 7,
-      "Orders - Not Delivered": 56,
+      "Orders - SHIPPED": 16,
+      "Orders Shipped": 16,
+      "Orders - Not Delivered": 55,
       "Orders Not Delivered": 55
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 567,
-      "New Subscribers Orders that have been Delivered": 511,
-      "New Subscribers Orders yet to be Delivered": 56,
+      "New Subscribers Orders that have been Delivered": 512,
+      "New Subscribers Orders yet to be Delivered": 55,
       "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
