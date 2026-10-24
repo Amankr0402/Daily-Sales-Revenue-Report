@@ -460,16 +460,35 @@ async function syncSalesData() {
     console.log(`🛍️ Processing ${dsLines.length - 1} Direct Sale rows...`);
     const allDisputedDeals = [];
 
+    // Map column indices dynamically from header
+    const dsHeader = parseCSVLine(dsLines[0] || '').map(c => c.replace(/^"|"$/g, '').trim().toLowerCase());
+    const findCol = (keywords, fallbackIdx) => {
+      const idx = dsHeader.findIndex(h => keywords.some(k => h.includes(k)));
+      return idx !== -1 ? idx : fallbackIdx;
+    };
+    const colUserId = findCol(['user id', 'userid'], 0);
+    const colUserName = findCol(['user name', 'username', 'customer'], 1);
+    const colPhone = findCol(['phone'], 2);
+    const colPlan = findCol(['subscription plan', 'plan'], 5);
+    const colCycle = findCol(['billing cycle', 'cycle'], 6);
+    const colAmount = findCol(['amount paid', 'amount', 'revenue', 'sale'], 8);
+    const colDate = findCol(['payment date', 'payment_date', 'date'], 9);
+    const colOrderId = findCol(['user_number', 'order id', 'order_id'], 4);
+
     for (let i = 1; i < dsLines.length; i++) {
       const cols = parseCSVLine(dsLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
-      const rawDate = cols[8]; // Payment Date, e.g. 02/09/2026 11:31
+      const rawDate = cols[colDate]; // Payment Date, e.g. 02/09/2026 11:31
       if (!rawDate) continue;
       const datePart = rawDate.split(' ')[0];
       const dParts = datePart.split('/');
-      if (dParts.length !== 3) continue;
-      const isoDate = `${dParts[2]}-${dParts[1]}-${dParts[0]}`; // YYYY-MM-DD
+      let isoDate = null;
+      if (dParts.length === 3) {
+        isoDate = `${dParts[2]}-${dParts[1]}-${dParts[0]}`; // YYYY-MM-DD
+      } else if (datePart.includes('-') && datePart.split('-').length === 3) {
+        isoDate = datePart;
+      }
       if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
-      const rev = parseFloat(cols[7]) || 0; // Amount Paid
+      const rev = parseFloat(cols[colAmount]) || 0; // Amount Paid
       if (rev <= 0) continue;
 
       if (!recordsByDate[isoDate]) {
@@ -486,7 +505,7 @@ async function syncSalesData() {
       }
       day.directSaleCSV.count += 1;
       day.directSaleCSV.revenue += rev;
-      const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+      const phone = (cols[colPhone] || '').replace(/\D/g, '').slice(-10);
 
       // Deduplicate & Dispute detection: If this customer's deal was already logged by an agent in Google Sheets on this date:
       // Exclude from Inside Sales (agent, source, plan), exclude from Direct Sales, and add to standalone Overlap Deals category!
@@ -494,17 +513,17 @@ async function syncSalesData() {
         const inside = sheetPhonesByDate[isoDate][phone].shift();
         inside.matchedAsOverlap = true;
         inside.overlapPortalRevenue = rev;
-        inside.overlapCustomerName = cols[1] || '';
-        inside.overlapDirectOrderId = cols[6] || '';
-        inside.overlapDirectUserId = cols[0] || '';
+        inside.overlapCustomerName = cols[colUserName] || '';
+        inside.overlapDirectOrderId = cols[colOrderId] || '';
+        inside.overlapDirectUserId = cols[colUserId] || '';
         inside.overlapDisputeNote = `Logged by Inside Sales agent (${inside.agent}) for ₹${inside.revenue} and also completed on Direct Portal for ₹${rev}`;
 
-        const cleanPlan = formatDirectSalePlan(cols[4] || '', cols[5] || '') || inside.plan || 'Annual Max';
+        const cleanPlan = formatDirectSalePlan(cols[colPlan] || '', cols[colCycle] || '') || inside.plan || 'Annual Max';
         const insideCount = inside.count || 1;
         const disputedItem = {
           date: isoDate,
           rawDate: rawDate,
-          customerName: cols[1] || inside.customer || 'Unknown',
+          customerName: cols[colUserName] || inside.customer || 'Unknown',
           phone,
           agent: inside.agent || 'Unknown',
           insideRevenue: inside.revenue || 0,
@@ -512,8 +531,8 @@ async function syncSalesData() {
           directRevenue: rev,
           plan: cleanPlan,
           source: inside.source || 'Organic',
-          directOrderId: cols[6] || '',
-          directUserId: cols[0] || '',
+          directOrderId: cols[colOrderId] || '',
+          directUserId: cols[colUserId] || '',
           disputeNote: `Logged by Inside Sales agent (${inside.agent}) for ₹${inside.revenue} and also completed on Direct Portal for ₹${rev}`
         };
 
@@ -582,8 +601,8 @@ async function syncSalesData() {
       day.sources[cleanSource].count += 1;
 
       // Populate Plan Distribution for Direct Sale
-      const rawPlan = cols[4] || '';
-      const rawCycle = cols[5] || '';
+      const rawPlan = cols[colPlan] || '';
+      const rawCycle = cols[colCycle] || '';
       const cleanPlan = formatDirectSalePlan(rawPlan, rawCycle);
       if (!day.plans[cleanPlan]) day.plans[cleanPlan] = { revenue: 0, count: 0 };
       day.plans[cleanPlan].revenue += rev;
@@ -593,7 +612,7 @@ async function syncSalesData() {
         dealType: 'Direct Sale',
         isoDate,
         rawDate,
-        customerName: cols[1] || 'Direct Customer',
+        customerName: cols[colUserName] || 'Direct Customer',
         phone,
         agent: 'Self Serve',
         revenue: rev,
@@ -601,8 +620,8 @@ async function syncSalesData() {
         count: 1,
         source: 'Direct Portal',
         sheet: 'Metabase Direct Portal',
-        orderId: cols[6] || '',
-        userId: cols[0] || '',
+        orderId: cols[colOrderId] || '',
+        userId: cols[colUserId] || '',
         note: 'Online Direct Portal Purchase'
       });
     }
