@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,729,498",,,435,
+,,,,"4,889,167",,,448,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -435,16 +435,25 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 433,24/10/2026,8452810094,Honey Talreja,"12,000",No,Annual Max,1,Organic
 434,24/10/2026,9860785253,Amol Landge,"11,376",No,Annual Max,1,Events
 435,24/10/2026,8660420181,Kush Shah,"12,216",No,Annual Max,1,Events
-436,24/10/2026,,,,,,,
-437,24/10/2026,,,,,,,
-438,24/10/2026,,,,,,,
-439,24/10/2026,,,,,,,
-440,24/10/2026,,,,,,,
-441,24/10/2026,,,,,,,
-442,24/10/2026,,,,,,,
-443,24/10/2026,,,,,,,
-444,24/10/2026,,,,,,,
-445,24/10/2026,,,,,,,
-446,24/10/2026,,,,,,,
-447,24/10/2026,,,,,,,
-448,24/10/2026,,,,,,,
+436,24/10/2026,9967067081,Kush Shah,"12,000",No,Annual Max,1,Events
+437,24/10/2026,8082005114,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+438,24/10/2026,8169567779,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+439,24/10/2026,9913274688,Kausturi Roy Chowdhury,"12,216",No,Annual Max,1,Organic
+440,24/10/2026,9711015788,Amol Landge,"11,376",No,Annual Max,1,Events
+441,24/10/2026,7758042941,Amol Landge,"11,376",No,Annual Max,1,Renewals
+442,24/10/2026,9637886655,Amol Landge,"11,376",No,Annual Max,1,Events
+443,24/10/2026,8095123319,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
+444,24/10/2026,7721998271,Amol Landge,"11,376",No,Annual Max,1,Events
+445,24/10/2026,8698577194,Shubham Rai,"12,000",No,Annual Max,1,Events
+446,24/10/2026,9011035438,Shubham Rai,"12,000",No,Annual Max,1,Events
+447,24/10/2026,9824182084,Honey Talreja,"12,000",No,Annual Max,1,Organic
+448,24/10/2026,8830251230,Amol Landge,"11,376",No,Annual Max,1,Events
+449,24/10/2026,,,,,,,
+450,24/10/2026,,,,,,,
+451,24/10/2026,,,,,,,
+452,24/10/2026,,,,,,,
+453,24/10/2026,,,,,,,
+454,24/10/2026,,,,,,,
+455,24/10/2026,,,,,,,
+456,24/10/2026,,,,,,,
+457,24/10/2026,,,,,,,
