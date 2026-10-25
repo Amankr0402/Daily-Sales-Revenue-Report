@@ -56012,9 +56012,9 @@
   },
   {
     "date": "2026-07-19",
-    "totalRevenue": 326435,
-    "salesCount": 34,
-    "transactions": 34,
+    "totalRevenue": 337435,
+    "salesCount": 35,
+    "transactions": 35,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -56038,8 +56038,8 @@
         "count": 2
       },
       "Amol Landge": {
-        "revenue": 17000,
-        "count": 2
+        "revenue": 28000,
+        "count": 3
       },
       "Honey Talreja": {
         "revenue": 25000,
@@ -56080,8 +56080,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 275160,
-        "count": 26
+        "revenue": 286160,
+        "count": 27
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -56098,8 +56098,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 188105,
-        "count": 20
+        "revenue": 199105,
+        "count": 21
       },
       "Renewals": {
         "revenue": 57500,
@@ -60580,9 +60580,9 @@
   },
   {
     "date": "2026-08-18",
-    "totalRevenue": 205675,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 217675,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -60601,15 +60601,15 @@
         "revenue": 22000,
         "count": 2
       },
+      "Tanveer Ahmed": {
+        "revenue": 23000,
+        "count": 2
+      },
       "Kush Shah": {
         "revenue": 15500,
         "count": 2
       },
       "Naveen Suwalka": {
-        "revenue": 11000,
-        "count": 1
-      },
-      "Tanveer Ahmed": {
         "revenue": 11000,
         "count": 1
       },
@@ -60632,8 +60632,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 172651,
-        "count": 14
+        "revenue": 184651,
+        "count": 15
       },
       "Quarterly Max": {
         "revenue": 21768,
@@ -60642,8 +60642,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 114000,
-        "count": 11
+        "revenue": 126000,
+        "count": 12
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -62030,8 +62030,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 182011,
-        "count": 17
+        "revenue": 167956,
+        "count": 16
       },
       "Quarterly Max": {
         "revenue": 20512,
@@ -62052,12 +62052,12 @@
         "count": 10
       },
       "Direct Sale": {
-        "revenue": 25567,
-        "count": 3
+        "revenue": 11512,
+        "count": 2
       },
       "Overlap Deals": {
-        "revenue": 20329,
-        "count": 2
+        "revenue": 34384,
+        "count": 3
       }
     },
     "userBreakdown": null,
@@ -62080,6 +62080,21 @@
         "directOrderId": "ee0c7fc3-8477-4e82-b351-2d07656d4ea4",
         "directUserId": "UR405092",
         "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹14573 and also completed on Direct Portal for ₹14573"
+      },
+      {
+        "date": "2026-08-27",
+        "rawDate": "27/08/2026 18:51",
+        "customerName": "Shilpa kailashchand Jain",
+        "phone": "8866711721",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 14055,
+        "revenue": 14055,
+        "directRevenue": 14055,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "718108ab-2966-4f2b-928b-da03febfb63f",
+        "directUserId": "UR469276",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹14055 and also completed on Direct Portal for ₹14055"
       },
       {
         "date": "2026-08-27",
@@ -62115,6 +62130,21 @@
       },
       {
         "date": "2026-08-27",
+        "rawDate": "27/08/2026 18:51",
+        "customerName": "Shilpa kailashchand Jain",
+        "phone": "8866711721",
+        "agent": "Kausturi Roy Chowdhury",
+        "insideRevenue": 14055,
+        "revenue": 14055,
+        "directRevenue": 14055,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "718108ab-2966-4f2b-928b-da03febfb63f",
+        "directUserId": "UR469276",
+        "disputeNote": "Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹14055 and also completed on Direct Portal for ₹14055"
+      },
+      {
+        "date": "2026-08-27",
         "rawDate": "27/08/2026 14:44",
         "customerName": "Prateek Mandloi",
         "phone": "7760828828",
@@ -62130,12 +62160,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 2,
-      "revenue": 20329
+      "count": 3,
+      "revenue": 34384
     },
     "disputedTotal": {
-      "count": 2,
-      "revenue": 20329
+      "count": 3,
+      "revenue": 34384
     },
     "refundsLast7Days": {
       "total": 0,
@@ -72922,9 +72952,9 @@
       "total": 354
     },
     "missedLeads": {
-      "Connected": 144,
-      "Interested": 77,
-      "Paise Dega": 14
+      "Connected": 179,
+      "Interested": 102,
+      "Paise Dega": 23
     },
     "refunds": {
       "count": 2,
@@ -72952,32 +72982,32 @@
     },
     "newUsers7d": 4591,
     "newUsersYesterday": 544,
-    "activeSubs": 5116,
+    "activeSubs": 5121,
     "newSubs7d": 127,
     "teleCrmLeads": 692,
     "subsEnding5d": 75,
     "subsExpired7d": 106,
     "subsExpiringToday": 10,
     "planExpiringNoOrder": 1,
-    "planExpNoOrder": 2426,
-    "activeSubNoOrder": 114,
+    "planExpNoOrder": 2425,
+    "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 6,
-      "Orders Shipped": 6,
-      "Orders - Not Delivered": 66,
-      "Orders Not Delivered": 64
+      "Orders - PLACED": 19,
+      "Orders Placed": 19,
+      "Orders - CONFIRMED": 18,
+      "Orders Confirmed": 18,
+      "Orders - READY_TO_SHIP": 5,
+      "Orders Ready to Ship": 5,
+      "Orders - SHIPPED": 15,
+      "Orders Shipped": 15,
+      "Orders - Not Delivered": 57,
+      "Orders Not Delivered": 57
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 588,
-      "New Subscribers Orders that have been Delivered": 522,
-      "New Subscribers Orders yet to be Delivered": 66,
-      "New Subscribers Orders yet to be Delivered & Delayed": 12
+      "New Subscribers Orders that have been Delivered": 531,
+      "New Subscribers Orders yet to be Delivered": 57,
+      "New Subscribers Orders yet to be Delivered & Delayed": 11
     },
     "selfUpgrade": {
       "totalCount": 0,

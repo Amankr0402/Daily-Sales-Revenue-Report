@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,943,956",,,454,
+,,,,"5,106,534",,,468,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -454,16 +454,26 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 452,24/10/2026,8522946073,Preyashi Roy,"2,216",No,Annual Max,1,Organic
 453,24/10/2026,8082798796,Honey Talreja,"12,000",No,Annual Max,1,Organic
 454,24/10/2026,9904630020,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
-455,24/10/2026,,,,,,,
-456,24/10/2026,,,,,,,
-457,24/10/2026,,,,,,,
-458,24/10/2026,,,,,,,
-459,24/10/2026,,,,,,,
-460,24/10/2026,,,,,,,
-461,24/10/2026,,,,,,,
-462,24/10/2026,,,,,,,
-463,24/10/2026,,,,,,,
-464,24/10/2026,,,,,,,
-465,24/10/2026,,,,,,,
-466,24/10/2026,,,,,,,
-467,24/10/2026,,,,,,,
+455,25/10/2026,9618837160,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+456,25/10/2026,9925032380,Kush Shah,"9,787",No,Annual Max,1,Events
+457,25/10/2026,9701274168,Kush Shah,"9,787",No,Annual Max,1,Events
+458,25/10/2026,9825982845,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+459,25/10/2026,8530073289,Vikas Poonia,"11,000",No,Annual Max,1,Events
+460,25/10/2026,8976295031,Honey Talreja,"11,000",No,Annual Max,1,Renewals
+461,25/10/2026,9819804183,Shubham Rai,"12,000",No,Annual Max,1,Organic
+462,25/10/2026,9999785130,Amol Landge,"9,000",No,Annual Plus,1,Organic
+463,25/10/2026,9870005856,Vivek Shah,"12,216",No,Annual Max,1,Organic
+464,25/10/2026,9925005155,Darshan KS,"12,000",No,Annual Max,1,Organic
+465,25/10/2026,7217612213,Vikas Poonia,"11,000",No,Annual Max,1,Events
+466,25/10/2026,8373908260,Vikas Poonia,"11,000",No,Annual Max,1,Events
+467,25/10/2026,9811151113,Vikas Poonia,"11,000",No,Annual Max,1,Events
+468,25/10/2026,9910523834,Vikas Poonia,"11,000",No,Annual Max,1,Events
+469,25/10/2026,,,,,,,
+470,25/10/2026,,,,,,,
+471,25/10/2026,,,,,,,
+472,25/10/2026,,,,,,,
+473,25/10/2026,,,,,,,
+474,25/10/2026,,,,,,,
+475,25/10/2026,,,,,,,
+476,25/10/2026,,,,,,,
+477,25/10/2026,,,,,,,
