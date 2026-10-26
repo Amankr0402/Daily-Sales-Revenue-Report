@@ -57260,9 +57260,9 @@
   },
   {
     "date": "2026-07-28",
-    "totalRevenue": 276134,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 265758,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivani Gupta",
@@ -57286,8 +57286,8 @@
         "count": 2
       },
       "Amol Landge": {
-        "revenue": 52128,
-        "count": 5
+        "revenue": 41752,
+        "count": 4
       },
       "Kush Shah": {
         "revenue": 11000,
@@ -57320,8 +57320,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 219756,
-        "count": 21
+        "revenue": 209380,
+        "count": 20
       },
       "Annual Mini": {
         "revenue": 19822,
@@ -57338,8 +57338,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 103256,
-        "count": 10
+        "revenue": 92880,
+        "count": 9
       },
       "Organic": {
         "revenue": 152800,
@@ -59016,9 +59016,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 310858,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 321234,
+    "salesCount": 34,
+    "transactions": 34,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta",
@@ -59026,8 +59026,8 @@
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 30752,
-        "count": 3
+        "revenue": 41128,
+        "count": 4
       },
       "Honey Talreja": {
         "revenue": 28000,
@@ -59084,8 +59084,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 262921,
-        "count": 23
+        "revenue": 273297,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 24256,
@@ -59114,8 +59114,8 @@
         "count": 0
       },
       "Renewals": {
-        "revenue": 20376,
-        "count": 2
+        "revenue": 30752,
+        "count": 3
       },
       "Direct Sale": {
         "revenue": 55439,
@@ -73135,9 +73135,9 @@
       "total": 590
     },
     "missedLeads": {
-      "Connected": 127,
-      "Interested": 62,
-      "Paise Dega": 18
+      "Connected": 188,
+      "Interested": 103,
+      "Paise Dega": 30
     },
     "refundsLast7Days": {
       "total": 142020.76,
@@ -73149,10 +73149,10 @@
       "items": []
     },
     "newUsers7d": 4010,
-    "newUsersYesterday": 544,
+    "newUsersYesterday": 602,
     "activeSubs": 5126,
     "newSubs7d": 130,
-    "teleCrmLeads": 715,
+    "teleCrmLeads": 719,
     "subsEnding5d": 76,
     "subsExpired7d": 104,
     "subsExpiringToday": 13,
@@ -73160,14 +73160,14 @@
     "planExpNoOrder": 2425,
     "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 1,
-      "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 8,
-      "Orders Shipped": 8,
+      "Orders - PLACED": 27,
+      "Orders Placed": 27,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
+      "Orders - READY_TO_SHIP": 5,
+      "Orders Ready to Ship": 5,
+      "Orders - SHIPPED": 11,
+      "Orders Shipped": 11,
       "Orders - Not Delivered": 65,
       "Orders Not Delivered": 65
     },
