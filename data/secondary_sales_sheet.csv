@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,297,987",,,485,
+,,,,"5,341,363",,,490,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -485,5 +485,15 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 483,25/10/2026,9555109697,Rani Singh,"12,000",No,Annual Max,1,Organic
 484,25/10/2026,7838202396,Rani Singh,"19,573",No,Annual Max,2,Organic
 485,25/10/2026,9867309524,Honey Talreja,"11,000",No,Annual Max,1,Organic
-486,25/10/2026,,,,,,,
-487,25/10/2026,,,,,,,
+486,26/10/2026,9971474519,Amol Landge,"11,376",No,Annual Max,1,Renewals
+487,26/10/2026,9739720247,Kush Shah,"10,000",Yes,Annual Max,0.5,Organic
+488,26/10/2026,9739720247,Honey Talreja,"2,000",Yes,Annual Max,0.5,Organic
+489,26/10/2026,9907518180,Shivani Gupta,"9,000",No,Annual Plus,1,Organic
+490,26/10/2026,9582000023,Tanveer Ahmed,"11,000",No,Annual Max,1,Organic
+491,26/10/2026,,,,,,,
+492,26/10/2026,,,,,,,
+493,26/10/2026,,,,,,,
+494,26/10/2026,,,,,,,
+495,26/10/2026,,,,,,,
+496,26/10/2026,,,,,,,
+497,26/10/2026,,,,,,,
