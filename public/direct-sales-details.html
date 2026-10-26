@@ -823,6 +823,7 @@
     const FALLBACK_URL = '/data/direct_sales_details.csv';
     const DIRECT_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv';
 
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
     let allDeals = [];
     let collisionMap = {}; // phone_date -> { agent, insideRevenue, customerName }
     let currentFilter = 'yesterday';
@@ -867,6 +868,9 @@
       const dParts = datePart.split('/');
       if (dParts.length === 3) {
         return `${dParts[2]}-${String(dParts[1]).padStart(2, '0')}-${String(dParts[0]).padStart(2, '0')}`;
+      }
+      if (datePart.includes('-') && datePart.split('-').length === 3) {
+        return datePart;
       }
       return null;
     }
@@ -942,7 +946,22 @@
         const lines = text.trim().split('\n').filter(Boolean);
         if (lines.length < 2) throw new Error('No direct sale records found');
 
-        const headerCols = parseCSVLine(lines[0]).map(c => c.replace(/^"|"$/g, '').trim());
+        const headerCols = parseCSVLine(lines[0]).map(c => c.replace(/^"|"$/g, '').trim().toLowerCase());
+        const findCol = (keywords, fallbackIdx) => {
+          const idx = headerCols.findIndex(h => keywords.some(k => h.includes(k)));
+          return idx !== -1 ? idx : fallbackIdx;
+        };
+
+        const colUserId = findCol(['user id', 'userid'], 0);
+        const colUserName = findCol(['user name', 'username', 'customer'], 1);
+        const colPhone = findCol(['phone'], 2);
+        const colPincode = findCol(['pincode', 'pin'], 3);
+        const colPlan = findCol(['subscription plan', 'plan'], 5);
+        const colCycle = findCol(['billing cycle', 'cycle'], 6);
+        const colCoupon = findCol(['coupon'], 7);
+        const colAmount = findCol(['amount paid', 'amount', 'revenue', 'sale'], 8);
+        const colDate = findCol(['payment date', 'payment_date', 'date'], 9);
+        const colLibrary = findCol(['library', 'hub'], 10);
 
         const parsed = [];
         const plansSet = new Set();
@@ -950,27 +969,28 @@
 
         for (let i = 1; i < lines.length; i++) {
           const cols = parseCSVLine(lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
-          const rawDate = cols[8];
+          const rawDate = cols[colDate];
           const isoDate = parseDate(rawDate);
           if (!isoDate) continue;
 
-          const rev = parseFloat(cols[7]) || 0;
-          const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+          const rev = parseFloat(cols[colAmount]) || 0;
+          const phone = (cols[colPhone] || '').replace(/\D/g, '').slice(-10);
+          if (TEST_PHONES.has(phone)) continue;
           const collision = collisionMap[isoDate + '_' + phone] || null;
 
           const item = {
             _index: i,
-            userId: cols[0] || '-',
-            userName: cols[1] || 'Unknown Customer',
+            userId: cols[colUserId] || '-',
+            userName: cols[colUserName] || 'Unknown Customer',
             phone: phone,
-            pincode: cols[3] || '-',
-            plan: cols[4] || 'Direct Sale',
-            cycle: cols[5] || 'Regular',
-            coupon: cols[6] || '',
+            pincode: cols[colPincode] || '-',
+            plan: cols[colPlan] || 'Direct Sale',
+            cycle: cols[colCycle] || 'Regular',
+            coupon: cols[colCoupon] || '',
             amount: rev,
             paymentDate: rawDate || '-',
             isoDate: isoDate,
-            library: cols[9] || '-',
+            library: cols[colLibrary] || '-',
             collision: collision
           };
 

@@ -1163,6 +1163,12 @@
       "count": 1,
       "revenue": 1099
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -1817,6 +1823,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 13198
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -4644,6 +4656,12 @@
       "count": 1,
       "revenue": 2699
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -5369,6 +5387,12 @@
       "count": 1,
       "revenue": 7199
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -5561,6 +5585,12 @@
       "count": 1,
       "revenue": 8199
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -5654,6 +5684,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 20426.58
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -6439,6 +6475,12 @@
       "count": 2,
       "revenue": 17098
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -6737,6 +6779,12 @@
       "count": 2,
       "revenue": 7000
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -6889,6 +6937,12 @@
     "directSaleCSV": {
       "count": 7,
       "revenue": 24493
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -7310,6 +7364,12 @@
       "count": 5,
       "revenue": 38796
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -7360,6 +7420,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 15997
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -7697,6 +7763,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 22779.6
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -8286,6 +8358,12 @@
       "count": 1,
       "revenue": 6428.58
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -8486,6 +8564,12 @@
       "count": 2,
       "revenue": 13399
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -8532,6 +8616,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 3199
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -8815,6 +8905,12 @@
       "count": 2,
       "revenue": 3200
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -8912,6 +9008,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 12598
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -9151,6 +9253,12 @@
     "directSaleCSV": {
       "count": 53,
       "revenue": 3518
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -9634,6 +9742,12 @@
       "count": 36,
       "revenue": 36
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -9736,6 +9850,12 @@
       "count": 14,
       "revenue": 6712
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -9782,6 +9902,12 @@
     "directSaleCSV": {
       "count": 27,
       "revenue": 27
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10069,6 +10195,12 @@
       "count": 16,
       "revenue": 3214
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10115,6 +10247,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 5
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10163,6 +10301,12 @@
       "count": 14,
       "revenue": 14
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10209,6 +10353,12 @@
     "directSaleCSV": {
       "count": 12,
       "revenue": 12
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10260,6 +10410,12 @@
     "directSaleCSV": {
       "count": 26,
       "revenue": 31021
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10453,6 +10609,12 @@
       "count": 10,
       "revenue": 10
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10504,6 +10666,12 @@
       "count": 33,
       "revenue": 5444
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10550,6 +10718,12 @@
     "directSaleCSV": {
       "count": 16,
       "revenue": 19
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10700,6 +10874,12 @@
       "count": 13,
       "revenue": 14
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10746,6 +10926,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 10
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10845,6 +11031,12 @@
       "count": 11,
       "revenue": 4009
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10896,6 +11088,12 @@
       "count": 15,
       "revenue": 3813
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -10942,6 +11140,12 @@
     "directSaleCSV": {
       "count": 19,
       "revenue": 20
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -10990,6 +11194,12 @@
       "count": 29,
       "revenue": 30
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -11037,6 +11247,12 @@
       "count": 7,
       "revenue": 7
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -11083,6 +11299,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 9
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -11181,6 +11403,12 @@
     "directSaleCSV": {
       "count": 14,
       "revenue": 12512
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -11331,6 +11559,12 @@
       "count": 19,
       "revenue": 24015
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -11429,6 +11663,12 @@
       "count": 12,
       "revenue": 12
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -11479,6 +11719,12 @@
     "directSaleCSV": {
       "count": 20,
       "revenue": 32385.25
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -11582,6 +11828,12 @@
       "count": 17,
       "revenue": 7216
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -11632,6 +11884,12 @@
     "directSaleCSV": {
       "count": 19,
       "revenue": 27121.85
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -11687,6 +11945,12 @@
     "directSaleCSV": {
       "count": 16,
       "revenue": 37123.2
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -11836,6 +12100,12 @@
     "directSaleCSV": {
       "count": 6,
       "revenue": 13117.2
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -12155,6 +12425,12 @@
       "count": 11,
       "revenue": 23407
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -12260,6 +12536,12 @@
     "directSaleCSV": {
       "count": 13,
       "revenue": 7212
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -12477,6 +12759,12 @@
       "count": 9,
       "revenue": 16206
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -12532,6 +12820,12 @@
       "count": 6,
       "revenue": 9004
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -12582,6 +12876,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 13208
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -12743,6 +13043,12 @@
     "directSaleCSV": {
       "count": 11,
       "revenue": 9009
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -12952,6 +13258,12 @@
       "count": 41,
       "revenue": 20314
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -13053,6 +13365,12 @@
     "directSaleCSV": {
       "count": 12,
       "revenue": 29607
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -13261,6 +13579,12 @@
     "directSaleCSV": {
       "count": 11,
       "revenue": 34975.25
+    },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
     },
     "refundsLast7Days": {
       "total": 0,
@@ -14102,6 +14426,12 @@
       "count": 8,
       "revenue": 12476.25
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -14152,6 +14482,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 6509
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -14356,6 +14692,12 @@
     "directSaleCSV": {
       "count": 98,
       "revenue": 18765.25
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -14568,6 +14910,12 @@
     "directSaleCSV": {
       "count": 29,
       "revenue": 79456.5
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -14878,6 +15226,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 35000
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -15235,6 +15589,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 40941.5
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -16555,6 +16915,12 @@
       "count": 7,
       "revenue": 16172.25
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -17158,6 +17524,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 17500
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -18003,6 +18375,12 @@
       "count": 4,
       "revenue": 16429.5
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -18364,6 +18742,12 @@
       "count": 14,
       "revenue": 66202
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -18414,6 +18798,12 @@
     "directSaleCSV": {
       "count": 11,
       "revenue": 72500
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -18516,6 +18906,12 @@
     "directSaleCSV": {
       "count": 9,
       "revenue": 57429.5
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -18929,6 +19325,12 @@
       "count": 17,
       "revenue": 87196
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -19038,6 +19440,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 55197
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -19199,6 +19607,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 65461.25
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20001,6 +20415,12 @@
       "count": 5,
       "revenue": 16004
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20103,6 +20523,12 @@
       "count": 3,
       "revenue": 14099
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20157,6 +20583,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 25561.5
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20264,6 +20696,12 @@
       "count": 10,
       "revenue": 42505
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20318,6 +20756,12 @@
     "directSaleCSV": {
       "count": 9,
       "revenue": 45933.5
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20421,6 +20865,12 @@
       "count": 11,
       "revenue": 61030.5
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20515,6 +20965,12 @@
       "count": 3,
       "revenue": 22766.5
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20565,6 +21021,12 @@
     "directSaleCSV": {
       "count": 11,
       "revenue": 73429.5
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20621,6 +21083,12 @@
       "count": 23,
       "revenue": 102898.5
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20676,6 +21144,12 @@
       "count": 17,
       "revenue": 89331.25
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -20726,6 +21200,12 @@
     "directSaleCSV": {
       "count": 17,
       "revenue": 107567.85
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20832,6 +21312,12 @@
     "directSaleCSV": {
       "count": 25,
       "revenue": 156360.05
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -20982,6 +21468,12 @@
       "count": 7,
       "revenue": 49000
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21036,6 +21528,12 @@
     "directSaleCSV": {
       "count": 575,
       "revenue": 123514.7
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -21147,6 +21645,12 @@
       "count": 81,
       "revenue": 128434.25
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21197,6 +21701,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 28508
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -21461,6 +21971,12 @@
       "count": 7,
       "revenue": 45929.5
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21515,6 +22031,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 47002
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -21618,6 +22140,12 @@
       "count": 9,
       "revenue": 42852
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21664,6 +22192,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 28970.25
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -21716,6 +22250,12 @@
       "count": 6,
       "revenue": 35349
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21766,6 +22306,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 55500
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -21818,6 +22364,12 @@
       "count": 5,
       "revenue": 29502
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -21868,6 +22420,12 @@
     "directSaleCSV": {
       "count": 7,
       "revenue": 32172.25
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -22022,6 +22580,12 @@
       "count": 11,
       "revenue": 69500
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22076,6 +22640,12 @@
     "directSaleCSV": {
       "count": 7,
       "revenue": 39850
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -22179,6 +22749,12 @@
       "count": 7,
       "revenue": 44279.5
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22229,6 +22805,12 @@
     "directSaleCSV": {
       "count": 15,
       "revenue": 99999
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -22285,6 +22867,12 @@
       "count": 12,
       "revenue": 59987.75
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22340,6 +22928,12 @@
       "count": 10,
       "revenue": 51750.75
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22391,6 +22985,12 @@
       "count": 10,
       "revenue": 61247.75
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22441,6 +23041,12 @@
     "directSaleCSV": {
       "count": 7,
       "revenue": 32000
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -22548,6 +23154,12 @@
       "count": 10,
       "revenue": 47502
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -22598,6 +23210,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 31399.75
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -22806,6 +23424,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 33504
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -23078,6 +23702,12 @@
       "count": 8,
       "revenue": 46677.75
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -23124,6 +23754,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 28500
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -23179,6 +23815,12 @@
     "directSaleCSV": {
       "count": 10,
       "revenue": 41529.5
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -23285,6 +23927,12 @@
     "directSaleCSV": {
       "count": 38,
       "revenue": 33563
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -23647,6 +24295,12 @@
       "count": 35,
       "revenue": 47054
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -23800,6 +24454,12 @@
       "count": 7,
       "revenue": 42002
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -23855,6 +24515,12 @@
       "count": 11,
       "revenue": 40505
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -23905,6 +24571,12 @@
     "directSaleCSV": {
       "count": 6,
       "revenue": 26474.25
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -23960,6 +24632,12 @@
     "directSaleCSV": {
       "count": 178,
       "revenue": 28844
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -24067,6 +24745,12 @@
       "count": 24,
       "revenue": 28032
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -24121,6 +24805,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 9303
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -24228,6 +24918,12 @@
       "count": 4,
       "revenue": 25069.82
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -24278,6 +24974,12 @@
     "directSaleCSV": {
       "count": 6,
       "revenue": 31888
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -24333,6 +25035,12 @@
     "directSaleCSV": {
       "count": 8,
       "revenue": 43589
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -24431,6 +25139,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 32293
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -24573,6 +25287,12 @@
       "count": 3,
       "revenue": 21505.75
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -24624,6 +25344,12 @@
       "count": 6,
       "revenue": 39290
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -24670,6 +25396,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 8999
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -25000,6 +25732,12 @@
       "count": 2,
       "revenue": 15996
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -25046,6 +25784,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 17594
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -25196,6 +25940,12 @@
       "count": 4,
       "revenue": 27293
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -25344,6 +26094,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 7797
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -25565,6 +26321,12 @@
       "count": 244,
       "revenue": 23097
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -25721,6 +26483,12 @@
     "directSaleCSV": {
       "count": 17,
       "revenue": 43599
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -25914,6 +26682,12 @@
       "count": 1,
       "revenue": 943
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -25961,6 +26735,12 @@
       "count": 3,
       "revenue": 23399
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26007,6 +26787,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 9921
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26101,6 +26887,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 10421
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26290,6 +27082,12 @@
       "count": 3,
       "revenue": 1177
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26337,6 +27135,12 @@
       "count": 2,
       "revenue": 9595
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26383,6 +27187,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 11712
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26478,6 +27288,12 @@
       "count": 4,
       "revenue": 29372
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26524,6 +27340,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 117
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26572,6 +27394,12 @@
       "count": 3,
       "revenue": 24351.09
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -26618,6 +27446,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 10595
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -26995,6 +27829,12 @@
       "count": 1,
       "revenue": 9978
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -27041,6 +27881,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 21479.79
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -27485,6 +28331,12 @@
       "count": 22,
       "revenue": 21980
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -27787,6 +28639,12 @@
       "count": 13,
       "revenue": 11821
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -27991,6 +28849,12 @@
       "count": 12,
       "revenue": 12172
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -28037,6 +28901,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 20057
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -28226,6 +29096,12 @@
       "count": 1,
       "revenue": 11798
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -28366,6 +29242,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 8848
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -28508,6 +29390,12 @@
       "count": 1,
       "revenue": 8258
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -28601,6 +29489,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 8848
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -28696,6 +29590,12 @@
       "count": 1,
       "revenue": 10028
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -28742,6 +29642,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 8849
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -30809,6 +31715,12 @@
       "count": 1,
       "revenue": 11789
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -32443,6 +33355,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -32758,6 +33676,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 14975
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -33375,6 +34299,12 @@
       "count": 4,
       "revenue": 38671
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -33719,6 +34649,12 @@
       "count": 1,
       "revenue": 14791
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -33883,6 +34819,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -34239,6 +35181,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -34475,6 +35423,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -34750,6 +35704,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 10959
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -35171,6 +36131,12 @@
       "count": 1,
       "revenue": 5306
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -35346,6 +36312,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 4894
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -36307,6 +37279,12 @@
       "count": 2,
       "revenue": 10726
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -36562,6 +37540,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 13794
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -36896,6 +37880,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 3418
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -37317,6 +38307,12 @@
       "count": 1,
       "revenue": 3537
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -37400,6 +38396,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 18913.54
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -37589,6 +38591,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -37672,6 +38680,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 1
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -38133,6 +39147,12 @@
       "count": 1,
       "revenue": 5306
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -38313,6 +39333,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -38496,6 +39522,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 4894
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -38726,6 +39758,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 11730
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39027,6 +40065,12 @@
       "count": 3,
       "revenue": 15880
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -39132,9 +40176,9 @@
   },
   {
     "date": "2026-04-02",
-    "totalRevenue": 89183,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 91048,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 18393,
       "agent": "Self Serve",
@@ -39168,8 +40212,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 51890,
-        "count": 5
+        "revenue": 53755,
+        "count": 7
       },
       "Annual Mini": {
         "revenue": 13981,
@@ -39190,14 +40234,14 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 44396,
-        "count": 4
+        "revenue": 46261,
+        "count": 6
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 44396
+      "count": 6,
+      "revenue": 46261
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39220,9 +40264,9 @@
   },
   {
     "date": "2026-04-03",
-    "totalRevenue": 150965,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 154811,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 14975,
       "agent": "Self Serve",
@@ -39260,8 +40304,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 103007,
-        "count": 9
+        "revenue": 106853,
+        "count": 10
       },
       "One month Max": {
         "revenue": 1500,
@@ -39290,14 +40334,14 @@
         "count": 10
       },
       "Direct Sale": {
-        "revenue": 23699,
-        "count": 3
+        "revenue": 27545,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 23699
+      "count": 4,
+      "revenue": 27545
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39320,9 +40364,9 @@
   },
   {
     "date": "2026-04-04",
-    "totalRevenue": 192704,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 193304,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 13000,
       "agent": "Aman Chag",
@@ -39372,8 +40416,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 148134,
-        "count": 15
+        "revenue": 148734,
+        "count": 16
       },
       "Quarterly Plus": {
         "revenue": 2900,
@@ -39410,8 +40454,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 30790,
-        "count": 5
+        "revenue": 31390,
+        "count": 6
       },
       "Overlap Deals": {
         "revenue": 9433,
@@ -39420,8 +40464,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 7,
-      "revenue": 40223
+      "count": 8,
+      "revenue": 40823
     },
     "collidingDeals": [
       {
@@ -39494,6 +40538,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 9433
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39738,9 +40788,9 @@
   },
   {
     "date": "2026-04-07",
-    "totalRevenue": 205937,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 206638,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 14975,
       "agent": "Self Serve",
@@ -39782,8 +40832,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 180839,
-        "count": 16
+        "revenue": 181540,
+        "count": 17
       },
       "Quarterly Plus": {
         "revenue": 9218,
@@ -39816,14 +40866,20 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 35915,
-        "count": 4
+        "revenue": 36616,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 35915
+      "count": 5,
+      "revenue": 36616
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39846,9 +40902,9 @@
   },
   {
     "date": "2026-04-08",
-    "totalRevenue": 110589,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 111290,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 12216,
       "agent": "Vikas Poonia",
@@ -39886,8 +40942,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 90308,
-        "count": 9
+        "revenue": 91009,
+        "count": 10
       },
       "Quarterly Max": {
         "revenue": 8363,
@@ -39916,14 +40972,14 @@
         "count": 6
       },
       "Direct Sale": {
-        "revenue": 3418,
-        "count": 1
+        "revenue": 4119,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 1,
-      "revenue": 3418
+      "count": 2,
+      "revenue": 4119
     },
     "refundsLast7Days": {
       "total": 0,
@@ -39946,9 +41002,9 @@
   },
   {
     "date": "2026-04-09",
-    "totalRevenue": 160216,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 161671,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 12216,
       "agent": "Vikas Poonia",
@@ -39994,8 +41050,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 109717,
-        "count": 11
+        "revenue": 111172,
+        "count": 12
       },
       "Quarterly Max": {
         "revenue": 41925,
@@ -40024,14 +41080,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 12380,
-        "count": 3
+        "revenue": 13835,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 12380
+      "count": 4,
+      "revenue": 13835
     },
     "refundsLast7Days": {
       "total": 0,
@@ -40128,6 +41184,12 @@
     "directSaleCSV": {
       "count": 2,
       "revenue": 27191
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -40250,9 +41312,9 @@
   },
   {
     "date": "2026-04-12",
-    "totalRevenue": 87012,
-    "salesCount": 11,
-    "transactions": 11,
+    "totalRevenue": 90746,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 12000,
       "agent": "Somya Choraria",
@@ -40286,8 +41348,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 65000,
-        "count": 6
+        "revenue": 68734,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 16706,
@@ -40307,19 +41369,19 @@
         "revenue": 14363,
         "count": 2
       },
+      "Direct Sale": {
+        "revenue": 8893,
+        "count": 3
+      },
       "Overlap Deals": {
         "revenue": 5306,
-        "count": 1
-      },
-      "Direct Sale": {
-        "revenue": 5159,
         "count": 1
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 10465
+      "count": 4,
+      "revenue": 14199
     },
     "collidingDeals": [
       {
@@ -40600,6 +41662,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 11220.4
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -40956,9 +42024,9 @@
   },
   {
     "date": "2026-04-17",
-    "totalRevenue": 146875,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 149318,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
       "amount": 13000,
       "agent": "Somya Choraria",
@@ -41012,8 +42080,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 118228,
-        "count": 10
+        "revenue": 120671,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 8500,
@@ -41038,14 +42106,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 15394,
-        "count": 2
+        "revenue": 17837,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 27610
+      "count": 4,
+      "revenue": 30053
     },
     "collidingDeals": [
       {
@@ -41088,6 +42156,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 12216
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -41206,9 +42280,9 @@
   },
   {
     "date": "2026-04-19",
-    "totalRevenue": 114989,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 115552,
+    "salesCount": 17,
+    "transactions": 17,
     "highestSale": {
       "amount": 12216,
       "agent": "Satyam Pandey",
@@ -41266,8 +42340,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 78432,
-        "count": 7
+        "revenue": 78995,
+        "count": 8
       }
     },
     "sources": {
@@ -41280,14 +42354,14 @@
         "count": 5
       },
       "Direct Sale": {
-        "revenue": 17110,
-        "count": 2
+        "revenue": 17673,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 17110
+      "count": 3,
+      "revenue": 17673
     },
     "refundsLast7Days": {
       "total": 0,
@@ -41598,9 +42672,9 @@
   },
   {
     "date": "2026-04-22",
-    "totalRevenue": 81810,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 84855,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 12216,
       "agent": "Vikas Poonia",
@@ -41638,8 +42712,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 54432,
-        "count": 5
+        "revenue": 57477,
+        "count": 6
       },
       "Quarterly Plus": {
         "revenue": 6418,
@@ -41660,14 +42734,20 @@
         "count": 6
       },
       "Direct Sale": {
-        "revenue": 16831,
-        "count": 4
+        "revenue": 19876,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 16831
+      "count": 5,
+      "revenue": 19876
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -41886,9 +42966,9 @@
   },
   {
     "date": "2026-04-24",
-    "totalRevenue": 186410,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 191430.67,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 19306,
       "agent": "Satyam Pandey",
@@ -41938,8 +43018,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 148633,
-        "count": 12
+        "revenue": 153653.67,
+        "count": 13
       },
       "Quarterly Max": {
         "revenue": 22969,
@@ -41960,8 +43040,8 @@
         "count": 11
       },
       "Direct Sale": {
-        "revenue": 40159,
-        "count": 5
+        "revenue": 45179.67,
+        "count": 6
       },
       "Overlap Deals": {
         "revenue": 3065,
@@ -41970,8 +43050,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 43224
+      "count": 7,
+      "revenue": 48244.67
     },
     "collidingDeals": [
       {
@@ -42014,6 +43094,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 3065
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -42190,9 +43276,9 @@
   },
   {
     "date": "2026-04-26",
-    "totalRevenue": 358662,
-    "salesCount": 43,
-    "transactions": 43,
+    "totalRevenue": 359569,
+    "salesCount": 44,
+    "transactions": 44,
     "highestSale": {
       "amount": 14055,
       "agent": "Self Serve",
@@ -42240,8 +43326,8 @@
         "count": 3
       },
       "Vikas Poonia": {
-        "revenue": 2900,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       },
       "Shivani Gupta": {
         "revenue": 36250,
@@ -42254,42 +43340,57 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 283542,
-        "count": 26
+        "revenue": 284449,
+        "count": 27
       },
       "Quarterly Max": {
         "revenue": 50758,
         "count": 12
       },
       "Quarterly Plus": {
-        "revenue": 12146,
-        "count": 4
+        "revenue": 9246,
+        "count": 3
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 148496,
-        "count": 17
+        "revenue": 145596,
+        "count": 16
       },
       "Events": {
         "revenue": 172343,
         "count": 21
       },
       "Overlap Deals": {
-        "revenue": 12216,
-        "count": 1
+        "revenue": 15116,
+        "count": 2
       },
       "Direct Sale": {
-        "revenue": 25607,
-        "count": 4
+        "revenue": 26514,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 37823
+      "count": 7,
+      "revenue": 41630
     },
     "collidingDeals": [
+      {
+        "date": "2026-04-26",
+        "rawDate": "26/04/2026 19:33",
+        "customerName": "Jyothi Chennuri",
+        "phone": "8106889786",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 2900,
+        "revenue": 2900,
+        "directRevenue": 2900,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "fef2a479-8ac6-41ff-a7c9-ac2a776b090d",
+        "directUserId": "UR234560",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹2900 and also completed on Direct Portal for ₹2900"
+      },
       {
         "date": "2026-04-26",
         "rawDate": "26/04/2026 16:10",
@@ -42309,6 +43410,21 @@
     "disputedDeals": [
       {
         "date": "2026-04-26",
+        "rawDate": "26/04/2026 19:33",
+        "customerName": "Jyothi Chennuri",
+        "phone": "8106889786",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 2900,
+        "revenue": 2900,
+        "directRevenue": 2900,
+        "plan": "Quarterly Plus",
+        "source": "Organic",
+        "directOrderId": "fef2a479-8ac6-41ff-a7c9-ac2a776b090d",
+        "directUserId": "UR234560",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹2900 and also completed on Direct Portal for ₹2900"
+      },
+      {
+        "date": "2026-04-26",
         "rawDate": "26/04/2026 16:10",
         "customerName": "komal dixit",
         "phone": "9352173722",
@@ -42324,12 +43440,18 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 12216
+      "count": 2,
+      "revenue": 15116
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 12216
+      "count": 2,
+      "revenue": 15116
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -42370,8 +43492,8 @@
         "count": 3
       },
       "Vikas Poonia": {
-        "revenue": 32901,
-        "count": 6
+        "revenue": 26867,
+        "count": 4
       },
       "Jivesh Harde": {
         "revenue": 22201,
@@ -42412,12 +43534,12 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 193900.45,
-        "count": 20
+        "revenue": 190766.45,
+        "count": 19
       },
       "Quarterly Plus": {
-        "revenue": 5728,
-        "count": 2
+        "revenue": 2828,
+        "count": 1
       },
       "Annual Mini": {
         "revenue": 8000,
@@ -42442,8 +43564,8 @@
         "count": 4
       },
       "Upgrade": {
-        "revenue": 12901,
-        "count": 4
+        "revenue": 6867,
+        "count": 2
       },
       "Events": {
         "revenue": 11000,
@@ -42454,16 +43576,46 @@
         "count": 6
       },
       "Overlap Deals": {
-        "revenue": 2828,
-        "count": 1
+        "revenue": 8862,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 7,
-      "revenue": 51729.45
+      "count": 9,
+      "revenue": 57763.45
     },
     "collidingDeals": [
+      {
+        "date": "2026-04-27",
+        "rawDate": "27/04/2026 21:02",
+        "customerName": "jyothsna lewis",
+        "phone": "9379621116",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 3134,
+        "revenue": 3134,
+        "directRevenue": 3134,
+        "plan": "Annual Max",
+        "source": "Upgrade",
+        "directOrderId": "10405ab1-c039-46f1-b495-01977331438c",
+        "directUserId": "UR26181",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3134 and also completed on Direct Portal for ₹3134"
+      },
+      {
+        "date": "2026-04-27",
+        "rawDate": "27/04/2026 12:08",
+        "customerName": "priya gaur",
+        "phone": "9223583547",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 2900,
+        "revenue": 2900,
+        "directRevenue": 2900,
+        "plan": "Quarterly Plus",
+        "source": "Upgrade",
+        "directOrderId": "d4f65280-080c-415f-a371-c67a68f82ebf",
+        "directUserId": "UR232524",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹2900 and also completed on Direct Portal for ₹2900"
+      },
       {
         "date": "2026-04-27",
         "rawDate": "27/04/2026 12:04",
@@ -42483,6 +43635,36 @@
     "disputedDeals": [
       {
         "date": "2026-04-27",
+        "rawDate": "27/04/2026 21:02",
+        "customerName": "jyothsna lewis",
+        "phone": "9379621116",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 3134,
+        "revenue": 3134,
+        "directRevenue": 3134,
+        "plan": "Annual Max",
+        "source": "Upgrade",
+        "directOrderId": "10405ab1-c039-46f1-b495-01977331438c",
+        "directUserId": "UR26181",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹3134 and also completed on Direct Portal for ₹3134"
+      },
+      {
+        "date": "2026-04-27",
+        "rawDate": "27/04/2026 12:08",
+        "customerName": "priya gaur",
+        "phone": "9223583547",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 2900,
+        "revenue": 2900,
+        "directRevenue": 2900,
+        "plan": "Quarterly Plus",
+        "source": "Upgrade",
+        "directOrderId": "d4f65280-080c-415f-a371-c67a68f82ebf",
+        "directUserId": "UR232524",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹2900 and also completed on Direct Portal for ₹2900"
+      },
+      {
+        "date": "2026-04-27",
         "rawDate": "27/04/2026 12:04",
         "customerName": "Karan Dave",
         "phone": "9082411103",
@@ -42498,12 +43680,18 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 2828
+      "count": 3,
+      "revenue": 8862
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 2828
+      "count": 3,
+      "revenue": 8862
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -42526,9 +43714,9 @@
   },
   {
     "date": "2026-04-28",
-    "totalRevenue": 216400,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 222081,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 12216,
       "agent": "Tanveer Ahmed",
@@ -42582,8 +43770,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 135877,
-        "count": 14
+        "revenue": 141558,
+        "count": 15
       },
       "Quarterly Max": {
         "revenue": 17442,
@@ -42620,14 +43808,14 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 19333,
-        "count": 3
+        "revenue": 25014,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 36265
+      "count": 6,
+      "revenue": 41946
     },
     "collidingDeals": [
       {
@@ -42897,6 +44085,12 @@
       "count": 2,
       "revenue": 7987
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -43013,6 +44207,12 @@
       "count": 8,
       "revenue": 54277.4
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -43034,9 +44234,9 @@
   },
   {
     "date": "2026-05-01",
-    "totalRevenue": 286154.07,
-    "salesCount": 35,
-    "transactions": 35,
+    "totalRevenue": 287259.07,
+    "salesCount": 37,
+    "transactions": 37,
     "highestSale": {
       "amount": 12216,
       "agent": "Honey Talreja",
@@ -43086,8 +44286,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 219006.67,
-        "count": 20
+        "revenue": 220111.67,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 43600,
@@ -43116,8 +44316,8 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 52745.67,
-        "count": 7
+        "revenue": 53850.67,
+        "count": 9
       },
       "Overlap Deals": {
         "revenue": 11220.4,
@@ -43126,8 +44326,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 63966.07
+      "count": 10,
+      "revenue": 65071.07
     },
     "collidingDeals": [
       {
@@ -43328,6 +44528,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 2828
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -43795,6 +45001,12 @@
       "count": 3,
       "revenue": 25139
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -43816,9 +45028,9 @@
   },
   {
     "date": "2026-05-05",
-    "totalRevenue": 249176,
-    "salesCount": 34,
-    "transactions": 34,
+    "totalRevenue": 250048,
+    "salesCount": 36,
+    "transactions": 36,
     "highestSale": {
       "amount": 13701,
       "agent": "Self Serve",
@@ -43826,8 +45038,8 @@
     },
     "agents": {
       "Prerak Bhavsar": {
-        "revenue": 13717,
-        "count": 3
+        "revenue": 8198,
+        "count": 2
       },
       "Vikas Poonia": {
         "revenue": 46226,
@@ -43884,8 +45096,8 @@
         "count": 9
       },
       "Annual Max": {
-        "revenue": 184080,
-        "count": 17
+        "revenue": 179433,
+        "count": 18
       },
       "One month Max": {
         "revenue": 2000,
@@ -43910,22 +45122,22 @@
         "count": 7
       },
       "Upgrade": {
-        "revenue": 5519,
-        "count": 1
-      },
-      "Overlap Deals": {
-        "revenue": 17164,
-        "count": 4
+        "revenue": 0,
+        "count": 0
       },
       "Direct Sale": {
-        "revenue": 31381,
-        "count": 4
+        "revenue": 32253,
+        "count": 6
+      },
+      "Overlap Deals": {
+        "revenue": 22683,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 48545
+      "count": 11,
+      "revenue": 54936
     },
     "collidingDeals": [
       {
@@ -43942,6 +45154,21 @@
         "directOrderId": "9d6a38e4-4800-4c7f-9a47-375f449f09e7",
         "directUserId": "UR262050",
         "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹4540 and also completed on Direct Portal for ₹4540"
+      },
+      {
+        "date": "2026-05-05",
+        "rawDate": "05/05/2026 16:46",
+        "customerName": "sharanya basetti",
+        "phone": "9948883855",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 5519,
+        "revenue": 5519,
+        "directRevenue": 5519,
+        "plan": "Annual Max",
+        "source": "Upgrade",
+        "directOrderId": "49173f8a-29d8-4807-b77b-ab3fa469e016",
+        "directUserId": "UR194553",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5519 and also completed on Direct Portal for ₹5519"
       },
       {
         "date": "2026-05-05",
@@ -44007,6 +45234,21 @@
       },
       {
         "date": "2026-05-05",
+        "rawDate": "05/05/2026 16:46",
+        "customerName": "sharanya basetti",
+        "phone": "9948883855",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 5519,
+        "revenue": 5519,
+        "directRevenue": 5519,
+        "plan": "Annual Max",
+        "source": "Upgrade",
+        "directOrderId": "49173f8a-29d8-4807-b77b-ab3fa469e016",
+        "directUserId": "UR194553",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹5519 and also completed on Direct Portal for ₹5519"
+      },
+      {
+        "date": "2026-05-05",
         "rawDate": "05/05/2026 16:30",
         "customerName": "Poonam Patel",
         "phone": "9974455444",
@@ -44052,12 +45294,18 @@
       }
     ],
     "collidingTotal": {
-      "count": 4,
-      "revenue": 17164
+      "count": 5,
+      "revenue": 22683
     },
     "disputedTotal": {
-      "count": 4,
-      "revenue": 17164
+      "count": 5,
+      "revenue": 22683
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -44080,9 +45328,9 @@
   },
   {
     "date": "2026-05-06",
-    "totalRevenue": 189910,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 189917,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 14680,
       "agent": "Self Serve",
@@ -44152,8 +45400,8 @@
         "count": 4
       },
       "Annual Max": {
-        "revenue": 124933,
-        "count": 11
+        "revenue": 124940,
+        "count": 12
       },
       "One month Max": {
         "revenue": 0,
@@ -44174,8 +45422,8 @@
         "count": 0
       },
       "Direct Sale": {
-        "revenue": 49412,
-        "count": 6
+        "revenue": 49419,
+        "count": 7
       },
       "Overlap Deals": {
         "revenue": 8414,
@@ -44184,8 +45432,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 57826
+      "count": 9,
+      "revenue": 57833
     },
     "collidingDeals": [
       {
@@ -44280,9 +45528,9 @@
   },
   {
     "date": "2026-05-07",
-    "totalRevenue": 172014,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 173052,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 20000,
       "agent": "Amol Landge",
@@ -44336,8 +45584,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 124200,
-        "count": 12
+        "revenue": 125238,
+        "count": 13
       },
       "Quarterly Plus": {
         "revenue": 9196,
@@ -44366,8 +45614,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 6813,
-        "count": 2
+        "revenue": 7851,
+        "count": 3
       },
       "Overlap Deals": {
         "revenue": 4540,
@@ -44376,8 +45624,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 11353
+      "count": 4,
+      "revenue": 12391
     },
     "collidingDeals": [
       {
@@ -44420,6 +45668,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 4540
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -44563,6 +45817,12 @@
       "count": 1,
       "revenue": 13701
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -44584,9 +45844,9 @@
   },
   {
     "date": "2026-05-09",
-    "totalRevenue": 236196,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 238284,
+    "salesCount": 34,
+    "transactions": 34,
     "highestSale": {
       "amount": 14499,
       "agent": "Prerak Bhavsar",
@@ -44652,8 +45912,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 179082,
-        "count": 17
+        "revenue": 181170,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 25086,
@@ -44686,8 +45946,8 @@
         "count": 5
       },
       "Direct Sale": {
-        "revenue": 26423,
-        "count": 6
+        "revenue": 28511,
+        "count": 8
       },
       "Overlap Deals": {
         "revenue": 19122,
@@ -44696,8 +45956,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 10,
-      "revenue": 45545
+      "count": 12,
+      "revenue": 47633
     },
     "collidingDeals": [
       {
@@ -44831,6 +46091,12 @@
       "count": 4,
       "revenue": 19122
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -44852,9 +46118,9 @@
   },
   {
     "date": "2026-05-10",
-    "totalRevenue": 285891.13,
-    "salesCount": 36,
-    "transactions": 36,
+    "totalRevenue": 286815.13,
+    "salesCount": 37,
+    "transactions": 37,
     "highestSale": {
       "amount": 12000,
       "agent": "Honey Talreja",
@@ -44912,8 +46178,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 209176,
-        "count": 19
+        "revenue": 210100,
+        "count": 20
       },
       "Quarterly Max": {
         "revenue": 40507,
@@ -44950,8 +46216,8 @@
         "count": 8
       },
       "Direct Sale": {
-        "revenue": 14151,
-        "count": 3
+        "revenue": 15075,
+        "count": 4
       },
       "Overlap Deals": {
         "revenue": 10764.13,
@@ -44960,8 +46226,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 24915.129999999997
+      "count": 5,
+      "revenue": 25839.129999999997
     },
     "collidingDeals": [
       {
@@ -45004,6 +46270,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 10764.13
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -45204,6 +46476,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 28505
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -45466,9 +46744,9 @@
   },
   {
     "date": "2026-05-14",
-    "totalRevenue": 209426,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 211217,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 12216,
       "agent": "Honey Talreja",
@@ -45534,8 +46812,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 143184,
-        "count": 13
+        "revenue": 144975,
+        "count": 14
       },
       "Quarterly Max": {
         "revenue": 45504,
@@ -45560,8 +46838,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 16240,
-        "count": 4
+        "revenue": 18031,
+        "count": 5
       },
       "Overlap Deals": {
         "revenue": 9432,
@@ -45570,8 +46848,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 25672
+      "count": 7,
+      "revenue": 27463
     },
     "collidingDeals": [
       {
@@ -45666,9 +46944,9 @@
   },
   {
     "date": "2026-05-15",
-    "totalRevenue": 140618,
-    "salesCount": 17,
-    "transactions": 17,
+    "totalRevenue": 143387,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 14680,
       "agent": "Self Serve",
@@ -45718,8 +46996,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 109432,
-        "count": 10
+        "revenue": 112201,
+        "count": 12
       },
       "Quarterly Max": {
         "revenue": 31186,
@@ -45732,14 +47010,20 @@
         "count": 15
       },
       "Direct Sale": {
-        "revenue": 18487,
-        "count": 2
+        "revenue": 21256,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 18487
+      "count": 4,
+      "revenue": 21256
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -45762,9 +47046,9 @@
   },
   {
     "date": "2026-05-16",
-    "totalRevenue": 233329,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 232229,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 14975,
       "agent": "Self Serve",
@@ -45772,8 +47056,8 @@
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 10000,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       },
       "Somya Choraria": {
         "revenue": 4363,
@@ -45842,8 +47126,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 187399,
-        "count": 17
+        "revenue": 182663,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 38038,
@@ -45856,8 +47140,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 174030,
-        "count": 20
+        "revenue": 164030,
+        "count": 19
       },
       "Renewals": {
         "revenue": 10500,
@@ -45868,18 +47152,18 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 32298,
-        "count": 4
+        "revenue": 37562,
+        "count": 6
       },
       "Overlap Deals": {
-        "revenue": 1,
-        "count": 1
+        "revenue": 3637,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 32299
+      "count": 8,
+      "revenue": 41199
     },
     "collidingDeals": [
       {
@@ -45896,6 +47180,21 @@
         "directOrderId": "11fc5e1a-4e8c-4976-9a1a-8c65fa83f960",
         "directUserId": "UR94355",
         "disputeNote": "Logged by Inside Sales agent (Others) for ₹13000 and also completed on Direct Portal for ₹1"
+      },
+      {
+        "date": "2026-05-16",
+        "rawDate": "16/05/2026 09:07",
+        "customerName": "Preethi Joshi",
+        "phone": "9963364529",
+        "agent": "Amol Landge",
+        "insideRevenue": 10000,
+        "revenue": 3636,
+        "directRevenue": 3636,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "8d8259fb-aa75-4fc7-a160-1e0ece3bab81",
+        "directUserId": "UR28264",
+        "disputeNote": "Logged by Inside Sales agent (Amol Landge) for ₹10000 and also completed on Direct Portal for ₹3636"
       }
     ],
     "disputedDeals": [
@@ -45913,15 +47212,30 @@
         "directOrderId": "11fc5e1a-4e8c-4976-9a1a-8c65fa83f960",
         "directUserId": "UR94355",
         "disputeNote": "Logged by Inside Sales agent (Others) for ₹13000 and also completed on Direct Portal for ₹1"
+      },
+      {
+        "date": "2026-05-16",
+        "rawDate": "16/05/2026 09:07",
+        "customerName": "Preethi Joshi",
+        "phone": "9963364529",
+        "agent": "Amol Landge",
+        "insideRevenue": 10000,
+        "revenue": 3636,
+        "directRevenue": 3636,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "8d8259fb-aa75-4fc7-a160-1e0ece3bab81",
+        "directUserId": "UR28264",
+        "disputeNote": "Logged by Inside Sales agent (Amol Landge) for ₹10000 and also completed on Direct Portal for ₹3636"
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 1
+      "count": 2,
+      "revenue": 3637
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 1
+      "count": 2,
+      "revenue": 3637
     },
     "refundsLast7Days": {
       "total": 0,
@@ -45944,7 +47258,7 @@
   },
   {
     "date": "2026-05-17",
-    "totalRevenue": 357865,
+    "totalRevenue": 356333,
     "salesCount": 42,
     "transactions": 42,
     "highestSale": {
@@ -45982,8 +47296,8 @@
         "count": 2
       },
       "Prerak Bhavsar": {
-        "revenue": 1551,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       },
       "Somya Choraria": {
         "revenue": 12003,
@@ -46044,14 +47358,14 @@
         "count": 7
       },
       "One month Max": {
-        "revenue": 8109,
-        "count": 4
+        "revenue": 6558,
+        "count": 3
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 274573,
-        "count": 34
+        "revenue": 273022,
+        "count": 33
       },
       "Events": {
         "revenue": 55000,
@@ -46068,12 +47382,64 @@
       "Direct Sale": {
         "revenue": 12216,
         "count": 1
+      },
+      "Overlap Deals": {
+        "revenue": 19,
+        "count": 1
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
+      "count": 2,
+      "revenue": 12235
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-05-17",
+        "rawDate": "17/05/2026 11:58",
+        "customerName": "Tanushri katyal",
+        "phone": "9549187599",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 1551,
+        "revenue": 19,
+        "directRevenue": 19,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "003a8917-5cb8-4697-a8cb-11edec1d61a1",
+        "directUserId": "UR195868",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹1551 and also completed on Direct Portal for ₹19"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-05-17",
+        "rawDate": "17/05/2026 11:58",
+        "customerName": "Tanushri katyal",
+        "phone": "9549187599",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 1551,
+        "revenue": 19,
+        "directRevenue": 19,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "003a8917-5cb8-4697-a8cb-11edec1d61a1",
+        "directUserId": "UR195868",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹1551 and also completed on Direct Portal for ₹19"
+      }
+    ],
+    "collidingTotal": {
       "count": 1,
-      "revenue": 12216
+      "revenue": 19
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 19
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -46096,9 +47462,9 @@
   },
   {
     "date": "2026-05-18",
-    "totalRevenue": 227107.03,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 232903.03,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 12216,
       "agent": "Somya Choraria",
@@ -46160,8 +47526,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 151747.03,
-        "count": 14
+        "revenue": 157543.03,
+        "count": 16
       },
       "Quarterly Max": {
         "revenue": 36944,
@@ -46182,14 +47548,14 @@
         "count": 4
       },
       "Direct Sale": {
-        "revenue": 42213.03,
-        "count": 7
+        "revenue": 48009.03,
+        "count": 9
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 11,
-      "revenue": 80629.03
+      "count": 13,
+      "revenue": 86425.03
     },
     "collidingDeals": [
       {
@@ -46344,9 +47710,9 @@
   },
   {
     "date": "2026-05-19",
-    "totalRevenue": 188018,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 189104,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Preyashi Roy",
@@ -46400,8 +47766,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 155240,
-        "count": 14
+        "revenue": 156326,
+        "count": 15
       },
       "Annual Mini": {
         "revenue": 5000,
@@ -46434,14 +47800,20 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 30797,
-        "count": 4
+        "revenue": 31883,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 30797
+      "count": 5,
+      "revenue": 31883
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -46464,9 +47836,9 @@
   },
   {
     "date": "2026-05-20",
-    "totalRevenue": 103862,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 104522,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 12000,
       "agent": "Yash Sharma",
@@ -46508,8 +47880,8 @@
         "count": 2
       },
       "Annual Max": {
-        "revenue": 76876,
-        "count": 7
+        "revenue": 77536,
+        "count": 8
       },
       "One month Max": {
         "revenue": 2300,
@@ -46534,14 +47906,20 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 3537,
-        "count": 1
+        "revenue": 4197,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 1,
-      "revenue": 3537
+      "count": 2,
+      "revenue": 4197
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -46713,6 +48091,12 @@
       "count": 1,
       "revenue": 4333
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -46734,9 +48118,9 @@
   },
   {
     "date": "2026-05-22",
-    "totalRevenue": 185472.03,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 180166.03,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 13500,
       "agent": "Naba Usama Saiedi",
@@ -46794,8 +48178,8 @@
         "count": 13
       },
       "Quarterly Max": {
-        "revenue": 23733,
-        "count": 5
+        "revenue": 18427,
+        "count": 4
       },
       "Annual Plus": {
         "revenue": 0,
@@ -46824,14 +48208,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 31347,
-        "count": 5
+        "revenue": 26041,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 38920.03
+      "count": 5,
+      "revenue": 33614.03
     },
     "collidingDeals": [
       {
@@ -46875,6 +48259,12 @@
       "count": 1,
       "revenue": 7573.03
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -46896,9 +48286,9 @@
   },
   {
     "date": "2026-05-23",
-    "totalRevenue": 198790,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 201799,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 14975,
       "agent": "Self Serve",
@@ -46960,8 +48350,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 168491,
-        "count": 17
+        "revenue": 171500,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 14306,
@@ -46986,8 +48376,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 20281,
-        "count": 2
+        "revenue": 23290,
+        "count": 3
       },
       "Overlap Deals": {
         "revenue": 12493,
@@ -46996,8 +48386,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 32774
+      "count": 4,
+      "revenue": 35783
     },
     "collidingDeals": [
       {
@@ -47041,6 +48431,12 @@
       "count": 1,
       "revenue": 12493
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -47062,9 +48458,9 @@
   },
   {
     "date": "2026-05-24",
-    "totalRevenue": 254124,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 256098,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 15000,
       "agent": "Kausturi Roy Chowdhury",
@@ -47130,8 +48526,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 229121,
-        "count": 21
+        "revenue": 231095,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 13806,
@@ -47164,8 +48560,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 17799,
-        "count": 2
+        "revenue": 19773,
+        "count": 4
       },
       "Overlap Deals": {
         "revenue": 9197,
@@ -47174,8 +48570,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 26996
+      "count": 6,
+      "revenue": 28970
     },
     "collidingDeals": [
       {
@@ -47249,6 +48645,12 @@
       "count": 2,
       "revenue": 9197
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -47270,9 +48672,9 @@
   },
   {
     "date": "2026-05-25",
-    "totalRevenue": 156850.82,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 160721.82,
+    "salesCount": 17,
+    "transactions": 17,
     "highestSale": {
       "amount": 14000,
       "agent": "Tanveer Ahmed",
@@ -47322,8 +48724,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 143350.82,
-        "count": 14
+        "revenue": 147221.82,
+        "count": 15
       }
     },
     "sources": {
@@ -47336,14 +48738,20 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 11474.82,
-        "count": 1
+        "revenue": 15345.82,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 1,
-      "revenue": 11474.82
+      "count": 2,
+      "revenue": 15345.82
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "refundsLast7Days": {
       "total": 0,
@@ -47520,9 +48928,9 @@
   },
   {
     "date": "2026-05-27",
-    "totalRevenue": 235373,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 238764,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 20000,
       "agent": "Somya Choraria",
@@ -47584,8 +48992,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 165739,
-        "count": 15
+        "revenue": 169130,
+        "count": 16
       },
       "52 Weeks": {
         "revenue": 20000,
@@ -47626,8 +49034,8 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 19060,
-        "count": 4
+        "revenue": 22451,
+        "count": 5
       },
       "Overlap Deals": {
         "revenue": 12216,
@@ -47636,8 +49044,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 31276
+      "count": 6,
+      "revenue": 34667
     },
     "collidingDeals": [
       {
@@ -47702,9 +49110,9 @@
   },
   {
     "date": "2026-05-28",
-    "totalRevenue": 325993,
-    "salesCount": 34,
-    "transactions": 34,
+    "totalRevenue": 326665,
+    "salesCount": 35,
+    "transactions": 35,
     "highestSale": {
       "amount": 12493,
       "agent": "Somya Choraria",
@@ -47778,8 +49186,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 271991,
-        "count": 26
+        "revenue": 272663,
+        "count": 27
       },
       "Quarterly Max": {
         "revenue": 19306,
@@ -47808,14 +49216,14 @@
         "count": 3
       },
       "Direct Sale": {
-        "revenue": 5306,
-        "count": 1
+        "revenue": 5978,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 33002
+      "count": 5,
+      "revenue": 33674
     },
     "collidingDeals": [
       {
@@ -47918,6 +49326,12 @@
     "disputedTotal": {
       "count": 3,
       "revenue": 27696
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -48137,6 +49551,12 @@
       "count": 3,
       "revenue": 8130
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -48158,9 +49578,9 @@
   },
   {
     "date": "2026-05-30",
-    "totalRevenue": 317128,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 322304,
+    "salesCount": 33,
+    "transactions": 33,
     "highestSale": {
       "amount": 50000,
       "agent": "Vikas Poonia",
@@ -48222,8 +49642,8 @@
         "count": 3
       },
       "Annual Max": {
-        "revenue": 222121,
-        "count": 21
+        "revenue": 227297,
+        "count": 24
       },
       "Annual Mini": {
         "revenue": 5201,
@@ -48248,14 +49668,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 17799,
-        "count": 2
+        "revenue": 22975,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 17799
+      "count": 5,
+      "revenue": 22975
     },
     "refundsLast7Days": {
       "total": 0,
@@ -48430,6 +49850,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 11534.79
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "refundsLast7Days": {
       "total": 0,
@@ -48679,6 +50105,12 @@
       "count": 4,
       "revenue": 33179.18
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -48700,9 +50132,9 @@
   },
   {
     "date": "2026-06-02",
-    "totalRevenue": 142455,
-    "salesCount": 17,
-    "transactions": 17,
+    "totalRevenue": 143105,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 12493,
       "agent": "Vivek Shah",
@@ -48748,8 +50180,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 118461,
-        "count": 12
+        "revenue": 119111,
+        "count": 13
       },
       "Annual Mini": {
         "revenue": 5000,
@@ -48778,8 +50210,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 24709,
-        "count": 2
+        "revenue": 25359,
+        "count": 3
       },
       "Overlap Deals": {
         "revenue": 12494,
@@ -48788,8 +50220,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 37203
+      "count": 5,
+      "revenue": 37853
     },
     "collidingDeals": [
       {
@@ -48884,9 +50316,9 @@
   },
   {
     "date": "2026-06-03",
-    "totalRevenue": 131629,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 136600,
+    "salesCount": 17,
+    "transactions": 17,
     "highestSale": {
       "amount": 12493,
       "agent": "Self Serve",
@@ -48928,8 +50360,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 111362,
-        "count": 10
+        "revenue": 116333,
+        "count": 12
       },
       "Annual Plus": {
         "revenue": 8000,
@@ -48954,14 +50386,20 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 30053,
-        "count": 4
+        "revenue": 35024,
+        "count": 6
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 30053
+      "count": 6,
+      "revenue": 35024
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -49126,9 +50564,9 @@
   },
   {
     "date": "2026-06-05",
-    "totalRevenue": 165501,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 169830,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 12493,
       "agent": "Self Serve",
@@ -49170,8 +50608,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 147485,
-        "count": 14
+        "revenue": 151814,
+        "count": 15
       },
       "Quarterly Plus": {
         "revenue": 5710,
@@ -49196,14 +50634,20 @@
         "count": 11
       },
       "Direct Sale": {
-        "revenue": 32725,
-        "count": 4
+        "revenue": 37054,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 32725
+      "count": 5,
+      "revenue": 37054
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -49226,9 +50670,9 @@
   },
   {
     "date": "2026-06-06",
-    "totalRevenue": 180978.57,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 182761.57,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12000,
       "agent": "Satyam Pandey",
@@ -49294,8 +50738,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 145281.57,
-        "count": 14
+        "revenue": 147064.57,
+        "count": 15
       },
       "Quarterly Plus": {
         "revenue": 2710,
@@ -49332,14 +50776,14 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 14639.57,
-        "count": 2
+        "revenue": 16422.57,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 25594.57
+      "count": 5,
+      "revenue": 27377.57
     },
     "collidingDeals": [
       {
@@ -49413,6 +50857,12 @@
       "count": 2,
       "revenue": 10955
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -49434,9 +50884,9 @@
   },
   {
     "date": "2026-06-07",
-    "totalRevenue": 186453,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 189737,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 12496,
       "agent": "Shikha Singh",
@@ -49478,12 +50928,12 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 136234,
-        "count": 12
+        "revenue": 138361,
+        "count": 13
       },
       "Quarterly Plus": {
-        "revenue": 2710,
-        "count": 1
+        "revenue": 5420,
+        "count": 2
       },
       "Annual Mini": {
         "revenue": 11164,
@@ -49508,18 +50958,18 @@
         "count": 11
       },
       "Overlap Deals": {
-        "revenue": 21910,
+        "revenue": 20357,
         "count": 4
       },
       "Direct Sale": {
-        "revenue": 37131,
-        "count": 5
+        "revenue": 41968,
+        "count": 7
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 9,
-      "revenue": 59041
+      "count": 11,
+      "revenue": 62325
     },
     "collidingDeals": [
       {
@@ -49554,18 +51004,18 @@
       },
       {
         "date": "2026-06-07",
-        "rawDate": "07/06/2026 10:44",
+        "rawDate": "07/06/2026 10:56",
         "customerName": "vishakha malik",
         "phone": "9133991198",
         "agent": "Honey Talreja",
         "insideRevenue": 2710,
-        "revenue": 2710,
-        "directRevenue": 2710,
-        "plan": "Quarterly Plus",
+        "revenue": 1157,
+        "directRevenue": 1157,
+        "plan": "Annual Max",
         "source": "Organic",
         "directOrderId": "7ff30e78-24ad-47e4-9c25-dc925602d3f9",
         "directUserId": "UR255741",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2710 and also completed on Direct Portal for ₹2710"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2710 and also completed on Direct Portal for ₹1157"
       },
       {
         "date": "2026-06-07",
@@ -49616,18 +51066,18 @@
       },
       {
         "date": "2026-06-07",
-        "rawDate": "07/06/2026 10:44",
+        "rawDate": "07/06/2026 10:56",
         "customerName": "vishakha malik",
         "phone": "9133991198",
         "agent": "Honey Talreja",
         "insideRevenue": 2710,
-        "revenue": 2710,
-        "directRevenue": 2710,
-        "plan": "Quarterly Plus",
+        "revenue": 1157,
+        "directRevenue": 1157,
+        "plan": "Annual Max",
         "source": "Organic",
         "directOrderId": "7ff30e78-24ad-47e4-9c25-dc925602d3f9",
         "directUserId": "UR255741",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2710 and also completed on Direct Portal for ₹2710"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹2710 and also completed on Direct Portal for ₹1157"
       },
       {
         "date": "2026-06-07",
@@ -49647,11 +51097,17 @@
     ],
     "collidingTotal": {
       "count": 4,
-      "revenue": 21910
+      "revenue": 20357
     },
     "disputedTotal": {
       "count": 4,
-      "revenue": 21910
+      "revenue": 20357
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -49991,6 +51447,12 @@
       "count": 1,
       "revenue": 12493
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -50012,9 +51474,9 @@
   },
   {
     "date": "2026-06-10",
-    "totalRevenue": 119490,
-    "salesCount": 14,
-    "transactions": 14,
+    "totalRevenue": 124163,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
       "amount": 14975,
       "agent": "Prerak Bhavsar",
@@ -50064,8 +51526,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 81493,
-        "count": 8
+        "revenue": 86166,
+        "count": 10
       },
       "Quarterly Plus": {
         "revenue": 5410,
@@ -50094,8 +51556,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 20509,
-        "count": 3
+        "revenue": 25182,
+        "count": 5
       },
       "Overlap Deals": {
         "revenue": 20281,
@@ -50104,8 +51566,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 40790
+      "count": 7,
+      "revenue": 45463
     },
     "collidingDeals": [
       {
@@ -50179,6 +51641,12 @@
       "count": 2,
       "revenue": 20281
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -50200,9 +51668,9 @@
   },
   {
     "date": "2026-06-11",
-    "totalRevenue": 127889,
-    "salesCount": 17,
-    "transactions": 17,
+    "totalRevenue": 129046,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 12493,
       "agent": "Honey Talreja",
@@ -50244,8 +51712,8 @@
         "count": 6
       },
       "Annual Max": {
-        "revenue": 66376,
-        "count": 6
+        "revenue": 67533,
+        "count": 7
       },
       "Quarterly Plus": {
         "revenue": 5710,
@@ -50270,14 +51738,14 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 21214,
-        "count": 4
+        "revenue": 22371,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 39013
+      "count": 7,
+      "revenue": 40170
     },
     "collidingDeals": [
       {
@@ -50350,6 +51818,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 17799
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -50568,6 +52042,12 @@
     "disputedTotal": {
       "count": 3,
       "revenue": 20232
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -50829,6 +52309,12 @@
       "count": 4,
       "revenue": 33805
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -50850,9 +52336,9 @@
   },
   {
     "date": "2026-06-14",
-    "totalRevenue": 294950,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 295300,
+    "salesCount": 35,
+    "transactions": 35,
     "highestSale": {
       "amount": 17000,
       "agent": "Somya Choraria",
@@ -50918,8 +52404,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251744,
-        "count": 23
+        "revenue": 252094,
+        "count": 25
       },
       "Quarterly Max": {
         "revenue": 32699,
@@ -50944,14 +52430,20 @@
         "count": 12
       },
       "Direct Sale": {
-        "revenue": 15023,
-        "count": 2
+        "revenue": 15373,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 15023
+      "count": 4,
+      "revenue": 15373
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -51045,6 +52537,12 @@
       "count": 3,
       "revenue": 14319
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -51066,9 +52564,9 @@
   },
   {
     "date": "2026-06-16",
-    "totalRevenue": 127360,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 127362,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
       "amount": 12000,
       "agent": "Prerak Bhavsar",
@@ -51110,8 +52608,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 111000,
-        "count": 10
+        "revenue": 111002,
+        "count": 12
       },
       "Annual Plus": {
         "revenue": 8000,
@@ -51136,14 +52634,20 @@
         "count": 8
       },
       "Direct Sale": {
-        "revenue": 3160,
-        "count": 1
+        "revenue": 3162,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 1,
-      "revenue": 3160
+      "count": 3,
+      "revenue": 3162
+    },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
     },
     "refundsLast7Days": {
       "total": 0,
@@ -51166,9 +52670,9 @@
   },
   {
     "date": "2026-06-17",
-    "totalRevenue": 181959,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 185434,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -51222,8 +52726,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 169222,
-        "count": 15
+        "revenue": 172697,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 9577,
@@ -51244,14 +52748,20 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 34883,
-        "count": 4
+        "revenue": 38358,
+        "count": 7
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 34883
+      "count": 7,
+      "revenue": 38358
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -51433,6 +52943,12 @@
       "count": 2,
       "revenue": 22592
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -51587,6 +53103,12 @@
       "count": 1,
       "revenue": 11936.25
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -51608,9 +53130,9 @@
   },
   {
     "date": "2026-06-20",
-    "totalRevenue": 190118,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 193123,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -51656,8 +53178,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 169311,
-        "count": 16
+        "revenue": 172316,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 10000,
@@ -51686,8 +53208,8 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 52935,
-        "count": 4
+        "revenue": 55940,
+        "count": 6
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -51696,8 +53218,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 58691
+      "count": 7,
+      "revenue": 61696
     },
     "collidingDeals": [
       {
@@ -51741,6 +53263,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -51762,9 +53290,9 @@
   },
   {
     "date": "2026-06-21",
-    "totalRevenue": 251589.59999999998,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 252171.59999999998,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 15000,
       "agent": "Amol Landge",
@@ -51818,8 +53346,8 @@
         "count": 4
       },
       "Annual Max": {
-        "revenue": 226873.59999999998,
-        "count": 20
+        "revenue": 227455.59999999998,
+        "count": 21
       },
       "Quarterly Plus": {
         "revenue": 5660,
@@ -51840,14 +53368,20 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 44262.6,
-        "count": 4
+        "revenue": 44844.6,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 44262.6
+      "count": 5,
+      "revenue": 44844.6
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 0,
@@ -51870,9 +53404,9 @@
   },
   {
     "date": "2026-06-22",
-    "totalRevenue": 190923,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 190924,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 12000,
       "agent": "Vivek Shah",
@@ -51930,8 +53464,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 154400,
-        "count": 14
+        "revenue": 154401,
+        "count": 15
       },
       "Quarterly Max": {
         "revenue": 25556,
@@ -51952,8 +53486,8 @@
         "count": 19
       },
       "Direct Sale": {
-        "revenue": 8563,
-        "count": 2
+        "revenue": 8564,
+        "count": 3
       },
       "Overlap Deals": {
         "revenue": 3160,
@@ -51962,8 +53496,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 11723
+      "count": 4,
+      "revenue": 11724
     },
     "collidingDeals": [
       {
@@ -52028,9 +53562,9 @@
   },
   {
     "date": "2026-06-23",
-    "totalRevenue": 139496,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 139609,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 12000,
       "agent": "Naba Usama Saiedi",
@@ -52084,8 +53618,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 128176,
-        "count": 15
+        "revenue": 128289,
+        "count": 17
       },
       "Quarterly Max": {
         "revenue": 5000,
@@ -52114,14 +53648,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 3160,
-        "count": 1
+        "revenue": 3273,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 6320
+      "count": 4,
+      "revenue": 6433
     },
     "collidingDeals": [
       {
@@ -52186,9 +53720,9 @@
   },
   {
     "date": "2026-06-24",
-    "totalRevenue": 112317,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 112318,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 13573,
       "agent": "Tanveer Ahmed",
@@ -52226,8 +53760,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 78988,
-        "count": 7
+        "revenue": 78989,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 9000,
@@ -52248,8 +53782,8 @@
         "count": 4
       },
       "Direct Sale": {
-        "revenue": 13573,
-        "count": 1
+        "revenue": 13574,
+        "count": 2
       },
       "Overlap Deals": {
         "revenue": 19329,
@@ -52258,8 +53792,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 3,
-      "revenue": 32902
+      "count": 4,
+      "revenue": 32903
     },
     "collidingDeals": [
       {
@@ -52587,6 +54121,12 @@
       "count": 4,
       "revenue": 38956.8
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -52748,6 +54288,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 3160
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "refundsLast7Days": {
       "total": 0,
@@ -53237,6 +54783,12 @@
       "count": 1,
       "revenue": 10376
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -53413,6 +54965,12 @@
       "count": 2,
       "revenue": 10321
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -53551,6 +55109,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -53662,6 +55226,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 37946
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -53901,6 +55471,12 @@
       "count": 3,
       "revenue": 33432
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -54029,6 +55605,12 @@
       "count": 3,
       "revenue": 28272
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -54116,6 +55698,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 34129.86
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -54208,6 +55796,12 @@
     "directSaleCSV": {
       "count": 1,
       "revenue": 12394
+    },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
     },
     "refundsLast7Days": {
       "total": 0,
@@ -54388,6 +55982,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 12065.9
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -54831,6 +56431,12 @@
       "count": 2,
       "revenue": 12917
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -54942,6 +56548,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 69354
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -55233,6 +56845,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -55391,6 +57009,12 @@
       "count": 1,
       "revenue": 3160
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -55537,6 +57161,12 @@
       "count": 1,
       "revenue": 6269
     },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -55679,6 +57309,12 @@
       "count": 1,
       "revenue": 3160
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -55794,6 +57430,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 23296.4
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -55968,6 +57610,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 12825
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -56173,6 +57821,12 @@
       "count": 3,
       "revenue": 23728
     },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -56327,6 +57981,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -56348,9 +58008,9 @@
   },
   {
     "date": "2026-07-23",
-    "totalRevenue": 118945.8,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 115785.8,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 12466.8,
       "agent": "Self Serve",
@@ -56396,8 +58056,8 @@
         "count": 4
       },
       "Quarterly Plus": {
-        "revenue": 5967,
-        "count": 2
+        "revenue": 2807,
+        "count": 1
       }
     },
     "sources": {
@@ -56410,14 +58070,20 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 24189.8,
-        "count": 4
+        "revenue": 21029.8,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 24189.8
+      "count": 3,
+      "revenue": 21029.8
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -56597,6 +58263,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -56720,6 +58392,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 35787
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -57159,6 +58837,12 @@
       "count": 3,
       "revenue": 20078
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -57371,6 +59055,12 @@
       "count": 4,
       "revenue": 42309
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -57392,9 +59082,9 @@
   },
   {
     "date": "2026-07-31",
-    "totalRevenue": 426723.3,
-    "salesCount": 43,
-    "transactions": 43,
+    "totalRevenue": 433923.3,
+    "salesCount": 44,
+    "transactions": 44,
     "highestSale": {
       "amount": 15763.5,
       "agent": "Self Serve",
@@ -57448,8 +59138,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 387795.3,
-        "count": 35
+        "revenue": 394995.3,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 35768,
@@ -57478,14 +59168,14 @@
         "count": 7
       },
       "Direct Sale": {
-        "revenue": 74447.3,
-        "count": 8
+        "revenue": 81647.3,
+        "count": 9
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 74447.3
+      "count": 9,
+      "revenue": 81647.3
     },
     "refundsLast7Days": {
       "total": 0,
@@ -57508,9 +59198,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 471273,
-    "salesCount": 48,
-    "transactions": 48,
+    "totalRevenue": 473538,
+    "salesCount": 49,
+    "transactions": 49,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -57576,8 +59266,8 @@
         "count": 1
       },
       "Quarterly Max": {
-        "revenue": 36347,
-        "count": 7
+        "revenue": 38612,
+        "count": 8
       },
       "Quarterly Plus": {
         "revenue": 9480,
@@ -57602,8 +59292,8 @@
         "count": 0
       },
       "Direct Sale": {
-        "revenue": 129765,
-        "count": 15
+        "revenue": 132030,
+        "count": 16
       },
       "Overlap Deals": {
         "revenue": 21132,
@@ -57612,8 +59302,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 18,
-      "revenue": 150897
+      "count": 19,
+      "revenue": 153162
     },
     "collidingDeals": [
       {
@@ -57717,6 +59407,12 @@
       "count": 3,
       "revenue": 21132
     },
+    "deliveryFee": {
+      "transactions": 7,
+      "charge": 700,
+      "tax": 126,
+      "total": 826
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -57738,9 +59434,9 @@
   },
   {
     "date": "2026-08-02",
-    "totalRevenue": 211903.8,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 219103.8,
+    "salesCount": 26,
+    "transactions": 26,
     "highestSale": {
       "amount": 17000,
       "agent": "Shubham Rai",
@@ -57798,8 +59494,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 149218.8,
-        "count": 13
+        "revenue": 156418.8,
+        "count": 14
       },
       "Quarterly Max": {
         "revenue": 50024,
@@ -57824,14 +59520,20 @@
         "count": 4
       },
       "Direct Sale": {
-        "revenue": 36895.8,
-        "count": 5
+        "revenue": 44095.8,
+        "count": 6
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 36895.8
+      "count": 6,
+      "revenue": 44095.8
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -57854,9 +59556,9 @@
   },
   {
     "date": "2026-08-03",
-    "totalRevenue": 276864.55,
-    "salesCount": 29,
-    "transactions": 29,
+    "totalRevenue": 281978.55,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 17073,
       "agent": "Chhaya Patel",
@@ -57922,8 +59624,8 @@
         "count": 1
       },
       "Quarterly Max": {
-        "revenue": 24992,
-        "count": 5
+        "revenue": 30106,
+        "count": 7
       },
       "Annual Plus": {
         "revenue": 17000,
@@ -57948,14 +59650,14 @@
         "count": 3
       },
       "Direct Sale": {
-        "revenue": 45331.55,
-        "count": 5
+        "revenue": 50445.55,
+        "count": 7
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 71320.55
+      "count": 10,
+      "revenue": 76434.55
     },
     "collidingDeals": [
       {
@@ -58058,6 +59760,12 @@
     "disputedTotal": {
       "count": 3,
       "revenue": 25989
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -58275,6 +59983,12 @@
       "count": 2,
       "revenue": 7384
     },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -58379,6 +60093,12 @@
       "count": 6,
       "revenue": 40043
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -58400,9 +60120,9 @@
   },
   {
     "date": "2026-08-06",
-    "totalRevenue": 160691.8,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 171288.8,
+    "salesCount": 19,
+    "transactions": 19,
     "highestSale": {
       "amount": 13000,
       "agent": "Vivek Shah",
@@ -58422,8 +60142,8 @@
         "count": 1
       },
       "Kush Shah": {
-        "revenue": 14800,
-        "count": 2
+        "revenue": 12000,
+        "count": 1
       },
       "Amol Landge": {
         "revenue": 2000,
@@ -58452,12 +60172,12 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 135466.8,
-        "count": 13
+        "revenue": 147063.8,
+        "count": 14
       },
       "Quarterly Max": {
-        "revenue": 17225,
-        "count": 4
+        "revenue": 14425,
+        "count": 3
       },
       "Annual Plus": {
         "revenue": 8000,
@@ -58474,18 +60194,70 @@
         "count": 10
       },
       "Upgrade": {
-        "revenue": 4800,
-        "count": 2
+        "revenue": 2000,
+        "count": 1
+      },
+      "Overlap Deals": {
+        "revenue": 1800,
+        "count": 1
       },
       "Direct Sale": {
-        "revenue": 17891.8,
-        "count": 2
+        "revenue": 29488.8,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 17891.8
+      "count": 4,
+      "revenue": 31288.8
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-08-06",
+        "rawDate": "06/08/2026 17:51",
+        "customerName": "Richa mehul patel",
+        "phone": "8238620887",
+        "agent": "Kush Shah",
+        "insideRevenue": 2800,
+        "revenue": 1800,
+        "directRevenue": 1800,
+        "plan": "Quarterly Max",
+        "source": "Upgrade",
+        "directOrderId": "10dfc945-23ed-4186-a859-a1030c988401",
+        "directUserId": "UR195059",
+        "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹2800 and also completed on Direct Portal for ₹1800"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-08-06",
+        "rawDate": "06/08/2026 17:51",
+        "customerName": "Richa mehul patel",
+        "phone": "8238620887",
+        "agent": "Kush Shah",
+        "insideRevenue": 2800,
+        "revenue": 1800,
+        "directRevenue": 1800,
+        "plan": "Quarterly Max",
+        "source": "Upgrade",
+        "directOrderId": "10dfc945-23ed-4186-a859-a1030c988401",
+        "directUserId": "UR195059",
+        "disputeNote": "Logged by Inside Sales agent (Kush Shah) for ₹2800 and also completed on Direct Portal for ₹1800"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 1800
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 1800
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -58591,6 +60363,12 @@
       "count": 4,
       "revenue": 40466
     },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -58612,9 +60390,9 @@
   },
   {
     "date": "2026-08-08",
-    "totalRevenue": 201124.95,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 212710.95,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 12531.95,
       "agent": "Self Serve",
@@ -58664,8 +60442,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 161875.95,
-        "count": 15
+        "revenue": 173461.95,
+        "count": 16
       },
       "6 months Max": {
         "revenue": 7000,
@@ -58698,8 +60476,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 27203.95,
-        "count": 4
+        "revenue": 38789.95,
+        "count": 5
       },
       "Overlap Deals": {
         "revenue": 4577,
@@ -58708,8 +60486,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 5,
-      "revenue": 31780.95
+      "count": 6,
+      "revenue": 43366.95
     },
     "collidingDeals": [
       {
@@ -58753,6 +60531,12 @@
       "count": 1,
       "revenue": 4577
     },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -58774,9 +60558,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 314034,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 321234,
+    "salesCount": 34,
+    "transactions": 34,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta",
@@ -58852,6 +60636,10 @@
       "Quarterly Plus": {
         "revenue": 9320,
         "count": 3
+      },
+      "Annual Mini": {
+        "revenue": 7161,
+        "count": 1
       }
     },
     "sources": {
@@ -58872,60 +60660,66 @@
         "count": 3
       },
       "Direct Sale": {
-        "revenue": 48278,
-        "count": 5
+        "revenue": 55439,
+        "count": 6
       },
       "Overlap Deals": {
-        "revenue": 7161,
+        "revenue": 7200,
         "count": 1
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 55439
+      "count": 7,
+      "revenue": 62639
     },
     "collidingDeals": [
       {
         "date": "2026-08-09",
-        "rawDate": "09/08/2026 12:59",
+        "rawDate": "09/08/2026 13:19",
         "customerName": "mayuri katare",
         "phone": "9766455136",
         "agent": "Honey Talreja",
         "insideRevenue": 7200,
-        "revenue": 7161,
-        "directRevenue": 7161,
-        "plan": "Annual Mini",
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
         "source": "Upgrade",
         "directOrderId": "ac1e96bd-b0f7-44f9-a9c9-235e9b4c9ebf",
         "directUserId": "UR282621",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹7200 and also completed on Direct Portal for ₹7161"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹7200 and also completed on Direct Portal for ₹7200"
       }
     ],
     "disputedDeals": [
       {
         "date": "2026-08-09",
-        "rawDate": "09/08/2026 12:59",
+        "rawDate": "09/08/2026 13:19",
         "customerName": "mayuri katare",
         "phone": "9766455136",
         "agent": "Honey Talreja",
         "insideRevenue": 7200,
-        "revenue": 7161,
-        "directRevenue": 7161,
-        "plan": "Annual Mini",
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
         "source": "Upgrade",
         "directOrderId": "ac1e96bd-b0f7-44f9-a9c9-235e9b4c9ebf",
         "directUserId": "UR282621",
-        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹7200 and also completed on Direct Portal for ₹7161"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹7200 and also completed on Direct Portal for ₹7200"
       }
     ],
     "collidingTotal": {
       "count": 1,
-      "revenue": 7161
+      "revenue": 7200
     },
     "disputedTotal": {
       "count": 1,
-      "revenue": 7161
+      "revenue": 7200
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "refundsLast7Days": {
       "total": 0,
@@ -58948,9 +60742,9 @@
   },
   {
     "date": "2026-08-10",
-    "totalRevenue": 136662.58000000002,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 151062.58000000002,
+    "salesCount": 14,
+    "transactions": 14,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
@@ -58988,8 +60782,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 111429.58,
-        "count": 9
+        "revenue": 125829.58,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 5000,
@@ -59014,14 +60808,14 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 29213.58,
-        "count": 2
+        "revenue": 43613.58,
+        "count": 4
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 49446.58
+      "count": 6,
+      "revenue": 63846.58
     },
     "collidingDeals": [
       {
@@ -59095,6 +60889,12 @@
       "count": 2,
       "revenue": 20233
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -59116,9 +60916,9 @@
   },
   {
     "date": "2026-08-11",
-    "totalRevenue": 141337,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 145447,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 12100,
       "agent": "Vivek Shah",
@@ -59149,10 +60949,6 @@
         "revenue": 7200,
         "count": 2
       },
-      "Chhaya Patel": {
-        "revenue": 5425,
-        "count": 1
-      },
       "Sneha Anand": {
         "revenue": 4500,
         "count": 1
@@ -59169,6 +60965,10 @@
         "revenue": 4500,
         "count": 1
       },
+      "Chhaya Patel": {
+        "revenue": 0,
+        "count": 0
+      },
       "Shivani Gupta": {
         "revenue": 4000,
         "count": 1
@@ -59176,11 +60976,11 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 91100,
-        "count": 9
+        "revenue": 98300,
+        "count": 10
       },
       "Quarterly Max": {
-        "revenue": 41681,
+        "revenue": 38591,
         "count": 9
       },
       "Quarterly Plus": {
@@ -59190,8 +60990,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 125825,
-        "count": 17
+        "revenue": 120400,
+        "count": 16
       },
       "Renewals": {
         "revenue": 4000,
@@ -59202,14 +61002,14 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 5756,
-        "count": 1
+        "revenue": 15291,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 11512
+      "count": 4,
+      "revenue": 21047
     },
     "collidingDeals": [
       {
@@ -59252,6 +61052,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 5756
+    },
+    "deliveryFee": {
+      "transactions": 8,
+      "charge": 800,
+      "tax": 144,
+      "total": 944
     },
     "refundsLast7Days": {
       "total": 0,
@@ -59489,6 +61295,12 @@
       "count": 4,
       "revenue": 34434
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -59665,6 +61477,12 @@
       "count": 2,
       "revenue": 29289
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -59773,6 +61591,12 @@
       "count": 4,
       "revenue": 38205
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -59794,9 +61618,9 @@
   },
   {
     "date": "2026-08-15",
-    "totalRevenue": 412678.99,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 417178.99,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Amol Landge",
@@ -59858,6 +61682,10 @@
       "Naveen Suwalka": {
         "revenue": 11000,
         "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 4500,
+        "count": 1
       }
     },
     "plans": {
@@ -59866,8 +61694,8 @@
         "count": 29
       },
       "Quarterly Max": {
-        "revenue": 43012,
-        "count": 9
+        "revenue": 47512,
+        "count": 10
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -59884,8 +61712,8 @@
         "count": 8
       },
       "Organic": {
-        "revenue": 239120,
-        "count": 25
+        "revenue": 243620,
+        "count": 26
       },
       "Events": {
         "revenue": 44000,
@@ -60767,6 +62595,12 @@
       "count": 1,
       "revenue": 4577
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -60974,6 +62808,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 34146
+    },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
     },
     "refundsLast7Days": {
       "total": 0,
@@ -61331,6 +63171,12 @@
       "count": 1,
       "revenue": 5756
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -61458,6 +63304,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 53883.17
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -61596,9 +63448,9 @@
   },
   {
     "date": "2026-08-26",
-    "totalRevenue": 283429,
-    "salesCount": 29,
-    "transactions": 29,
+    "totalRevenue": 290629,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 12825,
       "agent": "Self Serve",
@@ -61664,8 +63516,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 239848,
-        "count": 22
+        "revenue": 247048,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 20756,
@@ -61690,14 +63542,20 @@
         "count": 10
       },
       "Direct Sale": {
-        "revenue": 18581,
-        "count": 2
+        "revenue": 25781,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 18581
+      "count": 3,
+      "revenue": 25781
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 0,
@@ -62349,6 +64207,12 @@
       "count": 1,
       "revenue": 3160
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -62464,6 +64328,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 35338
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 0,
@@ -62665,6 +64535,12 @@
       "count": 2,
       "revenue": 15376
     },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -62757,6 +64633,12 @@
       "count": 3,
       "revenue": 18774
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refundsLast7Days": {
       "total": 0,
       "count": 0
@@ -62778,9 +64660,9 @@
   },
   {
     "date": "2026-09-03",
-    "totalRevenue": 205135,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 213770.8,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -62838,8 +64720,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 162702,
-        "count": 14
+        "revenue": 171337.8,
+        "count": 15
       },
       "Annual Mini": {
         "revenue": 5000,
@@ -62868,8 +64750,8 @@
         "count": 16
       },
       "Direct Sale": {
-        "revenue": 51503,
-        "count": 6
+        "revenue": 60138.8,
+        "count": 7
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -62878,8 +64760,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 7,
-      "revenue": 57259
+      "count": 8,
+      "revenue": 65894.8
     },
     "collidingDeals": [
       {
@@ -63171,6 +65053,12 @@
       "count": 4,
       "revenue": 39808
     },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
+    },
     "refunds": {
       "count": 1,
       "total": 3394,
@@ -63200,9 +65088,9 @@
   },
   {
     "date": "2026-09-05",
-    "totalRevenue": 385901,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 393101,
+    "salesCount": 40,
+    "transactions": 40,
     "highestSale": {
       "amount": 18000,
       "agent": "Honey Talreja",
@@ -63280,8 +65168,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 284739,
-        "count": 26
+        "revenue": 291939,
+        "count": 27
       },
       "Quarterly Max": {
         "revenue": 34258,
@@ -63306,8 +65194,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 40190,
-        "count": 5
+        "revenue": 47390,
+        "count": 6
       },
       "Overlap Deals": {
         "revenue": 42404,
@@ -63316,8 +65204,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 9,
-      "revenue": 82594
+      "count": 10,
+      "revenue": 89794
     },
     "collidingDeals": [
       {
@@ -63450,6 +65338,12 @@
     "disputedTotal": {
       "count": 4,
       "revenue": 42404
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "refunds": {
       "count": 1,
@@ -63640,6 +65534,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 5756
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refunds": {
       "count": 1,
@@ -63836,6 +65736,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 8916
+    },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
     },
     "refunds": {
       "count": 5,
@@ -64081,6 +65987,12 @@
       "count": 2,
       "revenue": 18716.86
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 59443,
       "count": 8
@@ -64188,6 +66100,12 @@
     "directSaleCSV": {
       "count": 3,
       "revenue": 25085
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refunds": {
       "count": 2,
@@ -64319,6 +66237,12 @@
     "directSaleCSV": {
       "count": 4,
       "revenue": 20428
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 74193,
@@ -64888,9 +66812,9 @@
   },
   {
     "date": "2026-09-14",
-    "totalRevenue": 181058,
-    "salesCount": 17,
-    "transactions": 17,
+    "totalRevenue": 190680,
+    "salesCount": 18,
+    "transactions": 18,
     "highestSale": {
       "amount": 14055,
       "agent": "Self Serve",
@@ -64940,8 +66864,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 170898,
-        "count": 15
+        "revenue": 180520,
+        "count": 16
       },
       "6 months Max": {
         "revenue": 7000,
@@ -64958,14 +66882,14 @@
         "count": 13
       },
       "Direct Sale": {
-        "revenue": 44361,
-        "count": 4
+        "revenue": 53983,
+        "count": 5
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 44361
+      "count": 5,
+      "revenue": 53983
     },
     "refunds": {
       "count": 1,
@@ -65453,7 +67377,7 @@
   },
   {
     "date": "2026-09-17",
-    "totalRevenue": 364914,
+    "totalRevenue": 358965,
     "salesCount": 36,
     "transactions": 36,
     "highestSale": {
@@ -65463,8 +67387,8 @@
     },
     "agents": {
       "Honey Talreja": {
-        "revenue": 57825,
-        "count": 5
+        "revenue": 45000,
+        "count": 4
       },
       "Shashank Tiwari": {
         "revenue": 27500,
@@ -65537,8 +67461,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 308585,
-        "count": 26
+        "revenue": 295760,
+        "count": 25
       },
       "Quarterly Max": {
         "revenue": 42756,
@@ -65551,24 +67475,39 @@
         "count": 27
       },
       "Yes": {
-        "revenue": 52825,
-        "count": 3
+        "revenue": 40000,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 60048,
         "count": 5
       },
       "Overlap Deals": {
-        "revenue": 13573,
-        "count": 1
+        "revenue": 20449,
+        "count": 2
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 73621
+      "count": 7,
+      "revenue": 80497
     },
     "collidingDeals": [
+      {
+        "date": "2026-09-17",
+        "rawDate": "17/09/2026 14:30",
+        "customerName": "madhuri",
+        "phone": "9573574126",
+        "agent": "Honey Talreja",
+        "insideRevenue": 12825,
+        "revenue": 6876,
+        "directRevenue": 6876,
+        "plan": "Annual Max",
+        "source": "Yes",
+        "directOrderId": "320d60aa-5461-4988-aca1-514d4f3d31a5",
+        "directUserId": "UR468548",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12825 and also completed on Direct Portal for ₹6876"
+      },
       {
         "date": "2026-09-17",
         "rawDate": "17/09/2026 12:52",
@@ -65588,6 +67527,21 @@
     "disputedDeals": [
       {
         "date": "2026-09-17",
+        "rawDate": "17/09/2026 14:30",
+        "customerName": "madhuri",
+        "phone": "9573574126",
+        "agent": "Honey Talreja",
+        "insideRevenue": 12825,
+        "revenue": 6876,
+        "directRevenue": 6876,
+        "plan": "Annual Max",
+        "source": "Yes",
+        "directOrderId": "320d60aa-5461-4988-aca1-514d4f3d31a5",
+        "directUserId": "UR468548",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12825 and also completed on Direct Portal for ₹6876"
+      },
+      {
+        "date": "2026-09-17",
         "rawDate": "17/09/2026 12:52",
         "customerName": "varun adlakha",
         "phone": "9718702544",
@@ -65603,12 +67557,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 13573
+      "count": 2,
+      "revenue": 20449
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 13573
+      "count": 2,
+      "revenue": 20449
     },
     "refunds": {
       "count": 2,
@@ -65906,8 +67860,8 @@
         "count": 2
       },
       "Shashank Tiwari": {
-        "revenue": 7200,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 0,
@@ -65940,8 +67894,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 233901,
-        "count": 21
+        "revenue": 226701,
+        "count": 20
       },
       "Quarterly Max": {
         "revenue": 33331,
@@ -65958,8 +67912,8 @@
     },
     "sources": {
       "No": {
-        "revenue": 236005,
-        "count": 25
+        "revenue": 228805,
+        "count": 24
       },
       "Yes": {
         "revenue": 14000,
@@ -65970,14 +67924,14 @@
         "count": 4
       },
       "Overlap Deals": {
-        "revenue": 10233,
-        "count": 2
+        "revenue": 17433,
+        "count": 3
       }
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 6,
-      "revenue": 55401.54
+      "count": 7,
+      "revenue": 62601.54
     },
     "collidingDeals": [
       {
@@ -65994,6 +67948,21 @@
         "directOrderId": "da63b46f-54b7-43c8-af79-71a9b1351af1",
         "directUserId": "UR457863",
         "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹5756 and also completed on Direct Portal for ₹5756"
+      },
+      {
+        "date": "2026-09-19",
+        "rawDate": "19/09/2026 15:27",
+        "customerName": "bhagawan priyadarshi",
+        "phone": "9650036324",
+        "agent": "Shashank Tiwari",
+        "insideRevenue": 7200,
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
+        "source": "No",
+        "directOrderId": "61b81d3d-916d-4523-9182-465871494f00",
+        "directUserId": "UR250290",
+        "disputeNote": "Logged by Inside Sales agent (Shashank Tiwari) for ₹7200 and also completed on Direct Portal for ₹7200"
       },
       {
         "date": "2026-09-19",
@@ -66029,6 +67998,21 @@
       },
       {
         "date": "2026-09-19",
+        "rawDate": "19/09/2026 15:27",
+        "customerName": "bhagawan priyadarshi",
+        "phone": "9650036324",
+        "agent": "Shashank Tiwari",
+        "insideRevenue": 7200,
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
+        "source": "No",
+        "directOrderId": "61b81d3d-916d-4523-9182-465871494f00",
+        "directUserId": "UR250290",
+        "disputeNote": "Logged by Inside Sales agent (Shashank Tiwari) for ₹7200 and also completed on Direct Portal for ₹7200"
+      },
+      {
+        "date": "2026-09-19",
         "rawDate": "19/09/2026 14:14",
         "customerName": "mohi seth",
         "phone": "8959969999",
@@ -66044,12 +68028,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 2,
-      "revenue": 10233
+      "count": 3,
+      "revenue": 17433
     },
     "disputedTotal": {
-      "count": 2,
-      "revenue": 10233
+      "count": 3,
+      "revenue": 17433
     },
     "refunds": {
       "count": 1,
@@ -66220,6 +68204,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 3160
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
     },
     "refundsLast7Days": {
       "total": 125722.5,
@@ -66942,6 +68932,12 @@
       }
     },
     "userBreakdown": null,
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refunds": {
       "count": 3,
       "total": 14867,
@@ -67137,6 +69133,12 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 13573
+    },
+    "deliveryFee": {
+      "transactions": 1,
+      "charge": 100,
+      "tax": 18,
+      "total": 118
     },
     "refundsLast7Days": {
       "total": 134776.8,
@@ -67550,6 +69552,12 @@
       "count": 1,
       "revenue": 13573
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refunds": {
       "count": 3,
       "total": 2362,
@@ -67827,8 +69835,8 @@
         "count": 1
       },
       "Shivani Gupta": {
-        "revenue": 19200,
-        "count": 2
+        "revenue": 12000,
+        "count": 1
       },
       "Kush Shah": {
         "revenue": 23000,
@@ -67869,8 +69877,8 @@
         "count": 3
       },
       "Annual Max": {
-        "revenue": 272531,
-        "count": 24
+        "revenue": 265331,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 20756,
@@ -67883,8 +69891,12 @@
         "count": 3
       },
       "No": {
-        "revenue": 273958,
-        "count": 26
+        "revenue": 266758,
+        "count": 25
+      },
+      "Overlap Deals": {
+        "revenue": 7200,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 19329,
@@ -67893,8 +69905,50 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 2,
-      "revenue": 19329
+      "count": 3,
+      "revenue": 26529
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-09-29",
+        "rawDate": "29/09/2026 16:34",
+        "customerName": "renu choudhary",
+        "phone": "8438384901",
+        "agent": "Shivani Gupta",
+        "insideRevenue": 7200,
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
+        "source": "No",
+        "directOrderId": "9bbcc2e4-0d83-44bc-b8f7-23b1ff1954fe",
+        "directUserId": "UR381439",
+        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹7200 and also completed on Direct Portal for ₹7200"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-09-29",
+        "rawDate": "29/09/2026 16:34",
+        "customerName": "renu choudhary",
+        "phone": "8438384901",
+        "agent": "Shivani Gupta",
+        "insideRevenue": 7200,
+        "revenue": 7200,
+        "directRevenue": 7200,
+        "plan": "Annual Max",
+        "source": "No",
+        "directOrderId": "9bbcc2e4-0d83-44bc-b8f7-23b1ff1954fe",
+        "directUserId": "UR381439",
+        "disputeNote": "Logged by Inside Sales agent (Shivani Gupta) for ₹7200 and also completed on Direct Portal for ₹7200"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 7200
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 7200
     },
     "refunds": {
       "count": 13,
@@ -68293,6 +70347,12 @@
     "disputedTotal": {
       "count": 5,
       "revenue": 50574.71
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refunds": {
       "count": 2,
@@ -68858,9 +70918,9 @@
   },
   {
     "date": "2026-10-04",
-    "totalRevenue": 511168.26,
-    "salesCount": 49,
-    "transactions": 45,
+    "totalRevenue": 520745.26,
+    "salesCount": 50,
+    "transactions": 46,
     "highestSale": {
       "amount": 12573,
       "agent": "Shivani Gupta",
@@ -68868,12 +70928,12 @@
     },
     "agents": {
       "Honey Talreja": {
-        "revenue": 93578,
-        "count": 9
+        "revenue": 105578,
+        "count": 10
       },
       "Others": {
-        "revenue": 47771,
-        "count": 6
+        "revenue": 16198,
+        "count": 3
       },
       "Jivesh Harde": {
         "revenue": 17000,
@@ -68907,6 +70967,10 @@
         "revenue": 41573,
         "count": 4
       },
+      "Vikas Poonia": {
+        "revenue": 19573,
+        "count": 2
+      },
       "Tanveer Ahmed": {
         "revenue": 12000,
         "count": 1
@@ -68930,8 +70994,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 468518,
-        "count": 43
+        "revenue": 478095,
+        "count": 44
       },
       "Quarterly Max": {
         "revenue": 14198,
@@ -68960,8 +71024,8 @@
         "count": 15
       },
       "Direct Sale": {
-        "revenue": 24432,
-        "count": 2
+        "revenue": 34009,
+        "count": 3
       },
       "Overlap Deals": {
         "revenue": 21452.260000000002,
@@ -68970,8 +71034,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 4,
-      "revenue": 45884.26
+      "count": 5,
+      "revenue": 55461.26
     },
     "collidingDeals": [
       {
@@ -69045,6 +71109,12 @@
       "count": 2,
       "revenue": 21452.260000000002
     },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
+    },
     "refundsLast7Days": {
       "total": 279573.7,
       "count": 27
@@ -69080,9 +71150,9 @@
   },
   {
     "date": "2026-10-05",
-    "totalRevenue": 205115.28,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 212315.28,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
@@ -69120,8 +71190,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 175067.28,
-        "count": 15
+        "revenue": 182267.28,
+        "count": 16
       },
       "Quarterly Plus": {
         "revenue": 3160,
@@ -69142,8 +71212,8 @@
         "count": 2
       },
       "Direct Sale": {
-        "revenue": 50770.28,
-        "count": 6
+        "revenue": 57970.28,
+        "count": 7
       },
       "Overlap Deals": {
         "revenue": 15376,
@@ -69152,8 +71222,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 8,
-      "revenue": 66146.28
+      "count": 9,
+      "revenue": 73346.28
     },
     "collidingDeals": [
       {
@@ -69226,6 +71296,12 @@
     "disputedTotal": {
       "count": 2,
       "revenue": 15376
+    },
+    "deliveryFee": {
+      "transactions": 4,
+      "charge": 400,
+      "tax": 72,
+      "total": 472
     },
     "refundsLast7Days": {
       "total": 279573.7,
@@ -69879,6 +71955,12 @@
       "count": 2,
       "revenue": 8916
     },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
     "refundsLast7Days": {
       "total": 128476.6,
       "count": 12
@@ -69923,9 +72005,9 @@
       "source": "Inside Sales"
     },
     "agents": {
-      "Others": {
-        "revenue": 40426,
-        "count": 4
+      "Vikas Poonia": {
+        "revenue": 5426,
+        "count": 1
       },
       "Neeru Yadav": {
         "revenue": 24216,
@@ -69940,8 +72022,8 @@
         "count": 4
       },
       "Honey Talreja": {
-        "revenue": 0,
-        "count": 0
+        "revenue": 11000,
+        "count": 1
       },
       "Prerak Bhavsar": {
         "revenue": 5000,
@@ -69958,6 +72040,10 @@
       "Preyashi Roy": {
         "revenue": 12216,
         "count": 1
+      },
+      "Others": {
+        "revenue": 24000,
+        "count": 2
       },
       "Rani Singh": {
         "revenue": 19573,
@@ -70152,6 +72238,12 @@
     "disputedTotal": {
       "count": 4,
       "revenue": 58071
+    },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
     },
     "refundsLast7Days": {
       "total": 3151,
@@ -70565,6 +72657,12 @@
       "count": 2,
       "revenue": 24138.559999999998
     },
+    "deliveryFee": {
+      "transactions": 2,
+      "charge": 200,
+      "tax": 36,
+      "total": 236
+    },
     "refunds": {
       "count": 1,
       "total": 11000,
@@ -70907,6 +73005,12 @@
     "directSaleCSV": {
       "count": 5,
       "revenue": 55643
+    },
+    "deliveryFee": {
+      "transactions": 6,
+      "charge": 600,
+      "tax": 108,
+      "total": 708
     },
     "refundsLast7Days": {
       "total": 117599.1,
@@ -71420,13 +73524,7 @@
         "count": 1
       }
     },
-    "userBreakdown": {
-      "signups": 1066,
-      "otpVerified": 1012,
-      "serviceable": 668,
-      "serviceableWithPct": "668 (62.7%)",
-      "serviceablePct": "62.7%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 1,
       "revenue": 6599
@@ -71548,13 +73646,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 1215,
-      "otpVerified": 1146,
-      "serviceable": 721,
-      "serviceableWithPct": "721 (59.3%)",
-      "serviceablePct": "59.3%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 2,
       "revenue": 26146
@@ -71656,9 +73748,9 @@
     "userBreakdown": {
       "signups": 714,
       "otpVerified": 671,
-      "serviceable": 395,
-      "serviceableWithPct": "395 (55.3%)",
-      "serviceablePct": "55.3%"
+      "serviceable": 396,
+      "serviceableWithPct": "396 (55.5%)",
+      "serviceablePct": "55.5%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -71772,10 +73864,10 @@
       }
     },
     "userBreakdown": {
-      "signups": 495,
-      "otpVerified": 481,
-      "serviceable": 310,
-      "serviceableWithPct": "310 (62.6%)",
+      "signups": 494,
+      "otpVerified": 480,
+      "serviceable": 309,
+      "serviceableWithPct": "309 (62.6%)",
       "serviceablePct": "62.6%"
     },
     "directSaleCSV": {
@@ -71943,11 +74035,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 311,
-      "otpVerified": 292,
-      "serviceable": 200,
-      "serviceableWithPct": "200 (64.3%)",
-      "serviceablePct": "64.3%"
+      "signups": 309,
+      "otpVerified": 290,
+      "serviceable": 198,
+      "serviceableWithPct": "198 (64.1%)",
+      "serviceablePct": "64.1%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -72092,9 +74184,9 @@
   },
   {
     "date": "2026-10-22",
-    "totalRevenue": 240717,
-    "salesCount": 24,
-    "transactions": 23,
+    "totalRevenue": 236676,
+    "salesCount": 23,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Kush Shah",
@@ -72110,8 +74202,8 @@
         "count": 1
       },
       "Shivani Gupta": {
-        "revenue": 40800,
-        "count": 5
+        "revenue": 36759,
+        "count": 4
       },
       "Vikas Poonia": {
         "revenue": 10376,
@@ -72176,14 +74268,14 @@
         "count": 1
       },
       "Quarterly Plus": {
-        "revenue": 9300,
-        "count": 2
+        "revenue": 5259,
+        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 208589,
-        "count": 21
+        "revenue": 204548,
+        "count": 20
       },
       "Renewals": {
         "revenue": 32128,
@@ -72193,9 +74285,9 @@
     "userBreakdown": {
       "signups": 421,
       "otpVerified": 334,
-      "serviceable": 218,
-      "serviceableWithPct": "218 (51.8%)",
-      "serviceablePct": "51.8%"
+      "serviceable": 219,
+      "serviceableWithPct": "219 (52.0%)",
+      "serviceablePct": "52.0%"
     },
     "deliveryFee": {
       "transactions": 3,
@@ -72260,9 +74352,9 @@
   },
   {
     "date": "2026-10-23",
-    "totalRevenue": 297625.87,
-    "salesCount": 28,
-    "transactions": 26,
+    "totalRevenue": 293544.87,
+    "salesCount": 27,
+    "transactions": 25,
     "highestSale": {
       "amount": 16000,
       "agent": "Amol Landge",
@@ -72334,8 +74426,8 @@
         "count": 1
       },
       "Others": {
-        "revenue": 16081,
-        "count": 2
+        "revenue": 12000,
+        "count": 1
       }
     },
     "plans": {
@@ -72350,16 +74442,12 @@
       "Annual Plus": {
         "revenue": 0,
         "count": 0
-      },
-      "Quarterly Plus": {
-        "revenue": 4081,
-        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 193443,
-        "count": 19
+        "revenue": 189362,
+        "count": 18
       },
       "Renewals": {
         "revenue": 66289,
@@ -72376,10 +74464,10 @@
     },
     "userBreakdown": {
       "signups": 807,
-      "otpVerified": 570,
-      "serviceable": 385,
-      "serviceableWithPct": "385 (47.7%)",
-      "serviceablePct": "47.7%"
+      "otpVerified": 574,
+      "serviceable": 390,
+      "serviceableWithPct": "390 (48.3%)",
+      "serviceablePct": "48.3%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -72426,11 +74514,6 @@
     "disputedTotal": {
       "count": 1,
       "revenue": 12247.87
-    },
-    "missedLeads": {
-      "Connected": 148,
-      "Interested": 95,
-      "Paise Dega": 12
     },
     "refunds": {
       "count": 7,
@@ -72491,34 +74574,329 @@
       "total": 187734.76,
       "count": 19
     },
-    "newUsers7d": 5065,
-    "newUsersYesterday": 740,
-    "activeSubs": 5114,
-    "newSubs7d": 111,
-    "teleCrmLeads": 905,
-    "subsEnding5d": 79,
-    "subsExpired7d": 92,
-    "subsExpiringToday": 11,
-    "planExpiringNoOrder": 2,
-    "planExpNoOrder": 2425,
-    "activeSubNoOrder": 116,
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-10-24",
+    "totalRevenue": 285322.5,
+    "salesCount": 26,
+    "transactions": 25,
+    "highestSale": {
+      "amount": 14192.64,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 36000,
+        "count": 3
+      },
+      "Amol Landge": {
+        "revenue": 68256,
+        "count": 6
+      },
+      "Kush Shah": {
+        "revenue": 24216,
+        "count": 2
+      },
+      "Jivesh Harde": {
+        "revenue": 24000,
+        "count": 2
+      },
+      "Vikas Poonia": {
+        "revenue": 35146,
+        "count": 4
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 36000,
+        "count": 3
+      },
+      "Preyashi Roy": {
+        "revenue": 2216,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 12000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 272630.5,
+        "count": 24
+      },
+      "Quarterly Max": {
+        "revenue": 4573,
+        "count": 1
+      },
+      "Quarterly Ultra": {
+        "revenue": 8119,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 86432,
+        "count": 8
+      },
+      "Events": {
+        "revenue": 117096,
+        "count": 10
+      },
+      "Renewals": {
+        "revenue": 46522,
+        "count": 5
+      },
+      "Direct Sale": {
+        "revenue": 35272.5,
+        "count": 3
+      }
+    },
+    "userBreakdown": {
+      "signups": 586,
+      "otpVerified": 442,
+      "serviceable": 309,
+      "serviceableWithPct": "309 (52.7%)",
+      "serviceablePct": "52.7%"
+    },
+    "directSaleCSV": {
+      "count": 3,
+      "revenue": 35272.5
+    },
+    "deliveryFee": {
+      "transactions": 3,
+      "charge": 300,
+      "tax": 54,
+      "total": 354
+    },
+    "refundsLast7Days": {
+      "total": 155234.76,
+      "count": 16
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "totalRevenue": 381031,
+    "salesCount": 34,
+    "transactions": 32,
+    "highestSale": {
+      "amount": 26999,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Vikas Poonia": {
+        "revenue": 97573,
+        "count": 10
+      },
+      "Kush Shah": {
+        "revenue": 29574,
+        "count": 3
+      },
+      "Chhaya Patel": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Shubham Rai": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Amol Landge": {
+        "revenue": 65880,
+        "count": 6
+      },
+      "Vivek Shah": {
+        "revenue": 12216,
+        "count": 1
+      },
+      "Darshan KS": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivendra Singh Tomar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Rani Singh": {
+        "revenue": 31573,
+        "count": 3
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 334032,
+        "count": 31
+      },
+      "Annual Plus": {
+        "revenue": 9000,
+        "count": 1
+      },
+      "Ultra Annually": {
+        "revenue": 26999,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Renewals": {
+        "revenue": 30573,
+        "count": 3
+      },
+      "Events": {
+        "revenue": 154454,
+        "count": 15
+      },
+      "Organic": {
+        "revenue": 158005,
+        "count": 14
+      },
+      "Overlap Deals": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 26999,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 635,
+      "otpVerified": 578,
+      "serviceable": 431,
+      "serviceableWithPct": "431 (67.9%)",
+      "serviceablePct": "67.9%"
+    },
+    "directSaleCSV": {
+      "count": 2,
+      "revenue": 37999
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-10-25",
+        "rawDate": "25/10/2026 20:53",
+        "customerName": "Mohammed Imran",
+        "phone": "9867309524",
+        "agent": "Honey Talreja",
+        "insideRevenue": 11000,
+        "revenue": 11000,
+        "directRevenue": 11000,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "dac8b162-a1a9-4bc6-8f4a-5d24ffad0e24",
+        "directUserId": "UR511862",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹11000 and also completed on Direct Portal for ₹11000"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-10-25",
+        "rawDate": "25/10/2026 20:53",
+        "customerName": "Mohammed Imran",
+        "phone": "9867309524",
+        "agent": "Honey Talreja",
+        "insideRevenue": 11000,
+        "revenue": 11000,
+        "directRevenue": 11000,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "dac8b162-a1a9-4bc6-8f4a-5d24ffad0e24",
+        "directUserId": "UR511862",
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹11000 and also completed on Direct Portal for ₹11000"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 11000
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 11000
+    },
+    "deliveryFee": {
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
+    },
+    "missedLeads": {
+      "Connected": 208,
+      "Interested": 117,
+      "Paise Dega": 39
+    },
+    "refundsLast7Days": {
+      "total": 133858.76,
+      "count": 14
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "newUsers7d": 4010,
+    "newUsersYesterday": 602,
+    "activeSubs": 5139,
+    "newSubs7d": 130,
+    "teleCrmLeads": 719,
+    "subsEnding5d": 76,
+    "subsExpired7d": 104,
+    "subsExpiringToday": 13,
+    "planExpiringNoOrder": 1,
+    "planExpNoOrder": 2426,
+    "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 29,
-      "Orders Placed": 29,
-      "Orders - CONFIRMED": 10,
-      "Orders Confirmed": 10,
+      "Orders - PLACED": 13,
+      "Orders Placed": 13,
+      "Orders - CONFIRMED": 19,
+      "Orders Confirmed": 19,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 16,
-      "Orders Shipped": 16,
-      "Orders - Not Delivered": 55,
-      "Orders Not Delivered": 55
+      "Orders - SHIPPED": 10,
+      "Orders Shipped": 10,
+      "Orders - Not Delivered": 43,
+      "Orders Not Delivered": 42
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 567,
-      "New Subscribers Orders that have been Delivered": 512,
-      "New Subscribers Orders yet to be Delivered": 55,
-      "New Subscribers Orders yet to be Delivered & Delayed": 12
+      "New Subscribers who have Ordered": 607,
+      "New Subscribers Orders that have been Delivered": 564,
+      "New Subscribers Orders yet to be Delivered": 43,
+      "New Subscribers Orders yet to be Delivered & Delayed": 7
     },
     "selfUpgrade": {
       "totalCount": 0,

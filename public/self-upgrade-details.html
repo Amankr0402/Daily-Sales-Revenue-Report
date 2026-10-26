@@ -798,6 +798,7 @@
 
     let allUpgrades = [];
     let filteredUpgrades = [];
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
     let currentPage = 1;
     let pageSize = 25;
     let activeTimeframe = 'yesterday';
@@ -987,7 +988,7 @@
               upgradedOn: upgradedOn,
               isCoupon40: isC40
             };
-          });
+          }).filter(u => !TEST_PHONES.has(u.cleanPhone));
         }
 
         allUpgrades.sort((a, b) => (b.paidOn || '').localeCompare(a.paidOn || ''));

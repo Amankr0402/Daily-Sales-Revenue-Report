@@ -833,6 +833,7 @@
   <script>
     const API_URL = '/api/telecrm-leads-details-csv';
     const FALLBACK_DIRECT_URL = 'https://metabase-bkp.theelefant.ai/public/question/b3f36132-e371-4fa0-a186-1302ceaa8a80.csv';
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
 
     let allLeads = [];
     let filteredLeads = [];
@@ -976,6 +977,13 @@
       for (let i = 1; i < rows.length; i++) {
         const r = rows[i];
         if (!r[leadIdIdx] && !r[assigneeIdx]) continue;
+        const rowStr = r.join(' ');
+        let isTest = false;
+        for (const tp of TEST_PHONES) {
+          if (rowStr.includes(tp)) { isTest = true; break; }
+        }
+        if (isTest) continue;
+
         const assignee = (r[assigneeIdx] || '').trim();
         if (assignee) assigneeSet.add(assignee);
 

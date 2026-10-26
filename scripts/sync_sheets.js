@@ -25,7 +25,7 @@ const REFUNDS_SHEET_NAME = 'Refunds';
 const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
 const METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/a7ec6872-1841-408d-8f63-7d16e959b67c.csv';
 const DELIVERY_FEE_CSV = path.join(__dirname, '..', 'data', 'delivery_fees.csv');
-const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/93b699f2-7f1c-47a8-bf39-f3261a9e92da.csv';
+const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/9fb8bbff-2dce-4127-bbf1-336ab5929bbb.csv';
 const DIRECT_SALE_URL = 'https://metabase-bkp.theelefant.ai/public/question/37fddfd6-fc66-4c2b-91f6-70e47192334d.csv';
 const MISSED_LEADS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a2dc3828-0492-4009-85d1-ce6647dda724.csv';
 const MISSED_LEADS_DETAILS_URL = 'https://metabase-bkp.theelefant.ai/public/question/a213917a-7722-4459-8c47-d9c0335babec.csv';
@@ -78,6 +78,56 @@ const EVENTS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'events_details.c
 const OVERALL_DEALS_DETAILS_FILE = path.join(__dirname, '..', 'data', 'overall_deals_details.csv');
 const INSIDE_SALES_DETAILS_FILE = path.join(__dirname, '..', 'data', 'inside_sales_details.csv');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'data.json');
+
+// Blacklist of production testing phone numbers to exclude from all reports and calculations
+const TEST_PHONES = new Set([
+  '8780064883',
+  '780064883',
+  '9574135032',
+  '9328480657',
+  '9662496428',
+  '7984486999',
+  '8401709901',
+  '9727447284',
+  '9054904685',
+  '9624907494',
+  '7984845745',
+  '8320428676',
+  '7226986110'
+]);
+
+function isTestPhone(phone) {
+  if (!phone) return false;
+  const clean = String(phone).replace(/\D/g, '');
+  if (!clean) return false;
+  for (const p of TEST_PHONES) {
+    if (clean === p || clean.endsWith(p) || (clean.length >= 9 && p.endsWith(clean))) return true;
+  }
+  return false;
+}
+
+function lineContainsTestPhone(line) {
+  if (!line || typeof line !== 'string') return false;
+  for (const p of TEST_PHONES) {
+    if (line.includes(p)) return true;
+  }
+  return false;
+}
+
+function stripTestPhonesFromCSV(csvContent) {
+  if (!csvContent || typeof csvContent !== 'string') return csvContent;
+  const lines = csvContent.split('\n');
+  if (lines.length <= 1) return csvContent;
+  const filtered = [lines[0]];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.trim()) continue;
+    if (!lineContainsTestPhone(line)) {
+      filtered.push(line);
+    }
+  }
+  return filtered.join('\n');
+}
 
 function fetchURLWithRedirect(url) {
   return new Promise((resolve, reject) => {
@@ -252,6 +302,7 @@ async function syncSalesData() {
       const cols = parseCSVLine(lines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       const rawDate = cols[1];
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+      if (isTestPhone(phone) || lineContainsTestPhone(lines[i])) continue;
       const agent = cols[3];
       const rawRev = cols[4];
       const plan = cols[6];
@@ -356,7 +407,7 @@ async function syncSalesData() {
     console.log(`📡 Fetching October Go Getters sheet (${SPREADSHEET_ID2})...`);
     sheet2CSV = await fetchSheetCSV(SPREADSHEET_ID2, 'Sales/Rev (Auto)');
     if (sheet2CSV && sheet2CSV.length > 50) {
-      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, sheet2CSV, 'utf-8');
+      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, stripTestPhonesFromCSV(sheet2CSV), 'utf-8');
       console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
     }
     const sheet2Lines = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
@@ -400,6 +451,7 @@ async function syncSalesData() {
       const d = parseDate(cols[1]);
       if (!d || d >= todayIST) return;
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+      if (isTestPhone(phone) || lineContainsTestPhone(line)) return;
       const agent = (cols[3] || '').trim().toLowerCase();
       const rev = parseFloat((cols[4] || '').replace(/[₹,\s]/g, '')) || 0;
       const key = `${d}|${phone || cols[0]}|${agent}|${Math.round(rev)}`;
@@ -451,7 +503,7 @@ async function syncSalesData() {
     console.log('🛍️ Fetching Direct Sale data from Metabase...');
     const dsCSV = await fetchURLWithRedirect(DIRECT_SALE_URL);
     try {
-      fs.writeFileSync(DIRECT_SALE_DETAILS_FILE, dsCSV, 'utf8');
+      fs.writeFileSync(DIRECT_SALE_DETAILS_FILE, stripTestPhonesFromCSV(dsCSV), 'utf8');
       console.log('🛍️ Cached Direct Sale CSV to data/direct_sales_details.csv');
     } catch (saveErr) {
       console.warn('⚠️ Could not cache direct_sales_details.csv:', saveErr.message);
@@ -491,6 +543,9 @@ async function syncSalesData() {
       const rev = parseFloat(cols[colAmount]) || 0; // Amount Paid
       if (rev <= 0) continue;
 
+      const phone = (cols[colPhone] || '').replace(/\D/g, '').slice(-10);
+      if (isTestPhone(phone) || lineContainsTestPhone(dsLines[i])) continue;
+
       if (!recordsByDate[isoDate]) {
         recordsByDate[isoDate] = {
           date: isoDate, totalRevenue: 0, salesCount: 0, transactions: 0,
@@ -505,7 +560,6 @@ async function syncSalesData() {
       }
       day.directSaleCSV.count += 1;
       day.directSaleCSV.revenue += rev;
-      const phone = (cols[colPhone] || '').replace(/\D/g, '').slice(-10);
 
       // Deduplicate & Dispute detection: If this customer's deal was already logged by an agent in Google Sheets on this date:
       // Exclude from Inside Sales (agent, source, plan), exclude from Direct Sales, and add to standalone Overlap Deals category!
@@ -750,14 +804,16 @@ async function syncSalesData() {
   try {
     console.log(`💸 Fetching Refunds data from Google Sheet: "${REFUNDS_SHEET_NAME}"...`);
     const refundsCSV = await fetchSheetCSV(REFUNDS_SPREADSHEET_ID, REFUNDS_SHEET_NAME);
-    if (refundsCSV && refundsCSV.length > 50) {
-      fs.writeFileSync(REFUNDS_CACHE_FILE, refundsCSV, 'utf-8');
+    const cleanRefundsCSV = stripTestPhonesFromCSV(refundsCSV);
+    if (cleanRefundsCSV && cleanRefundsCSV.length > 50) {
+      fs.writeFileSync(REFUNDS_CACHE_FILE, cleanRefundsCSV, 'utf-8');
       console.log(`✅ Cached Refunds CSV to ${REFUNDS_CACHE_FILE}`);
     }
-    const refLines = refundsCSV.split('\n').map(l => l.trim()).filter(Boolean);
+    const refLines = cleanRefundsCSV.split('\n').map(l => l.trim()).filter(Boolean);
     console.log(`📊 Processing ${Math.max(0, refLines.length - 1)} Refunds rows...`);
 
     for (let i = 1; i < refLines.length; i++) {
+      if (lineContainsTestPhone(refLines[i])) continue;
       const cols = parseCSVLine(refLines[i]).map(c => c.replace(/^"|"$/g, '').trim());
       // Header: Received At(0), Event(1), Refund ID(2), Payment ID(3), Amount(4), Currency(5), Status(6), ..., Refund Created At(13)
       const rawDate = cols[13] || cols[0];
@@ -1151,7 +1207,7 @@ async function syncSalesData() {
     console.log(`🚚 Fetching New Users Delivery Status Detailed List from Metabase...`);
     const delivDetailsCSV = await fetchURLWithRedirect(NEW_USERS_DELIVERY_DETAILS_URL);
     if (delivDetailsCSV && delivDetailsCSV.length > 50) {
-      fs.writeFileSync(NEW_USERS_DELIVERY_DETAILS_FILE, delivDetailsCSV, 'utf-8');
+      fs.writeFileSync(NEW_USERS_DELIVERY_DETAILS_FILE, stripTestPhonesFromCSV(delivDetailsCSV), 'utf-8');
       console.log(`✅ Cached New Users Delivery Status details (${delivDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${NEW_USERS_DELIVERY_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1187,7 +1243,7 @@ async function syncSalesData() {
     console.log(`📦 Fetching User Order & Delivery Status Detailed List for All New Users from Metabase...`);
     const allNuDetailsCSV = await fetchURLWithRedirect(ALL_NEW_USERS_ORDER_DETAILS_URL);
     if (allNuDetailsCSV && allNuDetailsCSV.length > 50 && !allNuDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(ALL_NEW_USERS_ORDER_DETAILS_FILE, allNuDetailsCSV, 'utf-8');
+      fs.writeFileSync(ALL_NEW_USERS_ORDER_DETAILS_FILE, stripTestPhonesFromCSV(allNuDetailsCSV), 'utf-8');
       console.log(`✅ Cached All New Users Order Status details (${allNuDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${ALL_NEW_USERS_ORDER_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1199,7 +1255,7 @@ async function syncSalesData() {
     console.log(`📱 Fetching App Downloads / New Users Detailed List from Metabase...`);
     const appDlDetailsCSV = await fetchURLWithRedirect(APP_DOWNLOADS_DETAILS_URL);
     if (appDlDetailsCSV && appDlDetailsCSV.length > 50 && !appDlDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(APP_DOWNLOADS_DETAILS_FILE, appDlDetailsCSV, 'utf-8');
+      fs.writeFileSync(APP_DOWNLOADS_DETAILS_FILE, stripTestPhonesFromCSV(appDlDetailsCSV), 'utf-8');
       console.log(`✅ Cached App Downloads details (${appDlDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${APP_DOWNLOADS_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1211,7 +1267,7 @@ async function syncSalesData() {
     console.log(`📞 Fetching TeleCRM Leads Detailed List from Metabase...`);
     const telecrmDetailsCSV = await fetchURLWithRedirect(TELECRM_LEADS_DETAILS_URL);
     if (telecrmDetailsCSV && telecrmDetailsCSV.length > 50 && !telecrmDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(TELECRM_LEADS_DETAILS_FILE, telecrmDetailsCSV, 'utf-8');
+      fs.writeFileSync(TELECRM_LEADS_DETAILS_FILE, stripTestPhonesFromCSV(telecrmDetailsCSV), 'utf-8');
       console.log(`✅ Cached TeleCRM Leads details (${telecrmDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${TELECRM_LEADS_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1223,7 +1279,7 @@ async function syncSalesData() {
     console.log(`📅 Fetching Subscriptions Ending (Next 5 Days) Detailed List from Metabase...`);
     const subs5dDetailsCSV = await fetchURLWithRedirect(SUBS_ENDING_5D_DETAILS_URL);
     if (subs5dDetailsCSV && subs5dDetailsCSV.length > 50 && !subs5dDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(SUBS_ENDING_5D_DETAILS_FILE, subs5dDetailsCSV, 'utf-8');
+      fs.writeFileSync(SUBS_ENDING_5D_DETAILS_FILE, stripTestPhonesFromCSV(subs5dDetailsCSV), 'utf-8');
       console.log(`✅ Cached Subscriptions Ending 5d details (${subs5dDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_ENDING_5D_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1235,7 +1291,7 @@ async function syncSalesData() {
     console.log(`📅 Fetching Subscriptions Expired / Cancelled (Last 7 Days) Detailed List from Metabase...`);
     const subsExpiredDetailsCSV = await fetchURLWithRedirect(SUBS_EXPIRED_7D_DETAILS_URL);
     if (subsExpiredDetailsCSV && subsExpiredDetailsCSV.length > 50 && !subsExpiredDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(SUBS_EXPIRED_7D_DETAILS_FILE, subsExpiredDetailsCSV, 'utf-8');
+      fs.writeFileSync(SUBS_EXPIRED_7D_DETAILS_FILE, stripTestPhonesFromCSV(subsExpiredDetailsCSV), 'utf-8');
       console.log(`✅ Cached Subscriptions Expired 7d details (${subsExpiredDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_EXPIRED_7D_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1247,7 +1303,7 @@ async function syncSalesData() {
     console.log(`📅 Fetching Subscriptions Expiring Today Detailed List from Metabase...`);
     const subsTodayDetailsCSV = await fetchURLWithRedirect(SUBS_EXPIRING_TODAY_DETAILS_URL);
     if (subsTodayDetailsCSV && subsTodayDetailsCSV.length > 50 && !subsTodayDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(SUBS_EXPIRING_TODAY_DETAILS_FILE, subsTodayDetailsCSV, 'utf-8');
+      fs.writeFileSync(SUBS_EXPIRING_TODAY_DETAILS_FILE, stripTestPhonesFromCSV(subsTodayDetailsCSV), 'utf-8');
       console.log(`✅ Cached Subscriptions Expiring Today details (${subsTodayDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${SUBS_EXPIRING_TODAY_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1259,7 +1315,7 @@ async function syncSalesData() {
     console.log(`📦 Fetching Plan Expired & No Order Detailed List from Metabase...`);
     const planExpDetailsCSV = await fetchURLWithRedirect(PLAN_EXP_NO_ORDER_DETAILS_URL);
     if (planExpDetailsCSV && planExpDetailsCSV.length > 50 && !planExpDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(PLAN_EXP_NO_ORDER_DETAILS_FILE, planExpDetailsCSV, 'utf-8');
+      fs.writeFileSync(PLAN_EXP_NO_ORDER_DETAILS_FILE, stripTestPhonesFromCSV(planExpDetailsCSV), 'utf-8');
       console.log(`✅ Cached Plan Expired No Order details (${planExpDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${PLAN_EXP_NO_ORDER_DETAILS_FILE}`);
     }
   } catch (err) {
@@ -1271,7 +1327,7 @@ async function syncSalesData() {
     console.log(`📦 Fetching Plan Expiring & No Order Detailed List from Metabase...`);
     const planExpiringDetailsCSV = await fetchURLWithRedirect(PLAN_EXPIRING_NO_ORDER_DETAILS_URL);
     if (planExpiringDetailsCSV && !planExpiringDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(PLAN_EXPIRING_NO_ORDER_DETAILS_FILE, planExpiringDetailsCSV, 'utf-8');
+      fs.writeFileSync(PLAN_EXPIRING_NO_ORDER_DETAILS_FILE, stripTestPhonesFromCSV(planExpiringDetailsCSV), 'utf-8');
       const linesCount = planExpiringDetailsCSV.split('\n').filter(Boolean).length;
       console.log(`✅ Cached Plan Expiring No Order details (${Math.max(0, linesCount - 1)} records) to ${PLAN_EXPIRING_NO_ORDER_DETAILS_FILE}`);
     }
@@ -1284,7 +1340,7 @@ async function syncSalesData() {
     console.log(`📦 Fetching Active Sub & No Order Detailed List from Metabase...`);
     const actSubNoOrdDetailsCSV = await fetchURLWithRedirect(ACTIVE_SUB_NO_ORDERS_DETAILS_URL);
     if (actSubNoOrdDetailsCSV && actSubNoOrdDetailsCSV.length > 50 && !actSubNoOrdDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(ACTIVE_SUB_NO_ORDERS_DETAILS_FILE, actSubNoOrdDetailsCSV, 'utf-8');
+      fs.writeFileSync(ACTIVE_SUB_NO_ORDERS_DETAILS_FILE, stripTestPhonesFromCSV(actSubNoOrdDetailsCSV), 'utf-8');
       const linesCount = actSubNoOrdDetailsCSV.split('\n').filter(Boolean).length;
       console.log(`✅ Cached Active Sub No Order details (${Math.max(0, linesCount - 1)} records) to ${ACTIVE_SUB_NO_ORDERS_DETAILS_FILE}`);
     }
@@ -1320,10 +1376,10 @@ async function syncSalesData() {
       }
       if (existingMap.size > 0 && header) {
         const mergedCSV = [header, ...Array.from(existingMap.values())].join('\n');
-        fs.writeFileSync(DELIVERY_FEES_DETAILS_FILE, mergedCSV, 'utf-8');
+        fs.writeFileSync(DELIVERY_FEES_DETAILS_FILE, stripTestPhonesFromCSV(mergedCSV), 'utf-8');
         const pubDf = path.join(__dirname, '..', 'public', 'data', 'delivery_fees_details.csv');
         if (fs.existsSync(path.dirname(pubDf))) {
-          fs.writeFileSync(pubDf, mergedCSV, 'utf-8');
+          fs.writeFileSync(pubDf, stripTestPhonesFromCSV(mergedCSV), 'utf-8');
         }
         console.log(`✅ Cached Delivery Fees details (${existingMap.size} records) to ${DELIVERY_FEES_DETAILS_FILE}`);
       }
@@ -1337,7 +1393,7 @@ async function syncSalesData() {
     console.log(`⏰ Fetching Missed Leads (>24 hrs) Detailed List from Metabase...`);
     const missedDetailsCSV = await fetchURLWithRedirect(MISSED_LEADS_DETAILS_URL);
     if (missedDetailsCSV && missedDetailsCSV.length > 50 && !missedDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(MISSED_LEADS_DETAILS_FILE, missedDetailsCSV, 'utf-8');
+      fs.writeFileSync(MISSED_LEADS_DETAILS_FILE, stripTestPhonesFromCSV(missedDetailsCSV), 'utf-8');
       const linesCount = missedDetailsCSV.split('\n').filter(Boolean).length;
       console.log(`✅ Cached Missed Leads details (${Math.max(0, linesCount - 1)} records) to ${MISSED_LEADS_DETAILS_FILE}`);
     }
@@ -1350,7 +1406,7 @@ async function syncSalesData() {
     console.log(`⚡ Fetching New Subscribers (Last 7 Days) Detailed List from Metabase...`);
     const newSubsDetailsCSV = await fetchURLWithRedirect(NEW_SUBS_7D_DETAILS_URL);
     if (newSubsDetailsCSV && newSubsDetailsCSV.length > 50 && !newSubsDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(NEW_SUBS_7D_DETAILS_FILE, newSubsDetailsCSV, 'utf-8');
+      fs.writeFileSync(NEW_SUBS_7D_DETAILS_FILE, stripTestPhonesFromCSV(newSubsDetailsCSV), 'utf-8');
       const linesCount = newSubsDetailsCSV.split('\n').filter(Boolean).length;
       console.log(`✅ Cached New Subscribers 7d details (${Math.max(0, linesCount - 1)} records) to ${NEW_SUBS_7D_DETAILS_FILE}`);
     }
@@ -1363,7 +1419,7 @@ async function syncSalesData() {
     console.log(`📦 Fetching Total Active Subscriptions Detailed List from Metabase...`);
     const actSubsDetailsCSV = await fetchURLWithRedirect(ACTIVE_SUBS_DETAILS_URL);
     if (actSubsDetailsCSV && actSubsDetailsCSV.length > 50 && !actSubsDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(ACTIVE_SUBS_DETAILS_FILE, actSubsDetailsCSV, 'utf-8');
+      fs.writeFileSync(ACTIVE_SUBS_DETAILS_FILE, stripTestPhonesFromCSV(actSubsDetailsCSV), 'utf-8');
       const linesCount = actSubsDetailsCSV.split('\n').filter(Boolean).length;
       console.log(`✅ Cached Active Subscriptions details (${Math.max(0, linesCount - 1)} records) to ${ACTIVE_SUBS_DETAILS_FILE}`);
     }
@@ -1376,7 +1432,7 @@ async function syncSalesData() {
     console.log(`🚀 Fetching Self Upgrades Detailed List from Metabase...`);
     const selfUpgradeCSV = await fetchURLWithRedirect(SELF_UPGRADE_DETAILS_URL);
     if (selfUpgradeCSV && selfUpgradeCSV.length > 50 && !selfUpgradeCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(SELF_UPGRADE_DETAILS_FILE, selfUpgradeCSV, 'utf-8');
+      fs.writeFileSync(SELF_UPGRADE_DETAILS_FILE, stripTestPhonesFromCSV(selfUpgradeCSV), 'utf-8');
       const lines = selfUpgradeCSV.split('\n').filter(Boolean);
       console.log(`✅ Cached Self Upgrades details (${Math.max(0, lines.length - 1)} records) to ${SELF_UPGRADE_DETAILS_FILE}`);
 
@@ -1390,6 +1446,7 @@ async function syncSalesData() {
           const newPaid = parseFloat(cols[11]) || 0;
           const isCoupon40 = newCoupon.includes('40');
           const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
+          if (isTestPhone(phone) || lineContainsTestPhone(lines[i])) continue;
           const inSecondarySheet = phone.length >= 10 && secondarySheetPhones.has(phone);
 
           if (paidOn) {
@@ -1563,14 +1620,15 @@ async function syncSalesData() {
       allOverallDeals.push(d);
     });
 
-    // Sort by Date DESC, then Revenue DESC
-    allOverallDeals.sort((a, b) => {
+    // Sort by Date DESC, then Revenue DESC (excluding any test phones)
+    const validOverallDeals = allOverallDeals.filter(d => !isTestPhone(d.phone));
+    validOverallDeals.sort((a, b) => {
       if (b.isoDate !== a.isoDate) return b.isoDate.localeCompare(a.isoDate);
       return b.revenue - a.revenue;
     });
 
     const overallHeader = '"Sno","Date","Deal Type","Customer Name","Phone Number","Agent","Plan","Count","Revenue (₹)","Source / Channel","Sheet / Reference","Order ID","User ID","Notes"\n';
-    const overallRows = allOverallDeals.map((d, idx) => {
+    const overallRows = validOverallDeals.map((d, idx) => {
       const cName = (d.customerName || '').replace(/"/g, '""');
       const ag = (d.agent || '').replace(/"/g, '""');
       const pl = (d.plan || '').replace(/"/g, '""');
@@ -1583,10 +1641,10 @@ async function syncSalesData() {
     }).join('\n');
 
     fs.writeFileSync(OVERALL_DEALS_DETAILS_FILE, overallHeader + overallRows, 'utf8');
-    console.log(`✅ Cached Complete Overall Deals (${allOverallDeals.length} deals) to ${OVERALL_DEALS_DETAILS_FILE}`);
+    console.log(`✅ Cached Complete Overall Deals (${validOverallDeals.length} deals) to ${OVERALL_DEALS_DETAILS_FILE}`);
 
     // Also cache clean inside_sales_details.csv
-    const nonOverlapSheetDeals = allRawSheetDeals.filter(d => !d.matchedAsOverlap);
+    const nonOverlapSheetDeals = allRawSheetDeals.filter(d => !d.matchedAsOverlap && !isTestPhone(d.phone));
     const insideHeader = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"\n';
     const insideRows = nonOverlapSheetDeals.map((d, idx) => {
       const ag = (d.agent || '').replace(/"/g, '""');

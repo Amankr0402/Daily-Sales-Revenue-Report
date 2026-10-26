@@ -741,6 +741,7 @@
     const pageSize = 25;
     let activeTimeframe = 'yesterday';
     let yesterdayDate = '2026-09-14';
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
 
     // Format Currency
     function fmt(val) {
@@ -831,7 +832,7 @@
               directUserId: cols[9] || '',
               disputeNote: cols[10] || ''
             };
-          });
+          }).filter(d => !TEST_PHONES.has((d.phone || '').replace(/\D/g, '').slice(-10)));
         }
 
         // Sort descending by date

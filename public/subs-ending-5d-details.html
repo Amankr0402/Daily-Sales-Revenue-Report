@@ -776,6 +776,7 @@
 
   <script>
     const API_URL = '/api/subs-ending-5d-details-csv';
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
     let allSubs = [];
     let currentFilter = 'all';
     let searchQuery = '';
@@ -830,6 +831,12 @@
             item[h] = (cols[colIdx] || '').trim();
           });
           return item;
+        }).filter(item => {
+          const raw = JSON.stringify(item);
+          for (const p of TEST_PHONES) {
+            if (raw.includes(p)) return false;
+          }
+          return true;
         });
 
         computeKPIs();

@@ -724,6 +724,7 @@
 
   <script>
     const API_URL = '/api/refunds-csv';
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
     let allRefunds = [];
     let currentFilter = 'yesterday';
     let searchQuery = '';
@@ -831,6 +832,14 @@
           item._payload = payload;
 
           return item;
+        }).filter(item => {
+          const contact = (item._contact || '').replace(/\D/g, '').slice(-10);
+          if (TEST_PHONES.has(contact)) return false;
+          const rawStr = JSON.stringify(item);
+          for (const p of TEST_PHONES) {
+            if (rawStr.includes(p)) return false;
+          }
+          return true;
         });
 
         // Update pill UI

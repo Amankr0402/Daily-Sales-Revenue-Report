@@ -347,6 +347,7 @@
 
     let allDeals = [];
     let currentFilter = 'yesterday';
+    const TEST_PHONES = new Set(['8780064883', '780064883', '9574135032', '9328480657', '9662496428', '7984486999', '8401709901', '9727447284', '9054904685', '9624907494', '7984845745', '8320428676', '7226986110']);
     let searchQuery = '';
     let selectedType = 'ALL';
     let selectedChannel = 'ALL';
@@ -445,6 +446,7 @@
         const dealType = cols[2] || 'Inside Sales';
         const customerName = cols[3] || 'Customer';
         const phone = (cols[4] || '').replace(/\D/g, '').slice(-10);
+        if (TEST_PHONES.has(phone)) continue;
         const agent = cols[5] || 'Self Serve';
         const plan = cols[6] || 'Annual Max';
         const count = parseInt(cols[7], 10) || 1;

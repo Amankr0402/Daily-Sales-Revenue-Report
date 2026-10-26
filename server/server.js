@@ -36,6 +36,46 @@ app.use((req, res, next) => {
   next();
 });
 
+/* ---------- Production Testing Phone Blacklist ---------- */
+const TEST_PHONES = new Set([
+  '8780064883',
+  '780064883',
+  '9574135032',
+  '9328480657',
+  '9662496428',
+  '7984486999',
+  '8401709901',
+  '9727447284',
+  '9054904685',
+  '9624907494',
+  '7984845745',
+  '8320428676',
+  '7226986110'
+]);
+
+function lineContainsTestPhone(line) {
+  if (!line || typeof line !== 'string') return false;
+  for (const p of TEST_PHONES) {
+    if (line.includes(p)) return true;
+  }
+  return false;
+}
+
+function stripTestPhonesFromCSV(csvContent) {
+  if (!csvContent || typeof csvContent !== 'string') return csvContent;
+  const lines = csvContent.split('\n');
+  if (lines.length <= 1) return csvContent;
+  const filtered = [lines[0]];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.trim()) continue;
+    if (!lineContainsTestPhone(line)) {
+      filtered.push(line);
+    }
+  }
+  return filtered.join('\n');
+}
+
 /* ---------- Static files & Data API ---------- */
 app.use((req, res, next) => {
   if (req.path.startsWith('/data') || req.path.endsWith('.json') || req.path.endsWith('.csv')) {

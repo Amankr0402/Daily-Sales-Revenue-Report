@@ -261,6 +261,18 @@
       border: 1px solid rgba(100, 116, 139, 0.2);
     }
 
+    .new-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      background: #f59e0b;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
     .growth-baseline {
       font-size: 11px;
       color: var(--muted);
@@ -436,139 +448,173 @@
       </div>
     </div>
 
-    <!-- Two Side-by-Side Executive Growth Cards -->
-    <div class="grid g2" style="margin-bottom: 16px;">
-      <!-- W-o-W Card -->
-      <div class="growth-card clickable-period" onclick="openPeriodModal('wow')"
-        title="Click to view detailed day-by-day W-o-W comparison, channel split & sales reps">
-        <div class="growth-header">
-          <div>
-            <span class="growth-badge wow">📅 Week-over-Week (W-o-W)</span>
-            <div style="font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 4px;" id="wow-date-range">
-              Last 7 Days vs Prior 7 Days
+    <!-- ============================================================ -->
+    <!-- 2-COLUMN SIDE-BY-SIDE GRID: W-O-W ON LEFT, M-O-M ON RIGHT -->
+    <!-- ============================================================ -->
+    <div class="grid g2" style="margin-bottom: 24px; align-items: start;">
+      
+      <!-- LEFT COLUMN: WEEK-OVER-WEEK (W-O-W) -->
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <!-- W-o-W Executive KPI Card -->
+        <div class="growth-card clickable-period" onclick="openPeriodModal('wow')"
+          title="Click to view detailed day-by-day W-o-W comparison, channel split & sales reps">
+          <div class="growth-header">
+            <div>
+              <span class="growth-badge wow">📅 Week-over-Week (W-o-W)</span>
+              <div style="font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 4px;" id="wow-date-range">
+                Last 7 Days vs Prior 7 Days
+              </div>
+            </div>
+            <span class="period-drill-btn">View W-o-W Drilldown ↗</span>
+          </div>
+
+          <div class="growth-hero-grid">
+            <div class="growth-hero-item">
+              <div class="growth-hero-lbl">💰 Total Revenue</div>
+              <div class="growth-hero-val">
+                <span id="wow-cur-rev">—</span>
+                <span class="growth-pill" id="wow-rev-pill">—</span>
+              </div>
+              <div class="growth-baseline" id="wow-prev-rev-sub">Prior 7D: —</div>
+            </div>
+            <div class="growth-hero-item">
+              <div class="growth-hero-lbl">🤝 Deals Closed (Sales)</div>
+              <div class="growth-hero-val">
+                <span id="wow-cur-deals">—</span>
+                <span class="growth-pill" id="wow-deals-pill">—</span>
+              </div>
+              <div class="growth-baseline" id="wow-prev-deals-sub">Prior 7D: —</div>
             </div>
           </div>
-          <span class="period-drill-btn">View W-o-W Drilldown ↗</span>
+
+          <div class="growth-tile-strip">
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">⚡ Inside Sales</div>
+              <div class="growth-tile-val" id="wow-inside-val">—</div>
+              <div class="growth-tile-sub" id="wow-inside-sub">—</div>
+            </div>
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">🛍️ Direct / Self Serve</div>
+              <div class="growth-tile-val" id="wow-direct-val">—</div>
+              <div class="growth-tile-sub" id="wow-direct-sub">—</div>
+            </div>
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">🎯 Blended AOV</div>
+              <div class="growth-tile-val" id="wow-aov-val">—</div>
+              <div class="growth-tile-sub" id="wow-aov-sub">—</div>
+            </div>
+          </div>
         </div>
 
-        <div class="growth-hero-grid">
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">💰 Total Revenue</div>
-            <div class="growth-hero-val">
-              <span id="wow-cur-rev">—</span>
-              <span class="growth-pill" id="wow-rev-pill">—</span>
+        <!-- W-o-W Category Breakdown Table Card -->
+        <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px;">
+          <div style="padding: 12px 16px; background: #faf5ff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+            <div style="font-size: 12.5px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 6px;">
+              <span>⚡</span>
+              <span>W-o-W Category Breakdown</span>
             </div>
-            <div class="growth-baseline" id="wow-prev-rev-sub">Prior 7D: —</div>
-          </div>
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">🤝 Deals Closed (Sales)</div>
-            <div class="growth-hero-val">
-              <span id="wow-cur-deals">—</span>
-              <span class="growth-pill" id="wow-deals-pill">—</span>
+            <div style="font-size: 11px; font-weight: 700; color: var(--muted);" id="wow-tbl-period-sub">
+              Current WTD vs Prior WTD
             </div>
-            <div class="growth-baseline" id="wow-prev-deals-sub">Prior 7D: —</div>
           </div>
-        </div>
-
-        <div class="growth-tile-strip">
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">⚡ Inside Sales</div>
-            <div class="growth-tile-val" id="wow-inside-val">—</div>
-            <div class="growth-tile-sub" id="wow-inside-sub">—</div>
-          </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🛍️ Direct / Self Serve</div>
-            <div class="growth-tile-val" id="wow-direct-val">—</div>
-            <div class="growth-tile-sub" id="wow-direct-sub">—</div>
-          </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🎯 Blended AOV</div>
-            <div class="growth-tile-val" id="wow-aov-val">—</div>
-            <div class="growth-tile-sub" id="wow-aov-sub">—</div>
+          <div style="overflow-x: auto;">
+            <table class="ftbl" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="background: #f8fafc; color: var(--muted); font-weight: 800; text-transform: uppercase; padding: 9px 12px; font-size: 10.5px; letter-spacing: 0.04em;">METRIC / CATEGORY</th>
+                  <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">CURRENT WTD</th>
+                  <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">PRIOR WTD</th>
+                  <th style="background: #f8fafc; color: var(--purple); font-weight: 800; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">W-O-W GROWTH</th>
+                </tr>
+              </thead>
+              <tbody id="wow-matrix-tbl-body">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <!-- M-o-M Card -->
-      <div class="growth-card clickable-period" onclick="openPeriodModal('mom')"
-        title="Click to view detailed day-by-day M-o-M comparison, channel split & sales reps">
-        <div class="growth-header">
-          <div>
-            <span class="growth-badge mom">🗓️ Month-over-Month (M-o-M MTD)</span>
-            <div style="font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 4px;" id="mom-date-range">
-              Month-to-Date vs Prior Month Same Days
+      <!-- RIGHT COLUMN: MONTH-OVER-MONTH (M-O-M) -->
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <!-- M-o-M Executive KPI Card -->
+        <div class="growth-card clickable-period" onclick="openPeriodModal('mom')"
+          title="Click to view detailed day-by-day M-o-M comparison, channel split & sales reps">
+          <div class="growth-header">
+            <div>
+              <span class="growth-badge mom">🗓️ Month-over-Month (M-o-M MTD)</span>
+              <div style="font-size: 11.5px; font-weight: 700; color: var(--muted); margin-top: 4px;" id="mom-date-range">
+                Month-to-Date vs Prior Month Same Days
+              </div>
+            </div>
+            <span class="period-drill-btn">View M-o-M Drilldown ↗</span>
+          </div>
+
+          <div class="growth-hero-grid">
+            <div class="growth-hero-item">
+              <div class="growth-hero-lbl">💰 MTD Revenue</div>
+              <div class="growth-hero-val">
+                <span id="mom-cur-rev">—</span>
+                <span class="growth-pill" id="mom-rev-pill">—</span>
+              </div>
+              <div class="growth-baseline" id="mom-prev-rev-sub">Prior MTD: —</div>
+            </div>
+            <div class="growth-hero-item">
+              <div class="growth-hero-lbl">🤝 Deals Closed (Sales)</div>
+              <div class="growth-hero-val">
+                <span id="mom-cur-deals">—</span>
+                <span class="growth-pill" id="mom-deals-pill">—</span>
+              </div>
+              <div class="growth-baseline" id="mom-prev-deals-sub">Prior MTD: —</div>
             </div>
           </div>
-          <span class="period-drill-btn">View M-o-M Drilldown ↗</span>
-        </div>
 
-        <div class="growth-hero-grid">
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">💰 MTD Revenue</div>
-            <div class="growth-hero-val">
-              <span id="mom-cur-rev">—</span>
-              <span class="growth-pill" id="mom-rev-pill">—</span>
+          <div class="growth-tile-strip">
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">⚡ Inside Sales</div>
+              <div class="growth-tile-val" id="mom-inside-val">—</div>
+              <div class="growth-tile-sub" id="mom-inside-sub">—</div>
             </div>
-            <div class="growth-baseline" id="mom-prev-rev-sub">Prior MTD: —</div>
-          </div>
-          <div class="growth-hero-item">
-            <div class="growth-hero-lbl">🤝 Deals Closed (Sales)</div>
-            <div class="growth-hero-val">
-              <span id="mom-cur-deals">—</span>
-              <span class="growth-pill" id="mom-deals-pill">—</span>
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">🛍️ Direct / Self Serve</div>
+              <div class="growth-tile-val" id="mom-direct-val">—</div>
+              <div class="growth-tile-sub" id="mom-direct-sub">—</div>
             </div>
-            <div class="growth-baseline" id="mom-prev-deals-sub">Prior MTD: —</div>
+            <div class="growth-tile">
+              <div class="growth-tile-lbl">🎯 Blended AOV</div>
+              <div class="growth-tile-val" id="mom-aov-val">—</div>
+              <div class="growth-tile-sub" id="mom-aov-sub">—</div>
+            </div>
           </div>
         </div>
 
-        <div class="growth-tile-strip">
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">⚡ Inside Sales</div>
-            <div class="growth-tile-val" id="mom-inside-val">—</div>
-            <div class="growth-tile-sub" id="mom-inside-sub">—</div>
+        <!-- M-o-M Category Breakdown Table Card -->
+        <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px;">
+          <div style="padding: 12px 16px; background: #faf5ff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+            <div style="font-size: 12.5px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 6px;">
+              <span>⚡</span>
+              <span>M-o-M Category Breakdown</span>
+            </div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--muted);" id="mom-tbl-period-sub">
+              Current MTD vs Prior MTD Like-for-Like
+            </div>
           </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🛍️ Direct / Self Serve</div>
-            <div class="growth-tile-val" id="mom-direct-val">—</div>
-            <div class="growth-tile-sub" id="mom-direct-sub">—</div>
-          </div>
-          <div class="growth-tile">
-            <div class="growth-tile-lbl">🎯 Blended AOV</div>
-            <div class="growth-tile-val" id="mom-aov-val">—</div>
-            <div class="growth-tile-sub" id="mom-aov-sub">—</div>
+          <div style="overflow-x: auto;">
+            <table class="ftbl" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="background: #f8fafc; color: var(--muted); font-weight: 800; text-transform: uppercase; padding: 9px 12px; font-size: 10.5px; letter-spacing: 0.04em;">METRIC / CATEGORY</th>
+                  <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">CURRENT MTD</th>
+                  <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">PRIOR MTD</th>
+                  <th style="background: #f8fafc; color: var(--purple); font-weight: 800; text-transform: uppercase; padding: 9px 10px; font-size: 10.5px; text-align: right;">M-O-M GROWTH</th>
+                </tr>
+              </thead>
+              <tbody id="mom-matrix-tbl-body">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Executive Sales & Revenue Comparison Matrix Table -->
-    <div class="chart-card" style="padding: 0; overflow: hidden; border-radius: 14px;">
-      <div style="padding: 14px 20px; background: #faf5ff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 8px;">
-          <span>⚡</span>
-          <span>Sales &amp; Revenue Comparison Matrix</span>
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--muted);" id="matrix-period-sub">
-          W-o-W (Last 7D vs Prior 7D) &bull; M-o-M (MTD Like-for-Like)
-        </div>
-      </div>
-      <div style="overflow-x: auto;">
-        <table class="ftbl" style="width: 100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 800; text-transform: uppercase; padding: 10px 16px; font-size: 11px; letter-spacing: 0.05em;">METRIC</th>
-              <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-wow-cur">CURRENT 7D</th>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-wow-prev">PRIOR 7D</th>
-              <th style="background: #f8fafc; color: var(--primary); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;">W-O-W GROWTH</th>
-              <th style="background: #f8fafc; color: var(--text); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-mom-cur">CURRENT MTD</th>
-              <th style="background: #f8fafc; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;" id="th-mom-prev">PRIOR MTD</th>
-              <th style="background: #f8fafc; color: var(--blue); font-weight: 800; text-transform: uppercase; padding: 10px 14px; font-size: 11px; text-align: right;">M-O-M GROWTH</th>
-            </tr>
-          </thead>
-          <tbody id="matrix-tbl-body">
-            <!-- Rendered via JS -->
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -767,6 +813,10 @@ function formatDeltaPill(cur, prev, isCurrency = true) {
 }
 function formatDeltaText(cur, prev, isCurrency = true) {
   if (prev === undefined || prev === null || prev === 0) {
+    if (cur > 0) {
+      const diffStr = isCurrency ? '+' + fmt(cur) : '+' + cur;
+      return `<span style="color:var(--green);font-weight:800;">▲ +100% (${diffStr})</span>`;
+    }
     return '<span style="color:var(--muted)">—</span>';
   }
   const diff = cur - prev;
@@ -938,29 +988,67 @@ function onReportDateSelect(dateVal) {
 // ============================================================
 function calcPeriodSums(items) {
   let insideRev = 0, insideCnt = 0;
+  let pureInsideRev = 0, pureInsideCnt = 0;
+  let eventsRev = 0, eventsCnt = 0;
+  let renewalsRev = 0, renewalsCnt = 0;
   let directRev = 0, directCnt = 0;
   let overlapRev = 0, overlapCnt = 0;
   let selfUpRev = 0, selfUpCnt = 0;
-  let delFeeRev = 0, totalRev = 0, totalCnt = 0;
+  let delFeeRev = 0, delFeeCnt = 0;
+  let otherRev = 0, otherCnt = 0;
+  let totalRev = 0, totalCnt = 0;
+
   items.forEach(d => {
     let dayIns = 0, dayInsCnt = 0;
+    let dayPureIns = 0, dayPureInsCnt = 0;
+    let dayOther = 0, dayOtherCnt = 0;
+
     Object.entries(d.sources || {}).forEach(([s, info]) => {
+      const rev = (info.revenue || 0);
+      const cnt = (info.count || 0);
       if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
-        dayIns += (info.revenue || 0);
-        dayInsCnt += (info.count || 0);
+        dayIns += rev;
+        dayInsCnt += cnt;
+      }
+      if (s === 'Organic' || s === 'Upgrade' || s === 'No' || s === 'Inside Sales') {
+        dayPureIns += rev;
+        dayPureInsCnt += cnt;
+      } else if (s === 'Events' || s === 'Renewals' || s === 'Yes' || s === 'Direct Sale' || s === 'Overlap Deals' || s === 'Self Upgrade') {
+        // Handled as dedicated categories
+      } else {
+        dayOther += rev;
+        dayOtherCnt += cnt;
       }
     });
+
+    const dEvents = (d.sources && d.sources['Events'] && d.sources['Events'].revenue) || 0;
+    const dEventsCnt = (d.sources && d.sources['Events'] && d.sources['Events'].count) || 0;
+
+    const dRenewals = (d.sources && d.sources['Renewals'] && d.sources['Renewals'].revenue) || (d.sources && d.sources['Yes'] && d.sources['Yes'].revenue) || 0;
+    const dRenewalsCnt = (d.sources && d.sources['Renewals'] && d.sources['Renewals'].count) || (d.sources && d.sources['Yes'] && d.sources['Yes'].count) || 0;
+
     const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
     const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+
     const dOverlap = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].revenue) || (d.disputedTotal && d.disputedTotal.revenue) || 0;
     const dOverlapCnt = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].count) || (d.disputedTotal && d.disputedTotal.count) || 0;
+
     const dSelfUp = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].revenue) || 0;
     const dSelfUpCnt = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].count) || 0;
+
     const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+    const dDelTx = (d.deliveryFee && (d.deliveryFee.transactions || d.deliveryFee.count)) || 0;
+
     const dTot = (d.totalRevenue || 0) + dDel;
 
     insideRev += dayIns;
     insideCnt += dayInsCnt;
+    pureInsideRev += dayPureIns;
+    pureInsideCnt += dayPureInsCnt;
+    eventsRev += dEvents;
+    eventsCnt += dEventsCnt;
+    renewalsRev += dRenewals;
+    renewalsCnt += dRenewalsCnt;
     directRev += dDir;
     directCnt += dDirCnt;
     overlapRev += dOverlap;
@@ -968,11 +1056,27 @@ function calcPeriodSums(items) {
     selfUpRev += dSelfUp;
     selfUpCnt += dSelfUpCnt;
     delFeeRev += dDel;
+    delFeeCnt += dDelTx;
+    otherRev += dayOther;
+    otherCnt += dayOtherCnt;
     totalRev += dTot;
     totalCnt += (d.salesCount || 0);
   });
+
   const aov = totalCnt > 0 ? Math.round(totalRev / totalCnt) : 0;
-  return { insideRev, insideCnt, directRev, directCnt, overlapRev, overlapCnt, selfUpRev, selfUpCnt, delFeeRev, totalRev, totalCnt, aov };
+  return {
+    insideRev, insideCnt,
+    pureInsideRev, pureInsideCnt,
+    eventsRev, eventsCnt,
+    renewalsRev, renewalsCnt,
+    directRev, directCnt,
+    overlapRev, overlapCnt,
+    selfUpRev, selfUpCnt,
+    delFeeRev, delFeeCnt,
+    otherRev, otherCnt,
+    totalRev, totalCnt,
+    aov
+  };
 }
 
 function updateDeltaPill(elemId, cur, prev, isCurrency = true) {
@@ -1188,39 +1292,55 @@ function renderGrowthVelocity(targetDate) {
   if (momAovVal) momAovVal.textContent = fmt(momCur.aov);
   updateDeltaPill('mom-aov-sub', momCur.aov, momPrev.aov, true);
 
-  // Populate Matrix Table Headers
-  const thWowCur = document.getElementById('th-wow-cur');
-  if (thWowCur) thWowCur.textContent = `CURRENT WTD (${sd(wowCurStart)}–${sd(wowCurEnd)})`;
-  const thWowPrev = document.getElementById('th-wow-prev');
-  if (thWowPrev) thWowPrev.textContent = `PRIOR WTD (${sd(wowPrevStart)}–${sd(wowPrevEnd)})`;
-  const thMomCur = document.getElementById('th-mom-cur');
-  if (thMomCur) thMomCur.textContent = `CURRENT MTD (${sd(momCurStart)}–${sd(momCurEnd)})`;
-  const thMomPrev = document.getElementById('th-mom-prev');
-  if (thMomPrev) thMomPrev.textContent = `PRIOR MTD (${sd(momPrevStart)}–${sd(momPrevEnd)})`;
+  // Update subtitles for both tables
+  const wowTblSub = document.getElementById('wow-tbl-period-sub');
+  if (wowTblSub) wowTblSub.textContent = `${sd(wowCurStart)}–${sd(wowCurEnd)} vs ${sd(wowPrevStart)}–${sd(wowPrevEnd)} (${wowSuffix})`;
+  const momTblSub = document.getElementById('mom-tbl-period-sub');
+  if (momTblSub) momTblSub.textContent = `${sd(momCurStart)}–${sd(momCurEnd)} vs ${sd(momPrevStart)}–${sd(momPrevEnd)} (${momCurDays.length} Days Like-for-Like)`;
 
-  // Populate Matrix Table Body
-  const matrixBody = document.getElementById('matrix-tbl-body');
-  if (matrixBody) {
-    const matrixRows = [
-      { name: '💰 Total Revenue', wCur: fmt(wowCur.totalRev), wPrev: fmt(wowPrev.totalRev), wG: formatDeltaText(wowCur.totalRev, wowPrev.totalRev, true), mCur: fmt(momCur.totalRev), mPrev: fmt(momPrev.totalRev), mG: formatDeltaText(momCur.totalRev, momPrev.totalRev, true), isBold: true },
-      { name: '🤝 Deals Closed (Sales)', wCur: wowCur.totalCnt + ' deals', wPrev: wowPrev.totalCnt + ' deals', wG: formatDeltaText(wowCur.totalCnt, wowPrev.totalCnt, false), mCur: momCur.totalCnt + ' deals', mPrev: momPrev.totalCnt + ' deals', mG: formatDeltaText(momCur.totalCnt, momPrev.totalCnt, false), isBold: true },
-      { name: '🎯 Blended AOV', wCur: fmt(wowCur.aov), wPrev: fmt(wowPrev.aov), wG: formatDeltaText(wowCur.aov, wowPrev.aov, true), mCur: fmt(momCur.aov), mPrev: fmt(momPrev.aov), mG: formatDeltaText(momCur.aov, momPrev.aov, true) },
-      { name: '⚡ Inside Sales Revenue', wCur: fmt(wowCur.insideRev), wPrev: fmt(wowPrev.insideRev), wG: formatDeltaText(wowCur.insideRev, wowPrev.insideRev, true), mCur: fmt(momCur.insideRev), mPrev: fmt(momPrev.insideRev), mG: formatDeltaText(momCur.insideRev, momPrev.insideRev, true) },
-      { name: '⚡ Inside Sales Deals', wCur: wowCur.insideCnt + ' deals', wPrev: wowPrev.insideCnt + ' deals', wG: formatDeltaText(wowCur.insideCnt, wowPrev.insideCnt, false), mCur: momCur.insideCnt + ' deals', mPrev: momPrev.insideCnt + ' deals', mG: formatDeltaText(momCur.insideCnt, momPrev.insideCnt, false) },
-      { name: '🛍️ Direct Sales (Self Serve) Rev', wCur: fmt(wowCur.directRev), wPrev: fmt(wowPrev.directRev), wG: formatDeltaText(wowCur.directRev, wowPrev.directRev, true), mCur: fmt(momCur.directRev), mPrev: fmt(momPrev.directRev), mG: formatDeltaText(momCur.directRev, momPrev.directRev, true) },
-      { name: '🛍️ Direct Sales Deals', wCur: wowCur.directCnt + ' deals', wPrev: wowPrev.directCnt + ' deals', wG: formatDeltaText(wowCur.directCnt, wowPrev.directCnt, false), mCur: momCur.directCnt + ' deals', mPrev: momPrev.directCnt + ' deals', mG: formatDeltaText(momCur.directCnt, momPrev.directCnt, false) },
-      { name: '🎯 Direct Sales AOV', wCur: fmt(wowCur.directCnt > 0 ? Math.round(wowCur.directRev / wowCur.directCnt) : 0), wPrev: fmt(wowPrev.directCnt > 0 ? Math.round(wowPrev.directRev / wowPrev.directCnt) : 0), wG: formatDeltaText(wowCur.directCnt > 0 ? Math.round(wowCur.directRev / wowCur.directCnt) : 0, wowPrev.directCnt > 0 ? Math.round(wowPrev.directRev / wowPrev.directCnt) : 0, true), mCur: fmt(momCur.directCnt > 0 ? Math.round(momCur.directRev / momCur.directCnt) : 0), mPrev: fmt(momPrev.directCnt > 0 ? Math.round(momPrev.directRev / momPrev.directCnt) : 0), mG: formatDeltaText(momCur.directCnt > 0 ? Math.round(momCur.directRev / momCur.directCnt) : 0, momPrev.directCnt > 0 ? Math.round(momPrev.directRev / momPrev.directCnt) : 0, true) }
-    ];
+  // Common row definitions
+  const rowsDef = [
+    { name: '💰 Total Revenue', wCur: fmt(wowCur.totalRev), wPrev: fmt(wowPrev.totalRev), wG: formatDeltaText(wowCur.totalRev, wowPrev.totalRev, true), mCur: fmt(momCur.totalRev), mPrev: fmt(momPrev.totalRev), mG: formatDeltaText(momCur.totalRev, momPrev.totalRev, true), isBold: true },
+    { name: '🤝 Deals Closed (Sales)', wCur: wowCur.totalCnt + ' deals', wPrev: wowPrev.totalCnt + ' deals', wG: formatDeltaText(wowCur.totalCnt, wowPrev.totalCnt, false), mCur: momCur.totalCnt + ' deals', mPrev: momPrev.totalCnt + ' deals', mG: formatDeltaText(momCur.totalCnt, momPrev.totalCnt, false), isBold: true },
+    { name: '🎯 Blended AOV', wCur: fmt(wowCur.aov), wPrev: fmt(wowPrev.aov), wG: formatDeltaText(wowCur.aov, wowPrev.aov, true), mCur: fmt(momCur.aov), mPrev: fmt(momPrev.aov), mG: formatDeltaText(momCur.aov, momPrev.aov, true) },
+    { name: '🤝 Inside Sales Revenue', wCur: fmt(wowCur.pureInsideRev), wPrev: fmt(wowPrev.pureInsideRev), wG: formatDeltaText(wowCur.pureInsideRev, wowPrev.pureInsideRev, true), mCur: fmt(momCur.pureInsideRev), mPrev: fmt(momPrev.pureInsideRev), mG: formatDeltaText(momCur.pureInsideRev, momPrev.pureInsideRev, true) },
+    { name: '🎤 Events Revenue', wCur: fmt(wowCur.eventsRev), wPrev: fmt(wowPrev.eventsRev), wG: formatDeltaText(wowCur.eventsRev, wowPrev.eventsRev, true), mCur: fmt(momCur.eventsRev), mPrev: fmt(momPrev.eventsRev), mG: formatDeltaText(momCur.eventsRev, momPrev.eventsRev, true) },
+    { name: '🔄 Renewals Revenue', wCur: fmt(wowCur.renewalsRev), wPrev: fmt(wowPrev.renewalsRev), wG: formatDeltaText(wowCur.renewalsRev, wowPrev.renewalsRev, true), mCur: fmt(momCur.renewalsRev), mPrev: fmt(momPrev.renewalsRev), mG: formatDeltaText(momCur.renewalsRev, momPrev.renewalsRev, true) },
+    { name: '🛍️ Direct Sales (Self Serve) Rev', wCur: fmt(wowCur.directRev), wPrev: fmt(wowPrev.directRev), wG: formatDeltaText(wowCur.directRev, wowPrev.directRev, true), mCur: fmt(momCur.directRev), mPrev: fmt(momPrev.directRev), mG: formatDeltaText(momCur.directRev, momPrev.directRev, true) },
+    { name: '🔄 Overlap Deals Revenue', wCur: fmt(wowCur.overlapRev), wPrev: fmt(wowPrev.overlapRev), wG: formatDeltaText(wowCur.overlapRev, wowPrev.overlapRev, true), mCur: fmt(momCur.overlapRev), mPrev: fmt(momPrev.overlapRev), mG: formatDeltaText(momCur.overlapRev, momPrev.overlapRev, true) },
+    { name: '🚚 Delivery Fee Total', wCur: fmt(wowCur.delFeeRev), wPrev: fmt(wowPrev.delFeeRev), wG: formatDeltaText(wowCur.delFeeRev, wowPrev.delFeeRev, true), mCur: fmt(momCur.delFeeRev), mPrev: fmt(momPrev.delFeeRev), mG: formatDeltaText(momCur.delFeeRev, momPrev.delFeeRev, true) }
+  ];
 
-    matrixBody.innerHTML = matrixRows.map(r => `
+  if (wowCur.otherRev > 0 || wowPrev.otherRev > 0 || momCur.otherRev > 0 || momPrev.otherRev > 0) {
+    rowsDef.push({
+      name: '📦 Other Sales Revenue',
+      wCur: fmt(wowCur.otherRev), wPrev: fmt(wowPrev.otherRev), wG: formatDeltaText(wowCur.otherRev, wowPrev.otherRev, true),
+      mCur: fmt(momCur.otherRev), mPrev: fmt(momPrev.otherRev), mG: formatDeltaText(momCur.otherRev, momPrev.otherRev, true)
+    });
+  }
+
+  // Populate W-o-W Table Body
+  const wowMatrixBody = document.getElementById('wow-matrix-tbl-body');
+  if (wowMatrixBody) {
+    wowMatrixBody.innerHTML = rowsDef.map(r => `
       <tr style="${r.isBold ? 'background: #faf5ff;' : ''}">
-        <td style="font-weight: ${r.isBold ? '800' : '600'}; color: var(--text); padding: 10px 16px;">${r.name}</td>
-        <td style="text-align: right; font-weight: ${r.isBold ? '800' : '600'}; color: var(--text);">${r.wCur}</td>
-        <td style="text-align: right; color: var(--muted); font-size: 12px;">${r.wPrev}</td>
-        <td style="text-align: right;">${r.wG}</td>
-        <td style="text-align: right; font-weight: ${r.isBold ? '800' : '600'}; color: var(--text);">${r.mCur}</td>
-        <td style="text-align: right; color: var(--muted); font-size: 12px;">${r.mPrev}</td>
-        <td style="text-align: right;">${r.mG}</td>
+        <td style="font-weight: ${r.isBold ? '800' : '600'}; color: var(--text); padding: 8px 12px; font-size: 11px;">${r.name}</td>
+        <td style="text-align: right; font-weight: ${r.isBold ? '800' : '600'}; color: var(--text); padding: 8px 10px; font-size: 11px;">${r.wCur}</td>
+        <td style="text-align: right; color: var(--muted); padding: 8px 10px; font-size: 10.5px;">${r.wPrev}</td>
+        <td style="text-align: right; padding: 8px 10px; font-size: 10.5px;">${r.wG}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Populate M-o-M Table Body
+  const momMatrixBody = document.getElementById('mom-matrix-tbl-body');
+  if (momMatrixBody) {
+    momMatrixBody.innerHTML = rowsDef.map(r => `
+      <tr style="${r.isBold ? 'background: #faf5ff;' : ''}">
+        <td style="font-weight: ${r.isBold ? '800' : '600'}; color: var(--text); padding: 8px 12px; font-size: 11px;">${r.name}</td>
+        <td style="text-align: right; font-weight: ${r.isBold ? '800' : '600'}; color: var(--text); padding: 8px 10px; font-size: 11px;">${r.mCur}</td>
+        <td style="text-align: right; color: var(--muted); padding: 8px 10px; font-size: 10.5px;">${r.mPrev}</td>
+        <td style="text-align: right; padding: 8px 10px; font-size: 10.5px;">${r.mG}</td>
       </tr>
     `).join('');
   }
