@@ -40,6 +40,12 @@ function getTransporter() {
 }
 
 const fmt = n => '₹' + Math.round(n || 0).toLocaleString('en-IN');
+const fmtK = n => {
+  n = Math.round(n || 0);
+  if (Math.abs(n) >= 100000) return (n / 100000).toFixed(1) + 'L';
+  if (Math.abs(n) >= 1000) return (n / 1000).toFixed(1) + 'K';
+  return n.toLocaleString('en-IN');
+};
 const sd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
 const fd = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 const formatLocalISO = d => {
@@ -49,6 +55,107 @@ const formatLocalISO = d => {
   return y + '-' + m + '-' + day;
 };
 const ini = n => n.split(' ').map(x => x[0]).join('').substring(0, 2).toUpperCase();
+
+function calcPeriodSums(days) {
+  let insideRev = 0, insideCnt = 0;
+  let pureInsideRev = 0, pureInsideCnt = 0;
+  let eventsRev = 0, eventsCnt = 0;
+  let renewalsRev = 0, renewalsCnt = 0;
+  let directRev = 0, directCnt = 0;
+  let overlapRev = 0, overlapCnt = 0;
+  let selfUpRev = 0, selfUpCnt = 0;
+  let delFeeRev = 0, delFeeCnt = 0;
+  let otherRev = 0, otherCnt = 0;
+  let totalRev = 0, totalCnt = 0;
+
+  days.forEach(d => {
+    let dayIns = 0, dayInsCnt = 0;
+    let dayPureIns = 0, dayPureInsCnt = 0;
+    let dayOther = 0, dayOtherCnt = 0;
+
+    Object.entries(d.sources || {}).forEach(([s, info]) => {
+      const rev = info.revenue || 0;
+      const cnt = info.count || 0;
+      if (s !== 'Direct Sale' && s !== 'Self Upgrade' && s !== 'Disputed Sales' && s !== 'Colliding Sales' && s !== 'Overlap Deals') {
+        dayIns += rev;
+        dayInsCnt += cnt;
+      }
+      if (s === 'Organic' || s === 'Upgrade' || s === 'No') {
+        dayPureIns += rev;
+        dayPureInsCnt += cnt;
+      } else if (s === 'Events' || s === 'Renewals' || s === 'Yes' || s === 'Direct Sale' || s === 'Self Upgrade' || s === 'Disputed Sales' || s === 'Colliding Sales' || s === 'Overlap Deals') {
+      } else {
+        dayOther += rev;
+        dayOtherCnt += cnt;
+      }
+    });
+
+    const dEvents = (d.sources && d.sources['Events'] && d.sources['Events'].revenue) || 0;
+    const dEventsCnt = (d.sources && d.sources['Events'] && d.sources['Events'].count) || 0;
+    const dRenewals = (d.sources && d.sources['Renewals'] && d.sources['Renewals'].revenue) || (d.sources && d.sources['Yes'] && d.sources['Yes'].revenue) || 0;
+    const dRenewalsCnt = (d.sources && d.sources['Renewals'] && d.sources['Renewals'].count) || (d.sources && d.sources['Yes'] && d.sources['Yes'].count) || 0;
+    const dDir = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].revenue) || 0;
+    const dDirCnt = (d.sources && d.sources['Direct Sale'] && d.sources['Direct Sale'].count) || 0;
+    const dOverlap = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].revenue) || (d.disputedTotal && d.disputedTotal.revenue) || 0;
+    const dOverlapCnt = (d.sources && d.sources['Overlap Deals'] && d.sources['Overlap Deals'].count) || (d.disputedTotal && d.disputedTotal.count) || 0;
+    const dSelfUp = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].revenue) || 0;
+    const dSelfUpCnt = (d.sources && d.sources['Self Upgrade'] && d.sources['Self Upgrade'].count) || 0;
+    const dDel = (d.deliveryFee && d.deliveryFee.total) || 0;
+    const dDelTx = (d.deliveryFee && (d.deliveryFee.transactions || d.deliveryFee.count)) || 0;
+
+    const dTot = (d.totalRevenue || 0) + dDel;
+
+    insideRev += dayIns;
+    insideCnt += dayInsCnt;
+    pureInsideRev += dayPureIns;
+    pureInsideCnt += dayPureInsCnt;
+    eventsRev += dEvents;
+    eventsCnt += dEventsCnt;
+    renewalsRev += dRenewals;
+    renewalsCnt += dRenewalsCnt;
+    directRev += dDir;
+    directCnt += dDirCnt;
+    overlapRev += dOverlap;
+    overlapCnt += dOverlapCnt;
+    selfUpRev += dSelfUp;
+    selfUpCnt += dSelfUpCnt;
+    delFeeRev += dDel;
+    delFeeCnt += dDelTx;
+    otherRev += dayOther;
+    otherCnt += dayOtherCnt;
+    totalRev += dTot;
+    totalCnt += (d.salesCount || 0);
+  });
+
+  const aov = totalCnt > 0 ? Math.round(totalRev / totalCnt) : 0;
+  return {
+    insideRev, insideCnt,
+    pureInsideRev, pureInsideCnt,
+    eventsRev, eventsCnt,
+    renewalsRev, renewalsCnt,
+    directRev, directCnt,
+    overlapRev, overlapCnt,
+    selfUpRev, selfUpCnt,
+    delFeeRev, delFeeCnt,
+    otherRev, otherCnt,
+    totalRev, totalCnt,
+    aov
+  };
+}
+
+function formatDelta(cur, prev, isCurrency = true) {
+  if (prev === undefined || prev === null || prev === 0) {
+    if (cur > 0) return '<span style="color:#059669;font-weight:800;">▲ +100%</span>';
+    return '<span style="color:#94a3b8;">—</span>';
+  }
+  const diff = cur - prev;
+  const pct = ((diff / Math.abs(prev)) * 100).toFixed(1);
+  const isPos = diff >= 0;
+  const color = isPos ? '#059669' : '#dc2626';
+  const arrow = isPos ? '▲ +' : '▼ ';
+  const diffStr = isCurrency ? (isPos ? '+' : '') + fmtK(diff) : (isPos ? '+' : '') + diff;
+  return `<span style="color:${color};font-weight:800;white-space:nowrap;">${arrow}${Math.abs(pct)}% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(${diffStr})</span></span>`;
+}
 
 function quickChartURL(config, width = 600, height = 240) {
   const json = JSON.stringify(config);
@@ -171,19 +278,67 @@ function buildEmailHtml(allData) {
   weekStartObj.setDate(ydDateObj.getDate() - dayOfWeek);
   const weekStartStr = formatLocalISO(weekStartObj);
 
-  const weekDays = allData.filter(d => d.date >= weekStartStr && d.date <= yd.date).sort((a, b) => a.date.localeCompare(b.date));
-  const weekSales = weekDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
-  const weekDelivery = weekDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
-  const weekGrand = weekSales + weekDelivery;
-  const weekDeals = weekDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+  // W-o-W windows
+  const wowCurStart = weekStartStr;
+  const wowCurEnd = yd.date;
+  const prevWeekStartObj = new Date(weekStartObj);
+  prevWeekStartObj.setDate(weekStartObj.getDate() - 7);
+  const wowPrevStart = formatLocalISO(prevWeekStartObj);
+  const prevWeekEndObj = new Date(ydDateObj);
+  prevWeekEndObj.setDate(ydDateObj.getDate() - 7);
+  const wowPrevEnd = formatLocalISO(prevWeekEndObj);
 
-  // Month-to-Date (MTD)
-  const monthStartStr = yd.date.slice(0, 7) + '-01';
-  const monthDays = allData.filter(d => d.date >= monthStartStr && d.date <= yd.date);
-  const monthSales = monthDays.reduce((s, d) => s + (d.totalRevenue || 0), 0);
-  const monthDelivery = monthDays.reduce((s, d) => s + ((d.deliveryFee && d.deliveryFee.total > 0) ? d.deliveryFee.total : 0), 0);
-  const monthGrand = monthSales + monthDelivery;
-  const monthDeals = monthDays.reduce((s, d) => s + (d.salesCount || 0), 0);
+  const wowCurDays = allData.filter(d => d.date >= wowCurStart && d.date <= wowCurEnd);
+  const wowPrevDays = allData.filter(d => d.date >= wowPrevStart && d.date <= wowPrevEnd);
+  const wowCur = calcPeriodSums(wowCurDays);
+  const wowPrev = calcPeriodSums(wowPrevDays);
+
+  const wowRevDiff = wowCur.totalRev - wowPrev.totalRev;
+  const wowRevPct = wowPrev.totalRev > 0 ? ((wowRevDiff / wowPrev.totalRev) * 100).toFixed(1) : (wowCur.totalRev > 0 ? '100' : '0');
+  const wowDealsDiff = wowCur.totalCnt - wowPrev.totalCnt;
+
+  // M-o-M windows (MTD 1st–yd vs Prior Month 1st–Same Day)
+  const curParts = yd.date.split('-');
+  const curYear = parseInt(curParts[0], 10);
+  const curMonth = parseInt(curParts[1], 10);
+  const curDay = parseInt(curParts[2], 10);
+  const momCurStart = `${curParts[0]}-${curParts[1]}-01`;
+  const momCurEnd = yd.date;
+
+  let prevMonthYear = curYear;
+  let prevMonth = curMonth - 1;
+  if (prevMonth === 0) {
+    prevMonth = 12;
+    prevMonthYear = curYear - 1;
+  }
+  const prevMonthStr = String(prevMonth).padStart(2, '0');
+  const daysInPrevMonth = new Date(prevMonthYear, prevMonth, 0).getDate();
+  const matchedPrevDay = Math.min(curDay, daysInPrevMonth);
+  const matchedPrevDayStr = String(matchedPrevDay).padStart(2, '0');
+  const momPrevStart = `${prevMonthYear}-${prevMonthStr}-01`;
+  const momPrevEnd = `${prevMonthYear}-${prevMonthStr}-${matchedPrevDayStr}`;
+
+  const momCurDays = allData.filter(d => d.date >= momCurStart && d.date <= momCurEnd);
+  const momPrevDays = allData.filter(d => d.date >= momPrevStart && d.date <= momPrevEnd);
+  const momCur = calcPeriodSums(momCurDays);
+  const momPrev = calcPeriodSums(momPrevDays);
+
+  const momRevDiff = momCur.totalRev - momPrev.totalRev;
+  const momRevPct = momPrev.totalRev > 0 ? ((momRevDiff / momPrev.totalRev) * 100).toFixed(1) : (momCur.totalRev > 0 ? '100' : '0');
+  const momDealsDiff = momCur.totalCnt - momPrev.totalCnt;
+
+  // Category Breakdown rows
+  const velocityRows = [
+    { name: '💰 Total Revenue', wCur: fmt(wowCur.totalRev), wPrev: fmt(wowPrev.totalRev), wG: formatDelta(wowCur.totalRev, wowPrev.totalRev, true), mCur: fmt(momCur.totalRev), mPrev: fmt(momPrev.totalRev), mG: formatDelta(momCur.totalRev, momPrev.totalRev, true), isBold: true },
+    { name: '🤝 Deals Closed', wCur: wowCur.totalCnt + 'd', wPrev: wowPrev.totalCnt + 'd', wG: formatDelta(wowCur.totalCnt, wowPrev.totalCnt, false), mCur: momCur.totalCnt + 'd', mPrev: momPrev.totalCnt + 'd', mG: formatDelta(momCur.totalCnt, momPrev.totalCnt, false), isBold: true },
+    { name: '🎯 Blended AOV', wCur: fmt(wowCur.aov), wPrev: fmt(wowPrev.aov), wG: formatDelta(wowCur.aov, wowPrev.aov, true), mCur: fmt(momCur.aov), mPrev: fmt(momPrev.aov), mG: formatDelta(momCur.aov, momPrev.aov, true) },
+    { name: '🤝 Inside Sales', wCur: fmt(wowCur.pureInsideRev), wPrev: fmt(wowPrev.pureInsideRev), wG: formatDelta(wowCur.pureInsideRev, wowPrev.pureInsideRev, true), mCur: fmt(momCur.pureInsideRev), mPrev: fmt(momPrev.pureInsideRev), mG: formatDelta(momCur.pureInsideRev, momPrev.pureInsideRev, true) },
+    { name: '🎤 Events Rev', wCur: fmt(wowCur.eventsRev), wPrev: fmt(wowPrev.eventsRev), wG: formatDelta(wowCur.eventsRev, wowPrev.eventsRev, true), mCur: fmt(momCur.eventsRev), mPrev: fmt(momPrev.eventsRev), mG: formatDelta(momCur.eventsRev, momPrev.eventsRev, true) },
+    { name: '🔄 Renewals Rev', wCur: fmt(wowCur.renewalsRev), wPrev: fmt(wowPrev.renewalsRev), wG: formatDelta(wowCur.renewalsRev, wowPrev.renewalsRev, true), mCur: fmt(momCur.renewalsRev), mPrev: fmt(momPrev.renewalsRev), mG: formatDelta(momCur.renewalsRev, momPrev.renewalsRev, true) },
+    { name: '🛍️ Direct Sales', wCur: fmt(wowCur.directRev), wPrev: fmt(wowPrev.directRev), wG: formatDelta(wowCur.directRev, wowPrev.directRev, true), mCur: fmt(momCur.directRev), mPrev: fmt(momPrev.directRev), mG: formatDelta(momCur.directRev, momPrev.directRev, true) },
+    { name: '🔄 Overlap Deals', wCur: fmt(wowCur.overlapRev), wPrev: fmt(wowPrev.overlapRev), wG: formatDelta(wowCur.overlapRev, wowPrev.overlapRev, true), mCur: fmt(momCur.overlapRev), mPrev: fmt(momPrev.overlapRev), mG: formatDelta(momCur.overlapRev, momPrev.overlapRev, true) },
+    { name: '🚚 Delivery Fees', wCur: fmt(wowCur.delFeeRev), wPrev: fmt(wowPrev.delFeeRev), wG: formatDelta(wowCur.delFeeRev, wowPrev.delFeeRev, true), mCur: fmt(momCur.delFeeRev), mPrev: fmt(momPrev.delFeeRev), mG: formatDelta(momCur.delFeeRev, momPrev.delFeeRev, true) }
+  ];
 
   // 6. Serviceability (Last 4 Days Funnel Snapshot)
   const last4Funnel = allData.filter(d => d.userBreakdown && d.date <= yd.date).slice(-4).reverse();
@@ -384,25 +539,87 @@ function buildEmailHtml(allData) {
       </table>
     </div>
 
-    <!-- 4. PERIOD REVENUE -->
+    <!-- 4. PERIOD REVENUE & VELOCITY BREAKDOWN (W-O-W & M-O-M) -->
     <div style="padding:0 28px 18px;">
-      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;">
-        📅 Period Revenue
+      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
+        <span>📆 Period Comparisons &amp; Velocity</span>
+        <span style="font-size:10.5px;color:#7c3aed;font-weight:700;text-transform:none;">Sunday-to-Sunday &amp; MTD Like-for-Like</span>
       </div>
-      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;">
+
+      <!-- Executive W-o-W & M-o-M KPI Cards -->
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
         <tr>
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #059669;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Week (Sun–Yesterday)</div>
-            <div style="font-size:22px;font-weight:900;color:#059669;margin-top:2px;">${fmt(weekGrand)}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${weekDeals} deals • ${weekDays.length} days</div>
+          <!-- W-o-W Card -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#6b21a8;text-transform:uppercase;">
+              ⚡ Week-to-Date (Sun, ${sd(wowCurStart)} – ${sd(wowCurEnd)})
+            </div>
+            <div style="font-size:10px;color:#64748b;margin-top:2px;">
+              vs Prior WTD: Sun, ${sd(wowPrevStart)} – ${sd(wowPrevEnd)} (${wowCurDays.length}d LfL)
+            </div>
+            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
+              ${fmt(wowCur.totalRev)}
+              <span style="font-size:11px;font-weight:800;color:${wowRevDiff >= 0 ? '#059669' : '#dc2626'};background:${wowRevDiff >= 0 ? '#f0fdf4' : '#fef2f2'};padding:2px 6px;border-radius:6px;border:1px solid ${wowRevDiff >= 0 ? '#bbf7d0' : '#fecaca'};margin-left:4px;">
+                ${wowRevDiff >= 0 ? '▲ +' : '▼ '}${Math.abs(wowRevPct)}%
+              </span>
+            </div>
+            <div style="font-size:11px;color:#64748b;margin-top:3px;">
+              ${wowCur.totalCnt} deals (${wowDealsDiff >= 0 ? '+' : ''}${wowDealsDiff} vs prior WTD ${wowPrev.totalCnt}d)
+            </div>
           </td>
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-top:3px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Revenue This Month (1st–Yesterday)</div>
-            <div style="font-size:22px;font-weight:900;color:#7c3aed;margin-top:2px;">${fmt(monthGrand)}</div>
-            <div style="font-size:11px;color:#6b7280;margin-top:4px;">${monthDeals} deals • ${monthDays.length} days</div>
+
+          <!-- M-o-M Card -->
+          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
+            <div style="font-size:11px;font-weight:800;color:#0e7490;text-transform:uppercase;">
+              🗓️ Month-to-Date (1st – ${sd(momCurEnd)})
+            </div>
+            <div style="font-size:10px;color:#64748b;margin-top:2px;">
+              vs Prior MTD: 1st – ${sd(momPrevEnd)} (${momCurDays.length}d LfL)
+            </div>
+            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
+              ${fmt(momCur.totalRev)}
+              <span style="font-size:11px;font-weight:800;color:${momRevDiff >= 0 ? '#059669' : '#dc2626'};background:${momRevDiff >= 0 ? '#f0fdf4' : '#fef2f2'};padding:2px 6px;border-radius:6px;border:1px solid ${momRevDiff >= 0 ? '#bbf7d0' : '#fecaca'};margin-left:4px;">
+                ${momRevDiff >= 0 ? '▲ +' : '▼ '}${Math.abs(momRevPct)}%
+              </span>
+            </div>
+            <div style="font-size:11px;color:#64748b;margin-top:3px;">
+              ${momCur.totalCnt} deals (${momDealsDiff >= 0 ? '+' : ''}${momDealsDiff} vs prior MTD ${momPrev.totalCnt}d)
+            </div>
           </td>
         </tr>
       </table>
+
+      <!-- Category Breakdown Table -->
+      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
+        <div style="padding:10px 14px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11.5px;font-weight:800;color:#581c87;text-transform:uppercase;letter-spacing:0.04em;">
+            ⚡ W-o-W &amp; M-o-M Category Breakdown
+          </span>
+          <span style="font-size:10.5px;color:#7c3aed;font-weight:700;">Like-for-Like Comparison</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
+          <thead>
+            <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+              <th style="padding:7px 10px;font-weight:700;">Category / Metric</th>
+              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur WTD</th>
+              <th style="padding:7px 8px;font-weight:700;text-align:right;">W-o-W</th>
+              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur MTD</th>
+              <th style="padding:7px 10px;font-weight:700;text-align:right;">M-o-M</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${velocityRows.map(r => `
+              <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
+                <td style="padding:7px 10px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
+                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.wCur}</td>
+                <td style="padding:7px 8px;text-align:right;">${r.wG}</td>
+                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.mCur}</td>
+                <td style="padding:7px 10px;text-align:right;">${r.mG}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->
