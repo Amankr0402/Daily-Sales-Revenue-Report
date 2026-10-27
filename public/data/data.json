@@ -59082,9 +59082,9 @@
   },
   {
     "date": "2026-07-31",
-    "totalRevenue": 433923.3,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 422923.3,
+    "salesCount": 43,
+    "transactions": 43,
     "highestSale": {
       "amount": 15763.5,
       "agent": "Self Serve",
@@ -59092,8 +59092,8 @@
     },
     "agents": {
       "Amol Landge": {
-        "revenue": 53752,
-        "count": 5
+        "revenue": 42752,
+        "count": 4
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 46648,
@@ -59138,8 +59138,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 394995.3,
-        "count": 36
+        "revenue": 383995.3,
+        "count": 35
       },
       "Quarterly Max": {
         "revenue": 35768,
@@ -59164,8 +59164,8 @@
         "count": 1
       },
       "Events": {
-        "revenue": 77000,
-        "count": 7
+        "revenue": 66000,
+        "count": 6
       },
       "Direct Sale": {
         "revenue": 81647.3,
@@ -74990,9 +74990,9 @@
       "revenue": 9000
     },
     "missedLeads": {
-      "Connected": 192,
-      "Interested": 106,
-      "Paise Dega": 26
+      "Connected": 197,
+      "Interested": 110,
+      "Paise Dega": 35
     },
     "refunds": {
       "count": 1,
@@ -75013,7 +75013,7 @@
     },
     "newUsers7d": 3615,
     "newUsersYesterday": 297,
-    "activeSubs": 5129,
+    "activeSubs": 5130,
     "newSubs7d": 136,
     "teleCrmLeads": 328,
     "subsEnding5d": 71,
@@ -75023,14 +75023,14 @@
     "planExpNoOrder": 2427,
     "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 15,
-      "Orders Placed": 15,
-      "Orders - CONFIRMED": 9,
-      "Orders Confirmed": 9,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 20,
-      "Orders Shipped": 20,
+      "Orders - PLACED": 14,
+      "Orders Placed": 14,
+      "Orders - CONFIRMED": 10,
+      "Orders Confirmed": 10,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 22,
+      "Orders Shipped": 22,
       "Orders - Not Delivered": 46,
       "Orders Not Delivered": 46
     },
