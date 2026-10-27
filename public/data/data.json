@@ -58738,9 +58738,9 @@
   },
   {
     "date": "2026-07-28",
-    "totalRevenue": 276134,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 265758,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivani Gupta",
@@ -58764,8 +58764,8 @@
         "count": 2
       },
       "Amol Landge": {
-        "revenue": 52128,
-        "count": 5
+        "revenue": 41752,
+        "count": 4
       },
       "Kush Shah": {
         "revenue": 11000,
@@ -58798,8 +58798,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 219756,
-        "count": 21
+        "revenue": 209380,
+        "count": 20
       },
       "Annual Mini": {
         "revenue": 19822,
@@ -58816,8 +58816,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 103256,
-        "count": 10
+        "revenue": 92880,
+        "count": 9
       },
       "Organic": {
         "revenue": 152800,
