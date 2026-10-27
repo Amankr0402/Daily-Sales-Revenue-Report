@@ -446,7 +446,7 @@ function buildEmailHtml(allData) {
   <title>Daily Sales Report — The Elefant</title>
 </head>
 <body style="margin:0;padding:24px 0;background-color:#ede8fb;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1e1333;">
-  <div style="max-width:780px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
+  <div style="max-width:860px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
     
     <!-- HEADER -->
     <div style="background:#ffffff;padding:24px 28px;border-bottom:1px solid rgba(109,40,217,0.12);">
@@ -685,22 +685,22 @@ function buildEmailHtml(allData) {
                 <span style="font-size:11px;font-weight:800;color:#581c87;text-transform:uppercase;">⚡ W-o-W Category Breakdown</span>
                 <span style="font-size:9.5px;color:#7c3aed;font-weight:600;">${wowCurDays.length}d LfL</span>
               </div>
-              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+              <table style="width:100%;border-collapse:collapse;font-size:10px;">
                 <thead>
                   <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
-                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
-                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR WTD</th>
-                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
-                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">W-O-W GROWTH</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9px;text-transform:uppercase;white-space:nowrap;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 5px;font-weight:800;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">CUR WTD</th>
+                    <th style="padding:7px 5px;font-weight:700;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">W-O-W GROWTH</th>
                   </tr>
                 </thead>
                 <tbody>
                   ${breakdownRows.map(r => `
                     <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
-                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
-                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.wCur}</td>
-                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">${r.wPrev}</td>
-                      <td style="padding:6px 8px;text-align:right;font-size:10px;">${r.wG}</td>
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};white-space:nowrap;">${r.name}</td>
+                      <td style="padding:6px 5px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};white-space:nowrap;">${r.wCur}</td>
+                      <td style="padding:6px 5px;text-align:right;color:#64748b;font-size:9.5px;white-space:nowrap;">${r.wPrev}</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:9.5px;white-space:nowrap;">${r.wG}</td>
                     </tr>
                   `).join('')}
                 </tbody>
@@ -715,22 +715,22 @@ function buildEmailHtml(allData) {
                 <span style="font-size:11px;font-weight:800;color:#065f46;text-transform:uppercase;">⚡ M-o-M Category Breakdown</span>
                 <span style="font-size:9.5px;color:#059669;font-weight:600;">${momCurDays.length}d LfL</span>
               </div>
-              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+              <table style="width:100%;border-collapse:collapse;font-size:10px;">
                 <thead>
                   <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
-                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
-                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR MTD</th>
-                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
-                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">M-O-M GROWTH</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9px;text-transform:uppercase;white-space:nowrap;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 5px;font-weight:800;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">CUR MTD</th>
+                    <th style="padding:7px 5px;font-weight:700;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9px;text-align:right;text-transform:uppercase;white-space:nowrap;">M-O-M GROWTH</th>
                   </tr>
                 </thead>
                 <tbody>
                   ${breakdownRows.map(r => `
                     <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
-                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
-                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.mCur}</td>
-                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">${r.mPrev}</td>
-                      <td style="padding:6px 8px;text-align:right;font-size:10px;">${r.mG}</td>
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};white-space:nowrap;">${r.name}</td>
+                      <td style="padding:6px 5px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};white-space:nowrap;">${r.mCur}</td>
+                      <td style="padding:6px 5px;text-align:right;color:#64748b;font-size:9.5px;white-space:nowrap;">${r.mPrev}</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:9.5px;white-space:nowrap;">${r.mG}</td>
                     </tr>
                   `).join('')}
                 </tbody>

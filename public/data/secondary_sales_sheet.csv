@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,412,739",,,496,
+,,,,"5,422,739",,,497,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -202,13 +202,13 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 200,10/10/2026,9347243941,Shubham Rai,"12,000",No,Annual Max,1,Organic
 201,10/10/2026,9953625965,Preyashi Roy,"12,216",No,Annual Max,1,Organic
 202,10/10/2026,7040795468,Amol Landge,"12,000",No,Annual Max,1,Events
-203,10/10/2026,9768837293,Others,"12,000",No,Annual Max,1,Organic
+203,10/10/2026,9768837293,Vikas Poonia,"12,000",No,Annual Max,1,Organic
 204,10/10/2026,9827794437,Shubham Rai,"12,000",No,Annual Max,1,Events
 205,10/10/2026,9582562865,Rani Singh,"19,573",No,Annual Max,2,Organic
 206,10/10/2026,8800466376,Honey Talreja,"5,756",No,Quarterly Max,1,Organic
 207,10/10/2026,9821550065,Honey Talreja,"23,499",No,Ultra Annually,1,Organic
 208,10/10/2026,9664665931,Rohit Jain,"12,000",No,Annual Max,1,Organic
-209,10/10/2026,9467811114,Others,"12,000",No,Annual Max,1,Organic
+209,10/10/2026,9467811114,Vikas Poonia,"12,000",No,Annual Max,1,Organic
 210,10/10/2026,8799681987,Kush Shah,"12,000",No,Annual Max,1,Events
 211,10/11/2026,8742963761,Honey Talreja,"12,000",No,Annual Max,1,Organic
 212,10/11/2026,9875009874,Others,"12,000",No,Annual Max,1,Organic
@@ -428,7 +428,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 427,23/10/2026,9867032693,Shubham Rai,"12,000",No,Annual Max,1,Organic
 428,23/10/2026,8197447332,Chhaya Patel,"12,216",No,Annual Max,1,Organic
 429,23/10/2026,9711041849,Kush Shah,"11,000",No,Annual Max,1,Renewals
-430,23/10/2026,8285838640,Others,"12,000",No,Annual Max,1,Renewals
+430,23/10/2026,8285838640,Vikas Poonia,"12,000",No,Annual Max,1,Renewals
 432,23/10/2026,9428276275,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 433,24/10/2026,8452810094,Honey Talreja,"12,000",No,Annual Max,1,Organic
 434,24/10/2026,9860785253,Amol Landge,"11,376",No,Annual Max,1,Events
@@ -494,7 +494,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 494,27/10/2026,9953367305,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 495,27/10/2026,9712557523,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 496,27/10/2026,8888864533,Amol Landge,"11,376",No,Annual Max,1,Renewals
-497,27/10/2026,,,,,,,
+497,27/10/2026,9137114263,Preyashi Roy,"10,000",No,Annual Plus,1,Organic
 498,27/10/2026,,,,,,,
 499,27/10/2026,,,,,,,
 500,27/10/2026,,,,,,,
