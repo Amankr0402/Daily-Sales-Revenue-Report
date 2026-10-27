@@ -5,7 +5,7 @@
   <title>Daily Sales Report — The Elefant</title>
 </head>
 <body style="margin:0;padding:24px 0;background-color:#ede8fb;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1e1333;">
-  <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
+  <div style="max-width:780px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
     
     <!-- HEADER -->
     <div style="background:#ffffff;padding:24px 28px;border-bottom:1px solid rgba(109,40,217,0.12);">
@@ -154,151 +154,282 @@
       </table>
     </div>
 
-    <!-- 4. PERIOD REVENUE & VELOCITY BREAKDOWN (W-O-W & M-O-M) -->
-    <div style="padding:0 28px 18px;">
-      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
-        <span>📆 Period Comparisons &amp; Velocity</span>
-        <span style="font-size:10.5px;color:#7c3aed;font-weight:700;text-transform:none;">Sunday-to-Sunday &amp; MTD Like-for-Like</span>
-      </div>
-
-      <!-- Executive W-o-W & M-o-M KPI Cards -->
-      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
+    <!-- 4. PERIOD REVENUE & VELOCITY BREAKDOWN (W-O-W & M-O-M SIDE-BY-SIDE) -->
+    <div style="padding:0 24px 18px;">
+      
+      <!-- TOP ROW: 2 SIDE-BY-SIDE KPI CARDS -->
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 0;margin-left:-10px;margin-right:-10px;margin-bottom:14px;">
         <tr>
-          <!-- W-o-W Card -->
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:800;color:#6b21a8;text-transform:uppercase;">
-              ⚡ Week-to-Date (Sun, 25 Oct – 26 Oct)
+          <!-- LEFT: W-O-W CARD -->
+          <td style="width:50%;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;vertical-align:top;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+            <div style="margin-bottom:8px;">
+              <span style="background:rgba(99,102,241,0.12);color:#4f46e5;font-size:10px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;letter-spacing:0.04em;">🗓️ WEEK-OVER-WEEK (W-O-W)</span>
+              <div style="font-size:10px;color:#64748b;font-weight:600;margin-top:4px;">25 Oct–26 Oct vs 18 Oct–19 Oct (2 Days Like-for-Like)</div>
             </div>
-            <div style="font-size:10px;color:#64748b;margin-top:2px;">
-              vs Prior WTD: Sun, 18 Oct – 19 Oct (2d LfL)
-            </div>
-            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
-              ₹4,98,529
-              <span style="font-size:11px;font-weight:800;color:#059669;background:#f0fdf4;padding:2px 6px;border-radius:6px;border:1px solid #bbf7d0;margin-left:4px;">
-                ▲ +48.1%
-              </span>
-            </div>
-            <div style="font-size:11px;color:#64748b;margin-top:3px;">
-              44 deals (+17 vs prior WTD 27d)
-            </div>
+            
+            <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+              <tr>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🔥 TOTAL REVENUE</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">₹4,98,529</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +48.1% (+₹1,61,854)</span></div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior WTD: ₹3,36,675</div>
+                </td>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🤝 DEALS CLOSED (SALES)</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">44 deals</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +63% (+17)</span></div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior WTD: 27 deals</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- 3-tile strip -->
+            <table style="width:100%;border-collapse:collapse;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+              <tr>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">⚡ INSIDE SALES</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹4,13,408 <span style="font-size:8.5px;color:#64748b;">(39d)</span></div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +57.5% (+₹1,50,867)</span></div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🛍️ DIRECT / SELF SERVE</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹64,531 <span style="font-size:8.5px;color:#64748b;">(3d)</span></div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;white-space:nowrap;">▼ 13% (-₹9,603)</span></div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🎯 BLENDED AOV</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹11,330</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;white-space:nowrap;">▼ 9.1% (-₹1,139)</span></div>
+                </td>
+              </tr>
+            </table>
           </td>
 
-          <!-- M-o-M Card -->
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:800;color:#0e7490;text-transform:uppercase;">
-              🗓️ Month-to-Date (1st – 26 Oct)
+          <!-- RIGHT: M-O-M CARD -->
+          <td style="width:50%;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;vertical-align:top;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+            <div style="margin-bottom:8px;">
+              <span style="background:rgba(8,145,178,0.12);color:#0891b2;font-size:10px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;letter-spacing:0.04em;">🗓️ MONTH-OVER-MONTH (M-O-M MTD)</span>
+              <div style="font-size:10px;color:#64748b;font-weight:600;margin-top:4px;">1 Oct–26 Oct vs 1 Sept–26 Sept (26 Days Like-for-Like)</div>
             </div>
-            <div style="font-size:10px;color:#64748b;margin-top:2px;">
-              vs Prior MTD: 1st – 26 Sept (26d LfL)
-            </div>
-            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
-              ₹62,55,393
-              <span style="font-size:11px;font-weight:800;color:#059669;background:#f0fdf4;padding:2px 6px;border-radius:6px;border:1px solid #bbf7d0;margin-left:4px;">
-                ▲ +1%
-              </span>
-            </div>
-            <div style="font-size:11px;color:#64748b;margin-top:3px;">
-              598 deals (-50 vs prior MTD 648d)
-            </div>
+            
+            <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+              <tr>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🔥 MTD REVENUE</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">₹62,55,393</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +1% (+₹63,546)</span></div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior MTD: ₹61,91,847</div>
+                </td>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🤝 DEALS CLOSED (SALES)</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">598 deals</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;white-space:nowrap;">▼ 7.7% (-50)</span></div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior MTD: 648 deals</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- 3-tile strip -->
+            <table style="width:100%;border-collapse:collapse;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+              <tr>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">⚡ INSIDE SALES</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹50,71,859 <span style="font-size:8.5px;color:#64748b;">(487d)</span></div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +2.1% (+₹1,05,169)</span></div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🛍️ DIRECT / SELF SERVE</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹8,84,441 <span style="font-size:8.5px;color:#64748b;">(81d)</span></div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +4.2% (+₹35,505)</span></div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🎯 BLENDED AOV</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">₹10,461</div>
+                  <div style="margin-top:2px;"><span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +9.5% (+₹906)</span></div>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
 
-      <!-- Category Breakdown Table -->
-      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
-        <div style="padding:10px 14px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11.5px;font-weight:800;color:#581c87;text-transform:uppercase;letter-spacing:0.04em;">
-            ⚡ W-o-W &amp; M-o-M Category Breakdown
-          </span>
-          <span style="font-size:10.5px;color:#7c3aed;font-weight:700;">Like-for-Like Comparison</span>
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
-          <thead>
-            <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
-              <th style="padding:7px 10px;font-weight:700;">Category / Metric</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur WTD</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">W-o-W</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur MTD</th>
-              <th style="padding:7px 10px;font-weight:700;text-align:right;">M-o-M</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:800;">💰 Total Revenue</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:800;">₹4,98,529</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +48.1% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+1.6L)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:800;">₹62,55,393</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +1% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+63.5K)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:800;">🤝 Deals Closed</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:800;">44d</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +63% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+17)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:800;">598d</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 7.7% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-50)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🎯 Blended AOV</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹11,330</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 9.1% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-1.1K)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹10,461</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +9.5% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+906)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🤝 Inside Sales</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹2,17,005</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 5.6% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-12.8K)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹37,55,968</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 21.6% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-10.3L)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🎤 Events Rev</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹1,54,454</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;">▲ +100%</span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹7,24,553</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#059669;font-weight:800;">▲ +100%</span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🔄 Renewals Rev</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹41,949</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +28.1% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+9.2K)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹5,91,338</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +236.5% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+4.2L)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🛍️ Direct Sales</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹64,531</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 13% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-9.6K)</span></span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹8,84,441</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +4.2% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(+35.5K)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🔄 Overlap Deals</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹20,000</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;">▲ +100%</span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹2,95,081</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 20.7% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-76.9K)</span></span></td>
-              </tr>
-            
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:600;">🚚 Delivery Fees</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹590</td>
-                <td style="padding:7px 8px;text-align:right;"><span style="color:#059669;font-weight:800;">▲ +100%</span></td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:700;">₹4,012</td>
-                <td style="padding:7px 10px;text-align:right;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 5.6% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(-236)</span></span></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      </div>
+      <!-- BOTTOM ROW: 2 SIDE-BY-SIDE CATEGORY BREAKDOWN TABLES -->
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 0;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <!-- LEFT: W-O-W CATEGORY BREAKDOWN TABLE -->
+          <td style="width:50%;vertical-align:top;">
+            <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+              <div style="padding:10px 12px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:11px;font-weight:800;color:#581c87;text-transform:uppercase;">⚡ W-o-W Category Breakdown</span>
+                <span style="font-size:9.5px;color:#7c3aed;font-weight:600;">2d LfL</span>
+              </div>
+              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+                <thead>
+                  <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR WTD</th>
+                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">W-O-W GROWTH</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:800;">🔥 Total Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:800;">₹4,98,529</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹3,36,675</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +48.1% (+₹1,61,854)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:800;">🤝 Deals Closed (Sales)</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:800;">44 deals</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">27 deals</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +63% (+17)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🎯 Blended AOV</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹11,330</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹12,469</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 9.1% (-₹1,139)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🤝 Inside Sales Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹2,17,005</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹2,29,789</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 5.6% (-₹12,784)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🎤 Events Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹1,54,454</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹0</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +100% (+₹1,54,454)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🔄 Renewals Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹41,949</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹32,752</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +28.1% (+₹9,197)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🛍️ Direct Sales (Self Serve) Rev</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹64,531</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹74,134</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 13% (-₹9,603)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🔀 Overlap Deals Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹20,000</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹0</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +100% (+₹20,000)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🚚 Delivery Fee Total</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹590</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹0</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +100% (+₹590)</span></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </td>
+
+          <!-- RIGHT: M-O-M CATEGORY BREAKDOWN TABLE -->
+          <td style="width:50%;vertical-align:top;">
+            <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+              <div style="padding:10px 12px;background:#f0fdf4;border-bottom:1px solid #bbf7d0;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:11px;font-weight:800;color:#065f46;text-transform:uppercase;">⚡ M-o-M Category Breakdown</span>
+                <span style="font-size:9.5px;color:#059669;font-weight:600;">26d LfL</span>
+              </div>
+              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+                <thead>
+                  <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR MTD</th>
+                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">M-O-M GROWTH</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:800;">🔥 Total Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:800;">₹62,55,393</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹61,91,847</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +1% (+₹63,546)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#faf5ff;font-weight:800;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:800;">🤝 Deals Closed (Sales)</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:800;">598 deals</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">648 deals</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 7.7% (-50)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🎯 Blended AOV</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹10,461</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹9,555</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +9.5% (+₹906)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🤝 Inside Sales Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹37,55,968</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹47,90,956</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 21.6% (-₹10,34,988)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🎤 Events Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹7,24,553</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹0</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +100% (+₹7,24,553)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🔄 Renewals Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹5,91,338</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹1,75,734</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +236.5% (+₹4,15,604)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🛍️ Direct Sales (Self Serve) Rev</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹8,84,441</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹8,48,936</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +4.2% (+₹35,505)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🔀 Overlap Deals Revenue</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹2,95,081</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹3,71,973</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 20.7% (-₹76,892)</span></td>
+                    </tr>
+                  
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:600;">🚚 Delivery Fee Total</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:700;">₹4,012</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">₹4,248</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;"><span style="color:#dc2626;font-weight:800;white-space:nowrap;">▼ 5.6% (-₹236)</span></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
 
     <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->
@@ -321,9 +452,9 @@
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:7px 10px;font-weight:600;color:#1e1333;">26 Oct</td>
               <td style="padding:7px 10px;text-align:center;color:#64748b;">324</td>
-              <td style="padding:7px 10px;text-align:center;color:#64748b;">244</td>
-              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">161</td>
-              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">49.7%</td>
+              <td style="padding:7px 10px;text-align:center;color:#64748b;">245</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">163</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">50.3%</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;">
@@ -346,8 +477,8 @@
               <td style="padding:7px 10px;font-weight:600;color:#1e1333;">23 Oct</td>
               <td style="padding:7px 10px;text-align:center;color:#64748b;">807</td>
               <td style="padding:7px 10px;text-align:center;color:#64748b;">574</td>
-              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">390</td>
-              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">48.3%</td>
+              <td style="padding:7px 10px;text-align:center;color:#0891b2;font-weight:700;">391</td>
+              <td style="padding:7px 10px;text-align:right;color:#059669;font-weight:700;">48.5%</td>
             </tr>
           
         </tbody>
@@ -356,9 +487,9 @@
       <!-- Missed Leads -->
       <div style="margin-top:10px;padding:10px 14px;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:8px;text-align:center;font-size:12px;">
         <span style="font-weight:800;color:#1e1333;">⏰ Leads Missed (>24 hrs):</span>
-        <span style="margin-left:8px;color:#64748b;">Connected: <strong>192</strong></span> •
-        <span style="margin-left:4px;color:#64748b;">Interested: <strong>106</strong></span> •
-        <span style="margin-left:4px;color:#059669;">Paise Dega: <strong>26</strong></span>
+        <span style="margin-left:8px;color:#64748b;">Connected: <strong>206</strong></span> •
+        <span style="margin-left:4px;color:#64748b;">Interested: <strong>125</strong></span> •
+        <span style="margin-left:4px;color:#059669;">Paise Dega: <strong>38</strong></span>
       </div>
     </div>
 
@@ -378,7 +509,7 @@
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Total Active Subscriptions</td>
-              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">5,129</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">5,134</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
@@ -388,7 +519,7 @@
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:7px 12px;color:#1e1333;font-weight:600;">TeleCRM Leads (yesterday)</td>
-              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">0</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">329</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
@@ -418,7 +549,7 @@
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:7px 12px;color:#1e1333;font-weight:600;">Active Subscription & No Order</td>
-              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">121</td>
+              <td style="padding:7px 12px;text-align:right;font-weight:800;color:#5b3e9b;">119</td>
             </tr>
           
         </tbody>
@@ -441,27 +572,27 @@
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Placed</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">15</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">14</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Confirmed</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">9</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">10</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Ready to Ship</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">2</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">0</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Shipped</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">20</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">18</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">Orders Not Delivered</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">46</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">42</td>
             </tr>
           
         </tbody>
@@ -483,17 +614,17 @@
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders that have been Delivered</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">569</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">573</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders yet to be Delivered</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">46</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">42</td>
             </tr>
           
             <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
               <td style="padding:6px 12px;color:#1e1333;font-weight:600;">New Subscribers Orders yet to be Delivered & Delayed</td>
-              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">11</td>
+              <td style="padding:6px 12px;text-align:right;font-weight:800;color:#5b3e9b;">12</td>
             </tr>
           
         </tbody>

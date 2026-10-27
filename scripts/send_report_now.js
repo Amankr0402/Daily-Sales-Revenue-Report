@@ -157,6 +157,39 @@ function formatDelta(cur, prev, isCurrency = true) {
   return `<span style="color:${color};font-weight:800;white-space:nowrap;">${arrow}${Math.abs(pct)}% <span style="font-size:9.5px;color:#64748b;font-weight:600;">(${diffStr})</span></span>`;
 }
 
+function formatDeltaPill(cur, prev, isCurrency = true) {
+  if (prev === undefined || prev === null || prev === 0) {
+    if (cur > 0) return '<span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:#059669;background:#f0fdf4;border:1px solid #bbf7d0;white-space:nowrap;">▲ +100%</span>';
+    return '<span style="color:#94a3b8;font-size:9px;">—</span>';
+  }
+  const diff = cur - prev;
+  const pct = ((diff / Math.abs(prev)) * 100).toFixed(1);
+  const isPos = diff >= 0;
+  const color = isPos ? '#059669' : '#dc2626';
+  const bg = isPos ? '#f0fdf4' : '#fef2f2';
+  const border = isPos ? '#bbf7d0' : '#fecaca';
+  const arrow = isPos ? '▲ +' : '▼ ';
+  const diffStr = isCurrency ? (isPos ? '+₹' : '-₹') + Math.abs(Math.round(diff)).toLocaleString('en-IN') : (isPos ? '+' : '') + diff;
+  return `<span style="display:inline-block;padding:2px 5px;border-radius:10px;font-size:9px;font-weight:800;color:${color};background:${bg};border:1px solid ${border};white-space:nowrap;">${arrow}${Math.abs(pct)}% (${diffStr})</span>`;
+}
+
+function formatDeltaText(cur, prev, isCurrency = true) {
+  if (prev === undefined || prev === null || prev === 0) {
+    if (cur > 0) {
+      const diffStr = isCurrency ? '+₹' + Math.round(cur).toLocaleString('en-IN') : '+' + cur;
+      return `<span style="color:#059669;font-weight:800;white-space:nowrap;">▲ +100% (${diffStr})</span>`;
+    }
+    return '<span style="color:#94a3b8;">—</span>';
+  }
+  const diff = cur - prev;
+  const pct = ((diff / Math.abs(prev)) * 100).toFixed(1);
+  const isPos = diff >= 0;
+  const color = isPos ? '#059669' : '#dc2626';
+  const arrow = isPos ? '▲ +' : '▼ ';
+  const diffStr = isCurrency ? (isPos ? '+₹' : '-₹') + Math.abs(Math.round(diff)).toLocaleString('en-IN') : (isPos ? '+' : '') + diff;
+  return `<span style="color:${color};font-weight:800;white-space:nowrap;">${arrow}${Math.abs(pct)}% (${diffStr})</span>`;
+}
+
 function quickChartURL(config, width = 600, height = 240) {
   const json = JSON.stringify(config);
   return `https://quickchart.io/chart?c=${encodeURIComponent(json)}&w=${width}&h=${height}&bkg=white&f=png`;
@@ -327,17 +360,20 @@ function buildEmailHtml(allData) {
   const momRevPct = momPrev.totalRev > 0 ? ((momRevDiff / momPrev.totalRev) * 100).toFixed(1) : (momCur.totalRev > 0 ? '100' : '0');
   const momDealsDiff = momCur.totalCnt - momPrev.totalCnt;
 
+  const wowSub = `${sd(wowCurStart)}–${sd(wowCurEnd)} vs ${sd(wowPrevStart)}–${sd(wowPrevEnd)} (${wowCurDays.length} Days Like-for-Like)`;
+  const momSub = `${sd(momCurStart)}–${sd(momCurEnd)} vs ${sd(momPrevStart)}–${sd(momPrevEnd)} (${momCurDays.length} Days Like-for-Like)`;
+
   // Category Breakdown rows
-  const velocityRows = [
-    { name: '💰 Total Revenue', wCur: fmt(wowCur.totalRev), wPrev: fmt(wowPrev.totalRev), wG: formatDelta(wowCur.totalRev, wowPrev.totalRev, true), mCur: fmt(momCur.totalRev), mPrev: fmt(momPrev.totalRev), mG: formatDelta(momCur.totalRev, momPrev.totalRev, true), isBold: true },
-    { name: '🤝 Deals Closed', wCur: wowCur.totalCnt + 'd', wPrev: wowPrev.totalCnt + 'd', wG: formatDelta(wowCur.totalCnt, wowPrev.totalCnt, false), mCur: momCur.totalCnt + 'd', mPrev: momPrev.totalCnt + 'd', mG: formatDelta(momCur.totalCnt, momPrev.totalCnt, false), isBold: true },
-    { name: '🎯 Blended AOV', wCur: fmt(wowCur.aov), wPrev: fmt(wowPrev.aov), wG: formatDelta(wowCur.aov, wowPrev.aov, true), mCur: fmt(momCur.aov), mPrev: fmt(momPrev.aov), mG: formatDelta(momCur.aov, momPrev.aov, true) },
-    { name: '🤝 Inside Sales', wCur: fmt(wowCur.pureInsideRev), wPrev: fmt(wowPrev.pureInsideRev), wG: formatDelta(wowCur.pureInsideRev, wowPrev.pureInsideRev, true), mCur: fmt(momCur.pureInsideRev), mPrev: fmt(momPrev.pureInsideRev), mG: formatDelta(momCur.pureInsideRev, momPrev.pureInsideRev, true) },
-    { name: '🎤 Events Rev', wCur: fmt(wowCur.eventsRev), wPrev: fmt(wowPrev.eventsRev), wG: formatDelta(wowCur.eventsRev, wowPrev.eventsRev, true), mCur: fmt(momCur.eventsRev), mPrev: fmt(momPrev.eventsRev), mG: formatDelta(momCur.eventsRev, momPrev.eventsRev, true) },
-    { name: '🔄 Renewals Rev', wCur: fmt(wowCur.renewalsRev), wPrev: fmt(wowPrev.renewalsRev), wG: formatDelta(wowCur.renewalsRev, wowPrev.renewalsRev, true), mCur: fmt(momCur.renewalsRev), mPrev: fmt(momPrev.renewalsRev), mG: formatDelta(momCur.renewalsRev, momPrev.renewalsRev, true) },
-    { name: '🛍️ Direct Sales', wCur: fmt(wowCur.directRev), wPrev: fmt(wowPrev.directRev), wG: formatDelta(wowCur.directRev, wowPrev.directRev, true), mCur: fmt(momCur.directRev), mPrev: fmt(momPrev.directRev), mG: formatDelta(momCur.directRev, momPrev.directRev, true) },
-    { name: '🔄 Overlap Deals', wCur: fmt(wowCur.overlapRev), wPrev: fmt(wowPrev.overlapRev), wG: formatDelta(wowCur.overlapRev, wowPrev.overlapRev, true), mCur: fmt(momCur.overlapRev), mPrev: fmt(momPrev.overlapRev), mG: formatDelta(momCur.overlapRev, momPrev.overlapRev, true) },
-    { name: '🚚 Delivery Fees', wCur: fmt(wowCur.delFeeRev), wPrev: fmt(wowPrev.delFeeRev), wG: formatDelta(wowCur.delFeeRev, wowPrev.delFeeRev, true), mCur: fmt(momCur.delFeeRev), mPrev: fmt(momPrev.delFeeRev), mG: formatDelta(momCur.delFeeRev, momPrev.delFeeRev, true) }
+  const breakdownRows = [
+    { name: '🔥 Total Revenue', wCur: fmt(wowCur.totalRev), wPrev: fmt(wowPrev.totalRev), wG: formatDeltaText(wowCur.totalRev, wowPrev.totalRev, true), mCur: fmt(momCur.totalRev), mPrev: fmt(momPrev.totalRev), mG: formatDeltaText(momCur.totalRev, momPrev.totalRev, true), isBold: true },
+    { name: '🤝 Deals Closed (Sales)', wCur: wowCur.totalCnt + ' deals', wPrev: wowPrev.totalCnt + ' deals', wG: formatDeltaText(wowCur.totalCnt, wowPrev.totalCnt, false), mCur: momCur.totalCnt + ' deals', mPrev: momPrev.totalCnt + ' deals', mG: formatDeltaText(momCur.totalCnt, momPrev.totalCnt, false), isBold: true },
+    { name: '🎯 Blended AOV', wCur: fmt(wowCur.aov), wPrev: fmt(wowPrev.aov), wG: formatDeltaText(wowCur.aov, wowPrev.aov, true), mCur: fmt(momCur.aov), mPrev: fmt(momPrev.aov), mG: formatDeltaText(momCur.aov, momPrev.aov, true) },
+    { name: '🤝 Inside Sales Revenue', wCur: fmt(wowCur.pureInsideRev), wPrev: fmt(wowPrev.pureInsideRev), wG: formatDeltaText(wowCur.pureInsideRev, wowPrev.pureInsideRev, true), mCur: fmt(momCur.pureInsideRev), mPrev: fmt(momPrev.pureInsideRev), mG: formatDeltaText(momCur.pureInsideRev, momPrev.pureInsideRev, true) },
+    { name: '🎤 Events Revenue', wCur: fmt(wowCur.eventsRev), wPrev: fmt(wowPrev.eventsRev), wG: formatDeltaText(wowCur.eventsRev, wowPrev.eventsRev, true), mCur: fmt(momCur.eventsRev), mPrev: fmt(momPrev.eventsRev), mG: formatDeltaText(momCur.eventsRev, momPrev.eventsRev, true) },
+    { name: '🔄 Renewals Revenue', wCur: fmt(wowCur.renewalsRev), wPrev: fmt(wowPrev.renewalsRev), wG: formatDeltaText(wowCur.renewalsRev, wowPrev.renewalsRev, true), mCur: fmt(momCur.renewalsRev), mPrev: fmt(momPrev.renewalsRev), mG: formatDeltaText(momCur.renewalsRev, momPrev.renewalsRev, true) },
+    { name: '🛍️ Direct Sales (Self Serve) Rev', wCur: fmt(wowCur.directRev), wPrev: fmt(wowPrev.directRev), wG: formatDeltaText(wowCur.directRev, wowPrev.directRev, true), mCur: fmt(momCur.directRev), mPrev: fmt(momPrev.directRev), mG: formatDeltaText(momCur.directRev, momPrev.directRev, true) },
+    { name: '🔀 Overlap Deals Revenue', wCur: fmt(wowCur.overlapRev), wPrev: fmt(wowPrev.overlapRev), wG: formatDeltaText(wowCur.overlapRev, wowPrev.overlapRev, true), mCur: fmt(momCur.overlapRev), mPrev: fmt(momPrev.overlapRev), mG: formatDeltaText(momCur.overlapRev, momPrev.overlapRev, true) },
+    { name: '🚚 Delivery Fee Total', wCur: fmt(wowCur.delFeeRev), wPrev: fmt(wowPrev.delFeeRev), wG: formatDeltaText(wowCur.delFeeRev, wowPrev.delFeeRev, true), mCur: fmt(momCur.delFeeRev), mPrev: fmt(momPrev.delFeeRev), mG: formatDeltaText(momCur.delFeeRev, momPrev.delFeeRev, true) }
   ];
 
   // 6. Serviceability (Last 4 Days Funnel Snapshot)
@@ -410,7 +446,7 @@ function buildEmailHtml(allData) {
   <title>Daily Sales Report — The Elefant</title>
 </head>
 <body style="margin:0;padding:24px 0;background-color:#ede8fb;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1e1333;">
-  <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
+  <div style="max-width:780px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid rgba(109,40,217,0.12);box-shadow:0 8px 30px rgba(109,40,217,0.1);">
     
     <!-- HEADER -->
     <div style="background:#ffffff;padding:24px 28px;border-bottom:1px solid rgba(109,40,217,0.12);">
@@ -539,87 +575,170 @@ function buildEmailHtml(allData) {
       </table>
     </div>
 
-    <!-- 4. PERIOD REVENUE & VELOCITY BREAKDOWN (W-O-W & M-O-M) -->
-    <div style="padding:0 28px 18px;">
-      <div style="font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
-        <span>📆 Period Comparisons &amp; Velocity</span>
-        <span style="font-size:10.5px;color:#7c3aed;font-weight:700;text-transform:none;">Sunday-to-Sunday &amp; MTD Like-for-Like</span>
-      </div>
-
-      <!-- Executive W-o-W & M-o-M KPI Cards -->
-      <table style="width:100%;border-collapse:separate;border-spacing:10px 10px;margin-left:-10px;margin-right:-10px;margin-bottom:12px;">
+    <!-- 4. PERIOD REVENUE & VELOCITY BREAKDOWN (W-O-W & M-O-M SIDE-BY-SIDE) -->
+    <div style="padding:0 24px 18px;">
+      
+      <!-- TOP ROW: 2 SIDE-BY-SIDE KPI CARDS -->
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 0;margin-left:-10px;margin-right:-10px;margin-bottom:14px;">
         <tr>
-          <!-- W-o-W Card -->
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #7c3aed;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:800;color:#6b21a8;text-transform:uppercase;">
-              ⚡ Week-to-Date (Sun, ${sd(wowCurStart)} – ${sd(wowCurEnd)})
+          <!-- LEFT: W-O-W CARD -->
+          <td style="width:50%;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;vertical-align:top;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+            <div style="margin-bottom:8px;">
+              <span style="background:rgba(99,102,241,0.12);color:#4f46e5;font-size:10px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;letter-spacing:0.04em;">🗓️ WEEK-OVER-WEEK (W-O-W)</span>
+              <div style="font-size:10px;color:#64748b;font-weight:600;margin-top:4px;">${wowSub}</div>
             </div>
-            <div style="font-size:10px;color:#64748b;margin-top:2px;">
-              vs Prior WTD: Sun, ${sd(wowPrevStart)} – ${sd(wowPrevEnd)} (${wowCurDays.length}d LfL)
-            </div>
-            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
-              ${fmt(wowCur.totalRev)}
-              <span style="font-size:11px;font-weight:800;color:${wowRevDiff >= 0 ? '#059669' : '#dc2626'};background:${wowRevDiff >= 0 ? '#f0fdf4' : '#fef2f2'};padding:2px 6px;border-radius:6px;border:1px solid ${wowRevDiff >= 0 ? '#bbf7d0' : '#fecaca'};margin-left:4px;">
-                ${wowRevDiff >= 0 ? '▲ +' : '▼ '}${Math.abs(wowRevPct)}%
-              </span>
-            </div>
-            <div style="font-size:11px;color:#64748b;margin-top:3px;">
-              ${wowCur.totalCnt} deals (${wowDealsDiff >= 0 ? '+' : ''}${wowDealsDiff} vs prior WTD ${wowPrev.totalCnt}d)
-            </div>
+            
+            <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+              <tr>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🔥 TOTAL REVENUE</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">${fmt(wowCur.totalRev)}</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(wowCur.totalRev, wowPrev.totalRev, true)}</div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior WTD: ${fmt(wowPrev.totalRev)}</div>
+                </td>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🤝 DEALS CLOSED (SALES)</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">${wowCur.totalCnt} deals</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(wowCur.totalCnt, wowPrev.totalCnt, false)}</div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior WTD: ${wowPrev.totalCnt} deals</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- 3-tile strip -->
+            <table style="width:100%;border-collapse:collapse;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+              <tr>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">⚡ INSIDE SALES</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(wowCur.insideRev)} <span style="font-size:8.5px;color:#64748b;">(${wowCur.insideCnt}d)</span></div>
+                  <div style="margin-top:2px;">${formatDeltaPill(wowCur.insideRev, wowPrev.insideRev, true)}</div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🛍️ DIRECT / SELF SERVE</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(wowCur.directRev)} <span style="font-size:8.5px;color:#64748b;">(${wowCur.directCnt}d)</span></div>
+                  <div style="margin-top:2px;">${formatDeltaPill(wowCur.directRev, wowPrev.directRev, true)}</div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🎯 BLENDED AOV</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(wowCur.aov)}</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(wowCur.aov, wowPrev.aov, true)}</div>
+                </td>
+              </tr>
+            </table>
           </td>
 
-          <!-- M-o-M Card -->
-          <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.18);border-left:4px solid #0891b2;border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:800;color:#0e7490;text-transform:uppercase;">
-              🗓️ Month-to-Date (1st – ${sd(momCurEnd)})
+          <!-- RIGHT: M-O-M CARD -->
+          <td style="width:50%;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;vertical-align:top;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+            <div style="margin-bottom:8px;">
+              <span style="background:rgba(8,145,178,0.12);color:#0891b2;font-size:10px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;letter-spacing:0.04em;">🗓️ MONTH-OVER-MONTH (M-O-M MTD)</span>
+              <div style="font-size:10px;color:#64748b;font-weight:600;margin-top:4px;">${momSub}</div>
             </div>
-            <div style="font-size:10px;color:#64748b;margin-top:2px;">
-              vs Prior MTD: 1st – ${sd(momPrevEnd)} (${momCurDays.length}d LfL)
-            </div>
-            <div style="font-size:22px;font-weight:900;color:#1e1333;margin-top:4px;">
-              ${fmt(momCur.totalRev)}
-              <span style="font-size:11px;font-weight:800;color:${momRevDiff >= 0 ? '#059669' : '#dc2626'};background:${momRevDiff >= 0 ? '#f0fdf4' : '#fef2f2'};padding:2px 6px;border-radius:6px;border:1px solid ${momRevDiff >= 0 ? '#bbf7d0' : '#fecaca'};margin-left:4px;">
-                ${momRevDiff >= 0 ? '▲ +' : '▼ '}${Math.abs(momRevPct)}%
-              </span>
-            </div>
-            <div style="font-size:11px;color:#64748b;margin-top:3px;">
-              ${momCur.totalCnt} deals (${momDealsDiff >= 0 ? '+' : ''}${momDealsDiff} vs prior MTD ${momPrev.totalCnt}d)
-            </div>
+            
+            <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+              <tr>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🔥 MTD REVENUE</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">${fmt(momCur.totalRev)}</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(momCur.totalRev, momPrev.totalRev, true)}</div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior MTD: ${fmt(momPrev.totalRev)}</div>
+                </td>
+                <td style="width:50%;vertical-align:top;">
+                  <div style="font-size:9.5px;font-weight:800;color:#64748b;text-transform:uppercase;">🤝 DEALS CLOSED (SALES)</div>
+                  <div style="font-size:18px;font-weight:900;color:#1e1333;margin-top:2px;">${momCur.totalCnt} deals</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(momCur.totalCnt, momPrev.totalCnt, false)}</div>
+                  <div style="font-size:9.5px;color:#94a3b8;margin-top:3px;">Prior MTD: ${momPrev.totalCnt} deals</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- 3-tile strip -->
+            <table style="width:100%;border-collapse:collapse;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+              <tr>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">⚡ INSIDE SALES</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(momCur.insideRev)} <span style="font-size:8.5px;color:#64748b;">(${momCur.insideCnt}d)</span></div>
+                  <div style="margin-top:2px;">${formatDeltaPill(momCur.insideRev, momPrev.insideRev, true)}</div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🛍️ DIRECT / SELF SERVE</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(momCur.directRev)} <span style="font-size:8.5px;color:#64748b;">(${momCur.directCnt}d)</span></div>
+                  <div style="margin-top:2px;">${formatDeltaPill(momCur.directRev, momPrev.directRev, true)}</div>
+                </td>
+                <td style="width:33.33%;text-align:center;padding:6px 2px;">
+                  <div style="font-size:8.5px;font-weight:700;color:#64748b;text-transform:uppercase;">🎯 BLENDED AOV</div>
+                  <div style="font-size:10.5px;font-weight:800;color:#1e1333;margin-top:1px;">${fmt(momCur.aov)}</div>
+                  <div style="margin-top:2px;">${formatDeltaPill(momCur.aov, momPrev.aov, true)}</div>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
 
-      <!-- Category Breakdown Table -->
-      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
-        <div style="padding:10px 14px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11.5px;font-weight:800;color:#581c87;text-transform:uppercase;letter-spacing:0.04em;">
-            ⚡ W-o-W &amp; M-o-M Category Breakdown
-          </span>
-          <span style="font-size:10.5px;color:#7c3aed;font-weight:700;">Like-for-Like Comparison</span>
-        </div>
-        <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
-          <thead>
-            <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
-              <th style="padding:7px 10px;font-weight:700;">Category / Metric</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur WTD</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">W-o-W</th>
-              <th style="padding:7px 8px;font-weight:700;text-align:right;">Cur MTD</th>
-              <th style="padding:7px 10px;font-weight:700;text-align:right;">M-o-M</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${velocityRows.map(r => `
-              <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
-                <td style="padding:7px 10px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.wCur}</td>
-                <td style="padding:7px 8px;text-align:right;">${r.wG}</td>
-                <td style="padding:7px 8px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.mCur}</td>
-                <td style="padding:7px 10px;text-align:right;">${r.mG}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      </div>
+      <!-- BOTTOM ROW: 2 SIDE-BY-SIDE CATEGORY BREAKDOWN TABLES -->
+      <table style="width:100%;border-collapse:separate;border-spacing:10px 0;margin-left:-10px;margin-right:-10px;">
+        <tr>
+          <!-- LEFT: W-O-W CATEGORY BREAKDOWN TABLE -->
+          <td style="width:50%;vertical-align:top;">
+            <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+              <div style="padding:10px 12px;background:#faf5ff;border-bottom:1px solid #e9d5ff;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:11px;font-weight:800;color:#581c87;text-transform:uppercase;">⚡ W-o-W Category Breakdown</span>
+                <span style="font-size:9.5px;color:#7c3aed;font-weight:600;">${wowCurDays.length}d LfL</span>
+              </div>
+              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+                <thead>
+                  <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR WTD</th>
+                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">W-O-W GROWTH</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${breakdownRows.map(r => `
+                    <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.wCur}</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">${r.wPrev}</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;">${r.wG}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </td>
+
+          <!-- RIGHT: M-O-M CATEGORY BREAKDOWN TABLE -->
+          <td style="width:50%;vertical-align:top;">
+            <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+              <div style="padding:10px 12px;background:#f0fdf4;border-bottom:1px solid #bbf7d0;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:11px;font-weight:800;color:#065f46;text-transform:uppercase;">⚡ M-o-M Category Breakdown</span>
+                <span style="font-size:9.5px;color:#059669;font-weight:600;">${momCurDays.length}d LfL</span>
+              </div>
+              <table style="width:100%;border-collapse:collapse;font-size:10.5px;">
+                <thead>
+                  <tr style="background:#f8fafc;color:#64748b;text-align:left;border-bottom:1px solid #e2e8f0;">
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-transform:uppercase;">METRIC / CATEGORY</th>
+                    <th style="padding:7px 6px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">CUR MTD</th>
+                    <th style="padding:7px 6px;font-weight:700;font-size:9.5px;text-align:right;text-transform:uppercase;">PRIOR</th>
+                    <th style="padding:7px 8px;font-weight:800;font-size:9.5px;text-align:right;text-transform:uppercase;">M-O-M GROWTH</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${breakdownRows.map(r => `
+                    <tr style="border-bottom:1px solid #f1f5f9;${r.isBold ? 'background:#faf5ff;font-weight:800;' : ''}">
+                      <td style="padding:6px 8px;color:#1e1333;font-weight:${r.isBold ? '800' : '600'};">${r.name}</td>
+                      <td style="padding:6px 6px;text-align:right;color:#1e1333;font-weight:${r.isBold ? '800' : '700'};">${r.mCur}</td>
+                      <td style="padding:6px 6px;text-align:right;color:#64748b;font-size:10px;">${r.mPrev}</td>
+                      <td style="padding:6px 8px;text-align:right;font-size:10px;">${r.mG}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
 
     <!-- 5. SERVICEABILITY (LAST 4 DAYS FUNNEL & LEADS MISSED) -->
