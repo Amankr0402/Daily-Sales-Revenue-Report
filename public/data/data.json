@@ -58913,15 +58913,19 @@
   },
   {
     "date": "2026-07-12",
-    "totalRevenue": 284982,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 296982,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
       "source": "Direct Sale"
     },
     "agents": {
+      "Preyashi Roy": {
+        "revenue": 34500,
+        "count": 3
+      },
       "Vivek Shah": {
         "revenue": 23000,
         "count": 2
@@ -58932,10 +58936,6 @@
       },
       "Vikas Poonia": {
         "revenue": 20752,
-        "count": 2
-      },
-      "Preyashi Roy": {
-        "revenue": 22500,
         "count": 2
       },
       "Prasoon Dixit": {
@@ -58969,8 +58969,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 266322,
-        "count": 22
+        "revenue": 278322,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 4500,
@@ -58987,8 +58987,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 174500,
-        "count": 17
+        "revenue": 186500,
+        "count": 18
       },
       "Events": {
         "revenue": 41128,
@@ -59011,10 +59011,10 @@
       "total": 354
     },
     "workingAgents": [
+      "Preyashi Roy",
       "Vivek Shah",
       "Honey Talreja",
       "Vikas Poonia",
-      "Preyashi Roy",
       "Prasoon Dixit",
       "Tanveer Ahmed",
       "Chhaya Patel",
@@ -64181,9 +64181,9 @@
   },
   {
     "date": "2026-08-13",
-    "totalRevenue": 290608,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 302608,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
@@ -64199,8 +64199,8 @@
         "count": 1
       },
       "Tanveer Ahmed": {
-        "revenue": 24000,
-        "count": 2
+        "revenue": 36000,
+        "count": 3
       },
       "Chhaya Patel": {
         "revenue": 12000,
@@ -64237,8 +64237,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 257073,
-        "count": 21
+        "revenue": 269073,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 4246,
@@ -64247,8 +64247,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 240000,
-        "count": 20
+        "revenue": 252000,
+        "count": 21
       },
       "Direct Sale": {
         "revenue": 21319,
@@ -64285,7 +64285,7 @@
         "rawDate": "13/08/2026 11:28",
         "customerName": "Dharti Shah",
         "phone": "6357149837",
-        "agent": "Tanveer Ahmed",
+        "agent": "Honey Talreja",
         "insideRevenue": 12000,
         "revenue": 12216,
         "directRevenue": 12216,
@@ -64293,7 +64293,7 @@
         "source": "Organic",
         "directOrderId": "a10dd59d-e755-4794-a770-6007776ad7e0",
         "directUserId": "UR18173",
-        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12000 and also completed on Direct Portal for ₹12216"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
       }
     ],
     "disputedDeals": [
@@ -64317,7 +64317,7 @@
         "rawDate": "13/08/2026 11:28",
         "customerName": "Dharti Shah",
         "phone": "6357149837",
-        "agent": "Tanveer Ahmed",
+        "agent": "Honey Talreja",
         "insideRevenue": 12000,
         "revenue": 12216,
         "directRevenue": 12216,
@@ -64325,7 +64325,7 @@
         "source": "Organic",
         "directOrderId": "a10dd59d-e755-4794-a770-6007776ad7e0",
         "directUserId": "UR18173",
-        "disputeNote": "Logged by Inside Sales agent (Tanveer Ahmed) for ₹12000 and also completed on Direct Portal for ₹12216"
+        "disputeNote": "Logged by Inside Sales agent (Honey Talreja) for ₹12000 and also completed on Direct Portal for ₹12216"
       }
     ],
     "collidingTotal": {
@@ -64376,9 +64376,9 @@
   },
   {
     "date": "2026-08-14",
-    "totalRevenue": 243549,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 253925,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -64390,8 +64390,8 @@
         "count": 1
       },
       "Vikas Poonia": {
-        "revenue": 49128,
-        "count": 5
+        "revenue": 59504,
+        "count": 6
       },
       "Amol Landge": {
         "revenue": 11000,
@@ -64428,8 +64428,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 218633,
-        "count": 19
+        "revenue": 229009,
+        "count": 20
       },
       "Quarterly Max": {
         "revenue": 14756,
@@ -64450,8 +64450,8 @@
         "count": 14
       },
       "Renewals": {
-        "revenue": 59128,
-        "count": 6
+        "revenue": 69504,
+        "count": 7
       },
       "Direct Sale": {
         "revenue": 38205,
@@ -78877,11 +78877,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 635,
-      "otpVerified": 578,
+      "signups": 634,
+      "otpVerified": 577,
       "serviceable": 430,
-      "serviceableWithPct": "430 (67.7%)",
-      "serviceablePct": "67.7%"
+      "serviceableWithPct": "430 (67.8%)",
+      "serviceablePct": "67.8%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -79131,11 +79131,6 @@
       "count": 2,
       "revenue": 19862
     },
-    "missedLeads": {
-      "Connected": 161,
-      "Interested": 49,
-      "Paise Dega": 16
-    },
     "workingAgents": [
       "Kush Shah",
       "Honey Talreja",
@@ -79167,35 +79162,6 @@
       "count": 0,
       "total": 0,
       "items": []
-    },
-    "newUsers7d": 3430,
-    "newUsersYesterday": 296,
-    "activeSubs": 5125,
-    "newSubs7d": 129,
-    "teleCrmLeads": 312,
-    "subsEnding5d": 70,
-    "subsExpired7d": 99,
-    "subsExpiringToday": 15,
-    "planExpiringNoOrder": 0,
-    "planExpNoOrder": 2427,
-    "activeSubNoOrder": 120,
-    "newUsersDeliveryStatus": {
-      "Orders - PLACED": 12,
-      "Orders Placed": 12,
-      "Orders - CONFIRMED": 12,
-      "Orders Confirmed": 12,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 5,
-      "Orders Shipped": 5,
-      "Orders - Not Delivered": 29,
-      "Orders Not Delivered": 29
-    },
-    "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 623,
-      "New Subscribers Orders that have been Delivered": 594,
-      "New Subscribers Orders yet to be Delivered": 29,
-      "New Subscribers Orders yet to be Delivered & Delayed": 8
     },
     "selfUpgrade": {
       "totalCount": 1,
@@ -79232,6 +79198,355 @@
           "inSecondarySheet": true
         }
       ]
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "totalRevenue": 236798.41999999998,
+    "salesCount": 22,
+    "transactions": 21,
+    "highestSale": {
+      "amount": 13573,
+      "agent": "Yuvraj Singh Dodiya",
+      "source": "Inside Sales"
+    },
+    "agents": {
+      "Amol Landge": {
+        "revenue": 23376,
+        "count": 2
+      },
+      "Honey Talreja": {
+        "revenue": 43074,
+        "count": 5
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 65381,
+        "count": 6
+      },
+      "Rani Singh": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 11000,
+        "count": 1
+      },
+      "Shivaram Nimmala": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 12000,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 203255.21,
+        "count": 18
+      },
+      "Quarterly Max": {
+        "revenue": 12500,
+        "count": 2
+      },
+      "Quarterly Ultra": {
+        "revenue": 8119,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Renewals": {
+        "revenue": 63325,
+        "count": 6
+      },
+      "Organic": {
+        "revenue": 139506,
+        "count": 13
+      },
+      "Direct Sale": {
+        "revenue": 21043.21,
+        "count": 2
+      },
+      "Overlap Deals": {
+        "revenue": 12924.21,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 318,
+      "otpVerified": 221,
+      "serviceable": 164,
+      "serviceableWithPct": "164 (51.6%)",
+      "serviceablePct": "51.6%"
+    },
+    "directSaleCSV": {
+      "count": 3,
+      "revenue": 33967.42
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-10-28",
+        "rawDate": "28/10/2026 00:48",
+        "customerName": "dhaval m bhatt",
+        "phone": "9998084500",
+        "agent": "Yuvraj Singh Dodiya",
+        "insideRevenue": 13573,
+        "revenue": 12924.21,
+        "directRevenue": 12924.21,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "b69d0101-b7be-48cf-b237-ae1c57798634",
+        "directUserId": "UR548960",
+        "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹12924.21"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-10-28",
+        "rawDate": "28/10/2026 00:48",
+        "customerName": "dhaval m bhatt",
+        "phone": "9998084500",
+        "agent": "Yuvraj Singh Dodiya",
+        "insideRevenue": 13573,
+        "revenue": 12924.21,
+        "directRevenue": 12924.21,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "b69d0101-b7be-48cf-b237-ae1c57798634",
+        "directUserId": "UR548960",
+        "disputeNote": "Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹12924.21"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 12924.21
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 12924.21
+    },
+    "missedLeads": {
+      "Connected": 161,
+      "Interested": 49,
+      "Paise Dega": 16
+    },
+    "refunds": {
+      "count": 20,
+      "total": 212675.6,
+      "items": [
+        {
+          "refundId": "rfnd_TtAOE347onJOvG",
+          "paymentId": "pay_TKoUwoLvDUaAIx",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 08:10:07"
+        },
+        {
+          "refundId": "rfnd_TtAQ3N3YPV76Bw",
+          "paymentId": "pay_TJDqTB5GBWwwm6",
+          "amount": 10376,
+          "status": "processed",
+          "date": "28/10/2026 08:11:51"
+        },
+        {
+          "refundId": "rfnd_TtJNwjXYKVLOPA",
+          "paymentId": "pay_Ts51XSK6Eq062l",
+          "amount": 10000,
+          "status": "processed",
+          "date": "28/10/2026 16:58:06"
+        },
+        {
+          "refundId": "rfnd_TtJOsOhAoBstXb",
+          "paymentId": "pay_ThpZDau8R9qFif",
+          "amount": 10000,
+          "status": "processed",
+          "date": "28/10/2026 16:58:59"
+        },
+        {
+          "refundId": "rfnd_TtJmFOOi1j7mPv",
+          "paymentId": "pay_SrY3UedG0Die83",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 17:21:06"
+        },
+        {
+          "refundId": "rfnd_TtJsJJv2ZCIzob",
+          "paymentId": "pay_TiIAGlJoBZRsg7",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 17:26:51"
+        },
+        {
+          "refundId": "rfnd_TtJvzH9MYHgl4g",
+          "paymentId": "pay_TQUdkqzELGN4yW",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 17:30:20"
+        },
+        {
+          "refundId": "rfnd_TtK0XBYj4acq1e",
+          "paymentId": "pay_TOAwXRGrKA6wmu",
+          "amount": 12000,
+          "status": "processed",
+          "date": "28/10/2026 17:34:38"
+        },
+        {
+          "refundId": "rfnd_TtK4y94avuZaIf",
+          "paymentId": "pay_TQSFrDiMAwqb9V",
+          "amount": 11940.5,
+          "status": "processed",
+          "date": "28/10/2026 17:38:50"
+        },
+        {
+          "refundId": "rfnd_TtK8tKwjQcDWBM",
+          "paymentId": "pay_TeWlTjF7Lvbu75",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 17:42:33"
+        },
+        {
+          "refundId": "rfnd_TtKAKANadBO8Jh",
+          "paymentId": "pay_TmhBe5lXJnED3V",
+          "amount": 3000,
+          "status": "processed",
+          "date": "28/10/2026 17:43:54"
+        },
+        {
+          "refundId": "rfnd_TtKF4gC21S2sNV",
+          "paymentId": "pay_TZz9aJFfRJD5FA",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 17:48:24"
+        },
+        {
+          "refundId": "rfnd_TtKGmAqrncpvw3",
+          "paymentId": "pay_TiDQ9KsKLNwBSg",
+          "amount": 5756,
+          "status": "processed",
+          "date": "28/10/2026 17:50:00"
+        },
+        {
+          "refundId": "rfnd_TtKLkEgXagrT1c",
+          "paymentId": "pay_TWMyEQElGz87nl",
+          "amount": 11492.4,
+          "status": "processed",
+          "date": "28/10/2026 17:54:43"
+        },
+        {
+          "refundId": "rfnd_TtKNOJqPtbYZT5",
+          "paymentId": "pay_TdzXoXhoNcPoD1",
+          "amount": 10474.2,
+          "status": "processed",
+          "date": "28/10/2026 17:56:16"
+        },
+        {
+          "refundId": "rfnd_TtKVgZmji5NKaN",
+          "paymentId": "pay_TFH54wQhFuDtGI",
+          "amount": 10103.5,
+          "status": "processed",
+          "date": "28/10/2026 18:04:07"
+        },
+        {
+          "refundId": "rfnd_TtKadwoAUpYZmU",
+          "paymentId": "pay_TiJ7FdcmADxjRM",
+          "amount": 12000,
+          "status": "processed",
+          "date": "28/10/2026 18:08:49"
+        },
+        {
+          "refundId": "rfnd_TtKtYq68dnXuNb",
+          "paymentId": "pay_TdONoEBW7EpHvA",
+          "amount": 11000,
+          "status": "processed",
+          "date": "28/10/2026 18:26:43"
+        },
+        {
+          "refundId": "rfnd_TtKyq3dYAEHUY0",
+          "paymentId": "pay_TixXLbBdWWLg0W",
+          "amount": 11460,
+          "status": "processed",
+          "date": "28/10/2026 18:31:43"
+        },
+        {
+          "refundId": "rfnd_TtL0pBcZxfmdMx",
+          "paymentId": "pay_TMsAQ21NSnsIrq",
+          "amount": 17073,
+          "status": "processed",
+          "date": "28/10/2026 18:33:36"
+        }
+      ]
+    },
+    "workingAgents": [
+      "Kush Shah",
+      "Honey Talreja",
+      "Yuvraj Singh Dodiya",
+      "Supratim Dutta",
+      "Shivani Gupta",
+      "Darshan KS",
+      "Shubham Singh",
+      "Prerak Bhavsar",
+      "Shivaram Nimmala",
+      "Chhaya Patel",
+      "Preyashi Roy",
+      "Jivesh Harde",
+      "Vikas Poonia",
+      "Rani Singh",
+      "Rohit Jain",
+      "Shivendra Singh Tomar",
+      "Vivek Shah",
+      "Kausturi Roy Chowdhury",
+      "Neeru Yadav",
+      "Chandana Hari"
+    ],
+    "refundsLast7Days": {
+      "total": 328694.36,
+      "count": 33
+    },
+    "newUsers7d": 3430,
+    "newUsersYesterday": 296,
+    "activeSubs": 5123,
+    "newSubs7d": 129,
+    "teleCrmLeads": 312,
+    "subsEnding5d": 69,
+    "subsExpired7d": 99,
+    "subsExpiringToday": 14,
+    "planExpiringNoOrder": 0,
+    "planExpNoOrder": 2427,
+    "activeSubNoOrder": 120,
+    "newUsersDeliveryStatus": {
+      "Orders - PLACED": 20,
+      "Orders Placed": 20,
+      "Orders - CONFIRMED": 15,
+      "Orders Confirmed": 15,
+      "Orders - READY_TO_SHIP": 0,
+      "Orders Ready to Ship": 0,
+      "Orders - SHIPPED": 5,
+      "Orders Shipped": 5,
+      "Orders - Not Delivered": 40,
+      "Orders Not Delivered": 40
+    },
+    "allNewUsersOrderStatus": {
+      "New Subscribers who have Ordered": 634,
+      "New Subscribers Orders that have been Delivered": 594,
+      "New Subscribers Orders yet to be Delivered": 40,
+      "New Subscribers Orders yet to be Delivered & Delayed": 8
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
     }
   }
 ]
