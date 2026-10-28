@@ -60280,9 +60280,9 @@
   },
   {
     "date": "2026-08-07",
-    "totalRevenue": 153466,
-    "salesCount": 15,
-    "transactions": 15,
+    "totalRevenue": 157966,
+    "salesCount": 16,
+    "transactions": 16,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -60290,8 +60290,8 @@
     },
     "agents": {
       "Kush Shah": {
-        "revenue": 23000,
-        "count": 2
+        "revenue": 27500,
+        "count": 3
       },
       "Vivek Shah": {
         "revenue": 11000,
@@ -60332,8 +60332,8 @@
         "count": 1
       },
       "Quarterly Max": {
-        "revenue": 5000,
-        "count": 1
+        "revenue": 9500,
+        "count": 2
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -60342,8 +60342,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 99000,
-        "count": 9
+        "revenue": 103500,
+        "count": 10
       },
       "Renewals": {
         "revenue": 7000,
@@ -61618,9 +61618,9 @@
   },
   {
     "date": "2026-08-15",
-    "totalRevenue": 404962.99,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 417178.99,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Amol Landge",
@@ -61640,8 +61640,8 @@
         "count": 2
       },
       "Vivek Shah": {
-        "revenue": 35188,
-        "count": 4
+        "revenue": 47404,
+        "count": 5
       },
       "Amol Landge": {
         "revenue": 51000,
@@ -61690,8 +61690,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 317343.6,
-        "count": 28
+        "revenue": 329559.6,
+        "count": 29
       },
       "Quarterly Max": {
         "revenue": 47512,
@@ -61712,8 +61712,8 @@
         "count": 8
       },
       "Organic": {
-        "revenue": 231404,
-        "count": 25
+        "revenue": 243620,
+        "count": 26
       },
       "Events": {
         "revenue": 44000,
@@ -64234,9 +64234,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 293474,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 282474,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -64246,10 +64246,6 @@
       "Kausturi Roy Chowdhury": {
         "revenue": 30000,
         "count": 3
-      },
-      "Prerak Bhavsar": {
-        "revenue": 11000,
-        "count": 1
       },
       "Amol Landge": {
         "revenue": 25132,
@@ -64294,8 +64290,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251425,
-        "count": 24
+        "revenue": 240425,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -64312,8 +64308,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 154500,
-        "count": 15
+        "revenue": 143500,
+        "count": 14
       },
       "Renewals": {
         "revenue": 103636,
@@ -73853,13 +73849,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 494,
-      "otpVerified": 480,
-      "serviceable": 309,
-      "serviceableWithPct": "309 (62.6%)",
-      "serviceablePct": "62.6%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 3,
       "revenue": 43719
@@ -74978,19 +74968,19 @@
     },
     "userBreakdown": {
       "signups": 312,
-      "otpVerified": 224,
-      "serviceable": 158,
-      "serviceableWithPct": "158 (50.6%)",
-      "serviceablePct": "50.6%"
+      "otpVerified": 225,
+      "serviceable": 159,
+      "serviceableWithPct": "159 (51.0%)",
+      "serviceablePct": "51.0%"
     },
     "directSaleCSV": {
       "count": 2,
       "revenue": 19862
     },
     "missedLeads": {
-      "Connected": 206,
-      "Interested": 98,
-      "Paise Dega": 32
+      "Connected": 191,
+      "Interested": 107,
+      "Paise Dega": 30
     },
     "refundsLast7Days": {
       "total": 116018.76,
@@ -75001,24 +74991,24 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 3615,
+    "newUsers7d": 3430,
     "newUsersYesterday": 297,
     "activeSubs": 5131,
-    "newSubs7d": 136,
-    "teleCrmLeads": 330,
+    "newSubs7d": 129,
+    "teleCrmLeads": 303,
     "subsEnding5d": 71,
-    "subsExpired7d": 102,
-    "subsExpiringToday": 8,
+    "subsExpired7d": 100,
+    "subsExpiringToday": 15,
     "planExpiringNoOrder": 0,
     "planExpNoOrder": 2427,
     "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 15,
       "Orders Placed": 15,
-      "Orders - CONFIRMED": 15,
-      "Orders Confirmed": 15,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
+      "Orders - CONFIRMED": 12,
+      "Orders Confirmed": 12,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
       "Orders - SHIPPED": 7,
       "Orders Shipped": 7,
       "Orders - Not Delivered": 38,
