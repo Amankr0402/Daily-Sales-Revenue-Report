@@ -19,5 +19,8 @@
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.15",
     "puppeteer": "^25.9.0"
+  },
+  "devDependencies": {
+    "vercel": "^65.5.0"
   }
 }
