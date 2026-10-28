@@ -67358,9 +67358,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 293474,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 282474,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -67370,10 +67370,6 @@
       "Kausturi Roy Chowdhury": {
         "revenue": 30000,
         "count": 3
-      },
-      "Prerak Bhavsar": {
-        "revenue": 11000,
-        "count": 1
       },
       "Amol Landge": {
         "revenue": 25132,
@@ -67418,8 +67414,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251425,
-        "count": 24
+        "revenue": 240425,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -67436,8 +67432,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 154500,
-        "count": 15
+        "revenue": 143500,
+        "count": 14
       },
       "Renewals": {
         "revenue": 103636,
