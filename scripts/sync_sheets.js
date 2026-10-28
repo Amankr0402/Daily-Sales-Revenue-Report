@@ -23,6 +23,7 @@ const SECONDARY_SHEET_CACHE_FILE = path.join(__dirname, '..', 'data', 'secondary
 const REFUNDS_SPREADSHEET_ID = '1Q_IX-4CJK8_xr_7qicmhRQMOjIlLxHe0MBCS9bT-xnE';
 const REFUNDS_SHEET_NAME = 'Refunds';
 const REFUNDS_CACHE_FILE = path.join(__dirname, '..', 'data', 'refunds.csv');
+const ATTENDANCE_ROSTER_FILE = path.join(__dirname, '..', 'data', 'attendance_roster.csv');
 const METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/a7ec6872-1841-408d-8f63-7d16e959b67c.csv';
 const DELIVERY_FEE_CSV = path.join(__dirname, '..', 'data', 'delivery_fees.csv');
 const DELIVERY_FEE_METABASE_URL = 'https://metabase-bkp.theelefant.ai/public/question/9fb8bbff-2dce-4127-bbf1-336ab5929bbb.csv';
@@ -278,6 +279,51 @@ function formatDirectSalePlan(rawPlan, rawCycle) {
   return p || 'Annual Max';
 }
 
+function parseRosterCSV(csvText) {
+  if (!csvText) return {};
+  const lines = csvText.split('\n').filter(Boolean);
+  if (lines.length < 4) return {};
+
+  const r3 = parseCSVLine(lines[2]);
+  const agentCols = [];
+  for (let c = 0; c < r3.length; c++) {
+    const val = r3[c].replace(/^"|"$/g, '').trim();
+    if (val && val !== 'Planned' && val !== 'Actual' && val !== 'Day' && val.toLowerCase() !== 'aman kansal') {
+      agentCols.push({ name: val, colPlanned: c, colActual: c + 1 });
+    }
+  }
+
+  const isWorking = (status) => {
+    if (!status) return false;
+    const s = status.toLowerCase();
+    if (s.includes('week off') || s.includes('leave') || s.includes('holiday') || s.includes('compoff') || s.includes('comp off')) {
+      return false;
+    }
+    return true;
+  };
+
+  const rosterByDate = {};
+  lines.slice(3).forEach(line => {
+    const row = parseCSVLine(line);
+    const rawDate = row[0].replace(/^"|"$/g, '').trim();
+    const m = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (!m) return;
+    const isoDate = `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+    const working = [];
+    agentCols.forEach(a => {
+      const p = row[a.colPlanned]?.replace(/^"|"$/g, '').trim();
+      const act = row[a.colActual]?.replace(/^"|"$/g, '').trim();
+      const eff = act || p || '';
+      if (isWorking(eff)) {
+        working.push(a.name);
+      }
+    });
+    rosterByDate[isoDate] = working;
+  });
+
+  return rosterByDate;
+}
+
 async function syncSalesData() {
   const now = new Date();
   const istOffset = 5.5 * 60 * 60 * 1000;
@@ -414,6 +460,27 @@ async function syncSalesData() {
     processSheetRows(sheet2Lines, 'October Go Getters');
   } catch (sheet2Err) {
     console.warn('⚠️ Warning: Could not fetch October Go Getters sheet:', sheet2Err.message);
+  }
+
+  // 1b. Fetch Attendance Roster sheet
+  let rosterByDate = {};
+  try {
+    console.log(`📡 Fetching Attendance Roster sheet (${SPREADSHEET_ID2})...`);
+    const rosterUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID2}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('Attendence Roaster')}`;
+    const rosterCSV = await fetchURLWithRedirect(rosterUrl);
+    if (rosterCSV && rosterCSV.length > 50) {
+      fs.writeFileSync(ATTENDANCE_ROSTER_FILE, rosterCSV, 'utf-8');
+      console.log(`✅ Cached Attendance Roster to ${ATTENDANCE_ROSTER_FILE}`);
+      rosterByDate = parseRosterCSV(rosterCSV);
+    }
+  } catch (rosterErr) {
+    console.warn('⚠️ Warning: Could not fetch Attendance Roster:', rosterErr.message);
+  }
+  if (Object.keys(rosterByDate).length === 0 && fs.existsSync(ATTENDANCE_ROSTER_FILE)) {
+    try {
+      rosterByDate = parseRosterCSV(fs.readFileSync(ATTENDANCE_ROSTER_FILE, 'utf-8'));
+      console.log(`ℹ️ Loaded Attendance Roster from local cache (${Object.keys(rosterByDate).length} dates).`);
+    } catch (_) {}
   }
 
   // 2. Fetch September Go Getters sheet (Previous month)
@@ -877,6 +944,15 @@ async function syncSalesData() {
   }
 
   const sortedDays = Object.values(recordsByDate).filter(d => d.date < todayIST).sort((a, b) => a.date.localeCompare(b.date));
+
+  // Attach workingAgents from roster to each day in sortedDays
+  sortedDays.forEach(day => {
+    if (rosterByDate[day.date] && rosterByDate[day.date].length > 0) {
+      day.workingAgents = rosterByDate[day.date];
+    } else {
+      day.workingAgents = Object.keys(day.agents || {});
+    }
+  });
 
   // Compute rolling 7-day refunds for each day
   for (let i = 0; i < sortedDays.length; i++) {

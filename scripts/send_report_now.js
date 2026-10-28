@@ -287,16 +287,72 @@ function buildEmailHtml(allData) {
     : 'Self Serve';
   const hsAgent = yd.highestSale?.agent ? hsDisplay : '—';
 
-  // 3. Podium Ranking (Last 1 Day / Yesterday)
-  const agentsMap = {};
-  Object.entries(yd.agents || {}).forEach(([name, info]) => {
-    if (!agentsMap[name]) agentsMap[name] = { revenue: 0, count: 0 };
-    agentsMap[name].revenue += (info.revenue || 0);
-    agentsMap[name].count += (info.count || 0);
-  });
-  const sortedAgents = Object.entries(agentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
-  const top3 = sortedAgents.slice(0, 3);
-  const bottom3 = sortedAgents.length >= 3 ? sortedAgents.slice(-3) : [];
+  // 3. Podium Ranking (Last 1 Day / Yesterday with Attendance Roster & Previous 7-Day Tiebreaker)
+  const targetDayObj = yd;
+  const workingAgentsList = (targetDayObj && targetDayObj.workingAgents && targetDayObj.workingAgents.length > 0)
+    ? targetDayObj.workingAgents.filter(name => name.toLowerCase() !== 'aman kansal')
+    : null;
+
+  let top3 = [];
+  let bottom3 = [];
+  let isRosterMode = false;
+
+  const toISO = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+  if (workingAgentsList) {
+    isRosterMode = true;
+
+    // Previous 7 days strictly before yesterday
+    const endDateObj = new Date(yd.date + 'T00:00:00');
+    const p7StartObj = new Date(endDateObj);
+    p7StartObj.setDate(p7StartObj.getDate() - 7);
+    const p7EndObj = new Date(endDateObj);
+    p7EndObj.setDate(p7EndObj.getDate() - 1);
+    const p7Start = toISO(p7StartObj);
+    const p7End = toISO(p7EndObj);
+
+    const prev7Days = allData.filter(d => d.date >= p7Start && d.date <= p7End);
+
+    const agentStats = workingAgentsList.map(name => {
+      const todayData = (targetDayObj.agents && targetDayObj.agents[name]) || { revenue: 0, count: 0 };
+      let prev7dRev = 0;
+      let prev7dCnt = 0;
+      prev7Days.forEach(d => {
+        const agInfo = d.agents && d.agents[name];
+        if (agInfo) {
+          prev7dRev += (agInfo.revenue || 0);
+          prev7dCnt += (agInfo.count || 0);
+        }
+      });
+      return {
+        name,
+        revenue: todayData.revenue || 0,
+        count: todayData.count || 0,
+        prev7dRevenue: prev7dRev,
+        prev7dCount: prev7dCnt
+      };
+    });
+
+    // Top Agents: highest sales today
+    const withSales = agentStats.filter(a => a.revenue > 0).sort((a, b) => b.revenue - a.revenue);
+    const zeroSalesForTop = agentStats.filter(a => a.revenue === 0).sort((a, b) => b.prev7dRevenue - a.prev7dRevenue);
+    top3 = [...withSales, ...zeroSalesForTop].slice(0, 3).map(a => [a.name, { revenue: a.revenue, count: a.count, prev7dRevenue: a.prev7dRevenue, prev7dCount: a.prev7dCount }]);
+
+    // Bottom Agents: 0-sale agents sorted ascending by prev 7-day revenue (lowest sales in prev 7d is worst)
+    const zeroSales = agentStats.filter(a => a.revenue === 0).sort((a, b) => a.prev7dRevenue - b.prev7dRevenue);
+    const lowestWithSales = [...withSales].reverse();
+    bottom3 = [...zeroSales, ...lowestWithSales].slice(0, 3).map(a => [a.name, { revenue: a.revenue, count: a.count, prev7dRevenue: a.prev7dRevenue, prev7dCount: a.prev7dCount }]);
+  } else {
+    const agentsMap = {};
+    Object.entries(yd.agents || {}).forEach(([name, info]) => {
+      if (!agentsMap[name]) agentsMap[name] = { revenue: 0, count: 0 };
+      agentsMap[name].revenue += (info.revenue || 0);
+      agentsMap[name].count += (info.count || 0);
+    });
+    const sortedAgents = Object.entries(agentsMap).sort((a, b) => b[1].revenue - a[1].revenue);
+    top3 = sortedAgents.slice(0, 3);
+    bottom3 = sortedAgents.length >= 3 ? sortedAgents.slice(-3) : [];
+  }
 
   // Direct Sales Net AOV
   const directSaleInfo = (yd.sources && yd.sources['Direct Sale']) || { revenue: 0, count: 0 };
@@ -563,11 +619,13 @@ function buildEmailHtml(allData) {
           </td>
           <!-- Bottom 3 -->
           <td style="width:50%;background:#ffffff;border:1px solid rgba(109,40,217,0.15);border-radius:10px;padding:14px;vertical-align:top;">
-            <div style="font-size:11px;font-weight:800;color:#e11d48;text-transform:uppercase;text-align:center;margin-bottom:10px;">🔻 BOTTOM 3 AGENTS</div>
+            <div style="font-size:11px;font-weight:800;color:#e11d48;text-transform:uppercase;text-align:center;margin-bottom:10px;">🔻 BOTTOM 3 AGENTS (YESTERDAY)</div>
             ${bottom3.length > 0 ? bottom3.map(([name, d], i) => `
               <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:12px;">
-                <span style="font-weight:600;color:#1e1333;">🔻 ${name}</span>
-                <span style="font-weight:700;color:#64748b;">${fmt(d.revenue)} <span style="font-size:10.5px;color:#64748b;">(${d.count}d)</span></span>
+                <span style="font-weight:600;color:#1e1333;">🔻 #${i + 1} ${name}</span>
+                <span style="font-weight:700;color:#64748b;">
+                  ${d.revenue === 0 ? `₹0 <span style="font-size:10px;color:#e11d48;font-weight:600;">(Prev 7d: ${fmt(d.prev7dRevenue || 0)})</span>` : `${fmt(d.revenue)} <span style="font-size:10.5px;color:#64748b;">(${d.count}d)</span>`}
+                </span>
               </div>
             `).join('') : '<div style="font-size:11px;color:#8896b3;text-align:center;">No sales recorded</div>'}
           </td>

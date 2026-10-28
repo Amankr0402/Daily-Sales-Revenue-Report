@@ -516,7 +516,72 @@ function renderPodium(startDate, endDate, label) {
     }
   }
 
-  const top3 = ag.slice(0, 3);
+  const isSingleDay = (startDate === endDate);
+  const targetDayObj = isSingleDay ? globalReportData.find(function(d) { return d.date === endDate; }) : null;
+  const workingAgentsList = (targetDayObj && targetDayObj.workingAgents && targetDayObj.workingAgents.length > 0)
+    ? targetDayObj.workingAgents.filter(function(name) { return name.toLowerCase() !== 'aman kansal'; })
+    : null;
+
+  let top3 = [];
+  let bottom3 = [];
+  let isRosterMode = false;
+
+  const toISO = function(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  };
+
+  if (isSingleDay && workingAgentsList) {
+    isRosterMode = true;
+
+    // Previous 7 days strictly before endDate
+    const endDateObj = new Date(endDate + 'T00:00:00');
+    const p7StartObj = new Date(endDateObj);
+    p7StartObj.setDate(p7StartObj.getDate() - 7);
+    const p7EndObj = new Date(endDateObj);
+    p7EndObj.setDate(p7EndObj.getDate() - 1);
+    const p7Start = toISO(p7StartObj);
+    const p7End = toISO(p7EndObj);
+
+    const prev7Days = globalReportData.filter(function(d) { return d.date >= p7Start && d.date <= p7End; });
+
+    const agentStats = workingAgentsList.map(function(name) {
+      const todayData = (targetDayObj.agents && targetDayObj.agents[name]) || { revenue: 0, count: 0 };
+      let prev7dRev = 0;
+      let prev7dCnt = 0;
+      prev7Days.forEach(function(d) {
+        const agInfo = d.agents && d.agents[name];
+        if (agInfo) {
+          prev7dRev += (agInfo.revenue || 0);
+          prev7dCnt += (agInfo.count || 0);
+        }
+      });
+      return {
+        name: name,
+        revenue: todayData.revenue || 0,
+        count: todayData.count || 0,
+        prev7dRevenue: prev7dRev,
+        prev7dCount: prev7dCnt
+      };
+    });
+
+    // Top Agents: highest sales today
+    const withSales = agentStats.filter(function(a) { return a.revenue > 0; }).sort(function(a, b) { return b.revenue - a.revenue; });
+    const zeroSalesForTop = agentStats.filter(function(a) { return a.revenue === 0; }).sort(function(a, b) { return b.prev7dRevenue - a.prev7dRevenue; });
+    top3 = withSales.concat(zeroSalesForTop).slice(0, 3).map(function(a) {
+      return [a.name, { revenue: a.revenue, count: a.count, prev7dRevenue: a.prev7dRevenue, prev7dCount: a.prev7dCount }];
+    });
+
+    // Bottom Agents: 0-sale agents sorted ascending by prev 7-day revenue (lowest sales in prev 7d is worst)
+    const zeroSales = agentStats.filter(function(a) { return a.revenue === 0; }).sort(function(a, b) { return a.prev7dRevenue - b.prev7dRevenue; });
+    const lowestWithSales = withSales.slice().reverse();
+    bottom3 = zeroSales.concat(lowestWithSales).slice(0, 3).map(function(a) {
+      return [a.name, { revenue: a.revenue, count: a.count, prev7dRevenue: a.prev7dRevenue, prev7dCount: a.prev7dCount }];
+    });
+  } else {
+    top3 = ag.slice(0, 3);
+    bottom3 = ag.length >= 3 ? ag.slice(-3) : [];
+  }
+
   const pw = document.getElementById('podium');
   if (pw) {
     if (!top3.length) {
@@ -533,22 +598,29 @@ function renderPodium(startDate, endDate, label) {
     }
   }
 
-  const bottom3 = ag.length >= 3 ? ag.slice(-3) : [];
   const pwBottom = document.getElementById('podium-bottom');
   if (pwBottom) {
     if (!bottom3.length) {
       pwBottom.innerHTML = '<div style="color:#8896b3;text-align:center;padding:24px 0;font-weight:600;">No agent sales in this period.</div>';
     } else {
-      const orderBottom = [bottom3[1], bottom3[2], bottom3[0]];
+      const orderBottom = isRosterMode
+        ? (bottom3.length >= 3 ? [bottom3[1], bottom3[0], bottom3[2]] : bottom3)
+        : (bottom3.length >= 3 ? [bottom3[1], bottom3[2], bottom3[0]] : bottom3);
       const bcs = ['b2', 'b1', 'b3'];
-      const rankBadges = {
-        b1: '🔻 #' + ag.length,
-        b2: '🔻 #' + (ag.length - 1),
-        b3: '🔻 #' + (ag.length - 2)
-      };
-      const tdsBottom = orderBottom.map(([n, d], i) => {
+      const rankBadges = isRosterMode
+        ? { b1: '🔻 #1', b2: '🔻 #2', b3: '🔻 #3' }
+        : { b1: '🔻 #' + ag.length, b2: '🔻 #' + (ag.length - 1), b3: '🔻 #' + (ag.length - 2) };
+
+      const tdsBottom = orderBottom.map(function(item, i) {
+        const n = item[0];
+        const d = item[1];
         const bc = bcs[i];
-        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + bc + '" style="margin:0 auto 10px">' + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + bc + '">' + fmt(d.revenue) + '</div><div class="pod-deals">' + d.count + ' deal' + (d.count !== 1 ? 's' : '') + '</div><div class="pod-block ' + bc + '" style="margin:10px auto 0; font-size: 13px; font-weight: 800;">' + rankBadges[bc] + '</div></div></td>';
+        const revText = fmt(d.revenue);
+        const dealsText = (isRosterMode && d.revenue === 0)
+          ? ('0 deals · <span style="font-size:10px;font-weight:700;color:#e11d48;" title="Previous 7 days cumulative sales">Prev 7d: ' + fmtK(d.prev7dRevenue || 0) + '</span>')
+          : (d.count + ' deal' + (d.count !== 1 ? 's' : ''));
+
+        return '<td valign="bottom" align="center" style="padding:0 4px; width:33.33%;"><div class="pod-item" style="display:block;margin:0 auto;text-align:center"><div class="pod-avatar ' + bc + '" style="margin:0 auto 10px">' + ini(n) + '</div><div class="pod-name" style="margin:0 auto">' + n.split(' ')[0] + '<br><span style="font-size:10px;color:var(--muted)">' + n.split(' ').slice(1).join(' ') + '</span></div><div class="pod-rev ' + bc + '">' + revText + '</div><div class="pod-deals">' + dealsText + '</div><div class="pod-block ' + bc + '" style="margin:10px auto 0; font-size: 13px; font-weight: 800;">' + rankBadges[bc] + '</div></div></td>';
       }).join('');
       pwBottom.innerHTML = '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;table-layout:fixed"><tr>' + tdsBottom + '</tr></table>';
     }
