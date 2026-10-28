@@ -59862,9 +59862,9 @@
   },
   {
     "date": "2026-07-18",
-    "totalRevenue": 214924.4,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 225424.4,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 12000,
       "agent": "Prerak Bhavsar",
@@ -59900,8 +59900,8 @@
         "count": 2
       },
       "Chhaya Patel": {
-        "revenue": 10500,
-        "count": 1
+        "revenue": 21000,
+        "count": 2
       },
       "Jivesh Harde": {
         "revenue": 21500,
@@ -59918,8 +59918,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 174348.4,
-        "count": 17
+        "revenue": 184848.4,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 28756,
@@ -59940,8 +59940,8 @@
         "count": 5
       },
       "Organic": {
-        "revenue": 149376,
-        "count": 16
+        "revenue": 159876,
+        "count": 17
       },
       "Upgrade": {
         "revenue": 3000,
@@ -61533,9 +61533,9 @@
   },
   {
     "date": "2026-07-29",
-    "totalRevenue": 204504.9,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 216504.9,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -61543,8 +61543,8 @@
     },
     "agents": {
       "Preyashi Roy": {
-        "revenue": 10000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Shikha Singh": {
         "revenue": 10000,
@@ -61589,8 +61589,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 178236.9,
-        "count": 17
+        "revenue": 190236.9,
+        "count": 18
       },
       "Quarterly Max": {
         "revenue": 26268,
@@ -61599,8 +61599,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 100756,
-        "count": 11
+        "revenue": 112756,
+        "count": 12
       },
       "Renewals": {
         "revenue": 61880,
@@ -78703,15 +78703,11 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 272630.5,
-        "count": 24
+        "revenue": 280749.5,
+        "count": 25
       },
       "Quarterly Max": {
         "revenue": 4573,
-        "count": 1
-      },
-      "Quarterly Ultra": {
-        "revenue": 8119,
         "count": 1
       }
     },
@@ -79136,9 +79132,9 @@
       "revenue": 19862
     },
     "missedLeads": {
-      "Connected": 199,
-      "Interested": 101,
-      "Paise Dega": 28
+      "Connected": 178,
+      "Interested": 83,
+      "Paise Dega": 25
     },
     "workingAgents": [
       "Kush Shah",
@@ -79174,32 +79170,32 @@
     },
     "newUsers7d": 3430,
     "newUsersYesterday": 296,
-    "activeSubs": 5132,
+    "activeSubs": 5135,
     "newSubs7d": 129,
-    "teleCrmLeads": 311,
+    "teleCrmLeads": 312,
     "subsEnding5d": 70,
-    "subsExpired7d": 100,
+    "subsExpired7d": 99,
     "subsExpiringToday": 15,
     "planExpiringNoOrder": 0,
     "planExpNoOrder": 2427,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 13,
-      "Orders Placed": 13,
-      "Orders - CONFIRMED": 11,
-      "Orders Confirmed": 11,
+      "Orders - PLACED": 12,
+      "Orders Placed": 12,
+      "Orders - CONFIRMED": 12,
+      "Orders Confirmed": 12,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 9,
-      "Orders Shipped": 9,
-      "Orders - Not Delivered": 33,
-      "Orders Not Delivered": 33
+      "Orders - SHIPPED": 8,
+      "Orders Shipped": 8,
+      "Orders - Not Delivered": 32,
+      "Orders Not Delivered": 32
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 623,
-      "New Subscribers Orders that have been Delivered": 590,
-      "New Subscribers Orders yet to be Delivered": 33,
-      "New Subscribers Orders yet to be Delivered & Delayed": 8
+      "New Subscribers Orders that have been Delivered": 591,
+      "New Subscribers Orders yet to be Delivered": 32,
+      "New Subscribers Orders yet to be Delivered & Delayed": 9
     },
     "selfUpgrade": {
       "totalCount": 1,
