@@ -1976,16 +1976,16 @@ const handleTriggerDailyReport = async (req, res) => {
 app.post('/api/trigger-daily-report', handleTriggerDailyReport);
 app.get('/api/trigger-daily-report', handleTriggerDailyReport);
 
-/* ---------- Cron Job: Auto-send daily at 10:00 AM IST ---------- */
+/* ---------- Cron Job: Auto-send daily at 9:30 AM IST ---------- */
 function parseCronExpression(raw) {
-  if (!raw || typeof raw !== 'string') return '0 10 * * *';
+  if (!raw || typeof raw !== 'string') return '30 9 * * *';
   const clean = raw.trim().replace(/^["']|["']$/g, '');
   const parts = clean.split(/\s+/);
   if (parts.length === 5) {
     return clean;
   }
-  console.warn(`⚠️ Invalid CRON_SCHEDULE ("${raw}"). Falling back to default "0 10 * * *".`);
-  return '0 10 * * *';
+  console.warn(`⚠️ Invalid CRON_SCHEDULE ("${raw}"). Falling back to default "30 9 * * *".`);
+  return '30 9 * * *';
 }
 
 const CRON_SCHEDULE = parseCronExpression(process.env.CRON_SCHEDULE);
@@ -1994,7 +1994,7 @@ if (require.main === module) {
   try {
     cron.schedule(CRON_SCHEDULE, async () => {
       if (process.env.DISABLE_EMAIL === 'true') {
-        console.log('⏸️ [PAUSED] Automated 10:00 AM email is currently disabled (DISABLE_EMAIL=true). Skipping email send.');
+        console.log('⏸️ [PAUSED] Automated 9:30 AM email is currently disabled (DISABLE_EMAIL=true). Skipping email send.');
         return;
       }
 
@@ -2003,13 +2003,13 @@ if (require.main === module) {
       try {
         const { sendDailyReport } = require('../scripts/send_report_now');
         const info = await sendDailyReport();
-        console.log(`✅ Automated 10:00 AM Sales Report sent — Message ID: ${info.messageId}`);
+        console.log(`✅ Automated 9:30 AM Sales Report sent — Message ID: ${info.messageId}`);
       } catch (err) {
         console.error('❌ Cron email error:', err);
       }
     }, { timezone: 'Asia/Kolkata' });
 
-    console.log(`📅 Cron scheduled: "${CRON_SCHEDULE}" (10:00 AM IST daily)`);
+    console.log(`📅 Cron scheduled: "${CRON_SCHEDULE}" (9:30 AM IST daily)`);
   } catch (cronErr) {
     console.error('⚠️ Could not schedule cron job:', cronErr.message);
   }
