@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,805,402",,,532,
+,,,,"5,816,755",,,534,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -524,14 +524,25 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 524,29/10/2026,9819630687,Amol Landge,"11,376",No,Annual Max,1,Renewals
 525,29/10/2026,9958908682,Vivek Shah,"12,000",No,Annual Max,1,Organic
 526,29/10/2026,8699301106,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
-527,29/10/2026,7022255940,Shubham Rai,"20,000",No,Annual Max,2,Organic
-528,29/10/2026,8801969979,Amol Landge,"10,376",No,Annual Max,1,Renewals
-529,29/10/2026,8860213309,Amol Landge,"5,000",No,Annual Max,1,Upgrade
-530,29/10/2026,9028583303,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
-531,29/10/2026,8374523743,Preyashi Roy,"6,000",Yes,Annual Max,0.5,Organic
-532,29/10/2026,8374523743,Vivek Shah,"6,000",Yes,Annual Max,0.5,Organic
-533,29/10/2026,,,,,,,
-534,29/10/2026,,,,,,,
+527,09/10/2026,7022255940,Shubham Rai,"17,353",No,Annual Max,1,Organic
+528,29/10/2026,7022255940,Shubham Rai,"2,000",No,Annual Max,1,Organic
+529,29/10/2026,8801969979,Amol Landge,"10,376",No,Annual Max,1,Renewals
+530,29/10/2026,8860213309,Amol Landge,"5,000",No,Annual Max,1,Upgrade
+531,29/10/2026,9028583303,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+532,29/10/2026,8374523743,Preyashi Roy,"6,000",Yes,Annual Max,0.5,Organic
+533,29/10/2026,8374523743,Vivek Shah,"6,000",Yes,Annual Max,0.5,Organic
+534,29/10/2026,9220616662,Preyashi Roy,"12,000",No,Annual Max,1,Organic
 535,29/10/2026,,,,,,,
 536,29/10/2026,,,,,,,
 537,29/10/2026,,,,,,,
+538,29/10/2026,,,,,,,
+539,29/10/2026,,,,,,,
+540,29/10/2026,,,,,,,
+541,29/10/2026,,,,,,,
+542,29/10/2026,,,,,,,
+543,29/10/2026,,,,,,,
+544,29/10/2026,,,,,,,
+545,29/10/2026,,,,,,,
+546,29/10/2026,,,,,,,
+547,29/10/2026,,,,,,,
+548,29/10/2026,,,,,,,
