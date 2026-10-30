@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-10-30","Parth Champaneri","7779020212","Shubham Rai",12000,10000,"Annual Max","Organic","ef77c219-d8d6-404a-a5f7-54d87c8d04f0","UR213041","Logged by Inside Sales agent (Shubham Rai) for ₹12000 and also completed on Direct Portal for ₹10000"
 "2026-10-28","dhaval m bhatt","9998084500","Yuvraj Singh Dodiya",13573,12924.21,"Annual Max","Organic","b69d0101-b7be-48cf-b237-ae1c57798634","UR548960","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹13573 and also completed on Direct Portal for ₹12924.21"
 "2026-10-23","Atharv","7406499980","Preyashi Roy",12825,12247.87,"Annual Plus","Organic","27afd950-0184-4eee-a8fe-aa9f1be161a0","UR550350","Logged by Inside Sales agent (Preyashi Roy) for ₹12825 and also completed on Direct Portal for ₹12247.87"
 "2026-10-21","Sunny R Patel","9974592852","Shubham Rai",16000,12282.5,"Annual Plus","Organic","ecd08817-c004-49cc-91e9-90b88ed2f27d","UR441471","Logged by Inside Sales agent (Shubham Rai) for ₹16000 and also completed on Direct Portal for ₹12282.5"
