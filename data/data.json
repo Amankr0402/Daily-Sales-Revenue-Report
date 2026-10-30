@@ -58022,15 +58022,19 @@
   },
   {
     "date": "2026-07-06",
-    "totalRevenue": 102629.86,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 113005.86,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
       "source": "Direct Sale"
     },
     "agents": {
+      "Vikas Poonia": {
+        "revenue": 10376,
+        "count": 1
+      },
       "Kausturi Roy Chowdhury": {
         "revenue": 22000,
         "count": 2
@@ -58054,8 +58058,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 76216,
-        "count": 7
+        "revenue": 86592,
+        "count": 8
       },
       "Quarterly Max": {
         "revenue": 20431.86,
@@ -58067,13 +58071,13 @@
       }
     },
     "sources": {
+      "Renewals": {
+        "revenue": 20376,
+        "count": 2
+      },
       "Organic": {
         "revenue": 58500,
         "count": 6
-      },
-      "Renewals": {
-        "revenue": 10000,
-        "count": 1
       },
       "Direct Sale": {
         "revenue": 34129.86,
@@ -58092,6 +58096,7 @@
       "total": 354
     },
     "workingAgents": [
+      "Vikas Poonia",
       "Kausturi Roy Chowdhury",
       "Honey Talreja",
       "Sneha Anand",
@@ -58424,9 +58429,9 @@
   },
   {
     "date": "2026-07-09",
-    "totalRevenue": 173544,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 162544,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
@@ -58474,8 +58479,8 @@
         "count": 1
       },
       "Chhaya Patel": {
-        "revenue": 20000,
-        "count": 3
+        "revenue": 9000,
+        "count": 2
       },
       "Shubham Rai": {
         "revenue": 10000,
@@ -58492,8 +58497,8 @@
         "count": 2
       },
       "Annual Max": {
-        "revenue": 134668,
-        "count": 13
+        "revenue": 123668,
+        "count": 12
       },
       "Quarterly Max": {
         "revenue": 18500,
@@ -58506,8 +58511,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 121660,
-        "count": 16
+        "revenue": 110660,
+        "count": 15
       },
       "Upgrade": {
         "revenue": 0,
@@ -65239,9 +65244,9 @@
   },
   {
     "date": "2026-08-19",
-    "totalRevenue": 224700.4,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 231700.4,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 15000,
       "agent": "Tanveer Ahmed",
@@ -65249,8 +65254,8 @@
     },
     "agents": {
       "Kush Shah": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 29000,
+        "count": 3
       },
       "Amol Landge": {
         "revenue": 10376,
@@ -65301,12 +65306,16 @@
       "Quarterly Max": {
         "revenue": 10256,
         "count": 2
+      },
+      "6 months Max": {
+        "revenue": 7000,
+        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 169000,
-        "count": 16
+        "revenue": 176000,
+        "count": 17
       },
       "Renewals": {
         "revenue": 20752,
@@ -66972,9 +66981,9 @@
   },
   {
     "date": "2026-08-29",
-    "totalRevenue": 193209,
-    "salesCount": 18,
-    "transactions": 18,
+    "totalRevenue": 182833,
+    "salesCount": 17,
+    "transactions": 17,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -67010,8 +67019,8 @@
         "count": 1
       },
       "Amol Landge": {
-        "revenue": 31128,
-        "count": 3
+        "revenue": 20752,
+        "count": 2
       },
       "Preyashi Roy": {
         "revenue": 12000,
@@ -67028,8 +67037,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 160884,
-        "count": 13
+        "revenue": 150508,
+        "count": 12
       },
       "Quarterly Max": {
         "revenue": 19500,
@@ -67042,8 +67051,8 @@
         "count": 10
       },
       "Renewals": {
-        "revenue": 31128,
-        "count": 3
+        "revenue": 20752,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 58756,
@@ -79840,8 +79849,8 @@
       "revenue": 10000
     },
     "missedLeads": {
-      "Connected": 222,
-      "Interested": 65,
+      "Connected": 224,
+      "Interested": 67,
       "Paise Dega": 20
     },
     "workingAgents": [
