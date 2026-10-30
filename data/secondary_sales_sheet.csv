@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,989,905",,,549,
+,,,,"6,151,643",,,565,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -547,12 +547,32 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 547,30/10/2026,9784563414,Vikas Poonia,"7,500",No,Annual Plus,1,Renewals
 548,30/10/2026,8095001483,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 549,30/10/2026,9703834564,Shubham Rai,"13,000",No,Annual Max,1,Organic
-550,30/10/2026,,,,,,,
-551,30/10/2026,,,,,,,
-552,30/10/2026,,,,,,,
-553,30/10/2026,,,,,,,
-554,30/10/2026,,,,,,,
-555,30/10/2026,,,,,,,
-556,30/10/2026,,,,,,,
-557,30/10/2026,,,,,,,
-558,30/10/2026,,,,,,,
+550,30/10/2026,7228063844,Yuvraj Singh Dodiya,"1,000",No,Annual Max,0.5,Organic
+551,30/10/2026,9820684362,Chhaya Patel,"12,216",No,Annual Max,1,Organic
+552,30/10/2026,8285483883,Jivesh Harde,"11,000",No,Annual Max,1,Organic
+553,30/10/2026,8668744384,Amol Landge,"5,000",No,Annual Mini,1,Renewals
+554,30/10/2026,8076798664,Rohit Jain,"5,000",No,Quarterly Max,1,Organic
+555,30/10/2026,7794965018,Honey Talreja,"12,000",No,Annual Max,1,Organic
+556,30/10/2026,7567888851,Vivek Shah,"12,000",No,Annual Max,1,Organic
+557,30/10/2026,9099988708,Honey Talreja,"12,000",No,Annual Max,1,Organic
+558,30/10/2026,9650009994,Shivaram Nimmala,"3,000",No,Annual Max,0.5,Organic
+559,30/10/2026,8826222795,Prerak Bhavsar,"19,573",No,Annual Max,2,Organic
+560,30/10/2026,8097630476,Shubham Rai,"12,000",No,Annual Max,1,Organic
+561,30/10/2026,8977834615,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+562,30/10/2026,8446132513,Chhaya Patel,"11,000",No,Annual Max,1,Organic
+563,30/10/2026,8169931357,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+564,30/10/2026,9423456336,Darshan KS,"3,000",No,Annual Max,0.5,Organic
+565,30/10/2026,7387791388,Amol Landge,"11,376",No,Annual Max,1,Renewals
+566,30/10/2026,,,,,,,
+567,30/10/2026,,,,,,,
+568,30/10/2026,,,,,,,
+569,30/10/2026,,,,,,,
+570,30/10/2026,,,,,,,
+571,30/10/2026,,,,,,,
+572,30/10/2026,,,,,,,
+573,30/10/2026,,,,,,,
+574,30/10/2026,,,,,,,
+575,30/10/2026,,,,,,,
+576,30/10/2026,,,,,,,
+577,30/10/2026,,,,,,,
+578,30/10/2026,,,,,,,
