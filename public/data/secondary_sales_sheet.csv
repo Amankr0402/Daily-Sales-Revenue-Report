@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,848,328",,,537,
+,,,,"5,989,905",,,549,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -535,14 +535,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 535,29/10/2026,8754180777,Honey Talreja,"9,787",No,Annual Max,1,Organic
 536,29/10/2026,7869626967,Honey Talreja,"9,787",No,Annual Max,1,Organic
 537,29/10/2026,9962819908,Vikas Poonia,"12,000",No,Annual Max,1,Renewals
-538,29/10/2026,,,,,,,
-539,29/10/2026,,,,,,,
-540,29/10/2026,,,,,,,
-541,29/10/2026,,,,,,,
-542,29/10/2026,,,,,,,
-543,29/10/2026,,,,,,,
-544,29/10/2026,,,,,,,
-545,29/10/2026,,,,,,,
-546,29/10/2026,,,,,,,
-547,29/10/2026,,,,,,,
-548,29/10/2026,,,,,,,
+538,30/10/2026,9818533299,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+539,29/10/2026,9962819908,Honey Talreja,"12,000",No,Annual Max,1,Renewals
+540,30/10/2026,8793856595,Amol Landge,"12,000",No,Annual Max,1,Renewals
+541,30/10/2026,8130526936,Amol Landge,"10,376",No,Annual Max,1,Renewals
+542,30/10/2026,8420364935,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+543,30/10/2026,9820369707,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
+544,30/10/2026,7975927359,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+545,30/10/2026,7021827379,Rohit Jain,"19,573",No,Annual Max,2,Organic
+546,30/10/2026,7977188153,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+547,30/10/2026,9784563414,Vikas Poonia,"7,500",No,Annual Plus,1,Renewals
+548,30/10/2026,8095001483,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+549,30/10/2026,9703834564,Shubham Rai,"13,000",No,Annual Max,1,Organic
+550,30/10/2026,,,,,,,
+551,30/10/2026,,,,,,,
+552,30/10/2026,,,,,,,
+553,30/10/2026,,,,,,,
+554,30/10/2026,,,,,,,
+555,30/10/2026,,,,,,,
+556,30/10/2026,,,,,,,
+557,30/10/2026,,,,,,,
+558,30/10/2026,,,,,,,
