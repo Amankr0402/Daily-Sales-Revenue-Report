@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"6,551,348",,,614.5,
+,,,,"6,612,421",,,620,
 1,10/1/2026,9892874590,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
 2,10/1/2026,8369065991,Vikas Poonia,"10,376",No,Annual Max,1,Organic
 3,10/1/2026,9886087273,Shivani Gupta,"6,017",No,Ultra Quarterly,1,Organic
@@ -600,9 +600,9 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 600,31/10/2026,8149455979,Honey Talreja,"2,000",Yes,Annual Max,0.5,Organic
 601,31/10/2026,7895665552,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
 602,31/10/2026,8904612590,Rani Singh,"12,000",No,Annual Max,1,Organic
-603,31/10/2026,,,,,,,
-604,31/10/2026,,,,,,,
-605,31/10/2026,,,,,,,
-606,31/10/2026,,,,,,,
-607,31/10/2026,,,,,,,
+603,31/10/2026,9016770259,Shivendra Singh Tomar,"18,500",No,Ultra Annually,1,Organic
+604,31/10/2026,9834378499,Chhaya Patel,"2,000",No,Annual Max,0.5,Organic
+605,31/10/2026,9898646954,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
+606,31/10/2026,9833748783,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+607,31/10/2026,8789722053,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
 608,31/10/2026,,,,,,,
