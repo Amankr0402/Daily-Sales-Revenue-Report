@@ -58429,9 +58429,9 @@
   },
   {
     "date": "2026-07-09",
-    "totalRevenue": 169044,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 173544,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Self Serve",
@@ -58479,8 +58479,8 @@
         "count": 1
       },
       "Chhaya Patel": {
-        "revenue": 15500,
-        "count": 2
+        "revenue": 20000,
+        "count": 3
       },
       "Shubham Rai": {
         "revenue": 10000,
@@ -58501,8 +58501,8 @@
         "count": 13
       },
       "Quarterly Max": {
-        "revenue": 14000,
-        "count": 3
+        "revenue": 18500,
+        "count": 4
       },
       "Annual Mini": {
         "revenue": 5500,
@@ -58511,8 +58511,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 117160,
-        "count": 15
+        "revenue": 121660,
+        "count": 16
       },
       "Upgrade": {
         "revenue": 0,
@@ -64727,9 +64727,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 462635.4,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 467135.4,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -64799,6 +64799,10 @@
       "Naveen Suwalka": {
         "revenue": 4500,
         "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 4500,
+        "count": 1
       }
     },
     "plans": {
@@ -64807,8 +64811,8 @@
         "count": 36
       },
       "Quarterly Max": {
-        "revenue": 25512,
-        "count": 5
+        "revenue": 30012,
+        "count": 6
       },
       "6 months Max": {
         "revenue": 7100,
@@ -64825,8 +64829,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 292469,
-        "count": 27
+        "revenue": 296969,
+        "count": 28
       },
       "Renewals": {
         "revenue": 22376,
@@ -64908,7 +64912,8 @@
       "Preyashi Roy",
       "Kush Shah",
       "Jivesh Harde",
-      "Naveen Suwalka"
+      "Naveen Suwalka",
+      "Chhaya Patel"
     ],
     "refundsLast7Days": {
       "total": 0,
@@ -78991,10 +78996,10 @@
     },
     "userBreakdown": {
       "signups": 324,
-      "otpVerified": 246,
-      "serviceable": 166,
-      "serviceableWithPct": "166 (51.2%)",
-      "serviceablePct": "51.2%"
+      "otpVerified": 247,
+      "serviceable": 167,
+      "serviceableWithPct": "167 (51.5%)",
+      "serviceablePct": "51.5%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -79585,10 +79590,10 @@
     },
     "userBreakdown": {
       "signups": 294,
-      "otpVerified": 183,
-      "serviceable": 129,
-      "serviceableWithPct": "129 (43.9%)",
-      "serviceablePct": "43.9%"
+      "otpVerified": 184,
+      "serviceable": 130,
+      "serviceableWithPct": "130 (44.2%)",
+      "serviceablePct": "44.2%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -79773,20 +79778,20 @@
       }
     },
     "userBreakdown": {
-      "signups": 285,
+      "signups": 284,
       "otpVerified": 197,
       "serviceable": 127,
-      "serviceableWithPct": "127 (44.6%)",
-      "serviceablePct": "44.6%"
+      "serviceableWithPct": "127 (44.7%)",
+      "serviceablePct": "44.7%"
     },
     "directSaleCSV": {
       "count": 2,
       "revenue": 29146
     },
     "missedLeads": {
-      "Connected": 227,
-      "Interested": 111,
-      "Paise Dega": 30
+      "Connected": 178,
+      "Interested": 73,
+      "Paise Dega": 18
     },
     "workingAgents": [
       "Kush Shah",
@@ -79822,7 +79827,7 @@
     },
     "newUsers7d": 2780,
     "newUsersYesterday": 268,
-    "activeSubs": 5152,
+    "activeSubs": 5159,
     "newSubs7d": 138,
     "teleCrmLeads": 338,
     "subsEnding5d": 63,
@@ -79832,21 +79837,21 @@
     "planExpNoOrder": 2427,
     "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 24,
-      "Orders Placed": 24,
-      "Orders - CONFIRMED": 14,
-      "Orders Confirmed": 14,
+      "Orders - PLACED": 16,
+      "Orders Placed": 16,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 8,
-      "Orders Shipped": 8,
-      "Orders - Not Delivered": 47,
-      "Orders Not Delivered": 46
+      "Orders - SHIPPED": 4,
+      "Orders Shipped": 4,
+      "Orders - Not Delivered": 43,
+      "Orders Not Delivered": 42
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 669,
-      "New Subscribers Orders that have been Delivered": 622,
-      "New Subscribers Orders yet to be Delivered": 47,
+      "New Subscribers Orders that have been Delivered": 626,
+      "New Subscribers Orders yet to be Delivered": 43,
       "New Subscribers Orders yet to be Delivered & Delayed": 7
     },
     "selfUpgrade": {
