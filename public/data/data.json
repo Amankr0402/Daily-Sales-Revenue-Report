@@ -54371,9 +54371,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 473538,
-    "salesCount": 49,
-    "transactions": 49,
+    "totalRevenue": 462538,
+    "salesCount": 48,
+    "transactions": 48,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -54387,10 +54387,6 @@
       "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
-      },
-      "Preyashi Roy": {
-        "revenue": 15500,
-        "count": 2
       },
       "Amol Landge": {
         "revenue": 109376,
@@ -54416,6 +54412,10 @@
         "revenue": 21000,
         "count": 2
       },
+      "Preyashi Roy": {
+        "revenue": 4500,
+        "count": 1
+      },
       "Shubham Rai": {
         "revenue": 12000,
         "count": 1
@@ -54431,8 +54431,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 399282,
-        "count": 34
+        "revenue": 388282,
+        "count": 33
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -54449,8 +54449,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 103248,
-        "count": 10
+        "revenue": 92248,
+        "count": 9
       },
       "Events": {
         "revenue": 206752,
@@ -54589,13 +54589,13 @@
     "workingAgents": [
       "Honey Talreja",
       "Chhaya Patel",
-      "Preyashi Roy",
       "Amol Landge",
       "Vikas Poonia",
       "Prerak Bhavsar",
       "Sneha Anand",
       "Kausturi Roy Chowdhury",
       "Shivani Gupta",
+      "Preyashi Roy",
       "Shubham Rai",
       "Vivek Shah",
       "Kush Shah"
@@ -54975,19 +54975,15 @@
   },
   {
     "date": "2026-08-04",
-    "totalRevenue": 290981,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 279981,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 15000,
       "agent": "Honey Talreja",
       "source": "Inside Sales"
     },
     "agents": {
-      "Preyashi Roy": {
-        "revenue": 11000,
-        "count": 1
-      },
       "Prerak Bhavsar": {
         "revenue": 4500,
         "count": 1
@@ -55046,13 +55042,13 @@
       }
     },
     "plans": {
-      "Annual Max": {
-        "revenue": 221592,
-        "count": 19
-      },
       "Quarterly Max": {
         "revenue": 31345,
         "count": 6
+      },
+      "Annual Max": {
+        "revenue": 210592,
+        "count": 18
       },
       "Annual Plus": {
         "revenue": 8000,
@@ -55073,8 +55069,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 225000,
-        "count": 22
+        "revenue": 214000,
+        "count": 21
       },
       "Renewals": {
         "revenue": 10376,
@@ -55177,7 +55173,6 @@
       "total": 708
     },
     "workingAgents": [
-      "Preyashi Roy",
       "Prerak Bhavsar",
       "Honey Talreja",
       "Shubham Rai",
@@ -58278,9 +58273,9 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 380056,
-    "salesCount": 40,
-    "transactions": 40,
+    "totalRevenue": 369680,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 12216,
       "agent": "Vivek Shah",
@@ -58308,8 +58303,8 @@
         "count": 0
       },
       "Vikas Poonia": {
-        "revenue": 20752,
-        "count": 2
+        "revenue": 10376,
+        "count": 1
       },
       "Chhaya Patel": {
         "revenue": 22000,
@@ -58362,8 +58357,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 343344,
-        "count": 32
+        "revenue": 332968,
+        "count": 31
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -58384,8 +58379,8 @@
         "count": 14
       },
       "Renewals": {
-        "revenue": 20752,
-        "count": 2
+        "revenue": 10376,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 5756,
@@ -70754,10 +70749,10 @@
     },
     "userBreakdown": {
       "signups": 316,
-      "otpVerified": 220,
-      "serviceable": 164,
-      "serviceableWithPct": "164 (51.9%)",
-      "serviceablePct": "51.9%"
+      "otpVerified": 221,
+      "serviceable": 165,
+      "serviceableWithPct": "165 (52.2%)",
+      "serviceablePct": "52.2%"
     },
     "directSaleCSV": {
       "count": 3,
@@ -71390,9 +71385,9 @@
     "userBreakdown": {
       "signups": 291,
       "otpVerified": 177,
-      "serviceable": 129,
-      "serviceableWithPct": "129 (44.3%)",
-      "serviceablePct": "44.3%"
+      "serviceable": 130,
+      "serviceableWithPct": "130 (44.7%)",
+      "serviceablePct": "44.7%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -71447,9 +71442,9 @@
       "total": 118
     },
     "missedLeads": {
-      "Connected": 212,
-      "Interested": 160,
-      "Paise Dega": 22
+      "Connected": 182,
+      "Interested": 92,
+      "Paise Dega": 23
     },
     "refunds": {
       "count": 2,
@@ -71500,7 +71495,7 @@
     },
     "newUsers7d": 2478,
     "newUsersYesterday": 266,
-    "activeSubs": 5164,
+    "activeSubs": 5172,
     "newSubs7d": 137,
     "teleCrmLeads": 337,
     "subsEnding5d": 68,
@@ -71508,24 +71503,24 @@
     "subsExpiringToday": 7,
     "planExpiringNoOrder": 0,
     "planExpNoOrder": 2427,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 122,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 22,
-      "Orders Placed": 22,
-      "Orders - CONFIRMED": 15,
-      "Orders Confirmed": 15,
+      "Orders - PLACED": 11,
+      "Orders Placed": 11,
+      "Orders - CONFIRMED": 26,
+      "Orders Confirmed": 26,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 10,
-      "Orders Shipped": 10,
-      "Orders - Not Delivered": 48,
-      "Orders Not Delivered": 47
+      "Orders - SHIPPED": 6,
+      "Orders Shipped": 6,
+      "Orders - Not Delivered": 44,
+      "Orders Not Delivered": 43
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 103,
-      "New Subscribers Orders that have been Delivered": 55,
-      "New Subscribers Orders yet to be Delivered": 48,
-      "New Subscribers Orders yet to be Delivered & Delayed": 0
+      "New Subscribers Orders that have been Delivered": 59,
+      "New Subscribers Orders yet to be Delivered": 44,
+      "New Subscribers Orders yet to be Delivered & Delayed": 1
     }
   }
 ]
