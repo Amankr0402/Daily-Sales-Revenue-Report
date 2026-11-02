@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"202,505",,,19.5,
+,,,,"238,505",,,22.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -19,11 +19,11 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 17,11/1/2026,9390075734,Kush Shah,"1,000",No,Annual Max,0.5,Organic
 18,11/1/2026,8898213222,Honey Talreja,"9,787",No,Annual Max,1,Organic
 19,11/1/2026,9913049567,Honey Talreja,"9,787",No,Annual Max,1,Organic
-20,11/2/2026,7083696640,Rani Singh,"12,000",No,Annual Max,1,Organic
-21,11/2/2026,,,,,,,
-22,11/2/2026,,,,,,,
-23,11/2/2026,,,,,,,
-24,11/2/2026,,,,,,,
+20,11/2/2026,7083696640,Rani Singh,"6,000",Yes,Annual Max,0.5,Organic
+21,11/2/2026,7083696640,Honey Talreja,"6,000",Yes,Annual Max,0.5,Organic
+22,11/2/2026,9910558658,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+23,11/2/2026,9867907124,Amol Landge,"12,000",No,Annual Max,1,Organic
+24,11/2/2026,7874425861,Shubham Rai,"12,000",No,Annual Max,1,Organic
 25,11/2/2026,,,,,,,
 26,11/2/2026,,,,,,,
 27,11/2/2026,,,,,,,
@@ -31,17 +31,17 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 29,11/2/2026,,,,,,,
 30,11/2/2026,,,,,,,
 31,11/2/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+32,11/2/2026,,,,,,,
+33,11/2/2026,,,,,,,
+34,11/2/2026,,,,,,,
+35,11/2/2026,,,,,,,
+36,11/2/2026,,,,,,,
+37,11/2/2026,,,,,,,
+38,11/2/2026,,,,,,,
+39,11/2/2026,,,,,,,
+40,11/2/2026,,,,,,,
+41,11/2/2026,,,,,,,
+42,11/2/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
