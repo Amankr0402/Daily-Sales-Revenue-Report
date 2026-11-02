@@ -16,7 +16,8 @@ const fs = require('fs');
 const path = require('path');
 
 const SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEET_ID || '1owfB7wTbt19N449iqAv26pnmUNUSIN5Fh27v5aKWEHM';
-const SPREADSHEET_ID2 = process.env.SECONDARY_SPREADSHEET_ID || '1AX5q7H8Umh__14_P-Ugs_8fVmYeyKN1uIlreSvTNvM4';
+const SPREADSHEET_ID_NOV = process.env.NOVEMBER_SPREADSHEET_ID || process.env.SECONDARY_SPREADSHEET_ID || '1zqo0qcMQDuSJK5UXyvVS2FD6_yprRyJwmk997Fjl7UM';
+const SPREADSHEET_ID_OCT = process.env.OCTOBER_SPREADSHEET_ID || '1AX5q7H8Umh__14_P-Ugs_8fVmYeyKN1uIlreSvTNvM4';
 const SPREADSHEET_ID_SEP = process.env.SEPTEMBER_SPREADSHEET_ID || '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || 'Sales Numbers';
 const SECONDARY_SHEET_CACHE_FILE = path.join(__dirname, '..', 'data', 'secondary_sales_sheet.csv');
@@ -447,32 +448,45 @@ async function syncSalesData() {
     console.log(`📊 [${label}] Processed ${lines.length - 2} rows: ${addedCount} deals added, ${skippedCount} duplicates skipped.`);
   }
 
-  // 1. Fetch October Go Getters sheet (Active live month)
-  let sheet2CSV = '';
+  // 1. Fetch November Go Getters sheet (Active live month)
+  let sheetNovCSV = '';
   try {
-    console.log(`📡 Fetching October Go Getters sheet (${SPREADSHEET_ID2})...`);
-    sheet2CSV = await fetchSheetCSV(SPREADSHEET_ID2, 'Sales/Rev (Auto)');
-    if (sheet2CSV && sheet2CSV.length > 50) {
-      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, stripTestPhonesFromCSV(sheet2CSV), 'utf-8');
+    console.log(`📡 Fetching November Go Getters sheet (${SPREADSHEET_ID_NOV})...`);
+    sheetNovCSV = await fetchSheetCSV(SPREADSHEET_ID_NOV, 'Sales/Rev (Auto)');
+    if (sheetNovCSV && sheetNovCSV.length > 50 && !sheetNovCSV.includes('<!DOCTYPE html>')) {
+      fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, stripTestPhonesFromCSV(sheetNovCSV), 'utf-8');
       console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
+      const sheetNovLines = sheetNovCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      processSheetRows(sheetNovLines, 'November Go Getters');
+    } else {
+      console.warn('⚠️ Warning: November sheet returned empty or unauthorized HTML page (ensure Google Sheet is shared with "Anyone with the link can view").');
     }
-    const sheet2Lines = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
-    processSheetRows(sheet2Lines, 'October Go Getters');
-  } catch (sheet2Err) {
-    console.warn('⚠️ Warning: Could not fetch October Go Getters sheet:', sheet2Err.message);
+  } catch (sheetNovErr) {
+    console.warn('⚠️ Warning: Could not fetch November Go Getters sheet:', sheetNovErr.message);
   }
 
-  // 1b. Fetch Attendance Roster sheet
+  // 1b. Fetch Attendance Roster sheets (combines October & November rosters)
   let rosterByDate = {};
   try {
-    console.log(`📡 Fetching Attendance Roster sheet (${SPREADSHEET_ID2})...`);
-    const rosterUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID2}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('Attendence Roaster')}`;
-    const rosterCSV = await fetchURLWithRedirect(rosterUrl);
-    if (rosterCSV && rosterCSV.length > 50) {
-      fs.writeFileSync(ATTENDANCE_ROSTER_FILE, rosterCSV, 'utf-8');
-      console.log(`✅ Cached Attendance Roster to ${ATTENDANCE_ROSTER_FILE}`);
-      rosterByDate = parseRosterCSV(rosterCSV);
+    console.log('📡 Fetching Attendance Rosters (Nov & Oct)...');
+    let rosterNovCSV = '';
+    let rosterOctCSV = '';
+    try {
+      rosterNovCSV = await fetchURLWithRedirect(`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID_NOV}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('Attendence Roaster')}`);
+    } catch (_) {}
+    try {
+      rosterOctCSV = await fetchURLWithRedirect(`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID_OCT}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('Attendence Roaster')}`);
+    } catch (_) {}
+
+    const rosterOct = (rosterOctCSV && rosterOctCSV.length > 50 && !rosterOctCSV.includes('<!DOCTYPE html>')) ? parseRosterCSV(rosterOctCSV) : {};
+    const rosterNov = (rosterNovCSV && rosterNovCSV.length > 50 && !rosterNovCSV.includes('<!DOCTYPE html>')) ? parseRosterCSV(rosterNovCSV) : {};
+    rosterByDate = { ...rosterOct, ...rosterNov };
+
+    if (rosterNovCSV && rosterNovCSV.length > 50 && !rosterNovCSV.includes('<!DOCTYPE html>')) {
+      fs.writeFileSync(ATTENDANCE_ROSTER_FILE, rosterNovCSV, 'utf-8');
+      console.log(`✅ Cached November Attendance Roster to ${ATTENDANCE_ROSTER_FILE}`);
     }
+    console.log(`✅ Merged Attendance Roster: ${Object.keys(rosterByDate).length} dates active (Oct: ${Object.keys(rosterOct).length}, Nov: ${Object.keys(rosterNov).length})`);
   } catch (rosterErr) {
     console.warn('⚠️ Warning: Could not fetch Attendance Roster:', rosterErr.message);
   }
@@ -483,14 +497,31 @@ async function syncSalesData() {
     } catch (_) {}
   }
 
-  // 2. Fetch September Go Getters sheet (Previous month)
+  // 1c. Fetch October Go Getters sheet (Previous month)
+  let sheetOctCSV = '';
+  if (SPREADSHEET_ID_OCT) {
+    try {
+      console.log(`📡 Fetching October Go Getters sheet (${SPREADSHEET_ID_OCT})...`);
+      sheetOctCSV = await fetchSheetCSV(SPREADSHEET_ID_OCT, 'Sales/Rev (Auto)');
+      if (sheetOctCSV && sheetOctCSV.length > 50 && !sheetOctCSV.includes('<!DOCTYPE html>')) {
+        const octLines = sheetOctCSV.split('\n').map(l => l.trim()).filter(Boolean);
+        processSheetRows(octLines, 'October Go Getters');
+      }
+    } catch (octErr) {
+      console.warn('⚠️ Warning: Could not fetch October sheet:', octErr.message);
+    }
+  }
+
+  // 2. Fetch September Go Getters sheet
   let sheetSepCSV = '';
-  if (SPREADSHEET_ID_SEP && SPREADSHEET_ID_SEP !== SPREADSHEET_ID2) {
+  if (SPREADSHEET_ID_SEP) {
     try {
       console.log(`📡 Fetching September Go Getters sheet (${SPREADSHEET_ID_SEP})...`);
       sheetSepCSV = await fetchSheetCSV(SPREADSHEET_ID_SEP, 'Sales/Rev (Auto)');
-      const sepLines = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
-      processSheetRows(sepLines, 'September Go Getters');
+      if (sheetSepCSV && sheetSepCSV.length > 50 && !sheetSepCSV.includes('<!DOCTYPE html>')) {
+        const sepLines = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
+        processSheetRows(sepLines, 'September Go Getters');
+      }
     } catch (sepErr) {
       console.warn('⚠️ Warning: Could not fetch September sheet:', sepErr.message);
     }
@@ -527,15 +558,23 @@ async function syncSalesData() {
       allEvRows.push(`${line},"${sheetTag}"`);
     };
 
-    if (typeof sheet2CSV === 'string') {
-      const lines2 = sheet2CSV.split('\n').map(l => l.trim()).filter(Boolean);
-      for (let i = 2; i < lines2.length; i++) {
-        if (lines2[i].toLowerCase().includes('event')) {
-          addEventRow(lines2[i], 'OctoberSheet');
+    if (typeof sheetNovCSV === 'string' && sheetNovCSV && !sheetNovCSV.includes('<!DOCTYPE html>')) {
+      const linesNov = sheetNovCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      for (let i = 2; i < linesNov.length; i++) {
+        if (linesNov[i].toLowerCase().includes('event')) {
+          addEventRow(linesNov[i], 'NovemberSheet');
         }
       }
     }
-    if (typeof sheetSepCSV === 'string' && sheetSepCSV) {
+    if (typeof sheetOctCSV === 'string' && sheetOctCSV && !sheetOctCSV.includes('<!DOCTYPE html>')) {
+      const linesOct = sheetOctCSV.split('\n').map(l => l.trim()).filter(Boolean);
+      for (let i = 2; i < linesOct.length; i++) {
+        if (linesOct[i].toLowerCase().includes('event')) {
+          addEventRow(linesOct[i], 'OctoberSheet');
+        }
+      }
+    }
+    if (typeof sheetSepCSV === 'string' && sheetSepCSV && !sheetSepCSV.includes('<!DOCTYPE html>')) {
       const linesSep = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < linesSep.length; i++) {
         if (linesSep[i].toLowerCase().includes('event')) {
@@ -543,7 +582,7 @@ async function syncSalesData() {
         }
       }
     }
-    if (typeof sheetCSV === 'string') {
+    if (typeof sheetCSV === 'string' && !sheetCSV.includes('<!DOCTYPE html>')) {
       const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < lines1.length; i++) {
         if (lines1[i].toLowerCase().includes('event')) {
