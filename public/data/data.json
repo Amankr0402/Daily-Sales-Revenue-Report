@@ -39066,9 +39066,9 @@
   },
   {
     "date": "2026-05-01",
-    "totalRevenue": 287259.07,
-    "salesCount": 37,
-    "transactions": 37,
+    "totalRevenue": 282543.07,
+    "salesCount": 36,
+    "transactions": 36,
     "highestSale": {
       "amount": 12216,
       "agent": "Honey Talreja",
@@ -39122,8 +39122,8 @@
         "count": 22
       },
       "Quarterly Max": {
-        "revenue": 43600,
-        "count": 10
+        "revenue": 38884,
+        "count": 9
       },
       "One month plus": {
         "revenue": 1499,
@@ -39148,8 +39148,8 @@
         "count": 1
       },
       "Direct Sale": {
-        "revenue": 53850.67,
-        "count": 9
+        "revenue": 49134.67,
+        "count": 8
       },
       "Overlap Deals": {
         "revenue": 11220.4,
@@ -39158,8 +39158,8 @@
     },
     "userBreakdown": null,
     "directSaleCSV": {
-      "count": 10,
-      "revenue": 65071.07
+      "count": 9,
+      "revenue": 60355.07
     },
     "collidingDeals": [
       {
@@ -50583,9 +50583,9 @@
   },
   {
     "date": "2026-07-05",
-    "totalRevenue": 384224,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 389224,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 17500,
       "agent": "Jivesh Harde",
@@ -50628,6 +50628,10 @@
         "revenue": 11000,
         "count": 1
       },
+      "Kush Shah": {
+        "revenue": 5000,
+        "count": 1
+      },
       "Others": {
         "revenue": 11000,
         "count": 1
@@ -50647,8 +50651,8 @@
         "count": 32
       },
       "Quarterly Max": {
-        "revenue": 19956,
-        "count": 4
+        "revenue": 24956,
+        "count": 5
       },
       "Annual Plus": {
         "revenue": 9000,
@@ -50661,8 +50665,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 186000,
-        "count": 18
+        "revenue": 191000,
+        "count": 19
       },
       "Events": {
         "revenue": 107752,
@@ -50702,6 +50706,7 @@
       "Jivesh Harde",
       "Shubham Rai",
       "Shikha Singh",
+      "Kush Shah",
       "Others",
       "Kausturi Roy Chowdhury",
       "Sneha Anand"
@@ -58273,11 +58278,11 @@
   },
   {
     "date": "2026-08-23",
-    "totalRevenue": 380056,
-    "salesCount": 40,
-    "transactions": 40,
+    "totalRevenue": 367840,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
-      "amount": 12216,
+      "amount": 12000,
       "agent": "Vivek Shah",
       "source": "Inside Sales"
     },
@@ -58293,10 +58298,6 @@
       "Honey Talreja": {
         "revenue": 47000,
         "count": 5
-      },
-      "Vivek Shah": {
-        "revenue": 24216,
-        "count": 2
       },
       "Sneha Anand": {
         "revenue": 0,
@@ -58334,6 +58335,10 @@
         "revenue": 4500,
         "count": 1
       },
+      "Vivek Shah": {
+        "revenue": 12000,
+        "count": 1
+      },
       "Tanveer Ahmed": {
         "revenue": 3500,
         "count": 1
@@ -58357,8 +58362,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 343344,
-        "count": 32
+        "revenue": 331128,
+        "count": 31
       },
       "Quarterly Max": {
         "revenue": 28256,
@@ -58371,8 +58376,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 194416,
-        "count": 22
+        "revenue": 182200,
+        "count": 21
       },
       "Events": {
         "revenue": 153376,
@@ -58448,7 +58453,6 @@
       "Kush Shah",
       "Amol Landge",
       "Honey Talreja",
-      "Vivek Shah",
       "Sneha Anand",
       "Vikas Poonia",
       "Chhaya Patel",
@@ -58458,6 +58462,7 @@
       "Shubham Rai",
       "Rohit Jain",
       "Abhijeet Mathur",
+      "Vivek Shah",
       "Tanveer Ahmed",
       "Shikha Singh",
       "Yuvraj Singh Dodiya",
@@ -71040,10 +71045,10 @@
     },
     "userBreakdown": {
       "signups": 295,
-      "otpVerified": 186,
-      "serviceable": 134,
-      "serviceableWithPct": "134 (45.4%)",
-      "serviceablePct": "45.4%"
+      "otpVerified": 187,
+      "serviceable": 135,
+      "serviceableWithPct": "135 (45.8%)",
+      "serviceablePct": "45.8%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -71372,10 +71377,10 @@
     },
     "userBreakdown": {
       "signups": 291,
-      "otpVerified": 177,
-      "serviceable": 131,
-      "serviceableWithPct": "131 (45.0%)",
-      "serviceablePct": "45.0%"
+      "otpVerified": 178,
+      "serviceable": 132,
+      "serviceableWithPct": "132 (45.4%)",
+      "serviceablePct": "45.4%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -71640,6 +71645,7 @@
       "Chhaya Patel",
       "Preyashi Roy",
       "Jivesh Harde",
+      "Vikas Poonia",
       "Rani Singh",
       "Shivendra Singh Tomar",
       "Tanveer Ahmed",
@@ -71655,9 +71661,9 @@
   },
   {
     "date": "2026-11-02",
-    "totalRevenue": 135146,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 164362,
+    "salesCount": 17,
+    "transactions": 17,
     "highestSale": {
       "amount": 14573,
       "agent": "Self Serve",
@@ -71677,12 +71683,12 @@
         "count": 2
       },
       "Amol Landge": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 17000,
+        "count": 2
       },
       "Shubham Rai": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 18000,
+        "count": 2
       },
       "Shivani Gupta": {
         "revenue": 7500,
@@ -71695,18 +71701,34 @@
       "Neeru Yadav": {
         "revenue": 12000,
         "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 6000,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 12216,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 135146,
-        "count": 13
+        "revenue": 159362,
+        "count": 16
+      },
+      "Quarterly Max": {
+        "revenue": 5000,
+        "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 108000,
-        "count": 11
+        "revenue": 132216,
+        "count": 14
+      },
+      "Renewals": {
+        "revenue": 5000,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 27146,
@@ -71715,18 +71737,18 @@
     },
     "userBreakdown": {
       "signups": 266,
-      "otpVerified": 174,
-      "serviceable": 124,
-      "serviceableWithPct": "124 (46.6%)",
-      "serviceablePct": "46.6%"
+      "otpVerified": 175,
+      "serviceable": 126,
+      "serviceableWithPct": "126 (47.4%)",
+      "serviceablePct": "47.4%"
     },
     "directSaleCSV": {
       "count": 2,
       "revenue": 27146
     },
     "missedLeads": {
-      "Connected": 152,
-      "Interested": 113,
+      "Connected": 192,
+      "Interested": 144,
       "Paise Dega": 23
     },
     "refunds": {
@@ -71774,7 +71796,6 @@
       "Prerak Bhavsar",
       "Preyashi Roy",
       "Jivesh Harde",
-      "Vikas Poonia",
       "Rani Singh",
       "Rohit Jain",
       "Shivendra Singh Tomar",
@@ -71786,32 +71807,32 @@
       "count": 36
     },
     "newUsers7d": 2027,
-    "newUsersYesterday": 230,
-    "activeSubs": 5176,
+    "newUsersYesterday": 244,
+    "activeSubs": 5178,
     "newSubs7d": 137,
-    "teleCrmLeads": 341,
+    "teleCrmLeads": 342,
     "subsEnding5d": 78,
-    "subsExpired7d": 99,
+    "subsExpired7d": 98,
     "subsExpiringToday": 5,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2427,
-    "activeSubNoOrder": 120,
+    "activeSubNoOrder": 121,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 27,
-      "Orders Placed": 27,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
+      "Orders - PLACED": 24,
+      "Orders Placed": 24,
+      "Orders - CONFIRMED": 13,
+      "Orders Confirmed": 13,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 2,
-      "Orders Shipped": 2,
-      "Orders - Not Delivered": 58,
-      "Orders Not Delivered": 56
+      "Orders - SHIPPED": 14,
+      "Orders Shipped": 14,
+      "Orders - Not Delivered": 53,
+      "Orders Not Delivered": 51
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 139,
-      "New Subscribers Orders that have been Delivered": 81,
-      "New Subscribers Orders yet to be Delivered": 58,
+      "New Subscribers Orders that have been Delivered": 86,
+      "New Subscribers Orders yet to be Delivered": 53,
       "New Subscribers Orders yet to be Delivered & Delayed": 4
     }
   }
