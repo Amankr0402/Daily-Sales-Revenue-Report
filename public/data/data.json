@@ -50583,9 +50583,9 @@
   },
   {
     "date": "2026-07-05",
-    "totalRevenue": 389224,
-    "salesCount": 39,
-    "transactions": 39,
+    "totalRevenue": 384224,
+    "salesCount": 38,
+    "transactions": 38,
     "highestSale": {
       "amount": 17500,
       "agent": "Jivesh Harde",
@@ -50628,10 +50628,6 @@
         "revenue": 11000,
         "count": 1
       },
-      "Kush Shah": {
-        "revenue": 5000,
-        "count": 1
-      },
       "Others": {
         "revenue": 11000,
         "count": 1
@@ -50651,8 +50647,8 @@
         "count": 32
       },
       "Quarterly Max": {
-        "revenue": 24956,
-        "count": 5
+        "revenue": 19956,
+        "count": 4
       },
       "Annual Plus": {
         "revenue": 9000,
@@ -50665,8 +50661,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 191000,
-        "count": 19
+        "revenue": 186000,
+        "count": 18
       },
       "Events": {
         "revenue": 107752,
@@ -50706,7 +50702,6 @@
       "Jivesh Harde",
       "Shubham Rai",
       "Shikha Singh",
-      "Kush Shah",
       "Others",
       "Kausturi Roy Chowdhury",
       "Sneha Anand"
@@ -57059,9 +57054,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 454919.4,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 467135.4,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -57069,8 +57064,8 @@
     },
     "agents": {
       "Sneha Anand": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 23216,
+        "count": 2
       },
       "Amol Landge": {
         "revenue": 76376,
@@ -57139,8 +57134,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 405322.4,
-        "count": 35
+        "revenue": 417538.4,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 30012,
@@ -57161,8 +57156,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 284753,
-        "count": 27
+        "revenue": 296969,
+        "count": 28
       },
       "Renewals": {
         "revenue": 22376,
@@ -57549,9 +57544,9 @@
   },
   {
     "date": "2026-08-19",
-    "totalRevenue": 221324.4,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 231700.4,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 15000,
       "agent": "Tanveer Ahmed",
@@ -57561,6 +57556,10 @@
       "Kush Shah": {
         "revenue": 29000,
         "count": 3
+      },
+      "Amol Landge": {
+        "revenue": 10376,
+        "count": 1
       },
       "Honey Talreja": {
         "revenue": 38500,
@@ -57601,8 +57600,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 198312.4,
-        "count": 18
+        "revenue": 208688.4,
+        "count": 19
       },
       "Quarterly Max": {
         "revenue": 10256,
@@ -57619,8 +57618,8 @@
         "count": 17
       },
       "Renewals": {
-        "revenue": 10376,
-        "count": 1
+        "revenue": 20752,
+        "count": 2
       },
       "Direct Sale": {
         "revenue": 29192.4,
@@ -57680,6 +57679,7 @@
     },
     "workingAgents": [
       "Kush Shah",
+      "Amol Landge",
       "Honey Talreja",
       "Rohit Jain",
       "Kunal Sharma",
@@ -70512,13 +70512,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 324,
-      "otpVerified": 247,
-      "serviceable": 167,
-      "serviceableWithPct": "167 (51.5%)",
-      "serviceablePct": "51.5%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 2,
       "revenue": 37532.06
@@ -71731,9 +71725,9 @@
       "revenue": 27146
     },
     "missedLeads": {
-      "Connected": 162,
-      "Interested": 125,
-      "Paise Dega": 24
+      "Connected": 152,
+      "Interested": 113,
+      "Paise Dega": 23
     },
     "refunds": {
       "count": 4,
@@ -71750,7 +71744,7 @@
           "refundId": "rfnd_TvLyxGPWAiitYz",
           "paymentId": "pay_TcBfEst2GcFLvn",
           "amount": 11000,
-          "status": "pending",
+          "status": "processed",
           "date": "02/11/2026 20:48:32"
         },
         {
@@ -71791,17 +71785,17 @@
       "total": 350601.6,
       "count": 36
     },
-    "newUsers7d": 2087,
+    "newUsers7d": 2027,
     "newUsersYesterday": 230,
     "activeSubs": 5176,
     "newSubs7d": 137,
-    "teleCrmLeads": 324,
-    "subsEnding5d": 73,
-    "subsExpired7d": 100,
-    "subsExpiringToday": 9,
+    "teleCrmLeads": 341,
+    "subsEnding5d": 78,
+    "subsExpired7d": 99,
+    "subsExpiringToday": 5,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2427,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 27,
       "Orders Placed": 27,
