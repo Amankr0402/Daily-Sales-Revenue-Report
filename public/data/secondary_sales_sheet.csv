@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"827,702",,,75.5,
+,,,,"1,006,681",,,92.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -67,44 +67,44 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 65,11/4/2026,,Amol Landge,"12,000",No,Annual Max,1,Organic
 66,11/4/2026,9695793398,Honey Talreja,"19,573",No,Annual Max,2,Organic
 67,11/4/2026,9770881484,Prerak Bhavsar,"10,325",No,Annual Plus,1,Organic
-68,11/5/2026,9854547978,Others,"12,000",No,Annual Max,1,Organic
+68,11/5/2026,9854547978,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 69,11/5/2026,8469980154,Yuvraj Singh Dodiya,"18,000",No,Ultra Annually,1,Organic
-70,11/5/2026,8780236263,Vikas Poonia,"11,000",No,Annual Max,1,Organic
-71,11/5/2026,9024368054,Rohit Jain,"15,573",No,Annual Max,1,Organic
-72,11/5/2026,8553920421,Amol Landge,"12,000",No,Annual Max,1,Organic
-73,11/5/2026,9164706384,Preyashi Roy,"9,000",No,Annual Plus,1,Organic
-74,11/5/2026,9741533677,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
-75,11/5/2026,9820749429,Amol Landge,"11,376",No,Annual Max,1,Renewals
-76,11/5/2026,9649999943,Vikas Poonia,"12,216",No,Annual Max,1,Organic
-77,11/5/2026,,,,,,,
-78,11/5/2026,,,,,,,
-79,11/5/2026,,,,,,,
-80,11/5/2026,,,,,,,
-81,11/5/2026,,,,,,,
-82,11/5/2026,,,,,,,
-83,11/5/2026,,,,,,,
-84,11/5/2026,,,,,,,
-85,11/5/2026,,,,,,,
-86,11/5/2026,,,,,,,
-87,11/5/2026,,,,,,,
-88,11/5/2026,,,,,,,
-89,11/5/2026,,,,,,,
-90,11/5/2026,,,,,,,
-91,11/5/2026,,,,,,,
-92,11/5/2026,,,,,,,
-93,11/5/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+70,11/5/2026,8780236262,Vikas Poonia,"5,500",Yes,Annual Max,0.5,Organic
+71,11/5/2026,8780236262,Honey Talreja,"5,500",Yes,Annual Max,0.5,Organic
+72,11/5/2026,9024368054,Rohit Jain,"15,573",No,Annual Max,1,Organic
+73,11/5/2026,8553920421,Amol Landge,"12,000",No,Annual Max,1,Organic
+74,11/5/2026,9164706384,Preyashi Roy,"9,000",Yes,Annual Plus,0.5,Organic
+75,11/5/2026,9741533677,Shubham Rai,"6,000",Yes,Annual Max,0.5,Organic
+76,11/5/2026,9741533677,Yuvraj Singh Dodiya,"6,000",No,Annual Max,1,Organic
+77,11/5/2026,9820749429,Amol Landge,"11,376",No,Annual Max,1,Renewals
+78,11/5/2026,9649999943,Vikas Poonia,"12,216",No,Annual Max,1,Organic
+79,11/5/2026,9582937173,Vivek Shah,"9,000",No,Annual Plus,1,Organic
+80,11/5/2026,9823420406,Shubham Rai,"3,000",No,One Month Max,0.5,Organic
+81,11/5/2026,9716138448,Shubham Rai,"3,000",No,One Month Max,0.5,Organic
+82,11/5/2026,9377169654,Tanveer Ahmed,"6,000",Yes,Annual Max,0.5,Organic
+83,11/5/2026,9377169654,Darshan KS,"6,000",Yes,Annual Max,0.5,Organic
+84,11/5/2026,8460131035,Preyashi Roy,"13,073",No,Annual Max,1,Organic
+85,11/5/2026,9909990979,Chhaya Patel,"12,000",No,Annual Max,1,Organic
+86,11/5/2026,9716127210,Supratim Dutta,"12,000",No,Annual Max,1,Organic
+87,11/5/2026,8553920412,Honey Talreja,"12,000",No,Annual Max,1,Organic
+88,11/5/2026,7972258997,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+89,11/5/2026,8890012213,Vikas Poonia,"12,216",No,Annual Max,1,Organic
+90,11/5/2026,8160674666,Darshan KS,"12,000",No,Annual Max,1,Organic
+91,11/5/2026,9000161230,Shubham Rai,"9,787",No,Annual Max,1,Organic
+92,11/5/2026,9920764008,Shubham Rai,"9,787",No,Annual Max,1,Organic
+93,11/5/2026,8980876118,Shubham Rai,"9,787",No,Annual Max,1,Organic
+94,11/5/2026,9607692571,Honey Talreja,"19,573",No,Annual Max,2,Organic
+95,11/5/2026,9034706532,Kush Shah,"12,216",No,Annual Max,1,Organic
+96,11/5/2026,8890012213,Vikas Poonia,"5,541",No,Annual Max,1,Upgrade
+97,11/5/2026,,,,,,,
+98,11/5/2026,,,,,,,
+99,11/5/2026,,,,,,,
+100,11/5/2026,,,,,,,
+101,11/5/2026,,,,,,,
+102,11/5/2026,,,,,,,
+103,11/5/2026,,,,,,,
+104,11/5/2026,,,,,,,
+105,11/5/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
