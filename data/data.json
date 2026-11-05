@@ -59044,9 +59044,9 @@
   },
   {
     "date": "2026-07-13",
-    "totalRevenue": 278527.45,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 275367.45,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 30000,
       "agent": "Shikha Singh",
@@ -59064,10 +59064,6 @@
       "Shikha Singh": {
         "revenue": 42000,
         "count": 2
-      },
-      "Preyashi Roy": {
-        "revenue": 3160,
-        "count": 1
       },
       "Tanveer Ahmed": {
         "revenue": 32400,
@@ -59107,10 +59103,6 @@
         "revenue": 30000,
         "count": 1
       },
-      "One month plus": {
-        "revenue": 3160,
-        "count": 1
-      },
       "Quarterly Max": {
         "revenue": 5756,
         "count": 1
@@ -59130,8 +59122,8 @@
         "count": 4
       },
       "Organic": {
-        "revenue": 135436,
-        "count": 13
+        "revenue": 132276,
+        "count": 12
       },
       "B2B": {
         "revenue": 30000,
@@ -59155,7 +59147,6 @@
       "Vikas Poonia",
       "Honey Talreja",
       "Shikha Singh",
-      "Preyashi Roy",
       "Tanveer Ahmed",
       "Kausturi Roy Chowdhury",
       "Jivesh Harde",
@@ -61397,9 +61388,9 @@
   },
   {
     "date": "2026-07-28",
-    "totalRevenue": 276134,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 265134,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivani Gupta",
@@ -61419,8 +61410,8 @@
         "count": 2
       },
       "Shivani Gupta": {
-        "revenue": 23000,
-        "count": 2
+        "revenue": 12000,
+        "count": 1
       },
       "Amol Landge": {
         "revenue": 52128,
@@ -61457,8 +61448,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 219756,
-        "count": 21
+        "revenue": 208756,
+        "count": 20
       },
       "Annual Mini": {
         "revenue": 19822,
@@ -61475,8 +61466,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 103256,
-        "count": 10
+        "revenue": 92256,
+        "count": 9
       },
       "Organic": {
         "revenue": 152800,
@@ -79059,13 +79050,7 @@
         "count": 1
       }
     },
-    "userBreakdown": {
-      "signups": 316,
-      "otpVerified": 221,
-      "serviceable": 165,
-      "serviceableWithPct": "165 (52.2%)",
-      "serviceablePct": "52.2%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 3,
       "revenue": 33967.42
@@ -80303,9 +80288,9 @@
   },
   {
     "date": "2026-11-04",
-    "totalRevenue": 243813,
-    "salesCount": 22,
-    "transactions": 19,
+    "totalRevenue": 263386,
+    "salesCount": 24,
+    "transactions": 20,
     "highestSale": {
       "amount": 17573,
       "agent": "Self Serve",
@@ -80329,8 +80314,8 @@
         "count": 3
       },
       "Honey Talreja": {
-        "revenue": 14000,
-        "count": 2
+        "revenue": 33573,
+        "count": 4
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 12000,
@@ -80359,34 +80344,34 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 210456,
-        "count": 19
+        "revenue": 230029,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 5459,
         "count": 1
       },
       "Annual Plus": {
-        "revenue": 10325,
-        "count": 1
+        "revenue": 0,
+        "count": 0
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 178310,
-        "count": 17
+        "revenue": 197883,
+        "count": 19
       },
       "Renewals": {
         "revenue": 5459,
         "count": 1
       },
-      "Direct Sale": {
-        "revenue": 42471,
-        "count": 3
-      },
       "Overlap Deals": {
-        "revenue": 17573,
-        "count": 1
+        "revenue": 27898,
+        "count": 2
+      },
+      "Direct Sale": {
+        "revenue": 32146,
+        "count": 2
       }
     },
     "userBreakdown": {
@@ -80401,6 +80386,21 @@
       "revenue": 60044
     },
     "collidingDeals": [
+      {
+        "date": "2026-11-04",
+        "rawDate": "04/11/2026 23:39",
+        "customerName": "akash panchal",
+        "phone": "9770881484",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 10325,
+        "revenue": 10325,
+        "directRevenue": 10325,
+        "plan": "Annual Plus",
+        "source": "Organic",
+        "directOrderId": "fbde3e70-611a-4e21-9e46-688ef8a60c8a",
+        "directUserId": "UR554992",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹10325 and also completed on Direct Portal for ₹10325"
+      },
       {
         "date": "2026-11-04",
         "rawDate": "04/11/2026 13:28",
@@ -80420,6 +80420,21 @@
     "disputedDeals": [
       {
         "date": "2026-11-04",
+        "rawDate": "04/11/2026 23:39",
+        "customerName": "akash panchal",
+        "phone": "9770881484",
+        "agent": "Prerak Bhavsar",
+        "insideRevenue": 10325,
+        "revenue": 10325,
+        "directRevenue": 10325,
+        "plan": "Annual Plus",
+        "source": "Organic",
+        "directOrderId": "fbde3e70-611a-4e21-9e46-688ef8a60c8a",
+        "directUserId": "UR554992",
+        "disputeNote": "Logged by Inside Sales agent (Prerak Bhavsar) for ₹10325 and also completed on Direct Portal for ₹10325"
+      },
+      {
+        "date": "2026-11-04",
         "rawDate": "04/11/2026 13:28",
         "customerName": "Akash Baban Mohite",
         "phone": "7738833800",
@@ -80435,16 +80450,16 @@
       }
     ],
     "collidingTotal": {
-      "count": 1,
-      "revenue": 17573
+      "count": 2,
+      "revenue": 27898
     },
     "disputedTotal": {
-      "count": 1,
-      "revenue": 17573
+      "count": 2,
+      "revenue": 27898
     },
     "missedLeads": {
-      "Connected": 160,
-      "Interested": 99,
+      "Connected": 161,
+      "Interested": 119,
       "Paise Dega": 19
     },
     "workingAgents": [
@@ -80477,14 +80492,14 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 1928,
+    "newUsers7d": 1945,
     "newUsersYesterday": 203,
     "activeSubs": 5193,
-    "newSubs7d": 144,
-    "teleCrmLeads": 282,
-    "subsEnding5d": 83,
-    "subsExpired7d": 98,
-    "subsExpiringToday": 12,
+    "newSubs7d": 146,
+    "teleCrmLeads": 463,
+    "subsEnding5d": 79,
+    "subsExpired7d": 81,
+    "subsExpiringToday": 9,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2427,
     "activeSubNoOrder": 119,
