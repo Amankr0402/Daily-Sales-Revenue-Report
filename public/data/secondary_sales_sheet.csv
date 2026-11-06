@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"1,026,896",,,94.5,
+,,,,"1,142,243",,,106.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -98,23 +98,23 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 96,11/5/2026,8890012213,Vikas Poonia,"5,541",No,Annual Max,1,Upgrade
 97,11/5/2026,9920238373,Chhaya Patel,"12,215",No,Annual Max,1,Organic
 98,11/5/2026,9731642465,Shivani Gupta,"8,000",No,Quarterly Max,1,Organic
-99,11/5/2026,,,,,,,
-100,11/5/2026,,,,,,,
-101,11/5/2026,,,,,,,
-102,11/5/2026,,,,,,,
-103,11/5/2026,,,,,,,
-104,11/5/2026,,,,,,,
-105,11/5/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+99,11/6/2026,8378992779,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+100,11/6/2026,7989381457,Honey Talreja,"13,073",No,Annual Max,1,Organic
+101,11/6/2026,7386884467,Amol Landge,"11,376",No,Annual Max,1,Renewals
+102,11/6/2026,9703818038,Amol Landge,"5,000",No,Quarterly Max,1,Organic
+103,11/6/2026,9739774222,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+104,11/6/2026,9322024765,Amol Landge,"11,376",No,Annual Max,1,Renewals
+105,11/6/2026,8850907649,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+106,11/6/2026,9121021955,Preyashi Roy,"19,573",No,Annual Max,2,Organic
+107,11/6/2026,9963790811,Honey Talreja,"19,573",No,Annual Max,2,Organic
+108,11/6/2026,7982543021,Amol Landge,"1,000",No,Quarterly Max,1,Upgrade
+109,11/6/2026,,,,,,,
+110,11/6/2026,,,,,,,
+111,11/6/2026,,,,,,,
+112,11/6/2026,,,,,,,
+113,11/6/2026,,,,,,,
+114,11/6/2026,,,,,,,
+115,11/6/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
