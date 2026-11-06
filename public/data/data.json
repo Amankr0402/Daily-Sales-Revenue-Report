@@ -61904,9 +61904,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 462538,
-    "salesCount": 48,
-    "transactions": 48,
+    "totalRevenue": 473538,
+    "salesCount": 49,
+    "transactions": 49,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61920,6 +61920,10 @@
       "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 15500,
+        "count": 2
       },
       "Amol Landge": {
         "revenue": 109376,
@@ -61945,10 +61949,6 @@
         "revenue": 21000,
         "count": 2
       },
-      "Preyashi Roy": {
-        "revenue": 4500,
-        "count": 1
-      },
       "Shubham Rai": {
         "revenue": 12000,
         "count": 1
@@ -61964,8 +61964,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 388282,
-        "count": 33
+        "revenue": 399282,
+        "count": 34
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -61982,8 +61982,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 92248,
-        "count": 9
+        "revenue": 103248,
+        "count": 10
       },
       "Events": {
         "revenue": 206752,
@@ -62122,13 +62122,13 @@
     "workingAgents": [
       "Honey Talreja",
       "Chhaya Patel",
+      "Preyashi Roy",
       "Amol Landge",
       "Vikas Poonia",
       "Prerak Bhavsar",
       "Sneha Anand",
       "Kausturi Roy Chowdhury",
       "Shivani Gupta",
-      "Preyashi Roy",
       "Shubham Rai",
       "Vivek Shah",
       "Kush Shah"
@@ -79550,10 +79550,10 @@
     },
     "userBreakdown": {
       "signups": 284,
-      "otpVerified": 198,
-      "serviceable": 128,
-      "serviceableWithPct": "128 (45.1%)",
-      "serviceablePct": "45.1%"
+      "otpVerified": 199,
+      "serviceable": 129,
+      "serviceableWithPct": "129 (45.4%)",
+      "serviceablePct": "45.4%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -80380,9 +80380,9 @@
     "userBreakdown": {
       "signups": 335,
       "otpVerified": 231,
-      "serviceable": 161,
-      "serviceableWithPct": "161 (48.1%)",
-      "serviceablePct": "48.1%"
+      "serviceable": 162,
+      "serviceableWithPct": "162 (48.4%)",
+      "serviceablePct": "48.4%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -80729,9 +80729,9 @@
       "total": 236
     },
     "missedLeads": {
-      "Connected": 301,
-      "Interested": 167,
-      "Paise Dega": 33
+      "Connected": 266,
+      "Interested": 132,
+      "Paise Dega": 23
     },
     "refunds": {
       "count": 4,
@@ -80796,7 +80796,7 @@
     },
     "newUsers7d": 2107,
     "newUsersYesterday": 391,
-    "activeSubs": 5204,
+    "activeSubs": 5205,
     "newSubs7d": 152,
     "teleCrmLeads": 546,
     "subsEnding5d": 83,
@@ -80804,24 +80804,24 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2427,
-    "activeSubNoOrder": 122,
+    "activeSubNoOrder": 123,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 25,
-      "Orders Placed": 25,
-      "Orders - CONFIRMED": 9,
-      "Orders Confirmed": 9,
+      "Orders - PLACED": 21,
+      "Orders Placed": 21,
+      "Orders - CONFIRMED": 13,
+      "Orders Confirmed": 13,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 9,
-      "Orders Shipped": 9,
-      "Orders - Not Delivered": 46,
-      "Orders Not Delivered": 44
+      "Orders - SHIPPED": 4,
+      "Orders Shipped": 4,
+      "Orders - Not Delivered": 41,
+      "Orders Not Delivered": 39
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 186,
-      "New Subscribers Orders that have been Delivered": 140,
-      "New Subscribers Orders yet to be Delivered": 46,
-      "New Subscribers Orders yet to be Delivered & Delayed": 5
+      "New Subscribers Orders that have been Delivered": 145,
+      "New Subscribers Orders yet to be Delivered": 41,
+      "New Subscribers Orders yet to be Delivered & Delayed": 6
     },
     "selfUpgrade": {
       "totalCount": 0,
