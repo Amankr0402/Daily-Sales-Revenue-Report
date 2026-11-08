@@ -64181,9 +64181,9 @@
   },
   {
     "date": "2026-08-13",
-    "totalRevenue": 290608,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 302608,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
@@ -64193,6 +64193,10 @@
       "Honey Talreja": {
         "revenue": 36000,
         "count": 3
+      },
+      "Jivesh Harde": {
+        "revenue": 12000,
+        "count": 1
       },
       "Tanveer Ahmed": {
         "revenue": 36000,
@@ -64233,8 +64237,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 257073,
-        "count": 21
+        "revenue": 269073,
+        "count": 22
       },
       "Quarterly Max": {
         "revenue": 4246,
@@ -64243,8 +64247,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 240000,
-        "count": 20
+        "revenue": 252000,
+        "count": 21
       },
       "Direct Sale": {
         "revenue": 21319,
@@ -64340,6 +64344,7 @@
     },
     "workingAgents": [
       "Honey Talreja",
+      "Jivesh Harde",
       "Tanveer Ahmed",
       "Chhaya Patel",
       "Kausturi Roy Chowdhury",
@@ -80361,11 +80366,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 335,
-      "otpVerified": 232,
+      "signups": 334,
+      "otpVerified": 231,
       "serviceable": 163,
-      "serviceableWithPct": "163 (48.7%)",
-      "serviceablePct": "48.7%"
+      "serviceableWithPct": "163 (48.8%)",
+      "serviceablePct": "48.8%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -80624,10 +80629,10 @@
     },
     "userBreakdown": {
       "signups": 460,
-      "otpVerified": 301,
-      "serviceable": 213,
-      "serviceableWithPct": "213 (46.3%)",
-      "serviceablePct": "46.3%"
+      "otpVerified": 302,
+      "serviceable": 214,
+      "serviceableWithPct": "214 (46.5%)",
+      "serviceablePct": "46.5%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -80998,16 +81003,16 @@
       }
     },
     "userBreakdown": {
-      "signups": 281,
-      "otpVerified": 142,
+      "signups": 280,
+      "otpVerified": 141,
       "serviceable": 92,
-      "serviceableWithPct": "92 (32.7%)",
-      "serviceablePct": "32.7%"
+      "serviceableWithPct": "92 (32.9%)",
+      "serviceablePct": "32.9%"
     },
     "missedLeads": {
-      "Connected": 264,
-      "Interested": 138,
-      "Paise Dega": 29
+      "Connected": 310,
+      "Interested": 197,
+      "Paise Dega": 42
     },
     "refunds": {
       "count": 2,
@@ -81052,8 +81057,8 @@
       "count": 16
     },
     "newUsers7d": 2126,
-    "newUsersYesterday": 244,
-    "activeSubs": 5205,
+    "newUsersYesterday": 252,
+    "activeSubs": 5202,
     "newSubs7d": 126,
     "teleCrmLeads": 382,
     "subsEnding5d": 83,
@@ -81061,24 +81066,24 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2428,
-    "activeSubNoOrder": 127,
+    "activeSubNoOrder": 126,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 23,
-      "Orders Placed": 23,
-      "Orders - CONFIRMED": 17,
-      "Orders Confirmed": 17,
+      "Orders - PLACED": 21,
+      "Orders Placed": 21,
+      "Orders - CONFIRMED": 13,
+      "Orders Confirmed": 13,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 4,
-      "Orders Shipped": 4,
-      "Orders - Not Delivered": 46,
-      "Orders Not Delivered": 44
+      "Orders - SHIPPED": 6,
+      "Orders Shipped": 6,
+      "Orders - Not Delivered": 41,
+      "Orders Not Delivered": 40
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 206,
-      "New Subscribers Orders that have been Delivered": 160,
-      "New Subscribers Orders yet to be Delivered": 46,
-      "New Subscribers Orders yet to be Delivered & Delayed": 6
+      "New Subscribers Orders that have been Delivered": 165,
+      "New Subscribers Orders yet to be Delivered": 41,
+      "New Subscribers Orders yet to be Delivered & Delayed": 5
     },
     "selfUpgrade": {
       "totalCount": 0,
