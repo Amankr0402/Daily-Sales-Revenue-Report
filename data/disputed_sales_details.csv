@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-11-09","Sana Ansari","8587068969","Honey Talreja",12573,12573,"Annual Max","Renewals","3478b512-a6b0-4fab-84dc-12dc9465d859","UR219692","Logged by Inside Sales agent (Honey Talreja) for ₹12573 and also completed on Direct Portal for ₹12573"
 "2026-11-05","hardik vadoliya","8460131035","Preyashi Roy",13073,12448.11,"Annual Max","Organic","0868793b-cd4f-4492-93be-4ec52e1f8d2b","UR554552","Logged by Inside Sales agent (Preyashi Roy) for ₹13073 and also completed on Direct Portal for ₹12448.11"
 "2026-11-05","Priyanka","9024368054","Rohit Jain",15573,15573,"Annual Max","Organic","70888331-3ee1-4438-91dc-d5653c1a9c1c","UR554930","Logged by Inside Sales agent (Rohit Jain) for ₹15573 and also completed on Direct Portal for ₹15573"
 "2026-11-04","akash panchal","9770881484","Prerak Bhavsar",10325,10325,"Annual Plus","Organic","fbde3e70-611a-4e21-9e46-688ef8a60c8a","UR554992","Logged by Inside Sales agent (Prerak Bhavsar) for ₹10325 and also completed on Direct Portal for ₹10325"
