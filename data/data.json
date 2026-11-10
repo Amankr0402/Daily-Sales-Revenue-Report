@@ -61051,9 +61051,9 @@
   },
   {
     "date": "2026-07-26",
-    "totalRevenue": 294621,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 290121,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -61073,8 +61073,8 @@
         "count": 5
       },
       "Amol Landge": {
-        "revenue": 65628,
-        "count": 7
+        "revenue": 61128,
+        "count": 6
       },
       "Vivek Shah": {
         "revenue": 22000,
@@ -61103,8 +61103,8 @@
         "count": 23
       },
       "Quarterly Max": {
-        "revenue": 20512,
-        "count": 4
+        "revenue": 16012,
+        "count": 3
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -61117,8 +61117,8 @@
         "count": 13
       },
       "Events": {
-        "revenue": 96132,
-        "count": 10
+        "revenue": 91632,
+        "count": 9
       },
       "Renewals": {
         "revenue": 10376,
@@ -61904,9 +61904,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 473538,
-    "salesCount": 49,
-    "transactions": 49,
+    "totalRevenue": 462538,
+    "salesCount": 48,
+    "transactions": 48,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61920,10 +61920,6 @@
       "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
-      },
-      "Preyashi Roy": {
-        "revenue": 15500,
-        "count": 2
       },
       "Amol Landge": {
         "revenue": 109376,
@@ -61949,6 +61945,10 @@
         "revenue": 21000,
         "count": 2
       },
+      "Preyashi Roy": {
+        "revenue": 4500,
+        "count": 1
+      },
       "Shubham Rai": {
         "revenue": 12000,
         "count": 1
@@ -61964,8 +61964,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 399282,
-        "count": 34
+        "revenue": 388282,
+        "count": 33
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -61982,8 +61982,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 103248,
-        "count": 10
+        "revenue": 92248,
+        "count": 9
       },
       "Events": {
         "revenue": 206752,
@@ -62122,13 +62122,13 @@
     "workingAgents": [
       "Honey Talreja",
       "Chhaya Patel",
-      "Preyashi Roy",
       "Amol Landge",
       "Vikas Poonia",
       "Prerak Bhavsar",
       "Sneha Anand",
       "Kausturi Roy Chowdhury",
       "Shivani Gupta",
+      "Preyashi Roy",
       "Shubham Rai",
       "Vivek Shah",
       "Kush Shah"
@@ -64727,9 +64727,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 467135.4,
-    "salesCount": 45,
-    "transactions": 45,
+    "totalRevenue": 462135.4,
+    "salesCount": 44,
+    "transactions": 44,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -64753,8 +64753,8 @@
         "count": 5
       },
       "Prerak Bhavsar": {
-        "revenue": 16000,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Vikas Poonia": {
         "revenue": 12000,
@@ -64810,10 +64810,6 @@
         "revenue": 417538.4,
         "count": 36
       },
-      "Quarterly Max": {
-        "revenue": 30012,
-        "count": 6
-      },
       "6 months Max": {
         "revenue": 7100,
         "count": 1
@@ -64822,6 +64818,10 @@
         "revenue": 0,
         "count": 0
       },
+      "Quarterly Max": {
+        "revenue": 25012,
+        "count": 5
+      },
       "Annual Plus": {
         "revenue": 9325,
         "count": 1
@@ -64829,8 +64829,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 296969,
-        "count": 28
+        "revenue": 291969,
+        "count": 27
       },
       "Renewals": {
         "revenue": 22376,
@@ -81256,10 +81256,115 @@
       "tax": 90,
       "total": 590
     },
+    "workingAgents": [
+      "Chhaya Patel"
+    ],
+    "refundsLast7Days": {
+      "total": 70462,
+      "count": 6
+    },
+    "refunds": {
+      "count": 0,
+      "total": 0,
+      "items": []
+    },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-11-10",
+    "totalRevenue": 255561,
+    "salesCount": 25,
+    "transactions": 25,
+    "highestSale": {
+      "amount": 15573,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 53817,
+        "count": 6
+      },
+      "Preyashi Roy": {
+        "revenue": 48000,
+        "count": 4
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 11744,
+        "count": 1
+      },
+      "Chhaya Patel": {
+        "revenue": 24541,
+        "count": 2
+      },
+      "Prerak Bhavsar": {
+        "revenue": 6787,
+        "count": 1
+      },
+      "Shubham Rai": {
+        "revenue": 36787,
+        "count": 4
+      },
+      "Kush Shah": {
+        "revenue": 29600,
+        "count": 3
+      },
+      "Tanveer Ahmed": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivani Gupta": {
+        "revenue": 4381,
+        "count": 1
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 244718,
+        "count": 23
+      },
+      "Quarterly Max": {
+        "revenue": 10843,
+        "count": 2
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 223276,
+        "count": 22
+      },
+      "Upgrade": {
+        "revenue": 4381,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 27904,
+        "count": 2
+      }
+    },
+    "userBreakdown": {
+      "signups": 452,
+      "otpVerified": 183,
+      "serviceable": 129,
+      "serviceableWithPct": "129 (28.5%)",
+      "serviceablePct": "28.5%"
+    },
+    "directSaleCSV": {
+      "count": 2,
+      "revenue": 27904
+    },
     "missedLeads": {
-      "Connected": 255,
+      "Connected": 256,
       "Interested": 169,
-      "Paise Dega": 31
+      "Paise Dega": 30
     },
     "workingAgents": [
       "Chhaya Patel"
@@ -81275,7 +81380,7 @@
     },
     "newUsers7d": 2445,
     "newUsersYesterday": 402,
-    "activeSubs": 5190,
+    "activeSubs": 5191,
     "newSubs7d": 100,
     "teleCrmLeads": 501,
     "subsEnding5d": 87,
@@ -81285,21 +81390,21 @@
     "planExpNoOrder": 2428,
     "activeSubNoOrder": 122,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 16,
-      "Orders Placed": 16,
-      "Orders - CONFIRMED": 14,
-      "Orders Confirmed": 14,
+      "Orders - PLACED": 23,
+      "Orders Placed": 23,
+      "Orders - CONFIRMED": 17,
+      "Orders Confirmed": 17,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
       "Orders - SHIPPED": 2,
       "Orders Shipped": 2,
-      "Orders - Not Delivered": 32,
-      "Orders Not Delivered": 32
+      "Orders - Not Delivered": 42,
+      "Orders Not Delivered": 42
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 218,
+      "New Subscribers who have Ordered": 228,
       "New Subscribers Orders that have been Delivered": 186,
-      "New Subscribers Orders yet to be Delivered": 32,
+      "New Subscribers Orders yet to be Delivered": 42,
       "New Subscribers Orders yet to be Delivered & Delayed": 11
     },
     "selfUpgrade": {
