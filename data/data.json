@@ -57873,9 +57873,9 @@
   },
   {
     "date": "2026-07-05",
-    "totalRevenue": 384724,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 389224,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 17500,
       "agent": "Jivesh Harde",
@@ -57910,6 +57910,10 @@
         "revenue": 49500,
         "count": 4
       },
+      "Shubham Rai": {
+        "revenue": 4500,
+        "count": 1
+      },
       "Shikha Singh": {
         "revenue": 11000,
         "count": 1
@@ -57937,8 +57941,8 @@
         "count": 32
       },
       "Quarterly Max": {
-        "revenue": 20456,
-        "count": 4
+        "revenue": 24956,
+        "count": 5
       },
       "Annual Plus": {
         "revenue": 9000,
@@ -57951,8 +57955,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 186500,
-        "count": 18
+        "revenue": 191000,
+        "count": 19
       },
       "Events": {
         "revenue": 107752,
@@ -57990,6 +57994,7 @@
       "Prerak Bhavsar",
       "Honey Talreja",
       "Jivesh Harde",
+      "Shubham Rai",
       "Shikha Singh",
       "Kush Shah",
       "Others",
@@ -61649,9 +61654,9 @@
   },
   {
     "date": "2026-07-30",
-    "totalRevenue": 255894,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 244894,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61671,8 +61676,8 @@
         "count": 4
       },
       "Honey Talreja": {
-        "revenue": 42241,
-        "count": 5
+        "revenue": 31241,
+        "count": 4
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -61697,8 +61702,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 230972,
-        "count": 23
+        "revenue": 219972,
+        "count": 22
       },
       "Annual Mini": {
         "revenue": 4241,
@@ -61715,8 +61720,8 @@
         "count": 3
       },
       "Organic": {
-        "revenue": 160833,
-        "count": 19
+        "revenue": 149833,
+        "count": 18
       },
       "Events": {
         "revenue": 22000,
@@ -64176,22 +64181,22 @@
   },
   {
     "date": "2026-08-13",
-    "totalRevenue": 302608,
-    "salesCount": 25,
-    "transactions": 25,
+    "totalRevenue": 290608,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 17073,
       "agent": "Honey Talreja",
       "source": "Inside Sales"
     },
     "agents": {
-      "Honey Talreja": {
-        "revenue": 36000,
-        "count": 3
-      },
       "Jivesh Harde": {
         "revenue": 12000,
         "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 24000,
+        "count": 2
       },
       "Tanveer Ahmed": {
         "revenue": 36000,
@@ -64232,8 +64237,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 269073,
-        "count": 22
+        "revenue": 257073,
+        "count": 21
       },
       "Quarterly Max": {
         "revenue": 4246,
@@ -64242,8 +64247,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 252000,
-        "count": 21
+        "revenue": 240000,
+        "count": 20
       },
       "Direct Sale": {
         "revenue": 21319,
@@ -64338,8 +64343,8 @@
       "total": 354
     },
     "workingAgents": [
-      "Honey Talreja",
       "Jivesh Harde",
+      "Honey Talreja",
       "Tanveer Ahmed",
       "Chhaya Patel",
       "Kausturi Roy Chowdhury",
@@ -80064,13 +80069,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 266,
-      "otpVerified": 176,
-      "serviceable": 128,
-      "serviceableWithPct": "128 (48.1%)",
-      "serviceablePct": "48.1%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 2,
       "revenue": 27146
@@ -80618,10 +80617,10 @@
     },
     "userBreakdown": {
       "signups": 460,
-      "otpVerified": 302,
-      "serviceable": 214,
-      "serviceableWithPct": "214 (46.5%)",
-      "serviceablePct": "46.5%"
+      "otpVerified": 303,
+      "serviceable": 215,
+      "serviceableWithPct": "215 (46.7%)",
+      "serviceablePct": "46.7%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -81188,10 +81187,10 @@
     },
     "userBreakdown": {
       "signups": 428,
-      "otpVerified": 153,
-      "serviceable": 117,
-      "serviceableWithPct": "117 (27.3%)",
-      "serviceablePct": "27.3%"
+      "otpVerified": 154,
+      "serviceable": 118,
+      "serviceableWithPct": "118 (27.6%)",
+      "serviceablePct": "27.6%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -81240,15 +81239,15 @@
       "revenue": 12573
     },
     "deliveryFee": {
-      "transactions": 4,
-      "charge": 400,
-      "tax": 72,
-      "total": 472
+      "transactions": 5,
+      "charge": 500,
+      "tax": 90,
+      "total": 590
     },
     "missedLeads": {
-      "Connected": 292,
-      "Interested": 182,
-      "Paise Dega": 30
+      "Connected": 253,
+      "Interested": 164,
+      "Paise Dega": 38
     },
     "workingAgents": [
       "Shivani Gupta",
@@ -81265,17 +81264,17 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 2283,
+    "newUsers7d": 2445,
     "newUsersYesterday": 354,
-    "activeSubs": 5194,
-    "newSubs7d": 111,
-    "teleCrmLeads": 440,
+    "activeSubs": 5193,
+    "newSubs7d": 100,
+    "teleCrmLeads": 500,
     "subsEnding5d": 87,
-    "subsExpired7d": 82,
-    "subsExpiringToday": 12,
+    "subsExpired7d": 83,
+    "subsExpiringToday": 10,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2428,
-    "activeSubNoOrder": 126,
+    "activeSubNoOrder": 125,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 19,
       "Orders Placed": 19,
@@ -81292,7 +81291,7 @@
       "New Subscribers who have Ordered": 218,
       "New Subscribers Orders that have been Delivered": 177,
       "New Subscribers Orders yet to be Delivered": 41,
-      "New Subscribers Orders yet to be Delivered & Delayed": 11
+      "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
       "totalCount": 0,
