@@ -199,7 +199,7 @@ function parseCSVLine(text) {
   return result;
 }
 
-function parseDate(rawDate) {
+function parseDate(rawDate, expectedMonth = null) {
   if (!rawDate) return null;
   const clean = rawDate.replace(/"/g, '').trim();
   if (!clean) return null;
@@ -213,40 +213,58 @@ function parseDate(rawDate) {
       if (y.length === 2) y = '20' + y;
 
       let m, d;
-      // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/07/2026, 30/09/2026)
-      if (p1 > 12) {
-        d = p1;
-        m = p2;
+      // If expectedMonth is specified (e.g. 11 for November sheet, 10 for October)
+      if (expectedMonth !== null) {
+        if (p1 === expectedMonth) {
+          m = p1;
+          d = p2;
+        } else if (p2 === expectedMonth) {
+          d = p1;
+          m = p2;
+        }
       }
-      // If p2 > 12, it's definitely M/D/YYYY (e.g. 10/25/2026)
-      else if (p2 > 12) {
-        m = p1;
-        d = p2;
-      }
-      // If first part is month 8, 9, 10, 11, 12 with single digit day (e.g. 10/1/2026, 10/2/2026, 9/5/2026)
-      else if ((p1 === 8 || p1 === 9 || p1 === 10 || p1 === 11 || p1 === 12) && parts[1].length === 1) {
-        m = p1;
-        d = p2;
-      }
-      // If parts[0] has 2 digits and parts[1] has 2 digits (standard DD/MM/YYYY, e.g. 01/10/2026)
-      else if (parts[0].length === 2 && parts[1].length === 2) {
-        d = p1;
-        m = p2;
-      }
-      // If second part has leading zero like '08' or '09' (e.g. 12/08/2026)
-      else if (parts[1].startsWith('0') && parts[1].length === 2) {
-        d = p1;
-        m = p2;
-      }
-      // If first part is single digit like 8/1/2026 or 9/5/2026 in M/D/YYYY format
-      else if ((p1 === 8 || p1 === 9) && parts[0].length === 1) {
-        m = p1;
-        d = p2;
-      }
-      // Fallback: DD/MM/YYYY
-      else {
-        d = p1;
-        m = p2;
+
+      if (!m || !d) {
+        // If p1 > 12, it's definitely DD/MM/YYYY (e.g. 13/08/2026, 31/07/2026, 30/09/2026)
+        if (p1 > 12) {
+          d = p1;
+          m = p2;
+        }
+        // If p2 > 12, it's definitely M/D/YYYY (e.g. 10/25/2026, 11/20/2026)
+        else if (p2 > 12) {
+          m = p1;
+          d = p2;
+        }
+        // If first part is 11 (November in M/D/YYYY sheets: 11/1/2026 to 11/30/2026)
+        else if (p1 === 11) {
+          m = 11;
+          d = p2;
+        }
+        // If first part is month 8, 9, 10, 12 with single digit day (e.g. 10/1/2026, 9/5/2026)
+        else if ((p1 === 8 || p1 === 9 || p1 === 10 || p1 === 12) && parts[1].length === 1) {
+          m = p1;
+          d = p2;
+        }
+        // If parts[0] has 2 digits and parts[1] has 2 digits (standard DD/MM/YYYY, e.g. 01/10/2026)
+        else if (parts[0].length === 2 && parts[1].length === 2) {
+          d = p1;
+          m = p2;
+        }
+        // If second part has leading zero like '08' or '09' (e.g. 12/08/2026)
+        else if (parts[1].startsWith('0') && parts[1].length === 2) {
+          d = p1;
+          m = p2;
+        }
+        // If first part is single digit like 8/1/2026 or 9/5/2026 in M/D/YYYY format
+        else if ((p1 === 8 || p1 === 9) && parts[0].length === 1) {
+          m = p1;
+          d = p2;
+        }
+        // Fallback: DD/MM/YYYY
+        else {
+          d = p1;
+          m = p2;
+        }
       }
       return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
     }
@@ -341,7 +359,7 @@ async function syncSalesData() {
   const allPureDirectDeals = [];
   const allSelfUpgradeDeals = [];
 
-  function processSheetRows(lines, label) {
+  function processSheetRows(lines, label, expectedMonth = null) {
     if (!lines || lines.length <= 2) return;
     let addedCount = 0;
     let skippedCount = 0;
@@ -364,8 +382,17 @@ async function syncSalesData() {
       const rev = parseFloat(rawRev.replace(/[₹,\s]/g, '')) || 0;
       if (rev <= 0) continue;
 
-      const isoDate = parseDate(rawDate);
+      const isoDate = parseDate(rawDate, expectedMonth);
       if (!isoDate || isoDate.length !== 10 || isoDate >= todayIST) continue;
+
+      // STRICT LOCK: Only November Go Getters sheet can provide deals for November (2026-11-01 onwards)!
+      // Never allow Master archive or older monthly sheets to inject or pollute November deals.
+      if (isoDate >= '2026-11-01' && label !== 'November Go Getters') {
+        continue;
+      }
+      if (label === 'November Go Getters' && !isoDate.startsWith('2026-11')) {
+        continue;
+      }
 
       // Unique deal signature across sheets to prevent duplicate records
       const dealKey = `${isoDate}|${phone || cols[0] || 'nophone'}|${agent.toLowerCase().trim()}|${Math.round(rev)}`;
@@ -457,7 +484,7 @@ async function syncSalesData() {
       fs.writeFileSync(SECONDARY_SHEET_CACHE_FILE, stripTestPhonesFromCSV(sheetNovCSV), 'utf-8');
       console.log(`✅ Cached Secondary Sales Sheet to ${SECONDARY_SHEET_CACHE_FILE}`);
       const sheetNovLines = sheetNovCSV.split('\n').map(l => l.trim()).filter(Boolean);
-      processSheetRows(sheetNovLines, 'November Go Getters');
+      processSheetRows(sheetNovLines, 'November Go Getters', 11);
     } else {
       console.warn('⚠️ Warning: November sheet returned empty or unauthorized HTML page (ensure Google Sheet is shared with "Anyone with the link can view").');
     }
@@ -505,7 +532,7 @@ async function syncSalesData() {
       sheetOctCSV = await fetchSheetCSV(SPREADSHEET_ID_OCT, 'Sales/Rev (Auto)');
       if (sheetOctCSV && sheetOctCSV.length > 50 && !sheetOctCSV.includes('<!DOCTYPE html>')) {
         const octLines = sheetOctCSV.split('\n').map(l => l.trim()).filter(Boolean);
-        processSheetRows(octLines, 'October Go Getters');
+        processSheetRows(octLines, 'October Go Getters', 10);
       }
     } catch (octErr) {
       console.warn('⚠️ Warning: Could not fetch October sheet:', octErr.message);
@@ -520,7 +547,7 @@ async function syncSalesData() {
       sheetSepCSV = await fetchSheetCSV(SPREADSHEET_ID_SEP, 'Sales/Rev (Auto)');
       if (sheetSepCSV && sheetSepCSV.length > 50 && !sheetSepCSV.includes('<!DOCTYPE html>')) {
         const sepLines = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
-        processSheetRows(sepLines, 'September Go Getters');
+        processSheetRows(sepLines, 'September Go Getters', 9);
       }
     } catch (sepErr) {
       console.warn('⚠️ Warning: Could not fetch September sheet:', sepErr.message);
@@ -533,7 +560,7 @@ async function syncSalesData() {
     console.log(`📡 Fetching Primary Google Sheet: "${SHEET_NAME}" (${SPREADSHEET_ID})...`);
     sheetCSV = await fetchSheetCSV(SPREADSHEET_ID, SHEET_NAME);
     const sheetLines = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
-    processSheetRows(sheetLines, 'Primary Master Sheet');
+    processSheetRows(sheetLines, 'Primary Master Sheet', null);
   } catch (primErr) {
     console.warn('⚠️ Warning: Could not fetch Primary Master sheet:', primErr.message);
   }
@@ -544,10 +571,11 @@ async function syncSalesData() {
     const allEvRows = [];
     const seenEv = new Set();
 
-    const addEventRow = (line, sheetTag) => {
+    const addEventRow = (line, sheetTag, expectedMonth = null) => {
       const cols = parseCSVLine(line).map(c => c.replace(/^"|"$/g, '').trim());
-      const d = parseDate(cols[1]);
+      const d = parseDate(cols[1], expectedMonth);
       if (!d || d >= todayIST) return;
+      if (d >= '2026-11-01' && sheetTag !== 'NovemberSheet') return;
       const phone = (cols[2] || '').replace(/\D/g, '').slice(-10);
       if (isTestPhone(phone) || lineContainsTestPhone(line)) return;
       const agent = (cols[3] || '').trim().toLowerCase();
@@ -562,7 +590,7 @@ async function syncSalesData() {
       const linesNov = sheetNovCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < linesNov.length; i++) {
         if (linesNov[i].toLowerCase().includes('event')) {
-          addEventRow(linesNov[i], 'NovemberSheet');
+          addEventRow(linesNov[i], 'NovemberSheet', 11);
         }
       }
     }
@@ -570,7 +598,7 @@ async function syncSalesData() {
       const linesOct = sheetOctCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < linesOct.length; i++) {
         if (linesOct[i].toLowerCase().includes('event')) {
-          addEventRow(linesOct[i], 'OctoberSheet');
+          addEventRow(linesOct[i], 'OctoberSheet', 10);
         }
       }
     }
@@ -578,7 +606,7 @@ async function syncSalesData() {
       const linesSep = sheetSepCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < linesSep.length; i++) {
         if (linesSep[i].toLowerCase().includes('event')) {
-          addEventRow(linesSep[i], 'SeptemberSheet');
+          addEventRow(linesSep[i], 'SeptemberSheet', 9);
         }
       }
     }
@@ -586,7 +614,7 @@ async function syncSalesData() {
       const lines1 = sheetCSV.split('\n').map(l => l.trim()).filter(Boolean);
       for (let i = 2; i < lines1.length; i++) {
         if (lines1[i].toLowerCase().includes('event')) {
-          addEventRow(lines1[i], 'MasterSheet');
+          addEventRow(lines1[i], 'MasterSheet', null);
         }
       }
     }
