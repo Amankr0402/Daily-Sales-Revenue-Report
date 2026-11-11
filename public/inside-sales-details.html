@@ -530,7 +530,7 @@
 
       // ⚡ Yesterday Inside Sales (matching dashboard's Inside Sales)
       setSafeText('kpi-yd-rev', fmt(organicRev));
-      setSafeText('kpi-yd-cnt', Math.round(organicCnt) + ' deals · ' + dateLabel);
+      setSafeText('kpi-yd-cnt', Math.round(organicCnt) + ' deals · ' + dateLabel + (upgradeCnt > 0 ? ' (Total with Upgrades: ' + fmt(ydRev) + ', ' + Math.round(ydCnt) + 'd)' : ''));
 
       // 📊 Inside Sales AOV
       setSafeText('kpi-aov', fmt(organicAOV));
@@ -542,19 +542,27 @@
 
       // ⬆️ Upgrades Yesterday
       setSafeText('kpi-upgrade-rev', fmt(upgradeRev));
-      setSafeText('kpi-upgrade-cnt', Math.round(upgradeCnt) + ' deals · ' + dateLabel);
+      setSafeText('kpi-upgrade-cnt', Math.round(upgradeCnt) + ' deal' + (upgradeCnt !== 1 ? 's' : '') + ' · ' + dateLabel);
 
       // Badge counts on pills (all non-future)
       const nonFuture = allDeals.filter(d => d.isoDate <= todayStr);
-      setSafeText('count-all', nonFuture.length.toLocaleString('en-IN'));
-      setSafeText('count-yesterday', ydDeals.length);
+      const allDealsTotal = nonFuture.reduce((sum, d) => sum + (d.count || 1), 0);
+      setSafeText('count-all', Math.round(allDealsTotal).toLocaleString('en-IN'));
+
+      const ydDealsTotal = ydDeals.reduce((sum, d) => sum + (d.count || 1), 0);
+      setSafeText('count-yesterday', Math.round(ydDealsTotal));
 
       const dObj7 = new Date(ydDate + 'T00:00:00');
       dObj7.setDate(dObj7.getDate() - 6);
       const s7 = formatLocalISO(dObj7);
-      setSafeText('count-7d', nonFuture.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate).length);
+      const d7Deals = nonFuture.filter(d => d.isoDate >= s7 && d.isoDate <= ydDate);
+      const d7DealsTotal = d7Deals.reduce((sum, d) => sum + (d.count || 1), 0);
+      setSafeText('count-7d', Math.round(d7DealsTotal));
+
       const mtd = ydDate.slice(0, 7) + '-01';
-      setSafeText('count-mtd', nonFuture.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate).length);
+      const mtdDeals = nonFuture.filter(d => d.isoDate >= mtd && d.isoDate <= ydDate);
+      const mtdDealsTotal = mtdDeals.reduce((sum, d) => sum + (d.count || 1), 0);
+      setSafeText('count-mtd', Math.round(mtdDealsTotal));
     }
 
 
@@ -708,7 +716,9 @@
       const endIdx   = Math.min(startIdx + PAGE_SIZE, filtered.length);
       const page     = filtered.slice(startIdx, endIdx);
 
-      resultsCount.textContent = `Showing ${filtered.length.toLocaleString('en-IN')} deal${filtered.length !== 1 ? 's' : ''}`;
+      const totalFilteredDeals = filtered.reduce((s, x) => s + (x.count || 1), 0);
+      const totalFilteredRev   = filtered.reduce((s, x) => s + (x.rev || 0), 0);
+      resultsCount.innerHTML   = `Showing <b>${Math.round(totalFilteredDeals)}</b> deal${totalFilteredDeals !== 1 ? 's' : ''} (${filtered.length} transaction${filtered.length !== 1 ? 's' : ''}) · Total: <b>${fmt(totalFilteredRev)}</b>`;
 
       tbody.innerHTML = page.map((item, idx) => {
         const colour = agentColour(item.agent);
