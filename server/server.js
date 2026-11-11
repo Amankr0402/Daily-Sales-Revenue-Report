@@ -1666,6 +1666,7 @@ const INSIDE_SALES_DETAILS_CACHE_FILE = resolveDataFile('inside_sales_details.cs
 const INSIDE_SALES_SPREADSHEET_ID  = '1AMJ0DLL2JV9gl58h5yRPgTZyBzwSOL1cyrhpyA5Qz9c'; // August
 const INSIDE_SALES_SPREADSHEET_ID2 = '10j9ilpBqcVAyatDryXl5_33pducazaNOVOm-RYI9yV8'; // September
 const INSIDE_SALES_SPREADSHEET_ID3 = '1AX5q7H8Umh__14_P-Ugs_8fVmYeyKN1uIlreSvTNvM4'; // October
+const INSIDE_SALES_SPREADSHEET_ID_NOV = process.env.NOVEMBER_SPREADSHEET_ID || process.env.SECONDARY_SPREADSHEET_ID || '1zqo0qcMQDuSJK5UXyvVS2FD6_yprRyJwmk997Fjl7UM'; // November
 const INSIDE_SALES_SHEET_NAME      = 'Sales/Rev (Auto)';
 
 app.get('/api/inside-sales-details-csv', async (req, res) => {
@@ -1696,10 +1697,11 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
 
     const buildUrl = (id, sheet) => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheet)}`;
 
-    let csv1 = ''; let csv2 = ''; let csv3 = '';
-    try { csv1 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID,  INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet1:', e.message); }
-    try { csv2 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID2, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet2:', e.message); }
+    let csv1 = ''; let csv2 = ''; let csv3 = ''; let csvNov = '';
+    try { csvNov = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID_NOV, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheetNov:', e.message); }
     try { csv3 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID3, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet3:', e.message); }
+    try { csv2 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID2, INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet2:', e.message); }
+    try { csv1 = await fetchRedirect(buildUrl(INSIDE_SALES_SPREADSHEET_ID,  INSIDE_SALES_SHEET_NAME)); } catch (e) { console.warn('Could not fetch sheet1:', e.message); }
 
     // Sheets share the same header. Row 0 = header, Row 1 = summary total, Row 2+ = data.
     const parse = (raw) => {
@@ -1709,10 +1711,11 @@ app.get('/api/inside-sales-details-csv', async (req, res) => {
     };
 
     let header = '"Sno","Date","Phone number","Agent","Sale (Revenue)","Duplicate","Plan","Count","Organic/Renewal","Sheet"';
-    const rows1 = parse(csv1).map((l, i) => `${l},"Sheet1"`);
-    const rows2 = parse(csv2).map((l, i) => `${l},"Sheet2"`);
-    const rows3 = parse(csv3).map((l, i) => `${l},"Sheet3"`);
-    const merged = [header, ...rows1, ...rows2, ...rows3].join('\n');
+    const rowsNov = parse(csvNov).map((l, i) => `${l},"November"`);
+    const rows3 = parse(csv3).map((l, i) => `${l},"October"`);
+    const rows2 = parse(csv2).map((l, i) => `${l},"September"`);
+    const rows1 = parse(csv1).map((l, i) => `${l},"August"`);
+    const merged = [header, ...rowsNov, ...rows3, ...rows2, ...rows1].join('\n');
 
     if (merged.length > 50) {
       try { fs.writeFileSync(INSIDE_SALES_DETAILS_CACHE_FILE, merged, 'utf8'); } catch (_) {}

@@ -347,6 +347,7 @@
         let m, d;
         if (p1 > 12) { d = p1; m = p2; }
         else if (p2 > 12) { m = p1; d = p2; }
+        else if (p1 === 11) { m = 11; d = p2; } // November Go Getters: M/D/YYYY
         else { m = p1; d = p2; } // default M/D/YYYY (American)
         return `${yr}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       }
@@ -468,6 +469,11 @@
 
     // Returns actual calendar yesterday (today - 1). Falls back to latest date in data.
     function getYesterdayISO() {
+      const p = new URLSearchParams(window.location.search);
+      const dateParam = p.get('date');
+      if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+        return dateParam;
+      }
       const d = new Date();
       d.setDate(d.getDate() - 1);
       const yd = formatLocalISO(d);
@@ -583,6 +589,17 @@
       const from = p.get('from') || p.get('start');
       const to = p.get('to') || p.get('end');
       const dateParam = p.get('date');
+      const sourceParam = p.get('source');
+
+      if (sourceParam) {
+        if (sourceParam.toLowerCase() === 'inside sales' || sourceParam.toLowerCase() === 'organic') {
+          selectedSource = 'Organic';
+        } else {
+          selectedSource = sourceParam;
+        }
+        const sourceSel = document.getElementById('source-filter');
+        if (sourceSel) sourceSel.value = selectedSource;
+      }
 
       if (dateParam) {
         currentFilter = 'yesterday';
