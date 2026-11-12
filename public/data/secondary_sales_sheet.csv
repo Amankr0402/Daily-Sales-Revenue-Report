@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"1,680,069",,,156,
+,,,,"1,902,351",,,177,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -156,27 +156,27 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 154,11/11/2026,9930446046,Preyashi Roy,"19,573",No,Annual Max,2,Organic
 155,11/11/2026,8291186679,Prerak Bhavsar,"6,244",No,Annual Max,1,Upgrade
 156,11/11/2026,9789875500,Kausturi Roy Chowdhury,"12,216",No,Annual Max,1,Organic
-157,11/11/2026,,,,,,,
-158,11/11/2026,,,,,,,
-159,11/11/2026,,,,,,,
-160,11/11/2026,,,,,,,
-161,11/11/2026,,,,,,,
-162,11/11/2026,,,,,,,
-163,11/11/2026,,,,,,,
-164,11/11/2026,,,,,,,
-165,11/11/2026,,,,,,,
-166,11/11/2026,,,,,,,
-167,11/11/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+157,11/11/2026,,Vikas Poonia,"5,000",No,Quarterly Max,1,Renewals
+158,11/11/2026,9566006601,Amol Landge,"5,000",No,Quarterly Max,1,Renewals
+159,11/12/2026,9725103165,Shivendra Singh Tomar,"8,325",No,Annual Plus,1,Renewals
+160,11/12/2026,8419969135,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+161,11/12/2026,9921773113,Kausturi Roy Chowdhury,"12,573",No,Annual Max,1,Organic
+162,11/12/2026,9311162636,Honey Talreja,"12,000",No,Annual Max,1,Organic
+163,11/12/2026,9953613157,Amol Landge,"18,000",No,Annual Max,1,Organic
+164,11/12/2026,9993224420,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
+165,11/12/2026,9971031015,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+166,11/12/2026,7977900557,Preyashi Roy,"19,573",No,Annual Max,2,Organic
+167,11/12/2026,9873156721,Amol Landge,"12,000",No,Annual Max,1,Organic
+168,11/12/2026,9869753054,Amol Landge,"12,000",No,Annual Max,1,Renewals
+169,11/12/2026,9870665093,Others,"14,000",No,Annual Max,1,Organic
+170,11/12/2026,9884349713,Vikas Poonia,"12,216",No,Annual Max,1,Renewals
+171,11/12/2026,9423969493,Vikas Poonia,"30,000",No,Annual Max,3,Renewals
+172,11/12/2026,9664833588,Amol Landge,"11,000",No,Annual Max,1,Organic
+173,11/12/2026,9891285490,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+174,11/12/2026,9769125125,Amol Landge,"5,843",No,Quarterly Max,1,Renewals
+175,11/12/2026,,,,,,,
+176,11/12/2026,,,,,,,
+177,11/12/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
