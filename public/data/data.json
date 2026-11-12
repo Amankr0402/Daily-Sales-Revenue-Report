@@ -61771,9 +61771,9 @@
   },
   {
     "date": "2026-08-03",
-    "totalRevenue": 281978.55,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 269978.55,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 17073,
       "agent": "Chhaya Patel",
@@ -61808,10 +61808,6 @@
         "revenue": 21500,
         "count": 2
       },
-      "Jivesh Harde": {
-        "revenue": 12000,
-        "count": 1
-      },
       "Prerak Bhavsar": {
         "revenue": 20500,
         "count": 2
@@ -61827,8 +61823,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 191562.55,
-        "count": 16
+        "revenue": 179562.55,
+        "count": 15
       },
       "6 months Max": {
         "revenue": 7000,
@@ -61853,8 +61849,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 195168,
-        "count": 20
+        "revenue": 183168,
+        "count": 19
       },
       "Renewals": {
         "revenue": 10376,
@@ -61990,7 +61986,6 @@
       "Chhaya Patel",
       "Vivek Shah",
       "Kush Shah",
-      "Jivesh Harde",
       "Prerak Bhavsar",
       "Sneha Anand",
       "Shikha Singh"
@@ -72306,9 +72301,9 @@
   },
   {
     "date": "2026-09-27",
-    "totalRevenue": 308071.21,
-    "salesCount": 35,
-    "transactions": 35,
+    "totalRevenue": 312571.21,
+    "salesCount": 36,
+    "transactions": 36,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -72324,8 +72319,8 @@
         "count": 1
       },
       "Soumya Pandey": {
-        "revenue": 4500,
-        "count": 1
+        "revenue": 9000,
+        "count": 2
       },
       "Vikas Poonia": {
         "revenue": 33000,
@@ -72386,8 +72381,8 @@
         "count": 22
       },
       "Quarterly Max": {
-        "revenue": 19756,
-        "count": 4
+        "revenue": 24256,
+        "count": 5
       },
       "Quarterly Plus": {
         "revenue": 3160,
@@ -72396,8 +72391,8 @@
     },
     "sources": {
       "No": {
-        "revenue": 231901,
-        "count": 28
+        "revenue": 236401,
+        "count": 29
       },
       "Direct Sale": {
         "revenue": 62597.21,
@@ -79704,13 +79699,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 333,
-      "otpVerified": 230,
-      "serviceable": 162,
-      "serviceableWithPct": "162 (48.6%)",
-      "serviceablePct": "48.6%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 4,
       "revenue": 60044
@@ -80674,11 +80663,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 452,
-      "otpVerified": 183,
-      "serviceable": 129,
-      "serviceableWithPct": "129 (28.5%)",
-      "serviceablePct": "28.5%"
+      "signups": 451,
+      "otpVerified": 182,
+      "serviceable": 128,
+      "serviceableWithPct": "128 (28.4%)",
+      "serviceablePct": "28.4%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -80794,9 +80783,9 @@
       "revenue": 12573
     },
     "missedLeads": {
-      "Connected": 226,
-      "Interested": 69,
-      "Paise Dega": 18
+      "Connected": 199,
+      "Interested": 103,
+      "Paise Dega": 16
     },
     "refunds": {
       "count": 4,
@@ -80854,15 +80843,15 @@
       "total": 103131,
       "count": 10
     },
-    "newUsers7d": 2682,
+    "newUsers7d": 2879,
     "newUsersYesterday": 422,
     "activeSubs": 5191,
-    "newSubs7d": 90,
-    "teleCrmLeads": 594,
-    "subsEnding5d": 84,
-    "subsExpired7d": 82,
-    "subsExpiringToday": 10,
-    "planExpiringNoOrder": 2,
+    "newSubs7d": 85,
+    "teleCrmLeads": 639,
+    "subsEnding5d": 90,
+    "subsExpired7d": 90,
+    "subsExpiringToday": 18,
+    "planExpiringNoOrder": 3,
     "planExpNoOrder": 2427,
     "activeSubNoOrder": 123,
     "newUsersDeliveryStatus": {
