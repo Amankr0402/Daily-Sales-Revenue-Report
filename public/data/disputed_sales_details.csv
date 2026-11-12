@@ -1,4 +1,6 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-11-12","Devendar","9921773113","Kausturi Roy Chowdhury",12573,12224.73,"Annual Max","Organic","c1531290-6ff7-412b-8427-680e7710c61f","UR486102","Logged by Inside Sales agent (Kausturi Roy Chowdhury) for ₹12573 and also completed on Direct Portal for ₹12224.73"
+"2026-11-12","kushal","9725103165","Shivendra Singh Tomar",8325,8325,"Annual Plus","Renewals","010951af-c9a0-4f04-ab4b-e1b7f96f9f42","UR554221","Logged by Inside Sales agent (Shivendra Singh Tomar) for ₹8325 and also completed on Direct Portal for ₹8325"
 "2026-11-09","Sana Ansari","8587068969","Prerak Bhavsar",6287,12573,"Annual Max","Renewals","3478b512-a6b0-4fab-84dc-12dc9465d859","UR219692","Logged by Inside Sales agent (Prerak Bhavsar) for ₹6287 and also completed on Direct Portal for ₹12573"
 "2026-11-05","hardik vadoliya","8460131035","Preyashi Roy",13073,12448.11,"Annual Max","Organic","0868793b-cd4f-4492-93be-4ec52e1f8d2b","UR554552","Logged by Inside Sales agent (Preyashi Roy) for ₹13073 and also completed on Direct Portal for ₹12448.11"
 "2026-11-05","Priyanka","9024368054","Rohit Jain",15573,15573,"Annual Max","Organic","70888331-3ee1-4438-91dc-d5653c1a9c1c","UR554930","Logged by Inside Sales agent (Rohit Jain) for ₹15573 and also completed on Direct Portal for ₹15573"
