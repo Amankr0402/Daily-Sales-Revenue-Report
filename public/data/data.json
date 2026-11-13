@@ -57408,9 +57408,9 @@
   },
   {
     "date": "2026-07-05",
-    "totalRevenue": 378224,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 389224,
+    "salesCount": 39,
+    "transactions": 39,
     "highestSale": {
       "amount": 17500,
       "agent": "Jivesh Harde",
@@ -57464,12 +57464,16 @@
       "Kausturi Roy Chowdhury": {
         "revenue": 32000,
         "count": 3
+      },
+      "Sneha Anand": {
+        "revenue": 11000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 336727,
-        "count": 31
+        "revenue": 347727,
+        "count": 32
       },
       "Quarterly Max": {
         "revenue": 24956,
@@ -57486,8 +57490,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180000,
-        "count": 18
+        "revenue": 191000,
+        "count": 19
       },
       "Events": {
         "revenue": 107752,
@@ -57529,7 +57533,8 @@
       "Shikha Singh",
       "Kush Shah",
       "Others",
-      "Kausturi Roy Chowdhury"
+      "Kausturi Roy Chowdhury",
+      "Sneha Anand"
     ],
     "refundsLast7Days": {
       "total": 0,
@@ -57762,9 +57767,9 @@
   },
   {
     "date": "2026-07-08",
-    "totalRevenue": 118620.9,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 115620.9,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
       "amount": 14055,
       "agent": "Self Serve",
@@ -57779,12 +57784,12 @@
         "revenue": 5900,
         "count": 2
       },
-      "Vikas Poonia": {
-        "revenue": 13000,
-        "count": 2
-      },
       "Preyashi Roy": {
         "revenue": 5000,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 10000,
         "count": 1
       },
       "Kausturi Roy Chowdhury": {
@@ -57813,23 +57818,19 @@
         "revenue": 5500,
         "count": 3
       },
-      "Annual Max": {
-        "revenue": 91555,
-        "count": 9
-      },
       "Quarterly Max": {
         "revenue": 9500,
         "count": 2
+      },
+      "Annual Max": {
+        "revenue": 88555,
+        "count": 8
       }
     },
     "sources": {
       "Organic": {
         "revenue": 79500,
         "count": 11
-      },
-      "Upgrade": {
-        "revenue": 3000,
-        "count": 1
       },
       "Renewals": {
         "revenue": 10000,
@@ -57930,8 +57931,8 @@
     "workingAgents": [
       "Prerak Bhavsar",
       "Kush Shah",
-      "Vikas Poonia",
       "Preyashi Roy",
+      "Vikas Poonia",
       "Kausturi Roy Chowdhury",
       "Jivesh Harde",
       "Shikha Singh",
@@ -60182,9 +60183,9 @@
   },
   {
     "date": "2026-07-24",
-    "totalRevenue": 276579,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 274739,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 17000,
       "agent": "Shivani Gupta",
@@ -60235,12 +60236,12 @@
         "revenue": 28000,
         "count": 2
       },
-      "Preyashi Roy": {
-        "revenue": 12840,
-        "count": 2
-      },
       "Vivek Shah": {
         "revenue": 12216,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 11000,
         "count": 1
       },
       "Prasoon Dixit": {
@@ -60250,8 +60251,8 @@
     },
     "plans": {
       "Quarterly Max": {
-        "revenue": 7596,
-        "count": 2
+        "revenue": 5756,
+        "count": 1
       },
       "Annual Max": {
         "revenue": 245067,
@@ -60278,10 +60279,6 @@
       "Renewals": {
         "revenue": 17000,
         "count": 2
-      },
-      "Upgrade": {
-        "revenue": 1840,
-        "count": 1
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -60357,8 +60354,8 @@
       "Kush Shah",
       "Others",
       "Shivani Gupta",
-      "Preyashi Roy",
       "Vivek Shah",
+      "Preyashi Roy",
       "Prasoon Dixit"
     ],
     "refundsLast7Days": {
@@ -60382,9 +60379,9 @@
   },
   {
     "date": "2026-07-25",
-    "totalRevenue": 277874,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 280874,
+    "salesCount": 33,
+    "transactions": 33,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -60394,6 +60391,10 @@
       "Preyashi Roy": {
         "revenue": 28000,
         "count": 3
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 8383,
+        "count": 2
       },
       "Sneha Anand": {
         "revenue": 4500,
@@ -60438,16 +60439,12 @@
       "Honey Talreja": {
         "revenue": 11000,
         "count": 1
-      },
-      "Kausturi Roy Chowdhury": {
-        "revenue": 5383,
-        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 237354,
-        "count": 22
+        "revenue": 240354,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 26500,
@@ -60464,8 +60461,8 @@
     },
     "sources": {
       "Upgrade": {
-        "revenue": 6000,
-        "count": 1
+        "revenue": 9000,
+        "count": 2
       },
       "Organic": {
         "revenue": 167583,
@@ -60493,6 +60490,7 @@
     },
     "workingAgents": [
       "Preyashi Roy",
+      "Kausturi Roy Chowdhury",
       "Sneha Anand",
       "Amol Landge",
       "Chhaya Patel",
@@ -60503,8 +60501,7 @@
       "Jivesh Harde",
       "Vikas Poonia",
       "Shivani Gupta",
-      "Honey Talreja",
-      "Kausturi Roy Chowdhury"
+      "Honey Talreja"
     ],
     "refundsLast7Days": {
       "total": 0,
@@ -61251,9 +61248,9 @@
   },
   {
     "date": "2026-07-31",
-    "totalRevenue": 433923.3,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 423923.3,
+    "salesCount": 43,
+    "transactions": 43,
     "highestSale": {
       "amount": 15763.5,
       "agent": "Self Serve",
@@ -61268,10 +61265,6 @@
         "revenue": 46648,
         "count": 4
       },
-      "Tanveer Ahmed": {
-        "revenue": 13500,
-        "count": 2
-      },
       "Prerak Bhavsar": {
         "revenue": 22500,
         "count": 2
@@ -61283,6 +61276,10 @@
       "Shivani Gupta": {
         "revenue": 32500,
         "count": 4
+      },
+      "Tanveer Ahmed": {
+        "revenue": 3500,
+        "count": 1
       },
       "Vikas Poonia": {
         "revenue": 64376,
@@ -61307,8 +61304,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 394995.3,
-        "count": 36
+        "revenue": 384995.3,
+        "count": 35
       },
       "Quarterly Max": {
         "revenue": 35768,
@@ -61321,8 +61318,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 53344,
-        "count": 5
+        "revenue": 43344,
+        "count": 4
       },
       "Organic": {
         "revenue": 218432,
@@ -61349,10 +61346,10 @@
     "workingAgents": [
       "Amol Landge",
       "Kausturi Roy Chowdhury",
-      "Tanveer Ahmed",
       "Prerak Bhavsar",
       "Shubham Rai",
       "Shivani Gupta",
+      "Tanveer Ahmed",
       "Vikas Poonia",
       "Preyashi Roy",
       "Honey Talreja",
@@ -62543,9 +62540,9 @@
   },
   {
     "date": "2026-08-07",
-    "totalRevenue": 157966,
-    "salesCount": 16,
-    "transactions": 16,
+    "totalRevenue": 152966,
+    "salesCount": 15,
+    "transactions": 15,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -62572,10 +62569,6 @@
         "revenue": 12000,
         "count": 1
       },
-      "Honey Talreja": {
-        "revenue": 23000,
-        "count": 3
-      },
       "Jivesh Harde": {
         "revenue": 11000,
         "count": 1
@@ -62583,6 +62576,10 @@
       "Prerak Bhavsar": {
         "revenue": 12000,
         "count": 1
+      },
+      "Honey Talreja": {
+        "revenue": 18000,
+        "count": 2
       }
     },
     "plans": {
@@ -62595,8 +62592,8 @@
         "count": 1
       },
       "Quarterly Max": {
-        "revenue": 9500,
-        "count": 2
+        "revenue": 4500,
+        "count": 1
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -62605,8 +62602,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 103500,
-        "count": 10
+        "revenue": 98500,
+        "count": 9
       },
       "Renewals": {
         "revenue": 7000,
@@ -62638,9 +62635,9 @@
       "Shivani Gupta",
       "Vikas Poonia",
       "Kausturi Roy Chowdhury",
-      "Honey Talreja",
       "Jivesh Harde",
-      "Prerak Bhavsar"
+      "Prerak Bhavsar",
+      "Honey Talreja"
     ],
     "refundsLast7Days": {
       "total": 0,
@@ -62663,9 +62660,9 @@
   },
   {
     "date": "2026-08-08",
-    "totalRevenue": 212710.95,
-    "salesCount": 24,
-    "transactions": 24,
+    "totalRevenue": 201710.95,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 12531.95,
       "agent": "Self Serve",
@@ -62689,8 +62686,8 @@
         "count": 1
       },
       "Vikas Poonia": {
-        "revenue": 32376,
-        "count": 3
+        "revenue": 21376,
+        "count": 2
       },
       "Kush Shah": {
         "revenue": 16500,
@@ -62715,8 +62712,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 173461.95,
-        "count": 16
+        "revenue": 162461.95,
+        "count": 15
       },
       "6 months Max": {
         "revenue": 7000,
@@ -62745,8 +62742,8 @@
         "count": 3
       },
       "Events": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 38789.95,
@@ -63858,9 +63855,9 @@
   },
   {
     "date": "2026-08-15",
-    "totalRevenue": 417178.99,
-    "salesCount": 45,
-    "transactions": 45,
+    "totalRevenue": 406178.99,
+    "salesCount": 44,
+    "transactions": 44,
     "highestSale": {
       "amount": 17073,
       "agent": "Amol Landge",
@@ -63887,10 +63884,6 @@
         "revenue": 51000,
         "count": 5
       },
-      "Kausturi Roy Chowdhury": {
-        "revenue": 23216,
-        "count": 2
-      },
       "Tanveer Ahmed": {
         "revenue": 11000,
         "count": 1
@@ -63902,6 +63895,10 @@
       "Honey Talreja": {
         "revenue": 48000,
         "count": 5
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 12216,
+        "count": 1
       },
       "Kush Shah": {
         "revenue": 20000,
@@ -63930,8 +63927,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 329559.6,
-        "count": 29
+        "revenue": 318559.6,
+        "count": 28
       },
       "Quarterly Max": {
         "revenue": 47512,
@@ -63952,8 +63949,8 @@
         "count": 8
       },
       "Organic": {
-        "revenue": 243620,
-        "count": 26
+        "revenue": 232620,
+        "count": 25
       },
       "Events": {
         "revenue": 44000,
@@ -64051,10 +64048,10 @@
       "Chhaya Patel",
       "Vivek Shah",
       "Amol Landge",
-      "Kausturi Roy Chowdhury",
       "Tanveer Ahmed",
       "Prerak Bhavsar",
       "Honey Talreja",
+      "Kausturi Roy Chowdhury",
       "Kush Shah",
       "Shubham Rai",
       "Jivesh Harde",
@@ -64447,19 +64444,15 @@
   },
   {
     "date": "2026-08-18",
-    "totalRevenue": 217675,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 212175,
+    "salesCount": 20,
+    "transactions": 20,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
       "source": "Direct Sale"
     },
     "agents": {
-      "Jivesh Harde": {
-        "revenue": 17500,
-        "count": 2
-      },
       "Shikha Singh": {
         "revenue": 12000,
         "count": 1
@@ -64480,6 +64473,10 @@
         "revenue": 11000,
         "count": 1
       },
+      "Jivesh Harde": {
+        "revenue": 12000,
+        "count": 1
+      },
       "Vivek Shah": {
         "revenue": 14000,
         "count": 1
@@ -64494,10 +64491,6 @@
       }
     },
     "plans": {
-      "Annual Mini": {
-        "revenue": 5500,
-        "count": 1
-      },
       "Annual Max": {
         "revenue": 184651,
         "count": 15
@@ -64509,8 +64502,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 126000,
-        "count": 12
+        "revenue": 120500,
+        "count": 11
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -64569,12 +64562,12 @@
       "revenue": 5756
     },
     "workingAgents": [
-      "Jivesh Harde",
       "Shikha Singh",
       "Abhijeet Mathur",
       "Tanveer Ahmed",
       "Kush Shah",
       "Naveen Suwalka",
+      "Jivesh Harde",
       "Vivek Shah",
       "Shashank Tiwari",
       "Honey Talreja"
@@ -66003,9 +65996,9 @@
   },
   {
     "date": "2026-08-27",
-    "totalRevenue": 227815,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 238191,
+    "salesCount": 24,
+    "transactions": 24,
     "highestSale": {
       "amount": 15339,
       "agent": "Vikas Poonia",
@@ -66013,8 +66006,8 @@
     },
     "agents": {
       "Vikas Poonia": {
-        "revenue": 56467,
-        "count": 5
+        "revenue": 66843,
+        "count": 6
       },
       "Vivek Shah": {
         "revenue": 7200,
@@ -66063,8 +66056,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 157580,
-        "count": 15
+        "revenue": 167956,
+        "count": 16
       },
       "Quarterly Max": {
         "revenue": 20512,
@@ -66077,8 +66070,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 88219,
-        "count": 8
+        "revenue": 98595,
+        "count": 9
       },
       "Organic": {
         "revenue": 93700,
@@ -80323,9 +80316,9 @@
     "userBreakdown": {
       "signups": 280,
       "otpVerified": 142,
-      "serviceable": 95,
-      "serviceableWithPct": "95 (33.9%)",
-      "serviceablePct": "33.9%"
+      "serviceable": 94,
+      "serviceableWithPct": "94 (33.6%)",
+      "serviceablePct": "33.6%"
     },
     "refunds": {
       "count": 2,
@@ -80762,11 +80755,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 532,
-      "otpVerified": 199,
-      "serviceable": 147,
-      "serviceableWithPct": "147 (27.6%)",
-      "serviceablePct": "27.6%"
+      "signups": 531,
+      "otpVerified": 200,
+      "serviceable": 148,
+      "serviceableWithPct": "148 (27.9%)",
+      "serviceablePct": "27.9%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -80946,10 +80939,10 @@
     },
     "userBreakdown": {
       "signups": 810,
-      "otpVerified": 270,
-      "serviceable": 206,
-      "serviceableWithPct": "206 (25.4%)",
-      "serviceablePct": "25.4%"
+      "otpVerified": 273,
+      "serviceable": 209,
+      "serviceableWithPct": "209 (25.8%)",
+      "serviceablePct": "25.8%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -81028,9 +81021,9 @@
       "revenue": 20549.73
     },
     "missedLeads": {
-      "Connected": 284,
-      "Interested": 156,
-      "Paise Dega": 16
+      "Connected": 274,
+      "Interested": 119,
+      "Paise Dega": 11
     },
     "workingAgents": [
       "Honey Talreja",
@@ -81061,32 +81054,32 @@
     },
     "newUsers7d": 3228,
     "newUsersYesterday": 747,
-    "activeSubs": 5194,
+    "activeSubs": 5201,
     "newSubs7d": 80,
-    "teleCrmLeads": 952,
-    "subsEnding5d": 83,
+    "teleCrmLeads": 953,
+    "subsEnding5d": 82,
     "subsExpired7d": 86,
     "subsExpiringToday": 11,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2428,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 28,
-      "Orders Placed": 28,
-      "Orders - CONFIRMED": 17,
-      "Orders Confirmed": 17,
+      "Orders - PLACED": 21,
+      "Orders Placed": 21,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 1,
       "Orders Ready to Ship": 1,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 60,
-      "Orders Not Delivered": 59
+      "Orders - SHIPPED": 6,
+      "Orders Shipped": 6,
+      "Orders - Not Delivered": 52,
+      "Orders Not Delivered": 50
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 257,
-      "New Subscribers Orders that have been Delivered": 197,
-      "New Subscribers Orders yet to be Delivered": 60,
-      "New Subscribers Orders yet to be Delivered & Delayed": 14
+      "New Subscribers Orders that have been Delivered": 205,
+      "New Subscribers Orders yet to be Delivered": 52,
+      "New Subscribers Orders yet to be Delivered & Delayed": 16
     },
     "selfUpgrade": {
       "totalCount": 0,
