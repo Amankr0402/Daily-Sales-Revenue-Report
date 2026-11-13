@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"1,926,851",,,179,
+,,,,"2,026,075",,,188,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -94,7 +94,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 92,11/5/2026,9920764008,Shubham Rai,"9,787",No,Annual Max,1,Organic
 93,11/5/2026,8980876118,Shubham Rai,"9,787",No,Annual Max,1,Organic
 94,11/5/2026,9607692571,Honey Talreja,"19,573",No,Annual Max,2,Organic
-95,11/5/2026,9034706532,Others,"12,216",No,Annual Max,1,Organic
+95,11/5/2026,9034706532,Darshan KS,"12,216",No,Annual Max,1,Organic
 96,11/5/2026,8890012213,Vikas Poonia,"5,541",No,Annual Max,1,Upgrade
 97,11/5/2026,9920238373,Chhaya Patel,"12,215",No,Annual Max,1,Organic
 98,11/5/2026,9731642465,Shivani Gupta,"8,000",No,Quarterly Max,1,Organic
@@ -176,27 +176,27 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 174,11/12/2026,9769125125,Amol Landge,"5,843",No,Quarterly Max,1,Renewals
 175,11/12/2026,8451099537,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
 176,11/12/2026,9711076311,Prerak Bhavsar,"12,500",No,Annual Max,1,Organic
-177,11/12/2026,,,,,,,
-178,11/12/2026,,,,,,,
-179,11/12/2026,,,,,,,
-180,11/12/2026,,,,,,,
-181,11/12/2026,,,,,,,
-182,11/12/2026,,,,,,,
-183,11/12/2026,,,,,,,
-184,11/12/2026,,,,,,,
-185,11/12/2026,,,,,,,
-186,11/12/2026,,,,,,,
-187,11/12/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+177,11/13/2026,9925488865,Vivek Shah,"12,573",No,Annual Max,1,Organic
+178,11/13/2026,9958056054,Prerak Bhavsar,"13,702",No,Annual Max,1,Organic
+179,11/13/2026,9840154714,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+180,11/13/2026,9620644283,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
+181,11/13/2026,9960990859,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+182,11/13/2026,8446054958,Honey Talreja,"12,000",No,Annual Max,1,Organic
+183,11/13/2026,9822098724,Amol Landge,"11,376",No,Annual Max,1,Renewals
+184,11/13/2026,9998498364,Honey Talreja,"12,000",No,Annual Max,1,Organic
+185,11/13/2026,,,,,,,
+186,11/13/2026,,,,,,,
+187,11/13/2026,,,,,,,
+188,11/13/2026,,,,,,,
+189,11/13/2026,,,,,,,
+190,11/13/2026,,,,,,,
+191,11/13/2026,,,,,,,
+192,11/13/2026,,,,,,,
+193,11/13/2026,,,,,,,
+194,11/13/2026,,,,,,,
+195,11/13/2026,,,,,,,
+196,11/13/2026,,,,,,,
+197,11/13/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
