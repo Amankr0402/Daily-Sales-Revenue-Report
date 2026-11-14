@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,138,667",,,199,
+,,,,"2,182,043",,,203,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -195,28 +195,28 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 193,11/13/2026,9173090223,Shivaram Nimmala,"11,000",No,Annual Max,1,Organic
 194,11/13/2026,9958913336,Amol Landge,"12,000",No,Annual Max,1,Organic
 195,11/13/2026,9900814157,Jivesh Harde,"11,000",No,Annual Max,1,Organic
-196,11/13/2026,,,,,,,
-197,11/13/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+196,11/14/2026,9167110498,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+197,11/14/2026,8892691323,Vivek Shah,"12,000",No,Annual Max,1,Organic
+198,11/14/2026,7790922590,Vikas Poonia,"8,000",No,Ultra Quarterly,1,Organic
+199,11/14/2026,9587780299,Amol Landge,"11,376",No,Annual Max,1,Renewals
+200,11/14/2026,,,,,,,
+201,11/14/2026,,,,,,,
+202,11/14/2026,,,,,,,
+203,11/14/2026,,,,,,,
+204,11/14/2026,,,,,,,
+205,11/14/2026,,,,,,,
+206,11/14/2026,,,,,,,
+207,11/14/2026,,,,,,,
+208,11/14/2026,,,,,,,
+209,11/14/2026,,,,,,,
+210,11/14/2026,,,,,,,
+211,11/14/2026,,,,,,,
+212,11/14/2026,,,,,,,
+213,11/14/2026,,,,,,,
+214,11/14/2026,,,,,,,
+215,11/14/2026,,,,,,,
+216,11/14/2026,,,,,,,
+217,11/14/2026,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
 FALSE,,,,,,,,
