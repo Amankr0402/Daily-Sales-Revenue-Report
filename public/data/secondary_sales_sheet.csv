@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,182,043",,,203,
+,,,,"2,311,851",,,213,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -199,16 +199,16 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 197,11/14/2026,8892691323,Vivek Shah,"12,000",No,Annual Max,1,Organic
 198,11/14/2026,7790922590,Vikas Poonia,"8,000",No,Ultra Quarterly,1,Organic
 199,11/14/2026,9587780299,Amol Landge,"11,376",No,Annual Max,1,Renewals
-200,11/14/2026,,,,,,,
-201,11/14/2026,,,,,,,
-202,11/14/2026,,,,,,,
-203,11/14/2026,,,,,,,
-204,11/14/2026,,,,,,,
-205,11/14/2026,,,,,,,
-206,11/14/2026,,,,,,,
-207,11/14/2026,,,,,,,
-208,11/14/2026,,,,,,,
-209,11/14/2026,,,,,,,
+200,11/14/2026,9727538438,Vivek Shah,"12,216",No,Annual Max,1,Organic
+201,11/14/2026,9668637326,Kausturi Roy Chowdhury,"12,000",No,Annual Max,1,Organic
+202,11/14/2026,8849471494,Vikas Poonia,"12,216",No,Annual Max,1,Organic
+203,11/14/2026,6375883403,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
+204,11/14/2026,9711885246,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+205,11/14/2026,8591344199,Rohit Jain,"20,000",No,Ultra Annually,1,Organic
+206,11/14/2026,9035149445,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+207,11/14/2026,9423360871,Amol Landge,"11,376",No,Annual Max,1,Renewals
+208,11/14/2026,9650976811,Amol Landge,"16,000",No,Annual Max,1,Renewals
+209,11/14/2026,9632125867,Shivani Gupta,"12,000",No,Annual Max,1,Organic
 210,11/14/2026,,,,,,,
 211,11/14/2026,,,,,,,
 212,11/14/2026,,,,,,,
