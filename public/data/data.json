@@ -57148,9 +57148,9 @@
   },
   {
     "date": "2026-07-04",
-    "totalRevenue": 364072.4,
-    "salesCount": 38,
-    "transactions": 38,
+    "totalRevenue": 353072.4,
+    "salesCount": 37,
+    "transactions": 37,
     "highestSale": {
       "amount": 14055,
       "agent": "Kausturi Roy Chowdhury",
@@ -57159,10 +57159,6 @@
     "agents": {
       "Preyashi Roy": {
         "revenue": 15500,
-        "count": 2
-      },
-      "Prasoon Dixit": {
-        "revenue": 16000,
         "count": 2
       },
       "Sneha Anand": {
@@ -57188,6 +57184,10 @@
       "Honey Talreja": {
         "revenue": 34176,
         "count": 4
+      },
+      "Prasoon Dixit": {
+        "revenue": 5000,
+        "count": 1
       },
       "Shubham Rai": {
         "revenue": 19000,
@@ -57220,8 +57220,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 287513.4,
-        "count": 27
+        "revenue": 276513.4,
+        "count": 26
       },
       "Annual Plus": {
         "revenue": 19667,
@@ -57234,8 +57234,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 180892,
-        "count": 20
+        "revenue": 169892,
+        "count": 19
       },
       "Events": {
         "revenue": 106795,
@@ -57373,13 +57373,13 @@
     },
     "workingAgents": [
       "Preyashi Roy",
-      "Prasoon Dixit",
       "Sneha Anand",
       "Amol Landge",
       "Kausturi Roy Chowdhury",
       "Tanveer Ahmed",
       "Vikas Poonia",
       "Honey Talreja",
+      "Prasoon Dixit",
       "Shubham Rai",
       "Shikha Singh",
       "Chhaya Patel",
@@ -64088,9 +64088,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 455135.4,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 467135.4,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -64134,8 +64134,8 @@
         "count": 1
       },
       "Honey Talreja": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 34000,
+        "count": 3
       },
       "Tanveer Ahmed": {
         "revenue": 35000,
@@ -64168,8 +64168,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 405538.4,
-        "count": 35
+        "revenue": 417538.4,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 30012,
@@ -64190,8 +64190,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 284969,
-        "count": 27
+        "revenue": 296969,
+        "count": 28
       },
       "Renewals": {
         "revenue": 22376,
@@ -80422,10 +80422,10 @@
     },
     "userBreakdown": {
       "signups": 405,
-      "otpVerified": 171,
-      "serviceable": 119,
-      "serviceableWithPct": "119 (29.4%)",
-      "serviceablePct": "29.4%"
+      "otpVerified": 172,
+      "serviceable": 120,
+      "serviceableWithPct": "120 (29.6%)",
+      "serviceablePct": "29.6%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -80756,10 +80756,10 @@
     },
     "userBreakdown": {
       "signups": 531,
-      "otpVerified": 201,
-      "serviceable": 150,
-      "serviceableWithPct": "150 (28.2%)",
-      "serviceablePct": "28.2%"
+      "otpVerified": 203,
+      "serviceable": 152,
+      "serviceableWithPct": "152 (28.6%)",
+      "serviceablePct": "28.6%"
     },
     "directSaleCSV": {
       "count": 1,
@@ -81145,10 +81145,10 @@
     },
     "userBreakdown": {
       "signups": 657,
-      "otpVerified": 224,
-      "serviceable": 165,
-      "serviceableWithPct": "165 (25.1%)",
-      "serviceablePct": "25.1%"
+      "otpVerified": 227,
+      "serviceable": 168,
+      "serviceableWithPct": "168 (25.6%)",
+      "serviceablePct": "25.6%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -81351,10 +81351,10 @@
     },
     "userBreakdown": {
       "signups": 607,
-      "otpVerified": 238,
-      "serviceable": 182,
-      "serviceableWithPct": "182 (30.0%)",
-      "serviceablePct": "30.0%"
+      "otpVerified": 241,
+      "serviceable": 185,
+      "serviceableWithPct": "185 (30.5%)",
+      "serviceablePct": "30.5%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -81440,7 +81440,7 @@
     },
     "newUsers7d": 3897,
     "newUsersYesterday": 541,
-    "activeSubs": 5212,
+    "activeSubs": 5219,
     "newSubs7d": 93,
     "teleCrmLeads": 219,
     "subsEnding5d": 77,
@@ -81448,24 +81448,24 @@
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2429,
-    "activeSubNoOrder": 115,
+    "activeSubNoOrder": 112,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 24,
-      "Orders Placed": 24,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
+      "Orders - PLACED": 21,
+      "Orders Placed": 21,
+      "Orders - CONFIRMED": 30,
+      "Orders Confirmed": 30,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 13,
-      "Orders Shipped": 13,
-      "Orders - Not Delivered": 64,
-      "Orders Not Delivered": 64
+      "Orders - SHIPPED": 7,
+      "Orders Shipped": 7,
+      "Orders - Not Delivered": 59,
+      "Orders Not Delivered": 58
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 290,
-      "New Subscribers Orders that have been Delivered": 226,
-      "New Subscribers Orders yet to be Delivered": 64,
-      "New Subscribers Orders yet to be Delivered & Delayed": 13
+      "New Subscribers Orders that have been Delivered": 231,
+      "New Subscribers Orders yet to be Delivered": 59,
+      "New Subscribers Orders yet to be Delivered & Delayed": 12
     },
     "selfUpgrade": {
       "totalCount": 0,
