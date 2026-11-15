@@ -60878,9 +60878,9 @@
   },
   {
     "date": "2026-07-28",
-    "totalRevenue": 271634,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 276134,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivani Gupta",
@@ -60920,8 +60920,8 @@
         "count": 4
       },
       "Shubham Rai": {
-        "revenue": 22000,
-        "count": 3
+        "revenue": 26500,
+        "count": 4
       },
       "Jivesh Harde": {
         "revenue": 27000,
@@ -60946,8 +60946,8 @@
         "count": 3
       },
       "Quarterly Max": {
-        "revenue": 29256,
-        "count": 5
+        "revenue": 33756,
+        "count": 6
       },
       "Quarterly Plus": {
         "revenue": 2800,
@@ -60960,8 +60960,8 @@
         "count": 10
       },
       "Organic": {
-        "revenue": 148300,
-        "count": 17
+        "revenue": 152800,
+        "count": 18
       },
       "Direct Sale": {
         "revenue": 20078,
@@ -61135,9 +61135,9 @@
   },
   {
     "date": "2026-07-30",
-    "totalRevenue": 255894,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 245894,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61145,8 +61145,8 @@
     },
     "agents": {
       "Vikas Poonia": {
-        "revenue": 46752,
-        "count": 5
+        "revenue": 36752,
+        "count": 4
       },
       "Shubham Rai": {
         "revenue": 17500,
@@ -61183,8 +61183,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 230972,
-        "count": 23
+        "revenue": 220972,
+        "count": 22
       },
       "Annual Mini": {
         "revenue": 4241,
@@ -61197,8 +61197,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 30752,
-        "count": 3
+        "revenue": 20752,
+        "count": 2
       },
       "Organic": {
         "revenue": 160833,
@@ -64954,9 +64954,9 @@
   },
   {
     "date": "2026-08-21",
-    "totalRevenue": 314082,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 303706,
+    "salesCount": 30,
+    "transactions": 30,
     "highestSale": {
       "amount": 25500,
       "agent": "Kausturi Roy Chowdhury",
@@ -64983,10 +64983,6 @@
         "revenue": 27752,
         "count": 3
       },
-      "Amol Landge": {
-        "revenue": 21051,
-        "count": 2
-      },
       "Shikha Singh": {
         "revenue": 11000,
         "count": 1
@@ -65011,6 +65007,10 @@
         "revenue": 2000,
         "count": 1
       },
+      "Amol Landge": {
+        "revenue": 10675,
+        "count": 1
+      },
       "Naveen Suwalka": {
         "revenue": 11000,
         "count": 1
@@ -65030,8 +65030,8 @@
         "count": 5
       },
       "Annual Max": {
-        "revenue": 216803,
-        "count": 21
+        "revenue": 206427,
+        "count": 20
       },
       "Annual Plus": {
         "revenue": 7000,
@@ -65048,8 +65048,8 @@
         "count": 24
       },
       "Renewals": {
-        "revenue": 17376,
-        "count": 2
+        "revenue": 7000,
+        "count": 1
       },
       "Upgrade": {
         "revenue": 2000,
@@ -65153,13 +65153,13 @@
       "Sneha Anand",
       "Kausturi Roy Chowdhury",
       "Vikas Poonia",
-      "Amol Landge",
       "Shikha Singh",
       "Vivek Shah",
       "Prerak Bhavsar",
       "Shashank Tiwari",
       "Shubham Rai",
       "Abhijeet Mathur",
+      "Amol Landge",
       "Naveen Suwalka",
       "Kush Shah"
     ],
@@ -80319,13 +80319,7 @@
         "count": 15
       }
     },
-    "userBreakdown": {
-      "signups": 280,
-      "otpVerified": 142,
-      "serviceable": 94,
-      "serviceableWithPct": "94 (33.6%)",
-      "serviceablePct": "33.6%"
-    },
+    "userBreakdown": null,
     "refunds": {
       "count": 2,
       "total": 25573,
@@ -81409,9 +81403,9 @@
       "revenue": 20000
     },
     "missedLeads": {
-      "Connected": 324,
-      "Interested": 205,
-      "Paise Dega": 27
+      "Connected": 316,
+      "Interested": 195,
+      "Paise Dega": 35
     },
     "workingAgents": [
       "Honey Talreja",
@@ -81444,15 +81438,15 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 3569,
+    "newUsers7d": 3897,
     "newUsersYesterday": 578,
-    "activeSubs": 5201,
-    "newSubs7d": 89,
-    "teleCrmLeads": 747,
-    "subsEnding5d": 80,
-    "subsExpired7d": 95,
-    "subsExpiringToday": 13,
-    "planExpiringNoOrder": 0,
+    "activeSubs": 5200,
+    "newSubs7d": 93,
+    "teleCrmLeads": 219,
+    "subsEnding5d": 77,
+    "subsExpired7d": 96,
+    "subsExpiringToday": 12,
+    "planExpiringNoOrder": 1,
     "planExpNoOrder": 2429,
     "activeSubNoOrder": 116,
     "newUsersDeliveryStatus": {
