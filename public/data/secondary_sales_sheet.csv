@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,322,851",,,214,
+,,,,"2,452,640",,,226,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -210,24 +210,30 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 208,11/14/2026,9650976811,Amol Landge,"16,000",No,Annual Max,1,Renewals
 209,11/14/2026,9632125867,Shivani Gupta,"12,000",No,Annual Max,1,Organic
 210,11/14/2026,9096833166,Honey Talreja,"11,000",No,Annual Max,1,Organic
-211,11/14/2026,,,,,,,
-212,11/14/2026,,,,,,,
-213,11/14/2026,,,,,,,
-214,11/14/2026,,,,,,,
-215,11/14/2026,,,,,,,
-216,11/14/2026,,,,,,,
-217,11/14/2026,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
-FALSE,,,,,,,,
+211,11/15/2026,9773898259,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+212,11/15/2026,7006963660,Honey Talreja,"12,000",No,Annual Max,1,Organic
+213,11/15/2026,8652579519,Honey Talreja,"12,000",No,Annual Max,1,Organic
+214,11/15/2026,9938284956,Shivani Gupta,"11,000",No,Annual Max,1,Renewals
+215,11/15/2026,9769485162,Yuvraj Singh Dodiya,"5,000",No,Quarterly Max,1,Organic
+216,11/15/2026,8983882990,Honey Talreja,"12,000",No,Annual Max,1,Organic
+217,11/15/2026,7995705383,Kausturi Roy Chowdhury,"12,216",No,Annual Max,1,Organic
+218,11/15/2026,9284727253,Darshan KS,"11,000",No,Annual Max,1,Organic
+219,11/15/2026,9381246277,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+220,11/15/2026,9725058091,Rohit Jain,"19,573",No,Annual Max,2,Organic
+221,11/15/2026,9924822750,Amol Landge,"11,000",No,Annual Max,1,Renewals
+222,11/15/2026,,,,,,,
+223,11/15/2026,,,,,,,
+224,11/15/2026,,,,,,,
+225,11/15/2026,,,,,,,
+226,11/15/2026,,,,,,,
+227,11/15/2026,,,,,,,
+228,11/15/2026,,,,,,,
+229,11/15/2026,,,,,,,
+230,11/15/2026,,,,,,,
+231,11/15/2026,,,,,,,
+232,15/11/2026,,,,,,,
+233,15/11/2026,,,,,,,
+234,15/11/2026,,,,,,,
+235,15/11/2026,,,,,,,
+236,15/11/2026,,,,,,,
+237,15/11/2026,,,,,,,
