@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"2,723,171",,,251.5,
+,,,,"2,877,839",,,266.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -246,24 +246,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 244,16/11/2026,9784340051,Preyashi Roy,"1,000",No,Annual Max,0.5,Organic
 245,16/11/2026,9033018005,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
 246,16/11/2026,8588841788,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
-247,16/11/2026,,,,,,,
-248,16/11/2026,,,,,,,
-249,16/11/2026,,,,,,,
-250,16/11/2026,,,,,,,
-251,16/11/2026,,,,,,,
-252,16/11/2026,,,,,,,
-253,16/11/2026,,,,,,,
-254,16/11/2026,,,,,,,
-255,16/11/2026,,,,,,,
-256,16/11/2026,,,,,,,
-257,16/11/2026,,,,,,,
-258,16/11/2026,,,,,,,
-259,16/11/2026,,,,,,,
-260,16/11/2026,,,,,,,
-261,16/11/2026,,,,,,,
-262,16/11/2026,,,,,,,
-263,16/11/2026,,,,,,,
-264,16/11/2026,,,,,,,
-265,16/11/2026,,,,,,,
-266,16/11/2026,,,,,,,
-267,16/11/2026,,,,,,,
+247,17/11/2026,9909099691,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+248,17/11/2026,8980031876,Prerak Bhavsar,"5,188",Yes,Annual Max,0.5,Renewals
+249,17/11/2026,8980031876,Vikas Poonia,"5,188",Yes,Annual Max,0.5,Renewals
+250,17/11/2026,9825008685,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
+251,17/11/2026,9619237413,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+252,17/11/2026,8860262347,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+253,17/11/2026,9177498676,Prerak Bhavsar,"19,573",No,Annual Max,2,Organic
+254,17/11/2026,9992676767,Vivek Shah,"19,573",No,Annual Max,2,Organic
+255,17/11/2026,7777905999,Honey Talreja,"9,787",No,Annual Max,1,Organic
+256,17/11/2026,8866131378,Honey Talreja,"9,787",No,Annual Max,1,Organic
+257,17/11/2026,9022411711,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+258,17/11/2026,9772535234,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+259,17/11/2026,9699955532,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+260,17/11/2026,,,,,,,
+261,17/11/2026,,,,,,,
+262,17/11/2026,,,,,,,
+263,17/11/2026,,,,,,,
+264,17/11/2026,,,,,,,
+265,17/11/2026,,,,,,,
+266,17/11/2026,,,,,,,
+267,17/11/2026,,,,,,,
