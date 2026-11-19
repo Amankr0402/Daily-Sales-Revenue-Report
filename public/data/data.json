@@ -81547,10 +81547,10 @@
     },
     "userBreakdown": {
       "signups": 586,
-      "otpVerified": 223,
-      "serviceable": 176,
-      "serviceableWithPct": "176 (30.0%)",
-      "serviceablePct": "30.0%"
+      "otpVerified": 224,
+      "serviceable": 177,
+      "serviceableWithPct": "177 (30.2%)",
+      "serviceablePct": "30.2%"
     },
     "directSaleCSV": {
       "count": 5,
@@ -82150,11 +82150,6 @@
       "tax": 18,
       "total": 118
     },
-    "missedLeads": {
-      "Connected": 397,
-      "Interested": 127,
-      "Paise Dega": 22
-    },
     "workingAgents": [
       "Honey Talreja",
       "Rani Singh",
@@ -82185,9 +82180,197 @@
       "total": 0,
       "items": []
     },
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-11-19",
+    "totalRevenue": 131147,
+    "salesCount": 13,
+    "transactions": 11,
+    "highestSale": {
+      "amount": 19044,
+      "agent": "Self Serve",
+      "source": "Direct Sale"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Neeru Yadav": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 1000,
+        "count": 1
+      },
+      "Supratim Dutta": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Rohit Jain": {
+        "revenue": 19573,
+        "count": 2
+      },
+      "Kausturi Roy Chowdhury": {
+        "revenue": 19573,
+        "count": 2
+      },
+      "Amol Landge": {
+        "revenue": 11376,
+        "count": 1
+      },
+      "Vikas Poonia": {
+        "revenue": 0,
+        "count": 0
+      }
+    },
+    "plans": {
+      "Annual Max": {
+        "revenue": 99522,
+        "count": 10
+      },
+      "Quarterly Plus": {
+        "revenue": 8,
+        "count": 1
+      },
+      "Ultra Annually": {
+        "revenue": 19044,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 88146,
+        "count": 9
+      },
+      "Renewals": {
+        "revenue": 11376,
+        "count": 1
+      },
+      "Direct Sale": {
+        "revenue": 19052,
+        "count": 2
+      },
+      "Overlap Deals": {
+        "revenue": 12573,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 151,
+      "otpVerified": 101,
+      "serviceable": 86,
+      "serviceableWithPct": "86 (57.0%)",
+      "serviceablePct": "57.0%"
+    },
+    "directSaleCSV": {
+      "count": 3,
+      "revenue": 31625
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-11-19",
+        "rawDate": "19/11/2026 00:37",
+        "customerName": "Pravin Padhye",
+        "phone": "9960851133",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 12376,
+        "revenue": 12573,
+        "directRevenue": 12573,
+        "plan": "Annual Max",
+        "source": "Renewals",
+        "directOrderId": "381dcf1a-2a21-4fe3-9004-0269b345707c",
+        "directUserId": "UR32600",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹12376 and also completed on Direct Portal for ₹12573"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-11-19",
+        "rawDate": "19/11/2026 00:37",
+        "customerName": "Pravin Padhye",
+        "phone": "9960851133",
+        "agent": "Vikas Poonia",
+        "insideRevenue": 12376,
+        "revenue": 12573,
+        "directRevenue": 12573,
+        "plan": "Annual Max",
+        "source": "Renewals",
+        "directOrderId": "381dcf1a-2a21-4fe3-9004-0269b345707c",
+        "directUserId": "UR32600",
+        "disputeNote": "Logged by Inside Sales agent (Vikas Poonia) for ₹12376 and also completed on Direct Portal for ₹12573"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 12573
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 12573
+    },
+    "missedLeads": {
+      "Connected": 398,
+      "Interested": 128,
+      "Paise Dega": 22
+    },
+    "refunds": {
+      "count": 1,
+      "total": 9821,
+      "items": [
+        {
+          "refundId": "rfnd_U1yyEQfgJ8JZfM",
+          "paymentId": "pay_TVBrxPtQYxzoO7",
+          "amount": 9821,
+          "status": "processed",
+          "date": "19/11/2026 14:50:54"
+        }
+      ]
+    },
+    "workingAgents": [
+      "Honey Talreja",
+      "Rani Singh",
+      "Yuvraj Singh Dodiya",
+      "Supratim Dutta",
+      "Shivani Gupta",
+      "Darshan KS",
+      "Amol Landge",
+      "Prerak Bhavsar",
+      "Shivaram Nimmala",
+      "Preyashi Roy",
+      "Jivesh Harde",
+      "Vidhi Bhargava",
+      "Gaurav Kala",
+      "Vikas Poonia",
+      "Rohit Jain",
+      "Shivendra Singh Tomar",
+      "Tanveer Ahmed",
+      "Vivek Shah",
+      "Kausturi Roy Chowdhury",
+      "Neeru Yadav",
+      "Chandana Hari"
+    ],
+    "refundsLast7Days": {
+      "total": 22021,
+      "count": 3
+    },
     "newUsers7d": 3514,
     "newUsersYesterday": 119,
-    "activeSubs": 5228,
+    "activeSubs": 5230,
     "newSubs7d": 135,
     "teleCrmLeads": 164,
     "subsEnding5d": 66,
@@ -82197,22 +82380,22 @@
     "planExpNoOrder": 2429,
     "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 20,
-      "Orders Placed": 20,
-      "Orders - CONFIRMED": 21,
-      "Orders Confirmed": 21,
+      "Orders - PLACED": 28,
+      "Orders Placed": 28,
+      "Orders - CONFIRMED": 22,
+      "Orders Confirmed": 22,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 8,
-      "Orders Shipped": 8,
-      "Orders - Not Delivered": 50,
-      "Orders Not Delivered": 49
+      "Orders - SHIPPED": 7,
+      "Orders Shipped": 7,
+      "Orders - Not Delivered": 58,
+      "Orders Not Delivered": 57
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 350,
-      "New Subscribers Orders that have been Delivered": 300,
-      "New Subscribers Orders yet to be Delivered": 50,
-      "New Subscribers Orders yet to be Delivered & Delayed": 12
+      "New Subscribers who have Ordered": 361,
+      "New Subscribers Orders that have been Delivered": 303,
+      "New Subscribers Orders yet to be Delivered": 58,
+      "New Subscribers Orders yet to be Delivered & Delayed": 11
     },
     "selfUpgrade": {
       "totalCount": 0,
