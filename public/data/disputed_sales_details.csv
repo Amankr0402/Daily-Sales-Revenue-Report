@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-11-19","Shashank Shrivastava","9445739996","Tanveer Ahmed",20000,19044,"Ultra Annually","Organic","fffc3d72-d128-481c-b103-7709fdf0fea6","UR559981","Logged by Inside Sales agent (Tanveer Ahmed) for ₹20000 and also completed on Direct Portal for ₹19044"
 "2026-11-19","Pravin Padhye","9960851133","Vikas Poonia",12376,12573,"Annual Max","Renewals","381dcf1a-2a21-4fe3-9004-0269b345707c","UR32600","Logged by Inside Sales agent (Vikas Poonia) for ₹12376 and also completed on Direct Portal for ₹12573"
 "2026-11-18","Sukanya Sn","9620134308","Shivani Gupta",12000,12000,"Annual Max","Organic","9a6bde2b-2eb4-4cd0-a63c-0572de13d992","UR220503","Logged by Inside Sales agent (Shivani Gupta) for ₹12000 and also completed on Direct Portal for ₹12000"
 "2026-11-15","SoumyaRanjan Sahoo","8971270953","Yuvraj Singh Dodiya",8325,7949.54,"Annual Plus","Organic","04761dea-6c0f-4071-b6ab-dc76148a27f5","UR486248","Logged by Inside Sales agent (Yuvraj Singh Dodiya) for ₹8325 and also completed on Direct Portal for ₹7949.54"
