@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,664,797",,,336,
+,,,,"3,704,797",,,341.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -325,5 +325,12 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 323,21/11/2026,7878990824,Preyashi Roy,"19,573",No,Annual Max,2,Organic
 324,21/11/2026,8105500398,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
 325,21/11/2026,9322551321,Vivek Shah,"19,573",No,Annual Max,2,Organic
-326,21/11/2026,,,,,,,
-327,21/11/2026,,,,,,,
+326,21/11/2026,8826388099,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
+327,21/11/2026,9660832179,Yuvraj Singh Dodiya,,No,Annual Max,1,Events
+328,21/11/2026,8600364844,Vikas Poonia,"5,000",No,Quarterly Max,1,Events
+329,21/11/2026,9730095620,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
+330,21/11/2026,9890306691,Vikas Poonia,"12,000",No,Annual Max,1,Events
+331,21/11/2026,9130182296,Vikas Poonia,"1,000",No,Annual Max,0.5,Events
+332,21/11/2026,,,,,,,
+333,21/11/2026,,,,,,,
+334,21/11/2026,,,,,,,
