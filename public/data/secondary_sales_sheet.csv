@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,419,505",,,314,
+,,,,"3,482,505",,,319.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -85,7 +85,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 83,11/5/2026,9377169654,Darshan KS,"6,000",Yes,Annual Max,0.5,Organic
 84,11/5/2026,8460131035,Preyashi Roy,"13,073",No,Annual Max,1,Organic
 85,11/5/2026,9909990979,Chhaya Patel,"12,000",No,Annual Max,1,Organic
-86,11/5/2026,9716127210,Supratim Dutta,"12,000",No,Annual Max,1,Organic
+86,11/5/2026,9716127210,Others,"12,000",No,Annual Max,1,Organic
 87,11/5/2026,8553920412,Honey Talreja,"12,000",No,Annual Max,1,Organic
 88,11/5/2026,7972258997,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 89,11/5/2026,8890012213,Vikas Poonia,"12,216",No,Annual Max,1,Organic
@@ -121,8 +121,8 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 119,11/7/2026,9724740736,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 120,11/7/2026,9052573394,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 121,11/7/2026,9028058641,Preyashi Roy,"12,000",No,Annual Max,1,Organic
-122,11/7/2026,8356043770,Others,"9,787",No,Annual Max,1,Organic
-123,11/7/2026,9833682116,Others,"9,787",No,Annual Max,1,Organic
+122,11/7/2026,8356043770,Kausturi Roy Chowdhury,"9,787",No,Annual Max,1,Organic
+123,11/7/2026,9833682116,Kausturi Roy Chowdhury,"9,787",No,Annual Max,1,Organic
 124,11/7/2026,7506869703,Shubham Rai,"9,787",No,Annual Max,1,Organic
 125,11/8/2026,8866875378,Prerak Bhavsar,"11,000",No,Annual Max,1,Organic
 126,11/8/2026,8929125131,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
@@ -281,7 +281,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 279,19/11/2026,9886589365,Honey Talreja,"12,000",No,Annual Max,1,Organic
 280,19/11/2026,9717349995,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 281,19/11/2026,9762637030,Yuvraj Singh Dodiya,"1,000",No,Annual Max,0.5,Organic
-282,19/11/2026,9822976994,Supratim Dutta,"12,000",No,Annual Max,1,Organic
+282,19/11/2026,9822976994,Others,"12,000",No,Annual Max,1,Organic
 283,19/11/2026,7838387598,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 284,19/11/2026,9811217056,Rohit Jain,"19,573",No,Annual Max,2,Organic
 285,19/11/2026,8470055513,Kausturi Roy Chowdhury,"19,573",No,Annual Max,2,Organic
@@ -306,24 +306,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 304,20/11/2026,8956846787,Darshan KS,"12,000",No,Annual Max,1,Organic
 305,20/11/2026,8105259053,Neeru Yadav,"3,000",No,Annual Max,0.5,Organic
 306,20/11/2026,8197925923,Amol Landge,"10,000",No,Annual Max,1,Renewals
-307,20/11/2026,,,,,,,
-308,20/11/2026,,,,,,,
-309,20/11/2026,,,,,,,
-310,20/11/2026,,,,,,,
-311,20/11/2026,,,,,,,
-312,20/11/2026,,,,,,,
-313,20/11/2026,,,,,,,
-314,20/11/2026,,,,,,,
-315,20/11/2026,,,,,,,
-316,20/11/2026,,,,,,,
-317,20/11/2026,,,,,,,
-318,20/11/2026,,,,,,,
-319,20/11/2026,,,,,,,
-320,20/11/2026,,,,,,,
-321,20/11/2026,,,,,,,
-322,20/11/2026,,,,,,,
-323,20/11/2026,,,,,,,
-324,20/11/2026,,,,,,,
-325,20/11/2026,,,,,,,
-326,20/11/2026,,,,,,,
-327,20/11/2026,,,,,,,
+307,21/11/2026,9916088870,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
+308,21/11/2026,9075750481,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
+309,21/11/2026,9866286037,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
+310,21/11/2026,7021027554,Honey Talreja,"12,000",No,Annual Max,1,Organic
+311,21/11/2026,9901279623,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
+312,21/11/2026,,Shivaram Nimmala,"3,000",No,Annual Max,0.5,Events
+313,21/11/2026,,,,,,,
+314,21/11/2026,,,,,,,
+315,21/11/2026,,,,,,,
+316,21/11/2026,,,,,,,
+317,21/11/2026,,,,,,,
+318,21/11/2026,,,,,,,
+319,21/11/2026,,,,,,,
+320,21/11/2026,,,,,,,
+321,21/11/2026,,,,,,,
+322,21/11/2026,,,,,,,
+323,21/11/2026,,,,,,,
+324,21/11/2026,,,,,,,
+325,21/11/2026,,,,,,,
+326,21/11/2026,,,,,,,
+327,21/11/2026,,,,,,,
