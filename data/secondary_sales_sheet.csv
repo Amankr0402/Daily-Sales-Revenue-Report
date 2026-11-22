@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"3,815,943",,,351,
+,,,,"4,101,566",,,377.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -317,43 +317,62 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 315,21/11/2026,8088577354,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
 316,21/11/2026,8105259053,Neeru Yadav,"9,000",No,Annual Max,0.5,Organic
 317,21/11/2026,9606865317,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
-318,21/11/2026,9880441349,Amol Landge,"12,000",No,Annual Max,1,Events
-319,21/11/2026,8686051145,Jivesh Harde,"11,000",No,Annual Max,1,Organic
-320,21/11/2026,8866616449,Vikas Poonia,"12,000",No,Annual Max,1,Events
-321,21/11/2026,9741009847,Amol Landge,"12,000",No,Annual Max,1,Events
-322,21/11/2026,8956621444,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
-323,21/11/2026,7878990824,Preyashi Roy,"19,573",No,Annual Max,2,Organic
-324,21/11/2026,8105500398,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
-325,21/11/2026,9322551321,Vivek Shah,"19,573",No,Annual Max,2,Organic
-326,21/11/2026,8826388099,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
-327,21/11/2026,9660832179,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Events
-328,21/11/2026,8600364844,Vikas Poonia,"5,000",No,Quarterly Max,1,Events
-329,21/11/2026,9730095620,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
-330,21/11/2026,9890306691,Vikas Poonia,"12,000",No,Annual Max,1,Events
-331,21/11/2026,9130182296,Vikas Poonia,"1,000",No,Annual Max,0.5,Events
-332,22/11/2026,9901279623,Tanveer Ahmed,"7,573",No,Annual Max,0.5,Events
-333,22/11/2026,9099733058,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
-334,22/11/2026,9579578228,Vivek Shah,"12,000",No,Annual Max,1,Organic
-335,22/11/2026,9590039298,Shivaram Nimmala,"6,000",No,Quarterly Max,1,Events
-336,22/11/2026,9971332089,Amol Landge,"12,000",No,Annual Max,1,Events
-337,22/11/2026,9226812191,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
-338,22/11/2026,7899303070,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
-339,22/11/2026,9633076510,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
-340,22/11/2026,9966114888,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
-341,22/11/2026,,,,,,,
-342,22/11/2026,,,,,,,
-343,22/11/2026,,,,,,,
-344,22/11/2026,,,,,,,
-345,22/11/2026,,,,,,,
-346,22/11/2026,,,,,,,
-347,22/11/2026,,,,,,,
-348,22/11/2026,,,,,,,
-349,22/11/2026,,,,,,,
-350,22/11/2026,,,,,,,
-351,22/11/2026,,,,,,,
-352,22/11/2026,,,,,,,
-353,22/11/2026,,,,,,,
-354,22/11/2026,,,,,,,
-355,22/11/2026,,,,,,,
-356,22/11/2026,,,,,,,
-357,22/11/2026,,,,,,,
+318,21/11/2026,8686051145,Jivesh Harde,"11,000",No,Annual Max,1,Organic
+319,21/11/2026,8866616449,Vikas Poonia,"12,000",No,Annual Max,1,Events
+320,21/11/2026,9741009847,Amol Landge,"12,000",No,Annual Max,1,Events
+321,21/11/2026,8956621444,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+322,21/11/2026,7878990824,Preyashi Roy,"19,573",No,Annual Max,2,Organic
+323,21/11/2026,8105500398,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
+324,21/11/2026,9322551321,Vivek Shah,"19,573",No,Annual Max,2,Organic
+325,21/11/2026,8826388099,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
+326,21/11/2026,9660832179,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Events
+327,21/11/2026,8600364844,Vikas Poonia,"5,000",No,Quarterly Max,1,Events
+328,21/11/2026,9730095620,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
+329,21/11/2026,9890306691,Vikas Poonia,"12,000",No,Annual Max,1,Events
+330,21/11/2026,9130182296,Vikas Poonia,"1,000",No,Annual Max,0.5,Events
+331,22/11/2026,9901279623,Tanveer Ahmed,"7,573",No,Annual Max,0.5,Events
+332,22/11/2026,9099733058,Honey Talreja,"6,000",No,Quarterly Max,1,Organic
+333,22/11/2026,9579578228,Vivek Shah,"12,000",No,Annual Max,1,Organic
+334,22/11/2026,9590039298,Shivaram Nimmala,"6,000",No,Quarterly Max,1,Events
+335,22/11/2026,9971332089,Amol Landge,"12,000",No,Annual Max,1,Events
+336,22/11/2026,9226812191,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
+337,22/11/2026,7899303070,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
+338,22/11/2026,9633076510,Tanveer Ahmed,"12,000",No,Annual Max,1,Events
+339,22/11/2026,9966114888,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
+340,22/11/2026,9168199446,Vikas Poonia,"2,000",No,Annual Max,0.5,Events
+341,22/11/2026,8600936320,Vikas Poonia,"12,000",No,Annual Max,1,Events
+342,22/11/2026,9916583449,Amol Landge,"12,000",No,Annual Max,1,Events
+343,22/11/2026,8600203888,Amol Landge,"12,000",No,Annual Max,1,Events
+344,22/11/2026,9000156186,Shivani Gupta,"12,000",No,Annual Max,1,Organic
+345,22/11/2026,9870288370,Vivek Shah,"8,325",No,Annual Plus,1,Organic
+346,22/11/2026,9739199002,Amol Landge,"12,000",No,Annual Max,1,Events
+347,22/11/2026,9990250589,Amol Landge,"12,000",No,Annual Max,1,Events
+348,22/11/2026,9999782761,Amol Landge,"12,000",No,Annual Max,1,Events
+349,22/11/2026,9910309937,Amol Landge,"2,400",No,Annual Max,0.5,Events
+350,22/11/2026,9893562644,Preyashi Roy,"12,000",No,Annual Max,1,Organic
+351,22/11/2026,7299093303,Shivaram Nimmala,"19,573",No,Annual Max,2,Events
+352,22/11/2026,9561612333,Vikas Poonia,"2,000",No,Annual Max,0.5,Events
+353,22/11/2026,9970406660,Vikas Poonia,"12,000",No,Annual Max,1,Events
+354,22/11/2026,9886814666,Amol Landge,"12,000",No,Annual Max,1,Events
+355,22/11/2026,8668904690,Vikas Poonia,"2,000",No,Annual Max,0.5,Events
+356,22/11/2026,9890670714,Shivaram Nimmala,"12,000",No,Annual Max,1,Events
+357,22/11/2026,7798736866,Vikas Poonia,"1,000",No,Annual Max,0.5,Events
+358,22/11/2026,8291841213,Vivek Shah,"8,325",No,Annual Plus,1,Organic
+359,22/11/2026,9930927841,Darshan KS,"12,000",No,Annual Max,1,Organic
+360,22/11/2026,9619561921,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Events
+361,22/11/2026,7981182745,Amol Landge,"12,000",No,Annual Max,1,Events
+362,22/11/2026,9731502323,Amol Landge,"12,000",No,Annual Max,1,Events
+363,22/11/2026,9538362910,Amol Landge,"12,000",No,Annual Max,1,Events
+364,22/11/2026,,Others,"12,000",No,Annual Max,1,Events
+365,22/11/2026,,Vikas Poonia,"12,000",No,Annual Max,1,Events
+366,22/11/2026,9004634388,Prerak Bhavsar,"12,000",No,Annual Max,1,Events
+367,22/11/2026,9960276733,Darshan KS,"12,000",No,Annual Max,1,Organic
+368,22/11/2026,9629859871,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
+369,22/11/2026,,,,,,,
+370,22/11/2026,,,,,,,
+371,22/11/2026,,,,,,,
+372,22/11/2026,,,,,,,
+373,22/11/2026,,,,,,,
+374,22/11/2026,,,,,,,
+375,22/11/2026,,,,,,,
+376,22/11/2026,,,,,,,

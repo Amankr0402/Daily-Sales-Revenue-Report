@@ -61256,9 +61256,9 @@
   },
   {
     "date": "2026-07-31",
-    "totalRevenue": 421707.3,
-    "salesCount": 43,
-    "transactions": 43,
+    "totalRevenue": 433923.3,
+    "salesCount": 44,
+    "transactions": 44,
     "highestSale": {
       "amount": 15763.5,
       "agent": "Self Serve",
@@ -61270,8 +61270,8 @@
         "count": 5
       },
       "Kausturi Roy Chowdhury": {
-        "revenue": 34432,
-        "count": 3
+        "revenue": 46648,
+        "count": 4
       },
       "Tanveer Ahmed": {
         "revenue": 13500,
@@ -61312,8 +61312,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 382779.3,
-        "count": 35
+        "revenue": 394995.3,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 35768,
@@ -61326,8 +61326,8 @@
     },
     "sources": {
       "Renewals": {
-        "revenue": 41128,
-        "count": 4
+        "revenue": 53344,
+        "count": 5
       },
       "Organic": {
         "revenue": 218432,
@@ -81711,10 +81711,10 @@
     },
     "userBreakdown": {
       "signups": 442,
-      "otpVerified": 203,
-      "serviceable": 152,
-      "serviceableWithPct": "152 (34.4%)",
-      "serviceablePct": "34.4%"
+      "otpVerified": 204,
+      "serviceable": 153,
+      "serviceableWithPct": "153 (34.6%)",
+      "serviceablePct": "34.6%"
     },
     "directSaleCSV": {
       "count": 2,
@@ -82521,9 +82521,9 @@
   },
   {
     "date": "2026-11-21",
-    "totalRevenue": 297292,
-    "salesCount": 29,
-    "transactions": 25,
+    "totalRevenue": 285292,
+    "salesCount": 28,
+    "transactions": 24,
     "highestSale": {
       "amount": 12000,
       "agent": "Shivaram Nimmala",
@@ -82554,10 +82554,6 @@
         "revenue": 24000,
         "count": 2
       },
-      "Amol Landge": {
-        "revenue": 24000,
-        "count": 2
-      },
       "Jivesh Harde": {
         "revenue": 11000,
         "count": 1
@@ -82565,6 +82561,10 @@
       "Vikas Poonia": {
         "revenue": 40000,
         "count": 5
+      },
+      "Amol Landge": {
+        "revenue": 12000,
+        "count": 1
       },
       "Yuvraj Singh Dodiya": {
         "revenue": 24000,
@@ -82581,8 +82581,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 292292,
-        "count": 28
+        "revenue": 280292,
+        "count": 27
       },
       "Quarterly Max": {
         "revenue": 5000,
@@ -82591,8 +82591,8 @@
     },
     "sources": {
       "Events": {
-        "revenue": 160573,
-        "count": 16
+        "revenue": 148573,
+        "count": 15
       },
       "Organic": {
         "revenue": 126719,
@@ -82604,16 +82604,16 @@
       }
     },
     "userBreakdown": {
-      "signups": 184,
+      "signups": 183,
       "otpVerified": 126,
       "serviceable": 97,
-      "serviceableWithPct": "97 (52.7%)",
-      "serviceablePct": "52.7%"
+      "serviceableWithPct": "97 (53.0%)",
+      "serviceablePct": "53.0%"
     },
     "missedLeads": {
-      "Connected": 239,
-      "Interested": 135,
-      "Paise Dega": 70
+      "Connected": 225,
+      "Interested": 84,
+      "Paise Dega": 71
     },
     "refunds": {
       "count": 2,
@@ -82662,31 +82662,31 @@
     },
     "newUsers7d": 1896,
     "newUsersYesterday": 173,
-    "activeSubs": 5251,
+    "activeSubs": 5265,
     "newSubs7d": 130,
     "teleCrmLeads": 279,
-    "subsEnding5d": 71,
+    "subsEnding5d": 70,
     "subsExpired7d": 93,
-    "subsExpiringToday": 15,
+    "subsExpiringToday": 14,
     "planExpiringNoOrder": 2,
     "planExpNoOrder": 2430,
-    "activeSubNoOrder": 125,
+    "activeSubNoOrder": 127,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 26,
-      "Orders Placed": 26,
-      "Orders - CONFIRMED": 16,
-      "Orders Confirmed": 16,
+      "Orders - PLACED": 17,
+      "Orders Placed": 17,
+      "Orders - CONFIRMED": 24,
+      "Orders Confirmed": 24,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 19,
-      "Orders Shipped": 19,
-      "Orders - Not Delivered": 61,
-      "Orders Not Delivered": 61
+      "Orders - SHIPPED": 12,
+      "Orders Shipped": 12,
+      "Orders - Not Delivered": 55,
+      "Orders Not Delivered": 53
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 395,
-      "New Subscribers Orders that have been Delivered": 334,
-      "New Subscribers Orders yet to be Delivered": 61,
+      "New Subscribers Orders that have been Delivered": 340,
+      "New Subscribers Orders yet to be Delivered": 55,
       "New Subscribers Orders yet to be Delivered & Delayed": 9
     },
     "selfUpgrade": {
