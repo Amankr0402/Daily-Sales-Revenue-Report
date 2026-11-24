@@ -1,89 +1,109 @@
 leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6b0284cce9744893f675570e,Connected,amol.landge@theelefant.ai,2026-11-22T05:59:40Z,,Never called
 6b0291c7edf6c95f175af430,Connected,amol.landge@theelefant.ai,2026-11-22T06:55:03Z,,Never called
-6afbd9e140d87c93d3102cfd,Connected,amol.landge@theelefant.ai,2026-11-17T04:36:49Z,2026-11-20T07:38:54Z,82 hrs ago
-6afea56d7dff4447866a686b,Connected,amol.landge@theelefant.ai,2026-11-19T07:29:49Z,2026-11-20T09:10:52Z,80 hrs ago
-6b01436a2b20dff759f7cb0e,Connected,amol.landge@theelefant.ai,2026-11-21T07:08:26Z,2026-11-21T07:38:45Z,58 hrs ago
-6afac4bd99f4a173f5d80b0a,Connected,Chhaya.patel@theelefant.ai,2026-11-16T08:54:21Z,2026-11-21T13:33:29Z,52 hrs ago
-6afc5d002127d96a501c44b8,Connected,darshan.k@theelefant.ai,2026-11-17T13:56:16Z,2026-11-19T13:49:34Z,99 hrs ago
-6afdbfaaae32dc003e289026,Connected,darshan.k@theelefant.ai,2026-11-18T15:09:30Z,2026-11-20T06:30:51Z,83 hrs ago
-6b0068c986bf164ceda90c32,Connected,darshan.k@theelefant.ai,2026-11-20T15:35:37Z,2026-11-20T15:47:34Z,73 hrs ago
-6b02ced37e897a810c806e99,Connected,darshan.k@theelefant.ai,2026-11-22T11:15:31Z,2026-11-22T11:21:29Z,30 hrs ago
-6b03104d489081f90e3f98ca,Connected,darshan.k@theelefant.ai,2026-11-22T15:54:53Z,2026-11-23T03:04:09Z,14 hrs ago
-6afae264221b245573214fcf,Connected,honey.talreja@theelefant.ai,2026-11-16T11:00:52Z,,Never called
-6b03d952c7dfca92feb9c84a,Connected,honey.talreja@theelefant.ai,2026-11-23T06:12:34Z,,Never called
-6afabe110da32094797a95f4,Connected,honey.talreja@theelefant.ai,2026-11-16T08:25:53Z,,Never called
+6afbd9e140d87c93d3102cfd,Connected,amol.landge@theelefant.ai,2026-11-17T04:36:49Z,2026-11-20T07:38:54Z,89 hrs ago
+6afea56d7dff4447866a686b,Connected,amol.landge@theelefant.ai,2026-11-19T07:29:49Z,2026-11-20T09:10:52Z,88 hrs ago
+6b01436a2b20dff759f7cb0e,Connected,amol.landge@theelefant.ai,2026-11-21T07:08:26Z,2026-11-21T07:38:45Z,65 hrs ago
+6afc5d002127d96a501c44b8,Connected,darshan.k@theelefant.ai,2026-11-17T13:56:16Z,2026-11-19T13:49:34Z,107 hrs ago
+6afdbfaaae32dc003e289026,Connected,darshan.k@theelefant.ai,2026-11-18T15:09:30Z,2026-11-20T06:30:51Z,90 hrs ago
+6b0068c986bf164ceda90c32,Connected,darshan.k@theelefant.ai,2026-11-20T15:35:37Z,2026-11-20T15:47:34Z,81 hrs ago
+6b02ced37e897a810c806e99,Connected,darshan.k@theelefant.ai,2026-11-22T11:15:31Z,2026-11-22T11:21:29Z,38 hrs ago
+6b03104d489081f90e3f98ca,Connected,darshan.k@theelefant.ai,2026-11-22T15:54:53Z,2026-11-23T03:04:09Z,22 hrs ago
 6afc9809db277b5a6f8f9acc,Connected,honey.talreja@theelefant.ai,2026-11-17T18:08:09Z,,Never called
-6afa85483464a4fa7c387b00,Connected,honey.talreja@theelefant.ai,2026-11-16T04:23:36Z,2026-11-16T14:05:09Z,171 hrs ago
-6afb4b0e4445c4fa9a5b8c33,Connected,honey.talreja@theelefant.ai,2026-11-16T18:27:26Z,2026-11-17T11:08:44Z,150 hrs ago
-6afaae5391116b5311a383ad,Connected,honey.talreja@theelefant.ai,2026-11-16T07:18:43Z,2026-11-21T08:09:11Z,57 hrs ago
-6afcf6ed604483d10b89ce4b,Connected,honey.talreja@theelefant.ai,2026-11-18T00:53:01Z,2026-11-21T08:16:18Z,57 hrs ago
-6b02761fe82d3bac567473e0,Connected,honey.talreja@theelefant.ai,2026-11-22T04:57:03Z,2026-11-22T06:23:19Z,35 hrs ago
-6afe70e3d126631a1360e323,Connected,honey.talreja@theelefant.ai,2026-11-19T03:45:39Z,2026-11-22T10:02:48Z,31 hrs ago
-6aff3ef40838b49ae934e3d1,Connected,honey.talreja@theelefant.ai,2026-11-19T18:24:52Z,2026-11-22T10:06:11Z,31 hrs ago
-6b016fe96de03233733aa0cf,Connected,honey.talreja@theelefant.ai,2026-11-21T10:18:17Z,2026-11-22T10:23:36Z,31 hrs ago
-6b019f220364591a46c9893c,Connected,honey.talreja@theelefant.ai,2026-11-21T13:39:46Z,2026-11-22T10:29:09Z,31 hrs ago
-6afa9999afc10f50f2fa1450,Connected,honey.talreja@theelefant.ai,2026-11-16T05:50:17Z,2026-11-22T12:24:46Z,29 hrs ago
-6afac894299d07f7cbab178e,Connected,jivesh.harde@theelefant.ai,2026-11-16T09:10:44Z,2026-11-17T09:18:58Z,152 hrs ago
-6b011260d2875d6e796eab44,Connected,jivesh.harde@theelefant.ai,2026-11-21T03:39:12Z,2026-11-21T11:02:37Z,54 hrs ago
-6b014ddc409d606a909926c4,Connected,jivesh.harde@theelefant.ai,2026-11-21T07:53:00Z,2026-11-21T11:28:57Z,54 hrs ago
-6afa9b50284e2c0a2639f04c,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T05:57:36Z,2026-11-16T10:19:59Z,175 hrs ago
-6afbdd872cdbfc0793b54b3f,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T04:52:23Z,2026-11-17T08:45:50Z,152 hrs ago
-6afad3ceb8528b1b95a219a1,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T09:58:38Z,2026-11-17T09:33:16Z,152 hrs ago
-6afa7fdbaf1c4564f3b5b85f,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T04:00:27Z,2026-11-17T09:34:45Z,152 hrs ago
-6afb32d26e03ccaa85576089,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T16:44:02Z,2026-11-18T11:28:34Z,126 hrs ago
-6afabd0e90faf1b6c9401e8d,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T08:21:34Z,2026-11-18T11:52:47Z,125 hrs ago
-6afc5cf3a4aab38906049f1d,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T13:56:03Z,2026-11-19T05:46:53Z,107 hrs ago
-6afc269ff0a2f4181c715d5e,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T10:04:15Z,2026-11-19T08:19:51Z,105 hrs ago
-6afd79ae29fc5e26059f40c3,Connected,kasturi.chowdhury@theelefant.ai,2026-11-18T10:10:54Z,2026-11-20T11:56:49Z,77 hrs ago
-6afc0a9a2c263fcd5e03b431,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T08:04:42Z,2026-11-20T12:10:16Z,77 hrs ago
-6afda3bd9629586ee20a9b7f,Connected,kasturi.chowdhury@theelefant.ai,2026-11-18T13:10:21Z,2026-11-20T12:34:22Z,77 hrs ago
-6afb30454832875d7407633b,Connected,kasturi.chowdhury@theelefant.ai,2026-11-16T16:33:09Z,2026-11-20T13:15:29Z,76 hrs ago
-6aff47bf300fbd4b019642cb,Connected,kasturi.chowdhury@theelefant.ai,2026-11-19T19:02:23Z,2026-11-21T05:55:54Z,59 hrs ago
-6b0088c9c1c0e0e7133c0d59,Connected,kasturi.chowdhury@theelefant.ai,2026-11-20T17:52:09Z,2026-11-21T07:43:17Z,57 hrs ago
-6b0156fbe1be58cf5d190238,Connected,kasturi.chowdhury@theelefant.ai,2026-11-21T08:31:55Z,2026-11-21T08:54:28Z,56 hrs ago
-6b017f2bbfd3c81f5a799fe0,Connected,kasturi.chowdhury@theelefant.ai,2026-11-21T11:23:23Z,2026-11-21T11:32:10Z,54 hrs ago
-6b004f823f7260d62c9f93f0,Connected,kasturi.chowdhury@theelefant.ai,2026-11-20T13:47:46Z,2026-11-21T14:01:00Z,51 hrs ago
-6b02a1df9c1f8e2714f57866,Connected,kasturi.chowdhury@theelefant.ai,2026-11-22T08:03:43Z,2026-11-22T08:50:23Z,32 hrs ago
-6afdda0098e1172cb942f898,Connected,neeru.yadav@theelefant.ai,2026-11-18T17:01:52Z,2026-11-19T09:19:58Z,104 hrs ago
-6afbd8c144db089740ccfbf3,Connected,neeru.yadav@theelefant.ai,2026-11-17T04:32:01Z,2026-11-20T09:12:01Z,80 hrs ago
-6afedea90c7724076497d801,Connected,neeru.yadav@theelefant.ai,2026-11-19T11:34:01Z,2026-11-20T09:23:01Z,80 hrs ago
-6afe87e55ab122f9fdb301ae,Connected,neeru.yadav@theelefant.ai,2026-11-19T05:23:49Z,2026-11-20T09:52:29Z,79 hrs ago
-6afded49384d461cc46d3278,Connected,neeru.yadav@theelefant.ai,2026-11-18T18:24:09Z,2026-11-20T09:53:43Z,79 hrs ago
-6afabe07ef8389f55938239b,Connected,neeru.yadav@theelefant.ai,2026-11-16T08:25:43Z,2026-11-20T09:55:37Z,79 hrs ago
-6afe85267b3c1d5127da8360,Connected,neeru.yadav@theelefant.ai,2026-11-19T05:12:06Z,2026-11-21T14:03:26Z,51 hrs ago
-6b0175f65aa167b21699fd8d,Connected,neeru.yadav@theelefant.ai,2026-11-21T10:44:06Z,2026-11-22T04:55:48Z,36 hrs ago
-6afb04c0b3c5daa1c9b44dc2,Connected,nonserviceableleads@elefant.com,2026-11-16T13:27:28Z,,Never called
-6afa8e7396f6a3507f160fe7,Connected,nonserviceableleads@elefant.com,2026-11-16T05:02:43Z,2026-11-17T12:35:05Z,149 hrs ago
-6afb30fdc44af85cbb255fe3,Connected,nonserviceableleads@elefant.com,2026-11-16T16:36:13Z,2026-11-18T06:35:38Z,131 hrs ago
-6afef5a63cfa6faf5a47c925,Connected,nonserviceableleads@elefant.com,2026-11-19T13:12:06Z,2026-11-19T13:20:08Z,100 hrs ago
-6aff024480681f0471e66a23,Connected,nonserviceableleads@elefant.com,2026-11-19T14:05:56Z,2026-11-20T07:17:36Z,82 hrs ago
-6afd6b6be25b8b4c67cd21b1,Connected,nonserviceableleads@elefant.com,2026-11-18T09:10:03Z,2026-11-20T12:11:20Z,77 hrs ago
-6afdf052e0b305d1d99b09ee,Connected,pratik.sharma@theelefant.ai,2026-11-18T18:37:06Z,2026-11-21T06:35:31Z,59 hrs ago
-6afc754901453cb3fda2d326,Connected,prerak.bhavsar@theelefant.ai,2026-11-17T15:39:53Z,2026-11-18T06:11:59Z,131 hrs ago
-6afbc330493cbea1b1c9dae3,Connected,prerak.bhavsar@theelefant.ai,2026-11-17T03:00:00Z,2026-11-18T12:22:56Z,125 hrs ago
-6affd49e97b5ddaefbb1c56d,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T05:03:26Z,2026-11-20T05:28:37Z,84 hrs ago
-6affba58dc8acd2ea0a10ce8,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T03:11:20Z,2026-11-20T05:51:06Z,83 hrs ago
-6affd1a08a24f5bb946f3319,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T04:50:40Z,2026-11-20T06:26:14Z,83 hrs ago
-6aff0dc4b9647d04fb95505c,Connected,prerak.bhavsar@theelefant.ai,2026-11-19T14:55:00Z,2026-11-20T06:58:33Z,82 hrs ago
-6b000521929d9d96ac3c9f68,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T08:30:25Z,2026-11-20T08:53:10Z,80 hrs ago
-6affb95f1162f28283937485,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T03:07:11Z,2026-11-20T09:12:48Z,80 hrs ago
-6afd976429160716a5cb1dd0,Connected,rani.singh@theelefant.ai,2026-11-18T12:17:40Z,2026-11-21T05:58:02Z,59 hrs ago
-6afbf157f22c25db6149e7b2,Connected,rohit.jain@theelefant.ai,2026-11-17T06:16:55Z,2026-11-19T13:21:11Z,100 hrs ago
-6afbcfe6524eafddb3db79f9,Connected,rohit.jain@theelefant.ai,2026-11-17T03:54:14Z,2026-11-20T07:08:21Z,82 hrs ago
-6afc04e7c8f2263bc85684da,Connected,rohit.jain@theelefant.ai,2026-11-17T07:40:23Z,2026-11-20T12:03:07Z,77 hrs ago
-6afb4c02b43007ffbbb50ab7,Connected,rohit.jain@theelefant.ai,2026-11-16T18:31:30Z,2026-11-22T12:19:53Z,29 hrs ago
-6afef161c6232027154ea2c0,Connected,shivani.gupta@theelefant.ai,2026-11-19T12:53:53Z,2026-11-22T09:41:14Z,31 hrs ago
-6afedd2e27080f550cce40a2,Connected,shivani.gupta@theelefant.ai,2026-11-19T11:27:42Z,2026-11-22T11:17:22Z,30 hrs ago
-6b01457c1c1dc5797854483e,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:17:16Z,,Never called
-6b0168f546d8fdf3c8fd835f,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:48:37Z,,Never called
-6b02a4ddec6c0c9abee237ea,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:16:29Z,,Never called
+6b03d952c7dfca92feb9c84a,Connected,honey.talreja@theelefant.ai,2026-11-23T06:12:34Z,,Never called
+6afcf6ed604483d10b89ce4b,Connected,honey.talreja@theelefant.ai,2026-11-18T00:53:01Z,2026-11-21T08:16:18Z,65 hrs ago
+6b02761fe82d3bac567473e0,Connected,honey.talreja@theelefant.ai,2026-11-22T04:57:03Z,2026-11-22T06:23:19Z,43 hrs ago
+6afe70e3d126631a1360e323,Connected,honey.talreja@theelefant.ai,2026-11-19T03:45:39Z,2026-11-22T10:02:48Z,39 hrs ago
+6aff3ef40838b49ae934e3d1,Connected,honey.talreja@theelefant.ai,2026-11-19T18:24:52Z,2026-11-22T10:06:11Z,39 hrs ago
+6b016fe96de03233733aa0cf,Connected,honey.talreja@theelefant.ai,2026-11-21T10:18:17Z,2026-11-22T10:23:36Z,39 hrs ago
+6b019f220364591a46c9893c,Connected,honey.talreja@theelefant.ai,2026-11-21T13:39:46Z,2026-11-22T10:29:09Z,38 hrs ago
+6b02d0606cc460edd743b591,Connected,honey.talreja@theelefant.ai,2026-11-22T11:22:08Z,2026-11-23T08:43:26Z,16 hrs ago
+6b01fd84cd70c51f82af9490,Connected,honey.talreja@theelefant.ai,2026-11-21T20:22:28Z,2026-11-23T11:04:41Z,14 hrs ago
+6b011260d2875d6e796eab44,Connected,jivesh.harde@theelefant.ai,2026-11-21T03:39:12Z,2026-11-21T11:02:37Z,62 hrs ago
+6b014ddc409d606a909926c4,Connected,jivesh.harde@theelefant.ai,2026-11-21T07:53:00Z,2026-11-21T11:28:57Z,61 hrs ago
+6afd39ec19b8fe49bf54d2a7,Connected,jivesh.harde@theelefant.ai,2026-11-18T05:38:52Z,2026-11-23T10:04:14Z,15 hrs ago
+6afbdd872cdbfc0793b54b3f,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T04:52:23Z,2026-11-17T08:45:50Z,160 hrs ago
+6afc5cf3a4aab38906049f1d,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T13:56:03Z,2026-11-19T05:46:53Z,115 hrs ago
+6afc269ff0a2f4181c715d5e,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T10:04:15Z,2026-11-19T08:19:51Z,113 hrs ago
+6afd79ae29fc5e26059f40c3,Connected,kasturi.chowdhury@theelefant.ai,2026-11-18T10:10:54Z,2026-11-20T11:56:49Z,85 hrs ago
+6afc0a9a2c263fcd5e03b431,Connected,kasturi.chowdhury@theelefant.ai,2026-11-17T08:04:42Z,2026-11-20T12:10:16Z,85 hrs ago
+6afda3bd9629586ee20a9b7f,Connected,kasturi.chowdhury@theelefant.ai,2026-11-18T13:10:21Z,2026-11-20T12:34:22Z,84 hrs ago
+6aff47bf300fbd4b019642cb,Connected,kasturi.chowdhury@theelefant.ai,2026-11-19T19:02:23Z,2026-11-21T05:55:54Z,67 hrs ago
+6b0088c9c1c0e0e7133c0d59,Connected,kasturi.chowdhury@theelefant.ai,2026-11-20T17:52:09Z,2026-11-21T07:43:17Z,65 hrs ago
+6b0156fbe1be58cf5d190238,Connected,kasturi.chowdhury@theelefant.ai,2026-11-21T08:31:55Z,2026-11-21T08:54:28Z,64 hrs ago
+6b017f2bbfd3c81f5a799fe0,Connected,kasturi.chowdhury@theelefant.ai,2026-11-21T11:23:23Z,2026-11-21T11:32:10Z,61 hrs ago
+6b004f823f7260d62c9f93f0,Connected,kasturi.chowdhury@theelefant.ai,2026-11-20T13:47:46Z,2026-11-21T14:01:00Z,59 hrs ago
+6b02a1df9c1f8e2714f57866,Connected,kasturi.chowdhury@theelefant.ai,2026-11-22T08:03:43Z,2026-11-22T08:50:23Z,40 hrs ago
+6b040d20c485ea69aac65632,Connected,kasturi.chowdhury@theelefant.ai,2026-11-23T09:53:36Z,2026-11-23T10:46:21Z,14 hrs ago
+6afdda0098e1172cb942f898,Connected,neeru.yadav@theelefant.ai,2026-11-18T17:01:52Z,2026-11-19T09:19:58Z,112 hrs ago
+6afbd8c144db089740ccfbf3,Connected,neeru.yadav@theelefant.ai,2026-11-17T04:32:01Z,2026-11-20T09:12:01Z,88 hrs ago
+6afedea90c7724076497d801,Connected,neeru.yadav@theelefant.ai,2026-11-19T11:34:01Z,2026-11-20T09:23:01Z,88 hrs ago
+6afe87e55ab122f9fdb301ae,Connected,neeru.yadav@theelefant.ai,2026-11-19T05:23:49Z,2026-11-20T09:52:29Z,87 hrs ago
+6afded49384d461cc46d3278,Connected,neeru.yadav@theelefant.ai,2026-11-18T18:24:09Z,2026-11-20T09:53:43Z,87 hrs ago
+6afe85267b3c1d5127da8360,Connected,neeru.yadav@theelefant.ai,2026-11-19T05:12:06Z,2026-11-21T14:03:26Z,59 hrs ago
+6b0175f65aa167b21699fd8d,Connected,neeru.yadav@theelefant.ai,2026-11-21T10:44:06Z,2026-11-22T04:55:48Z,44 hrs ago
+6b025d469940cd1aed1af3ab,Connected,neeru.yadav@theelefant.ai,2026-11-22T03:11:02Z,2026-11-23T11:33:12Z,13 hrs ago
+6b0173d99a404120aaa65ea1,Connected,neeru.yadav@theelefant.ai,2026-11-21T10:35:05Z,2026-11-23T11:38:41Z,13 hrs ago
+6b0135d139d8e33e3f1eb5ae,Connected,neeru.yadav@theelefant.ai,2026-11-21T06:10:25Z,2026-11-23T11:44:23Z,13 hrs ago
+6afedc09398a18e64ec88945,Connected,neeru.yadav@theelefant.ai,2026-11-19T11:22:49Z,2026-11-23T11:48:11Z,13 hrs ago
+6afef5a63cfa6faf5a47c925,Connected,nonserviceableleads@elefant.com,2026-11-19T13:12:06Z,2026-11-19T13:20:08Z,108 hrs ago
+6aff024480681f0471e66a23,Connected,nonserviceableleads@elefant.com,2026-11-19T14:05:56Z,2026-11-20T07:17:36Z,90 hrs ago
+6afd6b6be25b8b4c67cd21b1,Connected,nonserviceableleads@elefant.com,2026-11-18T09:10:03Z,2026-11-20T12:11:20Z,85 hrs ago
+6afdf052e0b305d1d99b09ee,Connected,pratik.sharma@theelefant.ai,2026-11-18T18:37:06Z,2026-11-21T06:35:31Z,66 hrs ago
+6afc754901453cb3fda2d326,Connected,prerak.bhavsar@theelefant.ai,2026-11-17T15:39:53Z,2026-11-18T06:11:59Z,139 hrs ago
+6afbc330493cbea1b1c9dae3,Connected,prerak.bhavsar@theelefant.ai,2026-11-17T03:00:00Z,2026-11-18T12:22:56Z,133 hrs ago
+6affd49e97b5ddaefbb1c56d,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T05:03:26Z,2026-11-20T05:28:37Z,91 hrs ago
+6affba58dc8acd2ea0a10ce8,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T03:11:20Z,2026-11-20T05:51:06Z,91 hrs ago
+6affd1a08a24f5bb946f3319,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T04:50:40Z,2026-11-20T06:26:14Z,90 hrs ago
+6aff0dc4b9647d04fb95505c,Connected,prerak.bhavsar@theelefant.ai,2026-11-19T14:55:00Z,2026-11-20T06:58:33Z,90 hrs ago
+6b000521929d9d96ac3c9f68,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T08:30:25Z,2026-11-20T08:53:10Z,88 hrs ago
+6affb95f1162f28283937485,Connected,prerak.bhavsar@theelefant.ai,2026-11-20T03:07:11Z,2026-11-20T09:12:48Z,88 hrs ago
+6afbe675f22c25db6149db36,Connected,preyashi.roy@theelefant.ai,2026-11-17T05:30:29Z,2026-11-23T07:09:45Z,18 hrs ago
+6afbfca45c08f8dc3c3af6aa,Connected,preyashi.roy@theelefant.ai,2026-11-17T07:05:08Z,2026-11-23T07:20:17Z,18 hrs ago
+6b0061efd62b37cbde9583af,Connected,preyashi.roy@theelefant.ai,2026-11-20T15:06:23Z,2026-11-23T07:21:12Z,18 hrs ago
+6b041a5817df371dfb49312e,Connected,preyashi.roy@theelefant.ai,2026-11-23T10:50:00Z,2026-11-23T11:05:47Z,14 hrs ago
+6afd976429160716a5cb1dd0,Connected,rani.singh@theelefant.ai,2026-11-18T12:17:40Z,2026-11-21T05:58:02Z,67 hrs ago
+6b02f0fecf10030bc2c68f2b,Connected,rani.singh@theelefant.ai,2026-11-22T13:41:18Z,2026-11-23T07:01:17Z,18 hrs ago
+6affe89fe79fd5e309b368a2,Connected,rani.singh@theelefant.ai,2026-11-20T06:28:47Z,2026-11-23T08:04:09Z,17 hrs ago
+6b015a5186b39c2166af31ea,Connected,rani.singh@theelefant.ai,2026-11-21T08:46:09Z,2026-11-23T08:24:17Z,17 hrs ago
+6afe973c1ee7b09f8ad6272c,Connected,rani.singh@theelefant.ai,2026-11-19T06:29:16Z,2026-11-23T09:58:49Z,15 hrs ago
+6b0404811c4291d044046263,Connected,rani.singh@theelefant.ai,2026-11-23T09:16:49Z,2026-11-23T10:26:47Z,14 hrs ago
+6afbf157f22c25db6149e7b2,Connected,rohit.jain@theelefant.ai,2026-11-17T06:16:55Z,2026-11-19T13:21:11Z,108 hrs ago
+6afbcfe6524eafddb3db79f9,Connected,rohit.jain@theelefant.ai,2026-11-17T03:54:14Z,2026-11-20T07:08:21Z,90 hrs ago
+6afc04e7c8f2263bc85684da,Connected,rohit.jain@theelefant.ai,2026-11-17T07:40:23Z,2026-11-20T12:03:07Z,85 hrs ago
+6afefa43e70bd2088d4a6d10,Connected,rohit.jain@theelefant.ai,2026-11-19T13:31:47Z,2026-11-23T06:25:45Z,18 hrs ago
+6b00ad28acf301f89a2b7587,Connected,rohit.jain@theelefant.ai,2026-11-20T20:27:20Z,2026-11-23T07:16:48Z,18 hrs ago
+6b0372a7d83c829c6c72b665,Connected,rohit.jain@theelefant.ai,2026-11-22T22:54:31Z,2026-11-23T10:03:06Z,15 hrs ago
+6afef161c6232027154ea2c0,Connected,shivani.gupta@theelefant.ai,2026-11-19T12:53:53Z,2026-11-22T09:41:14Z,39 hrs ago
+6afedd2e27080f550cce40a2,Connected,shivani.gupta@theelefant.ai,2026-11-19T11:27:42Z,2026-11-22T11:17:22Z,38 hrs ago
 6b02b329867717a2ebfe7a4a,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:17:29Z,,Never called
+6b01711f985cf1fc487ef2f3,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:23:27Z,,Never called
+6b029c51c0daf8e5bb1f4413,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T07:40:01Z,,Never called
+6b017793b13f26da07d99796,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:50:59Z,,Never called
+6b02a966c67198881a7aafff,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:35:50Z,,Never called
+6b02a7ca303b4ffe49c30d99,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:28:58Z,,Never called
+6b012ce2c6c6660085aed429,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T05:32:18Z,,Never called
+6b013e59187b7b4e02f7ad29,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:46:49Z,,Never called
+6b018e466f0db64d1c070c68,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T12:27:50Z,,Never called
+6b029f2cc601692277bb8e71,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T07:52:12Z,,Never called
+6b028d5d8c6f2f5f6d5b8ed4,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T06:36:13Z,,Never called
+6b017248005796890a0c0a72,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:28:24Z,,Never called
+6b0135c9759ff467ac74ba82,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:10:17Z,,Never called
+6b01403298e427fbed8d2e2a,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:54:42Z,,Never called
+6b0168f546d8fdf3c8fd835f,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:48:37Z,,Never called
+6b01457c1c1dc5797854483e,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:17:16Z,,Never called
+6b02ad5b375fe7a3bd496319,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:52:43Z,,Never called
+6b016b760a5fc98733049b57,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:59:18Z,,Never called
+6b02b8057e6fa242beb25b33,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:38:13Z,,Never called
+6b0179259d9816818fa1de89,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:57:41Z,,Never called
+6b014b8b818900a418c09fc1,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:43:07Z,,Never called
+6b02af82f1cf97a076d6c75a,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:01:54Z,,Never called
+6b02c718908422b6c0897d8b,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T10:42:32Z,,Never called
+6b0162baae25613f2166c147,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:22:02Z,,Never called
 6b0282e526edbc0567c1c97a,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T05:51:33Z,,Never called
 6b0180f2c9213f99e05b65ad,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T11:30:58Z,,Never called
 6b014863ba855b85a4e3bf2d,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:29:39Z,,Never called
 6b02a851c601692277bb9366,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:31:13Z,,Never called
-6b02c718908422b6c0897d8b,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T10:42:32Z,,Never called
 6b02dc14268e363096ddd096,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T12:12:04Z,,Never called
 6b0149f5337495e3b4ef4e4c,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:36:21Z,,Never called
 6b01679fc03e30cd02cd050c,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:42:55Z,,Never called
@@ -92,92 +112,51 @@ leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6b01367dd8d2635f41762c31,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:13:17Z,,Never called
 6b0164116a0199ebf41ff0ff,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:27:45Z,,Never called
 6b02d228dbbc5d5b29e63613,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T11:29:44Z,,Never called
-6b0162baae25613f2166c147,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:22:02Z,,Never called
+6b02a4ddec6c0c9abee237ea,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:16:29Z,,Never called
 6b02aea02b157e8770b6db8d,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:58:08Z,,Never called
 6b028470dd451aae0b5653c2,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T05:58:08Z,,Never called
-6b02af82f1cf97a076d6c75a,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:01:54Z,,Never called
-6b014b8b818900a418c09fc1,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T07:43:07Z,,Never called
-6b0179259d9816818fa1de89,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:57:41Z,,Never called
-6b02b8057e6fa242beb25b33,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:38:13Z,,Never called
-6b016b760a5fc98733049b57,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:59:18Z,,Never called
-6b02ad5b375fe7a3bd496319,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:52:43Z,,Never called
-6b01403298e427fbed8d2e2a,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:54:42Z,,Never called
-6b0135c9759ff467ac74ba82,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:10:17Z,,Never called
-6b017248005796890a0c0a72,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:28:24Z,,Never called
-6b028d5d8c6f2f5f6d5b8ed4,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T06:36:13Z,,Never called
-6b029f2cc601692277bb8e71,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T07:52:12Z,,Never called
-6b018e466f0db64d1c070c68,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T12:27:50Z,,Never called
-6b013e59187b7b4e02f7ad29,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T06:46:49Z,,Never called
-6b012ce2c6c6660085aed429,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T05:32:18Z,,Never called
-6b02a7ca303b4ffe49c30d99,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:28:58Z,,Never called
-6b02a966c67198881a7aafff,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:35:50Z,,Never called
-6b017793b13f26da07d99796,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:50:59Z,,Never called
-6b029c51c0daf8e5bb1f4413,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T07:40:01Z,,Never called
-6b01711f985cf1fc487ef2f3,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:23:27Z,,Never called
-6afc2e643ca84454158f6476,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T10:37:24Z,2026-11-17T10:38:17Z,151 hrs ago
-6afae49f2440a78387fce71a,Connected,shivaram.nimmala@theelefant.ai,2026-11-16T11:10:23Z,2026-11-18T06:19:47Z,131 hrs ago
-6afc1d4b617af2025319ab01,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T09:24:27Z,2026-11-18T08:58:04Z,128 hrs ago
-6afad633789288e8b0b17149,Connected,shivaram.nimmala@theelefant.ai,2026-11-16T10:08:51Z,2026-11-18T12:53:45Z,124 hrs ago
-6afc8c06caf011cf5f13a516,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T17:16:54Z,2026-11-18T13:31:30Z,124 hrs ago
-6afbe1b79fad406d8a29ab98,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T05:10:15Z,2026-11-19T06:26:04Z,107 hrs ago
-6afab8e0c01f04606014551d,Connected,shivaram.nimmala@theelefant.ai,2026-11-16T08:03:44Z,2026-11-19T13:42:39Z,99 hrs ago
-6afb41cf2dfcfb123485d7ac,Connected,shivaram.nimmala@theelefant.ai,2026-11-16T17:47:59Z,2026-11-20T04:53:08Z,84 hrs ago
-6afefe313f620e8bbbbde033,Connected,shivaram.nimmala@theelefant.ai,2026-11-19T13:48:33Z,2026-11-20T07:17:18Z,82 hrs ago
-6affd1bad298c20f478fcd3e,Connected,shivaram.nimmala@theelefant.ai,2026-11-20T04:51:06Z,2026-11-21T04:52:19Z,60 hrs ago
-6b019331792c084b3562c2fe,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T12:48:49Z,2026-11-21T12:48:52Z,52 hrs ago
-6b0164d35695443dd5c83fb0,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:30:59Z,2026-11-22T02:55:40Z,38 hrs ago
-6b027442b985edb0a536f8b7,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T04:49:06Z,2026-11-22T04:49:09Z,36 hrs ago
-6b027e7221a7920eba6737b6,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T05:32:34Z,2026-11-22T05:33:14Z,36 hrs ago
-6b02907016176939a75f6f03,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T06:49:20Z,2026-11-22T06:49:26Z,34 hrs ago
-6b02abf439f9003c3a2725c4,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:46:44Z,2026-11-22T08:46:47Z,32 hrs ago
-6b02b10498fc3b119d56905d,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:08:20Z,2026-11-22T09:08:24Z,32 hrs ago
-6b02b974edbf0057c348529b,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:44:20Z,2026-11-22T09:55:27Z,31 hrs ago
-6b02cb80d58ffd75a8131812,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T11:01:20Z,2026-11-22T11:01:25Z,30 hrs ago
-6b02bed2540502c9f936cd05,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T10:07:14Z,2026-11-22T11:39:19Z,30 hrs ago
-6b02dd4f68f4523f758a23df,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T12:17:19Z,2026-11-22T12:17:35Z,29 hrs ago
-6b01757c6f94a0758c307dc0,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:42:04Z,2026-11-22T16:13:28Z,25 hrs ago
-6afae2e148e252b0aae46ee1,Connected,shivendra.singh@theelefant.ai,2026-11-16T11:02:57Z,2026-11-18T07:08:07Z,130 hrs ago
-6afadc9d58f46954d54d04d9,Connected,shivendra.singh@theelefant.ai,2026-11-16T10:36:13Z,2026-11-18T07:10:25Z,130 hrs ago
-6afb10623e7f36d611e7b0fc,Connected,shivendra.singh@theelefant.ai,2026-11-16T14:17:06Z,2026-11-18T07:33:20Z,130 hrs ago
-6afb07d53148659b4bc3470b,Connected,shivendra.singh@theelefant.ai,2026-11-16T13:40:37Z,2026-11-18T11:26:51Z,126 hrs ago
-6afb0f079e5f6548a97cbe76,Connected,shivendra.singh@theelefant.ai,2026-11-16T14:11:19Z,2026-11-18T12:43:55Z,124 hrs ago
-6afac3ef671796f705f1effd,Connected,shivendra.singh@theelefant.ai,2026-11-16T08:50:55Z,2026-11-19T06:05:11Z,107 hrs ago
-6afc7e1a66f28709b1986a84,Connected,shivendra.singh@theelefant.ai,2026-11-17T16:17:30Z,2026-11-20T06:13:55Z,83 hrs ago
-6afbea53b3cbb93075047fd5,Connected,shivendra.singh@theelefant.ai,2026-11-17T05:46:59Z,2026-11-20T06:28:37Z,83 hrs ago
-6afee24f67ec6adfce51983c,Connected,shivendra.singh@theelefant.ai,2026-11-19T11:49:35Z,2026-11-20T11:22:23Z,78 hrs ago
-6afc309319c48fcef3956a88,Connected,shivendra.singh@theelefant.ai,2026-11-17T10:46:43Z,2026-11-20T12:17:26Z,77 hrs ago
-6afc0d33182eb95c9e36d164,Connected,shivendra.singh@theelefant.ai,2026-11-17T08:15:47Z,2026-11-20T12:17:53Z,77 hrs ago
-6afbf6e7df48932128246dc3,Connected,shivendra.singh@theelefant.ai,2026-11-17T06:40:39Z,2026-11-20T12:22:18Z,77 hrs ago
-6afbdab9a733d00ee1160c53,Connected,shivendra.singh@theelefant.ai,2026-11-17T04:40:25Z,2026-11-20T12:24:26Z,77 hrs ago
-6afb4bc2aa209c092b19ed68,Connected,shivendra.singh@theelefant.ai,2026-11-16T18:30:26Z,2026-11-20T12:57:35Z,76 hrs ago
-6afc062297001afe9368094e,Connected,shivendra.singh@theelefant.ai,2026-11-17T07:45:38Z,2026-11-21T05:33:22Z,60 hrs ago
-6afffed17895245782c5f1e0,Connected,shivendra.singh@theelefant.ai,2026-11-20T08:03:29Z,2026-11-21T05:41:37Z,59 hrs ago
-6afd6b3277e854e7360da398,Connected,shivendra.singh@theelefant.ai,2026-11-18T09:09:06Z,2026-11-21T09:44:27Z,55 hrs ago
-6afd707032a2ef32ca59317c,Connected,shivendra.singh@theelefant.ai,2026-11-18T09:31:28Z,2026-11-21T13:54:37Z,51 hrs ago
-6afea5437dff4447866a67f7,Connected,shivendra.singh@theelefant.ai,2026-11-19T07:29:07Z,2026-11-22T06:52:07Z,34 hrs ago
-6afc2e5abec0484270c12bb3,Connected,shivendra.singh@theelefant.ai,2026-11-17T10:37:14Z,2026-11-22T06:53:55Z,34 hrs ago
-6aff3b249641871df315ce19,Connected,shivendra.singh@theelefant.ai,2026-11-19T18:08:36Z,2026-11-22T07:56:56Z,33 hrs ago
-6afecbc7edcfe59814a452d3,Connected,shivendra.singh@theelefant.ai,2026-11-19T10:13:27Z,2026-11-22T08:02:06Z,33 hrs ago
-6afeac2afeeea01b567b441f,Connected,shivendra.singh@theelefant.ai,2026-11-19T07:58:34Z,2026-11-22T08:03:12Z,33 hrs ago
-6afe97a51ee7b09f8ad627d9,Connected,shivendra.singh@theelefant.ai,2026-11-19T06:31:01Z,2026-11-22T08:04:30Z,33 hrs ago
-6b018cb31c74496bb186ed03,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T12:21:07Z,,Never called
-6b03bb38130de4a803f99ca8,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:04:08Z,,Never called
-6b02a37208e36396bd02a601,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:10:26Z,,Never called
-6b004919bfdf72f623fac16f,Connected,tanveer.ahmed@theelefant.ai,2026-11-20T13:20:25Z,,Never called
-6afbbca88398a7c8d8c61eed,Connected,tanveer.ahmed@theelefant.ai,2026-11-17T02:32:08Z,,Never called
-6b028e7e4d79d52b5467a872,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T06:41:02Z,,Never called
-6b016b8f1d447fbd8e6f9835,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T09:59:43Z,,Never called
-6b02cf39a3d27f2da24da086,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T11:17:13Z,,Never called
-6b013de93e631d4102891b1a,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T06:44:57Z,,Never called
-6b03ba9dd78f60fd88f168d8,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:01:33Z,,Never called
-6b028a9116a7a80ea504da46,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T06:24:17Z,,Never called
-6b03ba279a15eca64622e742,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T03:59:35Z,,Never called
-6b0142328b0bf985e552e019,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:03:14Z,,Never called
-6b01459af9b437cf5dc2cc81,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:17:46Z,,Never called
-6b02a93c00e8839a10213fb8,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:35:08Z,,Never called
-6b0176e7754b17fa9a5bb25f,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T10:48:07Z,,Never called
-6b03bac2da39119eec59bebc,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:02:10Z,,Never called
-6b02ab6bab416f38b81a27b9,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:44:27Z,,Never called
+6afc2e643ca84454158f6476,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T10:37:24Z,2026-11-17T10:38:17Z,158 hrs ago
+6afc1d4b617af2025319ab01,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T09:24:27Z,2026-11-18T08:58:04Z,136 hrs ago
+6afc8c06caf011cf5f13a516,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T17:16:54Z,2026-11-18T13:31:30Z,131 hrs ago
+6afbe1b79fad406d8a29ab98,Connected,shivaram.nimmala@theelefant.ai,2026-11-17T05:10:15Z,2026-11-19T06:26:04Z,114 hrs ago
+6afefe313f620e8bbbbde033,Connected,shivaram.nimmala@theelefant.ai,2026-11-19T13:48:33Z,2026-11-20T07:17:18Z,90 hrs ago
+6affd1bad298c20f478fcd3e,Connected,shivaram.nimmala@theelefant.ai,2026-11-20T04:51:06Z,2026-11-21T04:52:19Z,68 hrs ago
+6b019331792c084b3562c2fe,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T12:48:49Z,2026-11-21T12:48:52Z,60 hrs ago
+6b0164d35695443dd5c83fb0,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T09:30:59Z,2026-11-22T02:55:40Z,46 hrs ago
+6b027442b985edb0a536f8b7,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T04:49:06Z,2026-11-22T04:49:09Z,44 hrs ago
+6b027e7221a7920eba6737b6,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T05:32:34Z,2026-11-22T05:33:14Z,43 hrs ago
+6b02907016176939a75f6f03,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T06:49:20Z,2026-11-22T06:49:26Z,42 hrs ago
+6b02abf439f9003c3a2725c4,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T08:46:44Z,2026-11-22T08:46:47Z,40 hrs ago
+6b02b10498fc3b119d56905d,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:08:20Z,2026-11-22T09:08:24Z,40 hrs ago
+6b02b974edbf0057c348529b,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T09:44:20Z,2026-11-22T09:55:27Z,39 hrs ago
+6b02cb80d58ffd75a8131812,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T11:01:20Z,2026-11-22T11:01:25Z,38 hrs ago
+6b02bed2540502c9f936cd05,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T10:07:14Z,2026-11-22T11:39:19Z,37 hrs ago
+6b02dd4f68f4523f758a23df,Connected,shivaram.nimmala@theelefant.ai,2026-11-22T12:17:19Z,2026-11-22T12:17:35Z,37 hrs ago
+6b01757c6f94a0758c307dc0,Connected,shivaram.nimmala@theelefant.ai,2026-11-21T10:42:04Z,2026-11-22T16:13:28Z,33 hrs ago
+6afc7e1a66f28709b1986a84,Connected,shivendra.singh@theelefant.ai,2026-11-17T16:17:30Z,2026-11-20T06:13:55Z,91 hrs ago
+6afbea53b3cbb93075047fd5,Connected,shivendra.singh@theelefant.ai,2026-11-17T05:46:59Z,2026-11-20T06:28:37Z,90 hrs ago
+6afee24f67ec6adfce51983c,Connected,shivendra.singh@theelefant.ai,2026-11-19T11:49:35Z,2026-11-20T11:22:23Z,86 hrs ago
+6afc309319c48fcef3956a88,Connected,shivendra.singh@theelefant.ai,2026-11-17T10:46:43Z,2026-11-20T12:17:26Z,85 hrs ago
+6afc0d33182eb95c9e36d164,Connected,shivendra.singh@theelefant.ai,2026-11-17T08:15:47Z,2026-11-20T12:17:53Z,85 hrs ago
+6afbf6e7df48932128246dc3,Connected,shivendra.singh@theelefant.ai,2026-11-17T06:40:39Z,2026-11-20T12:22:18Z,85 hrs ago
+6afbdab9a733d00ee1160c53,Connected,shivendra.singh@theelefant.ai,2026-11-17T04:40:25Z,2026-11-20T12:24:26Z,85 hrs ago
+6afc062297001afe9368094e,Connected,shivendra.singh@theelefant.ai,2026-11-17T07:45:38Z,2026-11-21T05:33:22Z,67 hrs ago
+6afffed17895245782c5f1e0,Connected,shivendra.singh@theelefant.ai,2026-11-20T08:03:29Z,2026-11-21T05:41:37Z,67 hrs ago
+6afd6b3277e854e7360da398,Connected,shivendra.singh@theelefant.ai,2026-11-18T09:09:06Z,2026-11-21T09:44:27Z,63 hrs ago
+6afd707032a2ef32ca59317c,Connected,shivendra.singh@theelefant.ai,2026-11-18T09:31:28Z,2026-11-21T13:54:37Z,59 hrs ago
+6afea5437dff4447866a67f7,Connected,shivendra.singh@theelefant.ai,2026-11-19T07:29:07Z,2026-11-22T06:52:07Z,42 hrs ago
+6afc2e5abec0484270c12bb3,Connected,shivendra.singh@theelefant.ai,2026-11-17T10:37:14Z,2026-11-22T06:53:55Z,42 hrs ago
+6aff3b249641871df315ce19,Connected,shivendra.singh@theelefant.ai,2026-11-19T18:08:36Z,2026-11-22T07:56:56Z,41 hrs ago
+6afecbc7edcfe59814a452d3,Connected,shivendra.singh@theelefant.ai,2026-11-19T10:13:27Z,2026-11-22T08:02:06Z,41 hrs ago
+6afeac2afeeea01b567b441f,Connected,shivendra.singh@theelefant.ai,2026-11-19T07:58:34Z,2026-11-22T08:03:12Z,41 hrs ago
+6afe97a51ee7b09f8ad627d9,Connected,shivendra.singh@theelefant.ai,2026-11-19T06:31:01Z,2026-11-22T08:04:30Z,41 hrs ago
+6b0304c3c23dec12ccb294b9,Connected,shivendra.singh@theelefant.ai,2026-11-22T15:05:39Z,2026-11-23T06:10:45Z,19 hrs ago
+6b01a6774d2962d9951a6b82,Connected,shivendra.singh@theelefant.ai,2026-11-21T14:11:03Z,2026-11-23T06:32:49Z,18 hrs ago
+6afe64861d23acd4d484c563,Connected,shivendra.singh@theelefant.ai,2026-11-19T02:52:54Z,2026-11-23T06:35:24Z,18 hrs ago
+6afd1a7c597d89a5f80b16db,Connected,shivendra.singh@theelefant.ai,2026-11-18T03:24:44Z,2026-11-23T06:36:02Z,18 hrs ago
+6afc708501453cb3fda2ce07,Connected,shivendra.singh@theelefant.ai,2026-11-17T15:19:33Z,2026-11-23T06:37:11Z,18 hrs ago
+6b0295eaedf6c95f175afa30,Connected,shivendra.singh@theelefant.ai,2026-11-22T07:12:42Z,2026-11-23T07:10:52Z,18 hrs ago
+6b03ea74d71c231037cf1897,Connected,shivendra.singh@theelefant.ai,2026-11-23T07:25:40Z,2026-11-23T08:09:37Z,17 hrs ago
 6b017437baa5a3d7b8c34674,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T10:36:39Z,,Never called
 6b0175b53c89cb197463ba1d,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T10:43:01Z,,Never called
 6b02ae8756b24cfc032ee087,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:57:43Z,,Never called
@@ -185,136 +164,153 @@ leadid,status,assignee,lead_created_on,last_called_on,last_call_age
 6b01c1fcd1a8461dd01c76ca,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T16:08:28Z,,Never called
 6b01394112f2d566d2a45cf3,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T06:25:05Z,,Never called
 6b03bc01d78f60fd88f169e8,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:07:29Z,,Never called
-6b01577f97ed62a05809b1d2,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T08:34:07Z,,Never called
-6b004facbfdf72f623fac6d9,Connected,tanveer.ahmed@theelefant.ai,2026-11-20T13:48:28Z,,Never called
 6b02924076ae4be7d66e5d6a,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T06:57:04Z,,Never called
-6afae8a375b27673310b099f,Connected,tanveer.ahmed@theelefant.ai,2026-11-16T11:27:31Z,2026-11-17T08:03:57Z,153 hrs ago
-6afb2e5e3a427db04186911d,Connected,tanveer.ahmed@theelefant.ai,2026-11-16T16:25:02Z,2026-11-17T08:37:39Z,153 hrs ago
-6afac0061abd8fde0f016dfb,Connected,tanveer.ahmed@theelefant.ai,2026-11-16T08:34:14Z,2026-11-17T09:34:09Z,152 hrs ago
-6afd1b422eb7c56ef55976ee,Connected,tanveer.ahmed@theelefant.ai,2026-11-18T03:28:02Z,2026-11-18T13:51:58Z,123 hrs ago
-6afebb95881ac01f3d543181,Connected,tanveer.ahmed@theelefant.ai,2026-11-19T09:04:21Z,2026-11-19T10:43:22Z,102 hrs ago
-6afd2b81ee7c3a2f22272fb7,Connected,tanveer.ahmed@theelefant.ai,2026-11-18T04:37:21Z,2026-11-19T13:21:48Z,100 hrs ago
-6afe9acc43963dd95e1f1201,Connected,tanveer.ahmed@theelefant.ai,2026-11-19T06:44:28Z,2026-11-20T05:41:10Z,83 hrs ago
-6b0125d7ab98bca9620b4e1d,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:02:15Z,2026-11-21T05:02:21Z,60 hrs ago
-6b0125fc1bbcb8537b2d14a8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:02:52Z,2026-11-21T05:02:55Z,60 hrs ago
-6b012bae852361240bfd9a86,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:27:10Z,2026-11-21T05:29:51Z,60 hrs ago
-6b0136d13e9cc5e0a8ab06b7,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T06:14:41Z,2026-11-21T06:14:52Z,59 hrs ago
-6b01430eb848b05b600ebaf8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:06:54Z,2026-11-21T07:07:14Z,58 hrs ago
-6b018633ab9cf811aec3868f,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T11:53:23Z,2026-11-21T12:03:10Z,53 hrs ago
-6b02d68f1d68fb19117f5b68,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T11:48:31Z,2026-11-22T11:54:09Z,29 hrs ago
-6b015fdcf3823a22d72464d8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T09:09:48Z,2026-11-22T13:54:13Z,27 hrs ago
-6afadab8718416c17953eb61,Connected,twara.mehta@theelefant.ai,2026-11-16T10:28:08Z,2026-11-19T11:49:16Z,101 hrs ago
-6b015c816b4d385de14f17de,Connected,vikas.poonia@theelefant.ai,2026-11-21T08:55:29Z,2026-11-21T11:10:31Z,54 hrs ago
-6afb31f6b41ef5cf43e47ab0,Connected,vivek.sah@theelefant.ai,2026-11-16T16:40:22Z,2026-11-18T11:32:22Z,126 hrs ago
-6afd20fd260d51e75c86f241,Connected,vivek.sah@theelefant.ai,2026-11-18T03:52:29Z,2026-11-18T11:43:04Z,125 hrs ago
-6afc907564155b2747534f29,Connected,vivek.sah@theelefant.ai,2026-11-17T17:35:49Z,2026-11-18T11:49:25Z,125 hrs ago
-6b009cfcd26d9c26c0e74f2a,Connected,vivek.sah@theelefant.ai,2026-11-20T19:18:20Z,2026-11-22T05:46:24Z,35 hrs ago
-6afbef1db524714605402453,Connected,vivek.sah@theelefant.ai,2026-11-17T06:07:25Z,2026-11-22T12:35:14Z,29 hrs ago
-6afaeff27f74444468154891,Connected,yuvraj.singh@theelefant.ai,2026-11-16T11:58:42Z,,Never called
-6afbe4c734d85eb4d08da00b,Connected,yuvraj.singh@theelefant.ai,2026-11-17T05:23:19Z,2026-11-17T07:51:06Z,153 hrs ago
-6afaefa818384dabf6fe134c,Connected,yuvraj.singh@theelefant.ai,2026-11-16T11:57:28Z,2026-11-17T09:32:41Z,152 hrs ago
-6afad4cb3d2f44608b8a09ad,Connected,yuvraj.singh@theelefant.ai,2026-11-16T10:02:51Z,2026-11-17T12:44:42Z,148 hrs ago
-6afb4cd5a11813b5e77f902f,Connected,yuvraj.singh@theelefant.ai,2026-11-16T18:35:01Z,2026-11-19T08:34:12Z,105 hrs ago
-6afc2d76ffe657c38f6c3bb5,Connected,yuvraj.singh@theelefant.ai,2026-11-17T10:33:26Z,2026-11-20T08:26:08Z,81 hrs ago
-6afa73f192242c235fcf1eec,Interested,Chhaya.patel@theelefant.ai,2026-11-16T03:09:37Z,2026-11-20T10:29:06Z,79 hrs ago
-6afa9958a788c5f77effe08c,Interested,darshan.k@theelefant.ai,2026-11-16T05:49:12Z,2026-11-20T13:10:40Z,76 hrs ago
-6b012a3ceb32424171c78ae2,Interested,darshan.k@theelefant.ai,2026-11-21T05:21:00Z,2026-11-21T05:48:08Z,59 hrs ago
-6b003ba48f35de2c560dd27a,Interested,honey.talreja@theelefant.ai,2026-11-20T12:23:00Z,2026-11-22T10:08:43Z,31 hrs ago
-6b0069fd3c6ed3c8820267ec,Interested,honey.talreja@theelefant.ai,2026-11-20T15:40:45Z,2026-11-22T10:10:07Z,31 hrs ago
-6afc10de5c65b6a097222f78,Interested,jivesh.harde@theelefant.ai,2026-11-17T08:31:26Z,2026-11-18T14:00:38Z,123 hrs ago
-6afea58979edd7781dd63b1c,Interested,jivesh.harde@theelefant.ai,2026-11-19T07:30:17Z,2026-11-20T08:43:59Z,80 hrs ago
-6affea3d2867a9ccba0e7059,Interested,jivesh.harde@theelefant.ai,2026-11-20T06:35:41Z,2026-11-21T13:38:26Z,52 hrs ago
-6afacf190e9b98f1582a6eac,Interested,kasturi.chowdhury@theelefant.ai,2026-11-16T09:38:33Z,2026-11-19T11:56:08Z,101 hrs ago
-6afabc6c5d090879dc4934b7,Interested,kasturi.chowdhury@theelefant.ai,2026-11-16T08:18:52Z,2026-11-19T13:53:12Z,99 hrs ago
-6afbae5dd10ba63f1c95341b,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T01:31:09Z,2026-11-19T13:56:03Z,99 hrs ago
-6afcb996b13d657a11e002a5,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T20:31:18Z,2026-11-20T12:46:23Z,76 hrs ago
-6afab284ac41bb9b2623db89,Interested,kasturi.chowdhury@theelefant.ai,2026-11-16T07:36:36Z,2026-11-21T10:16:25Z,55 hrs ago
-6affee3c76e5b033f31f4561,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T06:52:44Z,2026-11-21T13:07:26Z,52 hrs ago
-6b002a93e6fe5fa75f45aca1,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T11:10:11Z,2026-11-22T07:56:08Z,33 hrs ago
-6b010be5601b4050aabb75bd,Interested,kasturi.chowdhury@theelefant.ai,2026-11-21T03:11:33Z,2026-11-22T10:27:51Z,31 hrs ago
-6affa49a31873e01e6a8f741,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T01:38:34Z,2026-11-22T12:21:25Z,29 hrs ago
-6afab4ce68affff596206096,Interested,kasturi.chowdhury@theelefant.ai,2026-11-16T07:46:22Z,2026-11-22T15:07:35Z,26 hrs ago
-6afc3120416d0727df006863,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T10:49:04Z,2026-11-22T15:21:32Z,26 hrs ago
-6b016d0691afa9082aa87158,Interested,neeru.yadav@theelefant.ai,2026-11-21T10:05:58Z,2026-11-22T09:23:55Z,32 hrs ago
-6b019fc9fcffe222cbd42349,Interested,neeru.yadav@theelefant.ai,2026-11-21T13:42:33Z,2026-11-22T13:59:16Z,27 hrs ago
-6afdf711f21a95e86a03f240,Interested,organicleads@theelefant.ai,2026-11-18T19:05:53Z,2026-11-19T15:05:15Z,98 hrs ago
-6b02c903bc775753e762b9d2,Interested,organicleads@theelefant.ai,2026-11-22T10:50:43Z,2026-11-22T10:55:46Z,30 hrs ago
+6b028a9116a7a80ea504da46,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T06:24:17Z,,Never called
+6b004919bfdf72f623fac16f,Connected,tanveer.ahmed@theelefant.ai,2026-11-20T13:20:25Z,,Never called
+6afbbca88398a7c8d8c61eed,Connected,tanveer.ahmed@theelefant.ai,2026-11-17T02:32:08Z,,Never called
+6b028e7e4d79d52b5467a872,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T06:41:02Z,,Never called
+6b02cf39a3d27f2da24da086,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T11:17:13Z,,Never called
+6b013de93e631d4102891b1a,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T06:44:57Z,,Never called
+6b0142328b0bf985e552e019,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:03:14Z,,Never called
+6b0176e7754b17fa9a5bb25f,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T10:48:07Z,,Never called
+6b018cb31c74496bb186ed03,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T12:21:07Z,,Never called
+6b02ab6bab416f38b81a27b9,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:44:27Z,,Never called
+6b01459af9b437cf5dc2cc81,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:17:46Z,,Never called
+6b03ba9dd78f60fd88f168d8,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:01:33Z,,Never called
+6b016b8f1d447fbd8e6f9835,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T09:59:43Z,,Never called
+6b03bb38130de4a803f99ca8,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:04:08Z,,Never called
+6b02a37208e36396bd02a601,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:10:26Z,,Never called
+6b004facbfdf72f623fac6d9,Connected,tanveer.ahmed@theelefant.ai,2026-11-20T13:48:28Z,,Never called
+6b01577f97ed62a05809b1d2,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T08:34:07Z,,Never called
+6b03ba279a15eca64622e742,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T03:59:35Z,,Never called
+6b03bac2da39119eec59bebc,Connected,tanveer.ahmed@theelefant.ai,2026-11-23T04:02:10Z,,Never called
+6b02a93c00e8839a10213fb8,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T08:35:08Z,,Never called
+6afd1b422eb7c56ef55976ee,Connected,tanveer.ahmed@theelefant.ai,2026-11-18T03:28:02Z,2026-11-18T13:51:58Z,131 hrs ago
+6afebb95881ac01f3d543181,Connected,tanveer.ahmed@theelefant.ai,2026-11-19T09:04:21Z,2026-11-19T10:43:22Z,110 hrs ago
+6afd2b81ee7c3a2f22272fb7,Connected,tanveer.ahmed@theelefant.ai,2026-11-18T04:37:21Z,2026-11-19T13:21:48Z,108 hrs ago
+6afe9acc43963dd95e1f1201,Connected,tanveer.ahmed@theelefant.ai,2026-11-19T06:44:28Z,2026-11-20T05:41:10Z,91 hrs ago
+6b0125d7ab98bca9620b4e1d,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:02:15Z,2026-11-21T05:02:21Z,68 hrs ago
+6b0125fc1bbcb8537b2d14a8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:02:52Z,2026-11-21T05:02:55Z,68 hrs ago
+6b012bae852361240bfd9a86,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T05:27:10Z,2026-11-21T05:29:51Z,67 hrs ago
+6b0136d13e9cc5e0a8ab06b7,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T06:14:41Z,2026-11-21T06:14:52Z,67 hrs ago
+6b01430eb848b05b600ebaf8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T07:06:54Z,2026-11-21T07:07:14Z,66 hrs ago
+6b018633ab9cf811aec3868f,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T11:53:23Z,2026-11-21T12:03:10Z,61 hrs ago
+6b02d68f1d68fb19117f5b68,Connected,tanveer.ahmed@theelefant.ai,2026-11-22T11:48:31Z,2026-11-22T11:54:09Z,37 hrs ago
+6b015fdcf3823a22d72464d8,Connected,tanveer.ahmed@theelefant.ai,2026-11-21T09:09:48Z,2026-11-22T13:54:13Z,35 hrs ago
+6b015c816b4d385de14f17de,Connected,vikas.poonia@theelefant.ai,2026-11-21T08:55:29Z,2026-11-21T11:10:31Z,62 hrs ago
+6afd20fd260d51e75c86f241,Connected,vivek.sah@theelefant.ai,2026-11-18T03:52:29Z,2026-11-18T11:43:04Z,133 hrs ago
+6afc907564155b2747534f29,Connected,vivek.sah@theelefant.ai,2026-11-17T17:35:49Z,2026-11-18T11:49:25Z,133 hrs ago
+6b009cfcd26d9c26c0e74f2a,Connected,vivek.sah@theelefant.ai,2026-11-20T19:18:20Z,2026-11-22T05:46:24Z,43 hrs ago
+6afbef1db524714605402453,Connected,vivek.sah@theelefant.ai,2026-11-17T06:07:25Z,2026-11-22T12:35:14Z,36 hrs ago
+6afbe4c734d85eb4d08da00b,Connected,yuvraj.singh@theelefant.ai,2026-11-17T05:23:19Z,2026-11-17T07:51:06Z,161 hrs ago
+6afc2d76ffe657c38f6c3bb5,Connected,yuvraj.singh@theelefant.ai,2026-11-17T10:33:26Z,2026-11-20T08:26:08Z,88 hrs ago
+6b012a3ceb32424171c78ae2,Interested,darshan.k@theelefant.ai,2026-11-21T05:21:00Z,2026-11-21T05:48:08Z,67 hrs ago
+6aff18132c7d3fdf9aa03787,Interested,darshan.k@theelefant.ai,2026-11-19T15:38:59Z,2026-11-23T07:11:55Z,18 hrs ago
+6b0400f72ab01bdebf6586d2,Interested,darshan.k@theelefant.ai,2026-11-23T09:01:43Z,2026-11-23T09:12:23Z,16 hrs ago
+6b040b351802dffa455689c8,Interested,darshan.k@theelefant.ai,2026-11-23T09:45:25Z,2026-11-23T10:29:40Z,14 hrs ago
+6afba85b27ce6bbf0c3b70d8,Interested,darshan.k@theelefant.ai,2026-11-17T01:05:31Z,2026-11-23T11:37:14Z,13 hrs ago
+6afe534e5a17b79cdf8143b2,Interested,darshan.k@theelefant.ai,2026-11-19T01:39:26Z,2026-11-23T11:38:01Z,13 hrs ago
+6aff3ecda8f7522a76529e79,Interested,darshan.k@theelefant.ai,2026-11-19T18:24:13Z,2026-11-23T11:41:09Z,13 hrs ago
+6b02831f536974c65c6fe7bd,Interested,darshan.k@theelefant.ai,2026-11-22T05:52:31Z,2026-11-23T11:51:43Z,13 hrs ago
+6b003ba48f35de2c560dd27a,Interested,honey.talreja@theelefant.ai,2026-11-20T12:23:00Z,2026-11-22T10:08:43Z,39 hrs ago
+6b0069fd3c6ed3c8820267ec,Interested,honey.talreja@theelefant.ai,2026-11-20T15:40:45Z,2026-11-22T10:10:07Z,39 hrs ago
+6b0191560f07184213904bce,Interested,honey.talreja@theelefant.ai,2026-11-21T12:40:54Z,2026-11-23T06:25:19Z,18 hrs ago
+6b01b6415207e61784ba6811,Interested,honey.talreja@theelefant.ai,2026-11-21T15:18:25Z,2026-11-23T09:04:43Z,16 hrs ago
+6b0314797d6cea5b7f72beff,Interested,honey.talreja@theelefant.ai,2026-11-22T16:12:41Z,2026-11-23T09:19:28Z,16 hrs ago
+6afc10de5c65b6a097222f78,Interested,jivesh.harde@theelefant.ai,2026-11-17T08:31:26Z,2026-11-18T14:00:38Z,131 hrs ago
+6afea58979edd7781dd63b1c,Interested,jivesh.harde@theelefant.ai,2026-11-19T07:30:17Z,2026-11-20T08:43:59Z,88 hrs ago
+6affea3d2867a9ccba0e7059,Interested,jivesh.harde@theelefant.ai,2026-11-20T06:35:41Z,2026-11-21T13:38:26Z,59 hrs ago
+6afbae5dd10ba63f1c95341b,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T01:31:09Z,2026-11-19T13:56:03Z,107 hrs ago
+6afcb996b13d657a11e002a5,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T20:31:18Z,2026-11-20T12:46:23Z,84 hrs ago
+6affee3c76e5b033f31f4561,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T06:52:44Z,2026-11-21T13:07:26Z,60 hrs ago
+6b002a93e6fe5fa75f45aca1,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T11:10:11Z,2026-11-22T07:56:08Z,41 hrs ago
+6b010be5601b4050aabb75bd,Interested,kasturi.chowdhury@theelefant.ai,2026-11-21T03:11:33Z,2026-11-22T10:27:51Z,38 hrs ago
+6affa49a31873e01e6a8f741,Interested,kasturi.chowdhury@theelefant.ai,2026-11-20T01:38:34Z,2026-11-22T12:21:25Z,37 hrs ago
+6afc3120416d0727df006863,Interested,kasturi.chowdhury@theelefant.ai,2026-11-17T10:49:04Z,2026-11-22T15:21:32Z,34 hrs ago
+6b04159fad1491c73abe06b7,Interested,kasturi.chowdhury@theelefant.ai,2026-11-23T10:29:51Z,2026-11-23T10:42:39Z,14 hrs ago
+6b016d0691afa9082aa87158,Interested,neeru.yadav@theelefant.ai,2026-11-21T10:05:58Z,2026-11-22T09:23:55Z,40 hrs ago
+6b019fc9fcffe222cbd42349,Interested,neeru.yadav@theelefant.ai,2026-11-21T13:42:33Z,2026-11-22T13:59:16Z,35 hrs ago
+6b01735287671290bcad9125,Interested,neeru.yadav@theelefant.ai,2026-11-21T10:32:50Z,2026-11-23T08:04:45Z,17 hrs ago
+6b03c9fa6c52d4b5497a3bfa,Interested,neeru.yadav@theelefant.ai,2026-11-23T05:07:06Z,2026-11-23T08:36:45Z,16 hrs ago
+6b016f5b73857b8a50ed6c4b,Interested,neeru.yadav@theelefant.ai,2026-11-21T10:15:55Z,2026-11-23T11:40:00Z,13 hrs ago
+6afdf711f21a95e86a03f240,Interested,organicleads@theelefant.ai,2026-11-18T19:05:53Z,2026-11-19T15:05:15Z,106 hrs ago
+6b02c903bc775753e762b9d2,Interested,organicleads@theelefant.ai,2026-11-22T10:50:43Z,2026-11-22T10:55:46Z,38 hrs ago
 6b00940e39f73ed27e53c0b6,Interested,prerak.bhavsar@theelefant.ai,2026-11-20T18:40:14Z,,Never called
-6afc21b550f876631c88b721,Interested,prerak.bhavsar@theelefant.ai,2026-11-17T09:43:17Z,2026-11-18T05:54:59Z,131 hrs ago
-6afe6b68fdea0ea0c449ac6f,Interested,prerak.bhavsar@theelefant.ai,2026-11-19T03:22:16Z,2026-11-19T05:10:56Z,108 hrs ago
-6afad29fc7da3ae6ee6465d7,Interested,prerak.bhavsar@theelefant.ai,2026-11-16T09:53:35Z,2026-11-19T10:36:07Z,103 hrs ago
-6afb4ae491bf79c46170d8e2,Interested,prerak.bhavsar@theelefant.ai,2026-11-16T18:26:44Z,2026-11-19T13:57:16Z,99 hrs ago
-6afc8a62caf011cf5f13a438,Interested,prerak.bhavsar@theelefant.ai,2026-11-17T17:09:54Z,2026-11-19T15:01:09Z,98 hrs ago
-6b008883ef66b12a215f0a6d,Interested,preyashi.roy@theelefant.ai,2026-11-20T17:50:59Z,2026-11-22T05:53:03Z,35 hrs ago
-6affe7e47e1ec83db4a23715,Interested,preyashi.roy@theelefant.ai,2026-11-20T06:25:40Z,2026-11-22T07:26:42Z,34 hrs ago
-6afc3e6baed356edbab926ec,Interested,preyashi.roy@theelefant.ai,2026-11-17T11:45:47Z,2026-11-22T07:50:05Z,33 hrs ago
-6aff17e8923054556ddee0dc,Interested,preyashi.roy@theelefant.ai,2026-11-19T15:38:16Z,2026-11-22T10:35:04Z,31 hrs ago
-6b0156a7b87f5e5c88712816,Interested,preyashi.roy@theelefant.ai,2026-11-21T08:30:31Z,2026-11-22T12:34:54Z,29 hrs ago
-6afea30a3257d276511eb3d4,Interested,serviceable.leads@theelefant.ai,2026-11-19T07:19:38Z,2026-11-19T07:22:34Z,106 hrs ago
+6afc21b550f876631c88b721,Interested,prerak.bhavsar@theelefant.ai,2026-11-17T09:43:17Z,2026-11-18T05:54:59Z,139 hrs ago
+6afe6b68fdea0ea0c449ac6f,Interested,prerak.bhavsar@theelefant.ai,2026-11-19T03:22:16Z,2026-11-19T05:10:56Z,116 hrs ago
+6afc8a62caf011cf5f13a438,Interested,prerak.bhavsar@theelefant.ai,2026-11-17T17:09:54Z,2026-11-19T15:01:09Z,106 hrs ago
+6b008883ef66b12a215f0a6d,Interested,preyashi.roy@theelefant.ai,2026-11-20T17:50:59Z,2026-11-22T05:53:03Z,43 hrs ago
+6affe7e47e1ec83db4a23715,Interested,preyashi.roy@theelefant.ai,2026-11-20T06:25:40Z,2026-11-22T07:26:42Z,41 hrs ago
+6afc3e6baed356edbab926ec,Interested,preyashi.roy@theelefant.ai,2026-11-17T11:45:47Z,2026-11-22T07:50:05Z,41 hrs ago
+6aff17e8923054556ddee0dc,Interested,preyashi.roy@theelefant.ai,2026-11-19T15:38:16Z,2026-11-22T10:35:04Z,38 hrs ago
+6b0156a7b87f5e5c88712816,Interested,preyashi.roy@theelefant.ai,2026-11-21T08:30:31Z,2026-11-22T12:34:54Z,36 hrs ago
+6b016a2e970814f6c0567c37,Interested,preyashi.roy@theelefant.ai,2026-11-21T09:53:50Z,2026-11-23T06:47:49Z,18 hrs ago
+6affd8abc5b31e9e3e6fc6c8,Interested,preyashi.roy@theelefant.ai,2026-11-20T05:20:43Z,2026-11-23T06:58:00Z,18 hrs ago
+6b040a51f4f19bfa4097627c,Interested,preyashi.roy@theelefant.ai,2026-11-23T09:41:37Z,2026-11-23T10:27:39Z,14 hrs ago
+6b01316c3ef60fe847e297df,Interested,preyashi.roy@theelefant.ai,2026-11-21T05:51:40Z,2026-11-23T11:20:43Z,14 hrs ago
+6b01370bb774af1b23a64f16,Interested,preyashi.roy@theelefant.ai,2026-11-21T06:15:39Z,2026-11-23T11:32:13Z,13 hrs ago
+6b033b8e86aa6d606abd33ca,Interested,rani.singh@theelefant.ai,2026-11-22T18:59:26Z,2026-11-23T06:54:12Z,18 hrs ago
+6b03dc30da863e7174fe9464,Interested,rani.singh@theelefant.ai,2026-11-23T06:24:48Z,2026-11-23T07:54:38Z,17 hrs ago
+6b03a6942e57793facd9178c,Interested,rani.singh@theelefant.ai,2026-11-23T02:36:04Z,2026-11-23T10:47:38Z,14 hrs ago
+6b0336f357b1b6b242c723ff,Interested,rani.singh@theelefant.ai,2026-11-22T18:39:47Z,2026-11-23T11:13:13Z,14 hrs ago
+6afea30a3257d276511eb3d4,Interested,serviceable.leads@theelefant.ai,2026-11-19T07:19:38Z,2026-11-19T07:22:34Z,114 hrs ago
 6afed64eaf9047fe9f96c3f7,Interested,shivani.gupta@theelefant.ai,2026-11-19T10:58:22Z,,Never called
-6afbe2feeb8e2cdcb3d8dfb7,Interested,shivani.gupta@theelefant.ai,2026-11-17T05:15:42Z,2026-11-17T07:44:50Z,153 hrs ago
-6afc05b7b524714605403a8a,Interested,shivani.gupta@theelefant.ai,2026-11-17T07:43:51Z,2026-11-19T08:42:15Z,104 hrs ago
-6afe77804e9f28498028cfa8,Interested,shivani.gupta@theelefant.ai,2026-11-19T04:13:52Z,2026-11-22T09:45:01Z,31 hrs ago
-6b002e432540e26386a91938,Interested,shivani.gupta@theelefant.ai,2026-11-20T11:25:55Z,2026-11-22T10:30:00Z,31 hrs ago
-6afdca7ce4273a1c8582224a,Interested,shivani.gupta@theelefant.ai,2026-11-18T15:55:40Z,2026-11-22T11:53:37Z,29 hrs ago
-6aff2b8b71752fb785188050,Interested,shivani.gupta@theelefant.ai,2026-11-19T17:02:03Z,2026-11-22T11:54:29Z,29 hrs ago
-6afec8bfbc95a15df4e015a3,Interested,shivani.gupta@theelefant.ai,2026-11-19T10:00:31Z,2026-11-22T11:54:51Z,29 hrs ago
-6afcadd687f6a4a4a5155a2a,Interested,shivani.gupta@theelefant.ai,2026-11-17T19:41:10Z,2026-11-22T12:00:25Z,29 hrs ago
-6b0089b9c1c0e0e7133c0e90,Interested,shivani.gupta@theelefant.ai,2026-11-20T17:56:09Z,2026-11-22T13:28:21Z,28 hrs ago
-6b01d16e3f2db893f6cca238,Interested,shivani.gupta@theelefant.ai,2026-11-21T17:14:22Z,2026-11-22T13:29:03Z,28 hrs ago
-6afb27f4b0432cdd5bc4f59f,Interested,shivaram.nimmala@theelefant.ai,2026-11-16T15:57:40Z,2026-11-18T06:18:22Z,131 hrs ago
-6afaeec8a699bee291d766a5,Interested,shivaram.nimmala@theelefant.ai,2026-11-16T11:53:44Z,2026-11-18T10:04:36Z,127 hrs ago
-6afda1ca99253044edec2660,Interested,shivaram.nimmala@theelefant.ai,2026-11-18T13:02:02Z,2026-11-19T14:21:45Z,99 hrs ago
-6afaee9858f46954d54d124c,Interested,shivendra.singh@theelefant.ai,2026-11-16T11:52:56Z,2026-11-19T13:50:50Z,99 hrs ago
-6afbe3c81c1c0e926a0e8bf5,Interested,shivendra.singh@theelefant.ai,2026-11-17T05:19:04Z,2026-11-22T10:50:44Z,30 hrs ago
-6afaf44394ee4c39638c1fd5,Interested,shivendra.singh@theelefant.ai,2026-11-16T12:17:07Z,2026-11-22T10:51:05Z,30 hrs ago
-6afe72070a081f3dc8be250d,Interested,shivendra.singh@theelefant.ai,2026-11-19T03:50:31Z,2026-11-22T11:02:38Z,30 hrs ago
-6afad863261cf9215023ff59,Interested,shivendra.singh@theelefant.ai,2026-11-16T10:18:11Z,2026-11-22T11:03:47Z,30 hrs ago
-6afb0b263ce0fd0b3165b81b,Interested,tanveer.ahmed@theelefant.ai,2026-11-16T13:54:46Z,2026-11-20T12:55:12Z,76 hrs ago
-6afac37c043ecc2865f81380,Interested,tanveer.ahmed@theelefant.ai,2026-11-16T08:49:00Z,2026-11-20T12:58:26Z,76 hrs ago
-6afbff659b7242c43b8e070e,Interested,tanveer.ahmed@theelefant.ai,2026-11-17T07:16:53Z,2026-11-20T12:59:19Z,76 hrs ago
-6b0164383e4b93514ab0727a,Interested,tanveer.ahmed@theelefant.ai,2026-11-21T09:28:24Z,2026-11-21T10:09:54Z,55 hrs ago
-6afaa0f836fec6be56d6c2f7,Interested,vidhi.bhargava@theelefant.ai,2026-11-16T06:21:44Z,2026-11-20T08:55:22Z,80 hrs ago
-6afaa11889f8ae7bb5d6cfa1,Interested,vidhi.bhargava@theelefant.ai,2026-11-16T06:22:16Z,2026-11-20T14:04:01Z,75 hrs ago
-6afec79d5263475a7e7d8425,Interested,vidhi.bhargava@theelefant.ai,2026-11-19T09:55:41Z,2026-11-22T09:03:24Z,32 hrs ago
-6afbf11548b8d99029fe4f95,Interested,vivek.sah@theelefant.ai,2026-11-17T06:15:49Z,2026-11-19T11:06:35Z,102 hrs ago
-6aff13bc065acf75619f1b02,Interested,vivek.sah@theelefant.ai,2026-11-19T15:20:28Z,2026-11-22T11:34:55Z,30 hrs ago
-6afbd43483cc6fa2370760bd,Interested,vivek.sah@theelefant.ai,2026-11-17T04:12:36Z,2026-11-22T13:41:36Z,27 hrs ago
-6afc024349ee964b7fe72c42,Interested,vivek.sah@theelefant.ai,2026-11-17T07:29:07Z,2026-11-22T14:09:38Z,27 hrs ago
-6afe7bfe6b3f46fc4e4cf227,Interested,yuvraj.singh@theelefant.ai,2026-11-19T04:33:02Z,2026-11-19T06:04:51Z,107 hrs ago
-6afc705c19dc53fbb0431326,Interested,yuvraj.singh@theelefant.ai,2026-11-17T15:18:52Z,2026-11-19T07:05:40Z,106 hrs ago
-6afd5d282055e45efd4138e1,Interested,yuvraj.singh@theelefant.ai,2026-11-18T08:09:12Z,2026-11-19T12:06:07Z,101 hrs ago
-6afc0183a9b81f1b168b321a,Interested,yuvraj.singh@theelefant.ai,2026-11-17T07:25:55Z,2026-11-20T04:54:38Z,84 hrs ago
-6afeb41d181cdb075e36adef,Interested,yuvraj.singh@theelefant.ai,2026-11-19T08:32:29Z,2026-11-20T06:06:21Z,83 hrs ago
-6afb3702bb55e83d38ef0811,Interested,yuvraj.singh@theelefant.ai,2026-11-16T17:01:54Z,2026-11-20T06:50:31Z,82 hrs ago
-6afea4ea3257d276511eb511,Interested,yuvraj.singh@theelefant.ai,2026-11-19T07:27:38Z,2026-11-22T04:29:34Z,37 hrs ago
-6aff16ee35ef81ae355677ea,Paise Dega,darshan.k@theelefant.ai,2026-11-19T15:34:06Z,2026-11-20T12:40:54Z,76 hrs ago
-6b0129eb36914003d7e4ed64,Paise Dega,jivesh.harde@theelefant.ai,2026-11-21T05:19:39Z,2026-11-21T12:16:07Z,53 hrs ago
-6afabaa9c01f046060145734,Paise Dega,jivesh.harde@theelefant.ai,2026-11-16T08:11:21Z,2026-11-21T12:50:36Z,52 hrs ago
-6b011b81fbdb081bb27d462f,Paise Dega,jivesh.harde@theelefant.ai,2026-11-21T04:18:09Z,2026-11-21T13:27:46Z,52 hrs ago
-6b006f06dd3d0a336da009d8,Paise Dega,jivesh.harde@theelefant.ai,2026-11-20T16:02:14Z,2026-11-21T13:27:58Z,52 hrs ago
-6b000f1dbfdf1844af789f89,Paise Dega,jivesh.harde@theelefant.ai,2026-11-20T09:13:01Z,2026-11-21T13:31:20Z,52 hrs ago
-6aff36eff4212d28ca20c04d,Paise Dega,jivesh.harde@theelefant.ai,2026-11-19T17:50:39Z,2026-11-21T13:32:01Z,52 hrs ago
-6afd934d0df7d6aee0a562cf,Paise Dega,jivesh.harde@theelefant.ai,2026-11-18T12:00:13Z,2026-11-21T13:32:19Z,52 hrs ago
-6afd2e71656d627e53226771,Paise Dega,jivesh.harde@theelefant.ai,2026-11-18T04:49:53Z,2026-11-21T13:33:36Z,52 hrs ago
+6afbe2feeb8e2cdcb3d8dfb7,Interested,shivani.gupta@theelefant.ai,2026-11-17T05:15:42Z,2026-11-17T07:44:50Z,161 hrs ago
+6afc05b7b524714605403a8a,Interested,shivani.gupta@theelefant.ai,2026-11-17T07:43:51Z,2026-11-19T08:42:15Z,112 hrs ago
+6afe77804e9f28498028cfa8,Interested,shivani.gupta@theelefant.ai,2026-11-19T04:13:52Z,2026-11-22T09:45:01Z,39 hrs ago
+6b002e432540e26386a91938,Interested,shivani.gupta@theelefant.ai,2026-11-20T11:25:55Z,2026-11-22T10:30:00Z,38 hrs ago
+6afdca7ce4273a1c8582224a,Interested,shivani.gupta@theelefant.ai,2026-11-18T15:55:40Z,2026-11-22T11:53:37Z,37 hrs ago
+6aff2b8b71752fb785188050,Interested,shivani.gupta@theelefant.ai,2026-11-19T17:02:03Z,2026-11-22T11:54:29Z,37 hrs ago
+6afec8bfbc95a15df4e015a3,Interested,shivani.gupta@theelefant.ai,2026-11-19T10:00:31Z,2026-11-22T11:54:51Z,37 hrs ago
+6afcadd687f6a4a4a5155a2a,Interested,shivani.gupta@theelefant.ai,2026-11-17T19:41:10Z,2026-11-22T12:00:25Z,37 hrs ago
+6b0089b9c1c0e0e7133c0e90,Interested,shivani.gupta@theelefant.ai,2026-11-20T17:56:09Z,2026-11-22T13:28:21Z,35 hrs ago
+6b01d16e3f2db893f6cca238,Interested,shivani.gupta@theelefant.ai,2026-11-21T17:14:22Z,2026-11-22T13:29:03Z,35 hrs ago
+6afda1ca99253044edec2660,Interested,shivaram.nimmala@theelefant.ai,2026-11-18T13:02:02Z,2026-11-19T14:21:45Z,107 hrs ago
+6afbe3c81c1c0e926a0e8bf5,Interested,shivendra.singh@theelefant.ai,2026-11-17T05:19:04Z,2026-11-22T10:50:44Z,38 hrs ago
+6afe72070a081f3dc8be250d,Interested,shivendra.singh@theelefant.ai,2026-11-19T03:50:31Z,2026-11-22T11:02:38Z,38 hrs ago
+6afbff659b7242c43b8e070e,Interested,tanveer.ahmed@theelefant.ai,2026-11-17T07:16:53Z,2026-11-20T12:59:19Z,84 hrs ago
+6b0164383e4b93514ab0727a,Interested,tanveer.ahmed@theelefant.ai,2026-11-21T09:28:24Z,2026-11-21T10:09:54Z,63 hrs ago
+6afec79d5263475a7e7d8425,Interested,vidhi.bhargava@theelefant.ai,2026-11-19T09:55:41Z,2026-11-22T09:03:24Z,40 hrs ago
+6afbf11548b8d99029fe4f95,Interested,vivek.sah@theelefant.ai,2026-11-17T06:15:49Z,2026-11-19T11:06:35Z,110 hrs ago
+6aff13bc065acf75619f1b02,Interested,vivek.sah@theelefant.ai,2026-11-19T15:20:28Z,2026-11-22T11:34:55Z,37 hrs ago
+6afbd43483cc6fa2370760bd,Interested,vivek.sah@theelefant.ai,2026-11-17T04:12:36Z,2026-11-22T13:41:36Z,35 hrs ago
+6afc024349ee964b7fe72c42,Interested,vivek.sah@theelefant.ai,2026-11-17T07:29:07Z,2026-11-22T14:09:38Z,35 hrs ago
+6b008ba4838c4fa17f811593,Interested,vivek.sah@theelefant.ai,2026-11-20T18:04:20Z,2026-11-23T06:51:59Z,18 hrs ago
+6aff1fafb9438893184673c0,Interested,vivek.sah@theelefant.ai,2026-11-19T16:11:27Z,2026-11-23T07:39:00Z,17 hrs ago
+6afc228b52866b5652fd4ca5,Interested,vivek.sah@theelefant.ai,2026-11-17T09:46:51Z,2026-11-23T09:23:20Z,16 hrs ago
+6afc21d1b58ef6ff6c72f219,Interested,vivek.sah@theelefant.ai,2026-11-17T09:43:45Z,2026-11-23T09:23:37Z,16 hrs ago
+6afe7bfe6b3f46fc4e4cf227,Interested,yuvraj.singh@theelefant.ai,2026-11-19T04:33:02Z,2026-11-19T06:04:51Z,115 hrs ago
+6afc705c19dc53fbb0431326,Interested,yuvraj.singh@theelefant.ai,2026-11-17T15:18:52Z,2026-11-19T07:05:40Z,114 hrs ago
+6afd5d282055e45efd4138e1,Interested,yuvraj.singh@theelefant.ai,2026-11-18T08:09:12Z,2026-11-19T12:06:07Z,109 hrs ago
+6afc0183a9b81f1b168b321a,Interested,yuvraj.singh@theelefant.ai,2026-11-17T07:25:55Z,2026-11-20T04:54:38Z,92 hrs ago
+6afeb41d181cdb075e36adef,Interested,yuvraj.singh@theelefant.ai,2026-11-19T08:32:29Z,2026-11-20T06:06:21Z,91 hrs ago
+6afea4ea3257d276511eb511,Interested,yuvraj.singh@theelefant.ai,2026-11-19T07:27:38Z,2026-11-22T04:29:34Z,44 hrs ago
+6aff16ee35ef81ae355677ea,Paise Dega,darshan.k@theelefant.ai,2026-11-19T15:34:06Z,2026-11-20T12:40:54Z,84 hrs ago
+6afc7c0401453cb3fda2d8bc,Paise Dega,darshan.k@theelefant.ai,2026-11-17T16:08:36Z,2026-11-23T06:45:50Z,18 hrs ago
+6b01dcc4e2912afb3670c433,Paise Dega,honey.talreja@theelefant.ai,2026-11-21T18:02:44Z,2026-11-23T06:11:39Z,19 hrs ago
+6b0129eb36914003d7e4ed64,Paise Dega,jivesh.harde@theelefant.ai,2026-11-21T05:19:39Z,2026-11-21T12:16:07Z,61 hrs ago
+6b011b81fbdb081bb27d462f,Paise Dega,jivesh.harde@theelefant.ai,2026-11-21T04:18:09Z,2026-11-21T13:27:46Z,59 hrs ago
+6b006f06dd3d0a336da009d8,Paise Dega,jivesh.harde@theelefant.ai,2026-11-20T16:02:14Z,2026-11-21T13:27:58Z,59 hrs ago
+6b000f1dbfdf1844af789f89,Paise Dega,jivesh.harde@theelefant.ai,2026-11-20T09:13:01Z,2026-11-21T13:31:20Z,59 hrs ago
+6aff36eff4212d28ca20c04d,Paise Dega,jivesh.harde@theelefant.ai,2026-11-19T17:50:39Z,2026-11-21T13:32:01Z,59 hrs ago
+6afd934d0df7d6aee0a562cf,Paise Dega,jivesh.harde@theelefant.ai,2026-11-18T12:00:13Z,2026-11-21T13:32:19Z,59 hrs ago
+6afd2e71656d627e53226771,Paise Dega,jivesh.harde@theelefant.ai,2026-11-18T04:49:53Z,2026-11-21T13:33:36Z,59 hrs ago
 6b02f4aca4b634ff9bba511a,Paise Dega,shivani.gupta@theelefant.ai,2026-11-22T13:57:00Z,,Never called
-6b01297b9f21d00489693b28,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T05:17:47Z,,Never called
-6b014d5e155a63012a4db7b7,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T07:50:54Z,,Never called
-6b0156324d674a2fb5553641,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:28:34Z,,Never called
 6b0155bf0a4fbb1b61833b0b,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:26:39Z,,Never called
 6b0291dfb2a98ee26fdf4a9e,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T06:55:27Z,,Never called
 6b015c9dd522eff5c6a1bfea,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:55:57Z,,Never called
 6b029bc0c85086208dc543a5,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:37:36Z,,Never called
+6b0156324d674a2fb5553641,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:28:34Z,,Never called
 6b0154578282e3f9d6bbecbc,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:20:39Z,,Never called
+6b014d5e155a63012a4db7b7,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T07:50:54Z,,Never called
+6b01297b9f21d00489693b28,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T05:17:47Z,,Never called
 6b0154de6586b916b5a3e18e,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T08:22:54Z,,Never called
 6b014c90d122ca53ee57d7da,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-21T07:47:28Z,,Never called
-6b029757d194ffbce4792850,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:18:47Z,2026-11-22T07:18:55Z,34 hrs ago
-6b02949ba0967a33b809b78f,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:07:07Z,2026-11-22T09:34:48Z,32 hrs ago
-6b029d6554380fb150cfc961,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:44:37Z,2026-11-22T16:07:16Z,25 hrs ago
+6b029757d194ffbce4792850,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:18:47Z,2026-11-22T07:18:55Z,42 hrs ago
+6b02949ba0967a33b809b78f,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:07:07Z,2026-11-22T09:34:48Z,39 hrs ago
+6b029d6554380fb150cfc961,Paise Dega,shivaram.nimmala@theelefant.ai,2026-11-22T07:44:37Z,2026-11-22T16:07:16Z,33 hrs ago
 6b019103cf085091e647cd68,Paise Dega,tanveer.ahmed@theelefant.ai,2026-11-21T12:39:31Z,,Never called
-6afbde85f64063fb08514e4d,Paise Dega,tanveer.ahmed@theelefant.ai,2026-11-17T04:56:37Z,2026-11-19T14:04:02Z,99 hrs ago
-6afddea57674f48dc4987621,Paise Dega,tanveer.ahmed@theelefant.ai,2026-11-18T17:21:41Z,2026-11-20T05:51:07Z,83 hrs ago
-6afbd20fdc9a64089093c391,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-17T04:03:27Z,2026-11-21T12:14:22Z,53 hrs ago
-6aff399a8e8ad8ea8135e2c5,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-19T18:02:02Z,2026-11-22T04:33:51Z,37 hrs ago
-6afad572355647ad4e726e2b,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-16T10:05:38Z,2026-11-22T04:34:58Z,37 hrs ago
-6afa9a4e0f5228f05acc6c9f,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-16T05:53:18Z,2026-11-22T04:35:43Z,37 hrs ago
+6afbde85f64063fb08514e4d,Paise Dega,tanveer.ahmed@theelefant.ai,2026-11-17T04:56:37Z,2026-11-19T14:04:02Z,107 hrs ago
+6afddea57674f48dc4987621,Paise Dega,tanveer.ahmed@theelefant.ai,2026-11-18T17:21:41Z,2026-11-20T05:51:07Z,91 hrs ago
+6afbd20fdc9a64089093c391,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-17T04:03:27Z,2026-11-21T12:14:22Z,61 hrs ago
+6aff399a8e8ad8ea8135e2c5,Paise Dega,yuvraj.singh@theelefant.ai,2026-11-19T18:02:02Z,2026-11-22T04:33:51Z,44 hrs ago

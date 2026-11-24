@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,215,457",,,388.5,
+,,,,"4,223,457",,,389.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -379,10 +379,20 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 377,23/11/2026,9137993526,Neeru Yadav,"12,000",No,Annual Max,1,Organic
 378,23/11/2026,9762637030,Yuvraj Singh Dodiya,,No,Annual Max,0.5,Organic
 379,23/11/2026,9000799988,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
-380,23/11/2026,7224915244,Honey Talreja,"2,299",,,0.5,
-381,23/11/2026,,,,,,,
-382,23/11/2026,,,,,,,
-383,23/11/2026,,,,,,,
-384,23/11/2026,,,,,,,
-385,23/11/2026,,,,,,,
-386,23/11/2026,,,,,,,
+380,23/11/2026,7224915244,Honey Talreja,"2,299",No,Rental,0.5,Organic
+381,24/11/2026,8368727228,Honey Talreja,"8,000",No,Annual Plus,1,Organic
+382,24/11/2026,,,,,,,
+383,24/11/2026,,,,,,,
+384,24/11/2026,,,,,,,
+385,24/11/2026,,,,,,,
+386,24/11/2026,,,,,,,
+387,24/11/2026,,,,,,,
+388,24/11/2026,,,,,,,
+389,24/11/2026,,,,,,,
+390,24/11/2026,,,,,,,
+391,24/11/2026,,,,,,,
+392,24/11/2026,,,,,,,
+393,24/11/2026,,,,,,,
+394,24/11/2026,,,,,,,
+395,24/11/2026,,,,,,,
+396,24/11/2026,,,,,,,
