@@ -1,4 +1,5 @@
 date,customer_name,phone,agent,inside_revenue,direct_revenue,plan,source,direct_order_id,direct_user_id,dispute_note
+"2026-11-25","Khushbu patel","7014631489","Shivendra Singh Tomar",8325,8325,"Annual Plus","Organic","0094451d-8ccd-4711-b35d-be2dbc22ec91","UR562200","Logged by Inside Sales agent (Shivendra Singh Tomar) for ₹8325 and also completed on Direct Portal for ₹8325"
 "2026-11-24","srinidhi rao pearala","9849642068","Shivendra Singh Tomar",18500,18499,"Ultra Annually","Organic","dcbb16be-55cc-4994-8d80-476074ce5c8a","UR562219","Logged by Inside Sales agent (Shivendra Singh Tomar) for ₹18500 and also completed on Direct Portal for ₹18499"
 "2026-11-22","Pallavi sawale","8291841213","Vivek Shah",8325,8325,"Annual Plus","Organic","a84421fc-5eb1-4df3-abc0-69fa7c561c07","UR286700","Logged by Inside Sales agent (Vivek Shah) for ₹8325 and also completed on Direct Portal for ₹8325"
 "2026-11-22","kadambini shah","9870288370","Vivek Shah",8325,7949.54,"Annual Plus","Organic","e5b74ed5-07d6-4d23-94a0-4a2d05f316a3","UR31486","Logged by Inside Sales agent (Vivek Shah) for ₹8325 and also completed on Direct Portal for ₹7949.54"
