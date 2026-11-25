@@ -64605,9 +64605,9 @@
   },
   {
     "date": "2026-08-19",
-    "totalRevenue": 227200.4,
-    "salesCount": 22,
-    "transactions": 22,
+    "totalRevenue": 231700.4,
+    "salesCount": 23,
+    "transactions": 23,
     "highestSale": {
       "amount": 15000,
       "agent": "Tanveer Ahmed",
@@ -64629,6 +64629,10 @@
       "Rohit Jain": {
         "revenue": 11000,
         "count": 1
+      },
+      "Kunal Sharma": {
+        "revenue": 15500,
+        "count": 2
       },
       "Vivek Shah": {
         "revenue": 22000,
@@ -64653,10 +64657,6 @@
       "Vikas Poonia": {
         "revenue": 10376,
         "count": 1
-      },
-      "Kunal Sharma": {
-        "revenue": 11000,
-        "count": 1
       }
     },
     "plans": {
@@ -64664,19 +64664,19 @@
         "revenue": 208688.4,
         "count": 19
       },
+      "Quarterly Max": {
+        "revenue": 10256,
+        "count": 2
+      },
       "6 months Max": {
         "revenue": 7000,
-        "count": 1
-      },
-      "Quarterly Max": {
-        "revenue": 5756,
         "count": 1
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 171500,
-        "count": 16
+        "revenue": 176000,
+        "count": 17
       },
       "Renewals": {
         "revenue": 20752,
@@ -64743,13 +64743,13 @@
       "Amol Landge",
       "Honey Talreja",
       "Rohit Jain",
+      "Kunal Sharma",
       "Vivek Shah",
       "Jivesh Harde",
       "Tanveer Ahmed",
       "Shikha Singh",
       "Shubham Rai",
-      "Vikas Poonia",
-      "Kunal Sharma"
+      "Vikas Poonia"
     ],
     "refundsLast7Days": {
       "total": 0,
@@ -66240,9 +66240,9 @@
   },
   {
     "date": "2026-08-28",
-    "totalRevenue": 132998.28,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 121998.28,
+    "salesCount": 12,
+    "transactions": 12,
     "highestSale": {
       "amount": 12000,
       "agent": "Kausturi Roy Chowdhury",
@@ -66269,10 +66269,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 11000,
-        "count": 1
-      },
       "Amol Landge": {
         "revenue": 11376,
         "count": 1
@@ -66284,8 +66280,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 123042.28,
-        "count": 11
+        "revenue": 112042.28,
+        "count": 10
       },
       "Quarterly Max": {
         "revenue": 9956,
@@ -66294,8 +66290,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 100000,
-        "count": 9
+        "revenue": 89000,
+        "count": 8
       },
       "Renewals": {
         "revenue": 15576,
@@ -66317,7 +66313,6 @@
       "Yuvraj Singh Dodiya",
       "Vikas Poonia",
       "Honey Talreja",
-      "Tashrifa Ruhani Saikia",
       "Amol Landge",
       "Rani Singh"
     ],
@@ -83132,8 +83127,8 @@
     },
     "missedLeads": {
       "Connected": 198,
-      "Interested": 75,
-      "Paise Dega": 13
+      "Interested": 79,
+      "Paise Dega": 14
     },
     "refunds": {
       "count": 8,
@@ -83232,7 +83227,7 @@
     "subsExpiringToday": 20,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2431,
-    "activeSubNoOrder": 120,
+    "activeSubNoOrder": 119,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 20,
       "Orders Placed": 20,
