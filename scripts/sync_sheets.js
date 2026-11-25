@@ -1410,8 +1410,27 @@ async function syncSalesData() {
     console.log(`📞 Fetching TeleCRM Leads Detailed List from Metabase...`);
     const telecrmDetailsCSV = await fetchURLWithRedirect(TELECRM_LEADS_DETAILS_URL);
     if (telecrmDetailsCSV && telecrmDetailsCSV.length > 50 && !telecrmDetailsCSV.includes('HTTP ERROR 500')) {
-      fs.writeFileSync(TELECRM_LEADS_DETAILS_FILE, stripTestPhonesFromCSV(telecrmDetailsCSV), 'utf-8');
-      console.log(`✅ Cached TeleCRM Leads details (${telecrmDetailsCSV.split('\n').filter(Boolean).length - 1} records) to ${TELECRM_LEADS_DETAILS_FILE}`);
+      const cleanedCSV = stripTestPhonesFromCSV(telecrmDetailsCSV);
+      fs.writeFileSync(TELECRM_LEADS_DETAILS_FILE, cleanedCSV, 'utf-8');
+      console.log(`✅ Cached TeleCRM Leads details (${cleanedCSV.split('\n').filter(Boolean).length - 1} records) to ${TELECRM_LEADS_DETAILS_FILE}`);
+      const tLines = cleanedCSV.split('\n').filter(Boolean);
+      if (tLines.length > 1 && sortedDays.length > 0) {
+        const headerCols = parseCSVLine(tLines[0]);
+        const sIdx = headerCols.indexOf('dropdown_is_serviceable');
+        if (sIdx !== -1) {
+          let servCount = 0;
+          for (let i = 1; i < tLines.length; i++) {
+            const rowCols = parseCSVLine(tLines[i]);
+            if ((rowCols[sIdx] || '').trim().toLowerCase() === 'yes') {
+              servCount++;
+            }
+          }
+          getTargetDays(sortedDays).forEach(targetDay => {
+            targetDay.teleCrmServiceableLeads = servCount;
+            console.log(`✅ TeleCRM Serviceable Leads (yesterday): ${servCount} attached to ${targetDay.date}`);
+          });
+        }
+      }
     }
   } catch (err) {
     console.warn('⚠️ Warning: Could not cache TeleCRM Leads details from Metabase:', err.message);

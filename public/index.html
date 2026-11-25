@@ -2939,6 +2939,16 @@
         <td style="text-align: right; font-weight: 700; color: #0f172a;">${(yd.teleCrmLeads || '-').toLocaleString('en-IN')}</td>
       </tr>
 
+      <tr class="clickable-row" onclick="window.open('telecrm-leads-details.html?filter=serviceable', '_blank')" style="cursor: pointer;" title="Click to view serviceable leads generated yesterday in a new tab">
+        <td>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-weight:600;">Total Serviceable Leads Generated yesterday</span>
+            <span style="font-size:10.5px;font-weight:700;background:rgba(91,62,155,0.1);color:#5b3e9b;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:3px;">View List ↗</span>
+          </div>
+        </td>
+        <td style="text-align: right; font-weight: 700; color: #0f172a;">${((yd.teleCrmServiceableLeads != null ? yd.teleCrmServiceableLeads : (yd.serviceableLeads != null ? yd.serviceableLeads : (yd.userBreakdown ? yd.userBreakdown.serviceable : null))) || '-').toLocaleString('en-IN')}</td>
+      </tr>
+
       <tr class="clickable-row" onclick="window.open('self-upgrade-details.html?date=' + yd.date, '_blank')" style="cursor: pointer;" title="Click to view Self Upgrade deals in a new tab">
         <td>
           <div style="display:flex;align-items:center;justify-content:space-between;">
