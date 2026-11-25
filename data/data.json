@@ -58666,9 +58666,9 @@
   },
   {
     "date": "2026-07-14",
-    "totalRevenue": 272893,
-    "salesCount": 27,
-    "transactions": 27,
+    "totalRevenue": 283393,
+    "salesCount": 28,
+    "transactions": 28,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -58684,8 +58684,8 @@
         "count": 6
       },
       "Honey Talreja": {
-        "revenue": 37000,
-        "count": 4
+        "revenue": 47500,
+        "count": 5
       },
       "Jivesh Harde": {
         "revenue": 11000,
@@ -58726,8 +58726,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 264137,
-        "count": 25
+        "revenue": 274637,
+        "count": 26
       },
       "Quarterly Plus": {
         "revenue": 3000,
@@ -58740,8 +58740,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 157092,
-        "count": 15
+        "revenue": 167592,
+        "count": 16
       },
       "Renewals": {
         "revenue": 62256,
@@ -61385,9 +61385,9 @@
   },
   {
     "date": "2026-08-01",
-    "totalRevenue": 473538,
-    "salesCount": 49,
-    "transactions": 49,
+    "totalRevenue": 462538,
+    "salesCount": 48,
+    "transactions": 48,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61401,10 +61401,6 @@
       "Chhaya Patel": {
         "revenue": 11000,
         "count": 1
-      },
-      "Preyashi Roy": {
-        "revenue": 15500,
-        "count": 2
       },
       "Amol Landge": {
         "revenue": 109376,
@@ -61430,6 +61426,10 @@
         "revenue": 21000,
         "count": 2
       },
+      "Preyashi Roy": {
+        "revenue": 4500,
+        "count": 1
+      },
       "Shubham Rai": {
         "revenue": 12000,
         "count": 1
@@ -61445,8 +61445,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 399282,
-        "count": 34
+        "revenue": 388282,
+        "count": 33
       },
       "Annual Mini": {
         "revenue": 5032,
@@ -61463,8 +61463,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 103248,
-        "count": 10
+        "revenue": 92248,
+        "count": 9
       },
       "Events": {
         "revenue": 206752,
@@ -61603,13 +61603,13 @@
     "workingAgents": [
       "Honey Talreja",
       "Chhaya Patel",
-      "Preyashi Roy",
       "Amol Landge",
       "Vikas Poonia",
       "Prerak Bhavsar",
       "Sneha Anand",
       "Kausturi Roy Chowdhury",
       "Shivani Gupta",
+      "Preyashi Roy",
       "Shubham Rai",
       "Vivek Shah",
       "Kush Shah"
@@ -62016,9 +62016,9 @@
   },
   {
     "date": "2026-08-04",
-    "totalRevenue": 283981,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 290981,
+    "salesCount": 32,
+    "transactions": 32,
     "highestSale": {
       "amount": 15000,
       "agent": "Honey Talreja",
@@ -62050,8 +62050,8 @@
         "count": 2
       },
       "Sneha Anand": {
-        "revenue": 24500,
-        "count": 3
+        "revenue": 31500,
+        "count": 4
       },
       "Shivani Gupta": {
         "revenue": 30000,
@@ -62100,8 +62100,8 @@
         "count": 1
       },
       "6 months Max": {
-        "revenue": 7000,
-        "count": 1
+        "revenue": 14000,
+        "count": 2
       },
       "Quarterly Plus": {
         "revenue": 3160,
@@ -62114,8 +62114,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 218000,
-        "count": 21
+        "revenue": 225000,
+        "count": 22
       },
       "Renewals": {
         "revenue": 10376,
@@ -62255,9 +62255,9 @@
   },
   {
     "date": "2026-08-05",
-    "totalRevenue": 186087,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 175587,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Prerak Bhavsar",
@@ -62280,10 +62280,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Chhaya Patel": {
-        "revenue": 10500,
-        "count": 1
-      },
       "Tanveer Ahmed": {
         "revenue": 22000,
         "count": 2
@@ -62303,8 +62299,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 132432,
-        "count": 12
+        "revenue": 121932,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 46494,
@@ -62319,10 +62315,6 @@
       "Organic": {
         "revenue": 126293,
         "count": 14
-      },
-      "Renewals": {
-        "revenue": 10500,
-        "count": 1
       },
       "Upgrade": {
         "revenue": 9251,
@@ -62349,7 +62341,6 @@
       "Kush Shah",
       "Others",
       "Jivesh Harde",
-      "Chhaya Patel",
       "Tanveer Ahmed",
       "Honey Talreja",
       "Shubham Rai",
@@ -62848,9 +62839,9 @@
   },
   {
     "date": "2026-08-09",
-    "totalRevenue": 310234,
-    "salesCount": 33,
-    "transactions": 33,
+    "totalRevenue": 321234,
+    "salesCount": 34,
+    "transactions": 34,
     "highestSale": {
       "amount": 14000,
       "agent": "Shivani Gupta",
@@ -62894,8 +62885,8 @@
         "count": 1
       },
       "Sneha Anand": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 22000,
+        "count": 2
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 24431,
@@ -62916,8 +62907,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 262297,
-        "count": 23
+        "revenue": 273297,
+        "count": 24
       },
       "Quarterly Max": {
         "revenue": 24256,
@@ -62934,8 +62925,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 169467,
-        "count": 18
+        "revenue": 180467,
+        "count": 19
       },
       "Events": {
         "revenue": 47376,
@@ -64088,9 +64079,9 @@
   },
   {
     "date": "2026-08-16",
-    "totalRevenue": 456135.4,
-    "salesCount": 44,
-    "transactions": 44,
+    "totalRevenue": 467135.4,
+    "salesCount": 45,
+    "transactions": 45,
     "highestSale": {
       "amount": 17073,
       "agent": "Shikha Singh",
@@ -64102,8 +64093,8 @@
         "count": 2
       },
       "Amol Landge": {
-        "revenue": 65376,
-        "count": 6
+        "revenue": 76376,
+        "count": 7
       },
       "Abhijeet Mathur": {
         "revenue": 23000,
@@ -64168,8 +64159,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 406538.4,
-        "count": 35
+        "revenue": 417538.4,
+        "count": 36
       },
       "Quarterly Max": {
         "revenue": 30012,
@@ -64198,8 +64189,8 @@
         "count": 2
       },
       "Events": {
-        "revenue": 88000,
-        "count": 8
+        "revenue": 99000,
+        "count": 9
       },
       "Direct Sale": {
         "revenue": 45630.4,
@@ -64452,9 +64443,9 @@
   },
   {
     "date": "2026-08-18",
-    "totalRevenue": 206675,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 217675,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -64474,8 +64465,8 @@
         "count": 2
       },
       "Tanveer Ahmed": {
-        "revenue": 12000,
-        "count": 1
+        "revenue": 23000,
+        "count": 2
       },
       "Kush Shah": {
         "revenue": 15500,
@@ -64504,8 +64495,8 @@
         "count": 1
       },
       "Annual Max": {
-        "revenue": 173651,
-        "count": 14
+        "revenue": 184651,
+        "count": 15
       },
       "Quarterly Max": {
         "revenue": 21768,
@@ -64514,8 +64505,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 115000,
-        "count": 11
+        "revenue": 126000,
+        "count": 12
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -66068,8 +66059,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 182529,
-        "count": 17
+        "revenue": 167956,
+        "count": 16
       },
       "Quarterly Max": {
         "revenue": 20512,
@@ -66090,12 +66081,12 @@
         "count": 10
       },
       "Direct Sale": {
-        "revenue": 26085,
-        "count": 3
+        "revenue": 11512,
+        "count": 2
       },
       "Overlap Deals": {
-        "revenue": 19811,
-        "count": 2
+        "revenue": 34384,
+        "count": 3
       }
     },
     "userBreakdown": null,
@@ -66104,6 +66095,21 @@
       "revenue": 45896
     },
     "collidingDeals": [
+      {
+        "date": "2026-08-27",
+        "rawDate": "27/08/2026 19:06",
+        "customerName": "Nikita Shinde",
+        "phone": "8850924759",
+        "agent": "Chhaya Patel",
+        "insideRevenue": 14573,
+        "revenue": 14573,
+        "directRevenue": 14573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "ee0c7fc3-8477-4e82-b351-2d07656d4ea4",
+        "directUserId": "UR405092",
+        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹14573 and also completed on Direct Portal for ₹14573"
+      },
       {
         "date": "2026-08-27",
         "rawDate": "27/08/2026 18:51",
@@ -66138,6 +66144,21 @@
     "disputedDeals": [
       {
         "date": "2026-08-27",
+        "rawDate": "27/08/2026 19:06",
+        "customerName": "Nikita Shinde",
+        "phone": "8850924759",
+        "agent": "Chhaya Patel",
+        "insideRevenue": 14573,
+        "revenue": 14573,
+        "directRevenue": 14573,
+        "plan": "Annual Max",
+        "source": "Organic",
+        "directOrderId": "ee0c7fc3-8477-4e82-b351-2d07656d4ea4",
+        "directUserId": "UR405092",
+        "disputeNote": "Logged by Inside Sales agent (Chhaya Patel) for ₹14573 and also completed on Direct Portal for ₹14573"
+      },
+      {
+        "date": "2026-08-27",
         "rawDate": "27/08/2026 18:51",
         "customerName": "Shilpa kailashchand Jain",
         "phone": "8866711721",
@@ -66168,12 +66189,12 @@
       }
     ],
     "collidingTotal": {
-      "count": 2,
-      "revenue": 19811
+      "count": 3,
+      "revenue": 34384
     },
     "disputedTotal": {
-      "count": 2,
-      "revenue": 19811
+      "count": 3,
+      "revenue": 34384
     },
     "workingAgents": [
       "Vikas Poonia",
@@ -81821,13 +81842,7 @@
         "count": 1
       }
     },
-    "userBreakdown": {
-      "signups": 277,
-      "otpVerified": 135,
-      "serviceable": 95,
-      "serviceableWithPct": "95 (34.3%)",
-      "serviceablePct": "34.3%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 2,
       "revenue": 19243
@@ -82940,11 +82955,6 @@
       "serviceableWithPct": "83 (48.0%)",
       "serviceablePct": "48.0%"
     },
-    "missedLeads": {
-      "Connected": 116,
-      "Interested": 42,
-      "Paise Dega": 10
-    },
     "workingAgents": [
       "Honey Talreja",
       "Rani Singh",
@@ -82968,33 +82978,272 @@
       "total": 0,
       "items": []
     },
-    "newUsers7d": 1264,
+    "selfUpgrade": {
+      "totalCount": 0,
+      "totalRevenue": 0,
+      "coupon40Count": 0,
+      "coupon40Revenue": 0,
+      "otherCount": 0,
+      "otherRevenue": 0,
+      "deals": []
+    }
+  },
+  {
+    "date": "2026-11-24",
+    "totalRevenue": 182653,
+    "salesCount": 16,
+    "transactions": 16,
+    "highestSale": {
+      "amount": 18500,
+      "agent": "Shivendra Singh Tomar",
+      "source": "Inside Sales"
+    },
+    "agents": {
+      "Honey Talreja": {
+        "revenue": 20000,
+        "count": 2
+      },
+      "Apurva Joshi": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Prerak Bhavsar": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Vidhi Bhargava": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Yuvraj Singh Dodiya": {
+        "revenue": 24000,
+        "count": 2
+      },
+      "Rohit Jain": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Preyashi Roy": {
+        "revenue": 23000,
+        "count": 2
+      },
+      "Neeru Yadav": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Tanveer Ahmed": {
+        "revenue": 12000,
+        "count": 1
+      },
+      "Shivendra Singh Tomar": {
+        "revenue": 0,
+        "count": 0
+      }
+    },
+    "plans": {
+      "Annual Plus": {
+        "revenue": 8000,
+        "count": 1
+      },
+      "Annual Max": {
+        "revenue": 156146,
+        "count": 13
+      },
+      "Ultra Annually": {
+        "revenue": 0,
+        "count": 0
+      },
+      "Quarterly Plus": {
+        "revenue": 8,
+        "count": 1
+      }
+    },
+    "sources": {
+      "Organic": {
+        "revenue": 139000,
+        "count": 12
+      },
+      "Direct Sale": {
+        "revenue": 25154,
+        "count": 3
+      },
+      "Overlap Deals": {
+        "revenue": 18499,
+        "count": 1
+      }
+    },
+    "userBreakdown": {
+      "signups": 130,
+      "otpVerified": 95,
+      "serviceable": 70,
+      "serviceableWithPct": "70 (53.8%)",
+      "serviceablePct": "53.8%"
+    },
+    "directSaleCSV": {
+      "count": 4,
+      "revenue": 43653
+    },
+    "collidingDeals": [
+      {
+        "date": "2026-11-24",
+        "rawDate": "24/11/2026 18:30",
+        "customerName": "srinidhi rao pearala",
+        "phone": "9849642068",
+        "agent": "Shivendra Singh Tomar",
+        "insideRevenue": 18500,
+        "revenue": 18499,
+        "directRevenue": 18499,
+        "plan": "Ultra Annually",
+        "source": "Organic",
+        "directOrderId": "dcbb16be-55cc-4994-8d80-476074ce5c8a",
+        "directUserId": "UR562219",
+        "disputeNote": "Logged by Inside Sales agent (Shivendra Singh Tomar) for ₹18500 and also completed on Direct Portal for ₹18499"
+      }
+    ],
+    "disputedDeals": [
+      {
+        "date": "2026-11-24",
+        "rawDate": "24/11/2026 18:30",
+        "customerName": "srinidhi rao pearala",
+        "phone": "9849642068",
+        "agent": "Shivendra Singh Tomar",
+        "insideRevenue": 18500,
+        "revenue": 18499,
+        "directRevenue": 18499,
+        "plan": "Ultra Annually",
+        "source": "Organic",
+        "directOrderId": "dcbb16be-55cc-4994-8d80-476074ce5c8a",
+        "directUserId": "UR562219",
+        "disputeNote": "Logged by Inside Sales agent (Shivendra Singh Tomar) for ₹18500 and also completed on Direct Portal for ₹18499"
+      }
+    ],
+    "collidingTotal": {
+      "count": 1,
+      "revenue": 18499
+    },
+    "disputedTotal": {
+      "count": 1,
+      "revenue": 18499
+    },
+    "missedLeads": {
+      "Connected": 120,
+      "Interested": 48,
+      "Paise Dega": 9
+    },
+    "refunds": {
+      "count": 8,
+      "total": 85091.56,
+      "items": [
+        {
+          "refundId": "rfnd_U3v1Ymj9SoY2dL",
+          "paymentId": "pay_SuhLTDvL63s2pO",
+          "amount": 8250,
+          "status": "processed",
+          "date": "24/11/2026 12:17:17"
+        },
+        {
+          "refundId": "rfnd_U3v2uxxCELTexX",
+          "paymentId": "pay_ToEupq91pGSFQl",
+          "amount": 11426.4,
+          "status": "processed",
+          "date": "24/11/2026 12:18:34"
+        },
+        {
+          "refundId": "rfnd_U3v6vXoFKncUWl",
+          "paymentId": "pay_TeFuJ0de3AS2dW",
+          "amount": 11000,
+          "status": "processed",
+          "date": "24/11/2026 12:22:22"
+        },
+        {
+          "refundId": "rfnd_U3v8KPoNLuADBg",
+          "paymentId": "pay_TQQfcQp8OCgJQ6",
+          "amount": 12000,
+          "status": "processed",
+          "date": "24/11/2026 12:23:41"
+        },
+        {
+          "refundId": "rfnd_U3vCVdjTf6GScl",
+          "paymentId": "pay_Tel80ZTVG5q3Jp",
+          "amount": 10376,
+          "status": "processed",
+          "date": "24/11/2026 12:27:39"
+        },
+        {
+          "refundId": "rfnd_U3vDYOK1BTUGhD",
+          "paymentId": "pay_Tb4MZC9Oq81S8r",
+          "amount": 9998.1,
+          "status": "processed",
+          "date": "24/11/2026 12:28:38"
+        },
+        {
+          "refundId": "rfnd_U3vFak5xXtxe26",
+          "paymentId": "pay_TiGbz0MqGWH8CG",
+          "amount": 11665.06,
+          "status": "processed",
+          "date": "24/11/2026 12:30:34"
+        },
+        {
+          "refundId": "rfnd_U3vH0FOlPM1Y5P",
+          "paymentId": "pay_TgZCIaRQ58FQkH",
+          "amount": 10376,
+          "status": "processed",
+          "date": "24/11/2026 12:31:54"
+        }
+      ]
+    },
+    "workingAgents": [
+      "Honey Talreja",
+      "Rani Singh",
+      "Yuvraj Singh Dodiya",
+      "Darshan KS",
+      "Apurva Joshi",
+      "Prerak Bhavsar",
+      "Shivaram Nimmala",
+      "Preyashi Roy",
+      "Jivesh Harde",
+      "Vidhi Bhargava",
+      "Gaurav Kala",
+      "Vikas Poonia",
+      "Rohit Jain",
+      "Shivendra Singh Tomar",
+      "Tanveer Ahmed",
+      "Vivek Shah",
+      "Kausturi Roy Chowdhury",
+      "Neeru Yadav",
+      "Chandana Hari"
+    ],
+    "refundsLast7Days": {
+      "total": 122603.69,
+      "count": 12
+    },
+    "newUsers7d": 1118,
     "newUsersYesterday": 153,
-    "activeSubs": 5274,
-    "newSubs7d": 131,
-    "teleCrmLeads": 390,
-    "subsEnding5d": 74,
-    "subsExpired7d": 86,
-    "subsExpiringToday": 5,
+    "activeSubs": 5270,
+    "newSubs7d": 129,
+    "teleCrmLeads": 192,
+    "subsEnding5d": 83,
+    "subsExpired7d": 93,
+    "subsExpiringToday": 20,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2431,
-    "activeSubNoOrder": 121,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 11,
-      "Orders Placed": 11,
-      "Orders - CONFIRMED": 22,
-      "Orders Confirmed": 22,
+      "Orders - PLACED": 25,
+      "Orders Placed": 25,
+      "Orders - CONFIRMED": 29,
+      "Orders Confirmed": 29,
       "Orders - READY_TO_SHIP": 0,
       "Orders Ready to Ship": 0,
       "Orders - SHIPPED": 11,
       "Orders Shipped": 11,
-      "Orders - Not Delivered": 47,
-      "Orders Not Delivered": 44
+      "Orders - Not Delivered": 68,
+      "Orders Not Delivered": 65
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 431,
-      "New Subscribers Orders that have been Delivered": 384,
-      "New Subscribers Orders yet to be Delivered": 47,
+      "New Subscribers who have Ordered": 453,
+      "New Subscribers Orders that have been Delivered": 385,
+      "New Subscribers Orders yet to be Delivered": 68,
       "New Subscribers Orders yet to be Delivered & Delayed": 9
     },
     "selfUpgrade": {
@@ -83004,7 +83253,21 @@
       "coupon40Revenue": 0,
       "otherCount": 0,
       "otherRevenue": 0,
-      "deals": []
+      "deals": [
+        {
+          "userId": "UR554129",
+          "parent": "Suhani",
+          "phone": "7575004414",
+          "oldPlan": "play-ultra-weekly",
+          "oldPaid": 21000,
+          "newPlan": "play-max-annually",
+          "newPaid": 15000,
+          "coupon": "",
+          "paid": 15000,
+          "isCoupon40": false,
+          "inSecondarySheet": true
+        }
+      ]
     }
   }
 ]
