@@ -66240,9 +66240,9 @@
   },
   {
     "date": "2026-08-28",
-    "totalRevenue": 121998.28,
-    "salesCount": 12,
-    "transactions": 12,
+    "totalRevenue": 132998.28,
+    "salesCount": 13,
+    "transactions": 13,
     "highestSale": {
       "amount": 12000,
       "agent": "Kausturi Roy Chowdhury",
@@ -66269,6 +66269,10 @@
         "revenue": 22000,
         "count": 2
       },
+      "Tashrifa Ruhani Saikia": {
+        "revenue": 11000,
+        "count": 1
+      },
       "Amol Landge": {
         "revenue": 11376,
         "count": 1
@@ -66280,8 +66284,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 112042.28,
-        "count": 10
+        "revenue": 123042.28,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 9956,
@@ -66290,8 +66294,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 89000,
-        "count": 8
+        "revenue": 100000,
+        "count": 9
       },
       "Renewals": {
         "revenue": 15576,
@@ -66313,6 +66317,7 @@
       "Yuvraj Singh Dodiya",
       "Vikas Poonia",
       "Honey Talreja",
+      "Tashrifa Ruhani Saikia",
       "Amol Landge",
       "Rani Singh"
     ],
@@ -66714,9 +66719,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 293474,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 282474,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -66744,8 +66749,8 @@
         "count": 4
       },
       "Chhaya Patel": {
-        "revenue": 22000,
-        "count": 2
+        "revenue": 11000,
+        "count": 1
       },
       "Jivesh Harde": {
         "revenue": 22000,
@@ -66774,8 +66779,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251425,
-        "count": 24
+        "revenue": 240425,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -66792,8 +66797,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 154500,
-        "count": 15
+        "revenue": 143500,
+        "count": 14
       },
       "Renewals": {
         "revenue": 103636,
@@ -83126,9 +83131,9 @@
       "revenue": 18499
     },
     "missedLeads": {
-      "Connected": 198,
-      "Interested": 79,
-      "Paise Dega": 14
+      "Connected": 190,
+      "Interested": 61,
+      "Paise Dega": 22
     },
     "refunds": {
       "count": 8,
@@ -83219,7 +83224,7 @@
     },
     "newUsers7d": 1118,
     "newUsersYesterday": 118,
-    "activeSubs": 5273,
+    "activeSubs": 5272,
     "newSubs7d": 129,
     "teleCrmLeads": 192,
     "subsEnding5d": 83,
@@ -83227,26 +83232,26 @@
     "subsExpiringToday": 20,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2431,
-    "activeSubNoOrder": 119,
+    "activeSubNoOrder": 118,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 20,
-      "Orders Placed": 20,
-      "Orders - CONFIRMED": 21,
-      "Orders Confirmed": 21,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 18,
-      "Orders Shipped": 18,
-      "Orders - Not Delivered": 60,
-      "Orders Not Delivered": 59
+      "Orders - PLACED": 16,
+      "Orders Placed": 16,
+      "Orders - CONFIRMED": 23,
+      "Orders Confirmed": 23,
+      "Orders - READY_TO_SHIP": 2,
+      "Orders Ready to Ship": 2,
+      "Orders - SHIPPED": 5,
+      "Orders Shipped": 5,
+      "Orders - Not Delivered": 47,
+      "Orders Not Delivered": 46
     },
     "allNewUsersOrderStatus": {
       "New Subscribers who have Ordered": 453,
-      "New Subscribers Orders that have been Delivered": 393,
-      "New Subscribers Orders yet to be Delivered": 60,
-      "New Subscribers Orders yet to be Delivered & Delayed": 12
+      "New Subscribers Orders that have been Delivered": 406,
+      "New Subscribers Orders yet to be Delivered": 47,
+      "New Subscribers Orders yet to be Delivered & Delayed": 9
     },
-    "teleCrmServiceableLeads": 106,
+    "teleCrmServiceableLeads": 107,
     "selfUpgrade": {
       "totalCount": 0,
       "totalRevenue": 0,
