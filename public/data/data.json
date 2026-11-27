@@ -62255,9 +62255,9 @@
   },
   {
     "date": "2026-08-05",
-    "totalRevenue": 186087,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 175587,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Prerak Bhavsar",
@@ -62280,10 +62280,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Chhaya Patel": {
-        "revenue": 10500,
-        "count": 1
-      },
       "Tanveer Ahmed": {
         "revenue": 22000,
         "count": 2
@@ -62303,8 +62299,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 132432,
-        "count": 12
+        "revenue": 121932,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 46494,
@@ -62319,10 +62315,6 @@
       "Organic": {
         "revenue": 126293,
         "count": 14
-      },
-      "Renewals": {
-        "revenue": 10500,
-        "count": 1
       },
       "Upgrade": {
         "revenue": 9251,
@@ -62349,7 +62341,6 @@
       "Kush Shah",
       "Others",
       "Jivesh Harde",
-      "Chhaya Patel",
       "Tanveer Ahmed",
       "Honey Talreja",
       "Shubham Rai",
@@ -64452,9 +64443,9 @@
   },
   {
     "date": "2026-08-18",
-    "totalRevenue": 213175,
-    "salesCount": 20,
-    "transactions": 20,
+    "totalRevenue": 217675,
+    "salesCount": 21,
+    "transactions": 21,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -64478,8 +64469,8 @@
         "count": 2
       },
       "Kush Shah": {
-        "revenue": 11000,
-        "count": 1
+        "revenue": 15500,
+        "count": 2
       },
       "Naveen Suwalka": {
         "revenue": 11000,
@@ -64508,14 +64499,14 @@
         "count": 15
       },
       "Quarterly Max": {
-        "revenue": 17268,
-        "count": 3
+        "revenue": 21768,
+        "count": 4
       }
     },
     "sources": {
       "Organic": {
-        "revenue": 121500,
-        "count": 11
+        "revenue": 126000,
+        "count": 12
       },
       "Overlap Deals": {
         "revenue": 5756,
@@ -73173,7 +73164,7 @@
       {
         "date": "2026-09-30",
         "rawDate": "30/09/2026 03:46",
-        "customerName": "Nidhi ketan kachhadiya",
+        "customerName": "kachhadiya Nidhi ketan",
         "phone": "9726964808",
         "agent": "Yuvraj Singh Dodiya",
         "insideRevenue": 6787,
@@ -73250,7 +73241,7 @@
       {
         "date": "2026-09-30",
         "rawDate": "30/09/2026 03:46",
-        "customerName": "Nidhi ketan kachhadiya",
+        "customerName": "kachhadiya Nidhi ketan",
         "phone": "9726964808",
         "agent": "Yuvraj Singh Dodiya",
         "insideRevenue": 6787,
@@ -82205,13 +82196,7 @@
         "count": 2
       }
     },
-    "userBreakdown": {
-      "signups": 151,
-      "otpVerified": 102,
-      "serviceable": 90,
-      "serviceableWithPct": "90 (59.6%)",
-      "serviceablePct": "59.6%"
-    },
+    "userBreakdown": null,
     "directSaleCSV": {
       "count": 3,
       "revenue": 31625
@@ -82735,11 +82720,11 @@
       }
     },
     "userBreakdown": {
-      "signups": 222,
-      "otpVerified": 162,
+      "signups": 221,
+      "otpVerified": 161,
       "serviceable": 123,
-      "serviceableWithPct": "123 (55.4%)",
-      "serviceablePct": "55.4%"
+      "serviceableWithPct": "123 (55.7%)",
+      "serviceablePct": "55.7%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -83396,9 +83381,9 @@
   },
   {
     "date": "2026-11-26",
-    "totalRevenue": 278257,
-    "salesCount": 26,
-    "transactions": 22,
+    "totalRevenue": 290257,
+    "salesCount": 27,
+    "transactions": 23,
     "highestSale": {
       "amount": 12216,
       "agent": "Preyashi Roy",
@@ -83448,12 +83433,16 @@
       "Darshan KS": {
         "revenue": 12000,
         "count": 1
+      },
+      "Jivesh Harde": {
+        "revenue": 12000,
+        "count": 1
       }
     },
     "plans": {
       "Annual Max": {
-        "revenue": 261887,
-        "count": 24
+        "revenue": 273887,
+        "count": 25
       },
       "Quarterly Max": {
         "revenue": 16370,
@@ -83462,8 +83451,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 215305,
-        "count": 20
+        "revenue": 227305,
+        "count": 21
       },
       "Renewals": {
         "revenue": 62952,
@@ -83478,9 +83467,9 @@
       "serviceablePct": "65.0%"
     },
     "missedLeads": {
-      "Connected": 123,
-      "Interested": 33,
-      "Paise Dega": 4
+      "Connected": 174,
+      "Interested": 49,
+      "Paise Dega": 12
     },
     "refunds": {
       "count": 2,
@@ -83530,26 +83519,26 @@
       "total": 167691.77000000002,
       "count": 16
     },
-    "newUsers7d": 1129,
+    "newUsers7d": 1122,
     "newUsersYesterday": 132,
-    "activeSubs": 5284,
-    "newSubs7d": 135,
-    "teleCrmLeads": 534,
-    "subsEnding5d": 76,
-    "subsExpired7d": 82,
-    "subsExpiringToday": 9,
-    "planExpiringNoOrder": 0,
+    "activeSubs": 5283,
+    "newSubs7d": 147,
+    "teleCrmLeads": 238,
+    "subsEnding5d": 75,
+    "subsExpired7d": 89,
+    "subsExpiringToday": 10,
+    "planExpiringNoOrder": 1,
     "planExpNoOrder": 2431,
-    "activeSubNoOrder": 123,
+    "activeSubNoOrder": 120,
     "newUsersDeliveryStatus": {
       "Orders - PLACED": 34,
       "Orders Placed": 34,
-      "Orders - CONFIRMED": 27,
-      "Orders Confirmed": 27,
-      "Orders - READY_TO_SHIP": 0,
-      "Orders Ready to Ship": 0,
-      "Orders - SHIPPED": 4,
-      "Orders Shipped": 4,
+      "Orders - CONFIRMED": 25,
+      "Orders Confirmed": 25,
+      "Orders - READY_TO_SHIP": 1,
+      "Orders Ready to Ship": 1,
+      "Orders - SHIPPED": 5,
+      "Orders Shipped": 5,
       "Orders - Not Delivered": 65,
       "Orders Not Delivered": 65
     },
@@ -83559,7 +83548,7 @@
       "New Subscribers Orders yet to be Delivered": 65,
       "New Subscribers Orders yet to be Delivered & Delayed": 9
     },
-    "teleCrmServiceableLeads": 125,
+    "teleCrmServiceableLeads": 113,
     "selfUpgrade": {
       "totalCount": 0,
       "totalRevenue": 0,
