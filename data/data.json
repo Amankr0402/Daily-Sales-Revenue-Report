@@ -62255,9 +62255,9 @@
   },
   {
     "date": "2026-08-05",
-    "totalRevenue": 186087,
-    "salesCount": 23,
-    "transactions": 23,
+    "totalRevenue": 175587,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 12216,
       "agent": "Prerak Bhavsar",
@@ -62280,10 +62280,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Chhaya Patel": {
-        "revenue": 10500,
-        "count": 1
-      },
       "Tanveer Ahmed": {
         "revenue": 22000,
         "count": 2
@@ -62303,8 +62299,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 132432,
-        "count": 12
+        "revenue": 121932,
+        "count": 11
       },
       "Quarterly Max": {
         "revenue": 46494,
@@ -62319,10 +62315,6 @@
       "Organic": {
         "revenue": 126293,
         "count": 14
-      },
-      "Renewals": {
-        "revenue": 10500,
-        "count": 1
       },
       "Upgrade": {
         "revenue": 9251,
@@ -62349,7 +62341,6 @@
       "Kush Shah",
       "Others",
       "Jivesh Harde",
-      "Chhaya Patel",
       "Tanveer Ahmed",
       "Honey Talreja",
       "Shubham Rai",
@@ -64663,6 +64654,10 @@
       "Annual Max": {
         "revenue": 197688.4,
         "count": 18
+      },
+      "Quarterly Max": {
+        "revenue": 10256,
+        "count": 2
       },
       "Quarterly Max": {
         "revenue": 10256,
