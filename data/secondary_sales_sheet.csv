@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,000,602",,,459.5,
+,,,,"5,011,602",,,460.5,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -447,7 +447,7 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 445,27/11/2026,7666878765,Honey Talreja,"6,000",Yes,Annual Max,0.5,Organic
 446,27/11/2026,7666878765,Shivaram Nimmala,"6,000",Yes,Annual Max,0.5,Organic
 447,27/11/2026,8056083169,Amol Landge,"11,376",No,Annual Max,1,Renewals
-448,27/11/2026,,,,,,,
+448,27/11/2026,9834554994,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
 449,27/11/2026,,,,,,,
 450,27/11/2026,,,,,,,
 451,27/11/2026,,,,,,,
