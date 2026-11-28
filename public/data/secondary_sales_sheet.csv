@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"5,038,602",,,463,
+,,,,"5,196,016",,,479,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -451,8 +451,24 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 449,27/11/2026,9930662633,Honey Talreja,"12,000",No,Annual Max,1,Organic
 450,27/11/2026,8604808700,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
 451,27/11/2026,9916583449,Amol Landge,"5,000",No,Annual Max,0.5,Renewals
-452,27/11/2026,,,,,,,
-453,27/11/2026,,,,,,,
-454,27/11/2026,,,,,,,
-455,27/11/2026,,,,,,,
-456,27/11/2026,,,,,,,
+452,27/11/2026,9650976811,Amol Landge,"16,000",No,Annual Max,1,Renewals
+453,28/11/2026,7760828828,Amol Landge,"5,000",No,Quarterly Max,1,Renewals
+454,28/11/2026,9429108015,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+455,28/11/2026,9978467071,Preyashi Roy,"12,216",No,Annual Max,1,Organic
+456,28/11/2026,8433759827,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+457,28/11/2026,9703142343,Tanveer Ahmed,"6,000",No,Quarterly Max,1,Organic
+458,28/11/2026,7310779942,Vivek Shah,"12,000",No,Annual Max,1,Organic
+459,28/11/2026,9869722038,Vivek Shah,"8,325",No,Annual Plus,1,Organic
+460,28/11/2026,9999636202,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+461,28/11/2026,8999768081,Shivani Gupta,"11,000",No,Annual Max,1,Organic
+462,28/11/2026,9428232789,Honey Talreja,"1,599",No,Rental,1,Organic
+463,28/11/2026,8197360900,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+464,28/11/2026,9311543820,Vikas Poonia,"19,573",No,Annual Max,2,Renewals
+465,28/11/2026,9311995586,Vivek Shah,"8,325",No,Annual Plus,1,Organic
+466,28/11/2026,7507970044,Vikas Poonia,"11,000",No,Annual Max,1,Organic
+467,28/11/2026,,,,,,,
+468,28/11/2026,,,,,,,
+469,28/11/2026,,,,,,,
+470,28/11/2026,,,,,,,
+471,28/11/2026,,,,,,,
+472,28/11/2026,,,,,,,

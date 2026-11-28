@@ -60532,9 +60532,9 @@
   },
   {
     "date": "2026-07-26",
-    "totalRevenue": 284245,
-    "salesCount": 31,
-    "transactions": 31,
+    "totalRevenue": 294621,
+    "salesCount": 32,
+    "transactions": 32,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -60550,8 +60550,8 @@
         "count": 3
       },
       "Vikas Poonia": {
-        "revenue": 41504,
-        "count": 4
+        "revenue": 51880,
+        "count": 5
       },
       "Amol Landge": {
         "revenue": 65628,
@@ -60580,8 +60580,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 229821,
-        "count": 22
+        "revenue": 240197,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 20512,
@@ -60600,6 +60600,10 @@
       "Events": {
         "revenue": 96132,
         "count": 10
+      },
+      "Renewals": {
+        "revenue": 10376,
+        "count": 1
       },
       "Direct Sale": {
         "revenue": 40461,
@@ -61131,9 +61135,9 @@
   },
   {
     "date": "2026-07-30",
-    "totalRevenue": 255894,
-    "salesCount": 28,
-    "transactions": 28,
+    "totalRevenue": 250894,
+    "salesCount": 27,
+    "transactions": 27,
     "highestSale": {
       "amount": 17073,
       "agent": "Self Serve",
@@ -61153,8 +61157,8 @@
         "count": 4
       },
       "Honey Talreja": {
-        "revenue": 42241,
-        "count": 5
+        "revenue": 37241,
+        "count": 4
       },
       "Chhaya Patel": {
         "revenue": 11000,
@@ -61179,8 +61183,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 230972,
-        "count": 23
+        "revenue": 225972,
+        "count": 22
       },
       "Annual Mini": {
         "revenue": 4241,
@@ -61197,8 +61201,8 @@
         "count": 3
       },
       "Organic": {
-        "revenue": 160833,
-        "count": 19
+        "revenue": 155833,
+        "count": 18
       },
       "Events": {
         "revenue": 22000,
@@ -65578,9 +65582,9 @@
   },
   {
     "date": "2026-08-24",
-    "totalRevenue": 261191.17,
-    "salesCount": 26,
-    "transactions": 26,
+    "totalRevenue": 256691.17,
+    "salesCount": 25,
+    "transactions": 25,
     "highestSale": {
       "amount": 18171,
       "agent": "Self Serve",
@@ -65592,8 +65596,8 @@
         "count": 1
       },
       "Kush Shah": {
-        "revenue": 37500,
-        "count": 4
+        "revenue": 33000,
+        "count": 3
       },
       "Honey Talreja": {
         "revenue": 22000,
@@ -65642,8 +65646,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 206360.17,
-        "count": 18
+        "revenue": 201860.17,
+        "count": 17
       },
       "Quarterly Max": {
         "revenue": 19500,
@@ -65668,8 +65672,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 189932,
-        "count": 20
+        "revenue": 185432,
+        "count": 19
       },
       "Renewals": {
         "revenue": 17376,
@@ -66715,9 +66719,9 @@
   },
   {
     "date": "2026-08-31",
-    "totalRevenue": 293474,
-    "salesCount": 30,
-    "transactions": 30,
+    "totalRevenue": 283098,
+    "salesCount": 29,
+    "transactions": 29,
     "highestSale": {
       "amount": 17000,
       "agent": "Honey Talreja",
@@ -66732,13 +66736,13 @@
         "revenue": 11000,
         "count": 1
       },
-      "Amol Landge": {
-        "revenue": 25132,
-        "count": 3
-      },
       "Vikas Poonia": {
         "revenue": 51504,
         "count": 5
+      },
+      "Amol Landge": {
+        "revenue": 14756,
+        "count": 2
       },
       "Honey Talreja": {
         "revenue": 43500,
@@ -66775,8 +66779,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 251425,
-        "count": 24
+        "revenue": 241049,
+        "count": 23
       },
       "Quarterly Max": {
         "revenue": 18049,
@@ -66797,8 +66801,8 @@
         "count": 15
       },
       "Renewals": {
-        "revenue": 103636,
-        "count": 11
+        "revenue": 93260,
+        "count": 10
       },
       "Direct Sale": {
         "revenue": 35338,
@@ -66819,8 +66823,8 @@
     "workingAgents": [
       "Kausturi Roy Chowdhury",
       "Prerak Bhavsar",
-      "Amol Landge",
       "Vikas Poonia",
+      "Amol Landge",
       "Honey Talreja",
       "Chhaya Patel",
       "Jivesh Harde",
@@ -82929,10 +82933,10 @@
     },
     "userBreakdown": {
       "signups": 173,
-      "otpVerified": 115,
-      "serviceable": 87,
-      "serviceableWithPct": "87 (50.3%)",
-      "serviceablePct": "50.3%"
+      "otpVerified": 117,
+      "serviceable": 89,
+      "serviceableWithPct": "89 (51.4%)",
+      "serviceablePct": "51.4%"
     },
     "workingAgents": [
       "Honey Talreja",
@@ -83054,9 +83058,9 @@
     "userBreakdown": {
       "signups": 130,
       "otpVerified": 96,
-      "serviceable": 71,
-      "serviceableWithPct": "71 (54.6%)",
-      "serviceablePct": "54.6%"
+      "serviceable": 72,
+      "serviceableWithPct": "72 (55.4%)",
+      "serviceablePct": "55.4%"
     },
     "directSaleCSV": {
       "count": 4,
@@ -83525,9 +83529,9 @@
   },
   {
     "date": "2026-11-27",
-    "totalRevenue": 199771,
-    "salesCount": 21,
-    "transactions": 21,
+    "totalRevenue": 215771,
+    "salesCount": 22,
+    "transactions": 22,
     "highestSale": {
       "amount": 17573,
       "agent": "Self Serve",
@@ -83559,8 +83563,8 @@
         "count": 3
       },
       "Amol Landge": {
-        "revenue": 49128,
-        "count": 5
+        "revenue": 65128,
+        "count": 6
       },
       "Kausturi Roy Chowdhury": {
         "revenue": 11000,
@@ -83573,8 +83577,8 @@
         "count": 3
       },
       "Annual Max": {
-        "revenue": 184672,
-        "count": 18
+        "revenue": 200672,
+        "count": 19
       }
     },
     "sources": {
@@ -83583,8 +83587,8 @@
         "count": 10
       },
       "Renewals": {
-        "revenue": 71344,
-        "count": 7
+        "revenue": 87344,
+        "count": 8
       },
       "Direct Sale": {
         "revenue": 47427,
@@ -83593,18 +83597,18 @@
     },
     "userBreakdown": {
       "signups": 133,
-      "otpVerified": 104,
-      "serviceable": 76,
-      "serviceableWithPct": "76 (57.1%)",
-      "serviceablePct": "57.1%"
+      "otpVerified": 105,
+      "serviceable": 77,
+      "serviceableWithPct": "77 (57.9%)",
+      "serviceablePct": "57.9%"
     },
     "directSaleCSV": {
       "count": 4,
       "revenue": 47427
     },
     "missedLeads": {
-      "Connected": 227,
-      "Interested": 59,
+      "Connected": 216,
+      "Interested": 52,
       "Paise Dega": 9
     },
     "refunds": {
@@ -83687,7 +83691,6 @@
       "Amol Landge",
       "Prerak Bhavsar",
       "Shivaram Nimmala",
-      "Chhaya Patel",
       "Preyashi Roy",
       "Jivesh Harde",
       "Vidhi Bhargava",
@@ -83707,32 +83710,32 @@
     },
     "newUsers7d": 1132,
     "newUsersYesterday": 123,
-    "activeSubs": 5283,
+    "activeSubs": 5291,
     "newSubs7d": 151,
     "teleCrmLeads": 162,
-    "subsEnding5d": 73,
+    "subsEnding5d": 72,
     "subsExpired7d": 100,
     "subsExpiringToday": 12,
     "planExpiringNoOrder": 1,
     "planExpNoOrder": 2431,
-    "activeSubNoOrder": 116,
+    "activeSubNoOrder": 114,
     "newUsersDeliveryStatus": {
-      "Orders - PLACED": 33,
-      "Orders Placed": 33,
-      "Orders - CONFIRMED": 25,
-      "Orders Confirmed": 25,
-      "Orders - READY_TO_SHIP": 2,
-      "Orders Ready to Ship": 2,
-      "Orders - SHIPPED": 12,
-      "Orders Shipped": 12,
-      "Orders - Not Delivered": 73,
-      "Orders Not Delivered": 72
+      "Orders - PLACED": 19,
+      "Orders Placed": 19,
+      "Orders - CONFIRMED": 27,
+      "Orders Confirmed": 27,
+      "Orders - READY_TO_SHIP": 3,
+      "Orders Ready to Ship": 3,
+      "Orders - SHIPPED": 5,
+      "Orders Shipped": 5,
+      "Orders - Not Delivered": 54,
+      "Orders Not Delivered": 54
     },
     "allNewUsersOrderStatus": {
-      "New Subscribers who have Ordered": 509,
-      "New Subscribers Orders that have been Delivered": 436,
-      "New Subscribers Orders yet to be Delivered": 73,
-      "New Subscribers Orders yet to be Delivered & Delayed": 11
+      "New Subscribers who have Ordered": 508,
+      "New Subscribers Orders that have been Delivered": 454,
+      "New Subscribers Orders yet to be Delivered": 54,
+      "New Subscribers Orders yet to be Delivered & Delayed": 7
     },
     "teleCrmServiceableLeads": 92,
     "selfUpgrade": {
