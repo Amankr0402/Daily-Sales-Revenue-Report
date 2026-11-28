@@ -60532,9 +60532,9 @@
   },
   {
     "date": "2026-07-26",
-    "totalRevenue": 294621,
-    "salesCount": 32,
-    "transactions": 32,
+    "totalRevenue": 290121,
+    "salesCount": 31,
+    "transactions": 31,
     "highestSale": {
       "amount": 13573,
       "agent": "Self Serve",
@@ -60554,8 +60554,8 @@
         "count": 5
       },
       "Amol Landge": {
-        "revenue": 65628,
-        "count": 7
+        "revenue": 61128,
+        "count": 6
       },
       "Vivek Shah": {
         "revenue": 22000,
@@ -60584,8 +60584,8 @@
         "count": 23
       },
       "Quarterly Max": {
-        "revenue": 20512,
-        "count": 4
+        "revenue": 16012,
+        "count": 3
       },
       "Quarterly Plus": {
         "revenue": 6320,
@@ -60598,8 +60598,8 @@
         "count": 13
       },
       "Events": {
-        "revenue": 96132,
-        "count": 10
+        "revenue": 91632,
+        "count": 9
       },
       "Renewals": {
         "revenue": 10376,
@@ -66201,9 +66201,9 @@
   },
   {
     "date": "2026-08-28",
-    "totalRevenue": 132998.28,
-    "salesCount": 13,
-    "transactions": 13,
+    "totalRevenue": 121998.28,
+    "salesCount": 12,
+    "transactions": 12,
     "highestSale": {
       "amount": 12000,
       "agent": "Kausturi Roy Chowdhury",
@@ -66230,10 +66230,6 @@
         "revenue": 22000,
         "count": 2
       },
-      "Tashrifa Ruhani Saikia": {
-        "revenue": 11000,
-        "count": 1
-      },
       "Amol Landge": {
         "revenue": 11376,
         "count": 1
@@ -66245,8 +66241,8 @@
     },
     "plans": {
       "Annual Max": {
-        "revenue": 123042.28,
-        "count": 11
+        "revenue": 112042.28,
+        "count": 10
       },
       "Quarterly Max": {
         "revenue": 9956,
@@ -66255,8 +66251,8 @@
     },
     "sources": {
       "Organic": {
-        "revenue": 100000,
-        "count": 9
+        "revenue": 89000,
+        "count": 8
       },
       "Renewals": {
         "revenue": 15576,
@@ -66278,7 +66274,6 @@
       "Yuvraj Singh Dodiya",
       "Vikas Poonia",
       "Honey Talreja",
-      "Tashrifa Ruhani Saikia",
       "Amol Landge",
       "Rani Singh"
     ],
