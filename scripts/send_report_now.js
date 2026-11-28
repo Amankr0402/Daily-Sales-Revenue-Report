@@ -441,6 +441,8 @@ function buildEmailHtml(allData) {
     { label: 'Total Active Subscriptions', val: (yd.activeSubs || 0).toLocaleString('en-IN'), link: 'active-subscriptions.html' },
     { label: 'New Subscribers in last 7 days', val: (yd.newSubs7d || 0).toLocaleString('en-IN'), link: 'new-subs-7d-details.html' },
     { label: 'TeleCRM Leads (yesterday)', val: (yd.teleCrmLeads || 0).toLocaleString('en-IN'), link: 'telecrm-leads-details.html' },
+    { label: 'Total Serviceable Leads Generated yesterday', val: ((yd.teleCrmServiceableLeads != null ? yd.teleCrmServiceableLeads : (yd.serviceableLeads != null ? yd.serviceableLeads : (yd.userBreakdown ? yd.userBreakdown.serviceable : null))) || '-').toLocaleString('en-IN'), link: 'telecrm-leads-details.html?filter=serviceable' },
+    { label: 'Self Upgrades', val: ((yd.selfUpgrade && yd.selfUpgrade.totalCount) !== undefined ? yd.selfUpgrade.totalCount : 0).toLocaleString('en-IN'), link: 'self-upgrade-details.html?date=' + yd.date },
     { label: 'Subscriptions Ending (next 5 days)', val: (yd.subsEnding5d || 0).toLocaleString('en-IN'), link: 'subs-ending-5d-details.html' },
     { label: 'Subscriptions Expired / Cancelled (last 7 days)', val: (yd.subsExpired7d || 0).toLocaleString('en-IN'), link: 'subs-expired-7d-details.html' },
     { label: 'Subscriptions Expiring Today', val: (yd.subsExpiringToday || 0).toLocaleString('en-IN'), link: 'subs-expiring-today-details.html' },
@@ -529,7 +531,7 @@ function buildEmailHtml(allData) {
         <div style="font-size:12px;color:#4c1d95;font-weight:600;margin-bottom:6px;">
           View full drilldown tables &amp; customer logs on the live website:
         </div>
-        <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;">
+        <a href="${DASHBOARD_URL}?date=${yd.date}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;">
           🌐 Open Live Dashboard &amp; View User Details ↗
         </a>
       </div>
@@ -1014,7 +1016,7 @@ function buildEmailHtml(allData) {
         <img src="cid:elefant_logo" alt="the EleFant" style="height:26px;max-width:130px;object-fit:contain;display:inline-block;vertical-align:middle;" onerror="this.src='https://daily-sales-revenue-report.vercel.app/elefant-logo.png'" />
       </div>
       <div style="margin-bottom:10px;">
-        <a href="${DASHBOARD_URL}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;">
+        <a href="${DASHBOARD_URL}?date=${yd.date}" target="_blank" style="display:inline-block;background:#6d28d9;color:#ffffff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;">
           🌐 View Live Interactive Dashboard &amp; Full User Details ↗
         </a>
       </div>

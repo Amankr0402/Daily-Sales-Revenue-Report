@@ -1,5 +1,5 @@
 Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
-,,,,"4,876,258",,,449,
+,,,,"5,038,602",,,463,
 1,11/1/2026,9811867829,Shivani Gupta,"6,000",No,Quarterly Max,1,Organic
 2,11/1/2026,8511062401,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 3,11/1/2026,8951018000,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
@@ -396,52 +396,63 @@ Sno,Date,Phone number,Agent,Sale (Revenue),Duplicate,Plan,Count,Organic/Renewal
 394,24/11/2026,9426051986,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
 395,24/11/2026,9870646054,Jivesh Harde,"12,000",No,Annual Max,1,Organic
 396,24/11/2026,9784340051,Preyashi Roy,"18,573",No,Annual Max,1.5,Organic
-397,25/11/2026,9422786145,Preyashi Roy,"12,000",No,Annual Max,1,Organic
-398,25/11/2026,9828855546,Prerak Bhavsar,"10,000",No,Annual Plus,1,Organic
-399,25/11/2026,7014631489,Shivendra Singh Tomar,"8,325",No,Annual Plus,1,Organic
-400,25/11/2026,9167781171,Amol Landge,"10,000",No,Annual Max,1,Renewals
-401,25/11/2026,8375001212,Vivek Shah,"12,000",No,Annual Max,1,Organic
-402,25/11/2026,9867736786,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
-403,25/11/2026,9810360863,Others,"12,000",No,Annual Max,1,Organic
-404,25/11/2026,9560292007,Preyashi Roy,"19,573",No,Annual Max,2,Organic
-405,25/11/2026,8459114807,Darshan KS,"12,000",No,Annual Max,1,Organic
-406,25/11/2026,9930011601,Honey Talreja,"12,000",No,Annual Max,1,Organic
-407,25/11/2026,7204042045,Vikas Poonia,"6,000",No,Quarterly Max,1,Organic
-408,25/11/2026,9664988422,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
-409,25/11/2026,9662278074,Jivesh Harde,"12,000",No,Annual Max,1,Organic
-410,25/11/2026,9381405330,Jivesh Harde,"19,573",No,Annual Max,2,Organic
-411,26/11/2026,7300327263,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
-412,26/11/2026,9904545111,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
-413,26/11/2026,9860779172,Preyashi Roy,"12,216",No,Annual Max,1,Organic
-414,26/11/2026,9898833772,Honey Talreja,"12,000",No,Annual Max,1,Organic
-415,26/11/2026,8879118086,Yuvraj Singh Dodiya,"11,000",No,Annual Max,1,Organic
-416,26/11/2026,9819512433,Prerak Bhavsar,"9,370",No,Quarterly Max,1,Organic
-417,26/11/2026,9429200845,Amol Landge,"11,000",No,Annual Max,1,Renewals
-418,26/11/2026,9879866629,Apurva Joshi,"19,573",No,Annual Max,2,Organic
-419,26/11/2026,7076556053,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
-420,26/11/2026,9328821986,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
-421,26/11/2026,9030161614,Neeru Yadav,"12,000",No,Annual Max,1,Organic
-422,26/11/2026,7498937953,Yuvraj Singh Dodiya,"11,000",No,Annual Max,1,Organic
-423,26/11/2026,7878946248,Honey Talreja,"19,573",No,Annual Max,2,Organic
-424,26/11/2026,8800195300,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
-425,26/11/2026,9967437498,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
-426,26/11/2026,7387147744,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
-427,26/11/2026,8074391155,Yuvraj Singh Dodiya,"7,000",No,Quarterly Max,1,Organic
-428,26/11/2026,8368397680,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
-429,26/11/2026,8802375418,Kausturi Roy Chowdhury,"19,573",No,Annual Max,2,Organic
-430,26/11/2026,8667525173,Darshan KS,"12,000",No,Annual Max,1,Organic
-431,26/11/2026,9460017664,Amol Landge,"19,576",No,Annual Max,2,Renewals
-432,26/11/2026,9870560356,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
-433,26/11/2026,7702988820,Jivesh Harde,"12,000",No,Annual Max,1,Organic
-434,27/11/2026,8630897711,Prerak Bhavsar,"2,000",No,Quarterly Max,1,Organic
-435,27/11/2026,,,,,,,
-436,27/11/2026,,,,,,,
-437,27/11/2026,,,,,,,
-438,27/11/2026,,,,,,,
-439,27/11/2026,,,,,,,
-440,27/11/2026,,,,,,,
-441,27/11/2026,,,,,,,
-442,27/11/2026,,,,,,,
-443,27/11/2026,,,,,,,
-444,27/11/2026,,,,,,,
-445,27/11/2026,,,,,,,
+397,24/11/2026,7575004414,Preyashi Roy,"12,000",No,Annual Max,0.5,Organic
+398,25/11/2026,9422786145,Preyashi Roy,"12,000",No,Annual Max,1,Organic
+399,25/11/2026,9828855546,Prerak Bhavsar,"10,000",No,Annual Plus,1,Organic
+400,25/11/2026,7014631489,Shivendra Singh Tomar,"8,325",No,Annual Plus,1,Organic
+401,25/11/2026,9167781171,Amol Landge,"10,000",No,Annual Max,1,Renewals
+402,25/11/2026,8375001212,Vivek Shah,"12,000",No,Annual Max,1,Organic
+403,25/11/2026,9867736786,Shivendra Singh Tomar,"12,000",No,Annual Max,1,Organic
+404,25/11/2026,9810360863,Others,"12,000",No,Annual Max,1,Organic
+405,25/11/2026,9560292007,Preyashi Roy,"19,573",No,Annual Max,2,Organic
+406,25/11/2026,8459114807,Darshan KS,"12,000",No,Annual Max,1,Organic
+407,25/11/2026,9930011601,Honey Talreja,"12,000",No,Annual Max,1,Organic
+408,25/11/2026,7204042045,Vikas Poonia,"6,000",No,Quarterly Max,1,Organic
+409,25/11/2026,9664988422,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+410,25/11/2026,9662278074,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+411,25/11/2026,9381405330,Jivesh Harde,"19,573",No,Annual Max,2,Organic
+412,26/11/2026,7300327263,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+413,26/11/2026,9904545111,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+414,26/11/2026,9860779172,Preyashi Roy,"12,216",No,Annual Max,1,Organic
+415,26/11/2026,9898833772,Honey Talreja,"12,000",No,Annual Max,1,Organic
+416,26/11/2026,8879118086,Yuvraj Singh Dodiya,"11,000",No,Annual Max,1,Organic
+417,26/11/2026,9819512433,Prerak Bhavsar,"9,370",No,Quarterly Max,1,Organic
+418,26/11/2026,9429200845,Amol Landge,"11,000",No,Annual Max,1,Renewals
+419,26/11/2026,9879866629,Apurva Joshi,"19,573",No,Annual Max,2,Organic
+420,26/11/2026,7076556053,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
+421,26/11/2026,9328821986,Vikas Poonia,"10,376",No,Annual Max,1,Renewals
+422,26/11/2026,9030161614,Neeru Yadav,"12,000",No,Annual Max,1,Organic
+423,26/11/2026,7498937953,Yuvraj Singh Dodiya,"11,000",No,Annual Max,1,Organic
+424,26/11/2026,7878946248,Honey Talreja,"19,573",No,Annual Max,2,Organic
+425,26/11/2026,8800195300,Vikas Poonia,"11,000",No,Annual Max,1,Renewals
+426,26/11/2026,9967437498,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+427,26/11/2026,7387147744,Prerak Bhavsar,"12,000",No,Annual Max,1,Organic
+428,26/11/2026,8074391155,Yuvraj Singh Dodiya,"7,000",No,Quarterly Max,1,Organic
+429,26/11/2026,8368397680,Yuvraj Singh Dodiya,"12,000",No,Annual Max,1,Organic
+430,26/11/2026,8802375418,Kausturi Roy Chowdhury,"19,573",No,Annual Max,2,Organic
+431,26/11/2026,8667525173,Darshan KS,"12,000",No,Annual Max,1,Organic
+432,26/11/2026,9460017664,Amol Landge,"19,576",No,Annual Max,2,Renewals
+433,26/11/2026,9870560356,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+434,26/11/2026,7702988820,Jivesh Harde,"12,000",No,Annual Max,1,Organic
+435,27/11/2026,8630897711,Prerak Bhavsar,"2,000",No,Quarterly Max,0.5,Organic
+436,27/11/2026,8238309637,Vivek Shah,"2,000",No,Annual Max,0.5,Organic
+437,27/11/2026,9449634740,Shivaram Nimmala,"12,000",No,Annual Max,1,Organic
+438,27/11/2026,9164682585,Vikas Poonia,"12,216",No,Annual Max,1,Renewals
+439,27/11/2026,8904883325,Tanveer Ahmed,"12,000",No,Annual Max,1,Organic
+440,27/11/2026,8105706760,Honey Talreja,"12,000",No,Annual Max,1,Organic
+441,27/11/2026,9168074125,Vivek Shah,"6,000",No,Quarterly Max,1,Organic
+442,27/11/2026,9830422861,Amol Landge,"10,000",No,Annual Max,1,Renewals
+443,27/11/2026,9821559269,Amol Landge,"11,376",No,Annual Max,1,Renewals
+444,27/11/2026,9930552155,Amol Landge,"11,376",No,Annual Max,1,Renewals
+445,27/11/2026,7666878765,Honey Talreja,"6,000",Yes,Annual Max,0.5,Organic
+446,27/11/2026,7666878765,Shivaram Nimmala,"6,000",Yes,Annual Max,0.5,Organic
+447,27/11/2026,8056083169,Amol Landge,"11,376",No,Annual Max,1,Renewals
+448,27/11/2026,9834554994,Kausturi Roy Chowdhury,"11,000",No,Annual Max,1,Organic
+449,27/11/2026,9930662633,Honey Talreja,"12,000",No,Annual Max,1,Organic
+450,27/11/2026,8604808700,Vikas Poonia,"10,000",No,Annual Max,1,Renewals
+451,27/11/2026,9916583449,Amol Landge,"5,000",No,Annual Max,0.5,Renewals
+452,27/11/2026,,,,,,,
+453,27/11/2026,,,,,,,
+454,27/11/2026,,,,,,,
+455,27/11/2026,,,,,,,
+456,27/11/2026,,,,,,,
